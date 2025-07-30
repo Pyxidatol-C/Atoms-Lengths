@@ -1,0 +1,95 @@
+\documentclass[conference]{IEEEtran}
+% \IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+%Template version as of 6/27/2024
+
+% \usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+%##############################################################################
+\usepackage{biblatex}
+\addbibresource{atoms.bib}
+
+\usepackage{mathtools}
+\usepackage{stmaryrd}
+\usepackage{amssymb}
+\usepackage{amsthm}
+% \numberwithin{equation}{section}\newcommand{\COUNTER}{equation}\newtheorem{theorem}[\COUNTER]{Theorem}
+\newtheorem{theorem}{Theorem}[section]\newcommand{\COUNTER}{theorem}
+\newtheorem{lemma}[\COUNTER]{Lemma}
+\newtheorem{proposition}[\COUNTER]{Proposition}
+\newtheorem{corollary}[\COUNTER]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[\COUNTER]{Definition}
+\newtheorem{conjecture}[\COUNTER]{Conjecture}
+\newtheorem{example}[\COUNTER]{Example}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\N}{\mathbb{N}} % naturals / names / equality atoms
+\newcommand{\Q}{\mathbb{Q}} % rationals / ordered atoms
+\newcommand{\G}{\mathbb{G}} % Rado graph 
+\newcommand{\V}{\mathbb{V}} % bit vectors
+\newcommand{\W}{\mathbb{W}} % symplectic --- w for omega, or « double v » for the vector pair e, f
+
+\newcommand{\FF}{\mathfrak{F}} % field
+\newcommand{\ff}{\mathfrak{f}} % finite field
+
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Lin}{\operatorname{Lin}}
+\newcommand{\len}{\operatorname{len}}
+%##############################################################################
+
+
+\begin{document}
+
+
+
+
+
+\title{More Vector Spaces with Atoms of Finite Lengths
+}
+
+\author{
+    \IEEEauthorblockN{Jingjie Yang}
+    \IEEEauthorblockA{University of Oxford %\\ Email: 
+    }
+
+\and
+    \IEEEauthorblockN{Mikołaj Bojańczyk}
+    \IEEEauthorblockA{University of Warsaw}
+
+\and
+    \IEEEauthorblockN{Bartek Klin}
+    \IEEEauthorblockA{University of Oxford}
+}
+
+\maketitle
+
+\begin{abstract}
+*CRITICAL: Do Not Use Symbols, Special Characters, Footnotes, or Math in Paper Title or Abstract.
+\end{abstract}
+
+
+\section{Introduction}
+
+\input{Rado-cogless}
+
+\section*{Acknowledgements}
+Hrushovski
+
+Evans
+
+\printbibliography
+
+\end{document}

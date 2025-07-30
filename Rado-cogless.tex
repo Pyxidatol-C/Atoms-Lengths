@@ -1,0 +1,289 @@
+\section{Rado graph, sans cogs}
+
+$\A$ is: 
+\begin{itemize}
+    \item oligomorphic if, for $d = 0, 1, 2, \ldots$, $\A^d$ only has finitely many orbits;
+    \item $\FF$-oligomorphic if, for $d = 0, 1, 2, \ldots$, $\Lin_\FF \A^d$ only has finitely long chains.
+\end{itemize}
+\textcolor{red}{
+Of note: with Stirling numbers of the second kind and Gaussian $2$-binomial coefficients,
+the orbit counts are given by
+\begin{align*}
+    \# \N^d &= \sum_{k=0}^d \begin{Bmatrix} d \\ k \end{Bmatrix} \\
+    \# \Q^d &= \sum_{k=0}^d \begin{Bmatrix} d \\ k \end{Bmatrix} k! \\
+    \# \G^d &= \sum_{k=0}^d \begin{Bmatrix} d \\ k \end{Bmatrix} 2^{\binom{k}{2}} \\
+    \# \V_\infty^d &= \sum_{k=0}^d \begin{bmatrix} d \\ k \end{bmatrix}_2 \\
+    \# \W_\infty^d &= \sum_{k=0}^d \begin{bmatrix} d \\ k \end{bmatrix}_2 2^{\binom{kW}{2}}
+\end{align*}
+To introduce: 
+\begin{itemize}
+    \item 
+    \emph{smooth approximation} by \emph{homogeneous substructures} \cite{KLM89} (N.B. `smooth approximation' from \cite[Definition~4]{MP24} seems to be entirely different)
+    \item 
+    \emph{rough approximation} of a homogeneous structure by finite substructures with few orbits (i.e., types)
+    that cover the age of $\A$
+\end{itemize}}
+
+\subsection{Symplectic vector spaces}
+Throughout this subsection let $\ff$ denote a finite field.
+\begin{definition}
+    A \emph{symplectic vector space} is an $\ff$-vector space $\W$ 
+    equipped with a bilinear form $\omega: \W \times \W \to \ff$ that is
+    \begin{itemize}
+        \item alternating: $\omega(v, v) = 0$ for all $v$; and
+        \item non-degenerate: if $\omega(v, w) = 0$ for all $w$ then $v = 0$.
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    Let $\W_n$ be the $\ff$-vector space with basis $e_1  , \ldots, e_n, f_1, \ldots, f_n$.
+    Define $\omega$ by bilinearly extending
+    \begin{equation}\label{eq:symplectic-basis}
+        \omega(e_i, f_i) = 1 = -\omega(f_i, e_i),\quad
+        \omega(-, *) = 0 \text{ elsewhere;}
+        \tag{\S}
+    \end{equation}
+    one may straightforwardly check that $\omega$ is alternating and non-degenerate.
+    Moreover, noticing that $\W_0 \subseteq \W_1 \subseteq \W_2 \subseteq \cdots$,
+    we obtain a countable-dimensional symplectic vector space $\W_\infty = \bigcup_n \W_n$.
+\end{example}
+
+We will take a straight-line path to prove the following in a self-contained manner.
+Detailed expositions can be found in \cite[{\S}III.3]{Ar57}.
+\begin{theorem}\label{thm:symplectic-smooth-approximation}
+    The symplectic vector space $\W_\infty$ is smoothly approximated by 
+    $\W_0 \subseteq \W_1 \subseteq \W_2 \subseteq \cdots$.
+\end{theorem}
+
+To begin with, we will refer to vectors satisfying \eqref{eq:symplectic-basis} as a \emph{symplectic basis} 
+--- indeed, they must be linearly independent.
+Such bases behave very much like the usual bases.
+
+\begin{lemma}\label{lem:symplectic-basis}
+    Assume that $\W$ is a symplectic vector space that is at most countable.
+    Then any finite symplectic basis $e_1, \ldots, e_n, f_1, \ldots, f_n$ 
+    can be extended to a symplectic basis that spans the whole $\W$.
+\end{lemma}
+\begin{proof}
+    Suppose that $e_1, \ldots, e_n, f_1, \ldots, f_n$ does not already span $\W$;
+    take $v$ to be a witness (that is least according to some fixed enumeration of $\W$ 
+    in the case it is infinite).
+    Put
+    \[
+        e_{n+1} = v - \sum_{i=1}^n \omega(e_i, v) f_i + \sum_{i=1}^n \omega(f_i, v) e_i
+    \]
+    so that $\omega(e_i, e_{n+1}) = 0 = \omega(f_i, e_{n+1})$.
+    By the non-degeneracy of $\omega$, there is --- rescaling if necessary 
+    --- some $w$ such that $\omega(e_{n+1}, w) = 1$. 
+    Now define
+    \[
+        f_{n+1} = w - \sum_{i=1^n} \omega(e_i, w) f_i + \sum_{i=1}^n \omega(f_i, w) e_i
+    \]
+    in a similar manner, 
+    making $e_1, \ldots, e_n, e_{n+1}, f_1, \ldots, f_n, f_{n+1}$ a symplectic basis that spans $v$.
+    We go through every element of $\W$ by continuing this way.
+\end{proof}
+
+Given two symplectic vector spaces $\W$ and $\W'$,
+we call a function $f$ between $X \subseteq \W$ and $X' \subseteq \W'$ \emph{isometric} if 
+$\omega(f(x_1), f(x_2)) = \omega(x_1, x_2)$ for all $x_1, x_2 \in X$.
+
+\begin{proposition}\label{prop:symplectic-unique-by-dimension}
+    $\W_0, \W_1, \W_2, \ldots, \W_\infty$ are all the countable symplectic vector spaces 
+    up to linear isometric isomorphisms.
+\end{proposition}
+\begin{proof}
+    Let $\W$ be a countable symplectic vector space.
+    By Lemma~\ref{lem:symplectic-basis}, we can extend the empty symplectic basis to one that spans $\W$ 
+    --- call the basis vectors $e'_i, f'_i$.
+    Then $e'_i \mapsto e_i, f'_i \mapsto f_i$ exhibits a linear isomorphism from $\W$ 
+    to $\W_n$ or $\W_\infty$, which one easily checks to be isometric.
+\end{proof}
+
+In particular $\W_\infty$ is the essentially unique countable symplectic vector space;
+by Ryll-Nardzewski it is oligomorphic.
+We need one last fact about its finite counterparts.
+\begin{proposition}[Witt Extension] \label{prop:symplectic-witt-extension}
+    Any isometric injective linear map $f : X \subseteq \W_n \to \W_n$ 
+    can be extended to an isometric linear isomorphism $\W_n \to \W_n$.
+\end{proposition}
+\begin{proof}
+    We proceed by induction on the dimension of $X^{\perp X}$,
+    where we write
+    \[
+        Y^{\perp Z} = \{y \in Y \mid \forall z \in Z : \omega(y, z) = 0\}
+    \]
+    for subspaces $Y, Z \subseteq \W_n$.
+    
+    Suppose first that $X^{\perp X} = X \cap \W_n^{\perp X}$ is the zero space.
+    Notice that $\dim \W_n^{\perp X} = 2n - \dim X$:
+    \begin{itemize}
+        \item the map 
+            $\W_n \to (\W_n \xrightarrow{\text{lin.}} \ff), v \mapsto \omega(v, -)$ 
+        is linear and injective since $\omega$ is bilinear and non-degenrate, 
+        so for dimension reasons it is also surjective;
+
+        \item the restriction map 
+            $(\W_n \xrightarrow{\text{lin.}} \ff) \to (X \xrightarrow{\text{lin.}} \ff)$ 
+        is linear and surjective, 
+        since any basis for $X \subseteq \W_n$ can be extended to one for $\W_n$;
+        
+        \item their composition 
+            $v \mapsto \omega(v, -)|_X$ 
+        is therefore linear, surjective, and has kernel $\W_n^{\perp X}$.
+    \end{itemize}
+    It follows that $\W_n^{\perp X}$ is the orthogonal complement of $X$ in $\W_n$: 
+    by assumption and the above we have 
+        $X \cap \W_n^{\perp X} = \{0\}$, $X + \W_n^{\perp X} = \W_n$, 
+    and $\omega$ restricted to $X \times \W_n^{\perp X}$ is the zero function;
+    we will use the notation \[
+        \W_n = X \ominus \W_n^{\perp X}.
+    \]
+    On the other hand, as $f$ is isometric, 
+    $f(X)^{\perp f(X)} = f(X^{\perp X})$ must also be the zero space,
+    meaning $\W_n = f(X) \ominus \W_n^{\perp f(X)}$ by the same analysis.
+    But $\dim \W_n^{\perp f(X)} = 2n - \dim f(X) = 2n - \dim X = \dim \W_n^{\perp X}$,
+    so by Proposition~\ref{prop:symplectic-unique-by-dimension} there is a isometric 
+    linear isomorphism $g : \W_n^{\perp X} \to \W_n^{\perp f(X)}$.
+    Combining $f$ and $g$ yields a linear isomorphism 
+    \begin{align*}
+        \W_n = X \ominus \W_n^{\perp X} &\to f(X) \ominus \W_n^{\perp f(X)} = \W_n \\
+        x + y &\mapsto f(x) + g(y)
+    \end{align*} 
+    which is isometric.
+    
+    Now suppose $X^{\perp X}$ contains some non-zero vector $x$.
+    By extending $x$ to a basis of $X$ we can find a complement $Y$ for $\langle x \rangle$ in $X$;
+    then $X = \langle x \rangle \ominus Y$ by the assumption on $x$.
+    Writing $Z = \W_n^{\perp Y}$, 
+    notice $Y \subseteq \W_n^{\perp Z}$ and $\dim Y = 2n - (2n - \dim Y) = \dim \W_n^{\perp Z}$.
+    It follows that $\W_n^{\perp Z} = Y$ does not contain $x$,
+    i.e., that some $z \in Z$ satisfies $\omega(x, z) = 1$.
+    Consider $X' = \langle x, z \rangle + Y$;
+    we must have 
+    \[
+        X' = \langle x, z \rangle \ominus Y,
+    \]
+    because if $\lambda x + \mu z \in \langle x, z \rangle$ lies also in $Y \subseteq X$,  
+    then $0 = \omega(x, \lambda x + \mu z) = \mu$ and so $\lambda = 0$ too.    
+    Similarly, as $f(x)$ is a non-zero vector in 
+        $f(X)^{\perp f(X)}$ and $f(X) = \langle f(x) \rangle \ominus f(Y)$,
+    we can find a vector $z'$ orthogonal to $\W_n^{\perp f(Y)}$ and satisfying $\omega(f(x), z') = 1$.
+    Hence \[
+        x \mapsto f(x), z \mapsto z', y \mapsto f(y)
+    \]
+    defines an isometric linear embedding
+    \[
+        f' : X' = \langle x, z \rangle \ominus Y 
+        \to \langle f(x), z' \rangle \ominus f(Y) \subseteq \W_n
+    \]
+    extending $f$.
+    Finally, we can apply the inductive hypothesis to extend $f'$.
+    Indeed, if $v = \lambda x + \mu z + y$ is in $X'^{\perp X'}$ 
+    then $\lambda = \omega(v, z) = 0 = \omega(v, x) = \mu$,
+    so $v = y$ belongs to $X^{\perp X}$;
+    as $x \in X^{\perp X} \setminus X'^{\perp X'}$, 
+    we have $\dim X'^{\perp X'} \leq \dim X^{\perp X} - 1$.
+\end{proof}
+
+Smooth approximation is now immediate.
+
+\begin{proof}[Proof of Theorem~\ref{thm:symplectic-smooth-approximation}]
+    Firstly, observe that the restriction 
+        $\Aut(\W_\infty)_{\{\W_n\}} \to \Aut(\W_n)$ 
+    is surjective:
+    any isometric linear automorphism of $\W_n$ maps the standard symplectic basis to another symplectic basis, 
+    both of which can be extended to a symplectic basis of $\W_\infty$ by Lemma~\ref{lem:symplectic-basis}.
+
+    Now suppose $\pi \in \Aut(\W_\infty)$ maps $(x_1, \dots, x_d) \in \W_n^d$ 
+    to $(y_1, \dots, y_d) \in \W_n^d$.
+    By Proposition~\ref{prop:symplectic-witt-extension}, we may extend 
+        $\pi|_{\langle x_1, \dots, x_d \rangle} : \langle x_1, \dots, x_d \rangle \to \W_n$ 
+    to some $f \in \Aut(\W_n)$ which still maps $(x_1, \dots, x_d)$ to $(y_1, \dots, y_d)$.
+\end{proof}
+
+\begin{corollary}
+    Provided $\FF$ is of characteristic $0$, the symplectic $\ff$-vector space $\W_\infty$ is $\FF$-oligomorphic.
+\end{corollary}
+
+
+
+
+\subsection{Symplectic graphs}
+For this subsection let $\ff$ be the two-element field.
+\begin{definition}
+    The \emph{symplectic graph} $\widetilde \W_n$ has vertices $\W_n$ and edges
+    \[
+        v_1 \sim v_2 \iff \omega(v_1, v_2) = 1.
+    \]
+    This is indeed an undirected graph: as $\omega$ is alternating, we have $\omega(v_1, v_2) = -\omega(v_2, v_1) = \omega(v_2, v_1)$.    
+\end{definition}
+
+\begin{proposition}\label{prop:symplectic-vs-graph}
+    $\Aut(\widetilde \W_n) = \Aut(\W_n)$.
+\end{proposition}
+\begin{proof}
+    Clearly any isometric linear automorphism of $\W_n$ is a graph automorphism of $\widetilde \W_n$.
+    Conversely, any $f \in \widetilde \W_n$ is evidently isometric.
+    To show that $f$ is linear, take $\lambda_1, \lambda_2 \in \ff$ and $v_1, v_2 \in \W$.
+    We calculate:
+    \begin{align*}
+        &\omega\Bigl( f(\sum_i \lambda_i v_i) - \sum_i \lambda_i f(v_i) , f(w) \Bigr) \\
+        ={}& \omega\Bigl( f(\sum_i \lambda_i v_i), f(w)\Bigr) - \sum_i \lambda_i \omega\bigl(f(v_i), f(w) \bigr) \\
+        ={}& \omega\Bigl( \sum_i \lambda_i v_i, w \Bigr) - \sum_i \lambda_i \omega( v_i, w ) \\
+        ={}& \omega(0, w) = 0
+    \end{align*}
+    for all $f(w) \in f(\W_n) = \W_n$;
+    since $\omega$ is non-degenerate, 
+    we conclude that $f(\sum_i \lambda_i v_i) = \sum_i \lambda_i f(v_i)$.
+\end{proof}
+
+\begin{proposition}
+    The number of orbits in $\widetilde \W_n^d$ is at most 
+        $\prod_{i=1}^{d} (2^{i-1} + 1) = O(2^{d (d-1) / 2})$ 
+    for all $n$.
+\end{proposition}
+\begin{proof}
+    By Proposition~\ref{prop:symplectic-vs-graph} and Theorem~\ref{thm:symplectic-smooth-approximation},
+    the number of orbits in $\W_\infty^d$ is an upper bound;
+    \textcolor{red}{this number is the OEIS sequence A028361.}
+\end{proof}
+
+\begin{proposition}[{\cite[Theorem~8.11.2]{GR01}}]
+    Every graph on at most $2n$ vertices embeds into $\widetilde \W_n$.
+\end{proposition}
+\begin{proof}
+    Let $G$ be a graph on at most $2n$ vertices. 
+    The conclusion is trivial when $n = 0$.
+    Also, if $G$ contains no edges, we can choose any $2n$ of the $2^n$ vectors in 
+    $\langle e_1, \ldots, e_n \rangle \subseteq \widetilde \W_n$.
+    
+    So suppose $n \geq 1$ and $G$ has an edge $s \sim t$.
+    Let $G_{s,t}$ be the graph on vertices $G \setminus \{s, t\}$ with edges which we will specify later.
+    By induction, some embedding $f : G_{s, t} \to \widetilde \W_{n-1}$ exists.
+    Define $f' : G \to \widetilde \W_n$ by
+    \begin{align*}
+        x \in G_{s, t} &\mapsto f(x) - \llbracket x \sim s \rrbracket f_n + \llbracket x \sim t \rrbracket e_n \\
+        s &\mapsto e_n \\
+        t &\mapsto f_n
+    \end{align*}
+    where $\llbracket \phi \rrbracket$ is $1$ if $\phi$ holds and $0$ otherwise.
+    Then we have $\omega(f'(x), f'(s)) = \llbracket x \sim s \rrbracket$ 
+    and $\omega(f'(x), f'(t)) = \llbracket x \sim t \rrbracket$ as desired, on one hand.
+    On the other,
+    \begin{align*}
+        \omega( f'(x_1), f'(x_2) ) 
+        = \llbracket x_1 \sim x_2 \rrbracket 
+        &+ \llbracket x_1 \sim s \rrbracket \llbracket x_2 \sim t \rrbracket \\
+        &+ \llbracket x_1 \sim t \rrbracket \llbracket x_2 \sim s \rrbracket
+    \end{align*}
+    tells us how we should define the edge relation in $G_{s,t}$ for $f'$ to be an embedding of graphs.
+\end{proof}
+
+\begin{theorem}
+    The Rado graph is roughly approximated by $\widetilde \W_0 \subseteq \widetilde \W_1 \subseteq \widetilde \W_2 \subseteq \cdots$.
+\end{theorem}
+
+\begin{corollary}
+    Provided $\FF$ is of characteristic $0$, the Rado graph is $\FF$-oligomorphic.
+\end{corollary}
