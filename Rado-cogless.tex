@@ -13,7 +13,7 @@ the orbit counts are given by
     \# \Q^d &= \sum_{k=0}^d \begin{Bmatrix} d \\ k \end{Bmatrix} k! \\
     \# \G^d &= \sum_{k=0}^d \begin{Bmatrix} d \\ k \end{Bmatrix} 2^{\binom{k}{2}} \\
     \# \V_\infty^d &= \sum_{k=0}^d \begin{bmatrix} d \\ k \end{bmatrix}_2 \\
-    \# \W_\infty^d &= \sum_{k=0}^d \begin{bmatrix} d \\ k \end{bmatrix}_2 2^{\binom{kW}{2}}
+    \# \W_\infty^d &= \sum_{k=0}^d \begin{bmatrix} d \\ k \end{bmatrix}_2 2^{\binom{k}{2}}
 \end{align*}
 To introduce: 
 \begin{itemize}
@@ -48,22 +48,15 @@ Throughout this subsection let $\ff$ denote a finite field.
     we obtain a countable-dimensional symplectic vector space $\W_\infty = \bigcup_n \W_n$.
 \end{example}
 
-We will take a straight-line path to prove the following in a self-contained manner.
-Detailed expositions can be found in \cite[{\S}III.3]{Ar57}.
-\begin{theorem}\label{thm:symplectic-smooth-approximation}
-    The symplectic vector space $\W_\infty$ is smoothly approximated by 
-    $\W_0 \subseteq \W_1 \subseteq \W_2 \subseteq \cdots$.
-\end{theorem}
-
-To begin with, we will refer to vectors satisfying \eqref{eq:symplectic-basis} as a \emph{symplectic basis} 
+We will refer to vectors satisfying \eqref{eq:symplectic-basis} as a \emph{symplectic basis} 
 --- indeed, they must be linearly independent.
 Such bases behave very much like the usual bases.
 
-\begin{lemma}\label{lem:symplectic-basis}
+\begin{proposition}\label{prop:symplectic-basis}
     Assume that $\W$ is a symplectic vector space that is at most countable.
     Then any finite symplectic basis $e_1, \ldots, e_n, f_1, \ldots, f_n$ 
     can be extended to a symplectic basis that spans the whole $\W$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
     Suppose that $e_1, \ldots, e_n, f_1, \ldots, f_n$ does not already span $\W$;
     take $v$ to be a witness (that is least according to some fixed enumeration of $\W$ 
@@ -73,6 +66,7 @@ Such bases behave very much like the usual bases.
         e_{n+1} = v - \sum_{i=1}^n \omega(e_i, v) f_i + \sum_{i=1}^n \omega(f_i, v) e_i
     \]
     so that $\omega(e_i, e_{n+1}) = 0 = \omega(f_i, e_{n+1})$.
+    This cannot be the zero vector lest we contradict the choice of $v$.
     By the non-degeneracy of $\omega$, there is --- rescaling if necessary 
     --- some $w$ such that $\omega(e_{n+1}, w) = 1$. 
     Now define
@@ -84,123 +78,218 @@ Such bases behave very much like the usual bases.
     We go through every element of $\W$ by continuing this way.
 \end{proof}
 
-Given two symplectic vector spaces $\W$ and $\W'$,
-we call a function $f$ between $X \subseteq \W$ and $X' \subseteq \W'$ \emph{isometric} if 
-$\omega(f(x_1), f(x_2)) = \omega(x_1, x_2)$ for all $x_1, x_2 \in X$.
+\color{gray}THROW IN THE APPENDIX: 
 
-\begin{proposition}\label{prop:symplectic-unique-by-dimension}
-    $\W_0, \W_1, \W_2, \ldots, \W_\infty$ are all the countable symplectic vector spaces 
-    up to linear isometric isomorphisms.
+In fact, we will also make use of the ``symplectic basis and a half'' variant below. 
+\begin{proposition}\label{prop:symplectic-basis-and-a-half}\textcolor{gray}
+    Now assume $\W$ is a finite-dimensional symplectic vector space.
+    Let 
+    \begin{align*} 
+        &e_1, \cdots, e_n, e_{n+1}, \cdots, e_{n+k}, \\
+        &f_1, \cdots, f_n
+    \end{align*}
+    be linearly independent vectors satisfying \eqref{eq:symplectic-basis}.
+    Then we can find the missing $f_{n+1}, \cdots, f_{n+k}$ to complete the symplectic basis.
 \end{proposition}
 \begin{proof}
-    Let $\W$ be a countable symplectic vector space.
-    By Lemma~\ref{lem:symplectic-basis}, we can extend the empty symplectic basis to one that spans $\W$ 
-    --- call the basis vectors $e'_i, f'_i$.
-    Then $e'_i \mapsto e_i, f'_i \mapsto f_i$ exhibits a linear isomorphism from $\W$ 
-    to $\W_n$ or $\W_\infty$, which one easily checks to be isometric.
-\end{proof}
-
-In particular $\W_\infty$ is the essentially unique countable symplectic vector space;
-by Ryll-Nardzewski it is oligomorphic.
-We need one last fact about its finite counterparts.
-\begin{proposition}[Witt Extension] \label{prop:symplectic-witt-extension}
-    Any isometric injective linear map $f : X \subseteq \W_n \to \W_n$ 
-    can be extended to an isometric linear isomorphism $\W_n \to \W_n$.
-\end{proposition}
-\begin{proof}
-    We proceed by induction on the dimension of $X^{\perp X}$,
-    where we write
+    We first need the following notion.
+    Given a subspace $V \subseteq \W$, consider its orthogonal complement
     \[
-        Y^{\perp Z} = \{y \in Y \mid \forall z \in Z : \omega(y, z) = 0\}
+        V^\perp = \{ w \in \W \mid \forall v \in V : \omega(v, w) = 0 \}.
     \]
-    for subspaces $Y, Z \subseteq \W_n$.
-    
-    Suppose first that $X^{\perp X} = X \cap \W_n^{\perp X}$ is the zero space.
-    Notice that $\dim \W_n^{\perp X} = 2n - \dim X$:
-    \begin{itemize}
-        \item the map 
-            $\W_n \to (\W_n \xrightarrow{\text{lin.}} \ff), v \mapsto \omega(v, -)$ 
-        is linear and injective since $\omega$ is bilinear and non-degenrate, 
-        so for dimension reasons it is also surjective;
-
-        \item the restriction map 
-            $(\W_n \xrightarrow{\text{lin.}} \ff) \to (X \xrightarrow{\text{lin.}} \ff)$ 
-        is linear and surjective, 
-        since any basis for $X \subseteq \W_n$ can be extended to one for $\W_n$;
-        
-        \item their composition 
-            $v \mapsto \omega(v, -)|_X$ 
-        is therefore linear, surjective, and has kernel $\W_n^{\perp X}$.
-    \end{itemize}
-    It follows that $\W_n^{\perp X}$ is the orthogonal complement of $X$ in $\W_n$: 
-    by assumption and the above we have 
-        $X \cap \W_n^{\perp X} = \{0\}$, $X + \W_n^{\perp X} = \W_n$, 
-    and $\omega$ restricted to $X \times \W_n^{\perp X}$ is the zero function;
-    we will use the notation \[
-        \W_n = X \ominus \W_n^{\perp X}.
-    \]
-    On the other hand, as $f$ is isometric, 
-    $f(X)^{\perp f(X)} = f(X^{\perp X})$ must also be the zero space,
-    meaning $\W_n = f(X) \ominus \W_n^{\perp f(X)}$ by the same analysis.
-    But $\dim \W_n^{\perp f(X)} = 2n - \dim f(X) = 2n - \dim X = \dim \W_n^{\perp X}$,
-    so by Proposition~\ref{prop:symplectic-unique-by-dimension} there is a isometric 
-    linear isomorphism $g : \W_n^{\perp X} \to \W_n^{\perp f(X)}$.
-    Combining $f$ and $g$ yields a linear isomorphism 
+    It is the kernel of the composite linear map 
     \begin{align*}
-        \W_n = X \ominus \W_n^{\perp X} &\to f(X) \ominus \W_n^{\perp f(X)} = \W_n \\
-        x + y &\mapsto f(x) + g(y)
-    \end{align*} 
-    which is isometric.
-    
-    Now suppose $X^{\perp X}$ contains some non-zero vector $x$.
-    By extending $x$ to a basis of $X$ we can find a complement $Y$ for $\langle x \rangle$ in $X$;
-    then $X = \langle x \rangle \ominus Y$ by the assumption on $x$.
-    Writing $Z = \W_n^{\perp Y}$, 
-    notice $Y \subseteq \W_n^{\perp Z}$ and $\dim Y = 2n - (2n - \dim Y) = \dim \W_n^{\perp Z}$.
-    It follows that $\W_n^{\perp Z} = Y$ does not contain $x$,
-    i.e., that some $z \in Z$ satisfies $\omega(x, z) = 1$.
-    Consider $X' = \langle x, z \rangle + Y$;
-    we must have 
+        \W \to (\W \xrightarrow{\text{lin.}} \ff) \to (V \xrightarrow{\text{lin.}} \ff) \\
+        w \mapsto \omega(-, w) \mapsto \omega(-, w)|_V.
+    \end{align*}
+    Note this map is surjective:
+    the first part is injective by non-degeneracy and hence surjective for dimension reasons,
+    and the second part is surjective since we can extend a basis of $V$ to one of $\W$.
+    Therefore 
     \[
-        X' = \langle x, z \rangle \ominus Y,
+        \dim V^\perp = \dim \W - \dim V,
     \]
-    because if $\lambda x + \mu z \in \langle x, z \rangle$ lies also in $Y \subseteq X$,  
-    then $0 = \omega(x, \lambda x + \mu z) = \mu$ and so $\lambda = 0$ too.    
-    Similarly, as $f(x)$ is a non-zero vector in 
-        $f(X)^{\perp f(X)}$ and $f(X) = \langle f(x) \rangle \ominus f(Y)$,
-    we can find a vector $z'$ orthogonal to $\W_n^{\perp f(Y)}$ and satisfying $\omega(f(x), z') = 1$.
-    Hence \[
-        x \mapsto f(x), z \mapsto z', y \mapsto f(y)
-    \]
-    defines an isometric linear embedding
-    \[
-        f' : X' = \langle x, z \rangle \ominus Y 
-        \to \langle f(x), z' \rangle \ominus f(Y) \subseteq \W_n
-    \]
-    extending $f$.
-    Finally, we can apply the inductive hypothesis to extend $f'$.
-    Indeed, if $v = \lambda x + \mu z + y$ is in $X'^{\perp X'}$ 
-    then $\lambda = \omega(v, z) = 0 = \omega(v, x) = \mu$,
-    so $v = y$ belongs to $X^{\perp X}$;
-    as $x \in X^{\perp X} \setminus X'^{\perp X'}$, 
-    we have $\dim X'^{\perp X'} \leq \dim X^{\perp X} - 1$.
+    and in particular $V^{\perp \perp}$ is precisely equal to $V$.
+
+    Now suppose we have found $f_{n+1}, \cdots, f_{n+i}$ already.
+    If $e_{n+i+1}$ were to be spanned by 
+    \begin{align*}
+        &e_1, \cdots, e_{n+i}, e_{n+i+2}, \cdots, e_{n+k},\\ 
+        &f_1, \cdots, f_{n+i},
+    \end{align*}
+    it would be spanned by $e_1, \cdots, e_{n+i}, e_{n+i+2}, \cdots, e_{n+k}$ alone because of \eqref{eq:symplectic-basis};
+    but this is impossible as we assumed linear independency.
+    So 
+    \begin{align*}
+        e_{n+i+1} 
+        \not\in{} &\langle e_1, \cdots, e_{n+i}, e_{n+i+2}, f_1, \cdots, f_{n+i} \rangle \\
+        ={} &\langle e_1, \cdots, e_{n+i}, e_{n+i+2}, f_1, \cdots, f_{n+i} \rangle^{\perp \perp},
+    \end{align*}
+    i.e., some $f_{n+i+1} \in \langle e_1, \cdots, e_{n+i}, e_{n+i+2}, f_1, \cdots, f_{n+i} \rangle^\perp$ satisfies $\omega(e_{n+i+1}, f_{n+i+1}) = 1$.
 \end{proof}
 
-Smooth approximation is now immediate.
+\color{black}
+Given two symplectic vector spaces $\W$ and $\W'$,
+we call a function $\alpha$ between $X \subseteq \W$ and $X' \subseteq \W'$ \emph{isometric} if 
+$\omega(\alpha(x_1), \alpha(x_2)) = \omega(x_1, x_2)$ for all $x_1, x_2 \in X$.
+We can make an easy observation:
+\begin{lemma}\label{lem:symplectic-basis-gives-isometry}
+Let $\{e_i, f_i \mid i \in I\} \subseteq \W$, $\{e'_j, f'_j \mid j \in J\} \subseteq \W'$ be two symplectic bases
+and let $\alpha : I \to J$ be a bijection.
+Then 
+\[
+    e_i \mapsto e'_{\alpha(i)}, f_i \mapsto f'_{\alpha(i)}
+\]
+defines an isometric linear isomorphism $\langle e_i, f_i \rangle \to \langle e'_j, f'_j \rangle$.
+\end{lemma}
 
-\begin{proof}[Proof of Theorem~\ref{thm:symplectic-smooth-approximation}]
-    Firstly, observe that the restriction 
-        $\Aut(\W_\infty)_{\{\W_n\}} \to \Aut(\W_n)$ 
-    is surjective:
-    any isometric linear automorphism of $\W_n$ maps the standard symplectic basis to another symplectic basis, 
-    both of which can be extended to a symplectic basis of $\W_\infty$ by Lemma~\ref{lem:symplectic-basis}.
+It then follows from Proposition~\ref{prop:symplectic-basis} that, 
+up to isometric linear isomorphisms, 
+$\W_0, \W_1, \W_2, \cdots, \W_\infty$ are all the countable symplectic vector spaces.
+Whilst we may deduce that $\W_\infty$ is oligomorphic by appealing to Ryll-Nardzewski,
+we will opt for a more direct proof that also establishes smooth approximation.
 
-    Now suppose $\pi \in \Aut(\W_\infty)$ maps $(x_1, \dots, x_d) \in \W_n^d$ 
-    to $(y_1, \dots, y_d) \in \W_n^d$.
-    By Proposition~\ref{prop:symplectic-witt-extension}, we may extend 
-        $\pi|_{\langle x_1, \dots, x_d \rangle} : \langle x_1, \dots, x_d \rangle \to \W_n$ 
-    to some $f \in \Aut(\W_n)$ which still maps $(x_1, \dots, x_d)$ to $(y_1, \dots, y_d)$.
+\begin{proposition}[Witt Extension] \label{prop:symplectic-witt-extension}
+    Any isometric linear injection $\alpha : \langle X \rangle \subseteq \W_n \to \W_n$ 
+    can be extended to an isometric linear automorphism of $\W_n$
+    and in turn to one of $\W_\infty$.
+\end{proposition}
+
+\color{gray}
+\begin{proof}
+    To begin with, find a basis $x_1, \cdots, x_k$ for $\langle X \rangle^\perp = \{ w \in W \mid \forall x \in X : \omega(w, x) = 0 \}$ 
+    and extend it to a basis \(
+        x_1, \cdots, x_k, x_{k+1}, \cdots, x_d
+    \) for $\langle X \rangle$.
+    Notice that
+    \[
+        U = \langle x_{k+1}, \cdots, x_d \rangle
+    \] must be a symplectic subspace:
+    as it intersects with $\langle X \rangle^\perp$ trivially, 
+    given any non-zero vector $u \in U$ we must have $0 \neq \omega(u, x + u') = \omega(u, u')$ for some $x \in \langle X \rangle^\perp$ and $u' \in U$.
+    Hence use Proposition~\ref{prop:symplectic-basis} to find a symplectic basis
+    \(
+        e_1, \cdots, e_n,
+        f_1, \cdots, f_n
+    \)
+    for $U$.
+    Observe that 
+    \begin{align*}
+        &e_1, \cdots, e_n, x_1, \cdots, x_k, \\
+        &f_1, \cdots, f_n
+    \end{align*}
+    form a basis for $\langle X \rangle$ and satisfy \eqref{eq:symplectic-basis}.
+    On the other hand,
+    \begin{align*}
+        &\alpha(e_1), \cdots, \alpha(e_n), \alpha(x_1), \cdots, \alpha(x_k), \\
+        &\alpha(f_1), \cdots, \alpha(f_n)
+    \end{align*}
+    form a basis for $\alpha(\langle X \rangle)$ and also satisfy \eqref{eq:symplectic-basis}.
+    Therefore apply Proposition~\ref{prop:symplectic-basis-and-a-half} twice to find the missing 
+    $y_1, \cdots, y_k$ and $y'_1, \cdots, y'_k$ to complete the two symplectic bases --- call them $\mathcal{B}$ and $\mathcal{B}'$.
+    They are of the same size.
+
+    Now, by using Proposition~\ref{prop:symplectic-basis}, extend $\mathcal{B}$ and $\mathcal{B}'$ to symplectic bases $\mathcal{C}$ and $\mathcal{C}'$ that span $\W_n$.
+    These must have the same size ($2n$ namely), 
+    so by Lemma~\ref{lem:symplectic-basis-gives-isometry} we obtain an isometric linear automorphism $\beta : \W_n \to \W_n$ extending $\alpha$.
+
+    To finish, notice that $\mathcal{C}, e_{n+1}, \cdots, f_{n+1}, \cdots$ as well as $\mathcal{C}', e_{n+1}, \cdots, f_{n+1}, \cdots$ 
+    form a symplectic basis spanning $\W_\infty$.
+    We obtain from Lemma~\ref{lem:symplectic-basis-gives-isometry} another time an isometric linear automorphism $\gamma : \W_\infty \to \W_\infty$ extending $\beta$ 
+    that is the identity almost everywhere.
 \end{proof}
+\color{black}
+
+
+\begin{proposition}\label{prop:symplectic-oligomorphic}
+    $\W_\infty^d$ has precisely \(
+        \sum_{k = 0}^d \begin{bsmallmatrix}d \\ k \end{bsmallmatrix}_q \cdot q^{\binom{k}{2}}
+    \) orbits under isometric linear automorphisms,
+    where $q = \vert \ff \vert$ and \[
+        \begin{bmatrix}d \\ k \end{bmatrix}_q 
+        = \frac{
+            (q^d - 1)(q^{d-1} - 1) \cdots (q^{d-k+1} - 1)
+        }{
+            (q^k - 1) (q^{k-1} - 1) \cdots (q^1 - 1)
+        }
+    \] is the q-binomial coefficient.
+\end{proposition}
+\begin{remark}
+    To anticipate the next subsection, we note a similarity with the Rado graph: 
+    in $\G^d$ there are $\sum_{k=0}^d \binom{d}{k} \cdot 2^{\binom{k}{2}}$ orbits 
+    --- we may impose any edge relation on $d$ vertices.
+\end{remark}
+
+\begin{proof}
+    To $(v_1, \cdots, v_d) \in \W_\infty^d$ we associate a \emph{type}, 
+    which comprises the following data:
+    \begin{itemize}
+        \item 
+        pivot indices $I \subseteq \{1, \cdots, d\}$ containing every $i$ 
+        such that $v_i$ is not spanned by $v_1, \cdots, v_{i-1}$
+        --- so we inductively ensure that $$\{v_{i'} \mid i' \in I, i' \leq i\}$$ is linearly independent;
+
+        \item 
+        for each $j \not\in I$, pairs $\Lambda_j \subseteq \ff \times \{i \in I \mid i < j\}$
+        where $v_j = \sum_{(\lambda, i) \in \Lambda_j} \lambda v_i$;
+
+        \item 
+        a map $\Omega : \binom{I}{2} \to \ff$ defined by $\Omega(\{i < j\}) = \omega(v_i, v_j)$.
+    \end{itemize}
+    If $\pi : \W_\infty \to \W_\infty$ is an isometric linear automorphism,
+    then $(v_1, \cdots, v_d)$ and $(\pi(v_1), \cdots, \pi(v_d))$ evidently share the same type.
+    Conversely, if $(w_1, \cdots, w_d)$ has the type of $(v_i, \cdots, v_d)$,
+    then \[
+        v_i \mapsto w_i, i \in I
+    \] extends to an isometric linear injection 
+    \[
+        \alpha : \langle v_1, \cdots, v_d \rangle 
+        \to \langle w_1, \cdots, w_d \rangle 
+        \subseteq \W_n
+    \]
+    for some large enough $n$.
+    Observe that $\alpha$ must send $v_j \mapsto w_j$ for $j \not\in I$ too,
+    and that it may be extended to an isometric linear automorphism $\pi$ of $\W_\infty$ by Propsoition~\ref{prop:symplectic-witt-extension}.
+    But we can find some $(v_1, \cdots, v_d)$ that realises any given type $(I, \{\Lambda_j\}_j, \Omega)$.
+    Indeed, it suffices to put
+    \[
+        v_i = e_i + \sum_{i < i'} \Omega(i, i') f_{i'}
+    \]
+    for $i \in I$ and $v_j = \sum_{\lambda, i} \in \Lambda_i \lambda v_i$ for $j \not\in I$.
+    Therefore the number of types is precisely the number of orbits in $\W_\infty^d$.
+
+    Finally, we do some combinatorics.
+    Fix $0 \leq k \leq d$ and count the number of types with $|I| = k$.
+    There are $2^{\binom{k}{2}}$ choices for $\Omega$ and say $q_{d, k}$ choices for the $\Lambda_j$'s;
+    the two can be chosen separately.
+    In total, this gives
+    \[ 
+        \sum_{k=0}^d q_{d,k} \cdot 2^{\binom{k}{2}}
+    \]
+    types for vectors in $\W_\infty^d$.
+    So focus on $q_{d,k}$, the number of \emph{linear types} --- i.e., $(I, \{\Lambda_j\}_j)$, ignoring $\Omega$ --- in $\W_\infty^d$.
+    (Incidentally $q_{d,k}$ is the number of orbits of $\W_\infty^d$ or any countable-dimensional $\ff$-vector space under linear automorphisms.)
+    On the small values we easily check that \begin{align*}
+        &q_{0,0} = 1 = \begin{bsmallmatrix}0 \\ 0\end{bsmallmatrix}_q, \\
+        &q_{1,0} = 1 = \begin{bsmallmatrix}1 \\ 0\end{bsmallmatrix}_q,\qquad
+        q_{1,1} = 1 = \begin{bsmallmatrix}1 \\ 1\end{bsmallmatrix}_q.
+    \end{align*}
+    Given a linear type in $\W_\infty^d$ with $\vert I \vert = k$, 
+    we either have $1 \in I$ or $I \subseteq \{2, \cdots, d\}$.
+    In the first case, the linear type restricts to one of the $q_{d-1, k-1}$ linear types in $\W_\infty^{d-1}$
+    and indicates how $v_1$ is involved in the span of the $(d - 1) - (k - 1)$ non-pivot vectors.
+    In the second case, the linear type is simply one of the $q_{d-1, k}$ linear types in $\W_\infty^{d-1}$.
+    Thus 
+    \[
+        q_{d, k} = q^{d-k} \cdot q_{d-1, k-1} + q_{d-1, k},
+    \]
+    which yields $q_{d, k} = \begin{bsmallmatrix}d \\ k\end{bsmallmatrix}_q$ by induction.
+\end{proof}
+
+\begin{theorem}\label{thm:symplectic-smooth-approximation}
+    The symplectic vector space $\W_\infty$ is smoothly approximated by 
+    $\W_0 \subseteq \W_1 \subseteq \W_2 \subseteq \cdots$.
+\end{theorem}
 
 \begin{corollary}
     Provided $\FF$ is of characteristic $0$, the symplectic $\ff$-vector space $\W_\infty$ is $\FF$-oligomorphic.
@@ -238,16 +327,8 @@ For this subsection let $\ff$ be the two-element field.
     we conclude that $f(\sum_i \lambda_i v_i) = \sum_i \lambda_i f(v_i)$.
 \end{proof}
 
-\begin{proposition}
-    The number of orbits in $\widetilde \W_n^d$ is at most 
-        $\prod_{i=1}^{d} (2^{i-1} + 1) = O(2^{d (d-1) / 2})$ 
-    for all $n$.
-\end{proposition}
-\begin{proof}
-    By Proposition~\ref{prop:symplectic-vs-graph} and Theorem~\ref{thm:symplectic-smooth-approximation},
-    the number of orbits in $\W_\infty^d$ is an upper bound;
-    \textcolor{red}{this number is the OEIS sequence A028361.}
-\end{proof}
+So the number of orbits in $\widetilde \W_n^d$ is precisely equal to the number of orbits in $\W_n^d$
+--- in particular, it is finite for all finite $d$ by Proposition~\ref{prop:symplectic-oligomorphic}.
 
 \begin{proposition}[{\cite[Theorem~8.11.2]{GR01}}]
     Every graph on at most $2n$ vertices embeds into $\widetilde \W_n$.
