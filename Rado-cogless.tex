@@ -260,30 +260,32 @@ we will opt for a more direct proof that also establishes smooth approximation.
 
     Finally, we do some combinatorics.
     Fix $0 \leq k \leq d$ and count the number of types with $|I| = k$.
-    There are $2^{\binom{k}{2}}$ choices for $\Omega$ and say $q_{d, k}$ choices for the $\Lambda_j$'s;
+    There are $2^{\binom{k}{2}}$ choices for $\Omega$ and say $\#_{d, k}$ choices for the $\Lambda_j$'s;
     the two can be chosen separately.
     In total, this gives
     \[ 
-        \sum_{k=0}^d q_{d,k} \cdot 2^{\binom{k}{2}}
+        \sum_{k=0}^d \#_{d, k} \cdot 2^{\binom{k}{2}}
     \]
     types for vectors in $\W_\infty^d$.
-    So focus on $q_{d,k}$, the number of \emph{linear types} --- i.e., $(I, \{\Lambda_j\}_j)$, ignoring $\Omega$ --- in $\W_\infty^d$.
-    (Incidentally $q_{d,k}$ is the number of orbits of $\W_\infty^d$ or any countable-dimensional $\ff$-vector space under linear automorphisms.)
+    So focus on $\#_{d, k}$, the number of \emph{linear types} --- i.e., $(I, \{\Lambda_j\}_j)$, ignoring $\Omega$ --- in $\W_\infty^d$.
+    (Incidentally $\#_{d, k}$ is the number of orbits in $\W_\infty^d$ or, more generally, any countable-dimensional $\ff$-vector space under linear automorphisms.)
     On the small values we easily check that \begin{align*}
-        &q_{0,0} = 1 = \begin{bsmallmatrix}0 \\ 0\end{bsmallmatrix}_q, \\
-        &q_{1,0} = 1 = \begin{bsmallmatrix}1 \\ 0\end{bsmallmatrix}_q,\qquad
-        q_{1,1} = 1 = \begin{bsmallmatrix}1 \\ 1\end{bsmallmatrix}_q.
+        &\#_{0, 0} = 1 = \begin{bsmallmatrix}0 \\ 0\end{bsmallmatrix}_q, \\
+        &\#_{1, 0} = 1 = \begin{bsmallmatrix}1 \\ 0\end{bsmallmatrix}_q,\qquad
+        \#_{1, 1} = 1 = \begin{bsmallmatrix}1 \\ 1\end{bsmallmatrix}_q.
     \end{align*}
     Given a linear type in $\W_\infty^d$ with $\vert I \vert = k$, 
     we either have $1 \in I$ or $I \subseteq \{2, \cdots, d\}$.
-    In the first case, the linear type restricts to one of the $q_{d-1, k-1}$ linear types in $\W_\infty^{d-1}$
+    In the first case, the linear type restricts to one of the $\#_{d-1, k-1}$ linear types in $\W_\infty^{d-1}$
     and indicates how $v_1$ is involved in the span of the $(d - 1) - (k - 1)$ non-pivot vectors.
-    In the second case, the linear type is simply one of the $q_{d-1, k}$ linear types in $\W_\infty^{d-1}$.
+    In the second case, the linear type is simply one of the $\#_{d-1, k}$ linear types in $\W_\infty^{d-1}$.
     Thus 
-    \[
-        q_{d, k} = q^{d-k} \cdot q_{d-1, k-1} + q_{d-1, k},
-    \]
-    which yields $q_{d, k} = \begin{bsmallmatrix}d \\ k\end{bsmallmatrix}_q$ by induction.
+    \begin{align*}
+        \#_{d, k} 
+        &= q^{d-k} \cdot \#_{d-1, k-1} + \#_{d-1, k} \\
+        &= q^{d-k} \cdot \begin{bmatrix}d-1 \\ k-1\end{bmatrix}_q + \begin{bmatrix}d-1 \\ k\end{bmatrix}_q.
+        \qedhere
+    \end{align*}
 \end{proof}
 
 \begin{theorem}\label{thm:symplectic-smooth-approximation}
@@ -301,7 +303,7 @@ we will opt for a more direct proof that also establishes smooth approximation.
 \subsection{Symplectic graphs}
 For this subsection let $\ff$ be the two-element field.
 \begin{definition}
-    The \emph{symplectic graph} $\widetilde \W_n$ has vertices $\W_n$ and edges
+    For $n = 0, 1, 2, \cdots$, the \emph{symplectic graph} $\widetilde \W_n$ has vertices $\W_n$ and edges
     \[
         v_1 \sim v_2 \iff \omega(v_1, v_2) = 1.
     \]
@@ -328,7 +330,8 @@ For this subsection let $\ff$ be the two-element field.
 \end{proof}
 
 So the number of orbits in $\widetilde \W_n^d$ is precisely equal to the number of orbits in $\W_n^d$
---- in particular, it is finite for all finite $d$ by Proposition~\ref{prop:symplectic-oligomorphic}.
+--- in particular, it is bounded above by $\sum_{k=0}^d \begin{bsmallmatrix}d \\ k\end{bsmallmatrix}_2 \cdot 2^{\binom{k}{2}}$ independently of $n$ by Proposition~\ref{prop:symplectic-oligomorphic}.
+It remains to show $\widetilde \W_0 \subseteq \widetilde \W_1 \subseteq \widetilde \W_2 \subseteq \cdots$ embeds all finite graphs:
 
 \begin{proposition}[{\cite[Theorem~8.11.2]{GR01}}]
     Every graph on at most $2n$ vertices embeds into $\widetilde \W_n$.
