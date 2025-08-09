@@ -227,14 +227,14 @@ we will opt for a more direct proof that also establishes smooth approximation.
         \item 
         pivot indices $I \subseteq \{1, \cdots, d\}$ containing every $i$ 
         such that $v_i$ is not spanned by $v_1, \cdots, v_{i-1}$
-        --- so we inductively ensure that $$\{v_{i'} \mid i' \in I, i' \leq i\}$$ is linearly independent;
+        --- so we inductively ensure that $$\{v_{i'} \mid i' \in I, i' \leq i\}$$ is a basis for $\langle e_1, \cdots, e_i \rangle$;
 
         \item 
         for each $j \not\in I$, pairs $\Lambda_j \subseteq \ff \times \{i \in I \mid i < j\}$
         where $v_j = \sum_{(\lambda, i) \in \Lambda_j} \lambda v_i$;
 
         \item 
-        a map $\Omega : \binom{I}{2} \to \ff$ defined by $\Omega(\{i < j\}) = \omega(v_i, v_j)$.
+        a map $\Omega : \binom{I}{2} \to \ff$ defined by $\Omega(\{i' < i\}) = \omega(v_{i'}, v_{i})$.
     \end{itemize}
     If $\pi : \W_\infty \to \W_\infty$ is an isometric linear automorphism,
     then $(v_1, \cdots, v_d)$ and $(\pi(v_1), \cdots, \pi(v_d))$ evidently share the same type.
@@ -250,10 +250,10 @@ we will opt for a more direct proof that also establishes smooth approximation.
     for some large enough $n$.
     Observe that $\alpha$ must send $v_j \mapsto w_j$ for $j \not\in I$ too,
     and that it may be extended to an isometric linear automorphism $\pi$ of $\W_\infty$ by Propsoition~\ref{prop:symplectic-witt-extension}.
-    But we can find some $(v_1, \cdots, v_d)$ that realises any given type $(I, \{\Lambda_j\}_j, \Omega)$.
-    Indeed, it suffices to put
+    Furthermore we can find some $(v_1, \cdots, v_d)$ that realises any given type $(I, \{\Lambda_j\}_j, \Omega)$:
+    it suffices to put
     \[
-        v_i = e_i + \sum_{i < i'} \Omega(i, i') f_{i'}
+        v_i = e_i + \sum_{i' < i} \Omega(i', i) f_{i'}
     \]
     for $i \in I$ and $v_j = \sum_{\lambda, i} \in \Lambda_i \lambda v_i$ for $j \not\in I$.
     Therefore the number of types is precisely the number of orbits in $\W_\infty^d$.
@@ -276,14 +276,15 @@ we will opt for a more direct proof that also establishes smooth approximation.
     \end{align*}
     Given a linear type in $\W_\infty^d$ with $\vert I \vert = k$, 
     we either have $1 \in I$ or $I \subseteq \{2, \cdots, d\}$.
-    In the first case, the linear type restricts to one of the $\#_{d-1, k-1}$ linear types in $\W_\infty^{d-1}$
-    and indicates how $v_1$ is involved in the span of the $(d - 1) - (k - 1)$ non-pivot vectors.
+    In the first case, the linear type is specified by one of the $\#_{d-1, k-1}$ linear types in $\W_\infty^{d-1}$
+    together with how $v_1$ is involved in the span of the $(d - 1) - (k - 1)$ non-pivot vectors.
     In the second case, the linear type is simply one of the $\#_{d-1, k}$ linear types in $\W_\infty^{d-1}$.
     Thus 
     \begin{align*}
         \#_{d, k} 
         &= q^{d-k} \cdot \#_{d-1, k-1} + \#_{d-1, k} \\
-        &= q^{d-k} \cdot \begin{bmatrix}d-1 \\ k-1\end{bmatrix}_q + \begin{bmatrix}d-1 \\ k\end{bmatrix}_q.
+        &= q^{d-k} \cdot \begin{bmatrix}d-1 \\ k-1\end{bmatrix}_q + \begin{bmatrix}d-1 \\ k\end{bmatrix}_q
+        = \#_{d, k}.
         \qedhere
     \end{align*}
 \end{proof}
