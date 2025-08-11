@@ -2,18 +2,18 @@
 
 $\A$ is: 
 \begin{itemize}
-    \item oligomorphic if, for $d = 0, 1, 2, \ldots$, $\A^d$ only has finitely many orbits;
-    \item $\FF$-oligomorphic if, for $d = 0, 1, 2, \ldots$, $\Lin_\FF \A^d$ only has finitely long chains.
+    \item oligomorphic if, for $k = 0, 1, 2, \ldots$, $\A^k$ only has finitely many orbits;
+    \item $\FF$-oligomorphic if, for $k = 0, 1, 2, \ldots$, $\Lin_\FF \A^k$ only has finitely long chains.
 \end{itemize}
 \textcolor{red}{
 Of note: with Stirling numbers of the second kind and Gaussian $2$-binomial coefficients,
 the orbit counts are given by
 \begin{align*}
-    \# \N^d &= \sum_{k=0}^d \begin{Bmatrix} d \\ k \end{Bmatrix} \\
-    \# \Q^d &= \sum_{k=0}^d \begin{Bmatrix} d \\ k \end{Bmatrix} k! \\
-    \# \G^d &= \sum_{k=0}^d \begin{Bmatrix} d \\ k \end{Bmatrix} 2^{\binom{k}{2}} \\
-    \# \V_\infty^d &= \sum_{k=0}^d \begin{bmatrix} d \\ k \end{bmatrix}_2 \\
-    \# \W_\infty^d &= \sum_{k=0}^d \begin{bmatrix} d \\ k \end{bmatrix}_2 2^{\binom{k}{2}}
+    \# \N^k &= \sum_{d=0}^k \begin{Bmatrix} k \\ d \end{Bmatrix} \\
+    \# \Q^k &= \sum_{d=0}^k \begin{Bmatrix} k \\ d \end{Bmatrix} d! \\
+    \# \G^k &= \sum_{d=0}^k \begin{Bmatrix} k \\ d \end{Bmatrix} 2^{\binom{d}{2}} \\
+    \# \V_\infty^k &= \sum_{d=0}^k \begin{bmatrix} k \\ d \end{bmatrix}_2 \\
+    \# \W_\infty^k &= \sum_{d=0}^k \begin{bmatrix} k \\ d \end{bmatrix}_2 2^{\binom{d}{2}}
 \end{align*}
 To introduce: 
 \begin{itemize}
@@ -114,10 +114,10 @@ In fact, we will also make use of the ``symplectic basis and a half'' variant be
     Now suppose we have found $f_{n+1}, \cdots, f_{n+i}$ already.
     If $e_{n+i+1}$ were to be spanned by 
     \begin{align*}
-        &e_1, \cdots, e_{n+i}, e_{n+i+2}, \cdots, e_{n+k},\\ 
+        &e_1, \cdots, e_{n+i}, \cancel{e_{n+i+1}}, e_{n+i+2}, \cdots, e_{n+k},\\ 
         &f_1, \cdots, f_{n+i},
     \end{align*}
-    it would be spanned by $e_1, \cdots, e_{n+i}, e_{n+i+2}, \cdots, e_{n+k}$ alone because of \eqref{eq:symplectic-basis};
+    it would be spanned by $e_{n+i+2}, \cdots, e_{n+k}$ alone because of \eqref{eq:symplectic-basis};
     but this is impossible as we assumed linear independency.
     So 
     \begin{align*}
@@ -190,7 +190,7 @@ we will opt for a more direct proof that also establishes smooth approximation.
     They are of the same size.
 
     Now, by using Proposition~\ref{prop:symplectic-basis}, extend $\mathcal{B}$ and $\mathcal{B}'$ to symplectic bases $\mathcal{C}$ and $\mathcal{C}'$ that span $\W_n$.
-    These must have the same size ($2n$ namely), 
+    These must both have size $2n$, 
     so by Lemma~\ref{lem:symplectic-basis-gives-isometry} we obtain an isometric linear automorphism $\beta : \W_n \to \W_n$ extending $\alpha$.
 
     To finish, notice that $\mathcal{C}, e_{n+1}, \cdots, f_{n+1}, \cdots$ as well as $\mathcal{C}', e_{n+1}, \cdots, f_{n+1}, \cdots$ 
@@ -202,89 +202,88 @@ we will opt for a more direct proof that also establishes smooth approximation.
 
 
 \begin{proposition}\label{prop:symplectic-oligomorphic}
-    $\W_\infty^d$ has precisely \(
-        \sum_{k = 0}^d \begin{bsmallmatrix}d \\ k \end{bsmallmatrix}_q \cdot q^{\binom{k}{2}}
+    $\W_\infty^k$ has precisely \(
+        \sum_{d = 0}^k \begin{bsmallmatrix}k \\ d \end{bsmallmatrix}_q \cdot q^{\binom{d}{2}}
     \) orbits under isometric linear automorphisms,
     where $q = \vert \ff \vert$ and \[
-        \begin{bmatrix}d \\ k \end{bmatrix}_q 
+        \begin{bmatrix}k \\ d \end{bmatrix}_q 
         = \frac{
-            (q^d - 1)(q^{d-1} - 1) \cdots (q^{d-k+1} - 1)
+            (q^k - 1)(q^{k-1} - 1) \cdots (q^{k-d+1} - 1)
         }{
-            (q^k - 1) (q^{k-1} - 1) \cdots (q^1 - 1)
+            (q^d - 1) (q^{d-1} - 1) \cdots (q^1 - 1)
         }
     \] is the q-binomial coefficient.
 \end{proposition}
 \begin{remark}
     To anticipate the next subsection, we note a similarity with the Rado graph: 
-    in $\G^d$ there are $\sum_{k=0}^d \binom{d}{k} \cdot 2^{\binom{k}{2}}$ orbits 
+    in $\G^k$ there are $\sum_{d=0}^k \binom{k}{d} \cdot 2^{\binom{d}{2}}$ orbits 
     --- we may impose any edge relation on $d$ vertices.
 \end{remark}
 
 \begin{proof}
-    To $(v_1, \cdots, v_d) \in \W_\infty^d$ we associate a \emph{type}, 
+    To $(v_1, \cdots, v_k) \in \W_\infty^k$ we associate a \emph{type}, 
     which comprises the following data:
     \begin{itemize}
         \item 
-        pivot indices $I \subseteq \{1, \cdots, d\}$ containing every $i$ 
+        pivot indices $I \subseteq \{1, \cdots, k\}$ containing every $i$ 
         such that $v_i$ is not spanned by $v_1, \cdots, v_{i-1}$
-        --- so we inductively ensure that $$\{v_{i'} \mid i' \in I, i' \leq i\}$$ is a basis for $\langle e_1, \cdots, e_i \rangle$;
+        --- so we inductively ensure that $$\{v_{i'} \mid i' \in I, i' \leq i\}$$ is a basis for $\langle v_1, \cdots, v_i \rangle$;
 
         \item 
-        for each $j \not\in I$, pairs $\Lambda_j \subseteq \ff \times \{i \in I \mid i < j\}$
-        where $v_j = \sum_{(\lambda, i) \in \Lambda_j} \lambda v_i$;
+        for each $j \not\in I$, an assignment $\Lambda_j : \{i \in I \mid i < j\} \to \ff$
+        such that $v_j = \sum_{i \in I, i < j} \Lambda_j(i) v_i$;
 
         \item 
         a map $\Omega : \binom{I}{2} \to \ff$ defined by $\Omega(\{i' < i\}) = \omega(v_{i'}, v_{i})$.
     \end{itemize}
     If $\pi : \W_\infty \to \W_\infty$ is an isometric linear automorphism,
-    then $(v_1, \cdots, v_d)$ and $(\pi(v_1), \cdots, \pi(v_d))$ evidently share the same type.
-    Conversely, if $(w_1, \cdots, w_d)$ has the type of $(v_i, \cdots, v_d)$,
-    then \[
-        v_i \mapsto w_i, i \in I
-    \] extends to an isometric linear injection 
-    \[
-        \alpha : \langle v_1, \cdots, v_d \rangle 
-        \to \langle w_1, \cdots, w_d \rangle 
-        \subseteq \W_n
-    \]
-    for some large enough $n$.
+    then $(v_1, \cdots, v_k)$ and $(\pi(v_1), \cdots, \pi(v_k))$ evidently share the same type.
+    Conversely, if $(w_1, \cdots, w_k)$ has the type of $(v_i, \cdots, v_k)$,
+    then
+    \begin{align*}
+        \alpha : \langle v_i \mid i \in I \rangle 
+        &\to \langle w_i \mid i \in I \rangle 
+        \subseteq \W_n \\
+        v_i &\mapsto w_i
+    \end{align*}
+    gives an isometric linear injection for some large enough $n$.
     Observe that $\alpha$ must send $v_j \mapsto w_j$ for $j \not\in I$ too,
     and that it may be extended to an isometric linear automorphism $\pi$ of $\W_\infty$ by Propsoition~\ref{prop:symplectic-witt-extension}.
-    Furthermore we can find some $(v_1, \cdots, v_d)$ that realises any given type $(I, \{\Lambda_j\}_j, \Omega)$:
+    Furthermore we can find some $(v_1, \cdots, v_k)$ that realises any given type $(I, \{\Lambda_j\}_j, \Omega)$:
     it suffices to put
     \[
-        v_i = e_i + \sum_{i' < i} \Omega(i', i) f_{i'}
+        v_i = e_i + \sum_{i' \in I, i' < i} \Omega(i', i) f_{i'}
     \]
-    for $i \in I$ and $v_j = \sum_{\lambda, i} \in \Lambda_i \lambda v_i$ for $j \not\in I$.
-    Therefore the number of types is precisely the number of orbits in $\W_\infty^d$.
+    for $i \in I$ and $v_j = \sum_{i \in I, i < j} \in \Lambda_j(i) v_i$ for $j \not\in I$.
+    Therefore the number of types is precisely the number of orbits in $\W_\infty^k$.
 
     Finally, we do some combinatorics.
-    Fix $0 \leq k \leq d$ and count the number of types with $|I| = k$.
-    There are $2^{\binom{k}{2}}$ choices for $\Omega$ and say $\#_{d, k}$ choices for the $\Lambda_j$'s;
+    Fix $0 \leq d \leq k$ and count the number of types with $|I| = d$.
+    There are $q^{\binom{d}{2}}$ choices for $\Omega$ and say $\#_{k, d}$ choices for the $\Lambda_j$'s;
     the two can be chosen separately.
     In total, this gives
     \[ 
-        \sum_{k=0}^d \#_{d, k} \cdot 2^{\binom{k}{2}}
+        \sum_{d=0}^k q^{\binom{d}{2}} \cdot \#_{k, d} 
     \]
     types for vectors in $\W_\infty^d$.
-    So focus on $\#_{d, k}$, the number of \emph{linear types} --- i.e., $(I, \{\Lambda_j\}_j)$, ignoring $\Omega$ --- in $\W_\infty^d$.
-    (Incidentally $\#_{d, k}$ is the number of orbits in $\W_\infty^d$ or, more generally, any countable-dimensional $\ff$-vector space under linear automorphisms.)
+    So focus on $\#_{k, d}$, the number of \emph{linear types} --- i.e., $(I, \{\Lambda_j\}_j)$, ignoring $\Omega$ --- in $\W_\infty^k$.
+    (Incidentally $\sum_{d=0}^k \#_{k, d}$ is the number of orbits in $\W_\infty^k$ or, more generally, any countable-dimensional $\ff$-vector space under linear automorphisms.)
     On the small values we easily check that \begin{align*}
         &\#_{0, 0} = 1 = \begin{bsmallmatrix}0 \\ 0\end{bsmallmatrix}_q, \\
         &\#_{1, 0} = 1 = \begin{bsmallmatrix}1 \\ 0\end{bsmallmatrix}_q,\qquad
         \#_{1, 1} = 1 = \begin{bsmallmatrix}1 \\ 1\end{bsmallmatrix}_q.
     \end{align*}
-    Given a linear type in $\W_\infty^d$ with $\vert I \vert = k$, 
-    we either have $1 \in I$ or $I \subseteq \{2, \cdots, d\}$.
-    In the first case, the linear type is specified by one of the $\#_{d-1, k-1}$ linear types in $\W_\infty^{d-1}$
-    together with how $v_1$ is involved in the span of the $(d - 1) - (k - 1)$ non-pivot vectors.
-    In the second case, the linear type is simply one of the $\#_{d-1, k}$ linear types in $\W_\infty^{d-1}$.
+    Given a linear type in $\W_\infty^k$ with $\vert I \vert = d$, 
+    we either have $1 \in I$ or $I \subseteq \{2, \cdots, k\}$.
+    In the first case, the linear type is specified by one of the $\#_{k-1, d-1}$ linear types in $\W_\infty^{k-1}$
+    together with how $v_1$ is involved in the span of the $(k - 1) - (d - 1)$ non-pivot vectors.
+    In the second case, the linear type is simply one of the $\#_{k-1, d}$ linear types in $\W_\infty^{k-1}$.
     Thus 
     \begin{align*}
-        \#_{d, k} 
-        &= q^{d-k} \cdot \#_{d-1, k-1} + \#_{d-1, k} \\
-        &= q^{d-k} \cdot \begin{bmatrix}d-1 \\ k-1\end{bmatrix}_q + \begin{bmatrix}d-1 \\ k\end{bmatrix}_q
-        = \#_{d, k}.
+        \#_{k, d} 
+        &= q^{k-d} \cdot \#_{k-1, d-1} + \#_{k-1, d} \\
+        &= q^{k-d} \cdot \begin{bmatrix}k-1 \\ d-1\end{bmatrix}_q + \begin{bmatrix}k-1 \\ d\end{bmatrix}_q
+        = \begin{bmatrix}k \\ d\end{bmatrix}_q.
         \qedhere
     \end{align*}
 \end{proof}
@@ -330,8 +329,8 @@ For this subsection let $\ff$ be the two-element field.
     we conclude that $f(\sum_i \lambda_i v_i) = \sum_i \lambda_i f(v_i)$.
 \end{proof}
 
-So the number of orbits in $\widetilde \W_n^d$ is precisely equal to the number of orbits in $\W_n^d$
---- in particular, it is bounded above by $\sum_{k=0}^d \begin{bsmallmatrix}d \\ k\end{bsmallmatrix}_2 \cdot 2^{\binom{k}{2}}$ independently of $n$ by Proposition~\ref{prop:symplectic-oligomorphic}.
+So the number of orbits in $\widetilde \W_n^k$ is precisely equal to the number of orbits in $\W_n^k$
+--- in particular, it is bounded above by $\sum_{d=0}^k \begin{bsmallmatrix}k \\ d\end{bsmallmatrix}_2 \cdot 2^{\binom{d}{2}}$ independently of $n$ by Proposition~\ref{prop:symplectic-oligomorphic}.
 It remains to show $\widetilde \W_0 \subseteq \widetilde \W_1 \subseteq \widetilde \W_2 \subseteq \cdots$ embeds all finite graphs:
 
 \begin{proposition}[{\cite[Theorem~8.11.2]{GR01}}]
