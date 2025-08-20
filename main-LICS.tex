@@ -38,6 +38,9 @@
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
 
+\usepackage{etoolbox}
+\AtBeginEnvironment{proof}{\color{gray}}
+
 
 \newcommand{\A}{\mathbb{A}}
 \newcommand{\N}{\mathbb{N}} % naturals / names / equality atoms
@@ -52,8 +55,8 @@
 \newcommand{\Aut}{\operatorname{Aut}}
 \newcommand{\Lin}{\operatorname{Lin}}
 \newcommand{\len}{\operatorname{len}}
+\newcommand{\Cog}{\operatorname{Cog}}
 
-\newcommand{\bbinom}[2]{\begin{bmatrix}#1 \\ #2\end{bmatrix}_2} 
 %##############################################################################
 
 

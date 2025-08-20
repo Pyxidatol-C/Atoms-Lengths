@@ -1,10 +1,10 @@
 \section{Rado graph, sans cogs}
 
 $\A$ is: 
-\begin{itemize}
-    \item oligomorphic if, for $k = 0, 1, 2, \ldots$, $\A^k$ only has finitely many orbits;
-    \item $\FF$-oligomorphic if, for $k = 0, 1, 2, \ldots$, $\Lin_\FF \A^k$ only has finitely long chains.
-\end{itemize}
+\begin{enumerate}
+    \item oligomorphic if, for $k = 0, 1, 2, \cdots$, $\A^k$ only has finitely many orbits;
+    \item $\FF$-oligomorphic if, for $k = 0, 1, 2, \cdots$, $\Lin_\FF \A^k$ only has finitely long chains.
+\end{enumerate}
 \textcolor{red}{
 Of note: with Stirling numbers of the second kind and Gaussian $2$-binomial coefficients,
 the orbit counts are given by
@@ -16,23 +16,25 @@ the orbit counts are given by
     \# \W_\infty^k &= \sum_{d=0}^k \begin{bmatrix} k \\ d \end{bmatrix}_2 2^{\binom{d}{2}}
 \end{align*}
 To introduce: 
-\begin{itemize}
+\begin{enumerate}
     \item 
     \emph{smooth approximation} by \emph{homogeneous substructures} \cite{KLM89} (N.B. `smooth approximation' from \cite[Definition~4]{MP24} seems to be entirely different)
     \item 
-    \emph{rough approximation} of a homogeneous structure by finite substructures with few orbits (i.e., types)
+    \emph{width-wise approximation} of a homogeneous structure by finite substructures with uniformly few orbits (i.e., types)
     that cover the age of $\A$
-\end{itemize}}
+    \item 
+    For the equality and ordered atoms, being supportively $\FF$-oligomorphic follows from being $\FF$-oligomorphic \cite[Theorem~4.10]{BFKM24}
+\end{enumerate}}
 
 \subsection{Symplectic vector spaces}
 Throughout this subsection let $\ff$ denote a finite field.
 \begin{definition}
     A \emph{symplectic vector space} is an $\ff$-vector space $\W$ 
     equipped with a bilinear form $\omega: \W \times \W \to \ff$ that is
-    \begin{itemize}
+    \begin{enumerate}
         \item alternating: $\omega(v, v) = 0$ for all $v$; and
         \item non-degenerate: if $\omega(v, w) = 0$ for all $w$ then $v = 0$.
-    \end{itemize}
+    \end{enumerate}
 \end{definition}
 
 \begin{example}
@@ -78,19 +80,20 @@ Such bases behave very much like the usual bases.
     We go through every element of $\W$ by continuing this way.
 \end{proof}
 
-\color{gray}THROW IN THE APPENDIX: 
-
+\color{gray}
 In fact, we will also make use of the ``symplectic basis and a half'' variant below. 
 \begin{proposition}\label{prop:symplectic-basis-and-a-half}\textcolor{gray}
     Now assume $\W$ is a finite-dimensional symplectic vector space.
     Let 
     \begin{align*} 
-        &e_1, \cdots, e_n, e_{n+1}, \cdots, e_{n+k}, \\
-        &f_1, \cdots, f_n
+        &e_1, \ldots, e_n, e_{n+1}, \ldots, e_{n+k}, \\
+        &f_1, \ldots, f_n
     \end{align*}
     be linearly independent vectors satisfying \eqref{eq:symplectic-basis}.
-    Then we can find the missing $f_{n+1}, \cdots, f_{n+k}$ to complete the symplectic basis.
+    Then we can find the missing $f_{n+1}, \ldots, f_{n+k}$ to complete the symplectic basis.
 \end{proposition}
+\color{black}
+
 \begin{proof}
     We first need the following notion.
     Given a subspace $V \subseteq \W$, consider its orthogonal complement
@@ -111,24 +114,23 @@ In fact, we will also make use of the ``symplectic basis and a half'' variant be
     \]
     and in particular $V^{\perp \perp}$ is precisely equal to $V$.
 
-    Now suppose we have found $f_{n+1}, \cdots, f_{n+i}$ already.
+    Now suppose we have found $f_{n+1}, \ldots, f_{n+i}$ already.
     If $e_{n+i+1}$ were to be spanned by 
     \begin{align*}
-        &e_1, \cdots, e_{n+i}, \cancel{e_{n+i+1}}, e_{n+i+2}, \cdots, e_{n+k},\\ 
-        &f_1, \cdots, f_{n+i},
+        &e_1, \ldots, e_{n+i}, \cancel{e_{n+i+1}}, e_{n+i+2}, \ldots, e_{n+k},\\ 
+        &f_1, \ldots, f_{n+i},
     \end{align*}
-    it would be spanned by $e_{n+i+2}, \cdots, e_{n+k}$ alone because of \eqref{eq:symplectic-basis};
+    it would be spanned by $e_{n+i+2}, \ldots, e_{n+k}$ alone because of \eqref{eq:symplectic-basis};
     but this is impossible as we assumed linear independency.
     So 
     \begin{align*}
         e_{n+i+1} 
-        \not\in{} &\langle e_1, \cdots, e_{n+i}, e_{n+i+2}, f_1, \cdots, f_{n+i} \rangle \\
-        ={} &\langle e_1, \cdots, e_{n+i}, e_{n+i+2}, f_1, \cdots, f_{n+i} \rangle^{\perp \perp},
+        \not\in{} &\langle e_1, \ldots, e_{n+i}, e_{n+i+2}, f_1, \ldots, f_{n+i} \rangle \\
+        ={} &\langle e_1, \ldots, e_{n+i}, e_{n+i+2}, f_1, \ldots, f_{n+i} \rangle^{\perp \perp},
     \end{align*}
-    i.e., some $f_{n+i+1} \in \langle e_1, \cdots, e_{n+i}, e_{n+i+2}, f_1, \cdots, f_{n+i} \rangle^\perp$ satisfies $\omega(e_{n+i+1}, f_{n+i+1}) = 1$.
+    i.e., some $f_{n+i+1} \in \langle e_1, \ldots, e_{n+i}, e_{n+i+2}, f_1, \ldots, f_{n+i} \rangle^\perp$ satisfies $\omega(e_{n+i+1}, f_{n+i+1}) = 1$.
 \end{proof}
 
-\color{black}
 Given two symplectic vector spaces $\W$ and $\W'$,
 we call a function $\alpha$ between $X \subseteq \W$ and $X' \subseteq \W'$ \emph{isometric} if 
 $\omega(\alpha(x_1), \alpha(x_2)) = \omega(x_1, x_2)$ for all $x_1, x_2 \in X$.
@@ -145,7 +147,7 @@ defines an isometric linear isomorphism $\langle e_i, f_i \rangle \to \langle e'
 
 It then follows from Proposition~\ref{prop:symplectic-basis} that, 
 up to isometric linear isomorphisms, 
-$\W_0, \W_1, \W_2, \cdots, \W_\infty$ are all the countable symplectic vector spaces.
+$\W_0, \W_1, \W_2, \ldots, \W_\infty$ are all the countable symplectic vector spaces.
 Whilst we may deduce that $\W_\infty$ is oligomorphic by appealing to Ryll-Nardzewski,
 we will opt for a more direct proof that also establishes smooth approximation.
 
@@ -155,50 +157,48 @@ we will opt for a more direct proof that also establishes smooth approximation.
     and in turn to one of $\W_\infty$.
 \end{proposition}
 
-\color{gray}
 \begin{proof}
-    To begin with, find a basis $x_1, \cdots, x_k$ for $\langle X \rangle^\perp = \{ w \in W \mid \forall x \in X : \omega(w, x) = 0 \}$ 
+    To begin with, find a basis $x_1, \ldots, x_k$ for $\langle X \rangle^\perp = \{ w \in W \mid \forall x \in X : \omega(w, x) = 0 \}$ 
     and extend it to a basis \(
-        x_1, \cdots, x_k, x_{k+1}, \cdots, x_d
+        x_1, \ldots, x_k, x_{k+1}, \ldots, x_d
     \) for $\langle X \rangle$.
     Notice that
     \[
-        U = \langle x_{k+1}, \cdots, x_d \rangle
+        U = \langle x_{k+1}, \ldots, x_d \rangle
     \] must be a symplectic subspace:
     as it intersects with $\langle X \rangle^\perp$ trivially, 
     given any non-zero vector $u \in U$ we must have $0 \neq \omega(u, x + u') = \omega(u, u')$ for some $x \in \langle X \rangle^\perp$ and $u' \in U$.
     Hence use Proposition~\ref{prop:symplectic-basis} to find a symplectic basis
     \(
-        e_1, \cdots, e_n,
-        f_1, \cdots, f_n
+        e_1, \ldots, e_n,
+        f_1, \ldots, f_n
     \)
     for $U$.
     Observe that 
     \begin{align*}
-        &e_1, \cdots, e_n, x_1, \cdots, x_k, \\
-        &f_1, \cdots, f_n
+        &e_1, \ldots, e_n, x_1, \ldots, x_k, \\
+        &f_1, \ldots, f_n
     \end{align*}
     form a basis for $\langle X \rangle$ and satisfy \eqref{eq:symplectic-basis}.
     On the other hand,
     \begin{align*}
-        &\alpha(e_1), \cdots, \alpha(e_n), \alpha(x_1), \cdots, \alpha(x_k), \\
-        &\alpha(f_1), \cdots, \alpha(f_n)
+        &\alpha(e_1), \ldots, \alpha(e_n), \alpha(x_1), \ldots, \alpha(x_k), \\
+        &\alpha(f_1), \ldots, \alpha(f_n)
     \end{align*}
     form a basis for $\alpha(\langle X \rangle)$ and also satisfy \eqref{eq:symplectic-basis}.
     Therefore apply Proposition~\ref{prop:symplectic-basis-and-a-half} twice to find the missing 
-    $y_1, \cdots, y_k$ and $y'_1, \cdots, y'_k$ to complete the two symplectic bases --- call them $\mathcal{B}$ and $\mathcal{B}'$.
+    $y_1, \ldots, y_k$ and $y'_1, \ldots, y'_k$ to complete the two symplectic bases --- call them $\mathcal{B}$ and $\mathcal{B}'$.
     They are of the same size.
 
     Now, by using Proposition~\ref{prop:symplectic-basis}, extend $\mathcal{B}$ and $\mathcal{B}'$ to symplectic bases $\mathcal{C}$ and $\mathcal{C}'$ that span $\W_n$.
     These must both have size $2n$, 
     so by Lemma~\ref{lem:symplectic-basis-gives-isometry} we obtain an isometric linear automorphism $\beta : \W_n \to \W_n$ extending $\alpha$.
 
-    To finish, notice that $\mathcal{C}, e_{n+1}, \cdots, f_{n+1}, \cdots$ as well as $\mathcal{C}', e_{n+1}, \cdots, f_{n+1}, \cdots$ 
+    To finish, notice that $\mathcal{C}, e_{n+1}, \ldots, f_{n+1}, \ldots$ as well as $\mathcal{C}', e_{n+1}, \ldots, f_{n+1}, \ldots$ 
     form a symplectic basis spanning $\W_\infty$.
     We obtain from Lemma~\ref{lem:symplectic-basis-gives-isometry} another time an isometric linear automorphism $\gamma : \W_\infty \to \W_\infty$ extending $\beta$ 
     that is the identity almost everywhere.
 \end{proof}
-\color{black}
 
 
 \begin{proposition}\label{prop:symplectic-oligomorphic}
@@ -221,13 +221,13 @@ we will opt for a more direct proof that also establishes smooth approximation.
 \end{remark}
 
 \begin{proof}
-    To $(v_1, \cdots, v_k) \in \W_\infty^k$ we associate a \emph{type}, 
+    To each $v_\bullet \in \W_\infty^k$ we associate a \emph{type}, 
     which comprises the following data:
-    \begin{itemize}
+    \begin{enumerate}
         \item 
-        pivot indices $I \subseteq \{1, \cdots, k\}$ containing every $i$ 
-        such that $v_i$ is not spanned by $v_1, \cdots, v_{i-1}$
-        --- so we inductively ensure that $$\{v_{i'} \mid i' \in I, i' \leq i\}$$ is a basis for $\langle v_1, \cdots, v_i \rangle$;
+        pivot indices $I \subseteq \{1, \ldots, k\}$ containing every $i$ 
+        such that $v_i$ is not spanned by $v_1, \ldots, v_{i-1}$
+        --- so we inductively ensure that $$\{v_{i'} \mid i' \in I, i' \leq i\}$$ is a basis for $\langle v_1, \ldots, v_i \rangle$;
 
         \item 
         for each $j \not\in I$, an assignment $\Lambda_j : \{i \in I \mid i < j\} \to \ff$
@@ -235,10 +235,10 @@ we will opt for a more direct proof that also establishes smooth approximation.
 
         \item 
         a map $\Omega : \binom{I}{2} \to \ff$ defined by $\Omega(\{i' < i\}) = \omega(v_{i'}, v_{i})$.
-    \end{itemize}
+    \end{enumerate}
     If $\pi : \W_\infty \to \W_\infty$ is an isometric linear automorphism,
-    then $(v_1, \cdots, v_k)$ and $(\pi(v_1), \cdots, \pi(v_k))$ evidently share the same type.
-    Conversely, if $(w_1, \cdots, w_k)$ has the type of $(v_i, \cdots, v_k)$,
+    then $v_\bullet = (v_1, \ldots, v_k)$ and $\pi \cdot v_\bullet = (\pi(v_1), \ldots, \pi(v_k))$ evidently share the same type.
+    Conversely, if $w_\bullet$ has the type of $v_\bullet$,
     then
     \begin{align*}
         \alpha : \langle v_i \mid i \in I \rangle 
@@ -249,7 +249,7 @@ we will opt for a more direct proof that also establishes smooth approximation.
     gives an isometric linear injection for some large enough $n$.
     Observe that $\alpha$ must send $v_j \mapsto w_j$ for $j \not\in I$ too,
     and that it may be extended to an isometric linear automorphism $\pi$ of $\W_\infty$ by Propsoition~\ref{prop:symplectic-witt-extension}.
-    Furthermore we can find some $(v_1, \cdots, v_k)$ that realises any given type $(I, \{\Lambda_j\}_j, \Omega)$:
+    Furthermore we can find some $v_\bullet$ that realises any given type $(I, \{\Lambda_j\}_j, \Omega)$:
     it suffices to put
     \[
         v_i = e_i + \sum_{i' \in I, i' < i} \Omega(i', i) f_{i'}
@@ -274,7 +274,7 @@ we will opt for a more direct proof that also establishes smooth approximation.
         \#_{1, 1} = 1 = \begin{bsmallmatrix}1 \\ 1\end{bsmallmatrix}_q.
     \end{align*}
     Given a linear type in $\W_\infty^k$ with $\vert I \vert = d$, 
-    we either have $1 \in I$ or $I \subseteq \{2, \cdots, k\}$.
+    we either have $1 \in I$ or $I \subseteq \{2, \ldots, k\}$.
     In the first case, the linear type is specified by one of the $\#_{k-1, d-1}$ linear types in $\W_\infty^{k-1}$
     together with how $v_1$ is involved in the span of the $(k - 1) - (d - 1)$ non-pivot vectors.
     In the second case, the linear type is simply one of the $\#_{k-1, d}$ linear types in $\W_\infty^{k-1}$.
@@ -303,7 +303,7 @@ we will opt for a more direct proof that also establishes smooth approximation.
 \subsection{Symplectic graphs}
 For this subsection let $\ff$ be the two-element field.
 \begin{definition}
-    For $n = 0, 1, 2, \cdots$, the \emph{symplectic graph} $\widetilde \W_n$ has vertices $\W_n$ and edges
+    For $n = 0, 1, 2, \ldots$, the \emph{symplectic graph} $\widetilde \W_n$ has vertices $\W_n$ and edges
     \[
         v_1 \sim v_2 \iff \omega(v_1, v_2) = 1.
     \]
@@ -330,7 +330,8 @@ For this subsection let $\ff$ be the two-element field.
 \end{proof}
 
 So the number of orbits in $\widetilde \W_n^k$ is precisely equal to the number of orbits in $\W_n^k$
---- in particular, it is bounded above by $\sum_{d=0}^k \begin{bsmallmatrix}k \\ d\end{bsmallmatrix}_2 \cdot 2^{\binom{d}{2}}$ independently of $n$ by Proposition~\ref{prop:symplectic-oligomorphic}.
+--- in particular, it is bounded above by $\sum_{d=0}^k \begin{bsmallmatrix}k \\ d\end{bsmallmatrix}_2 \cdot 2^{\binom{d}{2}}$ independently of $n$ by Proposition~\ref{prop:symplectic-oligomorphic}.%
+\footnote{This is the $k$th term in the \href{https://oeis.org/A028361}{OEIS sequence A028631}.}
 It remains to show $\widetilde \W_0 \subseteq \widetilde \W_1 \subseteq \widetilde \W_2 \subseteq \cdots$ embeds all finite graphs:
 
 \begin{proposition}[{\cite[Theorem~8.11.2]{GR01}}]
@@ -365,9 +366,12 @@ It remains to show $\widetilde \W_0 \subseteq \widetilde \W_1 \subseteq \widetil
 \end{proof}
 
 \begin{theorem}
-    The Rado graph is roughly approximated by $\widetilde \W_0 \subseteq \widetilde \W_1 \subseteq \widetilde \W_2 \subseteq \cdots$.
+    The Rado graph is width-wise approximated by $\widetilde \W_0 \subseteq \widetilde \W_1 \subseteq \widetilde \W_2 \subseteq \cdots$.
 \end{theorem}
 
 \begin{corollary}
     Provided $\FF$ is of characteristic $0$, the Rado graph is $\FF$-oligomorphic.
 \end{corollary}
+
+This proof of finite length also applies to \emph{oriented graphs} (i.e., $x \to y \implies y \not\to x$ but unlike in a tournament, it may occur that $x \not\to y \wedge y \not\to x$)
+--- use the three-element field as $\ff$ instead.
