@@ -5,8 +5,14 @@ In this section we work with the following setting:
     $\mathcal{L}_0$ is a (possibly infinite) relational language containing a binary symbol $=$;
 
     \item 
-    $\mathcal{C}_0$ is a monotone, free amalgamation class of $\mathcal{L}_0$-structures 
-    where each $R \in \mathcal{L}_0$ is interpreted irreflexively, except $=$ being interpreted as true equality;
+    $\mathcal{C}_0$ is a free amalgamation class of $\mathcal{L}_0$-structures
+    where $=$ is interpreted as true equality, but every other $R \in \mathcal{L}_0$ is interpreted irreflexively.\footnote{%
+        We can enforce irreflexivity by considering a language $\mathcal{L}'_0$ which consists, 
+        for each $R \in \mathcal{L}_0 \setminus \{=\}$ of arity $r$ and each partition $\P$ of $r$ into $k$ parts, 
+        of a $k$-ary relation symbol $R_\P$.
+        Then $\mathcal{L}_0$-structures may be viewed as $\mathcal{L}'_0$-structures and vice versa, without changing the meaning of embeddings.
+        In this way, we get a free amalgamation class $\mathcal{C}'_0$ with a Fraïssé limit which, viewed as an $\mathcal{L}_0$-structrure, is isomorphic to $\A_0$.
+    } 
 
     \item 
     $\mathcal{L}$ consists of $\mathcal{L}_0$ together with a new binary symbol $<$;
@@ -20,30 +26,68 @@ In this section we work with the following setting:
 \end{itemize}
 
 \begin{example}\label{ex:N-Q}
-    Take $\mathcal{L}_0$ to be the empty language and $\mathcal{C}_0$ to be all finite sets.
+    Take $\mathcal{L}_0$ consist of $=$ only and let $\mathcal{C}_0$ to be all finite sets.
     Then $\A_0$ is isomorphic to the pure set $\N$, whereas $\A$ is isomorphic to $\Q$ with the usual order.
 \end{example}
 
 \begin{example}\label{ex:Rado-orderedRado}
-    Let $\mathcal{L}_0$ consist of a single binary symbol $\sim$ 
+    Let $\mathcal{L}_0$ consist of $=$ and a single binary symbol $\sim$ 
     and let $\mathcal{C}_0$ consist of all finite undirected graphs not embedding the complete graph $K_n$,
     where $3 \leq n$ ($\leq \infty$).
     Then $\A_0$ is the $K_n$-free Henson graph (or the Rado graph when $n = \infty$), and $\A$ is its generically ordered counterpart.
     (Allowing $n = 2$ makes these degenerate to $\N$ and $\Q$ above).
 \end{example}
 
-We note three technicalities and a triviality.
+We note two technicalities and a triviality.
 
-\begin{lemma}
-\color{blue}
+\begin{lemma}\label{lem:free-forb}
+    Let $\mathcal{F}_0$ consist of minimal $\mathcal{L}_0$-structures which do not appear in $\mathcal{C}_0$.
+    Then
     \begin{enumerate}
-        \item 
-        forbidden structures are link structures
-
-        \item 
-        free amalgamation with order
+        \item $\mathcal{C}_0$ consists of every $\mathcal{L}_0$-structure that does not embed any $F \in \mathcal{F}_0$.
+        \item $\mathcal{C}$ consists of every $\mathcal{L}$-structure whose $\mathcal{L}_0$-reduct does not embed any $F \in \mathcal{F}_0$.
+        \item Given $F \in \mathcal{F}_0$, every two distinct $x, y \in F$ are related by some $R \in \mathcal{L}_0$.
     \end{enumerate}
 \end{lemma}
+\begin{proof}
+    As $\mathcal{C}_0$ is closed under substructures, its complement is closed under superstructures and thus 
+    --- since there are no infinite strictly descending chain of embedded substructures 
+    --- determined by its minimal structures.
+    2) follows because an $\mathcal{L}$-structure is in $\mathcal{C}$ precisely when its $\mathcal{L}_0$-reduct is in $\mathcal{C}_0$.
+    For 3), notice that $F \setminus \{x\}$, $F \setminus \{y\}$ are in $\mathcal{C}_0$ by 1); 
+    therefore so is their free amalgam over $F \setminus \{x, y\}$, which then cannot agree with $F$.
+\end{proof}
+
+\begin{lemma}\label{lem:free-fresh}
+    Let $X, Y, \{a\} \subseteq \A$ be disjoint.
+    Then there is some automorphism $\tau \in \Aut(\A)$ such that
+    \begin{enumerate}
+        \item $\tau$ fixes every $x \in X$;
+        \item $\tau(a)$ is not related with any $y \in Y \cup \{a\}$ by any $R \in \mathcal{L}_0$;
+        \item $\tau(a) > a$.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    In $\A_0$, form the free amalgam
+% https://q.uiver.app/#q=WzAsNCxbMCwxLCJYIl0sWzEsMiwiWCBcXGN1cCBcXHthXFx9Il0sWzEsMCwiWCBcXGN1cCBZIFxcY3VwIFxce2FcXH0iXSxbMiwxLCJYIFxcY3VwIFkgXFxjdXAgXFx7YSwgYSdcXH0iXSxbMCwxXSxbMCwyXSxbMSwzLCIiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMiwzLCJcXHN1YnNldGVxIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+\[\begin{tikzcd}[cramped]
+	& {X \cup Y \cup \{a\}} \\
+	X && {X \cup Y \cup \{a, a'\}} \\
+	& {X \cup \{a\}}
+	\arrow["\subseteq", dashed, from=1-2, to=2-3]
+	\arrow[from=2-1, to=1-2]
+	\arrow[from=2-1, to=3-2]
+	\arrow[dashed, from=3-2, to=2-3]
+\end{tikzcd}\]
+    so that $x \mapsto x, a \mapsto a'$ is an embedding,
+    and no relation in $\mathcal{L}_0$ is satisfied by any tuple in which both $a'$ and an element of $Y \cup \{a\}$ appear.
+    Now we make $X \cup Y \cup \{a, a'\}$ an $\mathcal{L}$-structure: 
+    inherit the order on $X \cup Y \cup \{a\}$ from $\A$,
+    and declare that $a < a'$ as well as $a' < z$ if $z$, the next element of $X \cup Y$ larger than $a$, exists at all.
+    Notice that $x \mapsto x, a \mapsto a'$ is still an embedding in presence of the order.
+    By homogeneity, we may embed $X \cup Y \cup \{a, a'\}$ into $\A$ via some $f$ which is the identity on $X \cup Y \cup \{a\}$;
+    again by homogeneity, we may extend the embedding $f(x) \mapsto f(x), f(a) \mapsto f(a')$ to some automorphism of $\A$ which makes 1), 2), and 3) true.
+\end{proof}
 
 \begin{proposition}
     The $S$-supported length of $\Lin {\A_0}^d$ is at most that of $\Lin \A^d$ for any finite $S \subseteq \A_0 = \A$.
@@ -51,130 +95,3 @@ We note three technicalities and a triviality.
 \begin{proof}
     Any chain of subspaces in $\Lin {\A_0}^d = \Lin \A^d$ that are invariant under $\Aut(\A_0)_{(S)}$ must also be invariant under the subgroup $\Aut(\A)_{(S)}$.
 \end{proof}
-
-
-\subsection{Cogs in an orbit}
-One problem with $\A^d$ is that it can have many orbits.
-\begin{definition}\label{def:strict-orbit}
-    An orbit $\mathcal{O} = \Aut(\A)_{(S)} \cdot o_\bullet \subseteq \A^d$ is \emph{strict} 
-    if the atoms in $o_\bullet$ satisfy $o_1 < \cdots < o_d$ and are not from the finite set $S$.
-\end{definition}
-
-Any orbit $\Aut(\A)_{(S)} \cdot a_\bullet$ is in an $\Aut(\A)_{(S)}$-equivariant bijection with a strict one
---- it suffices to remove entries in $a_\bullet$ that repeat or come from $S$ and reorder the rest.
-
-\begin{proposition}
-    $\A$ is \textcolor{red}{supportively} $\FF$-oligomorphic
-    if and only if $\A$ is oligomorphic and $\Lin_\FF \mathcal{O}$ has finite length for every strict orbit $\mathcal{O}$.
-\end{proposition}
-\begin{proof}
-    Indeed, we have \(
-        \len(\Lin_\FF \A^d) 
-        = \len(\Lin_\FF(\biguplus_i \mathcal{O}_i)) 
-        = \len(\bigoplus_i \Lin_\FF \mathcal{O}_i)
-        = \sum_i \len(\Lin_\FF \mathcal{O}_i)
-    \)
-    given a finite support.
-\end{proof}
-
-Thus fix a strict orbit $\mathcal{O}$ with support $S$.
-
-\begin{remark}
-    As $\A$ has no algebraicity, the strict orbit $\mathcal{O}$ uniquely determines its support $S$: 
-    we have $\A \setminus S = \{a_1 \mid a_\bullet \in \mathcal{O}\}$.
-    Also, since $\A$ is homogeneous, a tuple $a_\bullet \in \A^d$ belongs to $\mathcal{O}$ if and only if
-    \[
-        R(x_\bullet) \iff R(x_\bullet[o_i / a_i \mid i])
-    \]
-    holds in $\A$ for every symbol $R$ in $\mathcal{L}$ of arity $r$ 
-    and every $x_\bullet \in (\{a_1, \ldots, a_d\} \cup S)^r$.
-\end{remark}
-
-We now introduce the workhorse we use to understand $\Lin \mathcal{O} \subseteq \Lin \A^d$.
-\begin{definition}\label{def:cogs}
-    An \emph{$\mathcal{O}$-cog} $a_\bullet | b_\bullet$ consists of atoms $a_1 < b_1 < a_2 < b_2 < \cdots < a_d < b_d$ such that
-    for any symbol $R$ in $\mathcal{L}$ of arity $r$,
-    given any $x_\bullet \in (\{a_1, b_1, \ldots, a_d, b_d \} \cup S)^r$ we have
-    \[
-        R(x_\bullet) \iff R(x_\bullet[o_i / a_i, o_i / b_i \mid i ])
-    \]
-    in $\A$.
-    In particular, for each $I \subseteq \{1, \ldots, d\}$ we see that $a_\bullet [b_i / a_i \mid i \in I]$ is in the strict orbit $\mathcal{O}$ from the remark above;
-    we define the corresponding \emph{$\mathcal{O}$-cogwheel} to be the vector
-    \[
-        a_\bullet {\between} b_\bullet =
-        \sum_{I \subseteq \{1, \ldots, d\}} (-1)^{|I|} a_\bullet[b_i / a_i \mid i \in I]
-    \]
-    in $\Lin \mathcal{O}$.
-\end{definition}
-
-It is actually easier to find cogs than to define them.
-\begin{example}
-    Let $\A = \Q$ as described in Example~\ref{ex:N-Q};
-    there is a unique equivariant strict orbit $\mathcal{O}$ in $\A^2$.
-    Consider the vector
-    \[
-        v = (0, 5) + (5, 6) - (5, 10) - (0, 10)
-    \]
-    in $\Lin \mathcal{O}$.
-    We can find $5 < 5+\varepsilon < 6 < 6+\delta < 10$ in $\A$
-    together with monotone bijections $\pi_1, \pi_2 \in \Aut(\A)$ such that
-    \[
-        \pi_1 : 
-        \begin{cases}
-            0 \mapsto 0, \\
-            5 \mapsto 5 + \varepsilon, \\
-            6 \mapsto 6, \\
-            10 \mapsto 10;
-        \end{cases}
-        \pi_2 : 
-        \begin{cases}
-            0 \mapsto 0, \\
-            5 \mapsto 5, \\
-            6 \mapsto 6 + \delta, \\
-            10 \mapsto 10
-        \end{cases}        
-    \]
-    by interpolating linearly for example.
-    Then
-    \begin{align*}
-        v_1 
-        = v - \pi_1 \cdot v
-        ={}& (0, 5) + (5, 6) - (5, 10) \\
-        &-(0, 5+\varepsilon) - (5+\varepsilon, 6) + (5+\varepsilon, 10)
-    \end{align*}
-    duplicates the tuples with $5$ in it but kills the one without it.
-    Similarly 
-    \begin{align*}
-        v_{1,2}
-        = v_1 - \pi_2 \cdot v_1
-        ={}& (5, 6) - (5, 6+\delta) \\
-        &-(5+\varepsilon, 6) + (5+\varepsilon, 6+\delta)
-    \end{align*}
-    only leaves and duplicates the tuples with $6$ in it.
-    Here $v_{1,2}$ is the cogwheel for the cog $(5, 6|5 + \varepsilon, 6 + \delta)$ in $\mathcal{O}$
-    as well as the smaller strict orbit $\mathcal{O}' = \Aut(\A)_{(-2, 10)} \cdot (5, 6) \subseteq \mathcal{O}$.
-\end{example}
-
-In general, we may build cogs and cogwheels as follows.
-\begin{lemma}\label{lem:finding-cogs}
-    Take any $(a_1, \ldots, a_d)$ from a strict orbit $\mathcal{O}'$ with support $S'$.
-    Then: 
-    \begin{enumerate}
-        \item 
-        we can find $(b_1, \ldots, b_d)$ so that $a_\bullet | b_\bullet$ forms an $\mathcal{O}'$-cog;
-        
-        \item 
-        for $i = 1, \ldots, d$ there is some $\pi_i \in \Aut(\A)_{(S')}$ that sends $a_i \mapsto b_i$ but fixes $a_{i'}$ for $i' \neq i$. 
-    \end{enumerate}
-\end{lemma}
-
-\begin{proof}
-    We find $b_1, b_2, \ldots$ inductively.
-    Write
-    \[
-        X_i = \{a_1, \ldots, a_d, b_1, \ldots, b_{i-1}\} \cup S,
-    \]
-    and form the $\mathcal{L}_0$-amalgam 
-\end{proof}
-
