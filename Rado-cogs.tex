@@ -2,7 +2,7 @@
 In this section we work with the following setting:
 \begin{itemize}
     \item 
-    $\mathcal{L}_0$ is a (possibly infinite) relational language containing a binary symbol $=$;
+    $\mathcal{L}_0$ is a (possibly infinite) \textcolor{magenta}{BINARY?} relational language containing a binary symbol $=$;
 
     \item 
     $\mathcal{C}_0$ is a free amalgamation class of $\mathcal{L}_0$-structures
@@ -31,7 +31,7 @@ In this section we work with the following setting:
 \end{example}
 
 \begin{example}\label{ex:Rado-orderedRado}
-    Let $\mathcal{L}_0$ consist of $=$ and a single binary symbol $\sim$ 
+    Let $\mathcal{L}_0$ consist of $=$ together with a single binary symbol $\sim$ 
     and let $\mathcal{C}_0$ consist of all finite undirected graphs not embedding the complete graph $K_n$,
     where $3 \leq n$ ($\leq \infty$).
     Then $\A_0$ is the $K_n$-free Henson graph (or the Rado graph when $n = \infty$), and $\A$ is its generically ordered counterpart.
@@ -54,39 +54,42 @@ We note two technicalities and a triviality.
     --- since there are no infinite strictly descending chain of embedded substructures 
     --- determined by its minimal structures.
     2) follows because an $\mathcal{L}$-structure is in $\mathcal{C}$ precisely when its $\mathcal{L}_0$-reduct is in $\mathcal{C}_0$.
-    For 3), notice that $F \setminus \{x\}$, $F \setminus \{y\}$ are in $\mathcal{C}_0$ by 1); 
+    For 3), notice that $F \setminus \{x\}$, $F \setminus \{y\}$ are in $\mathcal{C}_0$ by minimality; 
     therefore so is their free amalgam over $F \setminus \{x, y\}$, which then cannot agree with $F$.
 \end{proof}
 
 \begin{lemma}\label{lem:free-fresh}
-    Let $X, Y, \{a\} \subseteq \A$ be disjoint.
+    Let $X, Y, \{z\} \subseteq \A$ be disjoint and finite.
     Then there is some automorphism $\tau \in \Aut(\A)$ such that
     \begin{enumerate}
         \item $\tau$ fixes every $x \in X$;
-        \item $\tau(a)$ is not related with any $y \in Y \cup \{a\}$ by any $R \in \mathcal{L}_0$;
-        \item $\tau(a) > a$.
+        \item $\tau(z)$ does not appear together with any $y \in Y$ or with $a$ in any tuple $a_\bullet \in (X \cup Y \cup \{z, \tau(z)\})^*$ such that $\A \models R(a_\bullet)$ for some $R \in \mathcal{L}_0$;
+        \item $\tau(z) > z$.
     \end{enumerate}
 \end{lemma}
 \begin{proof}
     In $\A_0$, form the free amalgam
-% https://q.uiver.app/#q=WzAsNCxbMCwxLCJYIl0sWzEsMiwiWCBcXGN1cCBcXHthXFx9Il0sWzEsMCwiWCBcXGN1cCBZIFxcY3VwIFxce2FcXH0iXSxbMiwxLCJYIFxcY3VwIFkgXFxjdXAgXFx7YSwgYSdcXH0iXSxbMCwxXSxbMCwyXSxbMSwzLCIiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMiwzLCJcXHN1YnNldGVxIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+% https://q.uiver.app/#q=WzAsNCxbMCwxLCJYIl0sWzEsMiwiWCBcXGN1cCBcXHt6XFx9Il0sWzEsMCwiWCBcXGN1cCBZIFxcY3VwIFxce3pcXH0iXSxbMiwxLCJYIFxcY3VwIFkgXFxjdXAgXFx7eiwgeidcXH0iXSxbMCwxLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFswLDIsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzEsMywieCBcXGluIFggXFxtYXBzdG8geCwgeiBcXG1hcHN0byB6JyIsMSx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn0sImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsyLDMsIlxcc3Vic2V0ZXEiLDEseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
 \[\begin{tikzcd}[cramped]
-	& {X \cup Y \cup \{a\}} \\
-	X && {X \cup Y \cup \{a, a'\}} \\
-	& {X \cup \{a\}}
-	\arrow["\subseteq", dashed, from=1-2, to=2-3]
-	\arrow[from=2-1, to=1-2]
-	\arrow[from=2-1, to=3-2]
-	\arrow[dashed, from=3-2, to=2-3]
+	& {X \cup Y \cup \{z\}} \\
+	X && {X \cup Y \cup \{z, z'\}} \\
+	& {X \cup \{z\}}
+	\arrow["\subseteq"{description}, dashed, hook, from=1-2, to=2-3]
+	\arrow[hook, from=2-1, to=1-2]
+	\arrow[hook, from=2-1, to=3-2]
+	\arrow["{x \in X \mapsto x, z \mapsto z'}"{description}, dashed, hook, from=3-2, to=2-3]
 \end{tikzcd}\]
-    so that $x \mapsto x, a \mapsto a'$ is an embedding,
-    and no relation in $\mathcal{L}_0$ is satisfied by any tuple in which both $a'$ and an element of $Y \cup \{a\}$ appear.
-    Now we make $X \cup Y \cup \{a, a'\}$ an $\mathcal{L}$-structure: 
-    inherit the order on $X \cup Y \cup \{a\}$ from $\A$,
-    and declare that $a < a'$ as well as $a' < z$ if $z$, the next element of $X \cup Y$ larger than $a$, exists at all.
-    Notice that $x \mapsto x, a \mapsto a'$ is still an embedding in presence of the order.
-    By homogeneity, we may embed $X \cup Y \cup \{a, a'\}$ into $\A$ via some $f$ which is the identity on $X \cup Y \cup \{a\}$;
-    again by homogeneity, we may extend the embedding $f(x) \mapsto f(x), f(a) \mapsto f(a')$ to some automorphism of $\A$ which makes 1), 2), and 3) true.
+    so that no element of $Y \cup \{z\}$ is related with $z'$ by any $R \in \mathcal{L}_0$.
+    Now we make $X \cup Y \cup \{z, z'\}$ an $\mathcal{L}$-structure: 
+    inherit the order on $X \cup Y \cup \{z\}$ from $\A$,
+    and declare that $z < z'$ as well as $z' < a$ if $a$, the next element of $X \cup Y$ larger than $z$, exists at all.
+    Notice that \[
+        x \in X \mapsto x, z \mapsto z'
+    \] is still an embedding in presence of the order.
+    By homogeneity, we may embed $X \cup Y \cup \{z, z'\}$ into $\A$ via some $f$ which is the identity on $X \cup Y \cup \{z\}$;
+    again by homogeneity, we may extend the embedding \[ 
+        f(x) = x \in X \mapsto f(x), f(z) \mapsto f(z')
+    \] to some automorphism $\tau$ which makes 1), 2), and 3) true.
 \end{proof}
 
 \begin{proposition}
@@ -95,3 +98,266 @@ We note two technicalities and a triviality.
 \begin{proof}
     Any chain of subspaces in $\Lin {\A_0}^d = \Lin \A^d$ that are invariant under $\Aut(\A_0)_{(S)}$ must also be invariant under the subgroup $\Aut(\A)_{(S)}$.
 \end{proof}
+
+
+
+
+
+
+
+
+
+\subsection{Cogs in an orbit}
+An inconvenience of $\A^d$ is that it may have many orbits.
+\begin{definition}
+    Let $S \subseteq \A$ be finite.
+    We say an orbit $\mathcal{O} \subseteq \A^d$ is $S$-orderly 
+    if $\mathcal{O} = \Aut(\A)_{(S)} \cdot o_\bullet$ for some/any $o_\bullet \in \mathcal{O}$ 
+    where $o_1 < \dots < o_d$ and $o_1, \dots, o_d \not\in S$.
+\end{definition}
+By removing entries of $o_\bullet$ that repeat or come from $S$ and reordering the rest,
+we can always find an $\Aut(\A)_{(S)}$-equivariant bijection to an $S$-orderly orbit.
+Moreover, we may focus on a single $S$-orderly orbit at a time:
+
+\begin{proposition}
+    The following are equivalent for any finite $S \subseteq \A$:
+    \begin{enumerate}
+        \item $\A_S$ (that is, $\A$ with constants from $S$ fixed) is $\FF$-oligomorphic;
+        \item $\A$ is oligomorphic and for every $S$-orderly orbit $\mathcal{O}$, the $S$-supported length of $\Lin_\FF \mathcal{O}$ is finite.
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    Indeed we have
+    \(
+        \len(\Lin_\FF \A_S^d) 
+        = \len(\Lin_\FF(\biguplus_i \mathcal{O}_i))
+        = \len(\bigoplus_i \Lin_\FF \mathcal{O}_i) 
+        = \sum_i \len(\Lin_\FF \mathcal{O}_i)
+    \), where the $\mathcal{O}_i$'s are the $S$-orderly counterparts of the $\Aut(\A)_{(S)}$-orbits in $\A^d$.
+\end{proof}
+
+We now introduce the workhorse for understanding $\Lin_\FF \mathcal{O}$.
+\begin{definition}
+    Let $\mathcal{O} \subseteq \A^d$ be an $S$-orderly orbit.
+    An \emph{$\mathcal{O}$-cog parallel} $a_\bullet \parallel b_\bullet$ consists of atoms $a_1 < b_1 < a_2 < b_2 < \dots < a_d < b_d$
+    satisfying the following: 
+    for some/any $o_\bullet \in \mathcal{O}$, 
+    for every relation $R \in \mathcal{L}$ of arity $r$,
+    and for each $r$-tuple $x_\bullet$ with entries in $\{a_1, \dots, a_d, b_1, \dots, b_d\} \cup S$,
+    we have
+    \[
+        \A \models R(x_\bullet) \leftrightarrow R(x_\bullet [a_i \mapsto o_i, b_i \mapsto o_i \mid 1 \leq i \leq d]).
+    \]    
+    (By $x_\bullet [ a \mapsto b, c \mapsto d ]$ we mean the $r$-tuple where each entry $x_i$ equal to $a$ is replaced by $b$, and each entry equal to $c$ --- assumed to be distinct from $a$ --- is replaced by $d$).
+\end{definition}
+
+In particular, for all $I \subseteq \{1, \dots, d\}$ we may take $x_\bullet$ above to have entries in $\{a_i \mid i \in I\} \cup \{b_j \mid j \not\in I\} \cup S$, showing that
+\[
+    \begin{cases}
+        a_i \mapsto o_i, &i \in I; \\ 
+        b_j \mapsto o_j, &j \not\in I; \\
+        s \mapsto s & s \in S
+    \end{cases}
+\]
+defines an embedding.
+It follows from homogeneity that $a_\bullet [a_i \mapsto b_i \mid i \in I]$ lies in the orbit $\mathcal{O} = \Aut(\A)_{(S)} \cdot o_\bullet$.
+
+\begin{definition}
+    The $\mathcal{O}$-cog corresponding to an $\mathcal{O}$-cog parallel $a_\bullet \parallel b_\bullet$ is the vector
+    \[
+        a_\bullet \between b_\bullet = \sum_{I \subseteq \{1, \dots, d\}} (-1)^{ |I| } a_\bullet [a_i \mapsto b_i \mid i \in I] \in \Lin_\FF \mathcal{O}.
+    \]
+    The linear span of all $\mathcal{O}$-cogs is denoted by $\Cog_\FF \mathcal{O}$.
+\end{definition}
+
+\begin{proposition}
+    Let $\mathcal{O}$ be $S$-orderly.
+    Then $\Cog_\FF \mathcal{O}$ is an $\Aut(\A)_{(S)}$-equivariant subspace of $\Lin_\FF \mathcal{O}$ generated by any single $\mathcal{O}$-cog.
+\end{proposition}
+\begin{proof}
+    Suppose $a_\bullet \parallel b_\bullet$ is an $\mathcal{O}$-cog parallel.
+    The definition completely specifies the $\mathcal{L}$-structure on $\{a_1, b_1, \dots, a_d, b_d\} \cup S$
+    and says that
+    \[
+        a_i \mapsto a'_i, b_i \mapsto b'_i, s \mapsto s
+    \]
+    is an isomorphism given another $\mathcal{O}$-cog parallel $a'_\bullet \parallel b'_\bullet$.
+    Homogeneity then yields an automorphism $\pi \in \Aut(\A)_{(S)}$ satisfying $\pi \cdot (a_\bullet \between b_\bullet) = a'_\bullet \between b'_\bullet$.
+\end{proof}
+
+Though the definitions were a mouthful, the example below should explain how cogs arise.
+\begin{example}
+    Let $\A = \Q$ as described in Example~\ref{ex:N-Q};
+    there is a unique $\{\}$-orderly orbit $\mathcal{O}$ in $\A^2$.
+    Consider the vector
+    \[
+        v = (0, 4) + (4, 9) - (9, 10) - (0, 10)
+    \]
+    in $\Lin \mathcal{O}$.
+    We can find $4 < 4+\varepsilon < 9 < 9+\delta < 10$ in $\A$
+    together with monotone bijections $\pi_1, \pi_2 \in \Aut(\A)$ such that
+    \[
+        \pi_1 : 
+        \begin{cases}
+            0 \mapsto 0, \\
+            4 \mapsto 4 + \varepsilon, \\
+            9 \mapsto 9, \\
+            10 \mapsto 10;
+        \end{cases}
+        \pi_2 : 
+        \begin{cases}
+            0 \mapsto 0, \\
+            4 \mapsto 4, \\
+            9 \mapsto 9 + \delta, \\
+            10 \mapsto 10
+        \end{cases}        
+    \]
+    by interpolating linearly for example.
+    Then
+    \begin{align*}
+        v_1 
+        = v - \pi_1 \cdot v
+        ={}& (0, 4) + (4, 9) - (4, 10) \\
+        &-(0, 4+\varepsilon) - (4+\varepsilon, 9) + (4+\varepsilon, 10)
+    \end{align*}
+    duplicates the tuples with $4$ in it but kills the one without it.
+    Similarly 
+    \begin{align*}
+        v_{1,2}
+        = v_1 - \pi_2 \cdot v_1
+        ={}& (4, 9) - (4, 9+\delta) \\
+        &-(4+\varepsilon, 9) + (4+\varepsilon, 9+\delta)
+    \end{align*}
+    only leaves and duplicates the tuples with $9$ in it.
+    Here $v_{1,2}$ is the parallel for the cog $(4, 9 \parallel 4 + \varepsilon, 9 + \delta)$ in $\mathcal{O}$
+    as well as the smaller $\{0, 10\}$-orderly orbit $\mathcal{O}' = \Aut(\A)_{(0, 10)} \cdot (4, 9) \subseteq \mathcal{O}$.
+\end{example}
+
+To find cog parallels in general, we iterate the following procedure.
+\begin{lemma}\label{lem:cog-building}
+    Let $a_\bullet \parallel b_\bullet$ be an $\mathcal{O}$-cog parallel, where $\mathcal{O} \subseteq \A^d$ is $S$-orderly.
+    Given $s \in S$ with $a_{j-1} < s < a_j$ (where we treat $a_0$ and $a_{d+1}$ as $\pm \infty$), 
+    we write $S' = S \setminus \{s\}$ and let $a_\bullet ;_j s \in \A^{d+1}$ be the tuple obtained by inserting $s$ in $a_\bullet$ as the $j$th entry.
+    Then \[
+        \mathcal{O}' = \Aut(\A)_{(S')} \cdot a_\bullet ;_j s \subseteq \A^{d+1}
+    \]
+    is $S'$-orderly.
+
+    Apply Lemma~\ref{lem:free-fresh} with $X \Coloneqq \{a_1, b_1, \dots, a_d, b_d\} \cup S'$, $z \Coloneqq s$, and any finite $Y \subseteq \A$ disjoint from $X \cup \{z\}$ to obtain $\tau \in \Aut(\A)_{(X)}$ and $\tau(z) \Eqqcolon s'$.
+    Then $a_\bullet ;_j  s \parallel b_\bullet ;_j s'$ is an $\mathcal{O}'$-cog parallel.
+    
+\end{lemma}
+\begin{proof}
+    Already $a_{j-1} < b_{j-1} < s$ (if $j > 1$), $s < s'$, and $s' < a_j < b_j$ (if $j \leq d$).
+    Now pick any relation $R \in \mathcal{L}$ of arity $r$ and take any $x_\bullet \in (\{a_1, b_1, \dots, a_d, b_d, s, s'\} \cup S')^r = (X \cup \{s, s'\} \cup Y)^r$.
+    We split into three cases.
+    
+    If $s$ and $s'$ both appear in $x_\bullet$, then we have
+    \begin{equation}\label{eq:cog-building-relations}
+        \A \models R(x_\bullet [ b_i \mapsto a_i, s' \mapsto s \mid 1 \leq i \leq d ] ) \leftrightarrow R(x_\bullet). \tag{\P}
+    \end{equation}
+    Indeed, the left is false because $R$ is irreflexive;
+    so is the right by the design of $s'$.
+
+    Now if $s$ appears in $x_\bullet$ we may assume $s'$ does not.
+    This time around we have \eqref{eq:cog-building-relations} as $x_\bullet \in (\{a_1, b_1, \dots, a_d, b_d\} \cup S)^r$ 
+    --- so we can ignore the $[s' \mapsto s]$ substitution ---
+    and $a_\bullet \parallel b_\bullet$ is a cog parallel in $\mathcal{O} = \Aut(\A)_{(S)} \cdot a_\bullet$.
+
+    Finally, suppose $s'$ appears in $x_\bullet$ and $s$ does not.
+    Then $x_\bullet [s' \mapsto s] = \tau^{-1} \cdot x_\bullet$ and
+    \begin{align*}
+        x_\bullet [ b_i \mapsto a_i, s' \mapsto s \mid 1 \leq i \leq d ] \\
+        = (\tau^{-1} \cdot x_\bullet) [ b_i \mapsto a_i \mid 1 \leq i \leq d ]
+    \end{align*}
+    where $\tau^{-1} \cdot x_\bullet \in (\{a_1, b_1, \dots, a_d, b_d\} \cup S)^r$.
+    On the one hand, as discussed in the case above we get
+    \[
+        \A \models R((\tau^{-1} \cdot x_\bullet) [ b_i \mapsto a_i \mid 1 \leq i \leq d ]) \leftrightarrow R(\tau^{-1} \cdot x_\bullet).
+    \]
+    On the other hand, we certainly have
+    \[
+        \A \models R(\tau^{-1} \cdot x_\bullet) \leftrightarrow R(x_\bullet)
+    \]
+    since $\tau$ is an automorphism.
+    This establishes \eqref{eq:cog-building-relations} again,
+    showing that $a_\bullet s \parallel b_\bullet s'$ is an $\mathcal{O}'$-cog parallel.
+\end{proof}
+
+\begin{proposition}
+    Let $\mathcal{O} \subseteq \A^d$ be $S$-orderly.
+    Then, given $a_\bullet \in \mathcal{O}$, there exists $b_\bullet \in \mathcal{O}$ such that $a_\bullet \parallel b_\bullet$ is an $\mathcal{O}$-cog parallel.
+    Moreover, for $i = 1, \dots, d$ there is an automorphism $\pi_i \in \Aut(\A)_{(\{a_1, b_1, \dots, a_{i-1}, b_{i-1}, a_{i+1}, b_{i+1}, \dots, a_d, b_d\} \cup S)}$ sending $a_i \mapsto b_i$.
+\end{proposition}
+\begin{proof}
+    For $1 \leq i \leq d+1$, let $S^{(i)} = S \cup \{a_i, \dots, a_d\}$ and let $\mathcal{O}^{(i)} = \Aut(\A)_{(S^{(i)})} \cdot (a_1, \dots, a_{i-1})$;
+    then $\mathcal{O}^{(i)}$ is $S^{(i)}$-orderly.
+    
+    Suppose we have found $b_1, \dots, b_{i-1}$ so that \[
+        (a_1, \dots, a_{i-1}) \parallel (b_1, \dots, b_{i-1})
+    \] is an $\mathcal{O}^{(i)}$-cog parallel ---
+    note that $() \parallel ()$ is trivially a cog parallel in $\mathcal{O}^{(1)} = \{()\}$.
+    As $S^{(i+1)} = S^{(i)} \setminus \{a_i\}$, a straightforward application of Lemma~\ref{lem:cog-building} with $Y \Coloneqq \{\}$ gives us an atom $b_i$ such that 
+    \[
+        (a_1, \dots, a_{i-1}, a_i) \parallel (b_1, \dots, b_{i-1}, b_i)
+    \] is a cog parallel in $\mathcal{O}^{(i+1)}$.
+    We are done when we reach $S^{(d+1)} = S$ and $\mathcal{O}^{(d+1)} = \mathcal{O}$.
+    
+    
+    The automorphisms $\pi_1, \dots, \pi_d$ now come directly from homogeneity: 
+    the map
+    \begin{align*}
+        a_1 \mapsto a_1, \dots,{} &a_i \mapsto b_i, \dots, a_d \mapsto a_d \\
+        b_1 \mapsto b_1, \dots,{} &\phantom{a_i \mapsto b_i}, \dots, b_d \mapsto b_d, s \in S \mapsto s
+    \end{align*}
+    is an embedding because $a_\bullet \parallel b_\bullet$ is a cog parallel in $\mathcal{O} = \Aut(\A)_{(S)} \cdot a_\bullet [a_i \mapsto b_i] $.
+\end{proof}
+
+\begin{theorem}
+    Given an $S$-orderly orbit $\mathcal{O}$,
+    any non-zero $\Aut(\A)_{(S)}$-equivariant subspace of $\Lin_\FF \mathcal{O}$ contains $\Cog_\FF \mathcal{O}$.
+\end{theorem}
+\begin{proof}
+    Let $V \subseteq \Lin_\FF \mathcal{O}$ be a non-zero $\Aut(\A)_{(S)}$-equivariant subspace and let $v \in V$ be a non-zero vector;
+    then $v(a_\bullet) \neq 0$ for some $a_\bullet \in \mathcal{O}$.
+    By lemma
+    \begin{align*}
+        v_1 &= v - \pi_1 \cdot v \\
+        v_{1, 2} &= v_1 - \pi_2 \cdot v_1 \\
+        &\cdots \\
+        v_{1, 2, \dots, d} &= v_{1, 2, \dots, d-1} - \pi_d \cdot v_{1, 2, \dots, d-1}.
+    \end{align*}
+\end{proof}
+
+\begin{corollary}
+    $\Cog_\FF \mathcal{O}$ has length $1$.
+\end{corollary}
+
+
+\subsection{Projecting down}
+\[
+    (-)|_{I \setminus \{i\}} = (-)|_{-i}
+\]
+
+\subsection{Building up}
+\[
+    a^{(1)}_{i_1},
+    a^{(2)}_{i_2},
+    \dots,
+    a^{(n)}_{i_n},
+    b_*,
+    s_1,
+    \dots,
+    s_m 
+\]
+
+\[
+    o_{i_1},
+    o_{i_2},
+    \dots,
+    o_{i_n},
+    o_{N},
+    s_1,
+    \dots,
+    s_m 
+\]
