@@ -20,7 +20,7 @@ To introduce:
     \item 
     \emph{smooth approximation} by \emph{homogeneous substructures} \cite{KLM89} (N.B. `smooth approximation' from \cite[Definition~4]{MP24} seems to be entirely different)
     \item 
-    \emph{width-wise approximation} of a homogeneous structure by finite substructures with uniformly few orbits (i.e., types)
+    \emph{oligomorphic approximation} of a homogeneous structure by finite substructures with uniformly few orbits (i.e., types)
     that cover the age of $\A$
     \item 
     For the equality and ordered atoms, being supportively $\FF$-oligomorphic follows from being $\FF$-oligomorphic \cite[Theorem~4.10]{BFKM24}
@@ -158,7 +158,7 @@ we will opt for a more direct proof that also establishes smooth approximation.
 \end{proposition}
 
 \begin{proof}
-    To begin with, find a basis $x_1, \ldots, x_k$ for $\langle X \rangle^\perp = \{ w \in W \mid \forall x \in X : \omega(w, x) = 0 \}$ 
+    To begin with, find a basis $x_1, \ldots, x_k$ for the subspace $W = \{ w \in \langle X \rangle \mid \forall x \in X : \omega(w, x) = 0 \}$ 
     and extend it to a basis \(
         x_1, \ldots, x_k, x_{k+1}, \ldots, x_d
     \) for $\langle X \rangle$.
@@ -166,8 +166,8 @@ we will opt for a more direct proof that also establishes smooth approximation.
     \[
         U = \langle x_{k+1}, \ldots, x_d \rangle
     \] must be a symplectic subspace:
-    as it intersects with $\langle X \rangle^\perp$ trivially, 
-    given any non-zero vector $u \in U$ we must have $0 \neq \omega(u, x + u') = \omega(u, u')$ for some $x \in \langle X \rangle^\perp$ and $u' \in U$.
+    as it intersects with $W$ trivially, 
+    given any non-zero vector $u \in U$ we must have $0 \neq \omega(u, w + u') = \omega(u, u')$ for some $w \in W$ and $u' \in U$.
     Hence use Proposition~\ref{prop:symplectic-basis} to find a symplectic basis
     \(
         e_1, \ldots, e_n,
@@ -260,7 +260,7 @@ we will opt for a more direct proof that also establishes smooth approximation.
     Finally, we do some combinatorics.
     Fix $0 \leq d \leq k$ and count the number of types with $|I| = d$.
     There are $q^{\binom{d}{2}}$ choices for $\Omega$ and say $\#_{k, d}$ choices for the $\Lambda_j$'s;
-    the two can be chosen separately.
+    the two can be chosen independently.
     In total, this gives
     \[ 
         \sum_{d=0}^k q^{\binom{d}{2}} \cdot \#_{k, d} 
@@ -366,7 +366,7 @@ It remains to show $\widetilde \W_0 \subseteq \widetilde \W_1 \subseteq \widetil
 \end{proof}
 
 \begin{theorem}
-    The Rado graph is width-wise approximated by $\widetilde \W_0 \subseteq \widetilde \W_1 \subseteq \widetilde \W_2 \subseteq \cdots$.
+    The Rado graph is oligomorphically approximated by $\widetilde \W_0 \subseteq \widetilde \W_1 \subseteq \widetilde \W_2 \subseteq \cdots$.
 \end{theorem}
 
 \begin{corollary}
