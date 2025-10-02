@@ -1,9 +1,8 @@
 \section{Rado graph, sans cogs}
 
-$\A$ is: 
 \begin{enumerate}
-    \item oligomorphic if, for $k = 0, 1, 2, \cdots$, $\A^k$ only has finitely many orbits;
-    \item $\FF$-oligomorphic if, for $k = 0, 1, 2, \cdots$, $\Lin_\FF \A^k$ only has finitely long chains.
+    \item $\A$ is oligomorphic if, for $k = 0, 1, 2, \cdots$, $\A^k$ only has finitely many orbits;
+    \item $\A$ has the finite length property over $\FF$ if, for $k = 0, 1, 2, \cdots$, $\Lin_\FF \A^k$ only has finitely long chains.
 \end{enumerate}
 \textcolor{red}{
 Of note: with Stirling numbers of the second kind and Gaussian $2$-binomial coefficients,
@@ -50,8 +49,9 @@ Throughout this subsection let $\ff$ denote a finite field.
     we obtain a countable-dimensional symplectic vector space $\W_\infty = \bigcup_n \W_n$.
 \end{example}
 
-We will refer to vectors satisfying \eqref{eq:symplectic-basis} as a \emph{symplectic basis} 
---- indeed, they must be linearly independent.
+We will refer to vectors satisfying \eqref{eq:symplectic-basis} as a \emph{symplectic basis}. 
+Note such vectors must be linearly independent:
+if $v = \sum_i \lambda_i e_i + \mu_i f_i = 0$, then $\lambda_i = \omega(v, f_i) = 0$ and $\mu_i = \omega(e_i, v) = 0$ for each $i$.
 Such bases behave very much like the usual bases.
 
 \begin{proposition}\label{prop:symplectic-basis}
@@ -117,8 +117,8 @@ In fact, we will also make use of the ``symplectic basis and a half'' variant be
     Now suppose we have found $f_{n+1}, \ldots, f_{n+i}$ already.
     If $e_{n+i+1}$ were to be spanned by 
     \begin{align*}
-        &e_1, \ldots, e_{n+i}, \cancel{e_{n+i+1}}, e_{n+i+2}, \ldots, e_{n+k},\\ 
-        &f_1, \ldots, f_{n+i},
+        &e_1, \ldots, e_n, e_{n+1}, \ldots e_{n+i}, \cancel{e_{n+i+1}}, e_{n+i+2}, \ldots, e_{n+k},\\ 
+        &f_1, \ldots, f_n, f_{n+1}, \ldots, f_{n+i},
     \end{align*}
     it would be spanned by $e_{n+i+2}, \ldots, e_{n+k}$ alone because of \eqref{eq:symplectic-basis};
     but this is impossible as we assumed linear independency.
@@ -294,20 +294,20 @@ we will opt for a more direct proof that also establishes smooth approximation.
 \end{theorem}
 
 \begin{corollary}
-    Provided $\FF$ is of characteristic $0$, the symplectic $\ff$-vector space $\W_\infty$ is $\FF$-oligomorphic.
+    The symplectic $\ff$-vector space $\W_\infty$ has the finite length property over any field of characteristic $0$.
 \end{corollary}
 
 
 
 
 \subsection{Symplectic graphs}
-For this subsection let $\ff$ be the two-element field.
+For this subsection let $\ff$ be the two-element field $\ff_2$.
 \begin{definition}
     For $n = 0, 1, 2, \ldots$, the \emph{symplectic graph} $\widetilde \W_n$ has vertices $\W_n$ and edges
     \[
         v_1 \sim v_2 \iff \omega(v_1, v_2) = 1.
     \]
-    This is indeed an undirected graph: as $\omega$ is alternating, we have $\omega(v_1, v_2) = -\omega(v_2, v_1) = \omega(v_2, v_1)$.    
+    This is indeed an undirected graph: as $\omega$ is alternating, we have $\omega(v_1, v_2) = -\omega(v_2, v_1) = \omega(v_2, v_1)$ over $\ff_2$.
 \end{definition}
 
 \begin{proposition}\label{prop:symplectic-vs-graph}
@@ -370,8 +370,8 @@ It remains to show $\widetilde \W_0 \subseteq \widetilde \W_1 \subseteq \widetil
 \end{theorem}
 
 \begin{corollary}
-    Provided $\FF$ is of characteristic $0$, the Rado graph is $\FF$-oligomorphic.
+    The Rado graph has the finite length property over any field of characteristic $0$.
 \end{corollary}
 
 This proof of finite length also applies to \emph{oriented graphs} (i.e., $x \to y \implies y \not\to x$ but unlike in a tournament, it may occur that $x \not\to y \wedge y \not\to x$)
---- use the three-element field as $\ff$ instead.
+--- use the three-element field instead of $\ff_2$.

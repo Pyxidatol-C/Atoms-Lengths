@@ -105,10 +105,10 @@ To start with, let us view $\A^d$ as $\A^{\{1, \dots, d\}}$ and more generally c
 Fix a finite support $S \subseteq \A$.
 If $\A$ is oligomorphic, the tuples in $\A^I$ split into finitely many $\Aut(\A)_{(S)}$-equivariant orbits.
 Let $\mathcal{O} = \Aut(\A)_{(S)} \cdot o_\bullet$ be one such orbit.
-We shall call $\mathcal{O}$ \emph{orderly} if $o_i \not\in S$ and if $o_i < o_j$ whenever $i < j$.
-By removing the entries in $o_\bullet$ that repeat or come from $S$ and reordering the rest, we can always find an $\Aut(\A)_{(S)}$-equivariant bijection to an orderly orbit.
+We shall call $\mathcal{O}$ \emph{($S$-)orderly} if $o_i \not\in S$ and if $o_i < o_j$ whenever $i < j$.
+By removing the entries in $o_\bullet$ that repeat or come from $S$ and reordering the rest, we can always find an $\Aut(\A)_{(S)}$-equivariant bijection to an $S$-orderly orbit.
 An easy observation is that we may focus on a single orderly orbit at a time:
-\begin{proposition}
+\begin{proposition}\label{prop:reduction-to-one-orbit}
     The following are equivalent:
     \begin{enumerate}
         \item For $d = 0, 1, 2, \dots$ and any finite $S \subseteq \A$, chains of $\Aut(\A)_{(S)}$-equivariant subspaces in $\Lin_\FF \A^d$ are bounded in length;
@@ -125,21 +125,20 @@ By $o |^J _\bullet$ we mean the restriction of $o_\bullet : I \to \A$ to $J \sub
 we will often write $o |^{-i} _\bullet$ instead of $o |^{ I \setminus \{i\} }_\bullet$.
 Note the image $\mathcal{O}|^I$ of $\mathcal{O}$ under this projection agrees with $\Aut(\A)_{(S)} \cdot o |^J _\bullet$ and is still orderly.
 
-Things become more interesting when we lift $(-)|^J$ to an additive $\Aut(\A)_{(S)}$-equivariant map
+To anticipate more general statements later, Let $\EE$ be a finite-dimensional $\FF$-vector space --- for instance, $\FF$ itself.
+Things become more interesting when we lift $(-)|^J$ to a linear $\Aut(\A)_{(S)}$-equivariant map
 \begin{align*}
-    (-)|^J : \Lin_\AA \mathcal{O} &\to \Lin_\AA \mathcal{O}|^J \\
-    v &\mapsto v|^J
+    (-)|^J : \Lin_\EE \mathcal{O} &\to \Lin_\EE \mathcal{O}|^J \\
+    v &\mapsto v|^J.
 \end{align*}
-where $\AA$ is an Abelian group.
-(Of course if $\AA$ is an $\FF$-vector space, this map is moreover linear.)
 Many cancellations can occur under $(-)|^J$; 
-the \emph{projection kernel} is the $\Aut(\A)_{(S)}$-equivariant subset
+the \emph{projection kernel} is the $\Aut(\A)_{(S)}$-equivariant subspace
 \[
-    \Ker_\AA \mathcal{O} = \bigcap_{i \in I} \ker{ (-)|^{-i} }
+    \Ker_\EE \mathcal{O} = \bigcap_{i \in I} \ker{ (-)|^{-i} }
 \]
-of $\Lin_\AA \mathcal{O}$ that is closed under addition (and $\FF$-linear combinations if $\AA$ has an $\FF$-linear structure).
+of $\Lin_\EE \mathcal{O}$.
 
-\begin{proposition}
+\begin{proposition}\label{prop:reduction-to-kernel}
     The following are equivalent:
     \begin{enumerate}
         \item $\Lin_\FF \mathcal{O}$ has finite length for every orderly orbit $\mathcal{O}$;
@@ -164,7 +163,7 @@ of $\Lin_\AA \mathcal{O}$ that is closed under addition (and $\FF$-linear combin
         \len( \Lin_\FF \mathcal{O} ) - \len( \Ker_\FF \mathcal{O} )
         \leq \sum_{i \in I} \len( \Lin_\FF \mathcal{O}|^{-i} )
     \]
-    which shows that $\len( \Lin_\FF \mathcal{O} )$ is finite.
+    which shows that $\len( \Lin_\FF \mathcal{O} )$ is finite from the assumptions.
 \end{proof}
 
 We call a vector from the projection kernel \emph{balanced}.
@@ -172,7 +171,7 @@ As we will see in the next subsection, cogs are a prominent example.
 
 \subsection{Cogs}
 \begin{definition}
-    Let $\mathcal{O} = \Aut(\A)_{(S)} \cdot o_\bullet \subseteq \A^I$ be an orderly orbit. 
+    Let $\mathcal{O} = \Aut(\A)_{(S)} \cdot o_\bullet \subseteq \A^I$ be an $S$-orderly orbit. 
     An \emph{$\mathcal{O}$-cog duo} $a_\bullet \parallel b_\bullet$ consists of $2 \cdot |I|$ atoms in $\A$ with the following $\mathcal{L}$-structure on $\{a_i, b_i \mid i \in I\} \cup S$:
     \begin{enumerate}
         \item 
@@ -187,81 +186,239 @@ As we will see in the next subsection, cogs are a prominent example.
 \end{definition}
 Three remarks are in order.
 First, each $a_i$ is unrelated to its counterpart $b_i$ in $a_I \cup b_I \cup S$.
-Second, given any $J \subseteq I$, the combined tuple $a|^J ; b|^{I \setminus J}$ lies in $\mathcal{O}$ by homogeneity:
+Second, given any $J \subseteq I$, the combined tuple $a|^J_\bullet ; b|^{I \setminus J}_\bullet$ lies in $\mathcal{O}$ by homogeneity:
 observe
 \begin{align*}
     a_j &\mapsto o_j, j \in J ; \\
-    b_i &\mapsto b_i, i \in I \setminus J ; \\
+    b_i &\mapsto o_i, i \in I \setminus J ; \\
     s &\mapsto s, s \in S
 \end{align*}
 defines an embedding.
 Third, by homogeneity still, any two cog duos $a_\bullet \parallel b_\bullet$ and $a'_\bullet \parallel b'_\bullet$ belong to the same $\Aut(\A)_{(S)}$-equivariant orbit.
 
 \begin{definition}
-    Given $\lambda \in \AA$ and an $\mathcal{O}$-cog duo $a_\bullet \parallel b_\bullet$, the corresponding \emph{$\mathcal{O}$-cog} with coefficient $\lambda$ is the vector
+    Given $\lambda \in \EE$ and an $\mathcal{O}$-cog duo $a_\bullet \parallel b_\bullet$, the corresponding \emph{$\mathcal{O}$-cog} with coefficient $\lambda$ is the vector
     \[
         \lambda \cdot a_\bullet \between b_\bullet =
-        \sum_{J \subseteq I} (-1)^{|J|} \lambda \cdot  a|^J ; b^{I \setminus J}
+        \sum_{J \subseteq I} (-1)^{|J|} \lambda \cdot  a|^J_\bullet ; b^{I \setminus J}_\bullet
     \]
-    in $\Lin_\AA \mathcal{O}$.
-    The collection of all $\mathcal{O}$-cogs with coefficients from $\A$ is denoted by $\Cog_\AA \mathcal{O}$.
+    in $\Lin_\EE \mathcal{O}$.
+    The linear span of all $\mathcal{O}$-cogs with coefficients from $\EE$ is denoted by $\Cog_\EE \mathcal{O}$.
 \end{definition}
 As remarked above, given any two $\mathcal{O}$-cog duos there is some $\pi \in \Aut(\A)_{(S)}$ such that $\pi \cdot (a_\bullet \parallel b_\bullet) = a'_\bullet \parallel b'_\bullet$ and thus $\pi \cdot (\lambda \cdot a_\bullet \between b_\bullet) = \lambda \cdot a'_\bullet \between b'_\bullet$.
-Hence $\Cog_\AA \mathcal{O}$ is $\Aut(\A)_{(S)}$-equivariant.
-Also, it is clearly closed under addition (and under $\FF$-linear combinations if $\AA$ is so).
+Hence $\Cog_\EE \mathcal{O}$ is an $\Aut(\A)_{(S)}$-equivariant subspace of $\Lin_\EE \mathcal{O}$ and it is generated by cogs based on a single duo.
 
 
-\begin{proposition}
-    $\Cog_\AA \mathcal{O}$ is contained in $\Ker_\AA \mathcal{O}$.
+\begin{proposition}\label{prop:cogs-are-balanced}
+    $\Cog_\EE \mathcal{O}$ is contained in $\Ker_\EE \mathcal{O}$.
 \end{proposition}
 \begin{proof}
-    Let $\mathcal{O} \subseteq \A^I$ and let $i \in I$.
+    Let $\mathcal{O} \subseteq \A^I$, let $a_\bullet \parallel b_\bullet$ be an $\mathcal{O}$-cog duo, and let $i \in I$.
     The subsets of $I$ come in pairs of $J$ and $J \cup \{i\}$, where $J$ is a subset of $I \setminus \{i\}$.
-    The two tuples $a|^{J} ; b|^{I \setminus J}$ and $a|^{J \cup \{i\}} ; b|^{I \setminus (J \cup \{i\})}$ differ only on the $i$th entry.
+    The two tuples $a|^{J}_\bullet ; b|^{I \setminus J}_\bullet$ and $a|^{J \cup \{i\}}_\bullet ; b|^{I \setminus (J \cup \{i\})}_\bullet$ differ only on the $i$th entry.
     But this difference gets erased under $(-)|^{-i}$, so the two corresponding terms in $\lambda \cdot a_\bullet \between b_\bullet$ will cancel out and hence $( \lambda \cdot a_\bullet \between b_\bullet )|^{-i} = 0$ overall.
 \end{proof}
 
-Cogs arise everywhere.
+In fact, cogs arise anywhere.
+\begin{lemma}\label{lem:cog-fresh-single}
+    Suppose $a_\bullet \parallel b_\bullet$ is an $\mathcal{O}$-cog duo, where $\mathcal{O} \subseteq \A^I$ is $S$-orderly.
+    Given $z \in S$, 
+    \begin{itemize}
+        \item write $S' = S \setminus \{z\}$;
+        \item let $j \not\in I$ be such that $\mathcal{O}' = \Aut(\A)_{(S')} \cdot (a_\bullet ; z) \subseteq \A^{I \cup \{j\}}$ is orderly,
+        \item let $X \subseteq \A$ be a finite set containing $\{a_i, b_i \mid i \in I\} \cup S'$ but not $z$;
+        \item let $Y \subseteq \A$ be any finite set disjoint from $X \cup \{z\}$;
+    \end{itemize}
+    then the $\tau \in \Aut(\A)_{(X)}$ afforded by Lemma~\ref{lem:free-fresh} gives us an $\mathcal{O}'$-cog duo $(a_\bullet ; z) \parallel (b_\bullet ; \tau \cdot z)$.
+\end{lemma}
+\begin{proof}
+    To start with, notice that we have the required order relations with $z$ and $\tau(z)$.
+    Now let $R \in \mathcal{L}_0$ and let $c_\bullet$ be a tuple with entries in $a_{I \cup \{j\}} \cup b_{I \cup \{j\}} \cup S' = a_I \cup b_I \cup S \cup \{\tau \cdot z\}$;
+    we want to show that \begin{equation}\label{eq:cog-building-relation}
+        \A \models R(c_\bullet) \text{ if and only if } 
+        \A \models R(d_\bullet), \tag{\P}
+    \end{equation} 
+    where $d_\bullet$ is obtained from $c_\bullet$ by replacing every $b_i$ with $a_i$ and $\tau \cdot z$ with $z$.
+    We split into three cases.
+    \begin{enumerate}
+        \item 
+        Suppose $z$ and $\tau \cdot z$ both appear in $c_\bullet$. 
+        Then $\A \not\models R(c_\bullet)$ because $\tau \cdot z$ is unrelated to $z$ by design, 
+        and $\A \not\models R(d_\bullet)$ because $R$ is irreflexive and $z$ appears twice.
+        
+        \item 
+        So if $z$ appears in $c_\bullet$, we may assume that $\tau \cdot z$ does not --- that is, $c_\bullet$ has entries in $a_I \cup b_I \cup S$.
+        In this case \eqref{eq:cog-building-relation} follows from the assumption that $a_\bullet \parallel b_\bullet$ is a cog duo in $\mathcal{O} = \Aut(\A)_{(S)} \cdot a_\bullet$.
+
+        \item
+        Finally, suppose that $\tau \cdot z$ appears in $c_\bullet$ but not $z$.
+        Then only $z$ appears in $\tau^{-1} \cdot c_\bullet$, and $d_\bullet$ is obtained by replacing every $b_i$ with $a_i$ in $\tau^{-1} \cdot c_\bullet$.
+        But $\A \models R(c_\bullet)$ if and only if $\A \models R(\tau^{-1} \cdot c_\bullet)$, and now \eqref{eq:cog-building-relation} holds as we discussed for the case above. 
+        \qedhere
+    \end{enumerate}
+\end{proof}
+
+Starting from an empty cog duo, we may apply the previous lemma inductively.
+\begin{proposition}\label{prop:cog-fresh-full}
+    Let $\mathcal{O} \subseteq \A^I$ be an $S$-orderly orbit.
+    Then for any $a_\bullet \in \mathcal{O}$, there is: 
+    \begin{enumerate}
+        \item some $b_\bullet \in \mathcal{O}$ such that $a_\bullet \parallel b_\bullet$ is an $\mathcal{O}$-cog duo; and
+        \item for each $i \in I$, some $\pi_i \in \Aut(\A)_{(S \cup \{a_j, b_j \mid j \in I, j \neq i \})}$ sending $a_i \mapsto b_i$.
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    Enumerate the indices of $I$ as $i_1, \dots, i_d$.
+    Suppose that we have found $b_{i_1}, \dots, b_{i_k}$ such that 
+    \[
+        a|^{\{i_1, \dots, i_k\}}_\bullet \parallel (i_1 \mapsto b_{i_1}, \dots, i_k \mapsto b_{i_k})
+    \] 
+    is a cog duo in $\mathcal{O}_k = \Aut(\A)_{(S \cup \{a_{i_{k+1}}, \dots, a_{i_d}\})} \cdot a|^{\{i_1, \dots, i_k\}}_\bullet$ 
+    --- note that $() \parallel ()$ is certainly a cog duo in $\mathcal{O}_0$ at the start.
+    If $k < d$, with $z = a_{i_{k+1}}$, $X = \{a_{i_1}, b_{i_1}, \dots, a_{i_k}, b_{i_k}\} \cup S \cup \{a_{i_{k+2}}, \dots, a_{i_d}\}$, and $Y = \emptyset$, 
+    a straightforward application of Lemma~\ref{lem:cog-fresh-single} yields an atom $b_{i_{k+1}}$ that makes
+    \[
+        a|^{\{i_1, \dots, i_k, i_{k+1}\}}_\bullet \parallel (i_1 \mapsto b_{i_1}, \dots, i_k \mapsto b_{i_k}, i_{k+1} \mapsto b_{i_{k+1}})
+    \] a cog duo in $\mathcal{O}_{k+1}$.
+    We thus obtain the desired cog duo in $\mathcal{O}_d = \mathcal{O}$ as we reach $k = d$.
+    The automorphisms $\pi_{i_k}$ now come directly from homogeneity and the definition of an $\mathcal{O}$-cog duo: 
+    the map
+    \begin{align*}
+        a_{i_1} \mapsto a_{i_1}, \dots,{} &a_{i_k} \mapsto b_{i_k}, \dots, a_{i_d} \mapsto a_{i_d} \\
+        b_{i_1} \mapsto b_{i_1}, \dots,{} &\phantom{a_{i_k} \mapsto b_{i_k}}, \dots, b_{i_d} \mapsto b_{i_d}, s \in S \mapsto s
+    \end{align*}
+    is an embedding.
+\end{proof}
+
+The result below substantiates the slogan that cogs are found everywhere. 
+\begin{theorem}
+    Any $\Aut(\A)_{(S)}$-equivariant subspace $V$ of $\Lin_\EE \mathcal{O}$ contains $\Cog_{\EE'} \mathcal{O}$,
+    where $\mathcal{O} \subseteq \A^I$ is $S$-orderly and $\EE'$ is the subspace of $\EE$ spanned by $\{ v(a_\bullet) \mid v \in V, a_\bullet \in \mathcal{O} \}$.
+\end{theorem}
+\begin{proof}
+    Pick any $v \in V$ and $a_\bullet \in \mathcal{O}$;
+    it is enough to show that $V$ contains $v(a_\bullet) \cdot a_\bullet \between b_\bullet$ for some $\mathcal{O}$-cog duo $a_\bullet \parallel b_\bullet$.
+    Actually, write 
+    \[
+        S' = S \cup \{c_i \mid v(c_\bullet) \neq 0, i \in I\} \setminus \{a_i \mid i \in I\} \supseteq S
+    \]
+    and put $\mathcal{O}' = \Aut(\A)_{(S')} \cdot a_\bullet \subseteq \mathcal{O}$ --- then $\mathcal{O}'$ is $S'$-orderly.
+    By Proposition~\ref{prop:cog-fresh-full}, we can find $b_\bullet \in \mathcal{O}'$ such that $a_\bullet \parallel b_\bullet$ is a cog duo in $\mathcal{O}'$ and \emph{a fortiori} a cog duo in $\mathcal{O}$.
+    Also take the automorphisms $\pi_{i_1}, \dots, \pi_{i_d}$ from there, where $i_1, \dots, i_d$ enumerate $I$.
+    Now define $v_0 = v$ and \[
+        v_k = v_{k-1} - \pi_{i_k} \cdot v_{k-1}.
+    \]
+    We can check inductively that for $k = 0, 1, \dots, d$, 
+    with $\mathcal{O}_k = \{ c_\bullet \mid v(c_\bullet) \neq 0, \{c_{i_1}, \dots, c_{i_k}, \dots, c_{i_d}\} \supseteq \{a_{i_1}, \dots, a_{i_k}\} \}$ we have
+    \[
+        v_k = \sum_{c_\bullet \in \mathcal{O}_k} \sum_{J \subseteq \{i_1, \dots, i_k\}} (-1)^{|J|} v(c_\bullet) \cdot c|^J_\bullet ; b|^{I \setminus J}_\bullet.
+    \]
+    But $\{c_{i_1}, \dots, c_{i_d}\} \supseteq \{a_{i_1}, \dots, a_{i_d}\}$ means that $c_\bullet = a_\bullet$, so at the end $v_d$ is the desired $\mathcal{O}$-cog.
+\end{proof}
+
+\begin{corollary}
+    $\Cog_\FF \mathcal{O}$ has length $1$.
+\end{corollary}
+\begin{proof}
+    Let $V \subseteq \Cog_\FF \mathcal{O}$ be a non-zero $\Aut(\A)_{(S)}$-equivariant subspace.
+    Then $\EE'$ is the entire field $\FF$, and by above $V$ must be $\Cog_\FF \mathcal{O}$ itself.
+\end{proof}
+
+In light of Propositions~\ref{prop:reduction-to-one-orbit} and \ref{prop:reduction-to-kernel}, we will be able to prove the finite length property for an oligomorphic structure with free amalgamation over any field and support if we know $\Ker_\FF \mathcal{O} = \Cog_\FF \mathcal{O}$.
+Let us now attempt to show that.
+
+\subsection{Subvectors}
+This is a good time to recall a view we have tacitly taken:
+with $\mathcal{O}$ as a standard basis, a vector $v \in \Lin_\EE \mathcal{O}$ is just a finite set of pairs in $\EE \times \mathcal{O}$.
+A \emph{subvector} of $v$ is a subset of these pairs.
+
+Now suppose as usual that $\mathcal{O} \subseteq \A^I$ is $S$-orderly.
+Given $i \in I$ and $a = a_i \in \A$ for some $a_\bullet \in \mathcal{O}$, 
+we write \[
+    \mathcal{O}^{i:a} = \{b_\bullet \in \mathcal{O} \mid b_i = a\};
+\]
+this is an $\Aut(\A)_{(S \cup \{a\})}$-orbit, and its projection $\mathcal{O}^{i:a} |^{-i} = \Aut(\A)_{(S \cup \{a\})} \cdot a|^{-i}_\bullet$ is orderly.
+For a vector $v \in \Lin_\EE \mathcal{O}$, by
+\[
+    v^{i:a} \in \Lin_\EE \mathcal{O}^{i:a}
+\]
+we mean the subvector consisting of all pairs in $\EE \times \mathcal{O}^{i:a}$.
 
 \begin{lemma}
-    Let $\mathcal{O} = \Aut(\A)_{(S)} \cdot o_\bullet \subseteq \A^I$ be orderly,
-    and suppose $a_\bullet \between b_\bullet$ is an $\mathcal{O}$-cog.
-    Given $s \in S$, let $j \not\in I$ be such that $\Aut(\A)_{(S \setminus \{s\})} \cdot (a_\bullet ; s) \in \A^{I \cup \{j\}}$ is orderly.
-    
+    Let $v \in \Lin_\EE \mathcal{O}$ be balanced. 
+    Then any projected subvector $v^{i:a}|^{-i} \in \Lin_\EE \mathcal{O}^{i:a}|^{-i}$ is also balanced.
 \end{lemma}
+\begin{proof}
+    Let $j \in I \setminus \{i\}$. 
+    By assumption we have \[
+        0 = v|^{-j} = \sum_a v^{i:a}|^{-j}
+    \] in $\Lin_\EE \A^{I \setminus \{j\}}$,
+    so by looking at $i$th entries we see that each $v^{i:a}|^{-j}$ must be the zero vector.
+    Hence so is $v^{i:a}|^{-j}|^{-i} = v^{i:a}|^{-i}|^{-j}$,
+    which shows that $v^{i:a}|^{-i}$ is in the projection kernel.
+\end{proof}
 
-\begin{proposition}
-    \color{red}
-    $\Cog_\AA \mathcal{O}$ has length $1$ if $\AA = \FF$ is a field.
-\end{proposition}
+So we can try to prove $\Ker_\EE \mathcal{O} \subseteq \Cog_\EE \mathcal{O}$ for any orderly $\mathcal{O} \subseteq \A^I$ by inducting on $|I|$;
+we just need to reassemble the various cogs in $\mathcal{O}^{i:a}|^{-i}$ back into $\mathcal{O}$-cogs.
+Unfortunately we were only able to do so under the hypothesis that $\mathcal{L}_0$ is an at most binary language, 
+which we henceforth assume.
 
+\subsection{Special case: vectors free enough for binary relations}
+We will begin by showing any $v \in \Ker_\EE \mathcal{O}$ lies in $\Cog_\EE \mathcal{O}$ provided that $v$ satisfies an additional condition which, 
+as we will explain in the subsection, may be assumed without loss of generality. 
+We motivate and introduce this condition now. 
 
-\subsection{Building with cogs}
-\begin{theorem}
-    Assume $|I| \leq 2$ or that each relation in $\mathcal{L}_0$ has arity at most $2$.
-    Then $\Ker_\AA \mathcal{O} = \Cog_\AA \mathcal{O}$ for any orderly orbit $\mathcal{O} \subseteq \A^I$. 
-\end{theorem}
+Consider the atoms in the tuples 
+\[
+    \mathcal{O}[v] = \{ b_\bullet \in \mathcal{O} \mid v(b_\bullet) \neq 0 \}.
+\]
+that appear in a vector $v \in \Lin_\EE \mathcal{O}$, with $\mathcal{O}$ being $S$-orderly.
+Take $a = b_i$ to be one such atom,
+and let $R_1, R_2 \in \mathcal{L}_0$ be unary and binary respectively.
+Then whether $R_1(a)$, $R_2(a, s)$, $R_2(s, a)$ hold in $\A$ given $s \in S$ is determined by $\mathcal{O}$
+--- more preciesly, by whether $R_1(o_i)$, $R_2(o_i, s)$, $R_2(s, o_i)$ hold in $\A$ for any $o_\bullet \in \mathcal{O}$.
+
+Now take another atom $a' = b'_j$ occurring in $\mathcal{O}[v]$.
+What can be said about $R_2(a, a')$?
+Except in those happy dispositions where $b'_\bullet = b_\bullet$, not much --- whether $\A \models R_2(o_i, o_j)$ need not be a constraint for $a$ and $a'$.
+The index $j$ may not even be unique: we may well have $b'_j = b''_k$ for $j \neq k$.
+
 
 \begin{definition}
-    Let $\mathcal{O} = \Aut(\A)_{(S)} \cdot o_\bullet \subseteq \A^I$ be orderly.
-    We say a finite family of tuples $\{ a^{(k)}_\bullet \mid k \in K \} \subseteq \mathcal{O}$ is
+    Let $\mathcal{O} = \Aut(\A)_{(S)} \cdot o_\bullet$ be orderly in $\A^I$.
+    We say a finite family $\{ b^{(k)}_\bullet \in \mathcal{O} \mid k \in K\}$ is
     \begin{enumerate}
-        \item \emph{coordinated} if $a^{(k)}_i \mapsto i$ defines a function;
-        \item \emph{loopless} if it is coordinated and for each $i \in I$, any $a^{(k)}_i, a^{(k')}_i$ are unrelated in $\{ a^{(k)}_i \mid k \in I, i \in I \} \cup S$;
-        \item \emph{sufficiently freed} if it is coordinated and whenever 
-        \[
-            a^{(k_1)}_{i_1} \mapsto o_{i_1}, \dots, a^{(k_n)}_{i_n} \mapsto o_{i_n}, s \in S \mapsto s
-        \]
-        fails to be an embedding, some $a^{(k_j)}_{i_j} \neq a^{(k_{j'})}_{i_{j'}}$ are unrelated in $\{ a^{(k)}_i \mid k \in I, i \in I \} \cup S$.
+        \item 
+        \emph{well-indexed} if $b^{(k)}_i \mapsto i$ for $k \in K$ defines a function;
+
+        \item 
+        \emph{free enough} for an $r$-ary relation $R \in \mathcal{L}_0$ if it is well-indexed and for any $r$-tuple $z_\bullet$ with distinct entries in $\{a^{(k)}_i \mid i \in I, k \in K\} \cup S$,
+        \begin{enumerate}
+            \item either $R$ holds for $z_\bullet$ if and only if $R$ holds for $z_\bullet$ with each entry equal to some $a^{(k)}_i$ being replaced by $o_i$ --- note this $i$ is uniquely defined;
+            \item or some two distinct $a^{(k)}_i, a^{(k')}_{i'}$ appearing in $z_\bullet$ are unrelated in $\{a^{(k)}_i \mid i \in I, k \in K\} \cup S$.
+        \end{enumerate}
     \end{enumerate}
 \end{definition}
 
-\textcolor{red}{By adding appropriate cogs, we can make any vector's corresponding family coordinated then loopless, and furthermore sufficiently freed if $\mathcal{L}_0$ is at most binary.}
+\begin{theorem}
+    Let $v \in \Ker_\EE \mathcal{O}$ be such that $\mathcal{O}[v]$ is free for any relation in $\mathcal{L}_0$.
+    Then 
+    \[
+        v = \sum_{k \in K} v(a^{(k)}_\bullet) \cdot x^{(k)}_\bullet \between y^{(k)}_\bullet
+    \]
+    for some finite $K$, where moreover
+    \[
+        \mathcal{O}[v] \cup \{ x^{(k)}_\bullet, y^{(k)}_\bullet \mid k \in K \}
+    \]
+    is free for any relation in $\mathcal{L}_0$.
+\end{theorem}
 
-\begin{remark}
-    Our results cover David Evans's Proposition 3.19 which assumes $|I| \leq 2$.
-    Indeed, the failure to be an embedding means some relation $R$ is not respected.
-    If the family is loopless and $R$ is at least ternary, we will have an unrelated pair.
-    Otherwise $R$ must be binary and we know how to free such pairs.
-\end{remark}
+\begin{proposition}
+    If $\mathcal{O}[v]$ is free enough for $R$,
+    then so is $\mathcal{O}^{i:a}|^{-i}[v^{i:a}|^{-i}]$.
+\end{proposition}
+
+\begin{proposition}
+    We can make $\mathcal{O}[v] \cup \{ x^{(a, k)}_\bullet ; a, y^{(a, k)}_\bullet ; a \mid a, k \}$ free enough for $R$.
+\end{proposition}
 
