@@ -344,7 +344,7 @@ For a vector $v \in \Lin_\EE \mathcal{O}$, by
 \]
 we mean the subvector consisting of all pairs in $\EE \times \mathcal{O}^{i:a}$.
 
-\begin{lemma}
+\begin{lemma}\label{lem:balanced-projected-subvector}
     Let $v \in \Lin_\EE \mathcal{O}$ be balanced. 
     Then any projected subvector $v^{i:a}|^{-i} \in \Lin_\EE \mathcal{O}^{i:a}|^{-i}$ is also balanced.
 \end{lemma}
@@ -382,8 +382,7 @@ Now take another atom $a' = b'_j$ occurring in $\mathcal{O}[v]$.
 What can be said about $R_2(a, a')$?
 Except in those happy dispositions where $b'_\bullet = b_\bullet$, not much --- whether $\A \models R_2(o_i, o_j)$ need not be a constraint for $a$ and $a'$.
 The index $j$ may not even be unique: we may well have $b'_j = b''_k$ for $j \neq k$.
-
-
+We want to avoid such confusions:
 \begin{definition}
     Let $\mathcal{O} = \Aut(\A)_{(S)} \cdot o_\bullet$ be orderly in $\A^I$.
     We say a finite family $\{ b^{(k)}_\bullet \in \mathcal{O} \mid k \in K\}$ is
@@ -392,17 +391,15 @@ The index $j$ may not even be unique: we may well have $b'_j = b''_k$ for $j \ne
         \emph{well-indexed} if $b^{(k)}_i \mapsto i$ for $k \in K$ defines a function;
 
         \item 
-        \emph{free enough} for an $r$-ary relation $R \in \mathcal{L}_0$ if it is well-indexed and for any $r$-tuple $z_\bullet$ with distinct entries in $\{a^{(k)}_i \mid i \in I, k \in K\} \cup S$,
-        \begin{enumerate}
-            \item either $R$ holds for $z_\bullet$ if and only if $R$ holds for $z_\bullet$ with each entry equal to some $a^{(k)}_i$ being replaced by $o_i$ --- note this $i$ is uniquely defined;
-            \item or some two distinct $a^{(k)}_i, a^{(k')}_{i'}$ appearing in $z_\bullet$ are unrelated in $\{a^{(k)}_i \mid i \in I, k \in K\} \cup S$.
-        \end{enumerate}
+        \emph{free enough} if it is well-indexed and for any $b^{(k)}_i \neq b^{(k')}_{i'}$, either $\A \models R(b^{(k)}_i, b^{(k')}_{i'}) \leftrightarrow R(o_i, o_{i'})$ for every binary relation $R \in \mathcal{L}_0$ and some/any $o_\bullet \in \mathcal{O}$,
+        or they are unrelated.
     \end{enumerate}
 \end{definition}
 
+We can now state the precise result.
 \begin{theorem}
-    Let $v \in \Ker_\EE \mathcal{O}$ be such that $\mathcal{O}[v]$ is free for any relation in $\mathcal{L}_0$.
-    Then 
+    Let $v \in \Ker_\EE \mathcal{O}$ be such that $\mathcal{O}[v]$ is free enough.
+    Then (assuming that $\mathcal{L}_0$ is at most binary) we have
     \[
         v = \sum_{k \in K} v(a^{(k)}_\bullet) \cdot x^{(k)}_\bullet \between y^{(k)}_\bullet
     \]
@@ -410,13 +407,29 @@ The index $j$ may not even be unique: we may well have $b'_j = b''_k$ for $j \ne
     \[
         \mathcal{O}[v] \cup \{ x^{(k)}_\bullet, y^{(k)}_\bullet \mid k \in K \}
     \]
-    is free for any relation in $\mathcal{L}_0$.
+    is also free enough.
 \end{theorem}
 
-\begin{proposition}
-    If $\mathcal{O}[v]$ is free enough for $R$,
-    then so is $\mathcal{O}^{i:a}|^{-i}[v^{i:a}|^{-i}]$.
-\end{proposition}
+We spend the rest of this subsection giving the proof,
+which proceeds by induction on $|I|$ for $S$-orderly orbits $\mathcal{O} \subseteq \A^I$ for every $S$ at once.
+
+The base case $I = \emptyset$ is immediate as before:
+as $\mathcal{O}$ is the singleton $\{ () \}$,
+any vector $v \in \Ker_\EE \mathcal{O} = \Lin_\EE \mathcal{O} = \Cog_\EE \mathcal{O}$ is a cog already, where $\mathcal{O}[v]$ is vacuously free enough;
+so the theorem says nothing more than $v = v$.
+
+Now suppose that some $i_0 \in I$ exists --- in fact, let $i_0$ be minimal.
+Consider a vector $v \in \Ker_\EE \mathcal{O}$ with $\mathcal{O}[v]$ being free enough.
+We can write
+\[
+    v = \sum_{a \in A} v^{i_0 : a},
+\]
+decomposing $v$ into finitely many subvectors.
+Each projection $v^{i_0 : a}|^{-i_0}$ belongs to $\Ker_\EE \mathcal{O}^{i_0:a}|^{-i_0}$ by Lemma~\ref{lem:balanced-projected-subvector}.
+Moreover:
+\begin{claim}
+    $\mathcal{O}^{i_0:a}|^{-i_0}[v^{i_0:a}|^{-i_0}]$ is free enough.
+\end{claim}
 
 \begin{proposition}
     We can make $\mathcal{O}[v] \cup \{ x^{(a, k)}_\bullet ; a, y^{(a, k)}_\bullet ; a \mid a, k \}$ free enough for $R$.
