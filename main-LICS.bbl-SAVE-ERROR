@@ -1,0 +1,224 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{BFKM24}{article}{}
+      \name{author}{4}{}{%
+        {{hash=093c9189fc598d015e41e0b121d8bf9e}{%
+           family={Bojańczyk},
+           familyi={B\bibinitperiod},
+           given={Mikołaj},
+           giveni={M\bibinitperiod}}}%
+        {{hash=916d1f5dbd39165c75b0e26c05e42e24}{%
+           family={Fijalkow},
+           familyi={F\bibinitperiod},
+           given={Joanna},
+           giveni={J\bibinitperiod}}}%
+        {{hash=6cc2c79a4c9886d2b209bbc74684bdd6}{%
+           family={Klin},
+           familyi={K\bibinitperiod},
+           given={Bartek},
+           giveni={B\bibinitperiod}}}%
+        {{hash=4917daaa4383be62f07d9b78ef7dc0f3}{%
+           family={Moerman},
+           familyi={M\bibinitperiod},
+           given={Joshua},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Centre pour la Communication Scientifique Directe (CCSD)}%
+      }
+      \strng{namehash}{4fe292c42ec6450f74e136f859c985ec}
+      \strng{fullhash}{6b5123c252e7a8630734d253ddf58e99}
+      \strng{bibnamehash}{4fe292c42ec6450f74e136f859c985ec}
+      \strng{authorbibnamehash}{4fe292c42ec6450f74e136f859c985ec}
+      \strng{authornamehash}{4fe292c42ec6450f74e136f859c985ec}
+      \strng{authorfullhash}{6b5123c252e7a8630734d253ddf58e99}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2751-4838}
+      \field{journaltitle}{TheoretiCS}
+      \field{month}{5}
+      \field{title}{Orbit-Finite-Dimensional Vector Spaces and Weighted Register Automata}
+      \field{volume}{Volume 3}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.46298/theoretics.24.13
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.46298/theoretics.24.13
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.46298/theoretics.24.13
+      \endverb
+    \endentry
+    \entry{GR01}{book}{}
+      \name{author}{2}{}{%
+        {{hash=9f6f47abf5bc40b14b1f97987d145304}{%
+           family={Godsil},
+           familyi={G\bibinitperiod},
+           given={Chris},
+           giveni={C\bibinitperiod}}}%
+        {{hash=0229d32b153993c916f8671d5ea9aba0}{%
+           family={Royle},
+           familyi={R\bibinitperiod},
+           given={Gordon},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{81242e8936610023c3dacc685399393e}
+      \strng{fullhash}{81242e8936610023c3dacc685399393e}
+      \strng{bibnamehash}{81242e8936610023c3dacc685399393e}
+      \strng{authorbibnamehash}{81242e8936610023c3dacc685399393e}
+      \strng{authornamehash}{81242e8936610023c3dacc685399393e}
+      \strng{authorfullhash}{81242e8936610023c3dacc685399393e}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{1}
+      \field{isbn}{978-0-387-95241-3}
+      \field{series}{Graduate Texts in Mathematics}
+      \field{title}{Algebraic graph theory}
+      \field{year}{2001}
+    \endentry
+    \entry{KLM89}{article}{}
+      \name{author}{3}{}{%
+        {{hash=d4c81868ab17dc4985bec455e2a12b41}{%
+           family={Kantor},
+           familyi={K\bibinitperiod},
+           given={W.\bibnamedelimi M.},
+           giveni={W\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=0a2158e431ceb1903b5d28918f66d290}{%
+           family={Liebeck},
+           familyi={L\bibinitperiod},
+           given={Martin\bibnamedelima W.},
+           giveni={M\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=56f7995b7434c266efdebfed8772918d}{%
+           family={Macpherson},
+           familyi={M\bibinitperiod},
+           given={H.\bibnamedelimi D.},
+           giveni={H\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{6eb22417e7dfd4ce617f30c1f6d3671e}
+      \strng{fullhash}{6eb22417e7dfd4ce617f30c1f6d3671e}
+      \strng{bibnamehash}{6eb22417e7dfd4ce617f30c1f6d3671e}
+      \strng{authorbibnamehash}{6eb22417e7dfd4ce617f30c1f6d3671e}
+      \strng{authornamehash}{6eb22417e7dfd4ce617f30c1f6d3671e}
+      \strng{authorfullhash}{6eb22417e7dfd4ce617f30c1f6d3671e}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{A classification is given of primitive ℵ0-categorical structures which are smoothly approximated by a chain of finite homogeneous substructures. The proof uses the classification of finite simple groups and some representation theory. The main theorems give information about a class of structures more general than the ℵ0-categorical, ω-stable structures examined by Cherlin, Harrington, and Lachlan.}
+      \field{journaltitle}{Proceedings of the London Mathematical Society}
+      \field{number}{3}
+      \field{title}{$\aleph_0$-Categorical Structures Smoothly Approximated by Finite Substructures}
+      \field{volume}{s3-59}
+      \field{year}{1989}
+      \field{pages}{439\bibrangedash 463}
+      \range{pages}{25}
+      \verb{doi}
+      \verb https://doi.org/10.1112/plms/s3-59.3.439
+      \endverb
+    \endentry
+    \entry{MP24}{article}{}
+      \name{author}{2}{}{%
+        {{hash=ce667a1a44f21be64920a50756299c32}{%
+           family={Mottet},
+           familyi={M\bibinitperiod},
+           given={Antoine},
+           giveni={A\bibinitperiod}}}%
+        {{hash=08b4d15593980f9f67fcdd0b602b8316}{%
+           family={Pinsker},
+           familyi={P\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{cf931cfc97466b91c8e33258080b7616}
+      \strng{fullhash}{cf931cfc97466b91c8e33258080b7616}
+      \strng{bibnamehash}{cf931cfc97466b91c8e33258080b7616}
+      \strng{authorbibnamehash}{cf931cfc97466b91c8e33258080b7616}
+      \strng{authornamehash}{cf931cfc97466b91c8e33258080b7616}
+      \strng{authorfullhash}{cf931cfc97466b91c8e33258080b7616}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We introduce the novel machinery of smooth approximations to provide a systematic algebraic approach to the complexity of CSPs over finitely bounded homogeneous structures. We apply smooth approximations to confirm the CSP dichotomy conjecture for first-order reducts of the random tournament and to give new short proofs of the conjecture for various homogeneous graphs including the random graph (STOC’11, ICALP’16, JACM 2015, SICOMP 2019), and for expansions of the order of the rationals (STOC’08, JACM 2009). Apart from obtaining these dichotomy results, we show how our new proof technique allows one to unify and significantly simplify the previous results from the literature. For all but the last structure, we moreover characterize for the first time those CSPs that are solvable by local consistency methods, again using the same machinery.}
+      \field{journaltitle}{J. ACM}
+      \field{month}{10}
+      \field{number}{5}
+      \field{title}{Smooth approximations: An algebraic approach to CSPs over finitely bounded homogeneous structures}
+      \field{volume}{71}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.1145/3689207
+      \endverb
+      \keyw{Constraint Satisfaction Problem,polymorphism,complexity dichotomy,homogeneous,finitely bounded,omega-categorical,loop lemma,standard compactness argument}
+    \endentry
+    \entry{SS20}{article}{}
+      \name{author}{2}{}{%
+        {{hash=45545905a88f9fa2bd443273eb52b9fa}{%
+           family={Siniora},
+           familyi={S\bibinitperiod},
+           given={Daoud},
+           giveni={D\bibinitperiod}}}%
+        {{hash=3723e90044833c0372026fa9f55c48e6}{%
+           family={Solecki},
+           familyi={S\bibinitperiod},
+           given={Sławomir},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{26a7bfbadd75f8ad000596e56c905964}
+      \strng{fullhash}{26a7bfbadd75f8ad000596e56c905964}
+      \strng{bibnamehash}{26a7bfbadd75f8ad000596e56c905964}
+      \strng{authorbibnamehash}{26a7bfbadd75f8ad000596e56c905964}
+      \strng{authornamehash}{26a7bfbadd75f8ad000596e56c905964}
+      \strng{authorfullhash}{26a7bfbadd75f8ad000596e56c905964}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Journal of Symbolic Logic}
+      \field{number}{1}
+      \field{title}{Coherent extension of partial automorphisms, free amalgamation and automorphism groups}
+      \field{volume}{85}
+      \field{year}{2020}
+      \field{pages}{199\bibrangedash 223}
+      \range{pages}{25}
+      \verb{doi}
+      \verb 10.1017/jsl.2019.32
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
