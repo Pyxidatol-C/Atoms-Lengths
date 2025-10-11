@@ -364,7 +364,7 @@ we just need to reassemble the various cogs in $\mathcal{O}^{i:a}|^{-i}$ back in
 Unfortunately we were only able to do so under the hypothesis that $\mathcal{L}_0$ is an at most binary language, 
 which we henceforth assume.
 
-\subsection{Special case: vectors free enough for binary relations}
+\subsection{Special case: vectors unobstructed for binary relations}
 We will begin by showing any $v \in \Ker_\EE \mathcal{O}$ lies in $\Cog_\EE \mathcal{O}$ provided that $v$ satisfies an additional condition which, 
 as we will explain in the subsection, may be assumed without loss of generality. 
 We motivate and introduce this condition now. 
@@ -390,23 +390,23 @@ We want to avoid such confusions:
     We say a finite family $\{ b^{(k)}_\bullet \in \mathcal{O} \mid k \in K\}$ is
     \begin{enumerate}
         \item 
-        \emph{rooted} if $\sqrt{-} : b^{(k)}_i \mapsto o_i$ for $k \in K$ is a function --- i.e., if $i = i'$ whenever $b^{(k)}_i = b^{(k')}_{i'}$;
+        \emph{unambiguous} if $\sqrt{-} : b^{(k)}_i \mapsto o_i$ for $k \in K$ is a function --- i.e., if $i = i'$ whenever $b^{(k)}_i = b^{(k')}_{i'}$;
 
         \item 
-        \emph{free enough} if it is well-indexed and for any $b^{(k)}_i, b^{(k')}_{i'}$, 
+        \emph{unobstructed} if it is well-indexed and for any $b^{(k)}_i, b^{(k')}_{i'}$, 
         either they are unrelated (in $\A$) or 
         \begin{align*}
             \A \models{} & R(b^{(k)}_i, b^{(k')}_{i'}) \leftrightarrow R(\sqrt{ b^{(k)}_i }, \sqrt{ b^{(k')}_{i'} }) \\
             &{} \wedge R(b^{(k')}_{i'}, b^{(k)}_i) \leftrightarrow R(\sqrt{ b^{(k')}_{i'} }, \sqrt{ b^{(k)}_i })
         \end{align*}
         for every binary relation $R \in \mathcal{L}_0$.%
-        \footnote{Of course, whether the family is rooted or free enough does not depend on the choice of the specific representative $o_\bullet \in \mathcal{O}$!}
+        \footnote{Of course, whether the family is unambiguous or unobstructed does not depend on the choice of the specific representative $o_\bullet \in \mathcal{O}$!}
     \end{enumerate}
 \end{definition}
 
 We can now state the precise result.
 \begin{theorem}\label{thm:cog-span-special-case}
-    Let $v \in \Ker_\EE \mathcal{O}$ be such that $\mathcal{O}[v]$ is free enough.
+    Let $v \in \Ker_\EE \mathcal{O}$ be such that $\mathcal{O}[v]$ is unobstructed.
     Then (assuming that $\mathcal{L}_0$ is at most binary) we have
     \[
         v = \sum_{k \in K} v(b^{(k)}_\bullet) \cdot x^{(k)}_\bullet \between y^{(k)}_\bullet
@@ -415,7 +415,7 @@ We can now state the precise result.
     \[
         \mathcal{O}[v] \cup \{ x^{(k)}_\bullet, y^{(k)}_\bullet \mid k \in K \}
     \]
-    is also free enough.
+    is also unobstructed.
 \end{theorem}
 
 
@@ -425,24 +425,24 @@ which proceeds by induction on $|I|$ for $S$-orderly orbits $\mathcal{O} \subset
 
 The base case $I = \emptyset$ is immediate as before:
 as $\mathcal{O}$ is the singleton $\{ () \}$,
-any vector $v \in \Ker_\EE \mathcal{O} = \Lin_\EE \mathcal{O} = \Cog_\EE \mathcal{O}$ is a cog already, where $\mathcal{O}[v]$ is vacuously free enough;
+any vector $v \in \Ker_\EE \mathcal{O} = \Lin_\EE \mathcal{O} = \Cog_\EE \mathcal{O}$ is a cog already, where $\mathcal{O}[v]$ is vacuously unobstructed;
 so the theorem says nothing more than $v = v$.
 
 Now suppose that some $i^* \in I$ exists --- in fact, let $i^*$ be maximal.
-Consider a vector $v \in \Ker_\EE \mathcal{O}$ with $\mathcal{O}[v]$ being free enough.
+Consider a vector $v \in \Ker_\EE \mathcal{O}$ with $\mathcal{O}[v]$ being unobstructed.
 We can decompose $v$ into finitely many subvectors to write
 \[
     v = v^{i^* : a_1} + \dots + v^{i^* : a_m}.
 \]
 Then each projection $v^{i^* : a_j}|^{-i^*}$ lies in $\Ker_\EE \mathcal{O}^{i^* : a_j}|^{-i^*}$ by Lemma~\ref{lem:balanced-projected-subvector},
-and we may straightforwardly check that \textit{a fortiori} $\mathcal{O}^{i^* : a_j}|^{-i^*}[v^{i^* : a_j}|^{-i^*}]$ is rooted and free enough.
+and we may straightforwardly check that \textit{a fortiori} $\mathcal{O}^{i^* : a_j}|^{-i^*}[v^{i^* : a_j}|^{-i^*}]$ is unambiguous and unobstructed.
 It follows from the inductive hypothesis of Theorem~\ref{thm:cog-span-special-case} that 
 \[
     v^{i^* : a_j}|^{-i^*} 
     = \sum_{k \in K_j} v^{i^* : a_j}|^{-i^*}(b^{(a_j, k)}_\bullet) \cdot x^{(a_j, k)}_\bullet \between y^{(a_j, k)}_\bullet
 \]
 for some tuples $b^{(a_j, k)}_\bullet$'s,  $x^{(a_j, k)}_\bullet$'s, and $y^{(a_j, k)}_\bullet$'s such that
-$\mathcal{O}^{i^* : a_j}|^{-i^*}[v^{i^* : a_j}|^{-i^*}] \cup \{x^{(a_j, k)}_\bullet, y^{(a_j, k)}_\bullet \mid k \in K_j\}$ is free enough.
+$\mathcal{O}^{i^* : a_j}|^{-i^*}[v^{i^* : a_j}|^{-i^*}] \cup \{x^{(a_j, k)}_\bullet, y^{(a_j, k)}_\bullet \mid k \in K_j\}$ is unobstructed.
 We can return to $\mathcal{O}$ by adding $a_j$ back as the $i^*$th term to every tuple:
 we get
 \[
@@ -453,7 +453,7 @@ where the family
 \[
     \mathcal{O}[v^{i^* : a_j}] \cup \{ (x^{(a_j, k)}_\bullet ; a_j), (y^{(a_j, k)}_\bullet ; a_j) \mid k \in K_j\}
 \]
-is easily seen to be free enough.
+is easily seen to be unobstructed.
 We can ask for more:
 
 \begin{claim}\label{claim:half-cog-freshened-up}
@@ -461,21 +461,21 @@ We can ask for more:
     \[
         \mathcal{O}[v] \cup \{ (x^{(a_{j'}, k)}_\bullet ; a_{j'}), (y^{(a_{j'}, k)}_\bullet ; a_{j'}) \mid k \in K_{j'}, 1 \leq j' \leq j\}
     \]
-    is free enough for $j = 1, 2, \dots, m$.
+    is unobstructed for $j = 1, 2, \dots, m$.
 \end{claim}
 \begin{proof}
     Let $A_j$ denote the atoms that appear in $\mathcal{O}[v^{i^* : a_j}]$.
     Given any automorphism $\pi \in \Aut(\A)$ that fixes $S$ as well as $A_j$, 
-    using the tuples $\pi \cdot x^{(a_j, k)}_\bullet$ and $\pi \cdot y^{(a_j, k)}_\bullet$ gives us another decomposition of $v^{i^* : a_j}|^{-i^*}$ that is free enough.
+    using the tuples $\pi \cdot x^{(a_j, k)}_\bullet$ and $\pi \cdot y^{(a_j, k)}_\bullet$ gives us another decomposition of $v^{i^* : a_j}|^{-i^*}$ that is unobstructed.
     We will show that composing such automorphisms --- which will be provided by Lemma~\ref{lem:free-fresh} --- suffices to make the claim hold for $j$.
 
     Assume the claim for $j - 1$. 
-    Suppose that the family in the claim for $j$ is not even rooted.
+    Suppose that the family in the claim for $j$ is not even unambiguous.
     We must have $b^{(k)}_i = b^{(k')}_{i'}$ with $i \neq i'$ where $b^{(k)}_\bullet$, say, is some $x^{(a_j, k)}_\bullet ; a_j$ or $y^{(a_j, k)}_\bullet ; a_j$.
     Now if we were to have $b^{(k)}_i \in A_j$ --- e.g., if $b^{(k)}_i = a_j$ --- then $b^{(k)}_i = b^{(k'')}_{i''}$ for some $b^{(k'')}_\bullet \in \mathcal{O}[v^{i^* : a_j}] \subseteq \mathcal{O}[v]$.
-    This is impossible: we know two families that are free enough which imply $i = i''$ and $i'' = i'$.
+    This is impossible: we know two families that are unobstructed which imply $i = i''$ and $i'' = i'$.
     
-    So the problematic atom $b^{(k)}_i$ does not belong to $A_j$.
+    So the ambiguous atom $b^{(k)}_i$ does not belong to $A_j$.
     In other words, the set $X$ of all atoms except $b^{(k)}_i$ that appear in $\mathcal{O}[v] \cup \{ (x^{(a_{j'}, k)}_\bullet ; a_{j'}), (y^{(a_{j'}, k)}_\bullet ; a_{j'}) \mid k \in K_{j'}, 1 \leq j' \leq j\}$ contains $A_j$ and $a_j$.
     Apply Lemma~\ref{lem:free-fresh} --- particularly, use the fact that $\A$ has no algebraicity --- to get an automorphism $\tau$ which fixes $S \cup X$ but sends $b^{(k)}_i$ to a fresh atom.
     Then, in the new family 
@@ -484,15 +484,14 @@ We can ask for more:
         &\cup \{ (x^{(a_{j'}, k)}_\bullet ; a_{j'}), (y^{(a_{j'}, k)}_\bullet ; a_{j'}) \mid k \in K_{j'}, 1 \leq j' < j\} \\
         &\cup \{ (\tau \cdot x^{(a_{j}, k)}_\bullet ; a_{j}), (\tau \cdot y^{(a_{j}, k)}_\bullet ; a_{j}) \mid k \in K_{j}\}, 
     \end{align*}
-    the problematic atoms are precisely the ones in the old family minus $b^{(k)}_i$ --- they are all fixed by $\tau$.
-    We thus continue this way until all problematic atoms are freshened.
+    the ambiguous atoms are precisely the ones in the old family minus $b^{(k)}_i$ --- they are all fixed by $\tau$.
+    We thus continue this way until all ambiguous atoms are freshened.
 
-    Hence assume that the family in the claim for $j$ is rooted.
-    Suppose $b^{(k)}_i$ and some $b^{(k')}_{i'}$ are the reason why the family fails to be free enough;
-    call the atom $b^{(k)}_i$ an obstruction.
-    To have $b^{(k)}_i \in A_j$ is impossible:
+    Hence assume that the family in the claim for $j$ is unambiguous.
+    Suppose $b^{(k)}_i$ and some $b^{(k')}_{i'}$ are the reason why the family fails to be unobstructed.
+    To have the obstruction $b^{(k)}_i$ in $A_j$ is impossible:
     otherwise $b^{(k)}_i = b^{(k'')}_{i''}$ for some $b^{(k'')}_\bullet \in \mathcal{O}[v^{i^* : a_j}] \subseteq \mathcal{O}[v]$;
-    then $i = i''$ by the rooted assumption, yet $b^{(k'')}_{i''}$ --- hence $b^{(k)}_i$ --- cannot be an obstruction because we have two subfamilies that are free enough.
+    then $i = i''$ by the unambiguity assumption, yet $b^{(k'')}_{i''}$ --- hence $b^{(k)}_i$ --- cannot be an obstruction because we have two subfamilies that are unobstructed.
     Symmetrically, we see that $b^{(k')}_{i'} \not\in A_j$.
 
     Finally, notice that by the claim for $j - 1$, an obstruction $b^{(k)}_i$ must again come from $b^{(k)}_\bullet$ being some $x^{(a_j, k)}_\bullet ; a_j$ or $y^{(a_j, k)}_\bullet ; a_j$.
@@ -507,13 +506,13 @@ We can ask for more:
         &\cup \{ (x^{(a_{j'}, k)}_\bullet ; a_{j'}), (y^{(a_{j'}, k)}_\bullet ; a_{j'}) \mid k \in K_{j'}, 1 \leq j' < j\} \\
         &\cup \{ (\tau \cdot x^{(a_{j}, k)}_\bullet ; a_{j}), (\tau \cdot y^{(a_{j}, k)}_\bullet ; a_{j}) \mid k \in K_{j}\}, 
     \end{align*}
-    remains rooted.
+    remains unambiguous.
     Moreover, the obstructions here are precisely the ones from the old family minus $b^{(i)}_k$, which are all fixed by $\tau$.
     So we may repeat this process until all obstructions are removed.
 \end{proof}
 
-Having chosen the fresh atoms carefully, let $X$ consist of all the atoms appearing in $\mathcal{O}[v] \cup \{ (x^{(a_{j'}, k)}_\bullet ; a_{j'}), (y^{(a_{j'}, k)_\bullet; a_{j'}}) \mid k \in K_{j'}, 1 \leq j' \leq m\}$.
-The trick now is to add a new element $b^*$ to the finite $\mathcal{L}$-structure $S \cup Z \subseteq \A$. 
+Having chosen the fresh atoms carefully, let $X$ consist of all the atoms appearing in the unobstructed family $\mathcal{O}[v] \cup \{ (x^{(a_{j'}, k)}_\bullet ; a_{j'}), (y^{(a_{j'}, k)_\bullet; a_{j'}}) \mid k \in K_{j'}, 1 \leq j' \leq m\}$.
+The trick now is to add a new element $b^*$ to the finite $\mathcal{L}$-structure $S \cup X \subseteq \A$. 
 We define the new relations by
 \[\left\{
 \begin{aligned}
@@ -531,8 +530,10 @@ where we extend $\sqrt{-} : X \to \{o_1, \dots, o_d\}$ to
 \[
     \sqrt{-} : S \cup X \cup \{b^*\} \to \{o_1, \dots, o_d\} \cup S
 \]
-by letting $\sqrt{s} = s$ and $\sqrt{b^*} = o_{i^*}$;
-this is indeed a function.
+by letting $\sqrt{s} = s$ and $\sqrt{b^*} = o_{i^*}$.
+
+So far we only relied on the unambiguity of the family;
+next we use the full assumption that it is unobstructed:
 
 \begin{claim}
     $S \cup X \cup \{b^*\}$ embeds into $\A$.
@@ -581,7 +582,7 @@ Using homogeneity we may assume that $S \cup X \cup \{b^*\} \subseteq \A$.
 \end{proof}
 
 \begin{claim}
-    The family $\mathcal{O}[v] \cup \{ (x^{(a_j, k)}_\bullet ; a_j),  (y^{(a_j, k)}_\bullet ; b^*) \mid k \in K_j, 1 \leq j \leq m \} $ is free enough.
+    The family $\mathcal{O}[v] \cup \{ (x^{(a_j, k)}_\bullet ; a_j),  (y^{(a_j, k)}_\bullet ; b^*) \mid k \in K_j, 1 \leq j \leq m \} $ is unobstructed.
 \end{claim}
 \begin{proof}
     \color{red} TODO 3
