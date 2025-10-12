@@ -513,16 +513,16 @@ We can ask for more:
 
 Having chosen the fresh atoms carefully, let $X$ consist of all the atoms appearing in the unobstructed family $\mathcal{O}[v] \cup \{ (x^{(a_{j'}, k)}_\bullet ; a_{j'}), (y^{(a_{j'}, k)_\bullet; a_{j'}}) \mid k \in K_{j'}, 1 \leq j' \leq m\}$.
 The trick now is to add a new element $b^*$ to the finite $\mathcal{L}$-structure $S \cup X \subseteq \A$. 
-We define the new relations by
+We define the new relations in $S \cup X \cup \{b^*\}$ by
 \[\left\{
 \begin{aligned}
-    R_1(b^*) &\iff R_1(\sqrt{b^*}) \\
-    R_2(b^*, s) &\iff R_2(\sqrt{b^*}, \sqrt s) \\
-    R_2(s, b^*) &\iff R_2(\sqrt s, \sqrt{b^*}) \\
-    R_2(b^*, b^{(k)}_i) &\iff R_2(\sqrt{b^*}, \sqrt{b^{(k)}_i}) \\
-    R_2(b^{(k)}_i, b^*) &\iff R_2(\sqrt{b^{(k)}_i}, \sqrt{b^*}) \\
-    b^* > s &\iff \sqrt{b^*} > \sqrt s \\
-    b^* > b^{(k)}_i &
+    \cdots \models R_1(b^*) &\iff \A \models R_1(\sqrt{b^*}) \\
+    \cdots \models R_2(b^*, s) &\iff \A \models R_2(\sqrt{b^*}, \sqrt s) \\
+    \cdots \models R_2(s, b^*) &\iff \A \models R_2(\sqrt s, \sqrt{b^*}) \\
+    \cdots \models R_2(b^*, b^{(k)}_i) &\iff \A \models R_2(\sqrt{b^*}, \sqrt{b^{(k)}_i}) \\
+    \cdots \models R_2(b^{(k)}_i, b^*) &\iff \A \models R_2(\sqrt{b^{(k)}_i}, \sqrt{b^*}) \\
+    \cdots \models b^* > s &\iff \A \models \sqrt{b^*} > \sqrt s \\
+    \cdots \models b^* > b^{(k)}_i &
 \end{aligned}
 \right.\]
 for every unary relation $R_1$ and binary relation $R_2$ in $\mathcal{L}_0$,
@@ -530,7 +530,7 @@ where we extend $\sqrt{-} : X \to \{o_1, \dots, o_d\}$ to
 \[
     \sqrt{-} : S \cup X \cup \{b^*\} \to \{o_1, \dots, o_d\} \cup S
 \]
-by letting $\sqrt{s} = s$ and $\sqrt{b^*} = o_{i^*}$.
+by letting $\sqrt{b^{(k)}_i} = o_i$ as before and $\sqrt{s} = s$, $\sqrt{b^*} = o_{i^*}$ in addition.
 
 So far we only relied on the unambiguity of the family;
 next we use the full assumption that it is unobstructed:
@@ -539,12 +539,18 @@ next we use the full assumption that it is unobstructed:
     $S \cup X \cup \{b^*\}$ embeds into $\A$.
 \end{claim}
 \begin{proof}
-    \color{red} TODO 1
+    If not, by Lemma~\ref{lem:free-forb} there is a forbidden $\mathcal{L}_0$-structure $F$ of pairwise related elements which embeds into the $\mathcal{L}_0$-reduct of $S \cup X \cup \{b^*\}$, via $\phi$ say.    
+    We will check that $\sqrt{-} \circ \phi$ then embeds $F$ into the $\mathcal{L}_0$-reduct of $\A$, namely $\A_0$, and reach a contradiction.
 
-    If not, by Lemma~\ref{lem:free-forb} there is a forbidden $\mathcal{L}_0$-structure $F$ which embeds into $S \cup X \cup \{b^*\}$ via $\phi$.
-    We will show that $\sqrt{-} \circ \phi$ then embeds $F$ into $\A$, which is clearly impossible.
-
-    $\sqrt{s}$
+    So let $R_1 \in \mathcal{L}_0$ be unary and let $R_2 \in \mathcal{L}_0$ be binary.
+    It is immediate that $\sqrt -$ preserves and reflects $R_1$ for $s \in S$, for $b^{(k)}_i \in X$, and for $b^*$ --- we do not even need to know they are in the image of $\phi$.
+    We can also see that $\sqrt -$ preserves and reflects $R_2$ whenever at least one of the arguments is from $S \cup \{b^*\}$.
+    Now consider the remaining case where $b^{(k)}_i = \phi(f)$ and $b^{(k')}_{i'} = \phi(f')$.
+    As $f$ and $f'$ are related in $F$, 
+    their images $b^{(k)}_i$ and $b^{(k')}_{i'}$ must be related in $\phi(F)$.
+    But we ensured that the family giving rise to $X$ is unobstructed, which forces $\sqrt -$ to preserve and reflect $R_2$ here as well.
+    Since $\mathcal{L}_0$ only has unary and binary relations, this means that $\sqrt{\phi(F)} \subseteq \A_0$ is in $\mathcal{C}_0$ yet embeds $F$; 
+    this is obviously impossible.
 \end{proof}
 
 Using homogeneity we may assume that $S \cup X \cup \{b^*\} \subseteq \A$.
