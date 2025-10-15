@@ -292,7 +292,7 @@ Starting from an empty cog duo, we may apply the previous lemma inductively.
 \end{proof}
 
 The result below substantiates the slogan that cogs are found everywhere. 
-\begin{theorem}
+\begin{theorem} \label{thm:cogs-arise-everywhere}
     Any $\Aut(\A)_{(S)}$-equivariant subspace $V$ of $\Lin_\EE \mathcal{O}$ contains $\Cog_{\EE'} \mathcal{O}$,
     where $\mathcal{O} \subseteq \A^I$ is $S$-orderly and $\EE'$ is the subspace of $\EE$ spanned by $\{ v(a_\bullet) \mid v \in V, a_\bullet \in \mathcal{O} \}$.
 \end{theorem}
@@ -364,7 +364,7 @@ we just need to reassemble the various cogs in $\mathcal{O}^{i:a}|^{-i}$ back in
 Unfortunately we were only able to do so under the hypothesis that $\mathcal{L}_0$ is an at most binary language, 
 which we henceforth assume.
 
-\subsection{Special case: vectors unobstructed for binary relations}
+\subsection{Special case: unobstructed vectors}
 We will begin by showing any $v \in \Ker_\EE \mathcal{O}$ lies in $\Cog_\EE \mathcal{O}$ provided that $v$ satisfies an additional condition which, 
 as we will explain in the subsection, may be assumed without loss of generality. 
 We motivate and introduce this condition now. 
@@ -511,7 +511,7 @@ We can ask for more:
     So we may repeat this process until all obstructions are removed.
 \end{proof}
 
-Having chosen the fresh atoms carefully, let $X$ consist of all the atoms appearing in the unobstructed family $\mathcal{O}[v] \cup \{ (x^{(a_{j'}, k)}_\bullet ; a_{j'}), (y^{(a_{j'}, k)_\bullet; a_{j'}}) \mid k \in K_{j'}, 1 \leq j' \leq m\}$.
+Having chosen the fresh atoms carefully, let $X$ consist of all the atoms appearing in the unobstructed family $\mathcal{O}[v] \cup \{ (x^{(a_{j'}, k)}_\bullet ; a_{j'}), (y^{(a_{j'}, k)_\bullet} ; a_{j'}) \mid k \in K_{j'}, 1 \leq j' \leq m\}$.
 The trick now is to add a new element $b^*$ to the finite $\mathcal{L}$-structure $S \cup X \subseteq \A$. 
 We define the new relations in $S \cup X \cup \{b^*\}$ by
 \[\left\{
@@ -557,9 +557,30 @@ Using homogeneity we may assume that $S \cup X \cup \{b^*\} \subseteq \A$.
 \begin{claim}
     $x^{(a_j, k)}_\bullet ; a_j \parallel y^{(a_j, k)}_\bullet ; b^*$ forms an $\mathcal{O}$-cog duo 
     for $1 \leq j \leq m$ and $k \in K_j$.
+    Furthermore, the family \[
+        \mathcal{O}[v] \cup \{ (x^{(a_j, k)}_\bullet ; a_j),  (y^{(a_j, k)}_\bullet ; b^*) \mid k \in K_j, 1 \leq j \leq m \} 
+    \] is unobstructed.
 \end{claim}
 \begin{proof}
-    \color{red} TODO 2
+    Recall that $x^{(a_j, k)}_\bullet \parallel y^{(a_j, k)}_\bullet$ is a cog duo in $\mathcal{O}^{i^* : a_j}|^{-i^*}$.
+    Given any $o_\bullet \in \mathcal{O}$,
+    it remains to show that
+    \[
+        \A \models R_1(b^*) \leftrightarrow R_1(o_{i^*})
+    \]
+    for any unary $R_1 \in \mathcal{L}_0$ and that
+    \begin{align*}
+        \A \models 
+        &R_2(b^*, s) \leftrightarrow R_2(o_{i^*}, s) \\
+        &\wedge R_2(s, b^*) \leftrightarrow R_2(s, o_{i^*}) \\
+        &\wedge R_2(b^*, b^{(k)}_i) \leftrightarrow R_2(o_{i^*}, o_i) \\
+        &\wedge R_2(b^{(k)}_i, b^*) \leftrightarrow R_2(o_i, o_{i^*})
+    \end{align*}
+    for any binary $R_2 \in \mathcal{L}_0$, where $b^{(k)}_\bullet \in \{ x^{(a_j, k)}_\bullet, y^{(a_j, k)}_\bullet \}$ and $s \in S$ are arbitrary.
+
+    Similarly, to show that the family in the claim is unambiguous and unobstructed, it is enough to check pairs of the form $b^*, b^{(k)}_i$ with $b^{(k)}_i \in X$.
+    And indeed $b^* \mapsto o_{i^*}, b^{(k)}_i \mapsto o_i$ is always a function, since we chose $b^*$ to be a new element.
+    This is furthermore an embedding if $i \neq i^*$ because of the relations we imposed on $b^*$; otherwise $b^*$ is unrelated to $b^{(k)}_{i}$ by irreflexivity, as required.
 \end{proof}
 
 \begin{claim}
@@ -584,14 +605,11 @@ Using homogeneity we may assume that $S \cup X \cup \{b^*\} \subseteq \A$.
         = 0 - \left( \sum_{j=1}^m v^{i^* : a_j} |^{-i^*} ; b^* \middle) \right|^{-i^*}.
     \end{align*}
     But we can simply add back $b^*$ as the $i^*$th entry,
-    yielding $0 = \sum_{j=1}^m v^{i^* : a_j}|^{-i^*} ; b^*$ as desired.
+    yielding $0 = \sum_{j=1}^m v^{i^* : a_j}|^{-i^*} ; b^*$ as needed --- replacing the $i^*$th entry by a common atom achieves the same effect of projecting it away.
 \end{proof}
 
-\begin{claim}
-    The family $\mathcal{O}[v] \cup \{ (x^{(a_j, k)}_\bullet ; a_j),  (y^{(a_j, k)}_\bullet ; b^*) \mid k \in K_j, 1 \leq j \leq m \} $ is unobstructed.
-\end{claim}
-\begin{proof}
-    \color{red} TODO 3
-\end{proof}
+This completes the proof of Theorem~\ref{thm:cog-span-special-case};
+we have shown any balanced vector $v$ is spanned by cogs as long as $\mathcal{O}[v]$ is unambiguous and unobstructed.
+We will now explain how, starting with any balanced vector $v'$, we may always add appropriate cogs to obtain such a vector $v$.
 
-\subsection{Reducing to the special case}
+\subsection{Removing ambiguities and obstructions}
