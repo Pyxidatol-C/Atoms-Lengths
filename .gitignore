@@ -7,5 +7,6 @@
 *.bcf
 *.blg
 *.run.xml
+*.bbl-SAVE-ERROR
 
 .DS_Store

@@ -35,7 +35,7 @@ In this section we work with the following setting:
 Free amalgamation in $\mathcal{C}_0$ allows us to free atoms in $\A$ from undesired relations.
 Let us make this more precise.
 Given atoms $z_i, z_j \in Z \subseteq \A$, we say $z_i$ is \emph{related} to $z_j$ in $Z$ if $z_i, z_j$ appear together in some tuple $z_\bullet \in Z^*$ such that $\A \models R(a_\bullet)$ for some $R \in \mathcal{L}_0$ (since $z_i$ and $z_j$ are certainly related by $<$).
-%Note: unrelated necessarily means non-equal.
+% Note: unrelated necessarily means non-equal.
 Otherwise we say $z_i$ is \emph{unrelated} to $z_j$ in $Z$
 --- notice it is still possible that $z_i$ becomes related to $z_j$ in some bigger $Z$ unless every relation in $\mathcal{L}_0$ is at most binary.
 \begin{lemma}\label{lem:free-fresh}
@@ -201,7 +201,7 @@ Third, by homogeneity still, any two cog duos $a_\bullet \parallel b_\bullet$ an
     Given $\lambda \in \EE$ and an $\mathcal{O}$-cog duo $a_\bullet \parallel b_\bullet$, the corresponding \emph{$\mathcal{O}$-cog} with coefficient $\lambda$ is the vector
     \[
         \lambda \cdot a_\bullet \between b_\bullet =
-        \sum_{J \subseteq I} (-1)^{|J|} \lambda \cdot  a|^J_\bullet ; b^{I \setminus J}_\bullet
+        \sum_{J \subseteq I} (-1)^{|J|} \lambda \cdot  a|^{I \setminus J}_\bullet ; b^{J}_\bullet
     \]
     in $\Lin_\EE \mathcal{O}$.
     The linear span of all $\mathcal{O}$-cogs with coefficients from $\EE$ is denoted by $\Cog_\EE \mathcal{O}$.
@@ -293,8 +293,8 @@ Starting from an empty cog duo, we may apply the previous lemma inductively.
 
 The result below substantiates the slogan that cogs are found everywhere. 
 \begin{theorem} \label{thm:cogs-arise-everywhere}
-    Any $\Aut(\A)_{(S)}$-equivariant subspace $V$ of $\Lin_\EE \mathcal{O}$ contains $\Cog_{\EE'} \mathcal{O}$,
-    where $\mathcal{O} \subseteq \A^I$ is $S$-orderly and $\EE'$ is the subspace of $\EE$ spanned by $\{ v(a_\bullet) \mid v \in V, a_\bullet \in \mathcal{O} \}$.
+    Any $\Aut(\A)_{(S)}$-equivariant subspace $V$ of $\Lin_\EE \mathcal{O}$ contains $\Cog_{\EE(V)} \mathcal{O}$,
+    where $\mathcal{O} \subseteq \A^I$ is $S$-orderly and $\EE(V)$ is the subspace spanned by $\{ v(a_\bullet) \mid v \in V, a_\bullet \in \mathcal{O} \}$ of $\EE$.
 \end{theorem}
 \begin{proof}
     Pick any $v \in V$ and $a_\bullet \in \mathcal{O}$;
@@ -322,7 +322,7 @@ The result below substantiates the slogan that cogs are found everywhere.
 \end{corollary}
 \begin{proof}
     Let $V \subseteq \Cog_\FF \mathcal{O}$ be a non-zero $\Aut(\A)_{(S)}$-equivariant subspace.
-    Then $\EE'$ is the entire field $\FF$, and by above $V$ must be $\Cog_\FF \mathcal{O}$ itself.
+    Then $\{0\} \subsetneq \EE(V) \subseteq \EE = \FF$ so $\EE$ must be the entire field $\FF$, and by above $V$ must be $\Cog_\FF \mathcal{O}$ itself.
 \end{proof}
 
 In light of Propositions~\ref{prop:reduction-to-one-orbit} and \ref{prop:reduction-to-kernel}, we will be able to prove the finite length property for an oligomorphic structure with free amalgamation over any field and support if we know $\Ker_\FF \mathcal{O} = \Cog_\FF \mathcal{O}$.
@@ -371,7 +371,7 @@ We motivate and introduce this condition now.
 
 Consider the atoms in the tuples 
 \[
-    \mathcal{O}[v] = \{ b_\bullet \in \mathcal{O} \mid v(b_\bullet) \neq 0 \}.
+    \mathcal{O}(v) = \{ b_\bullet \in \mathcal{O} \mid v(b_\bullet) \neq 0 \}.
 \]
 that appear in a vector $v \in \Lin_\EE \mathcal{O}$, with $\mathcal{O}$ being $S$-orderly.
 Take $a = b_i$ to be one such atom,
@@ -379,7 +379,7 @@ and let $R_1, R_2 \in \mathcal{L}_0$ be unary and binary respectively.
 Then whether $R_1(a)$, $R_2(a, s)$, $R_2(s, a)$ hold in $\A$ given $s \in S$ is determined by $\mathcal{O}$
 --- more preciesly, by whether $R_1(o_i)$, $R_2(o_i, s)$, $R_2(s, o_i)$ hold in $\A$ for any $o_\bullet \in \mathcal{O}$.
 
-Now take another atom $a' = b'_j$ occurring in $\mathcal{O}[v]$.
+Now take another atom $a' = b'_j$ occurring in $\mathcal{O}(v)$.
 What can be said about $R_2(a, a')$?
 Except in those happy dispositions where $b'_\bullet = b_\bullet$, not much --- whether $\A \models R_2(o_i, o_j)$ need not be a constraint for $a$ and $a'$.
 The index $j$ may not even be unique: we may well have $b'_j = b''_k$ for $j \neq k$.
@@ -399,21 +399,20 @@ We want to avoid such confusions:
             \A \models{} & R(b^{(k)}_i, b^{(k')}_{i'}) \leftrightarrow R(\sqrt{ b^{(k)}_i }, \sqrt{ b^{(k')}_{i'} }) \\
             &{} \wedge R(b^{(k')}_{i'}, b^{(k)}_i) \leftrightarrow R(\sqrt{ b^{(k')}_{i'} }, \sqrt{ b^{(k)}_i })
         \end{align*}
-        for every binary relation $R \in \mathcal{L}_0$.%
-        \footnote{Of course, whether the family is unambiguous or unobstructed does not depend on the choice of the specific representative $o_\bullet \in \mathcal{O}$!}
+        for every binary relation $R \in \mathcal{L}_0$.\footnote{Of course, whether the family is unambiguous or unobstructed does not depend on the choice of the specific representative $o_\bullet \in \mathcal{O}$!}
     \end{enumerate}
 \end{definition}
 
 We can now state the precise result.
 \begin{theorem}\label{thm:cog-span-special-case}
-    Let $v \in \Ker_\EE \mathcal{O}$ be such that $\mathcal{O}[v]$ is unobstructed.
+    Let $v \in \Ker_\EE \mathcal{O}$ be such that $\mathcal{O}(v)$ is unobstructed.
     Then (assuming that $\mathcal{L}_0$ is at most binary) we have
     \[
         v = \sum_{k \in K} v(b^{(k)}_\bullet) \cdot x^{(k)}_\bullet \between y^{(k)}_\bullet
     \]
     for some $b^{(k)}_\bullet$'s, $x^{(k)}_\bullet$'s, and $y^{(k)}_\bullet$'s, where moreover
     \[
-        \mathcal{O}[v] \cup \{ x^{(k)}_\bullet, y^{(k)}_\bullet \mid k \in K \}
+        \mathcal{O}(v) \cup \{ x^{(k)}_\bullet, y^{(k)}_\bullet \mid k \in K \}
     \]
     is also unobstructed.
 \end{theorem}
@@ -423,26 +422,26 @@ We can now state the precise result.
 We spend the rest of this subsection giving the proof,
 which proceeds by induction on $|I|$ for $S$-orderly orbits $\mathcal{O} \subseteq \A^I$ for every $S$ at once.
 
-The base case $I = \emptyset$ is immediate as before:
+The base case $I = \emptyset$ is immediate:
 as $\mathcal{O}$ is the singleton $\{ () \}$,
-any vector $v \in \Ker_\EE \mathcal{O} = \Lin_\EE \mathcal{O} = \Cog_\EE \mathcal{O}$ is a cog already, where $\mathcal{O}[v]$ is vacuously unobstructed;
+any vector $v \in \Ker_\EE \mathcal{O} = \Lin_\EE \mathcal{O} = \Cog_\EE \mathcal{O}$ is a cog already, where $\mathcal{O}(v)$ is vacuously unobstructed;
 so the theorem says nothing more than $v = v$.
 
 Now suppose that some $i^* \in I$ exists --- in fact, let $i^*$ be maximal.
-Consider a vector $v \in \Ker_\EE \mathcal{O}$ with $\mathcal{O}[v]$ being unobstructed.
+Consider a vector $v \in \Ker_\EE \mathcal{O}$ with $\mathcal{O}(v)$ being unobstructed.
 We can decompose $v$ into finitely many subvectors to write
 \[
     v = v^{i^* : a_1} + \dots + v^{i^* : a_m}.
 \]
 Then each projection $v^{i^* : a_j}|^{-i^*}$ lies in $\Ker_\EE \mathcal{O}^{i^* : a_j}|^{-i^*}$ by Lemma~\ref{lem:balanced-projected-subvector},
-and we may straightforwardly check that \textit{a fortiori} $\mathcal{O}^{i^* : a_j}|^{-i^*}[v^{i^* : a_j}|^{-i^*}]$ is unambiguous and unobstructed.
+and we may straightforwardly check that \textit{a fortiori} $\mathcal{O}^{i^* : a_j}|^{-i^*}(v^{i^* : a_j}|^{-i^*})$ is unambiguous and unobstructed.
 It follows from the inductive hypothesis of Theorem~\ref{thm:cog-span-special-case} that 
 \[
     v^{i^* : a_j}|^{-i^*} 
     = \sum_{k \in K_j} v^{i^* : a_j}|^{-i^*}(b^{(a_j, k)}_\bullet) \cdot x^{(a_j, k)}_\bullet \between y^{(a_j, k)}_\bullet
 \]
 for some tuples $b^{(a_j, k)}_\bullet$'s,  $x^{(a_j, k)}_\bullet$'s, and $y^{(a_j, k)}_\bullet$'s such that
-$\mathcal{O}^{i^* : a_j}|^{-i^*}[v^{i^* : a_j}|^{-i^*}] \cup \{x^{(a_j, k)}_\bullet, y^{(a_j, k)}_\bullet \mid k \in K_j\}$ is unobstructed.
+$\mathcal{O}^{i^* : a_j}|^{-i^*}(v^{i^* : a_j}|^{-i^*}) \cup \{x^{(a_j, k)}_\bullet, y^{(a_j, k)}_\bullet \mid k \in K_j\}$ is unobstructed.
 We can return to $\mathcal{O}$ by adding $a_j$ back as the $i^*$th term to every tuple:
 we get
 \[
@@ -451,7 +450,7 @@ we get
 \]
 where the family
 \[
-    \mathcal{O}[v^{i^* : a_j}] \cup \{ (x^{(a_j, k)}_\bullet ; a_j), (y^{(a_j, k)}_\bullet ; a_j) \mid k \in K_j\}
+    \mathcal{O}(v^{i^* : a_j}) \cup \{ (x^{(a_j, k)}_\bullet ; a_j), (y^{(a_j, k)}_\bullet ; a_j) \mid k \in K_j\}
 \]
 is easily seen to be unobstructed.
 We can ask for more:
@@ -459,12 +458,12 @@ We can ask for more:
 \begin{claim}\label{claim:half-cog-freshened-up}
     We may choose $x^{(a_j, k)}_\bullet$'s, and $y^{(a_j, k)}_\bullet$'s so that
     \[
-        \mathcal{O}[v] \cup \{ (x^{(a_{j'}, k)}_\bullet ; a_{j'}), (y^{(a_{j'}, k)}_\bullet ; a_{j'}) \mid k \in K_{j'}, 1 \leq j' \leq j\}
+        \mathcal{O}(v) \cup \{ (x^{(a_{j'}, k)}_\bullet ; a_{j'}), (y^{(a_{j'}, k)}_\bullet ; a_{j'}) \mid k \in K_{j'}, 1 \leq j' \leq j\}
     \]
     is unobstructed for $j = 1, 2, \dots, m$.
 \end{claim}
 \begin{proof}
-    Let $A_j$ denote the atoms that appear in $\mathcal{O}[v^{i^* : a_j}]$.
+    Let $A_j$ denote the atoms that appear in $\mathcal{O}(v^{i^* : a_j})$.
     Given any automorphism $\pi \in \Aut(\A)$ that fixes $S$ as well as $A_j$, 
     using the tuples $\pi \cdot x^{(a_j, k)}_\bullet$ and $\pi \cdot y^{(a_j, k)}_\bullet$ gives us another decomposition of $v^{i^* : a_j}|^{-i^*}$ that is unobstructed.
     We will show that composing such automorphisms --- which will be provided by Lemma~\ref{lem:free-fresh} --- suffices to make the claim hold for $j$.
@@ -472,15 +471,15 @@ We can ask for more:
     Assume the claim for $j - 1$. 
     Suppose that the family in the claim for $j$ is not even unambiguous.
     We must have $b^{(k)}_i = b^{(k')}_{i'}$ with $i \neq i'$ where $b^{(k)}_\bullet$, say, is some $x^{(a_j, k)}_\bullet ; a_j$ or $y^{(a_j, k)}_\bullet ; a_j$.
-    Now if we were to have $b^{(k)}_i \in A_j$ --- e.g., if $b^{(k)}_i = a_j$ --- then $b^{(k)}_i = b^{(k'')}_{i''}$ for some $b^{(k'')}_\bullet \in \mathcal{O}[v^{i^* : a_j}] \subseteq \mathcal{O}[v]$.
+    Now if we were to have $b^{(k)}_i \in A_j$ --- e.g., if $b^{(k)}_i = a_j$ --- then $b^{(k)}_i = b^{(k'')}_{i''}$ for some $b^{(k'')}_\bullet \in \mathcal{O}(v^{i^* : a_j}) \subseteq \mathcal{O}(v)$.
     This is impossible: we know two families that are unobstructed which imply $i = i''$ and $i'' = i'$.
     
     So the ambiguous atom $b^{(k)}_i$ does not belong to $A_j$.
-    In other words, the set $X$ of all atoms except $b^{(k)}_i$ that appear in $\mathcal{O}[v] \cup \{ (x^{(a_{j'}, k)}_\bullet ; a_{j'}), (y^{(a_{j'}, k)}_\bullet ; a_{j'}) \mid k \in K_{j'}, 1 \leq j' \leq j\}$ contains $A_j$ and $a_j$.
+    In other words, the set $X$ of all atoms except $b^{(k)}_i$ that appear in $\mathcal{O}(v) \cup \{ (x^{(a_{j'}, k)}_\bullet ; a_{j'}), (y^{(a_{j'}, k)}_\bullet ; a_{j'}) \mid k \in K_{j'}, 1 \leq j' \leq j\}$ contains $A_j$ and $a_j$.
     Apply Lemma~\ref{lem:free-fresh} --- particularly, use the fact that $\A$ has no algebraicity --- to get an automorphism $\tau$ which fixes $S \cup X$ but sends $b^{(k)}_i$ to a fresh atom.
     Then, in the new family 
     \begin{align*}
-        \mathcal{O}[v] 
+        \mathcal{O}(v) 
         &\cup \{ (x^{(a_{j'}, k)}_\bullet ; a_{j'}), (y^{(a_{j'}, k)}_\bullet ; a_{j'}) \mid k \in K_{j'}, 1 \leq j' < j\} \\
         &\cup \{ (\tau \cdot x^{(a_{j}, k)}_\bullet ; a_{j}), (\tau \cdot y^{(a_{j}, k)}_\bullet ; a_{j}) \mid k \in K_{j}\}, 
     \end{align*}
@@ -490,19 +489,19 @@ We can ask for more:
     Hence assume that the family in the claim for $j$ is unambiguous.
     Suppose $b^{(k)}_i$ and some $b^{(k')}_{i'}$ are the reason why the family fails to be unobstructed.
     To have the obstruction $b^{(k)}_i$ in $A_j$ is impossible:
-    otherwise $b^{(k)}_i = b^{(k'')}_{i''}$ for some $b^{(k'')}_\bullet \in \mathcal{O}[v^{i^* : a_j}] \subseteq \mathcal{O}[v]$;
+    otherwise $b^{(k)}_i = b^{(k'')}_{i''}$ for some $b^{(k'')}_\bullet \in \mathcal{O}(v^{i^* : a_j}) \subseteq \mathcal{O}(v)$;
     then $i = i''$ by the unambiguity assumption, yet $b^{(k'')}_{i''}$ --- hence $b^{(k)}_i$ --- cannot be an obstruction because we have two subfamilies that are unobstructed.
     Symmetrically, we see that $b^{(k')}_{i'} \not\in A_j$.
 
     Finally, notice that by the claim for $j - 1$, an obstruction $b^{(k)}_i$ must again come from $b^{(k)}_\bullet$ being some $x^{(a_j, k)}_\bullet ; a_j$ or $y^{(a_j, k)}_\bullet ; a_j$.
-    This time, split all atoms except $b^{(k)}_i$ which appear in $\mathcal{O}[v] \cup \{ (x^{(a_{j'}, k)}_\bullet ; a_{j'}), (y^{(a_{j'}, k)}_\bullet ; a_{j'}) \mid k \in K_{j'}, 1 \leq j' \leq j \}$ into two sets $X$ and $Y$:
+    This time, split all atoms except $b^{(k)}_i$ which appear in $\mathcal{O}(v) \cup \{ (x^{(a_{j'}, k)}_\bullet ; a_{j'}), (y^{(a_{j'}, k)}_\bullet ; a_{j'}) \mid k \in K_{j'}, 1 \leq j' \leq j \}$ into two sets $X$ and $Y$:
     put any atom $b^{(k')}_{i'}$ which makes $b^{(k)}_i$ an obstruction in $Y$, and put everything else in $X$.
     Then $X$ contains $A_j$ as discussed above;
     in fact, $X$ contains $\{x^{(a_j, k)}_i, y^{(a_j, k)}_i \mid k \in K_j, i \in I\}$.
     Use Lemma~\ref{lem:free-fresh} to get $\tau \in \Aut(\A)_{(S \cup X)}$ which sends $b^{(k)}_i$ to a fresh atom disjoint from $S \cup X \cup Y \cup \{b^{(k)}_i\}$ that is unrelated to everything in $Y$.
     Observe that the new family
     \begin{align*}
-        \mathcal{O}[v] 
+        \mathcal{O}(v) 
         &\cup \{ (x^{(a_{j'}, k)}_\bullet ; a_{j'}), (y^{(a_{j'}, k)}_\bullet ; a_{j'}) \mid k \in K_{j'}, 1 \leq j' < j\} \\
         &\cup \{ (\tau \cdot x^{(a_{j}, k)}_\bullet ; a_{j}), (\tau \cdot y^{(a_{j}, k)}_\bullet ; a_{j}) \mid k \in K_{j}\}, 
     \end{align*}
@@ -511,7 +510,7 @@ We can ask for more:
     So we may repeat this process until all obstructions are removed.
 \end{proof}
 
-Having chosen the fresh atoms carefully, let $X$ consist of all the atoms appearing in the unobstructed family $\mathcal{O}[v] \cup \{ (x^{(a_{j'}, k)}_\bullet ; a_{j'}), (y^{(a_{j'}, k)_\bullet} ; a_{j'}) \mid k \in K_{j'}, 1 \leq j' \leq m\}$.
+Having chosen the fresh atoms carefully, let $X$ consist of all the atoms appearing in the unobstructed family $\mathcal{O}(v) \cup \{ (x^{(a_{j'}, k)}_\bullet ; a_{j'}), (y^{(a_{j'}, k)_\bullet} ; a_{j'}) \mid k \in K_{j'}, 1 \leq j' \leq m\}$.
 The trick now is to add a new element $b^*$ to the finite $\mathcal{L}$-structure $S \cup X \subseteq \A$. 
 We define the new relations in $S \cup X \cup \{b^*\}$ by
 \[\left\{
@@ -558,7 +557,7 @@ Using homogeneity we may assume that $S \cup X \cup \{b^*\} \subseteq \A$.
     $x^{(a_j, k)}_\bullet ; a_j \parallel y^{(a_j, k)}_\bullet ; b^*$ forms an $\mathcal{O}$-cog duo 
     for $1 \leq j \leq m$ and $k \in K_j$.
     Furthermore, the family \[
-        \mathcal{O}[v] \cup \{ (x^{(a_j, k)}_\bullet ; a_j),  (y^{(a_j, k)}_\bullet ; b^*) \mid k \in K_j, 1 \leq j \leq m \} 
+        \mathcal{O}(v) \cup \{ (x^{(a_j, k)}_\bullet ; a_j),  (y^{(a_j, k)}_\bullet ; b^*) \mid k \in K_j, 1 \leq j \leq m \} 
     \] is unobstructed.
 \end{claim}
 \begin{proof}
@@ -608,8 +607,61 @@ Using homogeneity we may assume that $S \cup X \cup \{b^*\} \subseteq \A$.
     yielding $0 = \sum_{j=1}^m v^{i^* : a_j}|^{-i^*} ; b^*$ as needed --- replacing the $i^*$th entry by a common atom achieves the same effect of projecting it away.
 \end{proof}
 
-This completes the proof of Theorem~\ref{thm:cog-span-special-case};
-we have shown any balanced vector $v$ is spanned by cogs as long as $\mathcal{O}[v]$ is unambiguous and unobstructed.
-We will now explain how, starting with any balanced vector $v'$, we may always add appropriate cogs to obtain such a vector $v$.
+This completes the proof of Theorem~\ref{thm:cog-span-special-case}:
+we have shown any balanced vector $v$ is spanned by cogs as long as $\mathcal{O}(v)$ is unambiguous and unobstructed.
+Let us lift this restriction.
 
 \subsection{Removing ambiguities and obstructions}
+
+\begin{theorem}\label{thm:cog-span-generally}
+    Let $v \in \Ker_\EE \mathcal{O}$ be arbitrary.
+    Then (assuming that $\mathcal{L}_0$ is at most binary) we have
+    \[
+        v = \sum_{k \in K} v(b^{(k)}_\bullet) \cdot x^{(k)}_\bullet \between y^{(k)}_\bullet
+    \]
+    for some $b^{(k)}_\bullet, x^{(k)}_\bullet, y^{(k)}_\bullet \in \mathcal{O}$.
+\end{theorem}
+As a reminder, $\mathcal{O} \subseteq \A^I$ is an $S$-orderly orbit and $\EE$ is a finite-dimensional $\FF$-vector space.
+We induct on $|I|$, noting that when $I = \emptyset$ we are just saying $v = v() \cdot (\between)$.
+Hereafter assume $I \neq \emptyset$.
+
+\begin{proposition}
+    Let $v \in \Ker_\EE \mathcal{O}$.
+    Then we can find $b^{(k)}_\bullet, x^{(k)}_\bullet, y^{(k)}_\bullet \in \mathcal{O}$ so that
+    \[
+        \ddot v = v - \sum_{k \in K_0} v(b^{(k)}_\bullet) \cdot x^{(k)}_\bullet \between y^{(k)}_\bullet
+    \]
+    satisfies $\ddot v(\mathcal{O}) \subseteq v(\mathcal{O}) \subseteq \EE$ and $\mathcal{O}(\ddot v)$ is unambiguous.
+\end{proposition}
+\begin{proof}
+    Assume there is an ambiguity in $\mathcal{O}(v)$, i.e., there are $a_\bullet, a'_\bullet \in \mathcal{O}(v)$ such that $a_i = a'_{i'}$ but $i \neq i'$ (so $|I| \geq 2$).
+    Let us prevent the atom-index pair $(a_i, i)$ from causing ambiguities.
+    By Lemma~\ref{lem:balanced-projected-subvector}, the projected subvector $v^{i : a_i} |^{-i}$ belongs to $\Ker_\EE \mathcal{O}^{i : a_i} |^{-i}$;
+    by the inductive hypothesis of Theorem~\ref{thm:cog-span-generally} at hand, we have
+    \[
+        v^{i : a_i} =
+        v^{i : a_i}|^{-i} ; a_i = 
+        \sum_{k \in K} v(b^{(k)}_\bullet ; a_i) \cdot ( x^{(k)}_\bullet \between y^{(k)}_\bullet ) ; a_i.
+    \]
+    We can invoke Lemma~\ref{lem:free-fresh} to find an automorphism $\tau$ which fixes all of the atoms except $a_i$ that appear in $x^{(k)}_\bullet, y^{(k)}_\bullet$, $k \in K$ and in $b_\bullet \in \mathcal{O}(v)$
+    --- in fact, we will use a variant so that $\tau \cdot a_i < a_i$. 
+    It follows from the appropriate modification of Lemma~\ref{lem:cog-fresh-single} that we get $\mathcal{O}$-cog duos $x^{(k)}_\bullet ; \tau \cdot a_i \parallel y^{(k)}_\bullet ; a_i$ for $k \in K$.
+    Observe that
+    \begin{align*}
+        v^{i:a_i} &+ \sum_{k \in K} v(b^{(k)}_\bullet ; a_i) \cdot ( x^{(k)}_\bullet ; \tau \cdot a_i \between y^{(k)}_\bullet ; a_i ) \\
+        = v^{i:a_i} &- \sum_{k \in K} v(b^{(k)}_\bullet ; a_i) \cdot ( x^{(k)}_\bullet \between y^{(k)}_\bullet ) ; a_i \\
+        &+ \sum_{k \in K} v(b^{(k)}_\bullet ; a_i) \cdot ( x^{(k)}_\bullet \between y^{(k)}_\bullet ) ; \tau \cdot a_i
+    \end{align*}
+    is equal to $v^{i:a_i} |^{-i} ; \tau \cdot a_i$, so
+    \begin{align*}
+        v' 
+        &= v + \sum_{k \in K} v(b^{(k)}_\bullet ; a_i) \cdot ( x^{(k)}_\bullet ; \tau \cdot a_i \between y^{(k)}_\bullet ; a_i ) \\
+        &= v + v^{i:a_i} + v^{i:a_i} |^{-i} ; \tau \cdot a_i
+    \end{align*}
+    is the vector obtained by changing the $i$th entry in every tuple of $v$ from $a_i$ to $\tau \cdot a_i$, a fresh atom disjoint from all atoms present.
+    Then $v'(\mathcal{O}) = v(\mathcal{O})$.
+    Moreover, we can directly check that an ambiguous atom-index pair $(b_j, j)$ in $\mathcal{O}(v')$ cannot be $(\tau \cdot a_i, i)$,
+    and hence it must already be one in $\mathcal{O}(v)$ except it cannot be $(a_i, i)$.
+    Therefore we may remove all ambiguities by iterating this process.
+\end{proof}
+
