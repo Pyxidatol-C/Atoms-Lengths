@@ -472,7 +472,7 @@ We can ask for more:
     Suppose that the family in the claim for $j$ is not even unambiguous.
     We must have $b^{(k)}_i = b^{(k')}_{i'}$ with $i \neq i'$ where $b^{(k)}_\bullet$, say, is some $x^{(a_j, k)}_\bullet ; a_j$ or $y^{(a_j, k)}_\bullet ; a_j$.
     Now if we were to have $b^{(k)}_i \in A_j$ --- e.g., if $b^{(k)}_i = a_j$ --- then $b^{(k)}_i = b^{(k'')}_{i''}$ for some $b^{(k'')}_\bullet \in \mathcal{O}(v^{i^* : a_j}) \subseteq \mathcal{O}(v)$.
-    This is impossible: we know two families that are unobstructed which imply $i = i''$ and $i'' = i'$.
+    This is impossible: we know two families that are unambiguous which imply $i = i''$ and $i'' = i'$.
     
     So the ambiguous atom $b^{(k)}_i$ does not belong to $A_j$.
     In other words, the set $X$ of all atoms except $b^{(k)}_i$ that appear in $\mathcal{O}(v) \cup \{ (x^{(a_{j'}, k)}_\bullet ; a_{j'}), (y^{(a_{j'}, k)}_\bullet ; a_{j'}) \mid k \in K_{j'}, 1 \leq j' \leq j\}$ contains $A_j$ and $a_j$.
@@ -615,7 +615,7 @@ Let us lift this restriction.
 
 \begin{theorem}\label{thm:cog-span-generally}
     Let $v \in \Ker_\EE \mathcal{O}$ be arbitrary.
-    Then (assuming that $\mathcal{L}_0$ is at most binary) we have
+    Then (assuming as before that $\mathcal{L}_0$ is at most binary) we have
     \[
         v = \sum_{k \in K} v(b^{(k)}_\bullet) \cdot x^{(k)}_\bullet \between y^{(k)}_\bullet
     \]
@@ -625,13 +625,13 @@ As a reminder, $\mathcal{O} \subseteq \A^I$ is an $S$-orderly orbit and $\EE$ is
 We induct on $|I|$, noting that when $I = \emptyset$ we are just saying $v = v() \cdot (\between)$.
 Hereafter assume $I \neq \emptyset$.
 
-\begin{proposition}
+\begin{proposition}\label{prop:bye-ambiguities}
     Let $v \in \Ker_\EE \mathcal{O}$.
     Then we can find $b^{(k)}_\bullet, x^{(k)}_\bullet, y^{(k)}_\bullet \in \mathcal{O}$ so that
     \[
-        \ddot v = v - \sum_{k \in K_0} v(b^{(k)}_\bullet) \cdot x^{(k)}_\bullet \between y^{(k)}_\bullet
+        \ddot v = v - \sum_{k \in K_1} v(b^{(k)}_\bullet) \cdot x^{(k)}_\bullet \between y^{(k)}_\bullet
     \]
-    satisfies $\ddot v(\mathcal{O}) \subseteq v(\mathcal{O}) \subseteq \EE$ and $\mathcal{O}(\ddot v)$ is unambiguous.
+    satisfies $\ddot v(\mathcal{O}) = v(\mathcal{O}) \subseteq \EE$ and $\mathcal{O}(\ddot v)$ is unambiguous.
 \end{proposition}
 \begin{proof}
     Assume there is an ambiguity in $\mathcal{O}(v)$, i.e., there are $a_\bullet, a'_\bullet \in \mathcal{O}(v)$ such that $a_i = a'_{i'}$ but $i \neq i'$ (so $|I| \geq 2$).
@@ -643,20 +643,19 @@ Hereafter assume $I \neq \emptyset$.
         v^{i : a_i}|^{-i} ; a_i = 
         \sum_{k \in K} v(b^{(k)}_\bullet ; a_i) \cdot ( x^{(k)}_\bullet \between y^{(k)}_\bullet ) ; a_i.
     \]
-    We can invoke Lemma~\ref{lem:free-fresh} to find an automorphism $\tau$ which fixes all of the atoms except $a_i$ that appear in $x^{(k)}_\bullet, y^{(k)}_\bullet$, $k \in K$ and in $b_\bullet \in \mathcal{O}(v)$
-    --- in fact, we will use a variant so that $\tau \cdot a_i < a_i$. 
-    It follows from the appropriate modification of Lemma~\ref{lem:cog-fresh-single} that we get $\mathcal{O}$-cog duos $x^{(k)}_\bullet ; \tau \cdot a_i \parallel y^{(k)}_\bullet ; a_i$ for $k \in K$.
+    We can invoke Lemma~\ref{lem:free-fresh} to find an automorphism $\tau$ which fixes all of the atoms except $a_i$ that appear in $x^{(k)}_\bullet, y^{(k)}_\bullet$, $k \in K$ and in $b_\bullet \in \mathcal{O}(v)$.
+    It follows from the appropriate modification of Lemma~\ref{lem:cog-fresh-single} that we get $\mathcal{O}$-cog duos $x^{(k)}_\bullet ; a_i \parallel y^{(k)}_\bullet ; \tau \cdot a_i$ for $k \in K$.
     Observe that
     \begin{align*}
-        v^{i:a_i} &+ \sum_{k \in K} v(b^{(k)}_\bullet ; a_i) \cdot ( x^{(k)}_\bullet ; \tau \cdot a_i \between y^{(k)}_\bullet ; a_i ) \\
+        v^{i:a_i} &- \sum_{k \in K} v(b^{(k)}_\bullet ; a_i) \cdot ( x^{(k)}_\bullet ; a_i \between y^{(k)}_\bullet ; \tau \cdot a_i ) \\
         = v^{i:a_i} &- \sum_{k \in K} v(b^{(k)}_\bullet ; a_i) \cdot ( x^{(k)}_\bullet \between y^{(k)}_\bullet ) ; a_i \\
-        &+ \sum_{k \in K} v(b^{(k)}_\bullet ; a_i) \cdot ( x^{(k)}_\bullet \between y^{(k)}_\bullet ) ; \tau \cdot a_i
+        &+ \sum_{k \in K_1} v(b^{(k)}_\bullet ; a_i) \cdot ( x^{(k)}_\bullet \between y^{(k)}_\bullet ) ; \tau \cdot a_i
     \end{align*}
     is equal to $v^{i:a_i} |^{-i} ; \tau \cdot a_i$, so
     \begin{align*}
         v' 
-        &= v + \sum_{k \in K} v(b^{(k)}_\bullet ; a_i) \cdot ( x^{(k)}_\bullet ; \tau \cdot a_i \between y^{(k)}_\bullet ; a_i ) \\
-        &= v + v^{i:a_i} + v^{i:a_i} |^{-i} ; \tau \cdot a_i
+        &= v - \sum_{k \in K} v(b^{(k)}_\bullet ; a_i) \cdot ( x^{(k)}_\bullet ; \tau \cdot a_i \between y^{(k)}_\bullet ; a_i ) \\
+        &= v - v^{i:a_i} + v^{i:a_i} |^{-i} ; \tau \cdot a_i
     \end{align*}
     is the vector obtained by changing the $i$th entry in every tuple of $v$ from $a_i$ to $\tau \cdot a_i$, a fresh atom disjoint from all atoms present.
     Then $v'(\mathcal{O}) = v(\mathcal{O})$.
@@ -665,3 +664,63 @@ Hereafter assume $I \neq \emptyset$.
     Therefore we may remove all ambiguities by iterating this process.
 \end{proof}
 
+Next we tackle the obstructions.
+\begin{proposition}\label{prop:bye-obstructions}
+    Let $\ddot v \in \Ker_\EE \mathcal{O}$ be such that $\mathcal{O}(\ddot v)$ is unambiguous.
+    Then we can find $b^{(k)}_\bullet, x^{(k)}_\bullet, y^{(k)}_\bullet \in \mathcal{O}$ so that
+    \[
+        \acute{\ddot v} = \ddot v - \sum_{k \in K_2} \ddot v(b^{(k)}_\bullet) \cdot x^{(k)}_\bullet \between y^{(k)}_\bullet    
+    \]
+    satisfies $\acute{\ddot v}(\mathcal{O}) = \ddot v(\mathcal{O})$ and $\mathcal{O}(\acute{\ddot v})$ is unobstructed.
+\end{proposition}
+\begin{proof}
+    We follow the same strategy:
+    let the atom $a_i$ be an obstruction with some other $a'_{i'}$ in $\mathcal{O}(\ddot v)$.
+    Consider the projected subvector $\ddot v^{i:a_i}|^{-i}$.
+    By Lemma~\ref{lem:balanced-projected-subvector} and the inductive hypothesis of Theorem~\ref{thm:cog-span-generally}, we can write
+    \[
+        \ddot{v}^{i:a_i} = \sum_{k \in K} \ddot v(b^{(k)}_\bullet ; a_i) \cdot (x^{(k)}_\bullet \between y^{(k)}_\bullet) ; a_i.
+    \]
+    Leveraging no algebraicity like we did at the beginning of the proof of Claim~\ref{claim:half-cog-freshened-up}, 
+    we may assume that $\mathcal{O}(\ddot v) \cup \{ (x^{(k)}_\bullet ; a_i), (y^{(k)}_\bullet ; a_i) \mid k \in K \}$ is unambiguous.
+    
+    Split the atoms except $a_i$ appearing in that family into two parts $X$ and $Y$, 
+    where $Y$ consists of all the atoms equal to some $a'_{i'}$ that make $a_i$ an obstruction.
+    Then $x^{(k)}_{i''}$, $y^{(k)}_{i''}$ cannot belong to $Y$ for any $i'' \in I$.
+    Indeed, if say $x^{(k)}_{i''}$ is equal to an obstructive atom $a'_{i'}$, we must have $i'' = i'$ by unambiguity; 
+    we now have a contradiction: $a'_{i'} = x^{(k)}_{i''}$ and $a_i$ necessarily satisfy the right binary relations, since $x^{(k)}_\bullet ; a_i \in \mathcal{O}$.
+
+    Next, we invoke the Lemma~\ref{lem:free-fresh} to find an automorphism $\tau \cdot \Aut(\A)$ making $\tau \cdot a_i$ greater than $a_i$, distinct from any $x \in X$, and unrelated to any $y \in Y$.
+    By Lemma~\ref{lem:cog-fresh-single}, we have $\mathcal{O}$-cog duos $x^{(k)}_\bullet ; a_i \parallel y^{(k)}_\bullet ; \tau \cdot a_i$ for $k \in K$.
+    The refined vector
+    \begin{align*}
+        \ddot v' &= \ddot v - \sum_{k \in K} \ddot v(b^{(k)}_\bullet ; a_i) \cdot (x^{(k)}_\bullet ; \tau \cdot a_i \between y^{(k)}_\bullet ; a_i ) \\
+        &= \ddot v - \ddot v^{i : a_i} + \ddot v^{i : \tau \cdot a_i}
+    \end{align*}
+    satisfies $\ddot v'(\mathcal{O}) = \ddot v(\mathcal{O})$. 
+    As we are just changing $a_i$ to the fresh atom $\tau \cdot a_i$ in the $i$th entry of every tuple appearing in $\ddot v$,
+    the family $\mathcal{O}(\ddot v')$ remains unambiguous;
+    note also that $a_i$ can only appear in the $i$th entry as $\mathcal{O}(\ddot v)$ is unambiguous, 
+    so we have completely removed $a_i$ from $\ddot v'$.
+    But $\tau \cdot a_i$ by design cannot cause an obstruction in $\mathcal{O}(\ddot v')$,
+    and consequently any atom causing obstructions in $\mathcal{O}(\ddot v')$ must already do so in $\mathcal{O}(\ddot v)$ except that it cannot be $a_i$.
+    Hence we can repeat this procedure until all obstructions are excised. 
+\end{proof}
+
+We are at last in a position to prove the inductive step of Theorem~\ref{thm:cog-span-generally}.
+Given $v \in \Ker_\EE \mathcal{O}$, we apply Propositions~\ref{prop:bye-ambiguities} and \ref{prop:bye-obstructions} to obtain
+\[
+    \acute{\ddot v} = v - \sum_{k \in K_1 \cup K_2} v(b^{(k)}_\bullet) \cdot x^{(k)}_\bullet \between y^{(k)}_\bullet
+\]
+where $\acute{\ddot v}(\mathcal{O}) = \ddot v(\mathcal{O}) = v(\mathcal{O})$ and $\mathcal{O}(\acute{\ddot v})$ is unobstructed.
+Recalling Proposition~\ref{prop:cogs-are-balanced}, we see that $\acute{\ddot v} \in \Ker_\EE \mathcal{O}$.
+The special Theorem~\ref{thm:cog-span-special-case} tells us that $\acute{\ddot v}$ is a sum of $\mathcal{O}$-cogs with coefficients from $\acute{\ddot v}(\mathcal{O}) = v(\mathcal{O})$.
+It follows that so is
+\[
+    v = \acute{\ddot v} + \sum_{k \in K_1 \cup K_2} v(b^{(k)}_\bullet) \cdot x^{(k)}_\bullet \between y^{(k)}_\bullet,
+\]
+which establishes the general Theorem~\ref{thm:cog-span-generally}.
+
+
+\subsection{Deciding subspace membership}
+$\mathcal{O}_1 + \cdots + \mathcal{O}_n$
