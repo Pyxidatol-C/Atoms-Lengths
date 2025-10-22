@@ -106,25 +106,25 @@ To start with, let us view $\A^d$ as $\A^{\{1, \dots, d\}}$ and more generally c
 Fix a finite support $S \subseteq \A$.
 If $\A$ is oligomorphic, the tuples in $\A^I$ split into finitely many $\Aut(\A)_{(S)}$-equivariant orbits.
 Let $\mathcal{O} = \Aut(\A)_{(S)} \cdot o_\bullet$ be one such orbit.
-We shall call $\mathcal{O}$ \emph{($S$-)orderly} if $o_i \not\in S$ and if $o_i < o_j$ whenever $i < j$.
-By removing the entries in $o_\bullet$ that repeat or come from $S$ and reordering the rest, we can always find an $\Aut(\A)_{(S)}$-equivariant bijection to an $S$-orderly orbit.
-An easy observation is that we may focus on a single orderly orbit at a time:
+We shall call $\mathcal{O}$ \emph{($S$-)rigid} if $o_i \not\in S$ and if $o_i < o_j$ whenever $i < j$.
+By removing the entries in $o_\bullet$ that repeat or come from $S$ and reordering the rest, we can always find an $\Aut(\A)_{(S)}$-equivariant bijection to an $S$-rigid orbit.
+An easy observation is that we may focus on a single rigid orbit at a time:
 \begin{proposition}\label{prop:reduction-to-one-orbit}
     The following are equivalent:
     \begin{enumerate}
         \item For $d = 0, 1, 2, \dots$ and any finite $S \subseteq \A$, chains of $\Aut(\A)_{(S)}$-equivariant subspaces in $\Lin_\FF \A^d$ are bounded in length;
-        \item $\A$ is oligomorphic, and $\Lin_\FF \mathcal{O}$ has fintie length for any orderly orbit $\mathcal{O}$.
+        \item $\A$ is oligomorphic, and $\Lin_\FF \mathcal{O}$ has fintie length for any rigid orbit $\mathcal{O}$.
     \end{enumerate}
 \end{proposition}
 \begin{proof}
     We have $\len(\Lin_\FF(\biguplus_i \mathcal{O}_i)) = \len(\bigoplus_i \Lin_\FF \mathcal{O}_i) = \sum_i \len(\Lin_\FF \mathcal{O}_i)$.
 \end{proof}
 
-So fix an orderly orbit $\mathcal{O} = \Aut(\A)_{(S)} \cdot o_\bullet \subseteq \A^I$.
+So fix an rigid orbit $\mathcal{O} = \Aut(\A)_{(S)} \cdot o_\bullet \subseteq \A^I$.
 From here we take an inductive approach.
 By $o |^J _\bullet$ we mean the restriction of $o_\bullet : I \to \A$ to $J \subseteq I$;
 we will often write $o |^{-i} _\bullet$ instead of $o |^{ I \setminus \{i\} }_\bullet$.
-Note the image $\mathcal{O}|^I$ of $\mathcal{O}$ under this projection agrees with $\Aut(\A)_{(S)} \cdot o |^J _\bullet$ and is still orderly.
+Note the image $\mathcal{O}|^I$ of $\mathcal{O}$ under this projection agrees with $\Aut(\A)_{(S)} \cdot o |^J _\bullet$ and is still rigid.
 
 To anticipate more general statements later, Let $\EE$ be a finite-dimensional $\FF$-vector space --- for instance, $\FF$ itself.
 Things become more interesting when we lift $(-)|^J$ to a linear $\Aut(\A)_{(S)}$-equivariant map
@@ -142,8 +142,8 @@ of $\Lin_\EE \mathcal{O}$.
 \begin{proposition}\label{prop:reduction-to-kernel}
     The following are equivalent:
     \begin{enumerate}
-        \item $\Lin_\FF \mathcal{O}$ has finite length for every orderly orbit $\mathcal{O}$;
-        \item $\Ker_\FF \mathcal{O}$ has finite length for every orderly orbit $\mathcal{O}$.
+        \item $\Lin_\FF \mathcal{O}$ has finite length for every rigid orbit $\mathcal{O}$;
+        \item $\Ker_\FF \mathcal{O}$ has finite length for every rigid orbit $\mathcal{O}$.
     \end{enumerate}
 \end{proposition}
 \begin{proof}
@@ -172,7 +172,7 @@ As we will see in the next subsection, cogs are a prominent example.
 
 \subsection{Cogs}
 \begin{definition}
-    Let $\mathcal{O} = \Aut(\A)_{(S)} \cdot o_\bullet \subseteq \A^I$ be an $S$-orderly orbit. 
+    Let $\mathcal{O} = \Aut(\A)_{(S)} \cdot o_\bullet \subseteq \A^I$ be an $S$-rigid orbit. 
     An \emph{$\mathcal{O}$-cog duo} $a_\bullet \parallel b_\bullet$ consists of $2 \cdot |I|$ atoms in $\A$ with the following $\mathcal{L}$-structure on $\{a_i, b_i \mid i \in I\} \cup S$:
     \begin{enumerate}
         \item 
@@ -222,11 +222,11 @@ Hence $\Cog_\EE \mathcal{O}$ is an $\Aut(\A)_{(S)}$-equivariant subspace of $\Li
 
 In fact, cogs arise anywhere.
 \begin{lemma}\label{lem:cog-fresh-single}
-    Suppose $a_\bullet \parallel b_\bullet$ is an $\mathcal{O}$-cog duo, where $\mathcal{O} \subseteq \A^I$ is $S$-orderly.
+    Suppose $a_\bullet \parallel b_\bullet$ is an $\mathcal{O}$-cog duo, where $\mathcal{O} \subseteq \A^I$ is $S$-rigid.
     Given $z \in S$, 
     \begin{itemize}
         \item write $S' = S \setminus \{z\}$;
-        \item let $j \not\in I$ be such that $\mathcal{O}' = \Aut(\A)_{(S')} \cdot (a_\bullet ; z) \subseteq \A^{I \cup \{j\}}$ is orderly,
+        \item let $j \not\in I$ be such that $\mathcal{O}' = \Aut(\A)_{(S')} \cdot (a_\bullet ; z) \subseteq \A^{I \cup \{j\}}$ is rigid,
         \item let $X \subseteq \A$ be a finite set containing $\{a_i, b_i \mid i \in I\} \cup S'$ but not $z$;
         \item let $Y \subseteq \A$ be any finite set disjoint from $X \cup \{z\}$;
     \end{itemize}
@@ -261,7 +261,7 @@ In fact, cogs arise anywhere.
 
 Starting from an empty cog duo, we may apply the previous lemma inductively.
 \begin{proposition}\label{prop:cog-fresh-full}
-    Let $\mathcal{O} \subseteq \A^I$ be an $S$-orderly orbit.
+    Let $\mathcal{O} \subseteq \A^I$ be an $S$-rigid orbit.
     Then for any $a_\bullet \in \mathcal{O}$, there is: 
     \begin{enumerate}
         \item some $b_\bullet \in \mathcal{O}$ such that $a_\bullet \parallel b_\bullet$ is an $\mathcal{O}$-cog duo; and
@@ -294,7 +294,7 @@ Starting from an empty cog duo, we may apply the previous lemma inductively.
 The result below substantiates the slogan that cogs are found everywhere. 
 \begin{theorem} \label{thm:cogs-arise-everywhere}
     Any $\Aut(\A)_{(S)}$-equivariant subspace $V$ of $\Lin_\EE \mathcal{O}$ contains $\Cog_{\EE(V)} \mathcal{O}$,
-    where $\mathcal{O} \subseteq \A^I$ is $S$-orderly and $\EE(V)$ is the subspace spanned by $\{ v(a_\bullet) \mid v \in V, a_\bullet \in \mathcal{O} \}$ of $\EE$.
+    where $\mathcal{O} \subseteq \A^I$ is $S$-rigid and $\EE(V)$ is the subspace spanned by $\{ v(a_\bullet) \mid v \in V, a_\bullet \in \mathcal{O} \}$ of $\EE$.
 \end{theorem}
 \begin{proof}
     Pick any $v \in V$ and $a_\bullet \in \mathcal{O}$;
@@ -303,7 +303,7 @@ The result below substantiates the slogan that cogs are found everywhere.
     \[
         S' = S \cup \{c_i \mid v(c_\bullet) \neq 0, i \in I\} \setminus \{a_i \mid i \in I\} \supseteq S
     \]
-    and put $\mathcal{O}' = \Aut(\A)_{(S')} \cdot a_\bullet \subseteq \mathcal{O}$ --- then $\mathcal{O}'$ is $S'$-orderly.
+    and put $\mathcal{O}' = \Aut(\A)_{(S')} \cdot a_\bullet \subseteq \mathcal{O}$ --- then $\mathcal{O}'$ is $S'$-rigid.
     By Proposition~\ref{prop:cog-fresh-full}, we can find $b_\bullet \in \mathcal{O}'$ such that $a_\bullet \parallel b_\bullet$ is a cog duo in $\mathcal{O}'$ and \emph{a fortiori} a cog duo in $\mathcal{O}$.
     Also take the automorphisms $\pi_{i_1}, \dots, \pi_{i_d}$ from there, where $i_1, \dots, i_d$ enumerate $I$.
     Now define $v_0 = v$ and \[
@@ -333,12 +333,12 @@ This is a good time to recall a view we have tacitly taken:
 with $\mathcal{O}$ as a standard basis, a vector $v \in \Lin_\EE \mathcal{O}$ is just a finite set of pairs in $\EE \times \mathcal{O}$.
 A \emph{subvector} of $v$ is a subset of these pairs.
 
-Now suppose as usual that $\mathcal{O} \subseteq \A^I$ is $S$-orderly.
+Now suppose as usual that $\mathcal{O} \subseteq \A^I$ is $S$-rigid.
 Given $i \in I$ and $a = a_i \in \A$ for some $a_\bullet \in \mathcal{O}$, 
 we write \[
     \mathcal{O}^{i:a} = \{b_\bullet \in \mathcal{O} \mid b_i = a\};
 \]
-this is an $\Aut(\A)_{(S \cup \{a\})}$-orbit, and its projection $\mathcal{O}^{i:a} |^{-i} = \Aut(\A)_{(S \cup \{a\})} \cdot a|^{-i}_\bullet$ is orderly.
+this is an $\Aut(\A)_{(S \cup \{a\})}$-orbit, and its projection $\mathcal{O}^{i:a} |^{-i} = \Aut(\A)_{(S \cup \{a\})} \cdot a|^{-i}_\bullet$ is rigid.
 For a vector $v \in \Lin_\EE \mathcal{O}$, by
 \[
     v^{i:a} \in \Lin_\EE \mathcal{O}^{i:a}
@@ -359,7 +359,7 @@ we mean the subvector consisting of all pairs in $\EE \times \mathcal{O}^{i:a}$.
     which shows that $v^{i:a}|^{-i}$ is in the projection kernel.
 \end{proof}
 
-So we can try to prove $\Ker_\EE \mathcal{O} \subseteq \Cog_\EE \mathcal{O}$ for any orderly $\mathcal{O} \subseteq \A^I$ by inducting on $|I|$;
+So we can try to prove $\Ker_\EE \mathcal{O} \subseteq \Cog_\EE \mathcal{O}$ for any rigid $\mathcal{O} \subseteq \A^I$ by inducting on $|I|$;
 we just need to reassemble the various cogs in $\mathcal{O}^{i:a}|^{-i}$ back into $\mathcal{O}$-cogs.
 Unfortunately we were only able to do so under the hypothesis that $\mathcal{L}_0$ is an at most binary language, 
 which we henceforth assume.
@@ -373,7 +373,7 @@ Consider the atoms in the tuples
 \[
     \mathcal{O}(v) = \{ b_\bullet \in \mathcal{O} \mid v(b_\bullet) \neq 0 \}.
 \]
-that appear in a vector $v \in \Lin_\EE \mathcal{O}$, with $\mathcal{O}$ being $S$-orderly.
+that appear in a vector $v \in \Lin_\EE \mathcal{O}$, with $\mathcal{O}$ being $S$-rigid.
 Take $a = b_i$ to be one such atom,
 and let $R_1, R_2 \in \mathcal{L}_0$ be unary and binary respectively.
 Then whether $R_1(a)$, $R_2(a, s)$, $R_2(s, a)$ hold in $\A$ given $s \in S$ is determined by $\mathcal{O}$
@@ -385,7 +385,7 @@ Except in those happy dispositions where $b'_\bullet = b_\bullet$, not much --- 
 The index $j$ may not even be unique: we may well have $b'_j = b''_k$ for $j \neq k$.
 We want to avoid such confusions:
 \begin{definition}
-    Let $\mathcal{O}$ be $S$-orderly in $\A^I$,
+    Let $\mathcal{O}$ be $S$-rigid in $\A^I$,
     and take any $o_\bullet \in \mathcal{O}$.
     We say a finite family $\{ b^{(k)}_\bullet \in \mathcal{O} \mid k \in K\}$ is
     \begin{enumerate}
@@ -420,7 +420,7 @@ We can now state the precise result.
 
 
 We spend the rest of this subsection giving the proof,
-which proceeds by induction on $|I|$ for $S$-orderly orbits $\mathcal{O} \subseteq \A^I$ for every $S$ at once.
+which proceeds by induction on $|I|$ for $S$-rigid orbits $\mathcal{O} \subseteq \A^I$ for every $S$ at once.
 
 The base case $I = \emptyset$ is immediate:
 as $\mathcal{O}$ is the singleton $\{ () \}$,
@@ -621,7 +621,7 @@ Let us lift this restriction.
     \]
     for some $b^{(k)}_\bullet, x^{(k)}_\bullet, y^{(k)}_\bullet \in \mathcal{O}$.
 \end{theorem}
-As a reminder, $\mathcal{O} \subseteq \A^I$ is an $S$-orderly orbit and $\EE$ is a finite-dimensional $\FF$-vector space.
+As a reminder, $\mathcal{O} \subseteq \A^I$ is an $S$-rigid orbit and $\EE$ is a finite-dimensional $\FF$-vector space.
 We induct on $|I|$, noting that when $I = \emptyset$ we are just saying $v = v() \cdot (\between)$.
 Hereafter assume $I \neq \emptyset$.
 
@@ -722,5 +722,14 @@ It follows that so is
 which establishes the general Theorem~\ref{thm:cog-span-generally}.
 
 
-\subsection{Deciding subspace membership}
-$\mathcal{O}_1 + \cdots + \mathcal{O}_n$
+\subsection{All those equivariant subspaces}
+We finish this section with an important corollary of Theorem~\ref{thm:cog-span-generally}.
+Let $\mathcal{O}_1 \subseteq \A^{I_1}, \dots, \mathcal{O}_m \subseteq \A^{I_m}$ all be $S$-rigid orbits.
+Then $\len(\Lin_\FF(\mathcal{O}_1 \uplus \dots \uplus \mathcal{O}_m)) = 2^{|I_1|} + \dots + 2^{|I_m|}$;
+in fact, we know and can characterise all the $\Aut(\A)_{(S)}$-equivariant subspaces of $\Lin_\FF(\mathcal{O}_1 \uplus \dots \uplus \mathcal{O}_m)$.
+
+\begin{definition}
+    
+\end{definition}
+
+
