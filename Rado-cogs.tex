@@ -724,12 +724,66 @@ which establishes the general Theorem~\ref{thm:cog-span-generally}.
 
 \subsection{All those equivariant subspaces}
 We finish this section with an important corollary of Theorem~\ref{thm:cog-span-generally}.
-Let $\mathcal{O}_1 \subseteq \A^{I_1}, \dots, \mathcal{O}_m \subseteq \A^{I_m}$ all be $S$-rigid orbits.
-Then $\len(\Lin_\FF(\mathcal{O}_1 \uplus \dots \uplus \mathcal{O}_m)) = 2^{|I_1|} + \dots + 2^{|I_m|}$;
-in fact, we know and can characterise all the $\Aut(\A)_{(S)}$-equivariant subspaces of $\Lin_\FF(\mathcal{O}_1 \uplus \dots \uplus \mathcal{O}_m)$.
+Let $\mathcal{O}_1 \subseteq \A^{I_1}, \dots, \mathcal{O}_m \subseteq \A^{I_n}$ all be $S$-rigid orbits.
+Then $\len(\Lin_\FF(\mathcal{O}_1 \uplus \dots \uplus \mathcal{O}_n)) = 2^{|I_1|} + \dots + 2^{|I_n|}$;
+in fact, we know and can characterise all the $\Aut(\A)_{(S)}$-equivariant subspaces of $\Lin_\FF(\mathcal{O}_1 \uplus \dots \uplus \mathcal{O}_n)$.
+
+First we set up some notations.
+Consider the $\sum_k 2^{|I_k|}$ projected $S$-rigid orbits $\mathcal{O}_k|^{J}$ for $1 \leq k \leq n, J \subseteq I_k$.
+Suppose
+\[
+    f : \mathcal{O}_k|^J \to \mathcal{O}_{k'}|^{J'}
+\]
+is an $\Aut(\A)_{(S)}$-equivariant bijection.
+Take any $o_\bullet \in \mathcal{O}_k|^J$,
+and enumerate its entries as $o_1 < \dots < o_{|J|}$.
+Similarly, enumerate the entries of $f(o_\bullet)$ as $o'_1 < \dots < o'_{|J'|}$.
+Then $\{o_1, \dots, o_{|J|}\} = \{ o'_1, \dots, o'_{|J'|} \}$ because $\A$ has no algebraicity; 
+since the orbits are rigid, we must have $|J| = |J'|$ and $o_1 = o'_1, \dots, o_{|J|} = o'_{|J'|}$.
+That is, $f$ must be the obvious function that reindexes a $J$-tuple to a $J'$-tuple
+--- and hence we will just write $\breve o_\bullet$ for $f(o_\bullet)$, making $f$ implicit.
+
+Now, let $\mathcal{Q}_{1} = \mathcal{O}_{k_1}|^{J_1}, \dots, \mathcal{Q}_{t} = \mathcal{O}_{k_t}|^{J_t}$ be the distinct $S$-rigid orbits up to $\Aut(\A)_{(S)}$-equivariant bijections,
+which we enumerate in such a way that $|J_1| \geq |J_2| \geq \dots \geq |J_t|$.
 
 \begin{definition}
-    
+    For $i = 1, \dots, t$, let $P_i$ consist of pairs $(k, J)$ such that $\mathcal{O}_k|^J$ is $\Aut(\A)_{(S)}$-equivariantly isomorphic to $\mathcal{Q}_i$.
+    Assemble all $|P_i|$ projections into a single map
+    \[
+        (-){\restriction_i} : \Lin_\FF(\mathcal{O}_1 \uplus \dots \uplus \mathcal{O}_n) \to \Lin_{\FF^{P_i}} \mathcal{Q}_i.
+    \]
+    More precisely, $(v_1, \dots, v_n){\restriction_i}(a_\bullet)$ is the $P_i$-tuple whose entry at $(k, J)$ is $v_k|^J(\breve a_\bullet) \in \FF$. 
+    It is straightforward to check that $(-){\restriction_i}$ is $\Aut(\A)_{(S)}$-equivariant and linear.
 \end{definition}
+
+Let $W \subseteq \Lin_\FF( \mathcal{O}_1 \uplus \dots \uplus \mathcal{O}_n )$ be an $\Aut(\A)_{(S)}$-equivariant subspace.
+Using the $t$ finite-dimensional vector spaces $W {\restriction_1} (\mathcal{Q}_1) \subseteq \FF^{P_1}, \dots, W {\restriction_t} (\mathcal{Q}_t) \subseteq \FF^{P_t}$
+we define $\widetilde W$, which consists of all vectors $v \in \Lin_\FF( \mathcal{O}_1 \uplus \dots \uplus \mathcal{O}_n )$ such that
+\[
+    v {\restriction_1} (\mathcal{Q}_1) \subseteq W {\restriction_1} (\mathcal{Q}_1), \dots, v {\restriction_t} (\mathcal{Q}_t) \subseteq W {\restriction_t} (\mathcal{Q}_t).
+\]
+Then $\widetilde W$ is an $\Aut(\A)_{(S)}$-equivariant subspace that contains $W$.
+It turns out these two are equal:
+
+\begin{theorem}
+    $\widetilde W \subseteq W$.
+\end{theorem}
+
+The key is to consider the following refinement.
+Let $K_i \subseteq \Lin_\FF( \mathcal{O}_1 \uplus \dots \uplus \mathcal{O}_n )$ consist of vectors $v$ where 
+\[
+    v {\restriction_{i+1}} = 0, \dots, v {\restriction_t} = 0.
+\]
+Then $K_0$ is the zero space, whilst $K_t$ is the whole space.
+
+\begin{claim}
+    $\widetilde W \cap K_0 \subseteq W \cap K_0$.
+\end{claim}
+
+\begin{claim}
+    $(\widetilde W \cap K_{i+1}) {\restriction_{i+1}} \subseteq \Ker_{ W {\restriction_{i+1}} (\mathcal{Q}_{i+1}) } \mathcal{Q}_{i+1}$. 
+\end{claim}
+
+$v \in \widetilde W$ but $v {\restriction_1} = 0, \dots, v {\restriction_i} = 0$ 
 
 
