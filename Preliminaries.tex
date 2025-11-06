@@ -8,11 +8,45 @@ Definitions:
     \item \emph{oligomorphic approximation} of a homogeneous structure by finite substructures with uniformly few orbits (i.e., types) that cover the age of $\A$
 \end{enumerate}
 
-\begin{theorem}
-    Oligomorphically approximable homogeneous structures have the finite length property over any field of characteristic $0$.
-\end{theorem}
-\begin{proof}
-    Copy the `bojań-trick' from \S8.2 of Mikołaj's
-    \url{https://www.mimuw.edu.pl/~bojan/papers/notes-July3.pdf}.
-\end{proof}
 \color{black}
+\begin{definition}
+    An \emph{interpretation in $\A$} is a structure $\A' = (D/E ; R_1, R_2, \dots)$, where
+    \begin{itemize}
+        \item 
+        $D$ is an equivariant subset of $\A^n$ for some $n \geq 1$;
+
+        \item 
+        $E$ is an equivariant equivalence relation on $D$;
+
+        \item 
+        $D/E$ consists of equivalence classes $d/E \subseteq D$ for $d \in D$,
+        which $\pi \in \Aut(\A)$ acts on via $\pi \cdot d/E = (\pi \cdot d) / E$;
+
+        \item 
+        every relation $R_i$ of arity $r_i$ is an equivariant subset of $(D/E)^{r_i}$.
+    \end{itemize}
+    We call $\A'$ a \emph{reduct of $\A$} if $D = \A$ and $E$ is just equality.
+\end{definition}
+
+
+
+\begin{proposition}
+    If $\A$ has the finite length property over $\FF$,
+    then so does any interpretation $\A'$.
+\end{proposition}
+\begin{proof}
+    Let $V_0 \subsetneq V_1 \subsetneq \cdots \subsetneq V_l$ be a chain of $\Aut(\A')$-equivariant subspaces in $\Lin_\FF (\A')^k = \Lin_\FF (D/E)^k$.
+    Each $V_j$ is then $\Aut(\A)$-equivariant: 
+    given $\pi \in \Aut(\A)$, notice that $d/E \mapsto (\pi \cdot d)/E$ is an automorphism of $\A'$.
+    Now $l$ is bounded above by the $\Aut(\A)$-length of $\Lin_\FF (D/E)^k$, which is finite
+    --- $\Lin_\FF (D/E)^k$ is isomorphic to the quotient of $\Lin_\FF D^k$ by the span of 
+    \[
+        \left\{ 
+            \begin{aligned}
+                &(d_1, \dots, d_k) \\
+                -{} &(d'_1, \dots, d'_k) 
+            \end{aligned}
+            \middle| d_1/E = d'_1/E, \dots, d_k/E = d'_k/E
+        \right\}.
+    \] \qedhere
+\end{proof}
