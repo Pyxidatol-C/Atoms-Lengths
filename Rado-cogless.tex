@@ -110,14 +110,14 @@ In fact, we will also make use of the ``symplectic basis and a half'' variant be
         &f_1, \ldots, f_n, f_{n+1}, \ldots, f_{n+i},
     \end{align*}
     it would be spanned by $e_{n+i+2}, \ldots, e_{n+k}$ alone because of \eqref{eq:symplectic-basis};
-    but this is impossible as we assumed linear independency.
-    So 
+    but this is impossible as we assumed linear independence.
+    So $e_{n+i+1}$ does not belong to
     \begin{align*}
-        e_{n+i+1} 
-        \not\in{} &\langle e_1, \ldots, e_{n+i}, e_{n+i+2}, f_1, \ldots, f_{n+i} \rangle \\
-        ={} &\langle e_1, \ldots, e_{n+i}, e_{n+i+2}, f_1, \ldots, f_{n+i} \rangle^{\perp \perp},
+        &\langle e_1, \ldots, e_{n+i}, e_{n+i+2}, \dots, e_{n+k}, f_1, \ldots, f_{n+i} \rangle \\
+        ={} &\langle e_1, \ldots, e_{n+i}, e_{n+i+2}, \dots, e_{n+k}, f_1, \ldots, f_{n+i} \rangle^{\perp \perp};
     \end{align*}
-    i.e., some $f_{n+i+1} \in \langle e_1, \ldots, e_{n+i}, e_{n+i+2}, f_1, \ldots, f_{n+i} \rangle^\perp$ satisfies $\omega(e_{n+i+1}, f_{n+i+1}) = 1$.
+    put in other words, we must be able to find some vector $f_{n+i+1}$ that satisfies $\omega(e_{n+i+1}, f_{n+i+1}) = 1$ 
+    as desired from $\langle e_1, \ldots, e_{n+i}, e_{n+i+2}, \dots, e_{n+k}, f_1, \ldots, f_{n+i} \rangle^\perp$.
 \end{proof}
 
 Given two symplectic vector spaces $\W$ and $\W'$,
@@ -131,18 +131,18 @@ Then
 \[
     e_i \mapsto e'_{\alpha(i)}, f_i \mapsto f'_{\alpha(i)}
 \]
-defines an isometric linear isomorphism $\langle e_i, f_i \rangle \to \langle e'_j, f'_j \rangle$.
+defines an isometric linear bijection $\langle e_i, f_i \rangle \to \langle e'_j, f'_j \rangle$.
 \end{lemma}
 
 It then follows from Proposition~\ref{prop:symplectic-basis} that, 
-up to isometric linear isomorphisms, 
+up to isometric linear bijections, 
 $\W_0, \W_1, \W_2, \ldots, \W_\infty$ are all the countable symplectic vector spaces.
 Whilst we may deduce that $\W_\infty$ is oligomorphic by appealing to Ryll-Nardzewski,
 we will opt for a more direct proof that also establishes smooth approximation.
 
 \begin{proposition}[Witt Extension] \label{prop:symplectic-witt-extension}
     Any isometric linear injection $\alpha : \langle X \rangle \subseteq \W_n \to \W_n$ 
-    can be extended to an isometric linear automorphism of $\W_n$
+    can be extended to an automorphism of $\W_n$ (i.e., an isometric linear bijection)
     and in turn to one of $\W_\infty$.
 \end{proposition}
 
@@ -193,7 +193,7 @@ we will opt for a more direct proof that also establishes smooth approximation.
 \begin{proposition}\label{prop:symplectic-oligomorphic}
     $\W_\infty^k$ has precisely \(
         \sum_{d = 0}^k \begin{bsmallmatrix}k \\ d \end{bsmallmatrix}_q \cdot q^{\binom{d}{2}}
-    \) orbits under isometric linear automorphisms,
+    \) orbits under $\Aut(\W_\infty)$,
     where $q = \vert \ff \vert$ and \[
         \begin{bmatrix}k \\ d \end{bmatrix}_q 
         = \frac{
@@ -225,7 +225,7 @@ we will opt for a more direct proof that also establishes smooth approximation.
         \item 
         a map $\Omega : \binom{I}{2} \to \ff$ defined by $\Omega(\{i' < i\}) = \omega(v_{i'}, v_{i})$.
     \end{enumerate}
-    If $\pi : \W_\infty \to \W_\infty$ is an isometric linear automorphism,
+    If $\pi : \W_\infty \to \W_\infty$ is an isometric linear bijection,
     then $v_\bullet = (v_1, \ldots, v_k)$ and $\pi \cdot v_\bullet = (\pi(v_1), \ldots, \pi(v_k))$ evidently share the same type.
     Conversely, if $w_\bullet$ has the type of $v_\bullet$,
     then
@@ -237,7 +237,7 @@ we will opt for a more direct proof that also establishes smooth approximation.
     \end{align*}
     gives an isometric linear injection for some large enough $n$.
     Observe that $\alpha$ must send $v_j \mapsto w_j$ for $j \not\in I$ too,
-    and that it may be extended to an isometric linear automorphism $\pi$ of $\W_\infty$ by Propsoition~\ref{prop:symplectic-witt-extension}.
+    and that it may be extended to an automorphism $\pi$ of $\W_\infty$ by Propsoition~\ref{prop:symplectic-witt-extension}.
     Furthermore we can find some $v_\bullet$ that realises any given type $(I, \{\Lambda_j\}_j, \Omega)$:
     it suffices to put
     \[
