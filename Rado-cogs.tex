@@ -2,17 +2,17 @@
 In this section we work with the following setting:
 \begin{itemize}
     \item 
-    $\mathcal{L}_0$ is a (possibly infinite) relational language containing a binary symbol $=$;
+    $\mathcal{L}_0$ is a (possibly infinite) relational language \textcolor{red}{(NOT?) containing a binary symbol $=$};
 
     \item 
-    $\mathcal{C}_0$ is a free amalgamation class of $\mathcal{L}_0$-structures
+    $\mathcal{C}_0$ is a free amalgamation class of finite $\mathcal{L}_0$-structures
     where $=$ is interpreted as true equality, but every other $R \in \mathcal{L}_0$ is interpreted irreflexively.\footnote{We may assume irreflexivity with no loss of generality: see \cite[beginning of \S2.4]{SS20}.}
 
     \item 
     $\mathcal{L}$ consists of $\mathcal{L}_0$ together with a new binary symbol $<$;
 
     \item 
-    $\mathcal{C}$ consists of $\mathcal{L}$-structures obtained from $\mathcal{C}_0$ by expanding with all possible linear orderings;
+    $\mathcal{C}$ consists of $\mathcal{L}$-structures obtained from $\mathcal{C}_0$ by expanding with all possible linear orderings --- this is still an amalgamation class;
 
     \item 
     $\A_0$ and $\A$ are the respective Fraïssé limits of $\mathcal{C}_0$ and $\mathcal{C}$,
@@ -95,18 +95,20 @@ In what follows, we will juggle with Lemma~\ref{lem:free-fresh} just enough so t
 A main result will be:
 \begin{theorem}\label{thm:free-bin-oligo}
     Assume each $R \in \mathcal{L}_0$ has arity at most two.
-    Then $\A$ is $\FF$-oligomorphic for any field $\FF$ even with finitely many constants fixed, provided that $\A$ is oligomorphic (for instance if $\mathcal{L}_0$ is finite).
+    Then $\A$ has the finite length property even with finitely many constants fixed, provided that $\A$ is oligomorphic (for instance if $\mathcal{L}_0$ is finite).
 \end{theorem}
-And a corollary will be that $\A$ from Examples~\ref{ex:N-Q} and \ref{ex:Rado-orderedRado} is $\FF$-oligomorphic;
+And a corollary will be that $\A$ from Examples~\ref{ex:N-Q} and \ref{ex:Rado-orderedRado} has the finite length property;
 as is its reduct $\A_0$.
 
 \subsection{Two reductions: orbits and projections}
 
-To start with, let us view $\A^d$ as $\A^{\{1, \dots, d\}}$ and more generally consider $\A^I$ for a finite indexing set $I \subseteq \N$.
+To start with, let us view $\A^d$ as $\A^{\{1, \dots, d\}}$ and more generally consider $\A^I$ for a finite indexing set $I \subseteq \Q$.
 Fix a finite support $S \subseteq \A$.
 If $\A$ is oligomorphic, the tuples in $\A^I$ split into finitely many $\Aut(\A)_{(S)}$-equivariant orbits.
-Let $\mathcal{O} = \Aut(\A)_{(S)} \cdot o_\bullet$ be one such orbit.
-We shall call $\mathcal{O}$ \emph{($S$-)rigid} if $o_i \not\in S$ and if $o_i < o_j$ whenever $i < j$.
+\color{red}
+Let $\mathcal{O} = \Aut(\A)_{(S)} \cdot o$ be one such orbit.
+We shall call $\mathcal{O}$ \emph{($S$-)ordered} if $o_i \not\in S$ and if $o_i < o_j$ whenever $i < j$.
+\color{black}
 By removing the entries in $o_\bullet$ that repeat or come from $S$ and reordering the rest, we can always find an $\Aut(\A)_{(S)}$-equivariant bijection to an $S$-rigid orbit.
 An easy observation is that we may focus on a single rigid orbit at a time:
 \begin{proposition}\label{prop:reduction-to-one-orbit}
@@ -182,7 +184,7 @@ As we will see in the next subsection, cogs are a prominent example.
         $a_i , b_i < s$ if and only if $o_i < s$;        
 
         \item 
-        any relation in $\mathcal{L}_0$ (in particular $=$) holds for a tuple $c_\bullet$ with entries in $a_I \cup b_I \cup S$ if and only if it holds for $c_\bullet$ with each entry equal to $a_i, b_i$ replaced by $o_i$.
+        any relation in $\mathcal{L}_0$ except for $=$ holds for a tuple $c_\bullet$ with entries in $a_I \cup b_I \cup S$ if and only if it holds for $c_\bullet$ with each entry equal to $a_i, b_i$ replaced by $o_i$.
     \end{enumerate}
 \end{definition}
 Three remarks are in order.
@@ -393,7 +395,7 @@ We want to avoid such confusions:
         \emph{unambiguous} if $\sqrt{-} : b^{(k)}_i \mapsto o_i$ for $k \in K$ is a function --- i.e., if $i = i'$ whenever $b^{(k)}_i = b^{(k')}_{i'}$;
 
         \item 
-        \emph{unobstructed} if it is well-indexed and for any $b^{(k)}_i, b^{(k')}_{i'}$, 
+        \emph{unobstructed} if it is unambiguous and for any $b^{(k)}_i, b^{(k')}_{i'}$, 
         either they are unrelated (in $\A$) or 
         \begin{align*}
             \A \models{} & R(b^{(k)}_i, b^{(k')}_{i'}) \leftrightarrow R(\sqrt{ b^{(k)}_i }, \sqrt{ b^{(k')}_{i'} }) \\

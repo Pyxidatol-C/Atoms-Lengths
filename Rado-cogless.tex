@@ -84,40 +84,32 @@ In fact, we will also make use of the ``symplectic basis and a half'' variant be
 \color{black}
 
 \begin{proof}
-    We first need the following notion.
-    Given a subspace $V \subseteq \W$, consider its orthogonal complement
+    Suppose we have found $f_{n+1}, \ldots, f_{n+i}$ already such that
+    \begin{align*}
+        &e_1, \ldots, e_n, e_{n+1}, \ldots e_{n+i}, e_{n+i+1}, e_{n+i+2}, \ldots, e_{n+k},\\ 
+        &f_1, \ldots, f_n, f_{n+1}, \ldots, f_{n+i}
+    \end{align*}
+    satisfy \eqref{eq:symplectic-basis}.
+    Notice these vectors are linearly independent:
+    in a linear combination that sums to $0$,
+    the coefficients of $e_1, f_1, \dots, e_{n+i}, f_{n+i}$ must be zero,
+    and we assumed the linear independence of $e_{n+i+1}, \dots, e_{n+k}$.
+    By extending these to a basis $B$ of $\W$, we may define a linear function 
     \[
-        V^\perp = \{ w \in \W \mid \forall v \in V : \omega(v, w) = 0 \}.
+        \psi : \W \to \ff
     \]
-    It is the kernel of the composite linear map 
-    \begin{align*}
-        \W \to (\W \xrightarrow{\text{lin.}} \ff) \to (V \xrightarrow{\text{lin.}} \ff) \\
-        w \mapsto \omega(-, w) \mapsto \omega(-, w)|_V.
-    \end{align*}
-    Note this map is surjective:
-    the first part is injective by non-degeneracy and hence surjective for dimension reasons,
-    and the second part is surjective since we can extend a basis of $V$ to one of $\W$.
-    Therefore 
+    which sends $e_{n+i+1}$ to $1$ but every other $b \in B$ to $0$.
+    Now apply Proposition~\ref{prop:symplectic-basis} to obtain a symplectic basis $e'_1, f'_1, \dots, e'_m, f'_m$ of $\W$, and put
     \[
-        \dim V^\perp = \dim \W - \dim V,
+        f_{n+i+1} = \sum_{j=1}^m \psi(e'_j) f'_j - \psi(f'_j) e'_j;
     \]
-    and in particular $V^{\perp \perp}$ is precisely equal to $V$.
-
-    Now suppose we have found $f_{n+1}, \ldots, f_{n+i}$ already.
-    If $e_{n+i+1}$ were to be spanned by 
-    \begin{align*}
-        &e_1, \ldots, e_n, e_{n+1}, \ldots e_{n+i}, \cancel{e_{n+i+1}}, e_{n+i+2}, \ldots, e_{n+k},\\ 
-        &f_1, \ldots, f_n, f_{n+1}, \ldots, f_{n+i},
-    \end{align*}
-    it would be spanned by $e_{n+i+2}, \ldots, e_{n+k}$ alone because of \eqref{eq:symplectic-basis};
-    but this is impossible as we assumed linear independence.
-    So $e_{n+i+1}$ does not belong to
-    \begin{align*}
-        &\langle e_1, \ldots, e_{n+i}, e_{n+i+2}, \dots, e_{n+k}, f_1, \ldots, f_{n+i} \rangle \\
-        ={} &\langle e_1, \ldots, e_{n+i}, e_{n+i+2}, \dots, e_{n+k}, f_1, \ldots, f_{n+i} \rangle^{\perp \perp};
-    \end{align*}
-    put in other words, we must be able to find some vector $f_{n+i+1}$ that satisfies $\omega(e_{n+i+1}, f_{n+i+1}) = 1$ 
-    as desired from $\langle e_1, \ldots, e_{n+i}, e_{n+i+2}, \dots, e_{n+k}, f_1, \ldots, f_{n+i} \rangle^\perp$.
+    then $\omega(-, f_{n+i+1})$ agrees with $\psi$ on this symplectic basis, so by linearity they must be the same function.
+    In particular 
+    \[
+        \omega(e_{n+i+1}, f_{n+i+1}) = \psi(e_{n+i+1}) = 1,
+    \]
+    whereas $\psi(e_1), \dots, \psi(e_{n+k}), \psi(f_1), \dots, \psi(f_{n+i})$ are all $0$
+    Thus we have \eqref{eq:symplectic-basis} as required.
 \end{proof}
 
 Given two symplectic vector spaces $\W$ and $\W'$,
@@ -205,7 +197,7 @@ we will opt for a more direct proof that also establishes smooth approximation.
 \end{proposition}
 \begin{remark}
     To anticipate the next subsection, we note a similarity with the Rado graph: 
-    in $\G^k$ there are $\sum_{d=0}^k \binom{k}{d} \cdot 2^{\binom{d}{2}}$ orbits 
+    in $\G^k$ there are $\sum_{d=0}^k \left\{\begin{matrix}k \\ d \end{matrix}\right\} \cdot 2^{\binom{d}{2}}$ orbits 
     --- we may impose any edge relation on $d$ vertices.
 \end{remark}
 
