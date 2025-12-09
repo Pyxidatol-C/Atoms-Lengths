@@ -192,7 +192,7 @@ As we will see in the next subsection, cogs are a prominent example.
 
         \item 
         for any binary relation $R$ in $\mathcal{L}_0$ (except for $=$):
-        \[ R(a_i,b_j) \iff R(b_i,a_j) \iff R(o_i,o_j).\] 
+        \[ \A \models R(a_i,b_j) \iff \A \models R(b_i,a_j) \iff \A \models R(o_i,o_j).\] 
      \end{enumerate}
 \end{definition}
 Some remarks are in order. First, conditions (1) and (2) specify a total order on the $2|I|$ atoms in a duo.
@@ -240,11 +240,11 @@ In fact, cogs arise anywhere.
         \item let $X \subseteq \A$ be a finite set containing $\{a_i, b_i \mid i \in I\} \cup S'$ but not $z$;
         \item let $Y \subseteq \A$ be any finite set disjoint from $X \cup \{z\}$;
     \end{itemize}
-    then the $\tau \in \Aut(\A)_{(X)}$ afforded by Lemma~\ref{lem:free-fresh} gives us an $\mathcal{O}'$-duo $(a_\bullet ; z) \parallel (b_\bullet ; \tau \cdot z)$.
+    then the $\tau \in \Aut(\A)_{(X)}$ afforded by Lemma~\ref{lem:free-fresh} gives us an $\mathcal{O}'$-duo $(a_\bullet ; z) \parallel (b_\bullet ; \tau(z))$.
 \end{lemma}
 \textcolor{red}{BK todo: Simplify this proof accordingly.}
 \begin{proof}
-    To start with, notice that we have the required order relations with $z$ and $\tau(z)$.
+    First, notice that $b_\bullet ; \tau(z)\in {\cal O}'$ and that we have the required order relations with $z$ and $\tau(z)$.
     Now let $R \in \mathcal{L}_0$ and let $c_\bullet$ be a tuple with entries in $a_{I \cup \{j\}} \cup b_{I \cup \{j\}} \cup S' = a_I \cup b_I \cup S \cup \{\tau \cdot z\}$;
     we want to show that \begin{equation}\label{eq:cog-building-relation}
         \A \models R(c_\bullet) \text{ if and only if } 
