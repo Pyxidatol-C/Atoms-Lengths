@@ -194,11 +194,12 @@ As we will see in the next subsection, cogs are a prominent example.
         \[R(a_i,b_j) \iff R(b_i,a_j) \iff R(a_i,a_j).\] 
      \end{enumerate}
 \end{definition}
-Some remarks are in order. First, conditions (1) and (2) specify a total order on the $2|I|$ atoms in a duo.
-Second, thanks to irreflexivity, each $a_i$ is unrelated to its counterpart $b_i$.
-Third, given any $J \subseteq I$, the combined tuple $a|^J_\bullet ; b|^{I \setminus J}_\bullet$ satisfies the same relations as $a_\bullet ; b_\bullet$, so it lies in $\mathcal{O}$.
+\begin{remark}\label{rem:duo}
+Conditions (1) and (2) specify a total order on the $2|I|$ atoms in a duo.
+Moreover, thanks to irreflexivity, each $a_i$ is unrelated to its counterpart $b_i$.
+Further, given any $J \subseteq I$, the combined tuple $a|^{I\setminus J}_\bullet ; b|^J_\bullet$ satisfies the same relations as $a_\bullet ; b_\bullet$, so it lies in $\mathcal{O}$. In particular, taking $J=\{i\}$, there is an automorphism $\pi_i$ that sends $a_i$ to $b_i$ and fixes all the other elements of $a_\bullet$, $b_\bullet$ and $S$.
 Finally, all $\mathcal{O}$-duos are in the same $\Aut(\A)_{(S)}$-equivariant orbit.
-
+\end{remark}
 \begin{definition}
     Given $\lambda \in \EE$ and an $\mathcal{O}$-duo $a_\bullet \parallel b_\bullet$, the corresponding \emph{$\mathcal{O}$-cog} with coefficient $\lambda$ is the vector
     \[
@@ -247,11 +248,7 @@ In fact, cogs arise anywhere.
 Starting from an empty duo, we may apply the previous lemma inductively.
 \begin{proposition}\label{prop:cog-fresh-full}
     Let $\mathcal{O} \subseteq \A^I$ be an $S$-ordered orbit.
-    Then for any $a_\bullet \in \mathcal{O}$, there is: 
-    \begin{enumerate}
-        \item some $b_\bullet \in \mathcal{O}$ such that $a_\bullet \parallel b_\bullet$ is an $\mathcal{O}$-duo; and
-        \item for each $i \in I$, some $\pi_i \in \Aut(\A)_{(S \cup \{a_j, b_j \mid j \in I, j \neq i \})}$ sending $a_i \mapsto b_i$.
-    \end{enumerate}
+    Then any $a_\bullet \in \mathcal{O}$ can be extended to an ${\cal O}$-duo $a_\bullet\parallel b_{\bullet}$.
 \end{proposition}
 \begin{proof}
     Enumerate the indices of $I$ as $i_1, \dots, i_d$.
@@ -266,14 +263,14 @@ Starting from an empty duo, we may apply the previous lemma inductively.
     \[
         a|^{\{i_1, \dots, i_k, i_{k+1}\}}_\bullet \parallel (i_1 \mapsto b_{i_1}, \dots, i_k \mapsto b_{i_k}, i_{k+1} \mapsto b_{i_{k+1}})
     \] a duo for $\mathcal{O}_{k+1}$.
-    We thus obtain the desired duo for $\mathcal{O}_d = \mathcal{O}$ as we reach $k = d$.
-    The automorphisms $\pi_{i_k}$ now come directly from homogeneity and the definition of an $\mathcal{O}$-duo: 
-    the map
-    \begin{align*}
-        a_{i_1} \mapsto a_{i_1}, \dots,{} &a_{i_k} \mapsto b_{i_k}, \dots, a_{i_d} \mapsto a_{i_d} \\
-        b_{i_1} \mapsto b_{i_1}, \dots,{} &\phantom{a_{i_k} \mapsto b_{i_k}}, \dots, b_{i_d} \mapsto b_{i_d}, s \in S \mapsto s
-    \end{align*}
-    is an embedding.
+    For $k=d$ we thus obtain the desired duo for $\mathcal{O}_d = \mathcal{O}$.
+%    The automorphisms $\pi_{i_k}$ now come directly from homogeneity and the definition of an $\mathcal{O}$-duo: 
+%    the map
+%    \begin{align*}
+%        a_{i_1} \mapsto a_{i_1}, \dots,{} &a_{i_k} \mapsto b_{i_k}, \dots, a_{i_d} \mapsto a_{i_d} \\
+%        b_{i_1} \mapsto b_{i_1}, \dots,{} &\phantom{a_{i_k} \mapsto b_{i_k}}, \dots, b_{i_d} \mapsto b_{i_d}, s \in S \mapsto s
+%    \end{align*}
+%    is an embedding.
 \end{proof}
 
 The result below substantiates the slogan that cogs are found everywhere. 
@@ -290,7 +287,7 @@ The result below substantiates the slogan that cogs are found everywhere.
     \]
     and put $\mathcal{O}' = \Aut(\A)_{(S')} \cdot a_\bullet \subseteq \mathcal{O}$ --- then $\mathcal{O}'$ is $S'$-ordered.
     By Proposition~\ref{prop:cog-fresh-full}, we can find $b_\bullet \in \mathcal{O}'$ such that $a_\bullet \parallel b_\bullet$ is an $\mathcal{O}'$-duo and \emph{a fortiori} an $\mathcal{O}$-duo.
-    Also take the automorphisms $\pi_{i_1}, \dots, \pi_{i_d}$ from there, where $i_1, \dots, i_d$ enumerate $I$.
+    Take the automorphisms $\pi_{i_1}, \dots, \pi_{i_d}$ from Remark~\ref{rem:duo}, where $i_1, \dots, i_d$ enumerate $I$.
     Now define $v^{(0)} = v$ and \[
         v^{(k)} = v^{(k-1)} - \pi_{i_k} \cdot v^{(k-1)}.
     \]
@@ -810,7 +807,7 @@ which is good news:
     Let $S'$ consist of $S$ together with every atom appearing in $w$ but not in $a_\bullet$.
     We generalise the proof of Theorem~\ref{thm:cogs-arise-everywhere}.
     
-    Start by applying Proposition~\ref{prop:cog-fresh-full} to get automorphisms $\pi_j$ for $j \in J_{i+1}$ such that $a_\bullet \parallel \prod_{j \in J_{i+1}} \pi_j \cdot a_\bullet$ is an $\mathcal{Q}_{i+1}$-cog, 
+    Start by applying Proposition~\ref{prop:cog-fresh-full} and Remark~\ref{rem:duo} to get automorphisms $\pi_j$ for $j \in J_{i+1}$ such that $a_\bullet \parallel \prod_{j \in J_{i+1}} \pi_j \cdot a_\bullet$ is an $\mathcal{Q}_{i+1}$-duo, 
     where $\pi_j$ fixes $S'$ and $a_{j'}, \pi_{j'} \cdot a_{j'}$ for $j' \in J \setminus \{j\}$.
     Put \[
         w' = \prod_{j \in J_{i+1}} (1 - \pi_j) \cdot w \in W.
