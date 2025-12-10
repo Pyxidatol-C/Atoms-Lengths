@@ -172,7 +172,7 @@ We call a vector from the projection kernel \emph{balanced}.
 As we will see in the next subsection, cogs are a prominent example.
 
 \subsection{Cogs}
-\begin{definition}
+\begin{definition}\label{def:duo}
     Let $\mathcal{O} \subseteq \A^I$ be an $S$-ordered orbit. 
     An \emph{$\mathcal{O}$-duo} $a_\bullet \parallel b_\bullet$ consists of tuples $a_\bullet, b_\bullet \in \cal O$ such that:
  %   $2|I|$ atoms in $\A\setminus S$ such that: with the following $\mathcal{L}$-structure on $\{a_i, b_i \mid i \in I\} \cup S$:
@@ -234,32 +234,14 @@ In fact, cogs arise anywhere.
     \end{itemize}
     then the $\tau \in \Aut(\A)_{(X)}$ afforded by Lemma~\ref{lem:free-fresh} gives us an $\mathcal{O}'$-duo $(a_\bullet ; z) \parallel (b_\bullet ; \tau(z))$.
 \end{lemma}
-\textcolor{red}{BK todo: Simplify this proof accordingly.}
 \begin{proof}
-    First, notice that $b_\bullet ; \tau(z)\in {\cal O}'$ and that we have the required order relations with $z$ and $\tau(z)$.
-    Now let $R \in \mathcal{L}_0$ and let $c_\bullet$ be a tuple with entries in $a_{I \cup \{j\}} \cup b_{I \cup \{j\}} \cup S' = a_I \cup b_I \cup S \cup \{\tau \cdot z\}$;
-    we want to show that \begin{equation}\label{eq:cog-building-relation}
-        \A \models R(c_\bullet) \text{ if and only if } 
-        \A \models R(d_\bullet), \tag{\P}
-    \end{equation} 
-    where $d_\bullet$ is obtained from $c_\bullet$ by replacing every $b_i$ with $a_i$ and $\tau \cdot z$ with $z$.
-    We split into three cases.
-    \begin{enumerate}
-        \item 
-        Suppose $z$ and $\tau \cdot z$ both appear in $c_\bullet$. 
-        Then $\A \not\models R(c_\bullet)$ because $\tau \cdot z$ is unrelated to $z$ by design, 
-        and $\A \not\models R(d_\bullet)$ because $R$ is irreflexive and $z$ appears twice.
-        
-        \item 
-        So if $z$ appears in $c_\bullet$, we may assume that $\tau \cdot z$ does not --- that is, $c_\bullet$ has entries in $a_I \cup b_I \cup S$.
-        In this case \eqref{eq:cog-building-relation} follows from the assumption that $a_\bullet \parallel b_\bullet$ is a cog duo in $\mathcal{O} = \Aut(\A)_{(S)} \cdot a_\bullet$.
-
-        \item
-        Finally, suppose that $\tau \cdot z$ appears in $c_\bullet$ but not $z$.
-        Then only $z$ appears in $\tau^{-1} \cdot c_\bullet$, and $d_\bullet$ is obtained by replacing every $b_i$ with $a_i$ in $\tau^{-1} \cdot c_\bullet$.
-        But $\A \models R(c_\bullet)$ if and only if $\A \models R(\tau^{-1} \cdot c_\bullet)$, and now \eqref{eq:cog-building-relation} holds as we discussed for the case above. 
-        \qedhere
-    \end{enumerate}
+    First, notice that $b_\bullet ; \tau(z)\in {\cal O}'$ and that we have the required order relations with $z$ and $\tau(z)$. The remaining condition of Def.~\ref{def:duo}, for any $R$ in $\mathcal{L}_0$, splits into the following cases (and their symmetric versions):
+\begin{itemize}
+\item[-] $R(a_i,b_j)\iff R(a_i,a_j)$ since $a_\bullet \parallel b_\bullet$ is an $\mathcal{O}$-duo;
+\item[-] $R(a_i,\tau(z))\iff R(a_i,z)$ since $\tau$ is an automorphism that fixes all $a_i$;
+\item[-] $R(a_i,z)\iff R(b_i,z)$ since $a_\bullet \parallel b_\bullet$ is an $\mathcal{O}$-duo and $z\in S$;
+\item[-] $R(z,\tau(z))$ and $R(z,z)$ are both false: $\tau(z)$ is unrelated to $z$ by Lemma~\ref{lem:free-fresh}, and $R$ is irreflexive.
+\end{itemize}
 \end{proof}
 
 Starting from an empty duo, we may apply the previous lemma inductively.
