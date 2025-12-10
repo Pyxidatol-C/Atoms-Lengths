@@ -172,9 +172,8 @@ We call a vector from the projection kernel \emph{balanced}.
 As we will see in the next subsection, cogs are a prominent example.
 
 \subsection{Cogs}
-\textcolor{red}{BK: Hopefully this is equivalent to the original def.?}
 \begin{definition}
-    Let $\mathcal{O} = \Aut(\A)_{(S)} \cdot o_\bullet \subseteq \A^I$ be an $S$-ordered orbit. 
+    Let $\mathcal{O} \subseteq \A^I$ be an $S$-ordered orbit. 
     An \emph{$\mathcal{O}$-duo} $a_\bullet \parallel b_\bullet$ consists of tuples $a_\bullet, b_\bullet \in \cal O$ such that:
  %   $2|I|$ atoms in $\A\setminus S$ such that: with the following $\mathcal{L}$-structure on $\{a_i, b_i \mid i \in I\} \cup S$:
     \begin{enumerate}
@@ -192,20 +191,13 @@ As we will see in the next subsection, cogs are a prominent example.
 
         \item 
         for any binary relation $R$ in $\mathcal{L}_0$ (except for $=$):
-        \[ \A \models R(a_i,b_j) \iff \A \models R(b_i,a_j) \iff \A \models R(o_i,o_j).\] 
+        \[R(a_i,b_j) \iff R(b_i,a_j) \iff R(a_i,a_j).\] 
      \end{enumerate}
 \end{definition}
 Some remarks are in order. First, conditions (1) and (2) specify a total order on the $2|I|$ atoms in a duo.
 Second, thanks to irreflexivity, each $a_i$ is unrelated to its counterpart $b_i$.
-Third, given any $J \subseteq I$, the combined tuple $a|^J_\bullet ; b|^{I \setminus J}_\bullet$ lies in $\mathcal{O}$ by homogeneity:
-observe
-\begin{align*}
-    a_j &\mapsto o_j, j \in J ; \\
-    b_i &\mapsto o_i, i \in I \setminus J ; \\
-    s &\mapsto s, s \in S
-\end{align*}
-defines an embedding.
-Finally, by homogeneity still, all $\mathcal{O}$-duos are in the same $\Aut(\A)_{(S)}$-equivariant orbit.
+Third, given any $J \subseteq I$, the combined tuple $a|^J_\bullet ; b|^{I \setminus J}_\bullet$ satisfies the same relations as $a_\bullet ; b_\bullet$, so it lies in $\mathcal{O}$.
+Finally, all $\mathcal{O}$-duos are in the same $\Aut(\A)_{(S)}$-equivariant orbit.
 
 \begin{definition}
     Given $\lambda \in \EE$ and an $\mathcal{O}$-duo $a_\bullet \parallel b_\bullet$, the corresponding \emph{$\mathcal{O}$-cog} with coefficient $\lambda$ is the vector
