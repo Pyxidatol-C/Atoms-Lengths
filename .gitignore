@@ -8,5 +8,7 @@
 *.blg
 *.run.xml
 *.bbl-SAVE-ERROR
+*.out
+*.thm
 
 .DS_Store
