@@ -359,23 +359,24 @@ Now take another atom $b_j$ for some $b\in\vsup{v}$.
 What can be said about $R(a_i, b_j)$? Unless $a=b$, not much.
 The index $j$ may not even be unique: we may well have $a_i = b_j$ even if $i\neq j$.
 We want to avoid such confusions:
-\begin{definition}
-    Let $\mathcal{O}$ be $S$-ordered in $\A^I$.
+\begin{definition}\label{def:unobstructed}
+    Let $\mathcal{O}$ be an $S$-ordered orbit in $\A^I$, and fix some representative $o\in{\cal O}$.
    % and take any $o_\bullet \in \mathcal{O}$.
     Call a finite family $V\subseteq{\cal O}$ 
     %$\{ b^{(k)}_\bullet \in \mathcal{O} \mid k \in K\}$ is
     \begin{enumerate}
         \item 
-        \emph{unambiguous} if for any $a,b\in V$, if $i\neq j\in I$ then $a_i\neq b_j$; %$\sqrt{-} : b^{(k)}_i \mapsto o_i$ for $k \in K$ is a function --- i.e., if $i = i'$ whenever $b^{(k)}_i = b^{(k')}_{i'}$;
+        \emph{unambiguous} if the assignment $\rt{-}:a_i\mapsto o_i$ is a well-defined function on the atoms present in $V$, i.e., if for any $a,b\in V$, if $a_i=b_j$ then $i=j$; %$\sqrt{-} : b^{(k)}_i \mapsto o_i$ for $k \in K$ is a function --- i.e., if $i = i'$ whenever $b^{(k)}_i = b^{(k')}_{i'}$;
 
         \item 
         \emph{unobstructed} if it is unambiguous and for any $a,b\in V$ and $i,j\in I$, either $a_i$ and $b_j$ are unrelated or 
 	\[
-           R(a_i,b_j) \iff R(a_i,a_j) \\
+           R(a_i,b_j) \iff R(o_i,o_j) \\
          \]
         for every binary relation $R \in \mathcal{L}_0$.% \footnote{Of course, whether the family is unambiguous or unobstructed does not depend on the choice of the specific representative $o_\bullet \in \mathcal{O}$!}
     \end{enumerate}
-    We call a vector  $v \in \Lin_\EE \mathcal{O}$ unambiguous or unobstructed if the set $\vsup{v}$ is so.
+    (Obviously these properties do not depend on the choice of $o\in{\cal O}$.) Furthermore,
+    we call a vector  $v \in \Lin_\EE \mathcal{O}$ unambiguous or unobstructed if the set $\vsup{v}$ is so.
 \end{definition}
 
 For example, it is easy to see that cogs are unobstructed.
@@ -486,93 +487,108 @@ We can ask for more:
     So we may repeat this process until all obstructions are removed.
 \end{proof}
 
-Having chosen the fresh atoms carefully, let $X$ consist of all the atoms appearing in the unobstructed family $V_m$.
-The trick now is to add a new element $b^*$ to the finite $\mathcal{L}$-structure $S \cup X \subseteq \A$. 
-We define the new relations in $S \cup X \cup \{b^*\}$ by
-\[\left\{
-\begin{aligned}
-    \cdots \models R_1(b^*) &\iff \A \models R_1(\sqrt{b^*}) \\
-    \cdots \models R_2(b^*, s) &\iff \A \models R_2(\sqrt{b^*}, \sqrt s) \\
-    \cdots \models R_2(s, b^*) &\iff \A \models R_2(\sqrt s, \sqrt{b^*}) \\
-    \cdots \models R_2(b^*, b^{(k)}_i) &\iff \A \models R_2(\sqrt{b^*}, \sqrt{b^{(k)}_i}) \\
-    \cdots \models R_2(b^{(k)}_i, b^*) &\iff \A \models R_2(\sqrt{b^{(k)}_i}, \sqrt{b^*}) \\
-    \cdots \models b^* > s &\iff \A \models \sqrt{b^*} > \sqrt s \\
-    \cdots \models b^* > b^{(k)}_i &
-\end{aligned}
-\right.\]
-for every unary relation $R_1$ and binary relation $R_2$ in $\mathcal{L}_0$,
-where we extend $\sqrt{-} : X \to \{o_1, \dots, o_d\}$ to
+Having chosen the fresh atoms carefully, let $X$ consist of all the atoms appearing in the unobstructed family $V_m$. It will be convenient to fix a representative $o\in{\cal O}$ and recall the function 
 \[
-    \sqrt{-} : S \cup X \cup \{b^*\} \to \{o_1, \dots, o_d\} \cup S
+\rt{-}: X \to \{o_1,\ldots, o_d\}
+\] 
+introduced in Definition~\ref{def:unobstructed}.
+We now add a new element $b^*$ to the finite $\mathcal{L}$-structure $S \cup X \subseteq \A$ so that $(x^{(a_j, k)} ; a_j)\parallel (y^{(a_j, k)} ; b^*)$ becomes a well-formed $\cal O$-duo for each $j$.  To this end we define $b^*$ to be greater (wrt. $>$) than every atom in $X$, and the remaining relations are defined to make $b^*$ mimic the greatest atom in $o$:
+%We define the new relations in $T = S \cup X \cup \{b^*\}$ by
+\[
+\begin{aligned}
+    b^* > c & \quad \text{ for } c\in X \\
+     b^* > s &\iff \A \models o_{i^*} > s \\
+    P(b^*) &\iff \A\models P(o_{i^*}) \\
+    R(b^*, s) &\iff \A \models R(o_{i^*}, s) \\
+   R(s, b^*) &\iff \A \models R(s, o_{i^*}) \\
+    R(b^*, c) &\iff \A \models R(o_{i^*}, \rt{c}) \text{ for } c\in X\\
+   R(c, b^*) &\iff \A \models R(\rt{c}, o_{i^*})  \text{ for } c\in X 
+\end{aligned}
 \]
-by letting $\sqrt{b^{(k)}_i} = o_i$ as before and $\sqrt{s} = s$, $\sqrt{b^*} = o_{i^*}$ in addition.
-
-So far we only relied on the unambiguity of the family;
-next we use the full assumption that it is unobstructed:
-
+for every unary predicate $P$ and binary relation $R$ in $\mathcal{L}_0$.
+%where we extend $\sqrt{-} : X \to \{o_1, \dots, o_d\}$ to
+%\[
+%    \sqrt{-} : S \cup X \cup \{b^*\} \to \{o_1, \dots, o_d\} \cup S
+%\]
+%by letting $\sqrt{b^{(k)}_i} = o_i$ as before and $\sqrt{s} = s$, $\sqrt{b^*} = o_{i^*}$ in addition.
+The last two clauses are well defined (i.e. they do not depend on the choice of $a\in V_m$ that contains the atom $c$) since $V_m$ is unambiguous.
+%
+%So far we only relied on the unambiguity of the family;
+%next we use the full assumption that it is unobstructed:
+%
+Moreover, since $V_m$ is unobstructed, our definition does not introduce any forbidden substructures:
 \begin{claim}
     $S \cup X \cup \{b^*\}$ embeds into $\A$.
 \end{claim}
 \begin{proof}
-    If not, by Lemma~\ref{lem:free-forb} there is a forbidden $\mathcal{L}_0$-structure $F$ of pairwise related elements which embeds into the $\mathcal{L}_0$-reduct of $S \cup X \cup \{b^*\}$, via $\phi$ say.    
+    If not, by Lemma~\ref{lem:free-forb} there is a forbidden $\mathcal{L}_0$-structure $F$ of pairwise related elements which embeds into the $\mathcal{L}_0$-reduct of $S \cup X \cup \{b^*\}$, via $\phi$ say.  Extend $\rt{-}$ from above to:
+    \[
+    \rt{-}: X\cup S\cup\{b^*\} \to \{o_1,\ldots, o_d\}\cup S
+    \]
+     by putting $\rt{b^*}=o_{i^*}$ and $\rt{s}=s$ for $s\in S$.
     We will check that $\sqrt{-} \circ \phi$ then embeds $F$ into the $\mathcal{L}_0$-reduct of $\A$, namely $\A_0$, and reach a contradiction.
 
-    So let $R_1 \in \mathcal{L}_0$ be unary and let $R_2 \in \mathcal{L}_0$ be binary.
-    It is immediate that $\sqrt -$ preserves and reflects $R_1$ for $s \in S$, for $b^{(k)}_i \in X$, and for $b^*$ --- we do not even need to know they are in the image of $\phi$.
-    We can also see that $\sqrt -$ preserves and reflects $R_2$ whenever at least one of the arguments is from $S \cup \{b^*\}$.
-    Now consider the remaining case where $b^{(k)}_i = \phi(f)$ and $b^{(k')}_{i'} = \phi(f')$.
-    As $f$ and $f'$ are related in $F$, 
-    their images $b^{(k)}_i$ and $b^{(k')}_{i'}$ must be related in $\phi(F)$.
-    But we ensured that the family giving rise to $X$ is unobstructed, which forces $\sqrt -$ to preserve and reflect $R_2$ here as well.
-    Since $\mathcal{L}_0$ only has unary and binary relations, this means that $\sqrt{\phi(F)} \subseteq \A_0$ is in $\mathcal{C}_0$ yet embeds $F$; 
-    this is obviously impossible.
+    So let $P \in \mathcal{L}_0$ be unary and let $R \in \mathcal{L}_0$ be binary.
+    It is immediate that $\rt{-}$ preserves and reflects $P$ for all atoms in $X\cup S$ and for $b^*$ --- we do not even need to know they are in the image of $\phi$.
+    We can also see that $\rt{-}$ preserves and reflects $R$ whenever at least one of the arguments is from $S \cup \{b^*\}$.
+    Now consider the remaining case of $\phi(f), \phi(f') \in X$. As $f$ and $f'$ are related in $F$, 
+    their images under $\phi$ must be related in $\phi(F)$.
+    But the family $V_m$ that gave rise to $X$ is unobstructed, which forces $\rt{-}$ to preserve and reflect $R$ here as well.
+    Since $\mathcal{L}_0$ only has unary and binary relations, this means that $\sqrt{\phi(F)} \subseteq \A_0$ is in $\mathcal{C}_0$ yet embeds $F$; this is a contradiction.
 \end{proof}
 
 Using homogeneity we may assume that $S \cup X \cup \{b^*\} \subseteq \A$.
 \begin{claim}
-    $x^{(a_j, k)}_\bullet ; a_j \parallel y^{(a_j, k)}_\bullet ; b^*$ forms an $\mathcal{O}$-cog duo 
+    $x^{(a_j, k)} ; a_j \parallel y^{(a_j, k)} ; b^*$ forms an $\mathcal{O}$-duo 
     for $1 \leq j \leq m$ and $k \in K_j$.
     Furthermore, the family \[
-        \mathcal{O}(v) \cup \{ (x^{(a_j, k)}_\bullet ; a_j),  (y^{(a_j, k)}_\bullet ; b^*) \mid k \in K_j, 1 \leq j \leq m \} 
+        \vsup{v} \cup \{ (x^{(a_j, k)} ; a_j),  (y^{(a_j, k)} ; b^*) \mid k \in K_j, 1 \leq j \leq m \} 
     \] is unobstructed.
 \end{claim}
 \begin{proof}
-    Recall that $x^{(a_j, k)}_\bullet \parallel y^{(a_j, k)}_\bullet$ is a duo for $\mathcal{O}^{i^* : a_j}|^{-i^*}$.
-    Given any $o_\bullet \in \mathcal{O}$,
-    it remains to show that
-    \[
-        \A \models R_1(b^*) \leftrightarrow R_1(o_{i^*})
-    \]
-    for any unary $R_1 \in \mathcal{L}_0$ and that
-    \begin{align*}
-        \A \models 
-        &R_2(b^*, s) \leftrightarrow R_2(o_{i^*}, s) \\
-        &\wedge R_2(s, b^*) \leftrightarrow R_2(s, o_{i^*}) \\
-        &\wedge R_2(b^*, b^{(k)}_i) \leftrightarrow R_2(o_{i^*}, o_i) \\
-        &\wedge R_2(b^{(k)}_i, b^*) \leftrightarrow R_2(o_i, o_{i^*})
-    \end{align*}
-    for any binary $R_2 \in \mathcal{L}_0$, where $b^{(k)}_\bullet \in \{ x^{(a_j, k)}_\bullet, y^{(a_j, k)}_\bullet \}$ and $s \in S$ are arbitrary.
+    Recall that $x^{(a_j, k)} \parallel y^{(a_j, k)}$ is a duo for $\mathcal{O}^{i^* : a_j}|^{-i^*}$. Since $x^{(a_j, k)},  y^{(a_j, k)}\in X$, the remaining conditions for $x^{(a_j, k)} ; a_j \parallel y^{(a_j, k)} ; b^*$ being an $\cal O$-duo follow directly from our definition of relations on $b^*$.
+%    Given any $o \in \mathcal{O}$,
+%    it remains to show that
+%    \[
+%       P(b^*) \leftrightarrow P(o_{i^*})
+%    \]
+%    for any unary $P \in \mathcal{L}_0$ and that
+%    \begin{align*}
+%        \A \models 
+%        &R_2(b^*, s) \leftrightarrow R_2(o_{i^*}, s) \\
+%        &\wedge R_2(s, b^*) \leftrightarrow R_2(s, o_{i^*}) \\
+%        &\wedge R_2(b^*, b^{(k)}_i) \leftrightarrow R_2(o_{i^*}, o_i) \\
+%        &\wedge R_2(b^{(k)}_i, b^*) \leftrightarrow R_2(o_i, o_{i^*})
+%    \end{align*}
+%    for any binary $R_2 \in \mathcal{L}_0$, where $b^{(k)}_\bullet \in \{ x^{(a_j, k)}_\bullet, y^{(a_j, k)}_\bullet \}$ and $s \in S$ are arbitrary.
 
-    Similarly, to show that the family in the claim is unambiguous and unobstructed, it is enough to check pairs of the form $b^*, b^{(k)}_i$ with $b^{(k)}_i \in X$.
-    And indeed $b^* \mapsto o_{i^*}, b^{(k)}_i \mapsto o_i$ is always a function, since we chose $b^*$ to be a new element.
-    This is furthermore an embedding if $i \neq i^*$ because of the relations we imposed on $b^*$; otherwise $b^*$ is unrelated to $b^{(k)}_{i}$ by irreflexivity, as required.
+The family in the claim is unambiguous since $V_m$ is unambiguous and $b^*$ is a fresh atom. Similarly, it is unobstructed since $V_m$ is unobstructed, and the additional conditions that involve $b^*$ follow from the relations that we imposed on $b^*$.
+
+%    Similarly, to show that the family in the claim is unambiguous and unobstructed, it is enough to check pairs of the form $b^*, b^{(k)}_i$ with $b^{(k)}_i \in X$.
+%    And indeed $b^* \mapsto o_{i^*}, b^{(k)}_i \mapsto o_i$ is always a function, since we chose $b^*$ to be a new element.
+%    This is furthermore an embedding if $i \neq i^*$ because of the relations we imposed on $b^*$; otherwise $b^*$ is unrelated to $b^{(k)}_{i}$ by irreflexivity, as required.
+\textcolor{red}{BK: This argument feels a bit shaky; I will think about it some more.}
 \end{proof}
 
 \begin{claim}
     We have $v = \sum_{j = 1}^m \sum_{k \in K_j} 
-    v(b^{(a_j, k)}_\bullet ; a_j) \cdot
-    (x^{(a_j, k)}_\bullet ; a_j \between y^{(a_j, k)}_\bullet ; b^*)$.
+    v(b^{(a_j, k)} ; a_j) \cdot
+    (x^{(a_j, k)} ; a_j \between y^{(a_j, k)} ; b^*)$.
 \end{claim}
 \begin{proof}
-    Observe that 
+    Observe that, by definition of cogs, for any $\cal O$-duo $a;c\parallel b;d$ with $c,d\in\A$ we have
+    \[
+    	(a;c) \between (b;d) = (a \between b); c - (a\between b);d.
+    \]
+    Using this, calculate:
     \begin{align*}
-        &\sum_{j=1}^m \sum_{k \in K_j} v(b^{(a_j, k)}_\bullet) \cdot (x^{(a_j, k)}_\bullet ; a_j \between y^{(a_j, k)}_\bullet ; b^*) \\
-        ={} &\sum_{j=1}^m \sum_{k \in K_j} \Bigl( v(b^{(a_j, k)}_\bullet) \cdot x^{(a_j, k)}_\bullet \between y^{(a_j, k)}_\bullet \Bigr) ; a_j \\
-            &-\sum_{j=1}^m \sum_{k \in K_j} \Bigl( v(b^{(a_j, k)}_\bullet) \cdot x^{(a_j, k)}_\bullet \between y^{(a_j, k)}_\bullet \Bigr) ; b^* \\
+        &\sum_{j=1}^m \sum_{k \in K_j} v(b^{(a_j, k)}) \cdot (x^{(a_j, k)} ; a_j \between y^{(a_j, k)} ; b^*) \\
+        ={} &\sum_{j=1}^m \sum_{k \in K_j} \Bigl( v(b^{(a_j, k)}) \cdot x^{(a_j, k)} \between y^{(a_j, k)} \Bigr) ; a_j \\
+            &-\sum_{j=1}^m \sum_{k \in K_j} \Bigl( v(b^{(a_j, k)}) \cdot x^{(a_j, k)} \between y^{(a_j, k)} \Bigr) ; b^* \\
         ={}& \sum_{j=1}^m v^{i^*: a_j} - \sum_{j=1}^m v^{i^* : a_j}|^{-i^*} ; b^* \\
         ={}& v - \sum_{j=1}^m v^{i^* : a_j}|^{-i^*} ; b^* ,
     \end{align*}
-    so it suffices to show the last sum vanishes.
+    and it suffices to show the last sum vanishes.
     Recall from Proposition~\ref{prop:cogs-are-balanced} that cogs are balanced.
     By projecting away the $i^*$th entry, we obtain
     \begin{align*}
@@ -584,7 +600,7 @@ Using homogeneity we may assume that $S \cup X \cup \{b^*\} \subseteq \A$.
 \end{proof}
 
 This completes the proof of Theorem~\ref{thm:cog-span-special-case}:
-we have shown any balanced vector $v$ is spanned by cogs as long as $\mathcal{O}(v)$ is unambiguous and unobstructed.
+we have shown any balanced vector $v$ is spanned by cogs as long as $\vsup{v}$ is unobstructed.
 Let us lift this restriction.
 
 \subsection{Removing ambiguities and obstructions}
