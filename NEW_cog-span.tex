@@ -276,9 +276,18 @@ Lastly, I refer to the atoms that appear in $\sigma$ by $\sqrt \sigma \subseteq 
     Given any $a_i \in \sqrt{\sigma}$, we have $(i, a_i) \in \overline{\sigma}$.
 \end{Rq}
 
+The prototypical example of an unobstructed family is $\overline{\underline{\lambda \cdot a^+ \between a^-}} = \overline{\{a^+, a^-\}} = \overline{\{a^\pm\}}$.
+
 \section{Lemmas}
+
+% Here O is orbit of edges (a, b) with a < b, a ~ b.
+% The YELLOW family of edges, which contains the GREEN family, has no obstructions.
+% Nor does the union of GREEN and RED. 
+% However YELLOW and RED together has an ambiguity (2, b) ? (1, b).
+% Lemma-? removes ambiguities but still leaves an obstruction (2, \pi b) ! (2, d).
+% Lemma-! removes such obstructions.
 \begin{center}
-\begin{tikzpicture}[font=\sffamily, line cap=round, line join=round, >={Latex[length=3.6mm,width=2.4mm]}]
+\begin{tikzpicture}[font=\sffamily, line cap=round, line join=round, >={Latex[length=3.6mm,width=2.4mm]}, scale=0.8]
 \coordinate (a) at (0,0); \coordinate (b) at (3.25,0); \coordinate (d) at (7.25,0); \coordinate (c) at (5.55,2.35); \coordinate (pib) at (3.05,-1.5); \coordinate (taub) at (1.95,-3);
 \begin{scope}[on background layer]
 \draw[yellow!60, opacity=0.55, line width=40pt] (a) to[out=25,in=200] (c); \draw[green!55!black, opacity=0.28, line width=26pt] (a) to[out=25,in=200] (c);
@@ -318,34 +327,6 @@ Lastly, I refer to the atoms that appear in $\sigma$ by $\sqrt \sigma \subseteq 
     the inductive hypothesis gives us some $\pi' \in \Aut(\A / S \cup \sqrt{\Tse})$ such that $?\overline{\Sha \cup \pi' \pi(\Che)} = \emptyset$.
 \end{Proof}
 
-% \begin{Proof}
-% \textcolor{red}{I have changed the statement: before it said $\Che \cup \Tse$ is unambiguous, as is $\Che \cup \Sha$.}
-%     Fix $\Che, \Sha$ and proceed by induction on the size of $? \overline{\Che \cup \Tse \cup \Sha}$:
-%     suppose we have $(i, a_i) ? (j, b_j)$.
-%     It follows from the assumptions that $(i, a_i) \not\in \overline{\Che}$ and that without loss of generality $(i, a_i) \in \overline{\Tse}, (j, b_j) \in \overline{\Sha}$.
-%     Put 
-%     \[
-%         X = S \cup \sqrt{\Che \cup \Tse \cup \Sha} \setminus \{a_i\}
-%     \]
-%     and note that $X$ contains $S \cup \sqrt{\Che}$.
-%     Use the Hammer to obtain an automorphism $\pi \in \Aut(\A / X)$ so that $\pi(a_i) \not\in X \cup \{a_i\}$.
-%     We may check that
-%     \[
-%         ?\overline{\Che \cup \pi(\Tse) \cup \Sha} \subseteq {?\overline{\Che \cup \Tse \cup \Sha}} \setminus \{(i, a_i)\}.
-%     \]
-%     Indeed, any ambiguity on the left must be between $(i', \pi(a'_{i'})) \in \overline{\pi(\Tse)}$ and $(k, c_k) \in \overline{\Sha}$.
-%     We cannot have $a'_{i'} = a_i$, because then $\pi(a'_{i'}) = \pi(a_i)$ cannot be equal to $a_i = a'_{i'} = c_k$.
-%     Hence $a'_{i'} \neq a_i$, and $(i', \pi(a'_{i'})) = (i', a'_{i'}) \in \overline{\Tse} \setminus \{(i, a_i)\}$ together with $(k, c_k) \in \overline{\Sha}$ was already an ambiguity on the right.
-%     As \[
-%         ?\overline{\Che \cup \pi(\Tse)} = {?}\overline{\pi(\Che \cup \Tse)} = \pi(?\overline{\Che \cup \Tse}) = \pi(\emptyset) = \emptyset,
-%     \]
-%     by the inductive hypothese we may find $\pi' \in \Aut(\A / S \cup \sqrt{\Che})$ such that
-%     \[
-%         ? \overline{\Che \cup \pi'\pi(\Tse) \cup \Sha} = \emptyset;
-%     \]
-%     since $\pi' \pi \in \Aut(\A / S \cup \sqrt{\Che})$, we are done.
-% \end{Proof}
-
 \begin{Lem}\label{lem:!}
     Let $\Che, \Tse, \Sha$ be finite subsets of $\mathcal{O}$ such that $!\overline{\Tse \cup \Che} = \emptyset = {!}\overline{\Sha} \supseteq {!}\overline{\Tse}$.
     Then
@@ -373,47 +354,6 @@ Lastly, I refer to the atoms that appear in $\sigma$ by $\sqrt \sigma \subseteq 
     \]
     so the conclusion follows straightforwardly from the inductive hypothesis.
 \end{Proof}
-
-% \begin{Proof}
-%     By \autoref{lem:?} we may assume that $?\overline{\Che \cup \Tse \cup \Sha} = \emptyset$ already.
-%     As before, fix $\Che, \Sha$ and proceed by induction on the size of $!\overline{\Che \cup \Tse \cup \Sha}$.
-%     suppose $(i, a_i) ! (j, b_j)$.
-%     Then $(i, a_i) \not\in \overline{\Che}$ and we may assume that $(i, a_i) \in \overline{\Tse}, (j, b_j) \in \overline{\Sha}$ without loss of generality.
-%     Moreover, if $(i, a_i) ! (j', b'_{j'})$ in $\overline{\Che \cup \Tse \cup \Sha}$ 
-%     then $(j', b'_{j'}) \in \overline{\Sha} \setminus \overline{\Che \cup \Tse}$.
-%     Observe that
-%     \begin{enumerate}[1)]
-%         \item 
-%         $b'_{j'} \not\in S$: obvious, as $b' \in \mathcal{O}$;
-
-%         \item 
-%         $b'_{j'} \neq a_i$: otherwise $i = j'$, 
-%         yet $a_i = b'_{j'}$ are certainly related in the same way as $a_i = a_{j'}$ are related;
-
-%         \item 
-%         $b'_{j'} \not\in \sqrt{\Che \cup \Tse}$:
-%         otherwise $b'_{j'} = c_k$ for some $c \in \Che \cup \Tse$ so $j' = k$, 
-%         implying $(j', b'_{j'}) = (k, c_k) \in \overline{\Che \cup \Tse}$ which is impossible;
-
-%         \item 
-%         $a_i \not\in S \cup \sqrt{\Che}$: because $a_i = a'_{i'}$ for $a' \in \Che$ means $(i, a_i) = (i', a'_{i'})$.
-%     \end{enumerate}
-%     Let $Y$ consist of all such $b'_{j'}$, and put
-%     \[
-%         X = S \cup \sqrt{\Che \cup \Tse \cup \Sha} \setminus Y \setminus \{a_i\}.
-%     \]
-%     Then $X, Y, \{a_i\}$ are pairwise disjoint, and $X$ contains $S \cup \sqrt{\Che}$ as well as $\sqrt{\Tse} \setminus \{a_i\}$.
-%     So apply the Hammer to find $\tau \in \Aut(\A/X)$ such that $\tau(a_i) \not\in X \cup Y \cup \{a_i\}$ is unrelated to $Y$.
-%     We may check that 
-%     \[
-%         !\overline{\Che \cup \tau(\Tse) \cup \Sha} \subseteq {!\overline{\Che \cup \Tse \cup \Sha}} \setminus \{(i, a_i)\}.
-%     \]
-%     Indeed, any obstruction on the left must be between $(i', \tau(a'_{i'})) \in \overline{\tau(\Tse)}$ and $(j', b'_{j'}) \in \overline{\Sha}$. 
-%     We cannot have $a'_{i'} = a_i$, as $\tau(a'_{i'})$ is unrelated to $b'_{j'} \in Y$ by design.
-%     Now if $a'_{i'} \neq a_i$, then $(i', \tau(a'_{i'})) = (i', a'_{i'}) \in \overline{\Tse} \setminus \{(i, a_i)\}$ together with $(j', b'_{j'}) \in \overline{\Sha}$ was already an obstruction on the right.
-%     To conclude, apply the inductive hypothesis. 
-% \end{Proof}
-
 
 \section{Unobstructed vector}
 % https://q.uiver.app/#q=WzAsMTUsWzAsMywiYl4rIl0sWzEsMywiYiJdLFswLDQsImJeLSJdLFswLDAsImFeKyJdLFsxLDEsImEiXSxbMCwxLCJhXi0iXSxbMywyLCJjIl0sWzQsMiwiXFxyaWdodHNxdWlnYXJyb3ciXSxbNSwzLCJiXisiXSxbNSw0LCJiXi0iXSxbNSwxLCJhXi0iXSxbNSwwLCJhXisiXSxbNiwxLCJhIl0sWzYsMywiYiJdLFs4LDIsImMiXSxbMCwxLCIiLDAseyJjb2xvdXIiOlswLDYwLDYwXX1dLFsyLDEsIiIsMix7ImNvbG91ciI6WzI0MCw2MCw2MF19XSxbMyw0LCIiLDIseyJjb2xvdXIiOlswLDYwLDYwXX1dLFs1LDQsIiIsMCx7ImNvbG91ciI6WzI0MCw2MCw2MF19XSxbMyw2LCIiLDAseyJjdXJ2ZSI6LTF9XSxbNSw2XSxbMCw2XSxbMiw2LCIiLDIseyJjdXJ2ZSI6MX1dLFsxMCwxNCwiIiwwLHsiY29sb3VyIjpbMjQwLDYwLDYwXX1dLFs4LDE0LCIiLDIseyJjb2xvdXIiOlswLDYwLDYwXX1dLFs4LDEzXSxbOSwxM10sWzExLDEyXSxbMTAsMTJdLFsxMSwxNCwiIiwxLHsiY3VydmUiOi0xLCJjb2xvdXIiOlswLDYwLDYwXX1dLFs5LDE0LCIiLDEseyJjdXJ2ZSI6MSwiY29sb3VyIjpbMjQwLDYwLDYwXX1dXQ==
@@ -510,7 +450,7 @@ It follows that \[
     s \mapsto s,\quad x_i \mapsto a_i,\quad z \mapsto a_d
 \]
 defines an injective function $\phi : F \to \A_0$,
-which is furthermore an embedding because $!\overline{A^\pm \cup B^\pm} = \emptyset$ and any $x_i, x'_{i'}$ for $i \neq i'$ are related.
+which is furthermore an embedding (we only need to check this for pairs!) because $!\overline{A^\pm \cup B^\pm} = \emptyset$ and any $x_i, x'_{i'}$ for $i \neq i'$ are related.
 This is impossible --- therefore assume $z \in \A$.
 
 It is now routine to check that $a^+ a_d \parallel a^- z$ and $b^+ a_d \parallel b^- z$ are $\mathcal{O}$-dipoles for $a^\pm \in A^\pm, b^\pm \in B^\pm$
@@ -671,7 +611,11 @@ and use the outer inductive hypothesis to write
 \]
 Then neither $S$ nor $\sqrt{A^\pm}$ contains $a_i$,
 so $X = S \cup \sqrt{\underline{v} \cup A^\pm} \setminus \{a_i\}$ contains $S \cup \sqrt{A^\pm}$.
-Using free amalgamation in $\A_0$ and the generic order in $\A$, we may find some $\pi \in \Aut(\A / X)$ such that $\pi(a_i) \not\in X$, $\pi(a_i) > a_i$, $\pi(a_i) \forkindep a_i$.
+Using free amalgamation in $\A_0$ and the generic order in $\A$, we may find some $\pi \in \Aut(\A / X)$ such that 
+$\pi(a_i) \not\in X$, 
+$\pi(a_i) > a_i$, 
+$\pi(a_i) \forkindep a_i$. % This 'stationary independence relation' symbol means: 
+% \pi(a_i) and a_i are freely amalgamated in A0 over the empty set (and thus over anything).
 We can check that
 \begin{enumerate}
     \item 
