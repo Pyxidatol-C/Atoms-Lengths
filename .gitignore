@@ -10,5 +10,6 @@
 *.bbl-SAVE-ERROR
 *.out
 *.thm
+*.cut
 
 .DS_Store
