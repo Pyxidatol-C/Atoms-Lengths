@@ -224,18 +224,14 @@ skipabove=\baselineskip,
 \usepackage{cancel}
 
 \usepackage[T2A,T1]{fontenc}
-\newcommand{\Yu}{\mbox{\usefont{T2A}{\rmdefault}{m}{n}\CYRYU}}
-\newcommand{\Ya}{\mbox{\usefont{T2A}{\rmdefault}{m}{n}\CYRYA}}
-\newcommand{\Che}{\mbox{\usefont{T2A}{\rmdefault}{m}{n}\CYRCH}}
-\newcommand{\Tse}{\mbox{\usefont{T2A}{\rmdefault}{m}{n}\CYRC}}
-\newcommand{\Sha}{\mbox{\usefont{T2A}{\rmdefault}{m}{n}\CYRSH}}
-\newcommand{\che}{\mbox{\usefont{T2A}{\rmdefault}{m}{n}\cyrch}}
-\newcommand{\tse}{\mbox{\usefont{T2A}{\rmdefault}{m}{n}\cyrc}}
-\newcommand{\she}{\mbox{\usefont{T2A}{\rmdefault}{m}{n}\cyrsh}}
+
+\newcommand{\Che}{K}
+\newcommand{\Tse}{V'}
+\newcommand{\Sha}{V}
 
 \usepackage[symbol]{footmisc}
 
-\def\forkindep{\mathrel{\raise0.2ex\hbox{\ooalign{\hidewidth$\vert$\hidewidth\cr\raise-0.9ex\hbox{$\smile$}}}}}
+\def\amalgindep{\mathrel{\raise0.2ex\hbox{\ooalign{\hidewidth$\vert$\hidewidth\cr\raise-0.9ex\hbox{$\smile$}}}}}
 
 
 %==========================================================================================
@@ -267,18 +263,29 @@ and define two binary relations
     % or equivalently $b_i, b_j$ since both $a$ and $b$ are in $\mathcal{O}$
 \end{align*}
 called \emph{ambiguities} and \emph{obstructions}.
-%TODO: equal elements are also \emph{related}. Does that matter?
+(Recall that $a_i$ and $b_j$ are \emph{not related} if they are freely amalgamated in the reduct $\A_0$ of $\A$ 
+--- i.e., they are not equal, and for no $R \in \mathcal{L}_0$ does $R(a_i, b_j) \vee R(b_j, a_i)$ hold;
+in that case, we write $a_i \amalgindep b_j$).
 Both relations are symmetric and ${?} \subseteq {!}$;
 denote their images by ${?\overline{\sigma}} \subseteq {!\overline{\sigma}} \subseteq \overline{\sigma}$.
-Lastly, I refer to the atoms that appear in $\sigma$ by $\sqrt \sigma \subseteq \A$.
+Lastly, refer to the atoms that appear in $\sigma$ by $\sqrt \sigma \subseteq \A$.
 \begin{Rq}\label{Rq:unambiguous}
     Assume $?\overline{\sigma} = \emptyset$.
     Given any $a_i \in \sqrt{\sigma}$, we have $(i, a_i) \in \overline{\sigma}$.
 \end{Rq}
 
-The prototypical example of an unobstructed family is $\overline{\underline{\lambda \cdot a^+ \between a^-}} = \overline{\{a^+, a^-\}} = \overline{\{a^\pm\}}$.
+The prototypical example of an unobstructed family is $\overline{\underline{\lambda \cdot a^+ \between a^-}} = \overline{\{a^+, a^-\}} = \overline{\{a^\pm\}}$,
+where $a^+ \parallel a^-$ is an $\mathcal{O}$-dipole.
 
 \section{Lemmas}
+Let $v \in \Ker_\EE \mathcal{O}$ and let $v^{i:a_i}$ be a subvector.
+In the cog decomposition results we are about to prove,
+we will work with the assumption that $\Sha = \underline{v}$ is unobstructed (resp., unambiguous);
+then so is $\Tse = \underline{v^{i:a_i}} \subseteq \underline{v}$.
+We will be able to write $v^{i:a_i} = \sum_{a^\pm \in A^\pm} (\lambda_{a^\pm} \cdot a^+ \between a^-) a_i$
+where the union of $\Tse$ and $\Che = A^\pm a_i = \{a^+ a_i, a^- a_i \mid a^\pm \in A^\pm\}$ is unobstructed (resp., unambiguous).
+But we want to make $\Sha \cup \Che$ unobstructed (resp., unambiguous);
+we can do so by choosing $\Che$ more carefully.
 
 % Here O is orbit of edges (a, b) with a < b, a ~ b.
 % The YELLOW family of edges, which contains the GREEN family, has no obstructions.
@@ -287,7 +294,7 @@ The prototypical example of an unobstructed family is $\overline{\underline{\lam
 % Lemma-? removes ambiguities but still leaves an obstruction (2, \pi b) ! (2, d).
 % Lemma-! removes such obstructions.
 \begin{center}
-\begin{tikzpicture}[font=\sffamily, line cap=round, line join=round, >={Latex[length=3.6mm,width=2.4mm]}, scale=0.8]
+\begin{tikzpicture}[font=\sffamily, line cap=round, line join=round, >={Latex[length=3.6mm,width=2.4mm]}]
 \coordinate (a) at (0,0); \coordinate (b) at (3.25,0); \coordinate (d) at (7.25,0); \coordinate (c) at (5.55,2.35); \coordinate (pib) at (3.05,-1.5); \coordinate (taub) at (1.95,-3);
 \begin{scope}[on background layer]
 \draw[yellow!60, opacity=0.55, line width=40pt] (a) to[out=25,in=200] (c); \draw[green!55!black, opacity=0.28, line width=26pt] (a) to[out=25,in=200] (c);
@@ -347,7 +354,7 @@ The prototypical example of an unobstructed family is $\overline{\underline{\lam
         X = S \cup \sqrt{\Che \cup \Sha} \setminus (Y \cup \{a_i\}).
     \]
     Then $X, Y, \{a_i\}$ are pairwise disjoint, and we see $X$ contains $S \cup \sqrt{\Tse}$ as well as $\sqrt{\Che} \setminus \{a_i\}$.
-    With free amalgamation (in $\A_0$) this time, we may find some $\tau \in \Aut(\A / S \cup \sqrt{\Tse})$ such that $\tau(a_i) \not\in X \cup Y \cup \{a_i\}$ is not related to any atom in $Y$. 
+    With free amalgamation (in $\A_0$) this time, we may find some $\tau \in \Aut(\A / S \cup \sqrt{\Tse})$ such that $\tau(a_i) \not\in X \cup Y \cup \{a_i\}$ and $\tau \amalgindep Y$. 
     Again, we can check that
     \[
         {!}\overline{\Sha \cup \tau(\Che)} \subseteq {!}\overline{\Sha \cup \Che} \setminus (i, a_i)
@@ -614,7 +621,7 @@ so $X = S \cup \sqrt{\underline{v} \cup A^\pm} \setminus \{a_i\}$ contains $S \c
 Using free amalgamation in $\A_0$ and the generic order in $\A$, we may find some $\pi \in \Aut(\A / X)$ such that 
 $\pi(a_i) \not\in X$, 
 $\pi(a_i) > a_i$, 
-$\pi(a_i) \forkindep a_i$. % This 'stationary independence relation' symbol means: 
+$\pi(a_i) \amalgindep a_i$. % This 'stationary independence relation' symbol means: 
 % \pi(a_i) and a_i are freely amalgamated in A0 over the empty set (and thus over anything).
 We can check that
 \begin{enumerate}
