@@ -75,6 +75,8 @@
 \usetikzlibrary{calc,arrows.meta,shapes.geometric,decorations.pathmorphing}
 
 \usepackage{amsthm}
+
+\usepackage{macros}
 % \numberwithin{equation}{section}\newcommand{\COUNTER}{equation}\newtheorem{theorem}[\COUNTER]{Theorem}
 \newtheorem{theorem}{Theorem}[section]\newcommand{\COUNTER}{theorem}
 \newtheorem{lemma}[\COUNTER]{Lemma}
@@ -93,9 +95,10 @@
 % \usepackage{etoolbox}
 % \AtBeginEnvironment{proof}{\color{gray}}
 
-
+\newcommand{\Bclass}{\mathscr{B}}
 
 \newcommand{\A}{\mathbb{A}}
+\newcommand{\B}{\mathbb{B}}
 \newcommand{\N}{\mathbb{N}} % naturals / names / equality atoms
 \newcommand{\Q}{\mathbb{Q}} % rationals / ordered atoms
 \newcommand{\G}{\mathbb{G}} % Rado graph 
