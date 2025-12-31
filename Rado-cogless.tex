@@ -3,10 +3,10 @@
 In this section, we establish a method for proving the finite length property, assuming that the field has characterisatic zero. Using this method, we will establish the finite length property for the Rado graph, and for vector spaces over a finite field, under the assumption of  characteristic zero. These are new results. Also, we think that the proof itself, even when applied to get already known results, is of independent interest and arguably simpler than previous proofs.
 
 
-\paragraph*{Weak smooth approximation.} 
+\paragraph*{Oligomorphic approximation.} 
 \begin{definition}
-    [Weak smooth approximation]
-    \label{def:weak-smooth-approximation} We say that a structure  $\A$ has \emph{weak smooth approximation} if for every $d \in \set{1,2,\ldots}$ there exists a family $\Bclass$ of finite substructures of $\A$ such that: 
+    [Oligomorphic approximation]
+    \label{def:weak-smooth-approximation} We say that a structure  $\A$ has \emph{oligomorphic approximation} if for every $d \in \set{1,2,\ldots}$ there exists a family $\Bclass$ of finite substructures of $\A$ such that: 
     \begin{enumerate}
         \item every finite substructure of $\A$ embeds into some $\B \in \Bclass$; and
         \item there is a common finite upper bound on the number of orbits in $\B^d$ for $\B \in \Bclass$.
@@ -15,20 +15,28 @@ In this section, we establish a method for proving the finite length property, a
 
 The above definition is a relaxation of a stronger notion from model theory that is called \emph{smooth approximation}. In the stronger notion, the family $\Bclass$ is independent of $d$, and there are other requirements as well~\cite[p.~440]{KLM89}. 
 
-\begin{example}[Equality atoms]\label{ex:equality-atoms-weak-smooth-approximation}
-The equality atoms are oligomorphically approximable. In this case, we can choose $\Bclass$ so that is indpendent of $d$, and this is simply all finite structures with equality only. For sufficiently large $\B \in \Bclass$, the number of orbits in $\B^d$ is the same as the number of orbits in $\A^d$. 
-\end{example}
+\begin{theorem}\label{thm:have-oligomorphic-approximation}
+    The following structures have oligomorphic approximation: 
+    \begin{enumerate}
+        \item the structure with equality only from Example~\ref{ex:equality-atoms};
+        \item the vector space structure from Example~\ref{ex:vector-space-atoms}, for any finite field;
+        \item the Rado graph from Example~\ref{ex:rado-graph}.
+    \end{enumerate}
+\end{theorem}
+Before proving the above theorem, let us observe that the dense linear order does not have oligomorphic approximation.
 
-\begin{example}[Bit-vector atoms]\label{ex:bit-vector-atoms-weak-smooth-approximation}
-Consider the bit-vector atoms. This is the vector space over the two-element field of countably infinite dimension, which is viewed as a structure by having a binary function for addition of vectors. As in the previous example, we can choose $\Bclass$ independently of $d$, namely the family of vector spaces of finite dimension. If we changed the field to any finite field, the same argument would apply.
-\end{example}
 
 \begin{example}[Non-example: rational numbers with order]\label{ex:non-example-weak-smooth-approximation}
 A non-example is the rational number with the usual order. The finite substructures in this case are finite linear orders, and already for dimension $d=1$, a finite linear order of size $n$ will have $n$ orbits. Hence, we cannot have a common finite upper bound on the number of orbits in $\B^d$ for $\B \in \Bclass$.
 \end{example}
 
-\begin{example}[Rado graph]\label{ex:rado-graph-weak-smooth-approximation}
-Consider the Rado graph. For every $n \in \set{1,2,\ldots}$ define a finite graph as follows. The set of vertices is $2^{2n}$, which is seen as a vector space over the two-element field whose basis is 
+\begin{proof}[Proof of Theorem~\ref{thm:have-oligomorphic-approximation}]
+
+\ 
+    \begin{enumerate}
+        \item For the structure with equality only, we can choose $\Bclass$ so that is indpendent of $d$, and this is simply all finite structures with equality only. For sufficiently large $\B \in \Bclass$, the number of orbits in $\B^d$ is the same as the number of orbits in $\A^d$. 
+        \item Consider the vector space structure. As in the previous example, we can choose $\Bclass$ independently of $d$, namely the family of vector spaces of finite dimension. If we changed the field to any finite field, the same argument would apply.
+        \item The most interesting case is the Rado graph. For every $n \in \set{1,2,\ldots}$ define a finite graph as follows. The set of vertices is $2^{2n}$, which is seen as a vector space over the two-element field whose basis is 
 \begin{align*}
 \set{e_1,\ldots,e_n, f_1,\ldots,f_n}.
 \end{align*}
@@ -37,23 +45,21 @@ Since the field has two elements, we can view vertices as subsets of the above b
 \setbuild{ i \in \set{1,\ldots,n}}{$e_i \in v$ and $f_i \in w$}\\
 \setbuild{ i \in \set{1,\ldots,n}}{$f_i \in v$ and $e_i \in w$}
 \end{align*}
-have different sizes modulo two. This graph might seem a bit articial, it is in fact a well-known construction, which is called the \emph{symplecitic graph} over the two-element field; see e.g.~\cite{BCP97}. These graphs are placed in more context in the appendix, where we also prove that they satisfy the necessary properties from Definition~\ref{def:weak-smooth-approximation}. actually 
-\end{example}
+have different sizes modulo two. This graph might seem a bit articial, it is in fact a well-known construction, which is called the \emph{symplecitic graph} over the two-element field; see e.g.~\cite{}. These graphs are placed in more context in the appendix, where we also prove that they satisfy the necessary properties from Definition~\ref{def:weak-smooth-approximation}. actually 
+    \end{enumerate}
+\end{proof}
 
 The main result of this section is the following theorem.
 
 \begin{theorem}\label{thm:weak-smooth-approximation-finite-length}
-    If an oligomorphic structure $\A$ has weak smooth approximation, then it has the finite length property over any field of characteristic $0$.
+    If an oligomorphic structure $\A$ has oligomorphic approximation, then it has the finite length property over any field of characteristic $0$.
 \end{theorem}
 
-Before proving the theorem, let us apply it to prove some results -- old and new -- on the finite length property.
+Combining Theorems~\ref{thm:have-oligomorphic-approximation} and~\ref{thm:weak-smooth-approximation-finite-length}, we can get the following results, both old and new, on the finite length property.
 
 \begin{corollary}\label{cor:weak-finite-length}
     Over any field of characteristic $0$, the following structures have  the finite length property: (a) the equality atoms; (b) the bit-vector atoms; and (c) the Rado graph.
 \end{corollary}
-\begin{proof}
-    In Examples~\ref{ex:equality-atoms-weak-smooth-approximation}, \ref{ex:bit-vector-atoms-weak-smooth-approximation}, and \ref{ex:rado-graph-weak-smooth-approximation} we have established that these structures satisfy the assumptions of  Theorem~\ref{thm:weak-smooth-approximation-finite-length}.
-\end{proof}
 
 As mentioned in the introduction, the finite length property was already known for the equality atoms, for arbitrary fields. The results for the bit-vector atoms and the Rado graph are new. The assumption on characteristic zero is important, at least in case of the  bit-vector atoms, where  the finite length property is known to fail over finite fields~\cite[Section 4.4]{BFKM24}. Later on in this paper, we will prove the result for the Rado graph again using a different method that works for any field.
 
