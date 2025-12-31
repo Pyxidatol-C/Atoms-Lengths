@@ -3,11 +3,11 @@
 
 In this section, we establish a method for proving the finite length property, assuming that the field has characterisatic zero. Using this method, we will establish the finite length property for the Rado graph, and for vector spaces over a finite field, under the assumption of  characteristic zero. These are new results. Also, we think that the proof itself, even when applied to get already known results, is of independent interest and arguably simpler than previous proofs.
 
-
-\paragraph*{Oligomorphic approximation.} 
+The method that we use will work for structures that satisfy the following condition. 
+ 
 \begin{definition}
     [Oligomorphic approximation]
-    \label{def:oligomorphic-approximation} We say that a structure  $\A$ has \emph{oligomorphic approximation} if for every $d \in \set{1,2,\ldots}$ there exists a family $\Bclass$ of finite substructures of $\A$ such that: 
+    \label{def:oligomorphic-approximation} We say that a structure  $\A$ has \emph{oligomorphic approximation} if it is homogeneous, and  for every $d \in \set{1,2,\ldots}$ there exists a family $\Bclass$ of finite substructures of $\A$ such that: 
     \begin{enumerate}
         \item \label{item:oligomorphic-approximation-embedding} every finite substructure of $\A$ embeds into some $\B \in \Bclass$; and
         \item \label{item:oligomorphic-approximation-orbits} there is a common finite upper bound on the number of orbits in $\B^d$ for $\B \in \Bclass$.
@@ -17,10 +17,10 @@ In this section, we establish a method for proving the finite length property, a
 The above definition is a relaxation of a stronger notion from model theory that is called \emph{smooth approximation}. In the stronger notion, the family $\Bclass$ is independent of $d$, and there are other requirements as well~\cite[p.~440]{KLM89}. 
 
 \begin{theorem}\label{thm:have-oligomorphic-approximation}
-    The following structures have oligomorphic approximation: 
+    These structures have oligomorphic approximation: 
     \begin{enumerate}
         \item the structure with equality only from Example~\ref{ex:equality-atoms};
-        \item the vector space structure from Example~\ref{ex:vector-space-atoms}, for any finite field;
+        \item the vector space from Example~\ref{ex:vector-space-atoms}, for any finite field;
         \item the Rado graph from Example~\ref{ex:rado-graph}.
     \end{enumerate}
 \end{theorem}
@@ -67,12 +67,114 @@ As mentioned in the introduction, the finite length property was already known f
 The rest of this section is devoted to proving Theorem~\ref{thm:weak-smooth-approximation-finite-length}.
 
 \begin{proof}
-    Copy the `bojań-trick' from \S8.2 of Mikołaj's
-    \url{https://www.mimuw.edu.pl/~bojan/papers/notes-July3.pdf}.
+    [Proof of Theorem~\ref{thm:weak-smooth-approximation-finite-length}]
+We fix for the rest of this proof a structure $\A$, which has oligomorphic approximation and  a field  of characteristic zero. Since the field is fixed, we omit the field subscript and write $\Lin X$ for linear combinations of elements in $X$ that use coefficients from the fixed field. Fix some power $d \in \set{1,2,\ldots}$.  Our goal is to show that 
+$
+\Lin \A^d
+$
+ has  finite length property. For technical reasons, we apply the assumption on oligomorphic approximation not to $d$, but to $2d$, yielding  some class $\Bclass$ of finite structures.
+
+
+    \begin{lemma}\label{lem:reduce-to-finite-substructures}
+        For every atom dimension $d \in \set{1,2,\ldots}$ we have 
+        \begin{align*}
+        \text{length of }\Lin \A^d
+        \quad \leq \quad  \sup_{\B \in \Bclass} \text{\ length of }\Lin \B,
+        \end{align*}
+        where the supremum ranges over finite sets of atoms.
+    \end{lemma}
+    \begin{proof}
+        Consider some chain of equivariant subspaces 
+        \begin{align*}
+        V_0 \subset V_1 \subset \ldots \subset V_n = \Lin \A^d,
+        \end{align*}
+        where equivariance is with respect to automorphisms of $\A$. 
+        For each $i \in \set{1,\ldots,n}$, choose some vector  that is in $V_i$ but not in $V_{i-1}$. Let $S$ be the finite set of atoms that appear in these chosen vectors, and choose some $\B \in \Bclass$ which contains all atoms from $S$. Define  
+        \begin{align*}
+        W_i = V_i \cap \Lin \B^d.
+        \end{align*}
+        By homogeneity, every automorphism of $\B$ extends to an automorphism of $\A$, and therefore the space $W_i$ is  equivariant with respect to automorphisms of $\B$. After restricting to $\B$ as above, the chain continues to be strictly growing, since it contains vectors that witness the growth of the original chain. Hence, the new chain  witnesses that the length of $\Lin \B^d$ is at least $n$. 
+    \end{proof}
+
+
+    Thanks to the above lemma, it remains to show that the length of $\Lin \B^d$ is bounded by some number that depends only on $d$. In our proof, this bound will be the number of orbits $\A^{2d}$. What we have gained is that the vector spaces have finite (albeit unbounded) linear dimension, and the group actions use finite (albeit unbounded) groups. This will allow use to leverage a result from representation theory, called Maschke's Theorem, see~\cite{}, which decomposes  spaces  into irreducible parts.  (In the theorem below, $\oplus$ stands for the direct sum of vector spaces, i.e.~$V \oplus W$ is the set of pairs $(v,w)$ where $v \in V$ and $w \in W$, with the operations defined coordinate-wise.)
+
+        \begin{theorem}[Maschke's Theorem]
+            Suppose that $V$ is a  vector space of finite linear dimension, equipped with an action of a finite group $G$, and the field has characteristic zero. Then $V$ can be decomposed as 
+            \begin{align*}
+            V = V_1 \oplus \cdots \oplus V_n,
+            \end{align*}
+            where each $V_i$ is an equivariant subspace (with respect to the action of $G$)  and  is  irreducible, i.e.~the only equivariant subspaces of $V_i$ are the zero space  and the full space $V_i$.
+        \end{theorem}
+
+
+    We will use Maschke's Theorem to bound the length of the vector  spaces $\Lin \B^d$. 
+    For two vector spaces $V$ and $W$ equipped with an action of the same group $G$, let us write 
+    \begin{align*}
+    \lineqfun V W
+    \end{align*}
+    for the set of all linear maps from $V$ to $W$, which are equivariant with  respect to the action of the group $G$. (The group and its action are  implicit in this notation.) Elements of this set are closed under taking linear combinations, and therefore this set can be seen as a vector space. (We do not equip this space  with an action of the group, and therefore its only structure is that of a vector space). In particular, it is meaningful to talk about the dimension of this vector space. 
+    \begin{lemma}\label{lem:dim-bounds-length}
+        Let $V$ be a finite dimensional vector space, over a field of characteristic zero, which is equipped with an action of some finite group $G$. Then 
+        \begin{align*}
+        \text{length of $V$} \quad \leq  \quad \text{dimension of the vector space }  \lineqfun V V.
+        \end{align*}
+    \end{lemma}
+    \begin{proof}
+        Apply Maschke's Theorem, yielding a decomposition 
+        \begin{align}\label{eq:maschke-decomposition}
+        V = V_1 \oplus \cdots \oplus V_n,
+        \end{align}
+        where the subspaces $V_1,\ldots,V_n$ are equivariant and irreducible, with respect to the action of the group $G$. Irreducible spaces have length one by definition, and the length is additive with respect to direct sums, see~\cite{}, i.e.
+        \begin{align*}
+            \text{length of $V$} = \text{length of $V_1$} + \cdots + \text{length of $V_n$}.
+        \end{align*}
+        This shows that the length of $V$ is equal to $n$.  We will now show that the dimension is at least $n$ on the right-hand side of the inequality in the statement of the lemma.
+        For every $i \in \set{1,\ldots,n}$ we can define an equivariant linear map from $V$ to itself which is the identity on $V_i$ and maps vectors from the other components to zero.  This gives us  at least $n$ equivariant linear maps from $V$ to itself. None of these maps is spanned by the other, and hence the dimension is at least $n$. 
+    \end{proof}
+
+    Thanks to Lemmas~\ref{lem:reduce-to-finite-substructures} and~\ref{lem:dim-bounds-length}, the length of the vector space with atoms $\Lin \A^d$ is bounded by the dimensions of the vector spaces
+    \begin{align}
+        \label{eq:endo-maps-b-d}
+ \lineqfun { \Lin \B^d} {\Lin \B^d},
+    \end{align}
+    where $\B$ ranges over the family $\Bclass$.
+    To complete the proof of the theorem, it remains to show that these dimensions  are bounded by some constant that depends only on $d$. This is done in the following lemma, which   completes the    proof of the theorem. 
+
+    \begin{lemma}\label{lem:bound-on-dim-for-finite-set} 
+        For every  $\B \in \Bclass$ the dimension of the vector space  in~\eqref{eq:endo-maps-b-d} is at most the number of orbits in $\A^{2d}$.
+    \end{lemma}
+    \begin{proof}
+        To define a  function in the space~\eqref{eq:endo-maps-b-d}, it is enough to define it on the  basis $\B^d$. Therefore, the vector space in the statement of the lemma is the same as the vector space  
+        \begin{align*}
+            \eqfun {\B^d} {\Lin \B^d}
+        \end{align*}
+        of equivariant functions (not linear maps) from $\B^d$ to $\Lin \B^d$, which are equivariant with respect to automorphisms of $\B$.  By Currying, the above space is isomorphic to  the space 
+        \begin{align*}
+        \eqfun {\B^d \times \B^d} \field
+        \end{align*}
+        of equivariant functions, again with respect to automorphisms of $\B$.
+        To define such an equivariant function, it is enough to choose one field element for each orbit of the input. This is because two inputs in the same orbit will be mapped to the same field element, by equivariance of scalar multiplication.  Therefore, the dimension of the space above is equal to the number of orbits of $\B^{2d}$, under the action of the group of automorphisms of $\B$.  This dimension is bounded by some constant that depends only on $d$, by the assumption on oligomorphic approximation. 
+    \end{proof}
+Let us finish this proof by summarizing the steps:
+\[
+\begin{tikzcd}[row sep=large]
+\text{length of $\Lin \A^d$} 
+\ar[d, phantom, "\rotatebox{90}{$\geq$} \text{\quad (Lemma~\ref{lem:reduce-to-finite-substructures})}"']
+\\
+\displaystyle\sup_{\B \in \Bclass} \text{length of $\Lin \B^d$} 
+\ar[d, phantom, "\rotatebox{90}{$\geq$} \text{\quad  (Lemma~\ref{lem:dim-bounds-length})}"']
+\\
+\displaystyle\sup_{\B \in \Bclass} \text{dimension of } \lineqfun {\Lin \B^d} {\Lin \B^d}
+\ar[d, phantom, "\rotatebox{90}{$\geq$} \text{\quad( Lemma~\ref{lem:bound-on-dim-for-finite-set})}"']
+\\
+\text{number of orbits in $\B^{2d}$}
+\ar[d, phantom, "\rotatebox{90}{$>$} \text{\quad(by definition)}"']
+\\
+\infty.
+\end{tikzcd}
+\]
 \end{proof}
 
-\begin{corollary}
-    Also for $m$ cliques of $n$ vertices --- interpretable in the equality atoms.
-\end{corollary}
 
-
+The inequalities shown at the end of the  above proof give us upper bounds on the length. In the case of the equality atoms, this bound is exponential in $d$. In the case of the vector space atoms from Example~\ref{ex:vector-space-atoms}, the bound is doubly exponential in $d$, since it is the number of linear dependency patterns for $2d$-tuples over a finite field. Finally, in the case of the Rado graph, this bound is also doubly exponential in $d$, see the appendix for details.

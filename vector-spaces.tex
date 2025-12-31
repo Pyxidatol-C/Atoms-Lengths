@@ -1,0 +1,41 @@
+\section{Vector spaces}
+We will use structures to construct vector spaces.
+
+
+\begin{definition}
+    [Vector space with atoms]
+    For a structure $\A$, a field $\field$, and  $d \in \set{1,2,\ldots}$, we write 
+\begin{align*}
+\Lin_\field \A^d
+\end{align*}
+for the free vector space which consists of finite formal linear combinations of $d$-tuples of elements in $\A$, using the field $\field$. Any space of this form is called a \emph{vector space with atoms}\footnote{There is a more general definition of vector spaces with atoms, see~\cite[Definition 8.1]{bojanczyk_slightly}. In particular, a vector space as in the above definition will necessarily have an equivariant basis, which is not the case in the more general definition.  However, the results on finite length from this paper  reduce to the special case described above. Therefore, in the interest of simplicity, we only work with this special case.}.
+\end{definition}
+
+
+
+We use the name \emph{atom dimension} for the parameter $d$ in the above definition, so that we do not confuse it with the dimension of a vector space. The atom dimension tells us how many atoms can be stored in a basis vector. The atom dimension will be an important induction parameter in the proofs. The dimension, in the sense of vector spaces, will always be countably infinite, since we will always be interested in the case where the structure $\A$ is countably infinite.
+
+
+Apart from the  structure of a vector space, this space described above  is also equipped with an action of the automorphism group of $\A$, and we will be interested in subsets which preserve both kinds of structure, i.e.~they are closed under taking linear combinations, and applying automorphisms. Such subsets are called \emph{equivariant subspaces}.
+
+\begin{example}
+    Let $\A$ be the structure with equality only, let $\field$ be any field, and let the atom dimension be $d=1$. As explained in~\cite[Example 4.2]{BFKM24}, this corresponding vector space with atoms
+    \begin{align*}
+    \Lin_\field \A
+    \end{align*}
+    has only three equivariant subspaces: the zero subspace, the whole space, and the subspace which consists of vectors where all coefficients sum to zero.
+\end{example}
+
+\paragraph*{The finite length property.}
+The main topic of this paper is the study of chains of equivariant spaces 
+\begin{align*}
+ V_0 \subsetneq V_1  \subsetneq \cdots \subsetneq V_n 
+\end{align*}
+which are contained in some vector space with atoms. The \emph{length} of such a chain in the number $n$ of strict inclusions.
+
+\begin{definition}
+    [Finite length property]
+    \label{def:finite-length-property} The length of a vector space with atoms is the maximal length of a chain of its equivariant subspaces. A structure $\A$ has the \emph{finite length property over a field $\field$} if for every $d \in \set{0,1,\ldots}$, the vector space with atoms $\Lin_\field \A^d$ has finite length. 
+\end{definition}
+
+The finite length property was studied in~\cite{BFKM24}, where it was shown that the equality atoms (Example~\ref{ex:equality-atoms}) and the order atoms (Example~\ref{ex:order-atoms}) have this property over any field. In this paper, we will establish the finite length property for more structures, including the Rado graph (Example~\ref{ex:rado-graph}) and the vector space atoms (Example~\ref{ex:vector-space-atoms}). For the Rado graph, we will not make any assumptions on the field, but for the case of the vector space structure from Example~\ref{ex:vector-space-atoms}, we will need to assume that the field $\field$ in $\Lin_\field \A^d$ has characteristic zero. (There are two fields involved here, namely the finite field used to define $\A$, and the field $\field$ used to define the vector space with atoms. The assumption is on the latter field.)

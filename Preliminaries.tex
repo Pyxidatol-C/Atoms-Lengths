@@ -1,4 +1,4 @@
-\section{Preliminaries}
+\section{Structures}
 
 We briefly recall some basic notions from model theory, mainly in order to fix notation.
 A language is a set of relation and function symbols, each with a specified arity. A structure $\A$ over a language consists of an underlying set, together with interpretations of the symbols in the language as relations and functions on the underlying set. An automorphism of a structure $\A$ is a bijection from the underlying set of $\A$ to itself that preserves all relations and functions of $\A$. When we talk about orbits in $\A^d$, for some power $d \in \set{1,2,\ldots}$, we mean the orbits under the component-wise action of the automorphism group. In other words, two tuples $(a_1,\ldots,a_d)$ and $(b_1,\ldots,b_d)$ are in the same orbit if there exists an automorphism $\pi$ of $\A$ such that $\pi(a_i) = b_i$ for all $i \in \set{1,\ldots,d}$. 
@@ -7,9 +7,12 @@ A language is a set of relation and function symbols, each with a specified arit
     A structure $\A$ is \emph{oligomorphic} if $\A^d$ has finitely many orbits  for every $d \in \set{1,2,\ldots}$.
 \end{definition}
 
-All structures considered in this paper will be not only oligomorphic, but they will also arise as Fraïssé limits of suitable Fraïssé classes, and therefore they will also be homogeneous. Since homogeneity does not seem to play a role, we do not define it.  
-% I'm not sure if what I wrote above is correct, this will become clear as the paper develops.
-We list below the main examples of structures that we consider in the paper, which are Fraïssé limits of the following classes of finite structures: (a) sets with equality only; (b) linear orders; (c) vector spaces over a finite field; and (d) graphs.
+\begin{definition}
+    [Homogeneous structure] A structure $\A$ is \emph{homogeneous} if every isomorphism between finite substructures of $\A$ extends to an automorphism of $\A$.
+\end{definition}
+
+
+We will be mainly interested in countable structures that are both oligomorphic and homogeneous.  Every homogeneous structure arises via construction called the Fraïssé limit, from classes of finite structures that satisfy certain closure properties (the so-called Fraïssé classes). For the Fraïssé limit to be not only homogeneous, but also oligomorphic, we need to assume that the Fraïssé class has only finitely many non-isomorphic structures of each finite size. Here are some of the important examples of oligomorphic structures that we will consider in this paper. These  are Fraïssé limits of the following classes of finite structures: (a) sets with equality only; (b) linear orders; (c) vector spaces over a finite field; and (d) graphs.
 \begin{example}[Equality only] \label{ex:equality-atoms} In this structure, the underlying set is countably infinite and there are no relations or functions.  Automorphisms are arbitrary permutations, and two tuples are in the same orbit if and only if they have the same equality pattern. Since there are finitely many equality patterns for tuples of fixed length, this structure is oligomorphic. For example, in dimension $d=2$ there are two orbits: $x_1=x_2$ and $x_1 \neq x_2$.
 \end{example}
 
@@ -20,101 +23,17 @@ We list below the main examples of structures that we consider in the paper, whi
     [Vector space] \label{ex:vector-space-atoms} Fix some finite field, and consider the vector space of countably infinite dimension over this field. This vector space can be seen as a structure, with  functions for vector addition and scalar multiplication. Automorphisms are permutations that are linear maps, and two tuples are in the same orbit if and only if they have the same linear dependencies. Since there are finitely many linear dependency patterns for tuples of fixed length over a finite field, this structure is oligomorphic.
 \end{example}
 
-\begin{example}[Rado graph]\label{ex:rado-graph} The Rado graph is the Fraïssé limit of the class of finite undirected graphs. It is not so easy to describe it explicitly, but one of its descriptions is that if one randomly selects a graph with a countably infinite set of vertices, by independently including each possible edge with probability $1/2$, then with probability $1$ the resulting graph is isomorphic to the Rado graph. Two tuples are in the same orbit if and only if they have the same equality and adjacency patterns, hence there are finitely many orbits in every dimension.
+\begin{example}[Rado graph]\label{ex:rado-graph} The Rado graph is the Fraïssé limit of the class of finite undirected graphs. Here, an undirected graph is viewed as a structure that has a binary relation, which is symmetric and irreflexive. It  is not so easy to describe the Rado graph  explicitly, but one of its characterisations is that if one randomly selects a graph with a countably infinite set of vertices, by independently including each possible edge with probability $1/2$, then with probability $1$ the resulting graph is isomorphic to the Rado graph. Two tuples are in the same orbit if and only if they have the same equality and adjacency patterns, hence there are finitely many orbits in every dimension.
 \end{example}
 
 
-\subsection{Vector spaces}
-We will use structures to construct vector spaces.
 
 
-\begin{definition}
-    [Vector space with atoms]
-    For a structure $\A$, a field $\field$, and  $d \in \set{1,2,\ldots}$, we write 
-\begin{align*}
-\Lin_\field \A^d
-\end{align*}
-for the free vector space which consists of finite formal linear combinations of $d$-tuples of elements in $\A$, using the field $\field$. Any space of this form is called a \emph{vector space with atoms}\footnote{There is a more general definition of vector spaces with atoms, see~\cite[Definition 8.1]{bojanczyk_slightly}. In particular, a vector space as in the above definition will necessarily have an equivariant basis, which is not the case in the more general definition.  However, the results on finite length from this paper  reduce to the special case described above. Therefore, in the interest of simplicity, we only work with this special case.}.
-\end{definition}
-
-
-
-We use the name \emph{atom dimension} for the parameter $d$ in the above definition, so that we do not confuse it with the dimension of a vector space. The atom dimension tells us how many atoms can be stored in a basis vector. The atom dimension will be an important induction parameter in the proofs. The dimension, in the sense of vector spaces, will always be countably infinite, since we will always be interested in the case where the structure $\A$ is countably infinite.
-
-
-Apart from the  structure of a vector space, this space described above  is also equipped with an action of the automorphism group of $\A$, and we will be interested in subsets which preserve both kinds of structure, i.e.~they are closed under taking linear combinations, and applying automorphisms. Such subsets are called \emph{equivariant subspaces}.
-
-\begin{example}
-    Let $\A$ be the structure with equality only, let $\field$ be any field, and let the atom dimension be $d=1$. As explained in~\cite[Example 4.2]{BFKM24}, this corresponding vector space with atoms
-    \begin{align*}
-    \Lin_\field \A
-    \end{align*}
-    has only three equivariant subspaces: the zero subspace, the whole space, and the subspace which consists of vectors where all coefficients sum to zero.
-\end{example}
-
-\paragraph*{The finite length property.}
-The main topic of this paper is the study of chains of equivariant spaces 
-\begin{align*}
- V_0 \subsetneq V_1  \subsetneq \cdots \subsetneq V_n 
-\end{align*}
-which are contained in some vector space with atoms. The \emph{length} of such a chain in the number $n$ of strict inclusions.
-
-\begin{definition}
-    [Finite length property]
-    \label{def:finite-length-property} The length of a vector space with atoms is the maximal length of a chain of its equivariant subspaces. A structure $\A$ has the \emph{finite length property over a field $\field$} if for every $d \in \set{0,1,\ldots}$, the vector space with atoms $\Lin_\field \A^d$ has finite length. 
-\end{definition}
-
-The finite length property was studied in~\cite{BFKM24}, where it was shown that the equality atoms (Example~\ref{ex:equality-atoms}) and the order atoms (Example~\ref{ex:order-atoms}) have this property over any field. In this paper, we will establish the finite length property for more structures, including the Rado graph (Example~\ref{ex:rado-graph}) and the vector space atoms (Example~\ref{ex:vector-space-atoms}). For the Rado graph, we will not make any assumptions on the field, but for the case of the vector space structure from Example~\ref{ex:vector-space-atoms}, we will need to assume that the field $\field$ in $\Lin_\field \A^d$ has characteristic zero. (There are two fields involved here, namely the finite field used to define $\A$, and the field $\field$ used to define the vector space with atoms. The assumption is on the latter field.)
-
-but for the albeit under the assumption that the field has characteristic zero.
-\color{red}
-Definitions: 
-\begin{enumerate}
-    \item oligomorphic
-    \item homogeneous
-    \item smooth approximation by homogeneous substructures \cite{KLM89} (N.B. not the 'smooth approximation' from \cite[Definitino~4]{MP24})
-    \item \emph{oligomorphic approximation} of a homogeneous structure by finite substructures with uniformly few orbits (i.e., types) that cover the age of $\A$
-\end{enumerate}
-
-\color{black}
-\begin{definition}
-    An \emph{interpretation in $\A$} is a structure $\A' = (D/E ; R_1, R_2, \dots)$, where
-    \begin{itemize}
-        \item 
-        $D$ is an equivariant subset of $\A^n$ for some $n \geq 1$;
-
-        \item 
-        $E$ is an equivariant equivalence relation on $D$;
-
-        \item 
-        $D/E$ consists of equivalence classes $d/E \subseteq D$ for $d \in D$,
-        which $\pi \in \Aut(\A)$ acts on via $\pi \cdot d/E = (\pi \cdot d) / E$;
-
-        \item 
-        every relation $R_i$ of arity $r_i$ is an equivariant subset of $(D/E)^{r_i}$.
-    \end{itemize}
-    We call $\A'$ a \emph{reduct of $\A$} if $D = \A$ and $E$ is just equality.
-\end{definition}
-
-
-
-\begin{proposition}
-    If $\A$ has the finite length property over $\FF$,
-    then so does any interpretation $\A'$.
-\end{proposition}
-\begin{proof}
-    Let $V_0 \subsetneq V_1 \subsetneq \cdots \subsetneq V_l$ be a chain of $\Aut(\A')$-equivariant subspaces in $\Lin_\FF (\A')^k = \Lin_\FF (D/E)^k$.
-    Each $V_j$ is then $\Aut(\A)$-equivariant: 
-    given $\pi \in \Aut(\A)$, notice that $d/E \mapsto (\pi \cdot d)/E$ is an automorphism of $\A'$.
-    Now $l$ is bounded above by the $\Aut(\A)$-length of $\Lin_\FF (D/E)^k$, which is finite
-    --- $\Lin_\FF (D/E)^k$ is isomorphic to the quotient of $\Lin_\FF D^k$ by the span of 
-    \[
-        \left\{ 
-            \begin{aligned}
-                &(d_1, \dots, d_k) \\
-                -{} &(d'_1, \dots, d'_k) 
-            \end{aligned}
-            \middle| d_1/E = d'_1/E, \dots, d_k/E = d'_k/E
-        \right\}.
-    \] \qedhere
-\end{proof}
+% \color{red}
+% Definitions: 
+% \begin{enumerate}
+%     \item oligomorphic
+%     \item homogeneous
+%     \item smooth approximation by homogeneous substructures \cite{KLM89} (N.B. not the 'smooth approximation' from \cite[Definitino~4]{MP24})
+%     \item \emph{oligomorphic approximation} of a homogeneous structure by finite substructures with uniformly few orbits (i.e., types) that cover the age of $\A$
+% \end{enumerate}

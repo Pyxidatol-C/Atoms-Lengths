@@ -9,3 +9,15 @@
 \begin{tabular}{l}
 	#2
 \end{tabular}}}
+
+
+\newcommand{\myunderbrace}[2]{\underbrace{#1}_{\mathclap{\text{\scriptsize 
+\begin{tabular}{c}
+	#2
+\end{tabular} }}}}
+
+% various kinds of function spaces
+\newcommand{\lineqfun}[2]{ #1 \underset{\text{lineq}}{\longrightarrow} #2}
+\newcommand{\linfsfun}[2]{ #1 \underset{\text{linfs}}{\longrightarrow} #2}
+\newcommand{\eqfun}[2]{ #1 \underset{\text{eq}}{\longrightarrow} #2}
+\newcommand{\fsfun}[2]{ #1 \underset{\text{fs}}{\longrightarrow} #2}
