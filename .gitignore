@@ -11,5 +11,5 @@
 *.out
 *.thm
 *.cut
-
+*.bbl
 .DS_Store
