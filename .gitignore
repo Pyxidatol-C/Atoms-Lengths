@@ -12,4 +12,5 @@
 *.thm
 *.cut
 *.bbl
+*.pdf
 .DS_Store
