@@ -27,15 +27,15 @@ The above definition is a relaxation of a stronger notion from model theory that
 Before proving the above theorem, let us observe that the dense linear order does not have oligomorphic approximation.
 
 
-\begin{example}[Non-example: rational numbers with order]\label{ex:non-example-weak-smooth-approximation}
-A non-example is the rational number with the usual order. The finite substructures in this case are finite linear orders, and already for dimension $d=1$, a finite linear order of size $n$ will have $n$ orbits. Hence, we cannot have a common finite upper bound on the number of orbits in $\B^d$ for $\B \in \Bclass$.
-\end{example}
+\begin{non-example}[rational numbers with order]\label{non-ex:weak-smooth-approximation}
+A non-example is the rational numbers with the usual order. The finite substructures in this case are finite linear orders, and already for dimension $d=1$, a finite linear order of size $n$ will have $n$ orbits. Hence, we cannot have a common finite upper bound on the number of orbits in $\B^d$ for $\B \in \Bclass$.
+\end{non-example}
 
 \begin{proof}[Proof of Theorem~\ref{thm:have-oligomorphic-approximation}]
 
 \ 
     \begin{enumerate}
-        \item For the structure with equality only, we can choose $\Bclass$ so that is indpendent of $d$, and this is simply all finite structures with equality only. For sufficiently large $\B \in \Bclass$, the number of orbits in $\B^d$ is the same as the number of orbits in $\A^d$. 
+        \item For the structure with equality only, we can choose $\Bclass$ so that it is independent of $d$, and this is simply all finite structures with equality only. For sufficiently large $\B \in \Bclass$, the number of orbits in $\B^d$ is the same as the number of orbits in $\A^d$. 
         \item Consider the vector space structure. As in the previous example, we can choose $\Bclass$ independently of $d$, namely the family of vector spaces of finite dimension. If we changed the field to any finite field, the same argument would apply.
         \item The most interesting case is the Rado graph. The witness for oligomorphic approximation will be a family of graphs, which are called the \emph{symplectic graphs}, see~\cite[Section 8.11]{GR01}. (We would like to thank Hrushovski for drawing our attention to this construction.) For every $n \in \set{1,2,\ldots}$ define a finite graph as follows. The set of vertices is the vector space over the two-element field with basis 
 \begin{align*}
@@ -180,7 +180,7 @@ This completes the proof of Theorem~\ref{thm:weak-smooth-approximation-finite-le
 \]
 \caption{
     \label{fig:proof-summary-cogless}
-    Summary of the proof of Theorem~\ref{thm:weak-smooth-approximation-finite-length}}.
+    Summary of the proof of Theorem~\ref{thm:weak-smooth-approximation-finite-length}.}
 \end{figure}
 
-The inequalities shown in Figure~\ref{fig:proof-summary-cogless} give us upper bounds on the length. In the case of the equality atoms, this bound is exponential in $d$. In the case of the vector space atoms from Example~\ref{ex:vector-space-atoms}, the bound is doubly exponential in $d$, since it is the number of linear dependency patterns for $2d$-tuples over a finite field. Finally, in the case of the Rado graph, this bound is also doubly exponential in $d$, see the appendix for details.
+The inequalities shown in Figure~\ref{fig:proof-summary-cogless} give us upper bounds on the length. In the case of the equality atoms, this bound is exponential in $d$. In the case of the vector space atoms from Example~\ref{ex:vector-space-atoms}, the bound is doubly exponential in $d$, since it is the number of linear dependency patterns for $2d$-tuples over a finite field. Finally, in the case of the Rado graph, this bound is also doubly exponential in $d$, see Appendix~\ref{sec:appendix-symplectic} for details.
