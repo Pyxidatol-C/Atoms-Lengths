@@ -1,41 +1,61 @@
-\section{Vector spaces}
-We will use structures to construct vector spaces.
-
-
-\begin{definition}
-    [Vector space with atoms]
-    For a structure $\A$, a field $\field$, and  $d \in \set{1,2,\ldots}$, we write 
+\section{Vector spaces of orbit-finite dimension}
+In this section, we introduce the main topic of this paper, which is vector spaces that are built on an orbit-finite basis.
+For a field $\field$ and a set $X$, we write 
 \begin{align*}
-\Lin_\field \A^d
+\Lin_\field X
 \end{align*}
-for the free vector space which consists of finite formal linear combinations of $d$-tuples of elements in $\A$, using the field $\field$. Any space of this form is called a \emph{vector space with atoms}\footnote{There is a more general definition of vector spaces with atoms, see~\cite[Definition 8.1]{bojanczyk_slightly}. In particular, a vector space as in the above definition will necessarily have an equivariant basis, which is not the case in the more general definition.  However, the results on finite length from this paper  reduce to the special case described above. Therefore, in the interest of simplicity, we only work with this special case.}.
-\end{definition}
+for the free vector space over $\field$ with basis $X$. This space consists of finite formal linear combinations of elements in $X$, with coefficients from the field $\field$.  We will be interested in the case when the basis $X$ is an orbit-finite set over some oligomorphic structure $\A$, typically $X = \A^d$. In such a case, the vector space is said to have \emph{orbit-finite dimension}. This space has two kinds of structure: the structure of a vector space, and the action of the automorphism group of $\A$. We will be interested in subsets that preserve both kinds of structure, i.e.~they are closed under taking linear combinations, and applying automorphisms of $\A$. Such subsets are called \emph{equivariant subspaces}. The main topic of this paper is the study of strictly growing chains of equivariant spaces 
+\begin{align*}
+ V_0 \subset V_1  \subset \cdots \subset V_n.
+\end{align*}
+The number $n$ of strict inclusions is called the \emph{length} of such a chain. 
 
-
-
-We use the name \emph{atom dimension} for the parameter $d$ in the above definition, so that we do not confuse it with the dimension of a vector space. The atom dimension tells us how many atoms can be stored in a basis vector. The atom dimension will be an important induction parameter in the proofs. The dimension, in the sense of vector spaces, will always be countably infinite, since we will always be interested in the case where the structure $\A$ is countably infinite.
-
-
-Apart from the  structure of a vector space, this space described above  is also equipped with an action of the automorphism group of $\A$, and we will be interested in subsets which preserve both kinds of structure, i.e.~they are closed under taking linear combinations, and applying automorphisms. Such subsets are called \emph{equivariant subspaces}.
 
 \begin{example}
     Let $\A$ be the structure with equality only, let $\field$ be any field, and let the atom dimension be $d=1$. As explained in~\cite[Example 4.2]{BFKM24}, this corresponding vector space with atoms
     \begin{align*}
     \Lin_\field \A
     \end{align*}
-    has only three equivariant subspaces: the zero subspace, the whole space, and the subspace which consists of vectors where all coefficients sum to zero.
+    has only three equivariant subspaces: the zero subspace, the whole space, and the subspace which consists of vectors where all coefficients sum to zero. These three spaces form a chain of length two.
 \end{example}
 
-\paragraph*{The finite length property.}
-The main topic of this paper is the study of chains of equivariant spaces 
-\begin{align*}
- V_0 \subsetneq V_1  \subsetneq \cdots \subsetneq V_n 
-\end{align*}
-which are contained in some vector space with atoms. The \emph{length} of such a chain in the number $n$ of strict inclusions.
+
 
 \begin{definition}
     [Finite length property]
-    \label{def:finite-length-property} The length of a vector space with atoms is the maximal length of a chain of its equivariant subspaces. A structure $\A$ has the \emph{finite length property over a field $\field$} if for every $d \in \set{0,1,\ldots}$, the vector space with atoms $\Lin_\field \A^d$ has finite length. 
+    \label{def:finite-length-property}
+    Let $\A$ be an oligomorphic structure. 
+    We say that  $\A$ has the \emph{finite length property over a field $\field$} if for every orbit-finite set $X$ over $\A$, there is some finite upper bound on the length of chains of equivariant subspaces 
+    in  $\Lin_\field X$.
 \end{definition}
 
-The finite length property was studied in~\cite{BFKM24}, where it was shown that the equality atoms (Example~\ref{ex:equality-atoms}) and the order atoms (Example~\ref{ex:order-atoms}) have this property over any field. In this paper, we will establish the finite length property for more structures, including the Rado graph (Example~\ref{ex:rado-graph}) and the vector space atoms (Example~\ref{ex:vector-space-atoms}). For the Rado graph, we will not make any assumptions on the field, but for the case of the vector space structure from Example~\ref{ex:vector-space-atoms}, we will need to assume that the field $\field$ in $\Lin_\field \A^d$ has characteristic zero. (There are two fields involved here, namely the finite field used to define $\A$, and the field $\field$ used to define the vector space with atoms. The assumption is on the latter field.)
+The finite length property was studied in~\cite{BFKM24}, where it was shown that the equality atoms (Example~\ref{ex:equality-atoms}) and the order atoms (Example~\ref{ex:order-atoms}) have this property over any field. The main contribution of this paper is to  establish the finite length property for more structures, including the Rado graph (Example~\ref{ex:rado-graph}) and the vector space atoms (Example~\ref{ex:vector-space-atoms}). For the Rado graph, we will not make any assumptions on the field, but for the case of the vector space structure from Example~\ref{ex:vector-space-atoms}, we will need to assume that the field $\field$ in $\Lin_\field \A^d$ has characteristic zero. (There are two fields involved here, namely the finite field used to define $\A$, and the field $\field$ used to define the vector space with atoms. The assumption is on the latter field.)
+
+
+\paragraph*{Weighted automata.} One of the main motivations behind the introduction of vector spaces with atoms in~\cite{BFKM24} was to study orbit-finite weighted automata. An orbit-finite weighted automaton is defined like a deterministic orbit-finite automaton, except that the state space $Q$ is a vector space of orbit-finite dimension, the initial state is some equivariant vector in this space, and the transition function 
+\begin{align*}
+\delta : Q \times \Sigma \to Q
+\end{align*}
+is an equivariant function such that for every input letter $a \in \Sigma$, the function $\delta(-,a) : Q \to Q$ is a  linear map, and the final function is an equivariant linear map from $Q$ to some output vector space (typically, the field itself).
+
+
+
+\begin{example}
+    Assume that the atoms are the Rado graph.
+    \begin{center}
+        (todo: give an interesting example of a weighted automaton over the Rado graph)
+    \end{center}
+%      Consider the function
+%     \begin{align*}
+%     \A^* \to \Lin_{\Q} \A.
+%     \end{align*}
+%     A word $w \in \A^*$ can be seen as a vertex weighted graph, where the vertices are the letters of the word, weighted by the number of occurrences. 
+%     \begin{align*}
+%     a_1 \cdots a_n \quad \mapsto \quad \sum_{i \in \set{1,\ldots,n}} \lambda_i a_i,
+%     \end{align*}
+%     where the coefficient $\lambda_i$ is the sum 
+% \begin{align*}
+% |\setbuild{i \in \set{1,\ldots,n}}{$a_j \to  a_i$ is an edge}
+% \end{align*}
+\end{example}
+

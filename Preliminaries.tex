@@ -1,18 +1,27 @@
 \section{Structures}
 
-We briefly recall some basic notions from model theory, mainly in order to fix notation.
-A language is a set of relation and function symbols, each with a specified arity. A structure $\A$ over a language consists of an underlying set, together with interpretations of the symbols in the language as relations and functions on the underlying set. An automorphism of a structure $\A$ is a bijection from the underlying set of $\A$ to itself that preserves all relations and functions of $\A$. When we talk about orbits in $\A^d$, for some power $d \in \set{1,2,\ldots}$, we mean the orbits under the component-wise action of the automorphism group. In other words, two tuples $(a_1,\ldots,a_d)$ and $(b_1,\ldots,b_d)$ are in the same orbit if there exists an automorphism $\pi$ of $\A$ such that $\pi(a_i) = b_i$ for all $i \in \set{1,\ldots,d}$. 
+In this section, we  briefly recall some basic notions from model theory describe the main examples of structures that we will consider in this paper.
+
+Let us begin by fixing some notation.
+A \emph{vocabulary} is a set of relations, each with a specified arity (we do not use functions in this paper). For example, the vocabulary of graphs will contain one binary relation $E(x,y)$, which is meant to describe edges. Similarly, the vocabulary of ordered structures will also contain one binary relation $x \leq y$.   A structure $\A$ over a vocabulary consists of an underlying set, together with interpretations of the symbols in the vocabulary as relations on the underlying set. An \emph{isomorphism} between two structures over the same vocabulary is a bijection between their underlying sets which is consistent with all relations.  An \emph{automorphism} of a structure is an isomorphism of the structure with itself; these form a group. 
+
+We will be interested in applying  automorphisms  of $\A$ to  tuples in $\A^d$; they are applied component-wise.  When we talk about orbits in $\A^d$, we mean the orbits under this action of the  automorphism group. For example, if $\A$ is a graph, then two pairs $(a_1,a_2)$ and $(b_1,b_2)$ are in the same orbit if and only if there is some automorphism of the graph that maps $a_1$ to $b_1$ and $a_2$ to $b_2$. In particular, the edge relation must be defined in the same way for both pairs.
+
+All structures considered in this paper will be countable, and we will always want them to have finitely many orbits in every finite dimension, as explained in the following definition.
 
 \begin{definition}[Oligomorphic structure]\label{def:oligomorphic-structure}
     A structure $\A$ is \emph{oligomorphic} if $\A^d$ has finitely many orbits  for every $d \in \set{1,2,\ldots}$.
 \end{definition}
+
+A relation $R \subseteq \A^d$ in a structure is called \emph{equivariant} if it is invariant under the action of the automorphism group. This means that the  relation is a union of orbits.  If the structure is oligomorphic, then there are finitely many orbits to consider once the dimension $d$ is fixed, and therefore there  can only be finitely many equivariant relations. By the Ryll-Nardzewski theorem, if the structure is oligomorphic and countable, then the equivariant relations are exactly those that can be defined in first-order logic, see~\cite[Lemma 5.9]{bojanczyk_slightly}. In fact, the infinite structures that we consider in this paper will have a stronger property, namely the equivariant relations will be definable not only in first-order logic, but even by quantifier-free formulas. This will be guaranteed by the homogeneity property defined below. Recall that a substructure of $\A$ is any structure obtained by restricting $\A$ to some subset  of its underlying set. 
 
 \begin{definition}
     [Homogeneous structure] A structure $\A$ is \emph{homogeneous} if every isomorphism between finite substructures of $\A$ extends to an automorphism of $\A$.
 \end{definition}
 
 
-We will be mainly interested in countable structures that are both oligomorphic and homogeneous.  Every homogeneous structure arises via construction called the Fraïssé limit, from classes of finite structures that satisfy certain closure properties (the so-called Fraïssé classes). For the Fraïssé limit to be not only homogeneous, but also oligomorphic, we need to assume that the Fraïssé class has only finitely many non-isomorphic structures of each finite size. Here are some of the important examples of oligomorphic structures that we will consider in this paper. These  are Fraïssé limits of the following classes of finite structures: (a) sets with equality only; (b) linear orders; (c) vector spaces over a finite field; and (d) graphs.
+In a homogeneous structure, every equivariant relation is definable by a quantifier-free formula, see~\cite[Theorem 6.3]{bojanczyk_slightly}.
+Every homogeneous structure arises via construction called the Fraïssé limit, from classes of finite structures that satisfy certain closure properties (the so-called Fraïssé classes), see~\cite[Section 6.2]{bojanczyk_slightly}. For the Fraïssé limit to be not only homogeneous, but also oligomorphic, we need to assume that the Fraïssé class has only finitely many non-isomorphic structures of each finite size. Here are some of the important examples of oligomorphic structures that we will consider in this paper. These  are Fraïssé limits of the following classes of finite structures: (a) sets with equality only; (b) linear orders; (c) vector spaces over a finite field; and (d) graphs.
 \begin{example}[Equality only] \label{ex:equality-atoms} In this structure, the underlying set is countably infinite and there are no relations or functions.  Automorphisms are arbitrary permutations, and two tuples are in the same orbit if and only if they have the same equality pattern. Since there are finitely many equality patterns for tuples of fixed length, this structure is oligomorphic. For example, in dimension $d=2$ there are two orbits: $x_1=x_2$ and $x_1 \neq x_2$.
 \end{example}
 
@@ -20,7 +29,11 @@ We will be mainly interested in countable structures that are both oligomorphic 
 \end{example}
 
 \begin{example}
-    [Vector space] \label{ex:vector-space-atoms} Fix some finite field, and consider the vector space of countably infinite dimension over this field. This vector space can be seen as a structure, with  functions for vector addition and scalar multiplication. Automorphisms are permutations that are linear maps, and two tuples are in the same orbit if and only if they have the same linear dependencies. Since there are finitely many linear dependency patterns for tuples of fixed length over a finite field, this structure is oligomorphic.
+    [Vector space] \label{ex:vector-space-atoms} Fix some finite field, and consider the vector space of countably infinite dimension over this field. Since we use only relational vocabularies in this paper, this vector space is seen as a structure over the infinite vocabulary, which contains a relation 
+    \begin{align*}
+    \setbuild{(a_1,\ldots,a_d) \in \A^d}{ $\lambda_1 a_1 + \cdots + \lambda_d a_d = 0$ }
+    \end{align*}
+    for every $d \in \set{1,2,\ldots}$ and every  field coefficients $\lambda_1, \ldots, \lambda_d$. The vocabulary is defined so that automorphisms are the same thing as permutations that are linear maps. Two tuples are in the same orbit if and only if they have the same linear dependencies. Since there are finitely many linear dependency patterns for tuples of fixed length over a finite field, this structure is oligomorphic.
 \end{example}
 
 \begin{example}[Rado graph]\label{ex:rado-graph} The Rado graph is the Fraïssé limit of the class of finite undirected graphs. Here, an undirected graph is viewed as a structure that has a binary relation, which is symmetric and irreflexive. It  is not so easy to describe the Rado graph  explicitly, but one of its characterisations is that if one randomly selects a graph with a countably infinite set of vertices, by independently including each possible edge with probability $1/2$, then with probability $1$ the resulting graph is isomorphic to the Rado graph. Two tuples are in the same orbit if and only if they have the same equality and adjacency patterns, hence there are finitely many orbits in every dimension.

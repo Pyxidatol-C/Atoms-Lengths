@@ -1,7 +1,7 @@
 \section{Finite length in characteristic zero}
 \label{sec:characteristic-zero}
 
-In this section, we establish a method for proving the finite length property, assuming that the field has characterisatic zero. Using this method, we will establish the finite length property for the Rado graph, and for vector spaces over a finite field, under the assumption of  characteristic zero. These are new results. Also, we think that the proof itself, even when applied to get already known results, is of independent interest and arguably simpler than previous proofs.
+In this section, we present the first of our two main results, which is a  method for proving the finite length property, assuming that the field has characteristic zero. Using this method, we will establish the finite length property for the Rado graph, and for vector spaces over a finite field, under the assumption of  characteristic zero. These are new results. Also, we think that the proof itself, even when applied to get already known results, is of independent interest and arguably simpler than previous proofs.
 
 The method that we use will work for structures that satisfy the following condition. 
  
@@ -89,7 +89,7 @@ $
         V_0 \subset V_1 \subset \ldots \subset V_n = \Lin \A^d,
         \end{align*}
         where equivariance is with respect to automorphisms of $\A$. 
-        For each $i \in \set{1,\ldots,n}$, choose some vector  that is in $V_i$ but not in $V_{i-1}$. Let $S$ be the finite set of atoms that appear in these chosen vectors, and choose some $\B \in \Bclass$ which contains all atoms from $S$. Define  
+        For each $i \in \set{1,\ldots,n}$, choose some vector  that is in $V_i$ but not in $V_{i-1}$. Let $S$ be the finite set of atoms that appear in these chosen vectors, and choose some $\B \in \Bclass$ which contains all atoms from $S$. (We can assume without loss of generality that $\Bclass$ is closed under isomorphism, and therefore every finite subset $S$ of $\A$ is contained in some $\B \in \Bclass$.) Define  
         \begin{align*}
         W_i = V_i \cap \Lin \B^d.
         \end{align*}
@@ -145,16 +145,11 @@ $
         For every  $\B \in \Bclass$ the dimension of the vector space  in~\eqref{eq:endo-maps-b-d} is at most the number of orbits in $\A^{2d}$.
     \end{lemma}
     \begin{proof}
-        To define a  function in the space~\eqref{eq:endo-maps-b-d}, it is enough to define it on the  basis $\B^d$. Therefore, the vector space in the statement of the lemma is the same as the vector space  
+        A linear map  in the space~\eqref{eq:endo-maps-b-d} is the same thing as a square matrix indexed by $\B^d$, i.e.~a function of type  
         \begin{align*}
-            \eqfun {\B^d} {\Lin \B^d}
+        {\B^d \times \B^d} \to \field.
         \end{align*}
-        of equivariant functions (not linear maps) from $\B^d$ to $\Lin \B^d$, which are equivariant with respect to automorphisms of $\B$.  By Currying, the above space is isomorphic to  the space 
-        \begin{align*}
-        \eqfun {\B^d \times \B^d} \field
-        \end{align*}
-        of equivariant functions, again with respect to automorphisms of $\B$.
-        To define such an equivariant function, it is enough to choose one field element for each orbit of the input. This is because two inputs in the same orbit will be mapped to the same field element, by equivariance of scalar multiplication.  Therefore, the dimension of the space above is equal to the number of orbits of $\B^{2d}$, under the action of the group of automorphisms of $\B$.  This dimension is bounded by some constant that depends only on $d$, by the assumption on oligomorphic approximation. 
+        This function must be equivariant, again with respect to automorphisms of $\B$. This means that inputs in the same orbit must be mapped to the same field element. Therefore, to define  such a function, we need to choose one field element for each orbit of the input.   Therefore, the dimension of the space above is equal to the number of orbits of $\B^{2d}$, under the action of the group of automorphisms of $\B$.  This dimension is bounded by some constant that depends only on $d$, by the assumption on oligomorphic approximation. 
     \end{proof}
 This completes the proof of Theorem~\ref{thm:weak-smooth-approximation-finite-length}. For convenience, we summarise the steps  in Figure~\ref{fig:proof-summary-cogless}.
 \end{proof}
@@ -183,4 +178,4 @@ This completes the proof of Theorem~\ref{thm:weak-smooth-approximation-finite-le
     Summary of the proof of Theorem~\ref{thm:weak-smooth-approximation-finite-length}}.
 \end{figure}
 
-The inequalities shown in Figure~\ref{fig:proof-summary-cogless} give us upper bounds on the length. In the case of the equality atoms, this bound is exponential in $d$. In the case of the vector space atoms from Example~\ref{ex:vector-space-atoms}, the bound is doubly exponential in $d$, since it is the number of linear dependency patterns for $2d$-tuples over a finite field. Finally, in the case of the Rado graph, this bound is also doubly exponential in $d$, see the appendix for details.
+The inequalities shown in Figure~\ref{fig:proof-summary-cogless} give us upper bounds on the length. In the case of the equality atoms, this bound is exponential in $d$. In the case of the vector space atoms from Example~\ref{ex:vector-space-atoms}, the bound is the number of  linear dependency patterns for $2d$-tuples over a finite field. Such a pattern is described by: (a) indicating a subset of the coordinates which is a basis for the tuple; and (b) indicating the basis decompositions for the remaining coordinates. This can be done in at most exponentially many ways in $d$, and therefore the overall bound is  exponential in $d$. In the case of the Rado graph, more exact bounds will be presented later in the paper. 
