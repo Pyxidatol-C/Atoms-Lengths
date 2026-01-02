@@ -1,113 +1,117 @@
-\section{Rado graph, with cogs}
+\section{Finite length from ordered free amalgamation}
 \newcommand{\cal}{\mathcal}
 
-In this section we work with the following setting:
-\begin{itemize}
-    \item 
-    $\mathcal{L}_0$ is a \textcolor{red}{(should we just assume finite?)} relational language consisting of unary and binary symbols;
+As we saw in Non-example~\ref{non-ex:weak-smooth-approximation}, the ordered atoms do not have oligomorphic approximation. 
+Nontheless they do have the finite length property over any field \cite[Lemma~4.5]{BFKM24}, not just those of characteristic zero.
+We give an adaptation of the proof there in this section to richer ordered structures.
+In particular, we will deduce the finite length property for all homogeneous undirected graphs and uncountably many non-isomorphic homogeneous directed graphs.
+These results are new.
 
-    \item 
-    $\mathcal{C}_0$ is a free amalgamation class of finite $\mathcal{L}_0$-structures, where every $R \in \mathcal{L}_0$ is interpreted irreflexively.\footnote{We may assume irreflexivity with no loss of generality: see \cite[beginning of \S2.4]{SS20}.}
+Throughout this section, we will work with the following setting.
 
-    \item 
-    $\mathcal{L}$ consists of $\mathcal{L}_0$ together with a new binary symbol $<$;
+\paragraph*{Graph language}
+Consider a finite relational language $\cal L_0$ consisting of unary and binary symbols.
+(This allows us to talk about graphs with coloured vertices and edges, but in the running example we will consider a single edge relation.)
 
-    \item 
-    $\mathcal{C}$ consists of $\mathcal{L}$-structures obtained from $\mathcal{C}_0$ by expanding with all possible linear orderings --- this is still an amalgamation class;
+\paragraph*{Free amalgamation class}
+Let $\cal C_0$ be a \emph{free} amalgamation class of finite $\cal L_0$-structures. 
+This is a standard notion in model theory --- see \cite[Section~2.1]{Macpherson11}.
+Informally, it means that when we perform amalgamation, we do not need to glue together more elements than necessary or introduce new relations.
 
-    \item 
-    $\A_0$ and $\A$ are the respective Fraïssé limits of $\mathcal{C}_0$ and $\mathcal{C}$,
-    where without loss of generality \textcolor{red}{(because of the extension property)} we assume $\A_0$ and $\A$ share the same domain so that $\Aut(\A_0) \supseteq \Aut(\A)$.
-\end{itemize}
+There is a more useful characterisation \cite[Lemma~4.5]{SS20} of the amalgamation class $\cal C_0$ being free.
+Since $\cal C_0$ is closed under substructures and isomorphisms, 
+we know that $\cal C_0$ consists of all the finite $\cal L_0$-structures which do not embed any structure from $\cal F$, 
+where $\cal F$ consists of all the minimal finite $\cal L_0$-structures that do not belong to $\cal C_0$;
+we write \[
+    \cal C_0 = \Forb(\cal F).
+\]
+That $\cal C_0$ is close under free amalgamation means that in each $F \in \cal F$, 
+any two elements $x, y$ are either equal or satisfy at least one of $R(x, y)$ and $R(y, x)$ for some binary relation $R \in \cal L_0$
+--- from here on, we will just say $x, y$ are \emph{related}.
+Conversely, given a family $\cal F$ of finite $\cal L_0$-structures in each of which any two elements are related,
+the class $\Forb(\cal F)$ of finite $\cal L_0$-structures form a \emph{free} amalgamation class.
 
-\begin{example}\label{ex:N-Q}
-    Take $\mathcal{L}_0$ to consist of $=$ only and $\mathcal{C}_0$ to be all finite sets.
-    Then $\A_0$ is isomorphic to the pure set $\N$, whereas $\A$ is isomorphic to $\Q$ with the usual order.
+Here are a few free amalgamation classes.
+
+\begin{example}\label{ex:free-amalg-equality}
+    Let $\cal L_0$ be empty. 
+    Then $\cal C_0 = \Forb(\{\})$ is a free amalgamation class consisting of all finite pure sets.
 \end{example}
 
-\begin{example}\label{ex:Rado-orderedRado}
-    Let $\mathcal{L}_0$ consist of $=$ together with a single binary symbol $\sim$ 
-    and let $\mathcal{C}_0$ consist of all finite undirected graphs not embedding the complete graph $K_n$,
-    where $3 \leq n$ ($\leq \infty$).
-    Then $\A_0$ is the $K_n$-free Henson graph (or the Rado graph when $n = \infty$), and $\A$ is its generically ordered counterpart.
-    (Allowing $n = 2$ makes these degenerate to $\N$ and $\Q$ above).
+\begin{example}\label{ex:free-amalg-graphs}
+    Let $\cal L_0$ consist of a single binary symbol $-$. 
+    Consider $\cal L_0$-structures ${\circlearrowright} = \{x\}$ and ${\rightarrow} = \{y, z\}$, where the relation $-$ is interpreted as $\{(x, x)\}$ and $\{(y, z)\}$.
+    Then $\cal C_0 = \Forb(\{{\circlearrowright}, {\rightarrow}\})$ is a free amalgamation class consisting of all finite undirected graphs.
+
+    In addition, let $K_n$ be the $\cal L_0$-structure representing a complete graph on $n$ vertices.
+    Then 
+    \begin{align*}
+        \Forb(\{{\circlearrowright}, {\rightarrow}, K_3\}) 
+        \subseteq \Forb(\{{\circlearrowright}, {\rightarrow}, K_4\})
+        \subseteq \Forb(\{{\circlearrowright}, {\rightarrow}, K_5\})
+        \subseteq \cdots \\
+        \subseteq \Forb(\{{\circlearrowright}, {\rightarrow}\})
+    \end{align*}    
+    are all free amalagamation classes.
 \end{example}
 
-Free amalgamation in $\mathcal{C}_0$ allows us to free atoms in $\A$ from undesired relations.
-Let us make this more precise.
-Say that atoms $a, b \in \A$ are \emph{related} if $a=b$ or $\A \models R(a, b)\lor R(b,a)$ for some $R \in \mathcal{L}_0$ (they are certainly related by $<$, but we disregard it here).
-% Note: unrelated necessarily means non-equal.
-%Otherwise we say $z_i$ is \emph{unrelated} to $z_j$ in $Z$
-%--- notice it is still possible that $z_i$ becomes related to $z_j$ in some bigger $Z$ unless every relation in $\mathcal{L}_0$ is at most binary.
-\begin{lemma}\label{lem:free-fresh}
-    Let $X, Y, \{z\} \subseteq \A$ be disjoint and finite.
-    Then there is some automorphism $\tau \in \Aut(\A)$ such that
-    \begin{enumerate}
-        \item $\tau$ fixes every $x \in X$;
-        \item $\tau(z)$ is unrelated to all $y \in Y$ and to $z$;
-        \item $\tau(z) > z$.
-    \end{enumerate}
-\end{lemma}
-\begin{proof}
-    In $\A_0$, form the free amalgam
-% https://q.uiver.app/#q=WzAsNCxbMCwxLCJYIl0sWzEsMiwiWCBcXGN1cCBcXHt6XFx9Il0sWzEsMCwiWCBcXGN1cCBZIFxcY3VwIFxce3pcXH0iXSxbMiwxLCJYIFxcY3VwIFkgXFxjdXAgXFx7eiwgeidcXH0iXSxbMCwxLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFswLDIsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzEsMywieCBcXGluIFggXFxtYXBzdG8geCwgeiBcXG1hcHN0byB6JyIsMSx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn0sImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsyLDMsIlxcc3Vic2V0ZXEiLDEseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
-\[\begin{tikzcd}[cramped]
-	& {X \cup Y \cup \{z\}} \\
-	X && {X \cup Y \cup \{z, z'\}} \\
-	& {X \cup \{z\}}
-	\arrow["\subseteq"{description}, dashed, hook, from=1-2, to=2-3]
-	\arrow[hook, from=2-1, to=1-2]
-	\arrow[hook, from=2-1, to=3-2]
-	\arrow["{x \in X \mapsto x, z \mapsto z'}"{description}, dashed, hook, from=3-2, to=2-3]
-\end{tikzcd}\]
-    so that no element of $Y \cup \{z\}$ is related to $z'$.
-    Now we make $X \cup Y \cup \{z, z'\}$ an $\mathcal{L}$-structure: 
-    inherit the order on $X \cup Y \cup \{z\}$ from $\A$,
-    and declare that $z < z'$ as well as $z' < a$ if $a$, the next element of $X \cup Y$ larger than $z$, exists at all.
-    Observe that \[
-        x \in X \mapsto x, z \mapsto z'
-    \] is still an embedding in presence of the order.
-    By homogeneity, we may embed $X \cup Y \cup \{z, z'\}$ into $\A$ via some $f$ which is the identity on $X \cup Y \cup \{z\}$;
-    again by homogeneity, we may extend the embedding \[ 
-        f(x) = x \in X \mapsto f(x), f(z) \mapsto f(z')
-    \] to some automorphism $\tau$ which makes 1), 2), and 3) true.
-\end{proof}
 
-On the other hand, an $\mathcal{L}$-structure fails to embed into $\A$ precisely when it embeds some forbidden structure, in which every two distinct elements are related:
-\begin{lemma}\label{lem:free-forb}
-    Let $\mathcal{F}_0$ consist of minimal (with respect to $\subseteq$) $\mathcal{L}_0$-structures which do not appear in $\mathcal{C}_0$.
-    Then
-    \begin{enumerate}
-        \item $\mathcal{C}_0$ consists of every $\mathcal{L}_0$-structure that does not embed any $F \in \mathcal{F}_0$.
-        \item $\mathcal{C}$ consists of every $\mathcal{L}$-structure whose $\mathcal{L}_0$-reduct does not embed any $F \in \mathcal{F}_0$.
-        \item In any $F \in \mathcal{F}_0$, every two distinct elements $x, y \in F$ are related by some $R \in \mathcal{L}_0$.
-    \end{enumerate}
-\end{lemma}
-\begin{proof}
-    As $\mathcal{C}_0$ is closed under substructures, its complement is closed under superstructures and thus is 
-    --- since there are no infinite strictly descending chain of embedded substructures 
-    --- determined by its minimal structures.
-    2) follows because an $\mathcal{L}$-structure is in $\mathcal{C}$ precisely when its $\mathcal{L}_0$-reduct is in $\mathcal{C}_0$.
-    For 3), notice that $F \setminus \{x\}$, $F \setminus \{y\}$ are in $\mathcal{C}_0$ by minimality; 
-    therefore so is their free amalgam over $F \setminus \{x, y\}$, which then cannot agree with $F$.
-\end{proof}
 
-In what follows, we will juggle with Lemma~\ref{lem:free-fresh} just enough so that we avoid the forbidden structures described in Lemma~\ref{lem:free-forb}.
-A main result will be:
-\begin{theorem}\label{thm:free-bin-oligo}
- %   Assume each $R \in \mathcal{L}_0$ has arity at most two.
-    %Then 
-    $\A$ has the finite length property even with finitely many constants fixed, provided that $\A$ is oligomorphic (for instance if $\mathcal{L}_0$ is finite).
+\paragraph*{Generically ordered expansion}
+Now, let $\cal L$ consist of $\cal L_0$ together with a new binary symbol $<$.
+Consider the class $\cal C$ of $\cal L$-structures obtained from $\cal C_0$, 
+by interpreting $<$ in any $\cal L_0$-structure there as any total order.
+
+Observe that $\cal C$ is an amalgamation class.
+Indeed, let $X, Y_1, Y_2$ be $\cal L$-structures in $\cal C$ with $X \subseteq Y_1 \cap Y_2$.
+Then we can amalgamate $Y_1, Y_2$ over $X$ as $\cal L_0$-structures and as $\{<\}$-structures, 
+both using the disjoint union of $Y_1, Y_2$ over $X$ as the underlying set. 
+Superposing these relations will give an $\cal L$-structure in $\cal C$, which is the desired amalgamation.
+(Because of the total order, this amalgamation in $\cal C$ is not free unless it is trivial.)
+Denote the Fraïssé limit of $\cal C$ by $\A$.
+
+\begin{theorem}\label{thm:ordered-free-amalg-has-finite-length}
+    The ordered structure $\A$, even with finitely many constants fixed, has the finite length property over any field.
 \end{theorem}
-And a corollary will be that $\A$ from Examples~\ref{ex:N-Q} and \ref{ex:Rado-orderedRado} has the finite length property;
-as is its reduct $\A_0$.
 
-\textcolor{red}{JY: I changed $o_\bullet$'s to $o$ in subsections A and C}
+The Fraïssé limit $\A_0$ of $\cal C$ is a reduct of $\A$.
+To see this, notice that $\A$, when viewed as an $\cal L_0$-structure, shares the same age as $\A_0$ --- namely, $\cal C_0$.
+Moreover, it follows from a back-and-forth argument \cite[Lemma~7.1.4]{Hodges93} that the $\cal L_0$-structure $\A$ is also homogeneous and, therefore, that it is isomorphic to $\A_0$.
+So we may assume that $\A$ and $\A_0$ have the same universe; we then have $\Aut(\A) \subseteq \Aut(\A_0)$.
+
+\begin{corollary}
+    The reduct $\A_0$ of $\A$, even with finitely many constants fixed, has the finite length property over any field.
+\end{corollary}
+
+Conversely, we call $\A$ the \emph{generically ordered expansion} of $\A_0$ or simply the ``ordered $\A_0$''.
+
+\begin{example}\label{ex:geneircally-ordered-equality}
+    Continuing from Example~\ref{ex:free-amalg-equality},
+    the ordered atoms (Example~\ref{ex:order-atoms}) is the generically ordered expansion of the equality atoms (Example~\ref{ex:equality-atoms}).
+\end{example}
+
+\begin{example}\label{ex:geneircally-ordered-graphs}
+    Continuing from Example~\ref{ex:free-amalg-graphs}, we obtain generically ordered expansions of the Rado graph and of the $K_n$-free Henson graphs.
+    The ordered Rado graph was studied in \cite{BPP15}.
+    In the examples below, we will work with the ordered triangle-free Henson graph.
+    (We do not know an easy, explicit description of the structure, even without the order.)
+\end{example}
+
+\textcolor{red}{Introduce Lachlan's classification of homogeneous graphs. 
+The Rado graph and the Henson $K_n$-free graphs are directly treated; 
+the disjoint union of cliques interpret in the ordered atoms.}
+
+\textcolor{red}{Introduce tournaments and the Henson digraphs. 
+Mention that the universal homogeneous tournament is a reduct of the ordered Rado graph \cite[Section~2.2]{BPP15}.}
+
+\section{Proof of Theorem~\ref{thm:ordered-free-amalg-has-finite-length}}
+
+
 \subsection{Two reductions: orbits and projections}
 
 To start with, let us view $\A^d$ as $\A^{\{1, \dots, d\}}$ and more generally consider $\A^I$ for a finite totally ordered indexing set $I \subseteq \Q$.
 Fix a finite support $S \subseteq \A$.
-If $\A$ is oligomorphic, the tuples in $\A^I$ split into finitely many $\Aut(\A)_{(S)}$-equivariant orbits.
+As $\A$ is oligomorphic, the tuples in $\A^I$ split into finitely many $\Aut(\A)_{(S)}$-equivariant orbits.
 Let $\mathcal{O} = \Aut(\A)_{(S)} \cdot o$ be one such orbit.
 We shall call $\mathcal{O}$ \emph{($S$-)ordered} if $o_i \not\in S$ and if $o_i < o_j$ whenever $i < j$.
 By removing the entries in $o$ that repeat or come from $S$ and reordering the rest, we can always find an $\Aut(\A)_{(S)}$-equivariant bijection to an $S$-ordered orbit.
@@ -116,11 +120,16 @@ An easy observation is that we may focus on a single ordered orbit at a time:
     The following are equivalent:
     \begin{enumerate}
         \item For $d = 0, 1, 2, \dots$ and any finite $S \subseteq \A$, chains of $\Aut(\A)_{(S)}$-equivariant subspaces in $\Lin_\FF \A^d$ are bounded in length;
-        \item $\A$ is oligomorphic, and $\Lin_\FF \mathcal{O}$ has finite length for any ordered orbit $\mathcal{O}$.
+        \item $\Lin_\FF \mathcal{O}$ has finite length for any ordered orbit $\mathcal{O}$.
     \end{enumerate}
 \end{proposition}
 \begin{proof}
-    We have $\len(\Lin_\FF(\biguplus_i \mathcal{O}_i)) = \len(\bigoplus_i \Lin_\FF \mathcal{O}_i) = \sum_i \len(\Lin_\FF \mathcal{O}_i)$.
+    Since $\A$ is oligomorphic, given any $d$ and $S$, 
+    we know that $\A^d$ is in an $\Aut(\A)_{(S)}$-equivariant bijection with a finite disjoint union of $S$-ordered orbits $\cal O_i$.
+    So the $S$-length of $\A^d$ equals \[
+        \len(\Lin_\FF(\biguplus_i \mathcal{O}_i)) = \len(\bigoplus_i \Lin_\FF \mathcal{O}_i) = \sum_i \len(\Lin_\FF \mathcal{O}_i).
+        \qedhere
+    \]
 \end{proof}
 
 So fix an ordered orbit $\mathcal{O} = \Aut(\A)_{(S)} \cdot o \subseteq \A^I$.
@@ -214,11 +223,15 @@ Finally, all $\mathcal{O}$-duos are in the same $\Aut(\A)_{(S)}$-equivariant orb
 As remarked above, given any two $\mathcal{O}$-duos there is some $\pi \in \Aut(\A)_{(S)}$ such that $\pi \cdot (a_\bullet \parallel b_\bullet) = a'_\bullet \parallel b'_\bullet$ and thus $\pi \cdot (\lambda \cdot a_\bullet \between b_\bullet) = \lambda \cdot a'_\bullet \between b'_\bullet$.
 Hence $\Cog_\EE \mathcal{O}$ is an $\Aut(\A)_{(S)}$-equivariant subspace of $\Lin_\EE \mathcal{O}$ and it is generated by cogs based on a single duo.
 
+\begin{proposition}[Cog calculus]
+    \textcolor{red}{$$a x \between b y = (a \between b) x - (a \between b) y$$}
+\end{proposition}
 
 \begin{proposition}\label{prop:cogs-are-balanced}
     $\Cog_\EE \mathcal{O}$ is contained in $\Ker_\EE \mathcal{O}$.
 \end{proposition}
 \begin{proof}
+    \textcolor{red}{TODO: rewrite using the cog calculus.}
     Let $\mathcal{O} \subseteq \A^I$, let $a_\bullet \parallel b_\bullet$ be an $\mathcal{O}$-duo, and let $i \in I$.
     The subsets of $I$ come in pairs of $J$ and $J \cup \{i\}$, where $J$ is a subset of $I \setminus \{i\}$.
     The two tuples $a|^{J}_\bullet ; b|^{I \setminus J}_\bullet$ and $a|^{J \cup \{i\}}_\bullet ; b|^{I \setminus (J \cup \{i\})}_\bullet$ differ only on the $i$th entry.
@@ -226,6 +239,41 @@ Hence $\Cog_\EE \mathcal{O}$ is an $\Aut(\A)_{(S)}$-equivariant subspace of $\Li
 \end{proof}
 
 In fact, cogs arise anywhere.
+We extract the free amalgamation in $\cal C_0$ and the generic order of $\A$ into the following lemma.
+\begin{lemma}\label{lem:free-fresh}
+    Let $X, Y, \{z\} \subseteq \A$ be disjoint and finite.
+    Then there is some automorphism $\tau \in \Aut(\A)$ such that
+    \begin{enumerate}
+        \item $\tau$ fixes every $x \in X$;
+        \item $\tau(z)$ is unrelated to all $y \in Y$ and to $z$;
+        \item $\tau(z) > z$.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    In $\A_0$, form the free amalgam
+% https://q.uiver.app/#q=WzAsNCxbMCwxLCJYIl0sWzEsMiwiWCBcXGN1cCBcXHt6XFx9Il0sWzEsMCwiWCBcXGN1cCBZIFxcY3VwIFxce3pcXH0iXSxbMiwxLCJYIFxcY3VwIFkgXFxjdXAgXFx7eiwgeidcXH0iXSxbMCwxLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFswLDIsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzEsMywieCBcXGluIFggXFxtYXBzdG8geCwgeiBcXG1hcHN0byB6JyIsMSx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn0sImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsyLDMsIlxcc3Vic2V0ZXEiLDEseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+\[\begin{tikzcd}[cramped]
+	& {X \cup Y \cup \{z\}} \\
+	X && {X \cup Y \cup \{z, z'\}} \\
+	& {X \cup \{z\}}
+	\arrow["\subseteq"{description}, dashed, hook, from=1-2, to=2-3]
+	\arrow[hook, from=2-1, to=1-2]
+	\arrow[hook, from=2-1, to=3-2]
+	\arrow["{x \in X \mapsto x, z \mapsto z'}"{description}, dashed, hook, from=3-2, to=2-3]
+\end{tikzcd}\]
+    so that no element of $Y \cup \{z\}$ is related to $z'$.
+    Now we make $X \cup Y \cup \{z, z'\}$ an $\mathcal{L}$-structure: 
+    inherit the order on $X \cup Y \cup \{z\}$ from $\A$,
+    and declare that $z < z'$ as well as $z' < a$ if $a$, the next element of $X \cup Y$ larger than $z$, exists at all.
+    Observe that \[
+        x \in X \mapsto x, z \mapsto z'
+    \] is still an embedding in presence of the order.
+    By homogeneity, we may embed $X \cup Y \cup \{z, z'\}$ into $\A$ via some $f$ which is the identity on $X \cup Y \cup \{z\}$;
+    again by homogeneity, we may extend the embedding \[ 
+        f(x) = x \in X \mapsto f(x), f(z) \mapsto f(z')
+    \] to some automorphism $\tau$ which makes 1), 2), and 3) true.
+\end{proof}
+
 \begin{lemma}\label{lem:cog-fresh-single}
     Suppose $a_\bullet \parallel b_\bullet$ is an $\mathcal{O}$-duo, where $\mathcal{O} \subseteq \A^I$ is $S$-ordered.
     Given $z \in S$, 
@@ -458,7 +506,7 @@ we can do so by choosing $K$ more carefully.
     so the conclusion follows straightforwardly from the inductive hypothesis.
 \end{proof}
 
-\section{Unobstructed vector}
+\subsubsection{Unobstructed vector}
 % https://q.uiver.app/#q=WzAsMTUsWzAsMywiYl4rIl0sWzEsMywiYiJdLFswLDQsImJeLSJdLFswLDAsImFeKyJdLFsxLDEsImEiXSxbMCwxLCJhXi0iXSxbMywyLCJjIl0sWzQsMiwiXFxyaWdodHNxdWlnYXJyb3ciXSxbNSwzLCJiXisiXSxbNSw0LCJiXi0iXSxbNSwxLCJhXi0iXSxbNSwwLCJhXisiXSxbNiwxLCJhIl0sWzYsMywiYiJdLFs4LDIsImMiXSxbMCwxLCIiLDAseyJjb2xvdXIiOlswLDYwLDYwXX1dLFsyLDEsIiIsMix7ImNvbG91ciI6WzI0MCw2MCw2MF19XSxbMyw0LCIiLDIseyJjb2xvdXIiOlswLDYwLDYwXX1dLFs1LDQsIiIsMCx7ImNvbG91ciI6WzI0MCw2MCw2MF19XSxbMyw2LCIiLDAseyJjdXJ2ZSI6LTF9XSxbNSw2XSxbMCw2XSxbMiw2LCIiLDIseyJjdXJ2ZSI6MX1dLFsxMCwxNCwiIiwwLHsiY29sb3VyIjpbMjQwLDYwLDYwXX1dLFs4LDE0LCIiLDIseyJjb2xvdXIiOlswLDYwLDYwXX1dLFs4LDEzXSxbOSwxM10sWzExLDEyXSxbMTAsMTJdLFsxMSwxNCwiIiwxLHsiY3VydmUiOi0xLCJjb2xvdXIiOlswLDYwLDYwXX1dLFs5LDE0LCIiLDEseyJjdXJ2ZSI6MSwiY29sb3VyIjpbMjQwLDYwLDYwXX1dXQ==
 \[\begin{tikzcd}[cramped]
 	{a^+} &&&&& {a^+} \\
@@ -589,7 +637,7 @@ We conclude that
 in other words, we have decomposed an unobstructed vector into an unobstructed family of cogs.
 
 
-\section{Unambiguous vector}
+\subsubsection{Unambiguous vector}
 % https://q.uiver.app/#q=WzAsMTUsWzAsMSwiYSJdLFsyLDAsImIiXSxbMiwyLCJjIl0sWzEsMSwiYSciXSxbMSwzLCJkIl0sWzIsMywiZSJdLFsyLDQsImYiXSxbMywyLCJcXHJpZ2h0c3F1aWdhcnJvdyJdLFs0LDEsImEiXSxbNSwxLCJhJyJdLFs2LDAsImIiXSxbNiwyLCJjIl0sWzUsMywiZCJdLFs2LDMsImUiXSxbNiw0LCJmIl0sWzAsMSwiIiwyLHsiY29sb3VyIjpbMCw2MCw2MF19XSxbMCwyLCIiLDAseyJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzMsMV0sWzMsMl0sWzQsNSwiIiwwLHsiY29sb3VyIjpbMCw2MCw2MF19XSxbNCw2LCIiLDIseyJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzAsNF0sWzgsMTBdLFs5LDEwLCIiLDIseyJjb2xvdXIiOlswLDYwLDYwXX1dLFs5LDExLCIiLDAseyJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzgsMTJdLFsxMiwxMywiIiwyLHsiY29sb3VyIjpbMCw2MCw2MF19XSxbMTIsMTQsIiIsMix7ImNvbG91ciI6WzI0MCw2MCw2MF19XSxbOCwxMV1d
 \[\begin{tikzcd}[cramped]
 	&& b &&&& b \\
@@ -668,7 +716,7 @@ We conclude that
 \]
 --- in other words, we have decomposed an unambiguous vector into an unambiguous family of cogs.
 
-\section{General vector}
+\subsubsection{General vector}
 % https://q.uiver.app/#q=WzAsMTMsWzAsMSwiXFxkb3RzIl0sWzEsMiwiYSJdLFswLDMsIlxcZG90cyJdLFszLDAsImIiXSxbMyw0LCJjIl0sWzIsMiwiYSciXSxbNCwyLCJcXHJpZ2h0c3F1aWdhcnJvdyJdLFs1LDEsIlxcY2RvdHMiXSxbNSwzLCJcXGNkb3RzIl0sWzYsMiwiYSJdLFs4LDAsImIiXSxbOCw0LCJjIl0sWzcsMiwiYSciXSxbMiwxLCIiLDIseyJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzEsMywiIiwyLHsiY29sb3VyIjpbMCw2MCw2MF19XSxbMSw0LCIiLDIseyJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzUsM10sWzUsNF0sWzAsMSwiIiwwLHsiY29sb3VyIjpbMCw2MCw2MF19XSxbNyw5LCIiLDIseyJjb2xvdXIiOlswLDYwLDYwXX1dLFs4LDksIiIsMCx7ImNvbG91ciI6WzI0MCw2MCw2MF19XSxbOSwxMF0sWzksMTFdLFsxMiwxMCwiIiwyLHsiY29sb3VyIjpbMCw2MCw2MF19XSxbMTIsMTEsIiIsMSx7ImNvbG91ciI6WzI0MCw2MCw2MF19XV0=
 \[\begin{tikzcd}[cramped]
 	&&& b &&&&& b \\
@@ -689,14 +737,14 @@ We conclude that
 	\arrow[color={rgb,255:red,92;green,92;blue,214}, from=4-1, to=3-2]
 	\arrow[color={rgb,255:red,92;green,92;blue,214}, from=4-6, to=3-7]
 \end{tikzcd}\]
-\begin{proposition}
+\begin{theorem}\label{thm:cog-span-generally}
     Let $v \in \Ker_\EE \mathcal{O}$.
     Then we can write
     \[
         v = \sum_{a^\pm \in A^\pm} \lambda_{a^\pm} \cdot a^+ \between a^-
     \]
     with $\lambda_{a^\pm} \in v(\mathcal{O})$.
-\end{proposition}
+\end{theorem}
 This is an easier induction on $|I|$ then on $?\overline{\vsup{v}}$.
 If $I = \emptyset$, the decomposition is trivial; 
 if $v$ is unambiguous already, the decomposition comes from \autoref{prop:?-free-decomposition}.
@@ -736,7 +784,7 @@ It follows from the inner inductive hypothesis that
 
 
 
-\subsection{All those equivariant subspaces}
+\section{All those equivariant subspaces}
 We finish this section with an important corollary of Theorem~\ref{thm:cog-span-generally}.
 Let $\mathcal{O}_1 \subseteq \A^{I_1}, \dots, \mathcal{O}_n \subseteq \A^{I_n}$ all be $S$-ordered orbits.
 Then $\len(\Lin_\FF(\mathcal{O}_1 \uplus \dots \uplus \mathcal{O}_n)) = 2^{|I_1|} + \dots + 2^{|I_n|}$;
