@@ -1,3 +1,4 @@
 equivariant
 oligomorphic
 equivariance
+quotienting
