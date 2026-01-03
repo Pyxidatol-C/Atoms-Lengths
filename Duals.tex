@@ -1,0 +1,62 @@
+\section{Duals}
+It was shown in \cite[Example~6.9]{BFKM24} that orbit-finitely generated vector spaces over the Rado graph are not closed under duals over the two-element field.
+We can lift the assumption on the field, and we will extend this result to the $K_n$-free Henson graphs.
+\begin{theorem}
+    Assume $\A$ is the Rado graph or the $K_n$-free Henson graph.
+    Then \[
+        \fsfun \A \field
+    \] is not orbit-finitely generated for any $\field$.
+\end{theorem}
+\begin{proof}
+    By Theorem~\ref{thm:ordered-free-amalg-has-finite-length}, 
+    if the space of finitely supported functions from $\A$ to $\field$ is orbit-finitely generated, then it would have finite length.
+    However, we will exhibit an infinite ascending chain of equivariant subspaces.
+
+    We can find anti-cliques $I_0, I_1, I_2, \dots$ of sizes $0, 1, 2, \dots$ inside $\A$.
+    Let $f_n : \A \to \{0, 1\} \subseteq \field$ be the characteristic function for the common neighbours of all vertices in $I_n$. 
+    (Of course, each $f_n$ is supported by $I_n$.)
+    We claim that
+    \[
+        \langle f_0 \rangle 
+        \subset \langle f_0, f_1 \rangle
+        \subset \langle f_0, f_1, f_2 \rangle
+        \subset \cdots
+    \]
+    is strictly increasing.
+    To see this, suppose otherwise that
+    \[
+        f_{n+1} = \sum_{I \in \mathbb{I}} \lambda_I \cdot f_I
+    \]
+    where every $I \in \mathbb{I}$ is an anti-clique on at most $n$ vertices, whose common neighbours have characteristic function $f_I$.
+
+    \begin{claim}
+        $\lambda_I = 0$ for all $I \in \mathbb{I}$.
+    \end{claim}
+    \begin{proof}
+        Suppose that $\lambda_I = 0$ whenever $|I| < d$. (The base case $d = 0$ is vacuous.)
+        Take $I \in \mathbb{I}$ with $|I| = d$.
+        Writing $\mathbb{J} = \{J \in \mathbb{I} \setminus \{I\} \mid |J| \geq d\}$, 
+        we have
+        \[
+            f_{n+1} = \lambda_I \cdot f_I 
+            + \sum_{J \in \mathbb{J}} \lambda_J \cdot f_J.
+        \]
+        We may pick a vertex $a \in \A$ that is adjacent to all of $I$ but to none of $\bigcup_{J \in \mathbb{J}} J \cup I_{n+1} \setminus I$.
+        Then $f_I(a) = 1$. 
+        On the other hand, since $I$ cannot contain $I_{n+1}$ or any $J \in \mathbb{J}$, we must have $f_{n+1}(a) = 0 = f_J(a)$.
+        Evaluating the equation above at $a$ yields
+        \[
+            0 = \lambda_I \cdot 1 + \sum_{J \in \mathbb{J}} \lambda_J \cdot 0;
+        \]
+        that is, we conclude $\lambda_I = 0$ for any $I \in \mathbb{I}$ with $|I| = d$.
+    \end{proof}
+
+    So $f_{n+1}$ is the constant zero function, which is impossible:
+    in $\A$ we can certainly find some vertex adjacent to all of $I_{n+1}$.
+    This shows that 
+    \[
+        \fsfun \A \field
+    \]
+    fails to be Noetherian,
+    so it cannot have finite length or be orbit-finitely generated. 
+\end{proof}
