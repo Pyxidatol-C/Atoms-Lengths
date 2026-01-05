@@ -1,4 +1,5 @@
-\section{Duals}
+\section{Failures}
+\subsection{Duals}
 It was shown in \cite[Example~6.9]{BFKM24} that orbit-finitely generated vector spaces over the Rado graph are not closed under duals over the two-element field.
 We can lift the assumption on the field, and we will extend this result to the $K_n$-free Henson graphs.
 \begin{theorem}
@@ -60,3 +61,63 @@ We can lift the assumption on the field, and we will extend this result to the $
     fails to be Noetherian,
     so it cannot have finite length or be orbit-finitely generated. 
 \end{proof}
+
+\subsection{Unambiguous automata}
+Consider the Rado graph or the $K_n$-free Henson graph.
+The language
+\[
+    \text{``the last letter (exists and) is adjacent to every previous letter''}
+\]
+is recognised by the unambiguous automaton with guessing below.
+\[\begin{tikzpicture}[->, every state/.style={minimum size=8mm}, initial text=,]
+  % states
+  \node[state, initial]            (a) {$a$};
+  \node[state, initial, below=of a] (b) {$b$};
+  \node[below=of b] (etc) {$\vdots$};
+  \node[state, accepting, right=2cm of etc] (q) {};
+
+  % loops (user requested the label exactly "x : E(x, a)" on each)
+  \draw (a) edge[loop above] node{$x : E(x, a)$} (a);
+  \draw (b) edge[loop above]  node{$x : E(x, b)$} (b);
+
+  % transitions from each initial state to the accepting state
+  \draw (a) edge[bend left] node[above right]{$a$} (q);
+  \draw (b) edge[bend left] node[above right]{$b$} (q);
+\end{tikzpicture}\]
+We show that it cannot be recognised by a weighted automaton with outputs in $\{0, 1\}$.
+
+Consider the derivative ${w-} : \A^* \to \{0, 1\} \subseteq \field$ given a word $w \in \A^*$,
+where $w v a = 1$ precisely when $a$ is adjacent to every atom appearing in $w v$.
+We claim that
+\[
+    \langle - \rangle \subset 
+    \langle -, {a_1-} \mid a_1 \in \A \rangle \subset
+    \langle -, {a_1-}, {a_1 a_2-} \mid a_1, a_2 \in \A \rangle \subset
+    \cdots
+\]
+is strictly increasing. 
+Suppose to the contrary that for distinct atoms $a_1, \dots, a_m \in \A$, we can write
+\[
+    {a_1 \dots a_m -} = \sum_i \lambda_i \cdot {w_i -}
+\]
+where each $w_i$ contains $m_i < m$ distinct atoms.
+\begin{claim}
+    $\lambda_i = 0$ whenever $m_i < d = 0, 1, \dots, m$.
+\end{claim}
+\begin{proof}
+    Pick any $i$ with $m_i = d$. 
+    If $\A$ is the $K_n$-free Henson graph and $w_i$ contains an clique on $n$ vertices, then ${w_i -}$ is the constant zero function --- so we may well remove it from the sum.
+    So we may find an atom $x$ which is adjacent to all atoms in $w_i$ but to no other atom in $a_1 \dots a_m$ and the $w_j$'s.
+    Then
+    \[
+        0 = a_1 \dots a_m x = \sum_{j} \lambda_j \cdot w_j x = \sum_{j : m_j < m_i} 0 + \lambda_i \cdot 1 + \sum_{j \neq i : m_j \geq m_i} 0.
+    \]
+    Indeed, we have $w_j x = 0$ if $m_j < m_i = d$ by the inductive hypothesis. 
+    Now $a_1 \dots a_m x = 0 = w_j x$ for the other $j$'s,
+    since $a_1 \dots a_m$ and $w_j$ must contain some atom outside those appearing in $w_i$, which by construction is not a neighbour of $x$.
+\end{proof}
+
+So $\langle {w-} \mid w \in \A^* \rangle$ is not orbit-finitely spanned, which by a Myhill--Nerode argument means that the language $\varepsilon -$ cannot be recognised by a weighted automaton \cite[Theorem~7.3]{BFKM24}.
+It follows that weighted automata are strictly weaker than a non-deterministic model which stipulates only that ``there are finitely many runs with non-zero weights.''
+Also, the reversal of the language clearly can be recognised by a deterministic automaton 
+--- so languages over the Rado or Henson graphs recognised by weighted automata fail to be closed under reversal.
