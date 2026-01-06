@@ -357,8 +357,88 @@ The result below substantiates the slogan that cogs are found everywhere.
     Then $\{0\} \subsetneq \EE(V) \subseteq \EE = \FF$ so $\EE$ must be the entire field $\FF$, and by above $V$ must be $\Cog_\FF \mathcal{O}$ itself.
 \end{proof}
 
-In light of Propositions~\ref{prop:reduction-to-one-orbit} and \ref{prop:reduction-to-kernel}, we will be able to prove the finite length property for an oligomorphic structure with free amalgamation over any field and support if we know $\Ker_\FF \mathcal{O} = \Cog_\FF \mathcal{O}$.
-Let us now show that.
+In light of Propositions~\ref{prop:reduction-to-one-orbit},~\ref{prop:reduction-to-kernel} and~\ref{prop:cogs-are-balanced}, for the finite length property for an oligomorphic structure with free amalgamation over any field and support it is enough to prove that $\Ker_\FF \mathcal{O} \subseteq \Cog_\FF \mathcal{O}$. In words, we need to show that every balanced vector in $\Lin_\FF{\cal O}$ is a linear combination of $\cal O$-cogs. Before we show a proof of this, let us illustrate its key ideas on an example.
+
+\subsection{Spanning by cogs: an example}
+
+Let $\A_0$ be the universal triangle-free (undirected) graph, and $\A$ its totally ordered version. Consider nine atoms $\{a,\ldots,i\}$, ordered by~$<$ alphabetically, with the edge relation as shown here:
+\[
+\rotatebox{2}{
+\xymatrix@R=6pt@C=15pt{
+\rotatebox{-2}{$h$} & & & & & & \rotatebox{-2}{$i$} \\
+\\
+& & & \rotatebox{-2}{$g$}\ar@{-}[uulll]\ar@{-}[uurrr] \\
+& \rotatebox{-2}{$e$} & & & & \rotatebox{-2}{$f$} \\
+& & \rotatebox{-2}{$c$}\ar@{-}[ul]\ar@{-}[uur] & & \rotatebox{-2}{$d$}\ar@{-}[uul]\ar@{-}[ur] \\
+\rotatebox{-2}{$a$}\ar@{-}[rrrrrr]\ar@{-}[uuuuu]\ar@{-}[uur] & & & & & & \rotatebox{-2}{$b$}\ar@{-}[uul]\ar@{-}[uuuuu]
+}}\]
+This graph is drawn so that the total order of the atoms corresponds to the vertical order.
+
+Putting $S=\emptyset$ and $d=2$, let ${\cal O}$ be the ordered orbit of pairs of atoms which are connected by an edge. Consider the following vector:
+\[
+v = ah - ae + ce - cg + dg - df + bf - bi + gi - gh \in \Lin_\FF{\cal O}.
+\]
+This can be graphically presented as the following graph:
+\[\rotatebox{2}{
+\xymatrix@R=6pt@C=15pt{
+\rotatebox{-2}{$h$} & & & & & & \rotatebox{-2}{$i$} \\
+\\
+& & & \rotatebox{-2}{$g$}\ar@[red][uulll]\ar@[blue][uurrr] \\
+& \rotatebox{-2}{$e$} & & & & \rotatebox{-2}{$f$} \\
+& & \rotatebox{-2}{$c$}\ar@[blue][ul]\ar@[red][uur] & & \rotatebox{-2}{$d$}\ar@[blue][uul]\ar@[red][ur] \\
+\rotatebox{-2}{$a$}\ar@{-}[rrrrrr]\ar@[blue][uuuuu]\ar@[red][uur] & & & & & & \rotatebox{-2}{$b$}\ar@[blue][uul]\ar@[red][uuuuu]
+}}
+\]
+where edges with coefficient $+1$ are marked as blue, and with $-1$ as red. The arrows on the chosen edges remind us that the pairs in $\cal O$ are ordered, but this is mere decoration: the definition of $\cal O$ means that all arrows must point upwards.
+
+Note that $v$ is balanced. Graphically, this means that every atom has as many outgoing red edges as outgoing blue edges, and as many incoming red edges as incoming blue edges.
+
+It is easy to draw $\cal O$-cogs in this way. Assuming some additional atom $z>h$ which is connected by edges to $a$ and $g$, the $\cal O$-cog $ah\between gz$ can be drawn as:
+\[\rotatebox{5}{
+\xymatrix{
+\rotatebox{-5}{$h$} & \rotatebox{-5}{$z$} \\
+\rotatebox{-5}{$a$}\ar@[blue][u]\ar@[red][ur] & \rotatebox{-5}{$g$}\ar@[red][ul]\ar@[blue][u]  
+}}
+\]
+We would like to present $v$ as a sum of such ${\cal O}$-cogs. Some additional atoms must be used for that, as no four atoms among the original nine form an $\cal O$-duo. It would be very convenient to have an atom $z$, larger than every atom in $v$, and connected by edges to every atom which is a source of a directed edge in $v$ (equivalently: which occurs as the first component of a pair in $v$). However, such a $z$ does not exist in the triangle-free graph $\A$. There are two problems:
+\begin{itemize}
+\item The atom $g$ occurs both as the first and as the second component in pairs present in $v_0$. In particular, $z$ as prescribed would create a triangle $dgz$ in $\A$, which is forbidden.
+\item Atoms $a$ and $b$ both occur as first components in $v$, and they are connected by an edge in $\A$. As a result, an atom $z$ as prescribed would create a triangle $abz$ in $\A$.
+\end{itemize}
+We get rid of such {\em obstructions} by considering auxiliary atoms $g'>g$ and $b'>b$, with just enough edges to make $gh\parallel g'i$ and $bf\parallel b'i$ valid ${\cal O}$-duos. Specifically, we postulate edges $g'$---$h$, $g'$---$i$, $b'$---$f$ and $b'$---$i$ and no more. Such atoms exist by the homogeneity of $\A$. We then define:
+\[
+v' = v - (gh \between g'i) - (bf \between b'i)
+\]
+which can be drawn as:
+\[
+\rotatebox{2}{
+\xymatrix@R=6pt@C=15pt{
+\rotatebox{-2}{$h$} & & & & & & \rotatebox{-2}{$i$} \\
+\\
+& & & \rotatebox{-2}{$g$}\ar@{-}[uulll]\ar@{-}[uurrr] & \rotatebox{-2}{$g'$}\ar@[red][uullll]\ar@[blue][uurr] \\
+& \rotatebox{-2}{$e$} & & & & \rotatebox{-2}{$f$} \\
+& & \rotatebox{-2}{$c$}\ar@[blue][ul]\ar@[red][uur] & & \rotatebox{-2}{$d$}\ar@[blue][uul]\ar@[red][ur] \\
+\rotatebox{-2}{$a$}\ar@{-}[rrrrrr]\ar@[blue][uuuuu]\ar@[red][uur] & & & & & & \rotatebox{-2}{$b$}\ar@{-}[uul]\ar@{-}[uuuuu] & \rotatebox{-2}{$b'$}\ar@[blue][uull]\ar@[red][uuuuul]
+}}
+\]
+Now an atom $z$ as postulated above does not create any triangles:
+\[
+\rotatebox{2}{
+\xymatrix@R=6pt@C=15pt{
+& & & \rotatebox{-2}{$z$}\ar@{-}@/_4ex/[llldddddd]\ar@{-}[lddddd]\ar@{-}[rddddd]\ar@{-}[rddd]\ar@{-}[rrrrdddddd] \\
+\rotatebox{-2}{$h$} & & & & & & \rotatebox{-2}{$i$} \\
+\\
+& & & \rotatebox{-2}{$g$}\ar@{-}[uulll]\ar@{-}[uurrr] & \rotatebox{-2}{$g'$}\ar@[red][uullll]\ar@[blue][uurr] \\
+& \rotatebox{-2}{$e$} & & & & \rotatebox{-2}{$f$} \\
+& & \rotatebox{-2}{$c$}\ar@[blue][ul]\ar@[red][uur] & & \rotatebox{-2}{$d$}\ar@[blue][uul]\ar@[red][ur] \\
+\rotatebox{-2}{$a$}\ar@{-}[rrrrrr]\ar@[blue][uuuuu]\ar@[red][uur] & & & & & & \rotatebox{-2}{$b$}\ar@{-}[uul]\ar@{-}[uuuuu] & \rotatebox{-2}{$b'$}\ar@[blue][uull]\ar@[red][uuuuul]
+}}
+\]
+and it is easy to calculate:
+\[
+v' = (ah \between g'z)  - (ae \between cz) - (cg \between dz) + (b'f \between dz) -(b'i \between g'z)
+\]
+which presents $v$ as a linear combination of $\cal O$-cogs.
 
 \subsection{Subvectors}
 This is a good time to recall a view we have tacitly taken:
@@ -391,7 +471,7 @@ we mean the subvector consisting of all pairs in $\EE \times \mathcal{O}^{i:a_i}
     which shows that $v^{i:a_i}|^{-i}$ is in the projection kernel.
 \end{proof}
 
-\subsection{Spanning by cogs}
+\subsection{Spanning by cogs: a proof}
 
 Given a vector $v \in \Lin_\EE \mathcal{O}$, write $\vsup{v}$ for its set-theoretic support, i.e., the finite subset $v^{-1}(\EE^*) \subseteq \mathcal{O}$.
 More generally, given any finite subset $\sigma \subseteq \mathcal{O}$, 
