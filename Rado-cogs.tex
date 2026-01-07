@@ -115,6 +115,7 @@ As $\A$ is oligomorphic, the tuples in $\A^I$ split into finitely many $\Aut(\A)
 Let $\mathcal{O} = \Aut(\A)_{(S)} \cdot o$ be one such orbit.
 We shall call $\mathcal{O}$ \emph{($S$-)ordered} if $o_i \not\in S$ and if $o_i < o_j$ whenever $i < j$.
 By removing the entries in $o$ that repeat or come from $S$ and reordering the rest, we can always find an $\Aut(\A)_{(S)}$-equivariant bijection to an $S$-ordered orbit.
+
 To study length of orbit-finitely spanned spaces, we may focus on a single ordered orbit at a time:
 \begin{proposition}\label{prop:reduction-to-one-orbit}
     The following are equivalent:
@@ -182,6 +183,9 @@ We call a vector from the projection kernel \emph{balanced}.
 As we will see in the next subsection, cogs are a prominent example.
 
 \subsection{Cogs}
+
+As from now on we will only considered ordered orbits, we can afford a lightweight notation for combining tuples of atoms: if $a\in\A^d$ and $b\in\A^{d'}$ are both ordered and are disjoint, then by $ab$ we denote the unique ordered tuple in $\A^{d+d'}$ that arises as their union. For example, for any $S$-ordered $a\in\A^I$ and $J\subseteq I$, we have $a|^{I\setminus J}a|^J=a$.
+
 \begin{definition}\label{def:duo}
     Let $\mathcal{O} \subseteq \A^I$ be an $S$-ordered orbit. 
     An \emph{$\mathcal{O}$-duo} $a \parallel b$ consists of tuples $a, b \in \cal O$ such that:
@@ -207,14 +211,14 @@ As we will see in the next subsection, cogs are a prominent example.
 \begin{remark}\label{rem:duo}
 Conditions (1) and (2) specify a total order on the $2|I|$ atoms in a duo.
 Moreover, thanks to irreflexivity \textcolor{red}{TODO: explain somewhere that we assume this!}, each $a_i$ is unrelated to its counterpart $b_i$.
-Further, given any $J \subseteq I$, the combined tuple $a|^{I\setminus J} ; b|^J$ satisfies the same relations as $a ; b$, so it lies in $\mathcal{O}$. In particular, taking $J=\{i\}$, there is an automorphism $\pi_i$ that sends $a_i$ to $b_i$ and fixes all the other elements of $a$, $b$ and $S$.
+Further, given any $J \subseteq I$, the combined tuple $a|^{I\setminus J} b|^J$ satisfies the same relations as $a$ (and $b$), so it lies in $\mathcal{O}$. In particular, taking $J=\{i\}$, there is an automorphism $\pi_i$ that sends $a_i$ to $b_i$ and fixes all the other elements of $a$, $b$ and $S$.
 Finally, all $\mathcal{O}$-duos are in the same $\Aut(\A)_{(S)}$-equivariant orbit.
 \end{remark}
 \begin{definition}
     Given $\lambda \in \EE$ and an $\mathcal{O}$-duo $a \parallel b$, the corresponding \emph{$\mathcal{O}$-cog} with coefficient $\lambda$ is the vector
     \[
         \lambda \cdot a \between b =
-        \sum_{J \subseteq I} (-1)^{|J|} \lambda \cdot  a|^{I \setminus J} ; b^{J}
+        \sum_{J \subseteq I} (-1)^{|J|} \lambda \cdot  a|^{I \setminus J} b|^{J}
     \]
     in $\Lin_\EE \mathcal{O}$.
     The linear span of all $\mathcal{O}$-cogs with coefficients from $\EE$ is denoted by $\Cog_\EE \mathcal{O}$.
@@ -230,15 +234,15 @@ Hence $\Cog_\EE \mathcal{O}$ is an $\Aut(\A)_{(S)}$-equivariant subspace of $\Li
     $\Cog_\EE \mathcal{O}$ is contained in $\Ker_\EE \mathcal{O}$.
 \end{proposition}
 \begin{proof}
-    \textcolor{red}{TODO: rewrite using the cog calculus.}
-    Let $\mathcal{O} \subseteq \A^I$, let $a\parallel b$ be an $\mathcal{O}$-duo, and let $i \in I$.
-    The subsets of $I$ come in pairs of $J$ and $J \cup \{i\}$, where $J$ is a subset of $I \setminus \{i\}$.
-    The two tuples $a|^{J} ; b|^{I \setminus J}$ and $a|^{J \cup \{i\}} ; b|^{I \setminus (J \cup \{i\})}$ differ only on the $i$th entry.
-    But this difference gets erased under $(-)|^{-i}$, so the two corresponding terms in $\lambda \cdot a \between b$ will cancel out and hence $( \lambda \cdot a \between b )|^{-i} = 0$ overall.
+   % \textcolor{red}{TODO: rewrite using the cog calculus.}
+    Let $\mathcal{O} \subseteq \A^I$, let $a\parallel b$ be an $\mathcal{O}$-duo, and take any $i \in I$.
+    The subsets of $I$ come in pairs of $J$ and $J \cup \{i\}$, where $J\subseteq I \setminus \{i\}$.
+    The two tuples $a|^{I\setminus J} b|^{J}$ and $a|^{I \setminus (J \cup \{i\})}b|^{J \cup \{i\}}$ are present in $\lambda\cdot a\between b$ with the opposite coefficients, and they differ only on the $i$-th entry.
+    Therefore they cancel out under $(-)|^{-i}$, hence $( \lambda \cdot a \between b )|^{-i} = 0$.
 \end{proof}
 
 In fact, cogs arise anywhere.
-We extract the free amalgamation in $\cal C_0$ and the generic order of $\A$ into the following lemma.
+We combine the free amalgamation in $\cal C_0$ and the generic order of $\A$ into the following lemma.
 \begin{lemma}\label{lem:free-fresh}
     Let $X, Y, \{z\} \subseteq \A$ be disjoint and finite.
     Then there is some automorphism $\tau \in \Aut(\A)$ such that
