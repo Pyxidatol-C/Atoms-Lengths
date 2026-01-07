@@ -109,7 +109,7 @@ Mention that the universal homogeneous tournament is a reduct of the ordered Rad
 
 \subsection{Orbits and projections}
 
-To start with, let us view $\A^d$ as $\A^{\{1, \dots, d\}}$ and more generally consider $\A^I$ for a finite totally ordered indexing set $I \subseteq \Q$.
+To start with, let us view $\A^d$ as $\A^{\{1, \dots, d\}}$. More generally, it will be convenient to consider $\A^I$ for a finite totally ordered indexing set $I \subseteq \Q$.
 Fix a finite support $S \subseteq \A$.
 As $\A$ is oligomorphic, the tuples in $\A^I$ split into finitely many $\Aut(\A)_{(S)}$-equivariant orbits.
 Let $\mathcal{O} = \Aut(\A)_{(S)} \cdot o$ be one such orbit.
@@ -137,19 +137,19 @@ So fix an ordered orbit $\mathcal{O} = \Aut(\A)_{(S)} \cdot o \subseteq \A^I$.
 From here we take an inductive approach.
 By $o |^J$ we mean the restriction of $o : I \to \A$ to $J \subseteq I$;
 we will often write $o |^{-i}$ instead of $o |^{ I \setminus \{i\} }$.
-Note the image $\mathcal{O}|^I$ of $\mathcal{O}$ under this projection agrees with $\Aut(\A)_{(S)} \cdot o |^J$ and is still ordered.
+Note the image $\mathcal{O}|^J$ of $\mathcal{O}$ under this projection agrees with $\Aut(\A)_{(S)} \cdot o |^J$ and is still ordered.
 
-To anticipate more general statements later, Let $\EE$ be a finite-dimensional $\FF$-vector space --- for instance, $\FF$ itself.
+%To anticipate more general statements later, Let $\EE$ be a finite-dimensional $\FF$-vector space --- for instance, $\FF$ itself.
 The function $(-)|^J$ lifts to a linear $\Aut(\A)_{(S)}$-equivariant map
 \begin{align*}
-    (-)|^J : \Lin_\EE \mathcal{O} &\to \Lin_\EE \mathcal{O}|^J.
+    (-)|^J : \Lin_\FF \mathcal{O} &\to \Lin_\FF \mathcal{O}|^J.
 \end{align*}
 Many cancellations can occur under $(-)|^J$; 
 the \emph{projection kernel} is the $\Aut(\A)_{(S)}$-equivariant subspace
 \[
-    \Ker_\EE \mathcal{O} = \bigcap_{i \in I} \ker{ (-)|^{-i} }
+    \Ker_\FF \mathcal{O} = \bigcap_{i \in I} \ker{ (-)|^{-i} }
 \]
-of $\Lin_\EE \mathcal{O}$.
+of $\Lin_\FF \mathcal{O}$.
 
 \begin{proposition}\label{prop:reduction-to-kernel}
     The following are equivalent:
@@ -184,8 +184,6 @@ As we will see in the next subsection, cogs are a prominent example.
 
 \subsection{Cogs}
 
-As from now on we will only considered ordered orbits, we can afford a lightweight notation for combining tuples of atoms: if $a\in\A^d$ and $b\in\A^{d'}$ are both ordered and are disjoint, then by $ab$ we denote the unique ordered tuple in $\A^{d+d'}$ that arises as their union. For example, for any $S$-ordered $a\in\A^I$ and $J\subseteq I$, we have $a|^{I\setminus J}a|^J=a$.
-
 \begin{definition}\label{def:duo}
     Let $\mathcal{O} \subseteq \A^I$ be an $S$-ordered orbit. 
     An \emph{$\mathcal{O}$-duo} $a \parallel b$ consists of tuples $a, b \in \cal O$ such that:
@@ -212,33 +210,46 @@ As from now on we will only considered ordered orbits, we can afford a lightweig
 Conditions (1) and (2) specify a total order on the $2|I|$ atoms in a duo.
 Moreover, thanks to irreflexivity \textcolor{red}{TODO: explain somewhere that we assume this!}, each $a_i$ is unrelated to its counterpart $b_i$.
 Further, given any $J \subseteq I$, the combined tuple $a|^{I\setminus J} b|^J$ satisfies the same relations as $a$ (and $b$), so it lies in $\mathcal{O}$. In particular, taking $J=\{i\}$, there is an automorphism $\pi_i$ that sends $a_i$ to $b_i$ and fixes all the other elements of $a$, $b$ and $S$.
-Finally, all $\mathcal{O}$-duos are in the same $\Aut(\A)_{(S)}$-equivariant orbit.
 \end{remark}
+
+From now on we will use a lightweight notation for combining tuples of atoms: for disjoint indexing sets $I$ and $J$, if $a\in\A^I$ and $b\in\A^{J}$ are both ordered, then $ab\in \A^{I\cup J}$ will denote their obvious combination. We will only use this notation if the combined tuple $ab$ is ordered. For an obvious example, for any $S$-ordered $a\in\A^I$ and $J\subseteq I$, we have $a|^{I\setminus J}a|^J=a$.
+
 \begin{definition}
-    Given $\lambda \in \EE$ and an $\mathcal{O}$-duo $a \parallel b$, the corresponding \emph{$\mathcal{O}$-cog} with coefficient $\lambda$ is the vector
+    Given a %$\lambda \in \EE$ and an 
+    $\mathcal{O}$-duo $a \parallel b$, the corresponding \emph{$\mathcal{O}$-cog} %with coefficient $\lambda$ 
+    is the vector
     \[
-        \lambda \cdot a \between b =
-        \sum_{J \subseteq I} (-1)^{|J|} \lambda \cdot  a|^{I \setminus J} b|^{J}
+        %\lambda \cdot 
+        a \between b =
+        \sum_{J \subseteq I} (-1)^{|J|} %\lambda \cdot  
+        (a|^{I \setminus J} b|^{J})
     \]
-    in $\Lin_\EE \mathcal{O}$.
-    The linear span of all $\mathcal{O}$-cogs with coefficients from $\EE$ is denoted by $\Cog_\EE \mathcal{O}$.
+    in $\Lin_\FF \mathcal{O}$.
+    The linear span of all $\mathcal{O}$-cogs 
+    %with coefficients from $\EE$ 
+    is denoted by $\Cog_\FF \mathcal{O}$.
 \end{definition}
-As remarked above, given any two $\mathcal{O}$-duos there is some $\pi \in \Aut(\A)_{(S)}$ such that $\pi \cdot (a \parallel b) = a' \parallel b'$ and thus $\pi \cdot (\lambda \cdot a \between b) = \lambda \cdot a' \between b'$.
-Hence $\Cog_\EE \mathcal{O}$ is an $\Aut(\A)_{(S)}$-equivariant subspace of $\Lin_\EE \mathcal{O}$ and it is generated by cogs based on a single duo.
+%As remarked above, given any two $\mathcal{O}$-duos there is some $\pi \in \Aut(\A)_{(S)}$ such that $\pi \cdot (a \parallel b) = a' \parallel b'$ and thus $\pi \cdot (a \between b) = a' \between b'$.
+Note that, for a fixed $S$-ordered orbit $\cal O$, all $\mathcal{O}$-duos are in the same $\Aut(\A)_{(S)}$-equivariant orbit.
+As a result, $\Cog_\FF \mathcal{O}$ is an $\Aut(\A)_{(S)}$-equivariant subspace of $\Lin_\FF \mathcal{O}$ and it is generated by %cogs based on a single duo.
+a single cog.
 
 \begin{proposition}[Cog calculus]
     \textcolor{red}{$$a x \between b y = (a \between b) x - (a \between b) y$$}
 \end{proposition}
 
 \begin{proposition}\label{prop:cogs-are-balanced}
-    $\Cog_\EE \mathcal{O}$ is contained in $\Ker_\EE \mathcal{O}$.
+    $\Cog_\FF \mathcal{O}$ is contained in $\Ker_\FF \mathcal{O}$.
 \end{proposition}
 \begin{proof}
    % \textcolor{red}{TODO: rewrite using the cog calculus.}
     Let $\mathcal{O} \subseteq \A^I$, let $a\parallel b$ be an $\mathcal{O}$-duo, and take any $i \in I$.
     The subsets of $I$ come in pairs of $J$ and $J \cup \{i\}$, where $J\subseteq I \setminus \{i\}$.
-    The two tuples $a|^{I\setminus J} b|^{J}$ and $a|^{I \setminus (J \cup \{i\})}b|^{J \cup \{i\}}$ are present in $\lambda\cdot a\between b$ with the opposite coefficients, and they differ only on the $i$-th entry.
-    Therefore they cancel out under $(-)|^{-i}$, hence $( \lambda \cdot a \between b )|^{-i} = 0$.
+    The two tuples $a|^{I\setminus J} b|^{J}$ and $a|^{I \setminus (J \cup \{i\})}b|^{J \cup \{i\}}$ are present in 
+    %$\lambda\cdot 
+    $a\between b$ with the opposite coefficients, and they differ only on the $i$-th entry.
+    Therefore they cancel out under $(-)|^{-i}$, hence %$( \lambda \cdot 
+    $(a \between b )|^{-i} = 0$.
 \end{proof}
 
 In fact, cogs arise anywhere.
