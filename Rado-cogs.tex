@@ -107,7 +107,7 @@ Mention that the universal homogeneous tournament is a reduct of the ordered Rad
 \section{Proof of Theorem~\ref{thm:ordered-free-amalg-has-finite-length}}
 
 
-\subsection{Two reductions: orbits and projections}
+\subsection{Orbits and projections}
 
 To start with, let us view $\A^d$ as $\A^{\{1, \dots, d\}}$ and more generally consider $\A^I$ for a finite totally ordered indexing set $I \subseteq \Q$.
 Fix a finite support $S \subseteq \A$.
@@ -115,7 +115,7 @@ As $\A$ is oligomorphic, the tuples in $\A^I$ split into finitely many $\Aut(\A)
 Let $\mathcal{O} = \Aut(\A)_{(S)} \cdot o$ be one such orbit.
 We shall call $\mathcal{O}$ \emph{($S$-)ordered} if $o_i \not\in S$ and if $o_i < o_j$ whenever $i < j$.
 By removing the entries in $o$ that repeat or come from $S$ and reordering the rest, we can always find an $\Aut(\A)_{(S)}$-equivariant bijection to an $S$-ordered orbit.
-An easy observation is that we may focus on a single ordered orbit at a time:
+To study length of orbit-finitely spanned spaces, we may focus on a single ordered orbit at a time:
 \begin{proposition}\label{prop:reduction-to-one-orbit}
     The following are equivalent:
     \begin{enumerate}
@@ -139,10 +139,9 @@ we will often write $o |^{-i}$ instead of $o |^{ I \setminus \{i\} }$.
 Note the image $\mathcal{O}|^I$ of $\mathcal{O}$ under this projection agrees with $\Aut(\A)_{(S)} \cdot o |^J$ and is still ordered.
 
 To anticipate more general statements later, Let $\EE$ be a finite-dimensional $\FF$-vector space --- for instance, $\FF$ itself.
-Things become more interesting when we lift $(-)|^J$ to a linear $\Aut(\A)_{(S)}$-equivariant map
+The function $(-)|^J$ lifts to a linear $\Aut(\A)_{(S)}$-equivariant map
 \begin{align*}
-    (-)|^J : \Lin_\EE \mathcal{O} &\to \Lin_\EE \mathcal{O}|^J \\
-    v &\mapsto v|^J.
+    (-)|^J : \Lin_\EE \mathcal{O} &\to \Lin_\EE \mathcal{O}|^J.
 \end{align*}
 Many cancellations can occur under $(-)|^J$; 
 the \emph{projection kernel} is the $\Aut(\A)_{(S)}$-equivariant subspace
@@ -185,7 +184,7 @@ As we will see in the next subsection, cogs are a prominent example.
 \subsection{Cogs}
 \begin{definition}\label{def:duo}
     Let $\mathcal{O} \subseteq \A^I$ be an $S$-ordered orbit. 
-    An \emph{$\mathcal{O}$-duo} $a_\bullet \parallel b_\bullet$ consists of tuples $a_\bullet, b_\bullet \in \cal O$ such that:
+    An \emph{$\mathcal{O}$-duo} $a \parallel b$ consists of tuples $a, b \in \cal O$ such that:
  %   $2|I|$ atoms in $\A\setminus S$ such that: with the following $\mathcal{L}$-structure on $\{a_i, b_i \mid i \in I\} \cup S$:
     \begin{enumerate}
         \item 
@@ -208,19 +207,19 @@ As we will see in the next subsection, cogs are a prominent example.
 \begin{remark}\label{rem:duo}
 Conditions (1) and (2) specify a total order on the $2|I|$ atoms in a duo.
 Moreover, thanks to irreflexivity \textcolor{red}{TODO: explain somewhere that we assume this!}, each $a_i$ is unrelated to its counterpart $b_i$.
-Further, given any $J \subseteq I$, the combined tuple $a|^{I\setminus J}_\bullet ; b|^J_\bullet$ satisfies the same relations as $a_\bullet ; b_\bullet$, so it lies in $\mathcal{O}$. In particular, taking $J=\{i\}$, there is an automorphism $\pi_i$ that sends $a_i$ to $b_i$ and fixes all the other elements of $a_\bullet$, $b_\bullet$ and $S$.
+Further, given any $J \subseteq I$, the combined tuple $a|^{I\setminus J} ; b|^J$ satisfies the same relations as $a ; b$, so it lies in $\mathcal{O}$. In particular, taking $J=\{i\}$, there is an automorphism $\pi_i$ that sends $a_i$ to $b_i$ and fixes all the other elements of $a$, $b$ and $S$.
 Finally, all $\mathcal{O}$-duos are in the same $\Aut(\A)_{(S)}$-equivariant orbit.
 \end{remark}
 \begin{definition}
-    Given $\lambda \in \EE$ and an $\mathcal{O}$-duo $a_\bullet \parallel b_\bullet$, the corresponding \emph{$\mathcal{O}$-cog} with coefficient $\lambda$ is the vector
+    Given $\lambda \in \EE$ and an $\mathcal{O}$-duo $a \parallel b$, the corresponding \emph{$\mathcal{O}$-cog} with coefficient $\lambda$ is the vector
     \[
-        \lambda \cdot a_\bullet \between b_\bullet =
-        \sum_{J \subseteq I} (-1)^{|J|} \lambda \cdot  a|^{I \setminus J}_\bullet ; b^{J}_\bullet
+        \lambda \cdot a \between b =
+        \sum_{J \subseteq I} (-1)^{|J|} \lambda \cdot  a|^{I \setminus J} ; b^{J}
     \]
     in $\Lin_\EE \mathcal{O}$.
     The linear span of all $\mathcal{O}$-cogs with coefficients from $\EE$ is denoted by $\Cog_\EE \mathcal{O}$.
 \end{definition}
-As remarked above, given any two $\mathcal{O}$-duos there is some $\pi \in \Aut(\A)_{(S)}$ such that $\pi \cdot (a_\bullet \parallel b_\bullet) = a'_\bullet \parallel b'_\bullet$ and thus $\pi \cdot (\lambda \cdot a_\bullet \between b_\bullet) = \lambda \cdot a'_\bullet \between b'_\bullet$.
+As remarked above, given any two $\mathcal{O}$-duos there is some $\pi \in \Aut(\A)_{(S)}$ such that $\pi \cdot (a \parallel b) = a' \parallel b'$ and thus $\pi \cdot (\lambda \cdot a \between b) = \lambda \cdot a' \between b'$.
 Hence $\Cog_\EE \mathcal{O}$ is an $\Aut(\A)_{(S)}$-equivariant subspace of $\Lin_\EE \mathcal{O}$ and it is generated by cogs based on a single duo.
 
 \begin{proposition}[Cog calculus]
@@ -232,10 +231,10 @@ Hence $\Cog_\EE \mathcal{O}$ is an $\Aut(\A)_{(S)}$-equivariant subspace of $\Li
 \end{proposition}
 \begin{proof}
     \textcolor{red}{TODO: rewrite using the cog calculus.}
-    Let $\mathcal{O} \subseteq \A^I$, let $a_\bullet \parallel b_\bullet$ be an $\mathcal{O}$-duo, and let $i \in I$.
+    Let $\mathcal{O} \subseteq \A^I$, let $a\parallel b$ be an $\mathcal{O}$-duo, and let $i \in I$.
     The subsets of $I$ come in pairs of $J$ and $J \cup \{i\}$, where $J$ is a subset of $I \setminus \{i\}$.
-    The two tuples $a|^{J}_\bullet ; b|^{I \setminus J}_\bullet$ and $a|^{J \cup \{i\}}_\bullet ; b|^{I \setminus (J \cup \{i\})}_\bullet$ differ only on the $i$th entry.
-    But this difference gets erased under $(-)|^{-i}$, so the two corresponding terms in $\lambda \cdot a_\bullet \between b_\bullet$ will cancel out and hence $( \lambda \cdot a_\bullet \between b_\bullet )|^{-i} = 0$ overall.
+    The two tuples $a|^{J} ; b|^{I \setminus J}$ and $a|^{J \cup \{i\}} ; b|^{I \setminus (J \cup \{i\})}$ differ only on the $i$th entry.
+    But this difference gets erased under $(-)|^{-i}$, so the two corresponding terms in $\lambda \cdot a \between b$ will cancel out and hence $( \lambda \cdot a \between b )|^{-i} = 0$ overall.
 \end{proof}
 
 In fact, cogs arise anywhere.
@@ -275,22 +274,22 @@ We extract the free amalgamation in $\cal C_0$ and the generic order of $\A$ int
 \end{proof}
 
 \begin{lemma}\label{lem:cog-fresh-single}
-    Suppose $a_\bullet \parallel b_\bullet$ is an $\mathcal{O}$-duo, where $\mathcal{O} \subseteq \A^I$ is $S$-ordered.
+    Suppose $a\parallel b$ is an $\mathcal{O}$-duo, where $\mathcal{O} \subseteq \A^I$ is $S$-ordered.
     Given $z \in S$, 
     \begin{itemize}
         \item write $S' = S \setminus \{z\}$;
-        \item let $j \not\in I$ be such that $\mathcal{O}' = \Aut(\A)_{(S')} \cdot (a_\bullet ; z) \subseteq \A^{I \cup \{j\}}$ is ordered,
+        \item let $j \not\in I$ be such that $\mathcal{O}' = \Aut(\A)_{(S')} \cdot (a ; z) \subseteq \A^{I \cup \{j\}}$ is ordered,
         \item let $X \subseteq \A$ be a finite set containing $\{a_i, b_i \mid i \in I\} \cup S'$ but not $z$;
         \item let $Y \subseteq \A$ be any finite set disjoint from $X \cup \{z\}$;
     \end{itemize}
-    then the $\tau \in \Aut(\A)_{(X)}$ afforded by Lemma~\ref{lem:free-fresh} gives us an $\mathcal{O}'$-duo $(a_\bullet ; z) \parallel (b_\bullet ; \tau(z))$.
+    then the $\tau \in \Aut(\A)_{(X)}$ afforded by Lemma~\ref{lem:free-fresh} gives us an $\mathcal{O}'$-duo $(a ; z) \parallel (b; \tau(z))$.
 \end{lemma}
 \begin{proof}
-    First, notice that $b_\bullet ; \tau(z)\in {\cal O}'$ and that we have the required order relations with $z$ and $\tau(z)$. The remaining condition of Def.~\ref{def:duo}, for any $R$ in $\mathcal{L}_0$, splits into the following cases (and their symmetric versions):
+    First, notice that $b ; \tau(z)\in {\cal O}'$ and that we have the required order relations with $z$ and $\tau(z)$. The remaining condition of Def.~\ref{def:duo}, for any $R$ in $\mathcal{L}_0$, splits into the following cases (and their symmetric versions):
 \begin{itemize}
-\item[-] $R(a_i,b_j)\iff R(a_i,a_j)$ since $a_\bullet \parallel b_\bullet$ is an $\mathcal{O}$-duo;
+\item[-] $R(a_i,b_j)\iff R(a_i,a_j)$ since $a \parallel b$ is an $\mathcal{O}$-duo;
 \item[-] $R(a_i,\tau(z))\iff R(a_i,z)$ since $\tau$ is an automorphism that fixes all $a_i$;
-\item[-] $R(a_i,z)\iff R(b_i,z)$ since $a_\bullet, b_\bullet \in \mathcal{O}$ and $z\in S$;
+\item[-] $R(a_i,z)\iff R(b_i,z)$ since $a, b \in \mathcal{O}$ and $z\in S$;
 \item[-] $R(z,\tau(z))$ and $R(z,z)$ are both false: $\tau(z)$ is unrelated to $z$ by Lemma~\ref{lem:free-fresh}, and $R$ is irreflexive.
 \end{itemize}
 \end{proof}
@@ -298,20 +297,20 @@ We extract the free amalgamation in $\cal C_0$ and the generic order of $\A$ int
 Starting from an empty duo, we may apply the previous lemma inductively.
 \begin{proposition}\label{prop:cog-fresh-full}
     Let $\mathcal{O} \subseteq \A^I$ be an $S$-ordered orbit.
-    Then any $a_\bullet \in \mathcal{O}$ can be extended to an ${\cal O}$-duo $a_\bullet\parallel b_{\bullet}$.
+    Then any $a \in \mathcal{O}$ can be extended to an ${\cal O}$-duo $a\parallel b$.
 \end{proposition}
 \begin{proof}
     Enumerate the indices of $I$ as $i_1, \dots, i_d$.
     Suppose that we have found $b_{i_1}, \dots, b_{i_k}$ such that 
     \[
-        a|^{\{i_1, \dots, i_k\}}_\bullet \parallel (i_1 \mapsto b_{i_1}, \dots, i_k \mapsto b_{i_k})
+        a|^{\{i_1, \dots, i_k\}} \parallel (i_1 \mapsto b_{i_1}, \dots, i_k \mapsto b_{i_k})
     \] 
-    is a duo for $\mathcal{O}_k = \Aut(\A)_{(S \cup \{a_{i_{k+1}}, \dots, a_{i_d}\})} \cdot a|^{\{i_1, \dots, i_k\}}_\bullet$ 
+    is a duo for $\mathcal{O}_k = \Aut(\A)_{(S \cup \{a_{i_{k+1}}, \dots, a_{i_d}\})} \cdot a|^{\{i_1, \dots, i_k\}}$ 
     --- note that $() \parallel ()$ is certainly a duo for $\mathcal{O}_0$ at the start.
     If $k < d$, with $z = a_{i_{k+1}}$, $X = \{a_{i_1}, b_{i_1}, \dots, a_{i_k}, b_{i_k}\} \cup S \cup \{a_{i_{k+2}}, \dots, a_{i_d}\}$, and $Y = \emptyset$, 
     a straightforward application of Lemma~\ref{lem:cog-fresh-single} yields an atom $b_{i_{k+1}}$ that makes
     \[
-        a|^{\{i_1, \dots, i_k, i_{k+1}\}}_\bullet \parallel (i_1 \mapsto b_{i_1}, \dots, i_k \mapsto b_{i_k}, i_{k+1} \mapsto b_{i_{k+1}})
+        a|^{\{i_1, \dots, i_k, i_{k+1}\}} \parallel (i_1 \mapsto b_{i_1}, \dots, i_k \mapsto b_{i_k}, i_{k+1} \mapsto b_{i_{k+1}})
     \] a duo for $\mathcal{O}_{k+1}$.
     For $k=d$ we thus obtain the desired duo for $\mathcal{O}_d = \mathcal{O}$.
 %    The automorphisms $\pi_{i_k}$ now come directly from homogeneity and the definition of an $\mathcal{O}$-duo: 
@@ -326,27 +325,27 @@ Starting from an empty duo, we may apply the previous lemma inductively.
 The result below substantiates the slogan that cogs are found everywhere. 
 \begin{theorem} \label{thm:cogs-arise-everywhere}
     Any $\Aut(\A)_{(S)}$-equivariant subspace $V$ of $\Lin_\EE \mathcal{O}$ contains $\Cog_{\EE(V)} \mathcal{O}$,
-    where $\mathcal{O} \subseteq \A^I$ is $S$-ordered and $\EE(V)$ is the subspace spanned by $\{ v(a_\bullet) \mid v \in V, a_\bullet \in \mathcal{O} \}$ of $\EE$.
+    where $\mathcal{O} \subseteq \A^I$ is $S$-ordered and $\EE(V)$ is the subspace spanned by $\{ v(a) \mid v \in V, a \in \mathcal{O} \}$ of $\EE$.
 \end{theorem}
 \begin{proof}
-    Pick any $v \in V$ and $a_\bullet \in \mathcal{O}$;
-    it is enough to show that $V$ contains $v(a_\bullet) \cdot a_\bullet \between b_\bullet$ for some $\mathcal{O}$-duo $a_\bullet \parallel b_\bullet$.
+    Pick any $v \in V$ and $a \in \mathcal{O}$;
+    it is enough to show that $V$ contains $v(a) \cdot a \between b$ for some $\mathcal{O}$-duo $a \parallel b$.
     Actually, write 
     \[
-        S' = S \cup \{c_i \mid v(c_\bullet) \neq 0, i \in I\} \setminus \{a_i \mid i \in I\} \supseteq S
+        S' = S \cup \{c_i \mid v(c) \neq 0, i \in I\} \setminus \{a_i \mid i \in I\} \supseteq S
     \]
-    and put $\mathcal{O}' = \Aut(\A)_{(S')} \cdot a_\bullet \subseteq \mathcal{O}$ --- then $\mathcal{O}'$ is $S'$-ordered.
-    By Proposition~\ref{prop:cog-fresh-full}, we can find $b_\bullet \in \mathcal{O}'$ such that $a_\bullet \parallel b_\bullet$ is an $\mathcal{O}'$-duo and \emph{a fortiori} an $\mathcal{O}$-duo.
+    and put $\mathcal{O}' = \Aut(\A)_{(S')} \cdot a \subseteq \mathcal{O}$ --- then $\mathcal{O}'$ is $S'$-ordered.
+    By Proposition~\ref{prop:cog-fresh-full}, we can find $b \in \mathcal{O}'$ such that $a \parallel b$ is an $\mathcal{O}'$-duo and \emph{a fortiori} an $\mathcal{O}$-duo.
     Take the automorphisms $\pi_{i_1}, \dots, \pi_{i_d}$ from Remark~\ref{rem:duo}, where $i_1, \dots, i_d$ enumerate $I$.
     Now define $v^{(0)} = v$ and \[
         v^{(k)} = v^{(k-1)} - \pi_{i_k} \cdot v^{(k-1)}.
     \]
     We can check inductively that for $k = 0, 1, \dots, d$, 
-    with $\mathcal{O}^{(k)} = \{ c_\bullet \mid v(c_\bullet) \neq 0, \{c_{i_1}, \dots, c_{i_k}, \dots, c_{i_d}\} \supseteq \{a_{i_1}, \dots, a_{i_k}\} \}$ we have
+    with $\mathcal{O}^{(k)} = \{ c \mid v(c_\bullet) \neq 0, \{c_{i_1}, \dots, c_{i_k}, \dots, c_{i_d}\} \supseteq \{a_{i_1}, \dots, a_{i_k}\} \}$ we have
     \[
-        v^{(k)} = \sum_{c_\bullet \in \mathcal{O}^{(k)}} \sum_{J \subseteq \{i_1, \dots, i_k\}} (-1)^{|J|} v(c_\bullet) \prod_{j \in J} \pi_j \cdot c_\bullet.
+        v^{(k)} = \sum_{c \in \mathcal{O}^{(k)}} \sum_{J \subseteq \{i_1, \dots, i_k\}} (-1)^{|J|} v(c) \prod_{j \in J} \pi_j \cdot c.
     \]
-    But $\{c_{i_1}, \dots, c_{i_d}\} \supseteq \{a_{i_1}, \dots, a_{i_d}\}$ means that $c_\bullet = a_\bullet$, so at the end $v^{(d)}$ is the desired $\mathcal{O}$-cog.
+    But $\{c_{i_1}, \dots, c_{i_d}\} \supseteq \{a_{i_1}, \dots, a_{i_d}\}$ means that $c = a$, so at the end $v^{(d)}$ is the desired $\mathcal{O}$-cog.
 \end{proof}
 
 \begin{corollary}
