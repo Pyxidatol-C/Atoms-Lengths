@@ -1,123 +1,80 @@
-\section{Failures}
-\subsection{Duals}
-It was shown in \cite[Example~6.9]{BFKM24} that orbit-finitely generated vector spaces over the Rado graph are not closed under duals over the two-element field.
-We can lift the assumption on the field, and we will extend this result to the $K_n$-free Henson graphs.
-\begin{theorem}
-    Assume $\A$ is the Rado graph or the $K_n$-free Henson graph.
-    Then \[
-        \fsfun \A \field
-    \] is not orbit-finitely generated for any $\field$.
-\end{theorem}
+\section{Dual spaces}
+Consider the equivariant set
+\[
+    \fsfun \A \field
+\]
+of \textcolor{red}{finitely supported (did we ever define this?)} functions from the atoms $\A$ to the field $\field$.
+Here is one way they arise:
+given some finitely supported set $S \subseteq \A$, its characteristic function --- which we also denote by $S$ --- is a function with values in $\{0, 1\} \subseteq \field$.
+For instance, $\A : \A \to \field$ is the constant function outputting $1$.
+
+Under pointwise addition and scalar multiplication, these $\field$-valued finitely supported functions form a vector space.
+It makes sense to ask whether this \emph{dual space} is orbit-finitely spanned.
+In \cite[Theorem~6.7 and Example~6.9]{BFKM24}, a positive answer was given for the equality atoms and the ordered atoms, whilst a negative answer was given for the Rado graph when $\field$ is the two-element field.
+We show how to lift the assumption on the field,
+and we spell out some negative consequences for computation models over the graph atoms.
+
+Hereafter, assume $\A$ is the Rado graph or the $K_n$-free Henson graph.
+Let $N_G \subseteq \A$ denote the common neighbours of all atoms in $G \subseteq \A$. 
+
+\begin{proposition}
+    \[
+        \langle N_G : \A \to \field \mid G \subseteq \A \text{ is finite} \rangle
+    \]
+    is not orbit-finitely spanned for any field $\field$.
+\end{proposition}
 \begin{proof}
-    By Theorem~\ref{thm:ordered-free-amalg-has-finite-length}, 
-    if the space of finitely supported functions from $\A$ to $\field$ is orbit-finitely generated, then it would have finite length.
-    However, we will exhibit an infinite ascending chain of equivariant subspaces.
-
-    We can find anti-cliques $I_0, I_1, I_2, \dots$ of sizes $0, 1, 2, \dots$ inside $\A$.
-    Let $f_n : \A \to \{0, 1\} \subseteq \field$ be the characteristic function for the common neighbours of all vertices in $I_n$. 
-    (Of course, each $f_n$ is supported by $I_n$.)
-    We claim that
+    Suppose towards a contradiction that $\{ N_G \mid G \in \mathcal{G} \}$ is a spanning set for some orbit-finite $\mathcal{G}$.
+    (If $\A$ is the $K_n$-free Henson graph, we may assume that no $G \in \mathcal{G}$ contains a clique on $n - 1$ vertices: otherwise $N_G$ is the constant zero function, so we may as well remove it from the spanning set.)
+    Let $H \subseteq \A$ be an anti-clique on more than $\max_{G \in \mathcal{G}}$ vertices.
+    Then we can write
     \[
-        \langle f_0 \rangle 
-        \subset \langle f_0, f_1 \rangle
-        \subset \langle f_0, f_1, f_2 \rangle
-        \subset \cdots
+        N_H = \lambda_1 \cdot N_{G_1} + \cdots + \lambda_n \cdot N_{G_m}
     \]
-    is strictly increasing.
-    To see this, suppose otherwise that
+    for $G_i \in \mathcal{G}$, where we may assume $|G_1| \leq \cdots \leq |G_m| < |H|$.
+    
+    Let us prove $\lambda_i = 0$ for $i = 1, \dots, n$.
+    We may find some $a \in \A$ that is adjacent to all of $G_i$ but to none of $G_{i+1} \cup \dots \cup G_m \cup H \setminus G_i$.
+    As $\lambda_1, \dots, \lambda_{i-1} = 0$ and $G_{i+1}, \dots, G_m, H$ each contains some vertex outside $G_i$,
+    we see that
     \[
-        f_{n+1} = \sum_{I \in \mathbb{I}} \lambda_I \cdot f_I
+        0 = N_H(a) = \sum_j \lambda_j \cdot N_{G_j}(a) = 0 + \lambda_i + 0.
+        \qedhere
     \]
-    where every $I \in \mathbb{I}$ is an anti-clique on at most $n$ vertices, whose common neighbours have characteristic function $f_I$.
-
-    \begin{claim}
-        $\lambda_I = 0$ for all $I \in \mathbb{I}$.
-    \end{claim}
-    \begin{proof}
-        Suppose that $\lambda_I = 0$ whenever $|I| < d$. (The base case $d = 0$ is vacuous.)
-        Take $I \in \mathbb{I}$ with $|I| = d$.
-        Writing $\mathbb{J} = \{J \in \mathbb{I} \setminus \{I\} \mid |J| \geq d\}$, 
-        we have
-        \[
-            f_{n+1} = \lambda_I \cdot f_I 
-            + \sum_{J \in \mathbb{J}} \lambda_J \cdot f_J.
-        \]
-        We may pick a vertex $a \in \A$ that is adjacent to all of $I$ but to none of $\bigcup_{J \in \mathbb{J}} J \cup I_{n+1} \setminus I$.
-        Then $f_I(a) = 1$. 
-        On the other hand, since $I$ cannot contain $I_{n+1}$ or any $J \in \mathbb{J}$, we must have $f_{n+1}(a) = 0 = f_J(a)$.
-        Evaluating the equation above at $a$ yields
-        \[
-            0 = \lambda_I \cdot 1 + \sum_{J \in \mathbb{J}} \lambda_J \cdot 0;
-        \]
-        that is, we conclude $\lambda_I = 0$ for any $I \in \mathbb{I}$ with $|I| = d$.
-    \end{proof}
-
-    So $f_{n+1}$ is the constant zero function, which is impossible:
-    in $\A$ we can certainly find some vertex adjacent to all of $I_{n+1}$.
-    This shows that 
-    \[
-        \fsfun \A \field
-    \]
-    fails to be Noetherian,
-    so it cannot have finite length or be orbit-finitely generated. 
 \end{proof}
 
-\subsection{Unambiguous automata}
-Consider the Rado graph or the $K_n$-free Henson graph.
-The language
-\[
-    \text{``the last letter (exists and) is adjacent to every previous letter''}
-\]
-is recognised by the unambiguous automaton with guessing below.
-\[\begin{tikzpicture}[->, every state/.style={minimum size=8mm}, initial text=,]
-  % states
-  \node[state, initial]            (a) {$a$};
-  \node[state, initial, below=of a] (b) {$b$};
-  \node[below=of b] (etc) {$\vdots$};
-  \node[state, accepting, right=2cm of etc] (q) {};
 
-  % loops (user requested the label exactly "x : E(x, a)" on each)
-  \draw (a) edge[loop above] node{$x : E(x, a)$} (a);
-  \draw (b) edge[loop above]  node{$x : E(x, b)$} (b);
-
-  % transitions from each initial state to the accepting state
-  \draw (a) edge[bend left] node[above right]{$a$} (q);
-  \draw (b) edge[bend left] node[above right]{$b$} (q);
-\end{tikzpicture}\]
-We show that it cannot be recognised by a weighted automaton with outputs in $\{0, 1\}$.
-
-Consider the derivative ${w-} : \A^* \to \{0, 1\} \subseteq \field$ given a word $w \in \A^*$,
-where $w v a = 1$ precisely when $a$ is adjacent to every atom appearing in $w v$.
-We claim that
-\[
-    \langle - \rangle \subset 
-    \langle -, {a_1-} \mid a_1 \in \A \rangle \subset
-    \langle -, {a_1-}, {a_1 a_2-} \mid a_1, a_2 \in \A \rangle \subset
-    \cdots
-\]
-is strictly increasing. 
-Suppose to the contrary that for distinct atoms $a_1, \dots, a_m \in \A$, we can write
-\[
-    {a_1 \dots a_m -} = \sum_i \lambda_i \cdot {w_i -}
-\]
-where each $w_i$ contains $m_i < m$ distinct atoms.
-\begin{claim}
-    $\lambda_i = 0$ whenever $m_i < d = 0, 1, \dots, m$.
-\end{claim}
+\begin{corollary}
+    Orbit-finitely spanned vector spaces do not admit function spaces.
+\end{corollary}
 \begin{proof}
-    Pick any $i$ with $m_i = d$. 
-    If $\A$ is the $K_n$-free Henson graph and $w_i$ contains an clique on $n$ vertices, then ${w_i -}$ is the constant zero function --- so we may well remove it from the sum.
-    So we may find an atom $x$ which is adjacent to all atoms in $w_i$ but to no other atom in $a_1 \dots a_m$ and the $w_j$'s.
-    Then
-    \[
-        0 = a_1 \dots a_m x = \sum_{j} \lambda_j \cdot w_j x = \sum_{j : m_j < m_i} 0 + \lambda_i \cdot 1 + \sum_{j \neq i : m_j \geq m_i} 0.
-    \]
-    Indeed, we have $w_j x = 0$ if $m_j < m_i = d$ by the inductive hypothesis. 
-    Now $a_1 \dots a_m x = 0 = w_j x$ for the other $j$'s,
-    since $a_1 \dots a_m$ and $w_j$ must contain some atom outside those appearing in $w_i$, which by construction is not a neighbour of $x$.
+As each $N_G$ is finitely supported (by $G$), we have exhibited an equivariant subspace of 
+\[
+    (\fsfun \A \field)
+    \cong (\linfsfun {\Lin \A } {\Lin \{*\}})
+\]
+that fails to be orbit-finitely spanned.
+So the superspace does not have finite length, and therefore it cannot be orbit-finitely spanned by Theorem~\ref{thm:ordered-free-amalg-has-finite-length}.    
 \end{proof}
 
-So $\langle {w-} \mid w \in \A^* \rangle$ is not orbit-finitely spanned, which by a Myhill--Nerode argument means that the language $\varepsilon -$ cannot be recognised by a weighted automaton \cite[Theorem~7.3]{BFKM24}.
-It follows that weighted automata are strictly weaker than a non-deterministic model which stipulates only that ``there are finitely many runs with non-zero weights.''
-Also, the reversal of the language clearly can be recognised by a deterministic automaton 
---- so languages over the Rado or Henson graphs recognised by weighted automata fail to be closed under reversal.
+
+\begin{corollary}
+    An unambiguous automaton with guessing can recognise the language
+    \[
+        \text{``the last letter (exists and) is adjacent to every previous letter''}.
+    \]
+    But viewed as a weighted language, it cannot be  recognised by orbit-finitely spanned automata (unlike its reversal).
+\end{corollary}
+\begin{proof}
+    We use a Myhill-Nerode style argument.
+    The derivative ${w -} : \A^* \to \field$ of a word $w \in \A^*$ in this weighted language is given by
+    \[
+        w v a = N_{w v}(a),
+    \]
+    Then $\langle {w -} \mid w \in \A^* \rangle$
+    cannot be orbit-finitely spanned:
+    \[
+        {w-} = \sum_i \lambda_i \cdot {w_i-}
+    \]
+    gives $N_{w} = \sum_i \lambda_i \cdot N_{w_i}$.
+\end{proof}
