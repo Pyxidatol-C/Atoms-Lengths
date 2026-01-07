@@ -271,7 +271,7 @@ For this subsection let $\ff$ be the two-element field $\ff_2$.
 \begin{definition}
     For $n = 0, 1, 2, \ldots$, the \emph{symplectic graph} $\widetilde \W_n$ has vertices $\W_n$ and edges
     \[
-        v_1 \sim v_2 \iff \omega(v_1, v_2) = 1.
+        E(v_1, v_2) \iff \omega(v_1, v_2) = 1.
     \]
     This is indeed an undirected graph: as $\omega$ is alternating, we have $\omega(v_1, v_2) = -\omega(v_2, v_1) = \omega(v_2, v_1)$ over $\ff_2$.
 \end{definition}
@@ -309,24 +309,24 @@ It remains to show $\widetilde \W_0 \subseteq \widetilde \W_1 \subseteq \widetil
     Also, if $G$ contains no edges, we can choose any $2n$ of the $2^n$ vectors in 
     $\langle e_1, \ldots, e_n \rangle \subseteq \widetilde \W_n$.
     
-    So suppose $n \geq 1$ and $G$ has an edge $s \sim t$.
+    So suppose $n \geq 1$ and $G$ has an edge $E(s, t)$.
     Let $G_{s,t}$ be the graph on vertices $G \setminus \{s, t\}$ with edges which we will specify later.
     By induction, some embedding $f : G_{s, t} \to \widetilde \W_{n-1}$ exists.
     Define $f' : G \to \widetilde \W_n$ by
     \begin{align*}
-        x \in G_{s, t} &\mapsto f(x) - \llbracket x \sim s \rrbracket f_n + \llbracket x \sim t \rrbracket e_n \\
+        x \in G_{s, t} &\mapsto f(x) - \llbracket E(x, s) \rrbracket f_n + \llbracket E(x, t) \rrbracket e_n \\
         s &\mapsto e_n \\
         t &\mapsto f_n
     \end{align*}
     where $\llbracket \phi \rrbracket$ is $1$ if $\phi$ holds and $0$ otherwise.
-    Then we have $\omega(f'(x), f'(s)) = \llbracket x \sim s \rrbracket$ 
-    and $\omega(f'(x), f'(t)) = \llbracket x \sim t \rrbracket$ as desired, on one hand.
+    Then we have $\omega(f'(x), f'(s)) = \llbracket E(x, s) \rrbracket$ 
+    and $\omega(f'(x), f'(t)) = \llbracket E(x, t) \rrbracket$ as desired, on one hand.
     On the other,
     \begin{align*}
         \omega( f'(x_1), f'(x_2) ) 
-        = \llbracket x_1 \sim x_2 \rrbracket 
-        &+ \llbracket x_1 \sim s \rrbracket \llbracket x_2 \sim t \rrbracket \\
-        &+ \llbracket x_1 \sim t \rrbracket \llbracket x_2 \sim s \rrbracket
+        = \llbracket E(x_1, x_2) \rrbracket 
+        &+ \llbracket E(x_1, s) \rrbracket \llbracket E(x_2, t) \rrbracket \\
+        &+ \llbracket E(x_1, t) \rrbracket \llbracket E(x_2, s) \rrbracket
     \end{align*}
     tells us how we should define the edge relation in $G_{s,t}$ for $f'$ to be an embedding of graphs.
 \end{proof}
