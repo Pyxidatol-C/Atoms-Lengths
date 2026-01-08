@@ -448,7 +448,7 @@ We would like to present $v$ as a sum of such ${\cal O}$-cogs. Some additional a
 \item The atom $g$ occurs both as the first and as the second component in pairs present in $v$. In particular, $z$ as prescribed would create a triangle $dgz$ in $\A$, which is forbidden.
 \item Atoms $a$ and $b$ both occur as first components in $v$, and they are connected by an edge in $\A$. As a result, an atom $z$ as prescribed would create a triangle $abz$ in $\A$.
 \end{itemize}
-We get rid of such {\em obstructions} by considering auxiliary atoms $g'>g$ and $b'>b$, with just enough edges to make $gh\parallel g'i$ and $bf\parallel b'i$ valid ${\cal O}$-duos. Specifically, we postulate edges $g'$---$h$, $g'$---$i$, $b'$---$f$ and $b'$---$i$ and no more. Such atoms exist by the homogeneity of $\A$. We then define:
+We get rid of such {\em conflicts} by considering auxiliary atoms $g'>g$ and $b'>b$, with just enough edges to make $gh\parallel g'i$ and $bf\parallel b'i$ valid ${\cal O}$-duos. Specifically, we postulate edges $g'$---$h$, $g'$---$i$, $b'$---$f$ and $b'$---$i$ and no more. Such atoms exist by the homogeneity of $\A$. We then define:
 \[
 v' = v - (gh \between g'i) - (bf \between b'i)
 \]
@@ -483,61 +483,69 @@ v' = (ah \between g'z)  - (ae \between cz) - (cg \between dz) + (b'f \between dz
 \]
 which presents $v$ as a linear combination of $\cal O$-cogs.
 
-\subsection{Subvectors}
-This is a good time to recall a view we have tacitly taken:
-with $\mathcal{O}$ as a standard basis, a vector $v \in \Lin_\EE \mathcal{O}$ is just a finite set of pairs in $\EE \times \mathcal{O}$.
-A \emph{subvector} of $v$ is a subset of these pairs.
+\subsection{Spanning by cogs: a proof}
 
-Now suppose as usual that $\mathcal{O} \subseteq \A^I$ is $S$-ordered.
-Given $i \in I$ and $a \in \mathcal{O}$, 
-we write \[
-    \mathcal{O}^{i:a_i} = \{b \in \mathcal{O} \mid b_i = a_i\};
-\]
-this is an $\Aut(\A)_{S a_i}$-orbit, and its projection $\mathcal{O}^{i:a_i} |^{-i} = \Aut(\A)_{S a_i} \cdot a|^{-i}$ is ordered.
-For a vector $v \in \Lin_\EE \mathcal{O}$, by
+Inspired by the previous example, we shall now prove that $\Ker_\FF \mathcal{O} \subseteq \Cog_\FF \mathcal{O}$ for any $S$-ordered orbit $\cal O\subseteq \A^I$.
+
+\subsubsection{Subvectors, locations, conflicts} \ \\
+%
+We begin by introducing some additional terminology and notation. First, let us make explicit a view we have tacitly taken:
+with $\mathcal{O}$ as a standard basis, a vector $v \in \Lin_\FF \mathcal{O}$ is just a finite set of pairs in $\FF \times \mathcal{O}$.
+A \emph{subvector} of $v$ is a subset of these pairs. We write $\vsup{v}\subseteq {\cal O}$ for the set of tuples which are present in $v$. For a finite subset $T\subseteq\cal O$, we write $\sqrt T\subseteq\A$ for the set of atoms present anywhere in $T$, and for a vector $v$, we write $\sqrt v$ to mean $\sqrt{\vsup{v}}$.
+
+For any $i \in I$ and $a \in \A$, we write 
 \[
-    v^{i:a_i} \in \Lin_\EE \mathcal{O}^{i:a_i}
+    \mathcal{O}^{i:a} = \{b \in \mathcal{O} \mid b_i = a\};
 \]
-we mean the subvector consisting of all pairs in $\EE \times \mathcal{O}^{i:a_i}$.
+this is an $\Aut(\A)_{S a}$-orbit, and its projection $\mathcal{O}^{i:a} |^{-i}$ is $Sa$-ordered.
+For a vector $v \in \Lin_\FF \mathcal{O}$, by
+\[
+    v^{i:a} \in \Lin_\FF \mathcal{O}^{i:a}
+\]
+we mean the subvector of $v$ consisting of all pairs in $\FF \times \mathcal{O}^{i:a}$.
 
 \begin{lemma}\label{lem:balanced-projected-subvector}
     Let $v \in \Lin_\EE \mathcal{O}$ be balanced. 
-    Then any projected subvector $v^{i:a_i}|^{-i} \in \Lin_\EE \mathcal{O}^{i:a_i}|^{-i}$ is also balanced.
+    Then any projected subvector $v^{i:a}|^{-i} \in \Lin_\FF \mathcal{O}^{i:a}|^{-i}$ is also balanced.
 \end{lemma}
 \begin{proof}
     Let $j \in I \setminus \{i\}$. 
     By assumption we have \[
-        0 = v|^{-j} = \sum_a v^{i:a_i}|^{-j}
-    \] in $\Lin_\EE \A^{I \setminus \{j\}}$,
-    so by looking at $i$th entries we see that each $v^{i:a_i}|^{-j}$ must be the zero vector.
-    Hence so is $v^{i:a_i}|^{-j}|^{-i} = v^{i:a_i}|^{-i}|^{-j}$,
-    which shows that $v^{i:a_i}|^{-i}$ is in the projection kernel.
+        0 = v|^{-j} = \sum_a v^{i:a}|^{-j} %\in \Lin_\FF \A^{I \setminus \{j\}};
+    \]
+    (the above sum is finite, as it runs over those atoms $a$ that occur as the $i$-th entries in $\vsup{v}$).
+    By looking at $i$-th entries, we see that each $v^{i:a}|^{-j}$ must be the zero vector.
+    Hence so is $v^{i:a}|^{-j}|^{-i} = v^{i:a}|^{-i}|^{-j}$,
+    which shows that $v^{i:a}|^{-i}$ is balanced.
 \end{proof}
 
-\subsection{Spanning by cogs: a proof}
+For a finite subset $T \subseteq \mathcal{O}$, a {\em location} in $T$ is a pair $(i,a)\in I\times\A$ such that $a=c_i$ for some $c\in T$. Note that for any fixed $i,j\in I$, for all $c\in\cal O$ the atoms $c_i$ and $c_j$ are related in the same way in $\A$. We say that two locations $(i,a)$ and $(j,b)$ in $T$ are in:
+\begin{itemize}
+\item an {\em equational conflict}, if $i\neq j$ but $a=b$, and in
+\item a {\em relational conflict}, if $a$ and $b$ are related in $A_0$ but not in the same way as $c_i$ and $c_j$ for $c\in\cal O$.
+\end{itemize}
+%write
+%\[
+%    \overline{\sigma} = \{ (i, a_i) \mid i \in I, a \in \sigma \}
+%\]
+%and define two binary relations 
+%\begin{align*}
+%    &(i, a_i) {?} (j, b_j) \iff a_i = b_j \text{ but } i \neq j, \\
+%    &(i, a_i) {!} (j, b_j) \iff \text{$a_i, b_j$ are related but not in the same way as $a_i, a_j$}
+%    % or equivalently $b_i, b_j$ since both $a$ and $b$ are in $\mathcal{O}$
+%\end{align*}
+%called \emph{ambiguities} and \emph{obstructions}.
+(A situation where $a$ and $b$ are not related by any relation in $\A_0$ at all, does not constitute a conflict even if $c_i$ and $c_j$ are related.) Seeing equality as a binary relation in $\A_0$, an equational conflict is a special case of a relational one.
+%(Recall that $a_i$ and $b_j$ are \emph{not related} if they are freely amalgamated in the reduct $\A_0$ of $\A$ 
+%--- i.e., they are not equal, and for no $R \in \mathcal{L}_0$ does $R(a_i, b_j) \vee R(b_j, a_i)$ hold;
+%in that case, we write $a_i \amalgindep b_j$).
+%Both relations are symmetric and ${?} \subseteq {!}$;
+%denote their images by ${?\overline{\sigma}} \subseteq {!\overline{\sigma}} \subseteq \overline{\sigma}$.
+Let $\EConf(T)$ and $\RConf(T)$ denote, respectively, the sets of those locations which take part in, respectively, equational and relational conflicts in $T$. For a vector $v$, we write $\EConf(v)$ and $\RConf(v)$ for $\EConf([v])$ and $\RConf([v])$.
 
-Given a vector $v \in \Lin_\EE \mathcal{O}$, write $\vsup{v}$ for its set-theoretic support, i.e., the finite subset $v^{-1}(\EE^*) \subseteq \mathcal{O}$.
-More generally, given any finite subset $\sigma \subseteq \mathcal{O}$, 
-write
-\[
-    \overline{\sigma} = \{ (i, a_i) \mid i \in I, a \in \sigma \}
-\]
-and define two binary relations 
-\begin{align*}
-    &(i, a_i) {?} (j, b_j) \iff a_i = b_j \text{ but } i \neq j, \\
-    &(i, a_i) {!} (j, b_j) \iff \text{$a_i, b_j$ are related but not in the same way as $a_i, a_j$}
-    % or equivalently $b_i, b_j$ since both $a$ and $b$ are in $\mathcal{O}$
-\end{align*}
-called \emph{ambiguities} and \emph{obstructions}.
-(Recall that $a_i$ and $b_j$ are \emph{not related} if they are freely amalgamated in the reduct $\A_0$ of $\A$ 
---- i.e., they are not equal, and for no $R \in \mathcal{L}_0$ does $R(a_i, b_j) \vee R(b_j, a_i)$ hold;
-in that case, we write $a_i \amalgindep b_j$).
-Both relations are symmetric and ${?} \subseteq {!}$;
-denote their images by ${?\overline{\sigma}} \subseteq {!\overline{\sigma}} \subseteq \overline{\sigma}$.
-Lastly, refer to the atoms that appear in $\sigma$ by $\sqrt \sigma \subseteq \A$.
+The prototypical examples of vectors which are free from any conflicts are cogs, or any subvectors of cogs.
 
-The prototypical example of an unobstructed family is $\overline{\vsup{\lambda \cdot a^+ \between a^-}} = \overline{\{a^+, a^-\}} = \overline{\{a^\pm\}}$,
-where $a^+ \parallel a^-$ is an $\mathcal{O}$-dipole.
+In the following proof we will often manipulate many duos and cogs at once, so we will benefit from a concise notation for them. To denote an $\cal O$-duo with a single letter we will annotate it as $a^\pm$; its constituent parts will then be denoted with $a^+$ and $a^-$, so that $a^\pm=a^+\parallel a^-$.
 
 \paragraph{Two lemmas}
 Let $v \in \Ker_\EE \mathcal{O}$ and let $v^{i:a_i}$ be a subvector.
