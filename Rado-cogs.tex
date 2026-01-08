@@ -111,16 +111,17 @@ Mention that the universal homogeneous tournament is a reduct of the ordered Rad
 
 To start with, let us view $\A^d$ as $\A^{\{1, \dots, d\}}$. More generally, it will be convenient to consider $\A^I$ for a finite totally ordered indexing set $I \subseteq \Q$.
 Fix a finite support $S \subseteq \A$.
-As $\A$ is oligomorphic, the tuples in $\A^I$ split into finitely many $\Aut(\A)_{(S)}$-equivariant orbits.
-Let $\mathcal{O} = \Aut(\A)_{(S)} \cdot o$ be one such orbit.
-We shall call $\mathcal{O}$ \emph{($S$-)ordered} if $o_i \not\in S$ and if $o_i < o_j$ whenever $i < j$.
-By removing the entries in $o$ that repeat or come from $S$ and reordering the rest, we can always find an $\Aut(\A)_{(S)}$-equivariant bijection to an $S$-ordered orbit.
+%As $\A$ is oligomorphic, the tuples in $\A^I$ split into finitely many $\Aut(\A)_{(S)}$-equivariant orbits.
+%Let $\mathcal{O} = \Aut(\A)_{(S)} \cdot o$ be one such orbit.
+We shall say than an $a\in\A^I$ is {\em ($S$-)ordered} if $a_i \not\in S$ for all $i$, and if $a_i < a_j$ whenever $i < j$. Then the orbit
+$\mathcal{O} = \Aut(\A)_{(S)} \cdot a$ only contains $S$-ordered elements, and we will call the orbit $S$-ordered as well.
+If $a$ is not $S$-ordered, by removing the entries that repeat or come from $S$ and reordering the rest, we can always find an $\Aut(\A)_{(S)}$-equivariant bijection from $\cal O$ to an $S$-ordered orbit.
 
 To study length of orbit-finitely spanned spaces, we may focus on a single ordered orbit at a time:
 \begin{proposition}\label{prop:reduction-to-one-orbit}
     The following are equivalent:
     \begin{enumerate}
-        \item For $d = 0, 1, 2, \dots$ and any finite $S \subseteq \A$, chains of $\Aut(\A)_{(S)}$-equivariant subspaces in $\Lin_\FF \A^d$ are bounded in length;
+        \item For any $d$ and any finite $S \subseteq \A$, chains of $\Aut(\A)_{(S)}$-equivariant subspaces in $\Lin_\FF \A^d$ are bounded in length;
         \item $\Lin_\FF \mathcal{O}$ has finite length for any ordered orbit $\mathcal{O}$.
     \end{enumerate}
 \end{proposition}
@@ -137,7 +138,7 @@ So fix an ordered orbit $\mathcal{O} = \Aut(\A)_{(S)} \cdot o \subseteq \A^I$.
 From here we take an inductive approach.
 By $o |^J$ we mean the restriction of $o : I \to \A$ to $J \subseteq I$;
 we will often write $o |^{-i}$ instead of $o |^{ I \setminus \{i\} }$.
-Note the image $\mathcal{O}|^J$ of $\mathcal{O}$ under this projection agrees with $\Aut(\A)_{(S)} \cdot o |^J$ and is still ordered.
+The image $\mathcal{O}|^J$ of $\mathcal{O}$ under this projection agrees with $\Aut(\A)_{(S)} \cdot o |^J$ and is still ordered.
 
 %To anticipate more general statements later, Let $\EE$ be a finite-dimensional $\FF$-vector space --- for instance, $\FF$ itself.
 The function $(-)|^J$ lifts to a linear $\Aut(\A)_{(S)}$-equivariant map
@@ -184,6 +185,8 @@ As we will see in the next subsection, cogs are a prominent example.
 
 \subsection{Cogs}
 
+From now on we will use a lightweight notation for combining tuples of atoms: for disjoint indexing sets $I$ and $J$, if $a\in\A^I$ and $b\in\A^{J}$ are both ordered, then $ab\in \A^{I\cup J}$ will denote their obvious combination. We will only use this notation if the combined tuple $ab$ is ordered. For an obvious example, for any $S$-ordered $a\in\A^I$ and $J\subseteq I$, we have $a|^{I\setminus J}a|^J=a$.
+
 \begin{definition}\label{def:duo}
     Let $\mathcal{O} \subseteq \A^I$ be an $S$-ordered orbit. 
     An \emph{$\mathcal{O}$-duo} $a \parallel b$ consists of tuples $a, b \in \cal O$ such that:
@@ -212,8 +215,6 @@ Moreover, thanks to irreflexivity \textcolor{red}{TODO: explain somewhere that w
 Further, given any $J \subseteq I$, the combined tuple $a|^{I\setminus J} b|^J$ satisfies the same relations as $a$ (and $b$), so it lies in $\mathcal{O}$. In particular, taking $J=\{i\}$, there is an automorphism $\pi_i$ that sends $a_i$ to $b_i$ and fixes all the other elements of $a$, $b$ and $S$.
 \end{remark}
 
-From now on we will use a lightweight notation for combining tuples of atoms: for disjoint indexing sets $I$ and $J$, if $a\in\A^I$ and $b\in\A^{J}$ are both ordered, then $ab\in \A^{I\cup J}$ will denote their obvious combination. We will only use this notation if the combined tuple $ab$ is ordered. For an obvious example, for any $S$-ordered $a\in\A^I$ and $J\subseteq I$, we have $a|^{I\setminus J}a|^J=a$.
-
 \begin{definition}
     Given a %$\lambda \in \EE$ and an 
     $\mathcal{O}$-duo $a \parallel b$, the corresponding \emph{$\mathcal{O}$-cog} %with coefficient $\lambda$ 
@@ -230,7 +231,7 @@ From now on we will use a lightweight notation for combining tuples of atoms: fo
     is denoted by $\Cog_\FF \mathcal{O}$.
 \end{definition}
 %As remarked above, given any two $\mathcal{O}$-duos there is some $\pi \in \Aut(\A)_{(S)}$ such that $\pi \cdot (a \parallel b) = a' \parallel b'$ and thus $\pi \cdot (a \between b) = a' \between b'$.
-Note that, for a fixed $S$-ordered orbit $\cal O$, all $\mathcal{O}$-duos are in the same $\Aut(\A)_{(S)}$-equivariant orbit.
+Note that, for a fixed $S$-ordered orbit $\cal O$, all $\mathcal{O}$-duos (hence all $\cal O$-cogs) are in the same $\Aut(\A)_{(S)}$-equivariant orbit.
 As a result, $\Cog_\FF \mathcal{O}$ is an $\Aut(\A)_{(S)}$-equivariant subspace of $\Lin_\FF \mathcal{O}$ and it is generated by %cogs based on a single duo.
 a single cog.
 
@@ -239,7 +240,7 @@ a single cog.
 \end{proposition}
 
 \begin{proposition}\label{prop:cogs-are-balanced}
-    $\Cog_\FF \mathcal{O}$ is contained in $\Ker_\FF \mathcal{O}$.
+    $\Cog_\FF \mathcal{O}\subseteq \Ker_\FF \mathcal{O}$.
 \end{proposition}
 \begin{proof}
    % \textcolor{red}{TODO: rewrite using the cog calculus.}
@@ -256,7 +257,7 @@ In fact, cogs arise anywhere.
 We combine the free amalgamation in $\cal C_0$ and the generic order of $\A$ into the following lemma.
 \begin{lemma}\label{lem:free-fresh}
     Let $X, Y, \{z\} \subseteq \A$ be disjoint and finite.
-    Then there is some automorphism $\tau \in \Aut(\A)$ such that
+    Then there is ab automorphism $\tau \in \Aut(\A)$ such that
     \begin{enumerate}
         \item $\tau$ fixes every $x \in X$;
         \item $\tau(z)$ is unrelated to all $y \in Y$ and to $z$;
@@ -264,7 +265,7 @@ We combine the free amalgamation in $\cal C_0$ and the generic order of $\A$ int
     \end{enumerate}
 \end{lemma}
 \begin{proof}
-    In $\A_0$, form the free amalgam
+    Form the free amalgam of structures in ${\cal C}_0$:
 % https://q.uiver.app/#q=WzAsNCxbMCwxLCJYIl0sWzEsMiwiWCBcXGN1cCBcXHt6XFx9Il0sWzEsMCwiWCBcXGN1cCBZIFxcY3VwIFxce3pcXH0iXSxbMiwxLCJYIFxcY3VwIFkgXFxjdXAgXFx7eiwgeidcXH0iXSxbMCwxLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFswLDIsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzEsMywieCBcXGluIFggXFxtYXBzdG8geCwgeiBcXG1hcHN0byB6JyIsMSx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn0sImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsyLDMsIlxcc3Vic2V0ZXEiLDEseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
 \[\begin{tikzcd}[cramped]
 	& {X \cup Y \cup \{z\}} \\
@@ -276,15 +277,12 @@ We combine the free amalgamation in $\cal C_0$ and the generic order of $\A$ int
 	\arrow["{x \in X \mapsto x, z \mapsto z'}"{description}, dashed, hook, from=3-2, to=2-3]
 \end{tikzcd}\]
     so that no element of $Y \cup \{z\}$ is related to $z'$.
-    Now we make $X \cup Y \cup \{z, z'\}$ an $\mathcal{L}$-structure: 
+    To make $X \cup Y \cup \{z, z'\}$ an $\mathcal{L}$-structure, 
     inherit the order on $X \cup Y \cup \{z\}$ from $\A$,
-    and declare that $z < z'$ as well as $z' < a$ if $a$, the next element of $X \cup Y$ larger than $z$, exists at all.
-    Observe that \[
-        x \in X \mapsto x, z \mapsto z'
-    \] is still an embedding in presence of the order.
-    By homogeneity, we may embed $X \cup Y \cup \{z, z'\}$ into $\A$ via some $f$ which is the identity on $X \cup Y \cup \{z\}$;
+    and declare that $z < z'$, as well as $z' < a$ whenever $z<a$ for $a\in X \cup Y$. This makes the above a diagram of embeddings in the presence of the order.
+    By homogeneity, $X \cup Y \cup \{z, z'\}$ embeds into $\A$ via some $f$ which is the identity on $X \cup Y \cup \{z\}$;
     again by homogeneity, we may extend the embedding \[ 
-        f(x) = x \in X \mapsto f(x), f(z) \mapsto f(z')
+        x \in X \mapsto x, \quad z \mapsto f(z')
     \] to some automorphism $\tau$ which makes 1), 2), and 3) true.
 \end{proof}
 
