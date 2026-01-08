@@ -367,8 +367,8 @@ The result below strengthens Prop.~\ref{prop:cogs-are-balanced}, apart from the 
     Any nontrivial $\Aut(\A)_{(S)}$-equivariant subspace $V\subseteq \Lin_\FF \mathcal{O}$ contains $\Cog_\FF \mathcal{O}$.
 \end{theorem}
 \begin{proof}
-    Pick any $v \in V$ and $a \in \mathcal{O}$;
-    it is enough to show that $V$ contains $v(a) \cdot a \between b$ for some $\mathcal{O}$-duo $a \parallel b$.
+    Pick any $v \in V$ and $a \in \mathcal{O}$ with $v(a)\neq 0$;
+    it is enough to show that $V$ contains $a \between b$ for some $b\in \mathcal{O}$.
     Define:
     \[
         S' = S \cup \{c_i \mid v(c) \neq 0, i \in I\} \setminus \{a_i \mid i \in I\} \supseteq S
@@ -388,7 +388,7 @@ The result below strengthens Prop.~\ref{prop:cogs-are-balanced}, apart from the 
     \[C_k = \{ c \mid v(c) \neq 0, \{c_{i_1}, \dots, c_{i_k}, \dots, c_{i_d}\} \supseteq \{a_{i_1}, \dots, a_{i_k}\} \}.
     \]
 
-    But $\{c_{i_1}, \dots, c_{i_d}\} \supseteq \{a_{i_1}, \dots, a_{i_d}\}$ means that $c = a$, so $C_d=\{a\}$ and $v^{(d)}$ is the desired $\mathcal{O}$-cog.
+    But $\{c_{i_1}, \dots, c_{i_d}\} \supseteq \{a_{i_1}, \dots, a_{i_d}\}$ means that $c = a$, so $C_d=\{a\}$ and $\frac{1}{v(a)}v^{(d)}=a\between b$.
 \end{proof}
 
 \begin{corollary}
