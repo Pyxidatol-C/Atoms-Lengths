@@ -291,23 +291,23 @@ We combine the free amalgamation in $\cal C_0$ and the generic order of $\A$ int
     Given $z \in S$, 
     \begin{itemize}
         \item write $S' = S \setminus \{z\}$;
-        \item let $j \not\in I$ be such that $\mathcal{O}' = \Aut(\A)_{(S')} \cdot (a ; z) \subseteq \A^{I \cup \{j\}}$ is ordered,
-        \item let $X \subseteq \A$ be a finite set containing $\{a_i, b_i \mid i \in I\} \cup S'$ but not $z$;
-        \item let $Y \subseteq \A$ be any finite set disjoint from $X \cup \{z\}$;
+        \item let $j \not\in I$ be such that ${\cal O'}=\Aut(\A)_{(S')} \cdot az \subseteq \A^{I \cup \{j\}}$ is $S'$-ordered;
+        \item let $X \subseteq \A$ be any finite set containing $\{a_i, b_i \mid i \in I\} \cup S'$ but not $z$.
+ %       \item let $Y \subseteq \A$ be any finite set disjoint from $X \cup \{z\}$;
     \end{itemize}
-    then the $\tau \in \Aut(\A)_{(X)}$ afforded by Lemma~\ref{lem:free-fresh} gives us an $\mathcal{O}'$-duo $(a ; z) \parallel (b; \tau(z))$.
+    Denote $z'=\tau(z)$, where $\tau \in \Aut(\A)_{(X)}$ is afforded by Lemma~\ref{lem:free-fresh} (putting $Y=\emptyset$). Then $az \parallel bz'$ is an $\mathcal{O}'$-duo.
 \end{lemma}
 \begin{proof}
-    First, notice that $b ; \tau(z)\in {\cal O}'$ and that we have the required order relations with $z$ and $\tau(z)$. The remaining condition of Def.~\ref{def:duo}, for any $R$ in $\mathcal{L}_0$, splits into the following cases (and their symmetric versions):
+    First, notice that $bz'\in {\cal O}'$ and that we have the required order relations with $z$ and $z'$. The remaining condition (3) of Def.~\ref{def:duo}, for any $R$ in $\mathcal{L}_0$, splits into the following cases (and their symmetric versions):
 \begin{itemize}
-\item[-] $R(a_i,b_j)\iff R(a_i,a_j)$ since $a \parallel b$ is an $\mathcal{O}$-duo;
-\item[-] $R(a_i,\tau(z))\iff R(a_i,z)$ since $\tau$ is an automorphism that fixes all $a_i$;
+\item[-] $R(a_i,b_{i'})\iff R(a_i,a_{i'})$ since $a \parallel b$ is an $\mathcal{O}$-duo;
+\item[-] $R(a_i,z')\iff R(a_i,z)$ since $\tau$ is an automorphism that fixes all $a_i$;
 \item[-] $R(a_i,z)\iff R(b_i,z)$ since $a, b \in \mathcal{O}$ and $z\in S$;
-\item[-] $R(z,\tau(z))$ and $R(z,z)$ are both false: $\tau(z)$ is unrelated to $z$ by Lemma~\ref{lem:free-fresh}, and $R$ is irreflexive.
+\item[-] $R(z,z')$ and $R(z,z)$ are both false: $z'$ is unrelated to $z$ by Lemma~\ref{lem:free-fresh}, and $R$ is irreflexive.
 \end{itemize}
 \end{proof}
 
-Starting from an empty duo, we may apply the previous lemma inductively.
+Starting from an empty duo, we may apply Lemma~\ref{lem:cog-fresh-single} inductively.
 \begin{proposition}\label{prop:cog-fresh-full}
     Let $\mathcal{O} \subseteq \A^I$ be an $S$-ordered orbit.
     Then any $a \in \mathcal{O}$ can be extended to an ${\cal O}$-duo $a\parallel b$.
@@ -320,12 +320,12 @@ Starting from an empty duo, we may apply the previous lemma inductively.
     \] 
     is a duo for $\mathcal{O}_k = \Aut(\A)_{(S \cup \{a_{i_{k+1}}, \dots, a_{i_d}\})} \cdot a|^{\{i_1, \dots, i_k\}}$ 
     --- note that $() \parallel ()$ is certainly a duo for $\mathcal{O}_0$ at the start.
-    If $k < d$, with $z = a_{i_{k+1}}$, $X = \{a_{i_1}, b_{i_1}, \dots, a_{i_k}, b_{i_k}\} \cup S \cup \{a_{i_{k+2}}, \dots, a_{i_d}\}$, and $Y = \emptyset$, 
-    a straightforward application of Lemma~\ref{lem:cog-fresh-single} yields an atom $b_{i_{k+1}}$ that makes
+    If $k < d$, putting $z = a_{i_{k+1}}$ and $X = \{a_{i_1}, b_{i_1}, \dots, a_{i_k}, b_{i_k}\} \cup S \cup \{a_{i_{k+2}}, \dots, a_{i_d}\}$, %and $Y = \emptyset$, 
+    Lemma~\ref{lem:cog-fresh-single} yields an atom $b_{i_{k+1}}$ that makes
     \[
         a|^{\{i_1, \dots, i_k, i_{k+1}\}} \parallel (i_1 \mapsto b_{i_1}, \dots, i_k \mapsto b_{i_k}, i_{k+1} \mapsto b_{i_{k+1}})
     \] a duo for $\mathcal{O}_{k+1}$.
-    For $k=d$ we thus obtain the desired duo for $\mathcal{O}_d = \mathcal{O}$.
+    For $k=d$ this gives the desired duo for $\mathcal{O}_d = \mathcal{O}$.
 %    The automorphisms $\pi_{i_k}$ now come directly from homogeneity and the definition of an $\mathcal{O}$-duo: 
 %    the map
 %    \begin{align*}
@@ -335,15 +335,41 @@ Starting from an empty duo, we may apply the previous lemma inductively.
 %    is an embedding.
 \end{proof}
 
-The result below substantiates the slogan that cogs are found everywhere. 
+%%% This used E in place of F
+%The result below substantiates the slogan that cogs are found everywhere. 
+%\begin{theorem} \label{thm:cogs-arise-everywhere}
+%    Any $\Aut(\A)_{(S)}$-equivariant subspace $V$ of $\Lin_\EE \mathcal{O}$ contains $\Cog_{\EE(V)} \mathcal{O}$,
+%    where $\mathcal{O} \subseteq \A^I$ is $S$-ordered and $\EE(V)$ is the subspace spanned by $\{ v(a) \mid v \in V, a \in \mathcal{O} \}$ of $\EE$.
+%\end{theorem}
+%\begin{proof}
+%    Pick any $v \in V$ and $a \in \mathcal{O}$;
+%    it is enough to show that $V$ contains $v(a) \cdot a \between b$ for some $\mathcal{O}$-duo $a \parallel b$.
+%    Actually, write 
+%    \[
+%        S' = S \cup \{c_i \mid v(c) \neq 0, i \in I\} \setminus \{a_i \mid i \in I\} \supseteq S
+%    \]
+%    and put $\mathcal{O}' = \Aut(\A)_{(S')} \cdot a \subseteq \mathcal{O}$ --- then $\mathcal{O}'$ is $S'$-ordered.
+%    By Proposition~\ref{prop:cog-fresh-full}, we can find $b \in \mathcal{O}'$ such that $a \parallel b$ is an $\mathcal{O}'$-duo and \emph{a fortiori} an $\mathcal{O}$-duo.
+%    Take the automorphisms $\pi_{i_1}, \dots, \pi_{i_d}$ from Remark~\ref{rem:duo}, where $i_1, \dots, i_d$ enumerate $I$.
+%    Now define $v^{(0)} = v$ and \[
+%        v^{(k)} = v^{(k-1)} - \pi_{i_k} \cdot v^{(k-1)}.
+%    \]
+%    We can check inductively that for $k = 0, 1, \dots, d$, 
+%    with $\mathcal{O}^{(k)} = \{ c \mid v(c_\bullet) \neq 0, \{c_{i_1}, \dots, c_{i_k}, \dots, c_{i_d}\} \supseteq \{a_{i_1}, \dots, a_{i_k}\} \}$ we have
+%    \[
+%        v^{(k)} = \sum_{c \in \mathcal{O}^{(k)}} \sum_{J \subseteq \{i_1, \dots, i_k\}} (-1)^{|J|} v(c) \prod_{j \in J} \pi_j \cdot c.
+%    \]
+%    But $\{c_{i_1}, \dots, c_{i_d}\} \supseteq \{a_{i_1}, \dots, a_{i_d}\}$ means that $c = a$, so at the end $v^{(d)}$ is the desired $\mathcal{O}$-cog.
+%\end{proof}
+
+The result below strengthens Prop.~\ref{prop:cogs-are-balanced}, apart from the fact that the latter also implies that $\Ker_\FF{\cal O}$ is nontrivial.
 \begin{theorem} \label{thm:cogs-arise-everywhere}
-    Any $\Aut(\A)_{(S)}$-equivariant subspace $V$ of $\Lin_\EE \mathcal{O}$ contains $\Cog_{\EE(V)} \mathcal{O}$,
-    where $\mathcal{O} \subseteq \A^I$ is $S$-ordered and $\EE(V)$ is the subspace spanned by $\{ v(a) \mid v \in V, a \in \mathcal{O} \}$ of $\EE$.
+    Any nontrivial $\Aut(\A)_{(S)}$-equivariant subspace $V\subseteq \Lin_\FF \mathcal{O}$ contains $\Cog_\FF \mathcal{O}$.
 \end{theorem}
 \begin{proof}
     Pick any $v \in V$ and $a \in \mathcal{O}$;
     it is enough to show that $V$ contains $v(a) \cdot a \between b$ for some $\mathcal{O}$-duo $a \parallel b$.
-    Actually, write 
+    Define:
     \[
         S' = S \cup \{c_i \mid v(c) \neq 0, i \in I\} \setminus \{a_i \mid i \in I\} \supseteq S
     \]
@@ -353,23 +379,28 @@ The result below substantiates the slogan that cogs are found everywhere.
     Now define $v^{(0)} = v$ and \[
         v^{(k)} = v^{(k-1)} - \pi_{i_k} \cdot v^{(k-1)}.
     \]
-    We can check inductively that for $k = 0, 1, \dots, d$, 
-    with $\mathcal{O}^{(k)} = \{ c \mid v(c_\bullet) \neq 0, \{c_{i_1}, \dots, c_{i_k}, \dots, c_{i_d}\} \supseteq \{a_{i_1}, \dots, a_{i_k}\} \}$ we have
+    Then each $v^{(k)}$ is in $V$.
+   By induction on $k$, we have:
     \[
-        v^{(k)} = \sum_{c \in \mathcal{O}^{(k)}} \sum_{J \subseteq \{i_1, \dots, i_k\}} (-1)^{|J|} v(c) \prod_{j \in J} \pi_j \cdot c.
+        v^{(k)} = \sum_{c \in C_k} \sum_{J \subseteq \{i_1, \dots, i_k\}} (-1)^{|J|} v(c) \left(\prod_{j \in J} \pi_j \cdot c\right),
     \]
-    But $\{c_{i_1}, \dots, c_{i_d}\} \supseteq \{a_{i_1}, \dots, a_{i_d}\}$ means that $c = a$, so at the end $v^{(d)}$ is the desired $\mathcal{O}$-cog.
+    where
+    \[C_k = \{ c \mid v(c) \neq 0, \{c_{i_1}, \dots, c_{i_k}, \dots, c_{i_d}\} \supseteq \{a_{i_1}, \dots, a_{i_k}\} \}.
+    \]
+
+    But $\{c_{i_1}, \dots, c_{i_d}\} \supseteq \{a_{i_1}, \dots, a_{i_d}\}$ means that $c = a$, so $C_d=\{a\}$ and $v^{(d)}$ is the desired $\mathcal{O}$-cog.
 \end{proof}
 
 \begin{corollary}
     $\Cog_\FF \mathcal{O}$ has length $1$.
 \end{corollary}
 \begin{proof}
-    Let $V \subseteq \Cog_\FF \mathcal{O}$ be a non-zero $\Aut(\A)_{(S)}$-equivariant subspace.
-    Then $\{0\} \subsetneq \EE(V) \subseteq \EE = \FF$ so $\EE$ must be the entire field $\FF$, and by above $V$ must be $\Cog_\FF \mathcal{O}$ itself.
+%    Let $V \subseteq \Cog_\FF \mathcal{O}$ be a non-zero $\Aut(\A)_{(S)}$-equivariant subspace.
+ %   Then $\{0\} \subsetneq \EE(V) \subseteq \EE = \FF$ so $\EE$ must be the entire field $\FF$, and by above $V$ must be $\Cog_\FF \mathcal{O}$ itself.
+ By Theorem~\ref{thm:cogs-arise-everywhere}, $\Cog_\FF \mathcal{O}$ has no nontrivial $\Aut(\A)_{(S)}$-equivariant subspaces.
 \end{proof}
 
-In light of Propositions~\ref{prop:reduction-to-one-orbit},~\ref{prop:reduction-to-kernel} and~\ref{prop:cogs-are-balanced}, for the finite length property for an oligomorphic structure with free amalgamation over any field and support it is enough to prove that $\Ker_\FF \mathcal{O} \subseteq \Cog_\FF \mathcal{O}$. In words, we need to show that every balanced vector in $\Lin_\FF{\cal O}$ is a linear combination of $\cal O$-cogs. Before we show a proof of this, let us illustrate its key ideas on an example.
+In light of Propositions~\ref{prop:reduction-to-one-orbit},~\ref{prop:reduction-to-kernel} and~\ref{prop:cogs-are-balanced}, for the finite length property it is enough to prove that $\Ker_\FF \mathcal{O} \subseteq \Cog_\FF \mathcal{O}$. In words, we need to show that every balanced vector in $\Lin_\FF{\cal O}$ is a linear combination of $\cal O$-cogs. Before we show a proof of this, let us illustrate its key ideas on an example.
 
 \subsection{Spanning by cogs: an example}
 
@@ -386,7 +417,7 @@ Let $\A_0$ be the universal triangle-free (undirected) graph, and $\A$ its total
 }}\]
 This graph is drawn so that the total order of the atoms corresponds to the vertical order.
 
-Putting $S=\emptyset$ and $d=2$, let ${\cal O}$ be the ordered orbit of pairs of atoms which are connected by an edge. Consider the following vector:
+Putting $S=\emptyset$ and $|I|=2$, let ${\cal O}$ be the ordered orbit of pairs of atoms which are connected by an edge. Consider the following vector:
 \[
 v = ah - ae + ce - cg + dg - df + bf - bi + gi - gh \in \Lin_\FF{\cal O}.
 \]
@@ -414,7 +445,7 @@ It is easy to draw $\cal O$-cogs in this way. Assuming some additional atom $z>h
 \]
 We would like to present $v$ as a sum of such ${\cal O}$-cogs. Some additional atoms must be used for that, as no four atoms among the original nine form an $\cal O$-duo. It would be very convenient to have an atom $z$, larger than every atom in $v$, and connected by edges to every atom which is a source of a directed edge in $v$ (equivalently: which occurs as the first component of a pair in $v$). However, such a $z$ does not exist in the triangle-free graph $\A$. There are two problems:
 \begin{itemize}
-\item The atom $g$ occurs both as the first and as the second component in pairs present in $v_0$. In particular, $z$ as prescribed would create a triangle $dgz$ in $\A$, which is forbidden.
+\item The atom $g$ occurs both as the first and as the second component in pairs present in $v$. In particular, $z$ as prescribed would create a triangle $dgz$ in $\A$, which is forbidden.
 \item Atoms $a$ and $b$ both occur as first components in $v$, and they are connected by an edge in $\A$. As a result, an atom $z$ as prescribed would create a triangle $abz$ in $\A$.
 \end{itemize}
 We get rid of such {\em obstructions} by considering auxiliary atoms $g'>g$ and $b'>b$, with just enough edges to make $gh\parallel g'i$ and $bf\parallel b'i$ valid ${\cal O}$-duos. Specifically, we postulate edges $g'$---$h$, $g'$---$i$, $b'$---$f$ and $b'$---$i$ and no more. Such atoms exist by the homogeneity of $\A$. We then define:
