@@ -541,11 +541,12 @@ For a finite subset $T \subseteq \mathcal{O}$, a {\em location} in $T$ is a pair
 %in that case, we write $a_i \amalgindep b_j$).
 %Both relations are symmetric and ${?} \subseteq {!}$;
 %denote their images by ${?\overline{\sigma}} \subseteq {!\overline{\sigma}} \subseteq \overline{\sigma}$.
-Let $\EConf(T)$ and $\RConf(T)$ denote, respectively, the sets of those locations which take part in, respectively, equational and relational conflicts in $T$. For a vector $v$, we write $\EConf(v)$ and $\RConf(v)$ for $\EConf([v])$ and $\RConf([v])$.
+A location in a vector $v$ means a location in the set $[v]$.
+%Let $\EConf(T)$ and $\RConf(T)$ denote, respectively, the sets of those locations which take part in, respectively, equational and relational conflicts in $T$. For a vector $v$, we write $\EConf(v)$ and $\RConf(v)$ for $\EConf([v])$ and $\RConf([v])$.
 
-The prototypical examples of vectors which are free from any conflicts are cogs, or any subvectors of cogs.
+The prototypical examples of vectors which are free from any conflicts are cogs (or any subvectors of cogs). Note that the locations in a cog $a\between b$ are exactly those in $\{a,b\}$, and these have no conflicts if $a\parallel b$ is a duo.
 
-In the following proof we will often manipulate many duos and cogs at once, so we will benefit from a concise notation for them. To denote an $\cal O$-duo with a single letter we will annotate it as $a^\pm$; its constituent parts will then be denoted with $a^+$ and $a^-$, so that $a^\pm=a^+\parallel a^-$.
+In the following proof we will often manipulate many duos and cogs at once, so we will benefit from a concise notation for them. To denote an $\cal O$-duo with a single letter we will annotate it as $a^\pm$; its constituent parts will then be denoted with $a^+$ and $a^-$, so that $a^\pm=a^+\parallel a^-$. Sets of duos will be denoted with capital letters such as $A^\pm$, and sometimes we will slightly abuse this notation and write $A^\pm$ to mean $\bigcup_{a^\pm\in A^\pm}\{a^+,a^-\}$.
 
 \subsubsection{Conflict resolution lemmas}\ \\
 %
@@ -612,140 +613,147 @@ The following sister lemmas, relying on free amalgamation as distilled in Lemma~
     \[
         X = S \cup \sqrt{K \cup V} \setminus (Y \cup \{a\}).
     \]
-    Then $X, Y, \{a\}$ are pairwise disjoint, and $X$ contains $S \cup \sqrt{V_0}$.
+    Then $X, Y, \{a\}$ are pairwise disjoint, and $X$ contains $S \cup \sqrt{V_0}$. It also contains all atoms in $\rt{K}$ except $a$.
    Using Lemma~\ref{lem:free-fresh}, find some $\pi\in \Aut(\A)_{(X)}$ such that $\pi(a) \not\in X \cup Y \cup \{a\}$ and $\pi(a)$ is not related to any atom in $Y$. In $V\cup\pi(K)$ the conflicting location $(i,a)$ disappears and no new conflicts are created, so the conclusion follows from the inductive hypothesis.
 \end{proof}
 
-\subsubsection{Unobstructed vector}\label{sec:unobstructed}
+\subsubsection{Conflict-free vectors}\label{sec:unobstructed}
 % https://q.uiver.app/#q=WzAsMTUsWzAsMywiYl4rIl0sWzEsMywiYiJdLFswLDQsImJeLSJdLFswLDAsImFeKyJdLFsxLDEsImEiXSxbMCwxLCJhXi0iXSxbMywyLCJjIl0sWzQsMiwiXFxyaWdodHNxdWlnYXJyb3ciXSxbNSwzLCJiXisiXSxbNSw0LCJiXi0iXSxbNSwxLCJhXi0iXSxbNSwwLCJhXisiXSxbNiwxLCJhIl0sWzYsMywiYiJdLFs4LDIsImMiXSxbMCwxLCIiLDAseyJjb2xvdXIiOlswLDYwLDYwXX1dLFsyLDEsIiIsMix7ImNvbG91ciI6WzI0MCw2MCw2MF19XSxbMyw0LCIiLDIseyJjb2xvdXIiOlswLDYwLDYwXX1dLFs1LDQsIiIsMCx7ImNvbG91ciI6WzI0MCw2MCw2MF19XSxbMyw2LCIiLDAseyJjdXJ2ZSI6LTF9XSxbNSw2XSxbMCw2XSxbMiw2LCIiLDIseyJjdXJ2ZSI6MX1dLFsxMCwxNCwiIiwwLHsiY29sb3VyIjpbMjQwLDYwLDYwXX1dLFs4LDE0LCIiLDIseyJjb2xvdXIiOlswLDYwLDYwXX1dLFs4LDEzXSxbOSwxM10sWzExLDEyXSxbMTAsMTJdLFsxMSwxNCwiIiwxLHsiY3VydmUiOi0xLCJjb2xvdXIiOlswLDYwLDYwXX1dLFs5LDE0LCIiLDEseyJjdXJ2ZSI6MSwiY29sb3VyIjpbMjQwLDYwLDYwXX1dXQ==
-\[\begin{tikzcd}[cramped]
-	{a^+} &&&&& {a^+} \\
-	{a^-} & a &&&& {a^-} & a \\
-	&&& c & \rightsquigarrow &&&& c \\
-	{b^+} & b &&&& {b^+} & b \\
-	{b^-} &&&&& {b^-}
-	\arrow[draw={rgb,255:red,214;green,92;blue,92}, from=1-1, to=2-2]
-	\arrow[curve={height=-6pt}, from=1-1, to=3-4]
-	\arrow[from=1-6, to=2-7]
-	\arrow[color={rgb,255:red,214;green,92;blue,92}, curve={height=-6pt}, from=1-6, to=3-9]
-	\arrow[draw={rgb,255:red,92;green,92;blue,214}, from=2-1, to=2-2]
-	\arrow[from=2-1, to=3-4]
-	\arrow[from=2-6, to=2-7]
-	\arrow[color={rgb,255:red,92;green,92;blue,214}, from=2-6, to=3-9]
-	\arrow[from=4-1, to=3-4]
-	\arrow[draw={rgb,255:red,214;green,92;blue,92}, from=4-1, to=4-2]
-	\arrow[color={rgb,255:red,214;green,92;blue,92}, from=4-6, to=3-9]
-	\arrow[from=4-6, to=4-7]
-	\arrow[curve={height=6pt}, from=5-1, to=3-4]
-	\arrow[draw={rgb,255:red,92;green,92;blue,214}, from=5-1, to=4-2]
-	\arrow[color={rgb,255:red,92;green,92;blue,214}, curve={height=6pt}, from=5-6, to=3-9]
-	\arrow[from=5-6, to=4-7]
-\end{tikzcd}\]
+%\[\begin{tikzcd}[cramped]
+%	{a^+} &&&&& {a^+} \\
+%	{a^-} & a &&&& {a^-} & a \\
+%	&&& c & \rightsquigarrow &&&& c \\
+%	{b^+} & b &&&& {b^+} & b \\
+%	{b^-} &&&&& {b^-}
+%	\arrow[draw={rgb,255:red,214;green,92;blue,92}, from=1-1, to=2-2]
+%	\arrow[curve={height=-6pt}, from=1-1, to=3-4]
+%	\arrow[from=1-6, to=2-7]
+%	\arrow[color={rgb,255:red,214;green,92;blue,92}, curve={height=-6pt}, from=1-6, to=3-9]
+%	\arrow[draw={rgb,255:red,92;green,92;blue,214}, from=2-1, to=2-2]
+%	\arrow[from=2-1, to=3-4]
+%	\arrow[from=2-6, to=2-7]
+%	\arrow[color={rgb,255:red,92;green,92;blue,214}, from=2-6, to=3-9]
+%	\arrow[from=4-1, to=3-4]
+%	\arrow[draw={rgb,255:red,214;green,92;blue,92}, from=4-1, to=4-2]
+%	\arrow[color={rgb,255:red,214;green,92;blue,92}, from=4-6, to=3-9]
+%	\arrow[from=4-6, to=4-7]
+%	\arrow[curve={height=6pt}, from=5-1, to=3-4]
+%	\arrow[draw={rgb,255:red,92;green,92;blue,214}, from=5-1, to=4-2]
+%	\arrow[color={rgb,255:red,92;green,92;blue,214}, curve={height=6pt}, from=5-6, to=3-9]
+%	\arrow[from=5-6, to=4-7]
+%\end{tikzcd}\]
 \begin{proposition}\label{prop:!-free-decomposition}
-    Let $v \in \Ker_\EE \mathcal{O}$ and suppose that $!\overline{\vsup v} = \emptyset$.
-    Then we can write
+    If $v \in \Ker_\FF \mathcal{O}$ is free from conflicts, then it can be written as a linear combination of $\cal O$-cogs:
     \[
         v = \sum_{a^\pm \in A^\pm} \lambda_{a^\pm} \cdot a^+ \between a^-
     \]
-    with $!\overline{\vsup{v} \cup A^\pm} = \emptyset$ and $\lambda_{a^\pm} \in v(\mathcal{O})$.
+    with $\lambda_{a^\pm} \in \FF$, where moreover $\vsup{v} \cup A^\pm$ is free from conflicts.
 \end{proposition}
-
+\begin{proof}
 We proceed by induction on the dimension $|I|$, 
-noting that when $I = \emptyset$ we just have $v = v() \cdot () = v() \cdot ( \between )$ without any possible obstructions.
+noting that when $I = \emptyset$ we just have $v = \lambda \cdot () = \lambda \cdot ( \between )$.
 
-So suppose $I$ is non-empty; let $d \in I$ be the greatest. 
+So suppose $I$ is non-empty; let $d \in I$ be the greatest element. 
 Group the terms in $v$ by their greatest atom so that $v = v^1 + v^2 + \cdots + v^k$.
 We now induct on $k$.
-If $k < 2$, we are done: as $v_{-d} = 0$ we must have $v = 0$, so the empty sum will do.
+If $k =1$, we are done: as $v|^{-d} = 0$ we must have $v = 0$, so the empty sum will do.
 Otherwise \[
-    v = v^{d:a_d} + v^{d:b_d} + v'.
+    v = v^{d:a} + v^{d:b} + v'
 \]
+for some $a\neq b\in \A$. By Lemma~\ref{lem:balanced-projected-subvector}, $v^{d:a}|^{-d}$ is balanced, and it is obviously conflict-free, as it is a subvector of $v$.
 By the outer inductive hypothesis, we get \[
-    v^{d:a_d} = v^{d:a_d}_{-d} a_d = \sum_{A^\pm} (\lambda_{a^\pm} \cdot a^+ \between a^-)a_d
+    v^{d:a} = (v^{d:a}|^{-d}) a = \sum_{a^\pm\in A^\pm} (\lambda_{a^\pm} \cdot a^+ \between a^-)a
 \]
-where we only know $!\overline{\vsup{v^{d:a_d}_{-d}} \cup A^\pm} = \emptyset$ so that $!\overline{\vsup{v^{d:a_d}} \cup A^\pm a_d} = \emptyset$.
-But any $\pi \in \Aut(\A / S \cup \sqrt{\vsup{v^{d:a_d}}})$ satisfies 
+where $[v^{d:a}|^{-d}]\cup A^\pm$ is free from conflicts, which immediately implies that $[v^{d:a}]\cup A^\pm a$ is free from conflicts as well. 
+Note that if a $\pi \in \Aut(\A)_{(S)}$ fixes every atom in $v^{d:a}$ then
 \[
-    v^{d:a_d} = \pi(v^{d:a_d}) = \sum_{a^\pm \in A^\pm} \lambda_{a^\pm} \cdot \pi a^+ \between \pi a^-,
+    v^{d:a} = \pi(v^{d:a}) = \sum_{a^\pm \in A^\pm} \lambda_{a^\pm} \cdot \pi a^+ \between \pi a^-,
 \]
-so by \autoref{lem:!} we may assume without loss of generality that \[
-    !\overline{\vsup{v} \cup A^\pm a_d} = \emptyset.
-\]
-Similarly, we can write \[
-    v^{d:a_d} = \sum_{B^\pm} (\lambda_{b^\pm} \cdot b^+ \between b^-)b_d
-\]
-where, in turn, we may upgrade the assumption that $! \overline{\vsup{v^{d:b_d}} \cup B^\pm b_d} = \emptyset$ to \[
-    !\overline{\vsup{v} \cup A^\pm a_d \cup B^\pm b_d} = \emptyset.
-\]
+so by Lemma~\ref{lem:!} (putting $K=A^\pm a$, $V_0=[v^{d:a}]$ and $V=[v]$) we may assume without loss of generality that
+$[v]\cup A^\pm a$ is free from conflicts.
 
-The key is that we may now invent a new element $z$, on which we impose the following relations with $S \cup \sqrt{A^\pm a_d \cup B^\pm b_d} \subseteq \A$: 
+Similarly, we can write \[
+    v^{d:b} = \sum_{b^\pm\in B^\pm} (\lambda_{b^\pm} \cdot b^+ \between b^-)b
+\]
+and apply Lemma~\ref{lem:!} again (putting $K=B^\pm b$, $V_0=[v^{d:b}]$ and $V=[v]\cup A^\pm a$) to conclude that
+\[
+    \vsup{v} \cup A^\pm a \cup B^\pm b
+\]
+is free from conflicts.
+
+We now invent a new element $z$, on which we impose the following relations with $S \cup \sqrt{A^\pm a \cup B^\pm b} \subseteq \A$: 
 \begin{enumerate}
-    \item $a_d, b_d < z$, and $z < s$ if $a_d, b_d < s$ for some $s \in S$ (enough to let $s$ be the least such);
+    \item $a, b < z$, and $z < s$ iff $a, b < s$ for any $s \in S$;
     
     \item for any unary relation $P \in \mathcal{L}_0$:
     \[
-        P(z) \;:\Longleftrightarrow\; P(a_d) \iff P(b_d)
+        P(z) \;:\Longleftrightarrow\; P(a) \iff P(b)
     \]
-    --- recall that $a, b \in \mathcal{O}$;
     \item for any binary relation $R \in \mathcal{L}_0$ and $s \in S$, $a^\pm \in A^\pm$, $b^\pm \in B^\pm$, $i \in I \setminus \{d\}$:
     \begin{enumerate}
-        \item $R(z, s) \;:\Longleftrightarrow\; R(a_d, s) \iff R(b_d, s)$,
+        \item $R(z, s) \;:\Longleftrightarrow\; R(a, s) \iff R(b, s)$,
         % \item $R(s, z) \;:\Longleftrightarrow\; R(s, a_d) \iff R(s, b_d)$;
-        \item $R(z, a^\pm_i) \;:\Longleftrightarrow\; R(a_d, a^\pm_i)$,
-        \item $R(z, a_d) \;:\Longleftrightarrow\; \bot$,
-        \item $R(z, b^\pm_i) \;:\Longleftrightarrow\; R(b_d, b^\pm_i)$;
+        \item $R(z, a^\pm_i) \;:\Longleftrightarrow\; R(a, a^\pm_i)$,
+        \item $R(z, b^\pm_i) \;:\Longleftrightarrow\; R(b, b^\pm_i)$;
         % \item $R(c_i, z) \;:\Longleftrightarrow\; R(c_i, a_d) \iff R(c_i, b_d)$;
-        \item $R(z, b_d) \;:\Longleftrightarrow\; \bot$,
+        \item $R(z, a)$ and $R(z,b)$ are both false;
         % \item $R(a_d, z), R(b_d, z) \;:\Longleftrightarrow\; \bot$;
         \item and symmetrically for $R(-, z)$.
     \end{enumerate}
-    These are well-defined because $a^\pm a_d, b^\pm b_d \in \mathcal{O}$ and $i = j$ whenever $a^\pm_i = b^\pm_j$.
+    These are well-defined because $a^\pm a, b^\pm b \in \mathcal{O}$ and $i = j$ whenever $a^\pm_i = b^\pm_j$.
 \end{enumerate}
-To see that the $\mathcal{L}$-structure $S \cup \sqrt{A^\pm a_d \cup B^\pm b_d} \cup \{z\}$ still embeds into $\A$, 
+To see that the $\mathcal{L}$-structure $S \cup \sqrt{A^\pm a \cup B^\pm b} \cup \{z\}$ still embeds into $\A$, 
 suppose towards a contradiction that it contains a forbidden $\mathcal{L}_0$-substructure $F$.
 Then $F$ must contain $z$.
-Since any two elements in $F$ are necessarily related, we must have $a_d, b_d \not\in F$.
-Similarly, whenever $F$ contains $x_i$ where $x \in A^\pm \cup B^\pm, i \in I \setminus \{d\}$ it does not contain a distinct atom of the form $x'_i$.
+Since any two elements in $F$ are necessarily related, we must have $a, b \not\in F$.
+Similarly, whenever $F$ contains an atom $x_i$ for any $x\in A^\pm\cup B^\pm$, then it does not contain $y_i$ for any other $y\in A^\pm\cup B^\pm$.
 It follows that \[
-    s \mapsto s,\quad x_i \mapsto a_i,\quad z \mapsto a_d
+    s \mapsto s,\quad x_i \mapsto a^+_i\quad z \mapsto a
 \]
 defines an injective function $\phi : F \to \A_0$,
-which is furthermore an embedding (we only need to check this for pairs!) because $!\overline{A^\pm \cup B^\pm} = \emptyset$ and any $x_i, x'_{i'}$ for $i \neq i'$ are related.
-This is impossible --- therefore assume $z \in \A$.
+which is furthermore an embedding (we only need to check this for pairs!) because $A^\pm \cup B^\pm$ is conflict-free and any $x_i, y_{j}$ for $i \neq j$ are related.
+This is a contradiction. We may therefore assume that $z \in \A$.
 
-It is now routine to check that $a^+ a_d \parallel a^- z$ and $b^+ a_d \parallel b^- z$ are $\mathcal{O}$-dipoles for $a^\pm \in A^\pm, b^\pm \in B^\pm$
-and that $!\overline{A^+ a_d \cup A^- z \cup B^+ b_d \cup B^- z} = \emptyset$.
-By \autoref{lem:!} we may assume %since $!\overline{\vsup{v} \cup A^\pm a_d \cup B^\pm b_d}$ is empty
-that $!\overline{\vsup{v} \cup A^+ a_d \cup A^- z \cup B^+ b_d \cup B^- z} = \emptyset$. 
+It is now routine to check that $a^+ a \parallel a^- z$ and $b^+ b \parallel b^- z$ are $\mathcal{O}$-duos for all $a^\pm \in A^\pm, b^\pm \in B^\pm$,
+and that 
+\[
+A^+ a \cup A^- z \cup B^+ b \cup B^- z
+\]
+is free from conflicts.
+From Lemma~\ref{lem:!} we may assume %since $!\overline{\vsup{v} \cup A^\pm a_d \cup B^\pm b_d}$ is empty
+that 
+\[
+\vsup{v} \cup A^+ a \cup A^- z \cup B^+ b \cup B^- z
+\] 
+is also free from conflicts.
 (Alternatively, we could have explicitly ensured this when defining $z$).
-Then
+Then the vector:
 \begin{align*}
     v'' &= v
-    - \sum_{A^\pm} \lambda_{a^\pm} \cdot a^+ a_d \between a^- z 
-    - \sum_{B^\pm} \lambda_{b^\pm} \cdot b^+ b_d \between b^- z  \\
-    &= v^{d:a_d}_{-d} z + v^{d:b_d}_{-d} z + v',
+    - \sum_{a^\pm\in A^\pm} \lambda_{a^\pm} \cdot a^+ a \between a^- z 
+    - \sum_{b^\pm\in B^\pm} \lambda_{b^\pm} \cdot b^+ b \between b^- z  \\
+    &= v^{d:a}|^{-d} z + v^{d:b}|^{-d} z + v',
 \end{align*}
 when grouped into subvectors by the largest atom in each term, has at least one fewer component than $v$.
 By the inner inductive hypothesis, we may write
-we may write 
 \[
-    v'' = \sum_{C^\pm} \lambda_{c^\pm} \cdot c^+ \between c^-
+    v'' = \sum_{c^\pm\in C^\pm} \lambda_{c^\pm} \cdot c^+ \between c^-
 \]
-where $!\overline{\vsup{v''} \cup C^\pm} = \emptyset$.
-But $\overline{\vsup{v''}} \subseteq \overline{\vsup{v} \cup A^+ a_d \cup A^- z \cup B^+ b_d \cup B^- z}$, 
-so one last application of \autoref{lem:!} allows us to assume that
+where $\vsup{v''} \cup C^\pm$ is conflict-free, and one
+so one last application of Lemma~\ref{lem:!} allows us to assume that
 \[
-    !\overline{\vsup{v} \cup A^+ a_d \cup A^- z \cup B^+ b_d \cup B^- z \cup C^\pm} = \emptyset.
+    \vsup{v} \cup A^+ a \cup A^- z \cup B^+ b \cup B^- z \cup C^\pm
 \]
+is conflict-free as well.
 We conclude that
 \[
     v = 
-      \sum_{A^\pm} \lambda_{a^\pm} \cdot a^+ a_d \between a^- z 
-    + \sum_{B^\pm} \lambda_{b^\pm} \cdot b^+ b_d \between b^- z
-    + \sum_{C^\pm} \lambda_{c^\pm} \cdot c^+ \between c^-;
+      \sum_{a^\pm\in A^\pm} \lambda_{a^\pm} \cdot a^+ a \between a^- z 
+    + \sum_{b^\pm\in B^\pm} \lambda_{b^\pm} \cdot b^+ b \between b^- z
+    + \sum_{c^\pm\in C^\pm} \lambda_{c^\pm} \cdot c^+ \between c^-
 \]
-in other words, we have decomposed an unobstructed vector into an unobstructed family of cogs.
-
+is a decomposition of $v$ into a linear combination of $\cal O$-cogs as required.
+\end{proof}
 
 \subsubsection{Unambiguous vector}\label{sec:unambiguous}
 % https://q.uiver.app/#q=WzAsMTUsWzAsMSwiYSJdLFsyLDAsImIiXSxbMiwyLCJjIl0sWzEsMSwiYSciXSxbMSwzLCJkIl0sWzIsMywiZSJdLFsyLDQsImYiXSxbMywyLCJcXHJpZ2h0c3F1aWdhcnJvdyJdLFs0LDEsImEiXSxbNSwxLCJhJyJdLFs2LDAsImIiXSxbNiwyLCJjIl0sWzUsMywiZCJdLFs2LDMsImUiXSxbNiw0LCJmIl0sWzAsMSwiIiwyLHsiY29sb3VyIjpbMCw2MCw2MF19XSxbMCwyLCIiLDAseyJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzMsMV0sWzMsMl0sWzQsNSwiIiwwLHsiY29sb3VyIjpbMCw2MCw2MF19XSxbNCw2LCIiLDIseyJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzAsNF0sWzgsMTBdLFs5LDEwLCIiLDIseyJjb2xvdXIiOlswLDYwLDYwXX1dLFs5LDExLCIiLDAseyJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzgsMTJdLFsxMiwxMywiIiwyLHsiY29sb3VyIjpbMCw2MCw2MF19XSxbMTIsMTQsIiIsMix7ImNvbG91ciI6WzI0MCw2MCw2MF19XSxbOCwxMV1d
