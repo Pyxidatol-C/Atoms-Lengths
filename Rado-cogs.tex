@@ -257,7 +257,7 @@ In fact, cogs arise anywhere.
 We combine the free amalgamation in $\cal C_0$ and the generic order of $\A$ into the following lemma.
 \begin{lemma}\label{lem:free-fresh}
     Let $X, Y, \{z\} \subseteq \A$ be disjoint and finite.
-    Then there is ab automorphism $\tau \in \Aut(\A)$ such that
+    Then there is an automorphism $\tau \in \Aut(\A)$ such that
     \begin{enumerate}
         \item $\tau$ fixes every $x \in X$;
         \item $\tau(z)$ is unrelated to all $y \in Y$ and to $z$;
@@ -547,97 +547,76 @@ The prototypical examples of vectors which are free from any conflicts are cogs,
 
 In the following proof we will often manipulate many duos and cogs at once, so we will benefit from a concise notation for them. To denote an $\cal O$-duo with a single letter we will annotate it as $a^\pm$; its constituent parts will then be denoted with $a^+$ and $a^-$, so that $a^\pm=a^+\parallel a^-$.
 
-\paragraph{Two lemmas}
-Let $v \in \Ker_\EE \mathcal{O}$ and let $v^{i:a_i}$ be a subvector.
-In the cog decomposition results we are about to prove,
-we will work with the assumption that $V = \vsup{v}$ is unobstructed (resp., unambiguous);
-then so is $V' = \vsup{v^{i:a_i}} \subseteq \vsup{v}$.
-We will be able to write $v^{i:a_i} = \sum_{a^\pm \in A^\pm} (\lambda_{a^\pm} \cdot a^+ \between a^-) a_i$
-where the union of $V'$ and $K = A^\pm a_i = \{a^+ a_i, a^- a_i \mid a^\pm \in A^\pm\}$ is unobstructed (resp., unambiguous).
-But we want to make $V \cup K$ unobstructed (resp., unambiguous);
-we can do so by choosing $K$ more carefully.
-
+\subsubsection{Conflict resolution lemmas}\ \\
+%
+The following sister lemmas, relying on free amalgamation as distilled in Lemma~\ref{lem:free-fresh}, show how to merge conflict-free subsets of $\cal O$ in a way that avoids introducing new conflicts. This will be useful in Sections~\ref{sec:unobstructed} and~\ref{sec:unambiguous}.
+%
+%Let $v \in \Ker_\EE \mathcal{O}$ and let $v^{i:a_i}$ be a subvector.
+%In the cog decomposition results we are about to prove,
+%we will work with the assumption that $V = \vsup{v}$ is unobstructed (resp., unambiguous);
+%then so is $V' = \vsup{v^{i:a_i}} \subseteq \vsup{v}$.
+%We will be able to write $v^{i:a_i} = \sum_{a^\pm \in A^\pm} (\lambda_{a^\pm} \cdot a^+ \between a^-) a_i$
+%where the union of $V'$ and $K = A^\pm a_i = \{a^+ a_i, a^- a_i \mid a^\pm \in A^\pm\}$ is unobstructed (resp., unambiguous).
+%But we want to make $V \cup K$ unobstructed (resp., unambiguous);
+%we can do so by choosing $K$ more carefully.
+%
 % Here O is orbit of edges (a, b) with a < b, a ~ b.
 % The YELLOW family of edges, which contains the GREEN family, has no obstructions.
 % Nor does the union of GREEN and RED. 
 % However YELLOW and RED together has an ambiguity (2, b) ? (1, b).
 % Lemma-? removes ambiguities but still leaves an obstruction (2, \pi b) ! (2, d).
 % Lemma-! removes such obstructions.
-\begin{center}
-\begin{tikzpicture}[font=\sffamily, line cap=round, line join=round, >={Latex[length=3.6mm,width=2.4mm]}]
-\coordinate (a) at (0,0); \coordinate (b) at (3.25,0); \coordinate (d) at (7.25,0); \coordinate (c) at (5.55,2.35); \coordinate (pib) at (3.05,-1.5); \coordinate (taub) at (1.95,-3);
-\begin{scope}[on background layer]
-\draw[yellow!60, opacity=0.55, line width=40pt] (a) to[out=25,in=200] (c); \draw[green!55!black, opacity=0.28, line width=26pt] (a) to[out=25,in=200] (c);
-\draw[yellow!60, opacity=0.55, line width=40pt] (b) -- (d);
-\draw[magenta!65, opacity=0.30, line width=28pt] (a) -- (b);
-\draw[magenta!55, opacity=0.22, line width=30pt] (a) to[out=-55,in=170] (pib);
-\draw[magenta!45, opacity=0.14, line width=34pt] (a) to[out=-80,in=155] (taub);    
-\end{scope}
-\node (A) at (a) {$a$}; \node (B) at (b) {$b$}; \node (C) at (c) {$c$}; \node (D) at (d) {$d$}; \node[blue!70!black] (PIB) at (pib) {$\pi(b)$}; \node[blue!70!black] (TAUB) at (taub) {$\tau(b)$};
-\draw[->, line width=2.2pt] (A) to[out=25,in=200] (C);
-\draw[->, line width=2.2pt] (A) -- (B);
-\draw[->, line width=2.2pt] (B) -- (D);
-\draw[->, line width=2.4pt, blue!70!black] (A) to[out=-55,in=170] (PIB);
-\draw[->, line width=2.4pt, blue!70!black] (A) to[out=-80,in=155] (TAUB);
-\draw[->, line width=2.4pt, blue!70!black] (PIB) to[out=10,in=-140] (D);
-\end{tikzpicture}
-\end{center}
+%\begin{center}
+%\begin{tikzpicture}[font=\sffamily, line cap=round, line join=round, >={Latex[length=3.6mm,width=2.4mm]}]
+%\coordinate (a) at (0,0); \coordinate (b) at (3.25,0); \coordinate (d) at (7.25,0); \coordinate (c) at (5.55,2.35); \coordinate (pib) at (3.05,-1.5); \coordinate (taub) at (1.95,-3);
+%\begin{scope}[on background layer]
+%\draw[yellow!60, opacity=0.55, line width=40pt] (a) to[out=25,in=200] (c); \draw[green!55!black, opacity=0.28, line width=26pt] (a) to[out=25,in=200] (c);
+%\draw[yellow!60, opacity=0.55, line width=40pt] (b) -- (d);
+%\draw[magenta!65, opacity=0.30, line width=28pt] (a) -- (b);
+%\draw[magenta!55, opacity=0.22, line width=30pt] (a) to[out=-55,in=170] (pib);
+%\draw[magenta!45, opacity=0.14, line width=34pt] (a) to[out=-80,in=155] (taub);    
+%\end{scope}
+%\node (A) at (a) {$a$}; \node (B) at (b) {$b$}; \node (C) at (c) {$c$}; \node (D) at (d) {$d$}; \node[blue!70!black] (PIB) at (pib) {$\pi(b)$}; \node[blue!70!black] (TAUB) at (taub) {$\tau(b)$};
+%\draw[->, line width=2.2pt] (A) to[out=25,in=200] (C);
+%\draw[->, line width=2.2pt] (A) -- (B);
+%\draw[->, line width=2.2pt] (B) -- (D);
+%\draw[->, line width=2.4pt, blue!70!black] (A) to[out=-55,in=170] (PIB);
+%\draw[->, line width=2.4pt, blue!70!black] (A) to[out=-80,in=155] (TAUB);
+%\draw[->, line width=2.4pt, blue!70!black] (PIB) to[out=10,in=-140] (D);
+%\end{tikzpicture}
+%\end{center}
 
 \begin{lemma}\label{lem:?}
-    Let $K, V', V$ be finite subsets of $\mathcal{O}$ such that $\overline{V'} \subseteq \overline{V}$ and ${?}\overline{V' \cup K} = \emptyset = {?}\overline{V}$.
-    Then there exists $\pi \in \Aut(\A / S \cup \sqrt{V'})$ that satisfies
-    \[
-        ?\overline{V \cup \pi(K)} = \emptyset.
-    \]
+    Let $K, V_0, V$ be finite subsets of $\mathcal{O}$ such that $V_0 \subseteq V$ and both $V_0\cup K$ and $V$ are free from equational conflicts. Then there exists a $\pi\in\Aut(\A)$ that fixes all atoms in $S$ and in $\rt{V_0}$, and such that $V \cup \pi(K)$ is free from equational conflicts.
 \end{lemma}
 \begin{proof}
-    Fix $V', V$ and induct on the size of $? \overline{V \cup K}$.
-    
-    Let $(i, a_i) ? (j, b_j)$; without loss of generality we may assume $(j, b_j) \in \overline{V}$ and $(i, a_i) \in \overline{K} \setminus \overline{V'}$.
-    Since $?\overline{V'} = \emptyset$, we see that $a_i \not\in \sqrt{V'}$; also $a_i \not\in S$, as $\mathcal{O}$ is $S$-ordered.
+    Fix $V_0, V$ and induct on the number of equationally conflicting locations in $V \cup K$. Take any such locations $(i,a)$ and $(j,a)$; without loss of generality $(i,a)$ is a location in $K$ and $(j,a)$ a location in $V$. Since there are no equational conflicts in $V_0\cup K$ or in $V$, we see that $a \not\in \sqrt{V_0}$; also $a\not\in S$, as $\mathcal{O}$ is $S$-ordered.
     Put 
     \[
-        X = S \cup \sqrt{K \cup V} \setminus \{a_i\}
+        X = S \cup \sqrt{K \cup V} \setminus \{a\}
     \]
-    and note that $X$ contains $S \cup \sqrt{V'}$.
-    Use Lemma~\ref{lem:free-fresh} to obtain an automorphism $\pi \in \Aut(\A / X)$ so that $\pi(a_i) \not\in X \cup \{a_i\}$.    
-    Now it is straightforward to check that
-    \[
-        {?}\overline{V \cup \pi(K)} \subseteq {?}\overline{V \cup K} \setminus \{(i, a_i)\}.
-    \]
-    Because ${?}\overline{V' \cup \pi(K)} = {?}\overline{\pi(V') \cup \pi(K)} = \pi(\emptyset) = \emptyset$ still,
-    the inductive hypothesis gives us some $\pi' \in \Aut(\A / S \cup \sqrt{V'})$ such that $?\overline{V \cup \pi' \pi(K)} = \emptyset$.
+    and note that $X$ contains $S \cup \sqrt{V_0}$.
+    Use Lemma~\ref{lem:free-fresh} (putting $z=a$ and $Y=\emptyset$) to obtain an automorphism $\pi \in \Aut(\A)_{(X)}$ such that $\pi(a) \not\in X \cup \{a\}$. In the set $V\cup\pi(K)$, the conflicting location $(i,a)$ disappears and no new equational conflicts are created, so the number of equationally conflicting locations drops compared to $V\cup K$.
+    Because $V_0 \cup \pi(K)$ is still conflict-free,
+    the inductive hypothesis gives us some $\pi' \in \Aut(\A)_{(S \cup \sqrt{V_0})}$ such that $V \cup \pi' \pi(K)$ is free from equational conflicts.
 \end{proof}
 
 \begin{lemma}\label{lem:!}
-    Let $K, V', V$ be finite subsets of $\mathcal{O}$ such that $\overline{V'} \subseteq \overline{V}$ and $!\overline{V' \cup K} = \emptyset = {!}\overline{V} \supseteq {!}\overline{V'}$.
-    Then
-    \[
-        !\overline{V \cup \pi(K)} = \emptyset
-    \]
-    for some $\pi \in \Aut(\A / S \cup \sqrt{V'})$.
+    Let $K, V_0, V$ be finite subsets of $\mathcal{O}$ such that $V_0 \subseteq V$ and both $V_0\cup K$ and $V$ are free from relational conflicts. Then there exists a $\pi\in\Aut(\A)$ that fixes all atoms in $S$ and in $\rt{V_0}$, and such that $V \cup \pi(K)$ is free from relational conflicts.
 \end{lemma}
 \begin{proof}
-    By \autoref{lem:?} we may assume that $?\overline{V \cup K} = \emptyset$ already.
-    As before, fix $V', V$ and proceed by induction on the size of $!\overline{V \cup K}$.
+    By \autoref{lem:?} we may assume that $V \cup K$ is free from {\em equational} conflicts.  As before, fix $V_0, V$ and proceed by induction on the number of relationally conflicting locations in $V \cup K$.
     
-    Let $(i, a_i) ! (j, b_j)$; without loss of generality we may assume $(j, b_j) \in \overline{V}$ and $(i, a_i) \in \overline{K}$.
-    Now $(i, a_i) \not\in \overline{V'}$, so $a_i \not\in \sqrt{V'}$;
-    further, whenever $(i, a_i) ! (k, c_k)$ we observe that $c_k \not\in S \cup \{a_i\} \cup \sqrt{K \cup V'}$.
-    Let $Y$ consist of all such $c_k$ and put
+    Let $(i, a)$ and $(j, b)$ be in a relational conflict; without loss of generality $(i, a)$ is a location in $K$ and $(j, b)$ in $V$. This is not an equational conflict, so $a\neq b$ (but possibly $i=j$). Since there are no conflicts in $V_0\cup K$ or in $V$, we see that $a\not\in \sqrt{V}$ and $b\not\in\sqrt{V_0\cup K}$. Also, $a,b\not\in S$.
+    Let $Y$ consist of all the atoms $b$ that are in a relational conflict with $(i,a)$ in $V\cup K$; we have just shown that $Y$ does not contain $a$ and is disjoint with $S\cup\rt{V_0\cup K}$. Put:
     \[
-        X = S \cup \sqrt{K \cup V} \setminus (Y \cup \{a_i\}).
+        X = S \cup \sqrt{K \cup V} \setminus (Y \cup \{a\}).
     \]
-    Then $X, Y, \{a_i\}$ are pairwise disjoint, and we see $X$ contains $S \cup \sqrt{V'}$ as well as $\sqrt{K} \setminus \{a_i\}$.
-    With Lemma~\ref{lem:free-fresh}, we may find some $\tau \in \Aut(\A / S \cup \sqrt{V'})$ such that $\tau(a_i) \not\in X \cup Y \cup \{a_i\}$ and $\tau \amalgindep Y$. 
-    Again, we can check that
-    \[
-        {!}\overline{V \cup \tau(K)} \subseteq {!}\overline{V \cup K} \setminus (i, a_i)
-    \]
-    so the conclusion follows straightforwardly from the inductive hypothesis.
+    Then $X, Y, \{a\}$ are pairwise disjoint. % and $X$ contains $S \cup \sqrt{V_0}$ as well as $\sqrt{K} \setminus \{a\}$.
+   Using Lemma~\ref{lem:free-fresh}, find some $\pi\in \Aut(\A)_{(X)}$ such that $\pi(a) \not\in X \cup Y \cup \{a\}$ and $\pi(a)$ is not related to any atom in $Y$. In $V\cup\pi(K)$ the conflicting location $(i,a)$ disappears and no new conflicts are created, so the conclusion follows from the inductive hypothesis.
 \end{proof}
 
-\subsubsection{Unobstructed vector}
+\subsubsection{Unobstructed vector}\label{sec:unobstructed}
 % https://q.uiver.app/#q=WzAsMTUsWzAsMywiYl4rIl0sWzEsMywiYiJdLFswLDQsImJeLSJdLFswLDAsImFeKyJdLFsxLDEsImEiXSxbMCwxLCJhXi0iXSxbMywyLCJjIl0sWzQsMiwiXFxyaWdodHNxdWlnYXJyb3ciXSxbNSwzLCJiXisiXSxbNSw0LCJiXi0iXSxbNSwxLCJhXi0iXSxbNSwwLCJhXisiXSxbNiwxLCJhIl0sWzYsMywiYiJdLFs4LDIsImMiXSxbMCwxLCIiLDAseyJjb2xvdXIiOlswLDYwLDYwXX1dLFsyLDEsIiIsMix7ImNvbG91ciI6WzI0MCw2MCw2MF19XSxbMyw0LCIiLDIseyJjb2xvdXIiOlswLDYwLDYwXX1dLFs1LDQsIiIsMCx7ImNvbG91ciI6WzI0MCw2MCw2MF19XSxbMyw2LCIiLDAseyJjdXJ2ZSI6LTF9XSxbNSw2XSxbMCw2XSxbMiw2LCIiLDIseyJjdXJ2ZSI6MX1dLFsxMCwxNCwiIiwwLHsiY29sb3VyIjpbMjQwLDYwLDYwXX1dLFs4LDE0LCIiLDIseyJjb2xvdXIiOlswLDYwLDYwXX1dLFs4LDEzXSxbOSwxM10sWzExLDEyXSxbMTAsMTJdLFsxMSwxNCwiIiwxLHsiY3VydmUiOi0xLCJjb2xvdXIiOlswLDYwLDYwXX1dLFs5LDE0LCIiLDEseyJjdXJ2ZSI6MSwiY29sb3VyIjpbMjQwLDYwLDYwXX1dXQ==
 \[\begin{tikzcd}[cramped]
 	{a^+} &&&&& {a^+} \\
@@ -768,7 +747,7 @@ We conclude that
 in other words, we have decomposed an unobstructed vector into an unobstructed family of cogs.
 
 
-\subsubsection{Unambiguous vector}
+\subsubsection{Unambiguous vector}\label{sec:unambiguous}
 % https://q.uiver.app/#q=WzAsMTUsWzAsMSwiYSJdLFsyLDAsImIiXSxbMiwyLCJjIl0sWzEsMSwiYSciXSxbMSwzLCJkIl0sWzIsMywiZSJdLFsyLDQsImYiXSxbMywyLCJcXHJpZ2h0c3F1aWdhcnJvdyJdLFs0LDEsImEiXSxbNSwxLCJhJyJdLFs2LDAsImIiXSxbNiwyLCJjIl0sWzUsMywiZCJdLFs2LDMsImUiXSxbNiw0LCJmIl0sWzAsMSwiIiwyLHsiY29sb3VyIjpbMCw2MCw2MF19XSxbMCwyLCIiLDAseyJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzMsMV0sWzMsMl0sWzQsNSwiIiwwLHsiY29sb3VyIjpbMCw2MCw2MF19XSxbNCw2LCIiLDIseyJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzAsNF0sWzgsMTBdLFs5LDEwLCIiLDIseyJjb2xvdXIiOlswLDYwLDYwXX1dLFs5LDExLCIiLDAseyJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzgsMTJdLFsxMiwxMywiIiwyLHsiY29sb3VyIjpbMCw2MCw2MF19XSxbMTIsMTQsIiIsMix7ImNvbG91ciI6WzI0MCw2MCw2MF19XSxbOCwxMV1d
 \[\begin{tikzcd}[cramped]
 	&& b &&&& b \\
