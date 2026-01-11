@@ -660,7 +660,7 @@ If $k =1$, we are done: as $v|^{-d} = 0$ we must have $v = 0$, so the empty sum 
 Otherwise \[
     v = v^{d:a} + v^{d:b} + v'
 \]
-for some $a\neq b\in \A$. By Lemma~\ref{lem:balanced-projected-subvector}, $v^{d:a}|^{-d}$ is balanced, and it is obviously conflict-free, as it is a subvector of $v$.
+for some $a\neq b\in \A$. By Lemma~\ref{lem:balanced-projected-subvector}, $v^{d:a}|^{-d}$ is balanced, and it is conflict-free, as every location in it is also a location in $v$.
 By the outer inductive hypothesis, we get \[
     v^{d:a} = (v^{d:a}|^{-d}) a = \sum_{a^\pm\in A^\pm} (\lambda_{a^\pm} \cdot a^+ \between a^-)a
 \]
@@ -756,151 +756,149 @@ We conclude that
 is a decomposition of $v$ into a linear combination of $\cal O$-cogs as required.
 \end{proof}
 
-\subsubsection{Unambiguous vector}\label{sec:unambiguous}
+\subsubsection{Vectors without equational conflicts}\label{sec:unambiguous}
 % https://q.uiver.app/#q=WzAsMTUsWzAsMSwiYSJdLFsyLDAsImIiXSxbMiwyLCJjIl0sWzEsMSwiYSciXSxbMSwzLCJkIl0sWzIsMywiZSJdLFsyLDQsImYiXSxbMywyLCJcXHJpZ2h0c3F1aWdhcnJvdyJdLFs0LDEsImEiXSxbNSwxLCJhJyJdLFs2LDAsImIiXSxbNiwyLCJjIl0sWzUsMywiZCJdLFs2LDMsImUiXSxbNiw0LCJmIl0sWzAsMSwiIiwyLHsiY29sb3VyIjpbMCw2MCw2MF19XSxbMCwyLCIiLDAseyJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzMsMV0sWzMsMl0sWzQsNSwiIiwwLHsiY29sb3VyIjpbMCw2MCw2MF19XSxbNCw2LCIiLDIseyJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzAsNF0sWzgsMTBdLFs5LDEwLCIiLDIseyJjb2xvdXIiOlswLDYwLDYwXX1dLFs5LDExLCIiLDAseyJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzgsMTJdLFsxMiwxMywiIiwyLHsiY29sb3VyIjpbMCw2MCw2MF19XSxbMTIsMTQsIiIsMix7ImNvbG91ciI6WzI0MCw2MCw2MF19XSxbOCwxMV1d
-\[\begin{tikzcd}[cramped]
-	&& b &&&& b \\
-	a & {a'} &&& a & {a'} \\
-	&& c & \rightsquigarrow &&& c \\
-	& d & e &&& d & e \\
-	&& f &&&& f
-	\arrow[color={rgb,255:red,214;green,92;blue,92}, from=2-1, to=1-3]
-	\arrow[color={rgb,255:red,92;green,92;blue,214}, from=2-1, to=3-3]
-	\arrow[from=2-1, to=4-2]
-	\arrow[from=2-2, to=1-3]
-	\arrow[from=2-2, to=3-3]
-	\arrow[from=2-5, to=1-7]
-	\arrow[from=2-5, to=3-7]
-	\arrow[from=2-5, to=4-6]
-	\arrow[color={rgb,255:red,214;green,92;blue,92}, from=2-6, to=1-7]
-	\arrow[color={rgb,255:red,92;green,92;blue,214}, from=2-6, to=3-7]
-	\arrow[color={rgb,255:red,214;green,92;blue,92}, from=4-2, to=4-3]
-	\arrow[color={rgb,255:red,92;green,92;blue,214}, from=4-2, to=5-3]
-	\arrow[color={rgb,255:red,214;green,92;blue,92}, from=4-6, to=4-7]
-	\arrow[color={rgb,255:red,92;green,92;blue,214}, from=4-6, to=5-7]
-\end{tikzcd}\]
+%\[\begin{tikzcd}[cramped]
+%	&& b &&&& b \\
+%	a & {a'} &&& a & {a'} \\
+%	&& c & \rightsquigarrow &&& c \\
+%	& d & e &&& d & e \\
+%	&& f &&&& f
+%	\arrow[color={rgb,255:red,214;green,92;blue,92}, from=2-1, to=1-3]
+%	\arrow[color={rgb,255:red,92;green,92;blue,214}, from=2-1, to=3-3]
+%	\arrow[from=2-1, to=4-2]
+%	\arrow[from=2-2, to=1-3]
+%	\arrow[from=2-2, to=3-3]
+%	\arrow[from=2-5, to=1-7]
+%	\arrow[from=2-5, to=3-7]
+%	\arrow[from=2-5, to=4-6]
+%	\arrow[color={rgb,255:red,214;green,92;blue,92}, from=2-6, to=1-7]
+%	\arrow[color={rgb,255:red,92;green,92;blue,214}, from=2-6, to=3-7]
+%	\arrow[color={rgb,255:red,214;green,92;blue,92}, from=4-2, to=4-3]
+%	\arrow[color={rgb,255:red,92;green,92;blue,214}, from=4-2, to=5-3]
+%	\arrow[color={rgb,255:red,214;green,92;blue,92}, from=4-6, to=4-7]
+%	\arrow[color={rgb,255:red,92;green,92;blue,214}, from=4-6, to=5-7]
+%\end{tikzcd}\]
 \begin{proposition}\label{prop:?-free-decomposition}
-    Let $v \in \Ker_\EE \mathcal{O}$ and suppose that $?\overline{\vsup v} = \emptyset$.
-    Then we can write
+     If $v \in \Ker_\FF \mathcal{O}$ has no equational conflicts, then it can be written as a linear combination of $\cal O$-cogs:
     \[
         v = \sum_{a^\pm \in A^\pm} \lambda_{a^\pm} \cdot a^+ \between a^-
     \]
-    with $?\overline{\vsup{v} \cup A^\pm} = \emptyset$ and $\lambda_{a^\pm} \in v(\mathcal{O})$.
+    with $\lambda_{a^\pm} \in \FF$, where moreover $\vsup{v} \cup A^\pm$ has no equational conflicts.
 \end{proposition}
-We proceed again by induction, first on the dimension $|I|$ then on the cardinality of $! \overline{\vsup{v}}$.
+\begin{proof}
+We proceed again by induction, first on $|I|$ then on number of relational conflicts in $v$.
 The outer base case $I = \emptyset$ is trivial 
---- we have $v = v() \cdot ( \between )$, and no ambiguities may arise
---- whilst the inner base case is just \autoref{prop:!-free-decomposition}.
+--- we have $v = \lambda \cdot ( \between )$, and no conflicts arise
+--- and the inner base case is just Prop.~\ref{prop:!-free-decomposition}.
 
-So suppose that $!\overline{\vsup{v}}$ contains some $(i, a_i)$.
-Since $\overline{\vsup{v^{i:a_i}_{-i}}} \subseteq \overline{\vsup{v^{i:a_i}}} \subseteq \overline{\vsup{v}}$, we know that $v^{i:a_i}_{-i}$ is unambiguous.
-Applying the outer inductive hypothesis, we may write
+Suppose that a location $(i, a)$ is part of a relational conflict in $v$.
+Since every location in $v^{i:a}|^{-i}$ is also a location in $v$, we know that $v^{i:a}|^{-i}$ has no equational conflicts, and by Lemma~\ref{lem:balanced-projected-subvector} it is balanced.
+By the outer inductive hypothesis, we get:
 \[
-    v^{i:a_i} = v^{i:a_i}_{-i} a_i = \sum_{A^\pm} (\lambda_{a^\pm} \cdot a^+ \between a^-) a_i
+    v^{i:a} = (v^{i:a}|^{-i}) a = \sum_{a^\pm\in A^\pm} (\lambda_{a^\pm} \cdot a^+ \between a^-) a
 \]
-where $\emptyset = ?\overline{(\vsup{v^{i:a_i}_{-i}} \cup A^\pm) a_i} = ?\overline{\vsup{v^{i:a_i}} \cup A^\pm a_i}$.
-Moreover, we may assume by \autoref{lem:?} that \[
-    ?\overline{\vsup{v} \cup A^\pm a_i} = \emptyset.
-\]
-Now we can show that whenever $(j, b_j) ! (i, a_i)$ in $\overline{\vsup{v}}$ we have $b_j \not\in \sqrt{A^\pm a_i}$.
-Already $b_j = a_i$ would imply $j = i$ as $?\overline{\vsup{v}} = 0$, which is impossible.
-So suppose to the contrary that $b_j = a^\pm_k$ for some $a^\pm \in A^\pm$ and $k \in I \setminus \{i\}$.
-By the assumption above, we must have $j = k$;
-this is a contradiction: note that $a^\pm a_i \in \mathcal{O}$.
+where $[v^{i:a}|^{-i}]\cup A^\pm$ has no equational conflicts, which immediately implies that $[v^{i:a}]\cup A^\pm a$ is free from equational conflicts as well. 
+By Lemma~\ref{lem:?} (putting $K=A^\pm a$, $V_0=[v^{i:a}]$ and $V=[v]$) we may assume that
+$[v]\cup A^\pm a$ has no equational conflicts.
 
-Put $Y = \{b_j \mid (j, b_j) \in \overline{\vsup{v}}, (j, b_j) ! (i, a_i)\}$.
-It follows that $X = S \cup \sqrt{\vsup{v} \cup A^\pm} \setminus Y \setminus \{a_i\}$ contains $S \cup \sqrt{A^\pm}$ and that $X, Y, \{a_i\}$ are pairwise disjoint.
-Using Lemma~\ref{lem:free-fresh}, we may find $\tau \in \Aut(\A / X)$ such that $\tau(a_i) \not\in X \cup Y \cup \{a_i\}$, is greater than $a_i$, and is not related to any of $Y \cup \{a_i\}$.
-Then, given any $a^\pm \in A^\pm$, we can straightforwardly check that $a^+ a_i \parallel a^- \tau(a_i)$ is an $\mathcal{O}$-dipole, 
-that $?\overline{\vsup{v} \cup A^+ a_i \cup A^- \tau(a_i)} = \emptyset$,
-and that
+Take any location $(j,b)$ which is a in a relational conflict with $(a,i)$ in $v$. Then $b\not\in\rt{A^\pm a}$. To see this, note that $b=a$ would imply $j=i$ (since $v$ has no equational conflicts), but that would mean no conflict. On the other hand $b = a^+_k$ for some $a^+ \in A^\pm$ and $k \in I \setminus \{i\}$ (the case of $a^-$ is identical) then $j=k$, but this is not a conflict either, since $a^+a\in\cal O$ and $a=(a^+a)_i$.
+
+   Let $Y$ consist of all the atoms $b$ that are in a relational conflict with $(i,a)$ in $V$. We have shown that
+   \[
+X = S \cup \sqrt{\vsup{v} \cup A^\pm} \setminus (Y \cup \{a\})   
+\]
+contains $S \cup \sqrt{A^\pm}$ and that $X, Y, \{a\}$ are pairwise disjoint.
+Use Lemma~\ref{lem:free-fresh} (putting $z=a$) to find $\tau \in \Aut(\A)_{(X)}$ such that $\tau(a) \not\in X \cup Y \cup \{a\}$, is greater than $a$, and is not related to any of $Y \cup \{a\}$. Denote $a'=\tau(a)$.
+Then, for any $a^\pm \in A^\pm$, it is easy to check that $a^+ a \parallel a^- a'$ is an $\mathcal{O}$-duo. Moreover, 
+$\vsup{v} \cup A^+ a \cup A^- a'$
+has no equational conflicts, and the vector
 \begin{align*}
-    v - \sum_{A^\pm} \lambda_{a^\pm} \cdot a^+ a_i \between a^- \tau(a_i)
-    &= v -  v^{i:a_i} + v^{i:\tau(a_i)}\\
-    &= v^{i : a_i \mapsto \tau(a_i)}    
+    v' = v - \sum_{a^\pm\in A^\pm} \lambda_{a^\pm} \cdot a^+ a \between a^- a'
+    &= v -  v^{i:a} + v^{i:a'}%\\
+  %  &= v^{i : a_i \mapsto \tau(a_i)}    
 \end{align*}
-satisfies ${!}\overline{\vsup{v^{i : a_i \mapsto \tau(a_i)}}} \subseteq {!}\overline{\vsup{v}} \setminus \{(i, a_i)\}$.
+has strictly fewer relationally conflicting locations than $v$, as the location $(i,a)$ disappears from it.
 The inner inductive hypothesis tells us 
-that $v^{i : a_i \mapsto \tau(a_i)} = \sum_{B^\pm} \lambda_{B^\pm} \cdot b^+ \between b^-$ 
-with \[
-    ?\overline{\vsup{v^{i : a_i \mapsto \tau(a_i)}} \cup B^\pm} = \emptyset.
-\]
-But $\overline{\vsup{v^{i : a_i \mapsto \tau(a_i)}}} \subseteq \overline{\vsup{v} \subseteq A^+ a_i \cup A^- \tau(a_i)}$,
-so \autoref{lem:?} allows us to assume that \[
-    ? \overline{\vsup{v} \cup A^+ a_i \cup A^- \tau(a_i) \cup B^\pm} = \emptyset.
-\]
-We conclude that 
+that 
 \[
-    v =\sum_{A^\pm} \lambda_{a^\pm} \cdot a^+ a_i \between a^- \tau(a_i) + \sum_{B^\pm} \lambda_{b^\pm} \cdot b^+ \between b^-
+v' = \sum_{b^\pm\in B^\pm} \lambda_{B^\pm} \cdot b^+ \between b^-
 \]
---- in other words, we have decomposed an unambiguous vector into an unambiguous family of cogs.
+with $\vsup{v'} \cup B^\pm$ free from equational conflicts.
 
-\subsubsection{General vector}
+Since $\vsup{v'} \subseteq \vsup{v} \cup A^+ a \cup A^- a'$, Lemma~\ref{lem:?} allows us to assume that 
+\[
+    \vsup{v} \cup A^+ a \cup A^-a' \cup B^\pm
+\]
+is also free from equational conflicts. We conclude that 
+\[
+    v =\sum_{a^\pm\in A^\pm} \lambda_{a^\pm} \cdot a^+ a \between a^-a'+ \sum_{b^\pm\in B^\pm} \lambda_{b^\pm} \cdot b^+ \between b^-
+\]
+as required.
+\end{proof}
+
+\subsubsection{Arbitrary vectors}
 % https://q.uiver.app/#q=WzAsMTMsWzAsMSwiXFxkb3RzIl0sWzEsMiwiYSJdLFswLDMsIlxcZG90cyJdLFszLDAsImIiXSxbMyw0LCJjIl0sWzIsMiwiYSciXSxbNCwyLCJcXHJpZ2h0c3F1aWdhcnJvdyJdLFs1LDEsIlxcY2RvdHMiXSxbNSwzLCJcXGNkb3RzIl0sWzYsMiwiYSJdLFs4LDAsImIiXSxbOCw0LCJjIl0sWzcsMiwiYSciXSxbMiwxLCIiLDIseyJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzEsMywiIiwyLHsiY29sb3VyIjpbMCw2MCw2MF19XSxbMSw0LCIiLDIseyJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzUsM10sWzUsNF0sWzAsMSwiIiwwLHsiY29sb3VyIjpbMCw2MCw2MF19XSxbNyw5LCIiLDIseyJjb2xvdXIiOlswLDYwLDYwXX1dLFs4LDksIiIsMCx7ImNvbG91ciI6WzI0MCw2MCw2MF19XSxbOSwxMF0sWzksMTFdLFsxMiwxMCwiIiwyLHsiY29sb3VyIjpbMCw2MCw2MF19XSxbMTIsMTEsIiIsMSx7ImNvbG91ciI6WzI0MCw2MCw2MF19XV0=
-\[\begin{tikzcd}[cramped]
-	&&& b &&&&& b \\
-	\dots &&&&& \cdots \\
-	& a & {a'} && \rightsquigarrow && a & {a'} \\
-	\dots &&&&& \cdots \\
-	&&& c &&&&& c
-	\arrow[color={rgb,255:red,214;green,92;blue,92}, from=2-1, to=3-2]
-	\arrow[color={rgb,255:red,214;green,92;blue,92}, from=2-6, to=3-7]
-	\arrow[color={rgb,255:red,214;green,92;blue,92}, from=3-2, to=1-4]
-	\arrow[color={rgb,255:red,92;green,92;blue,214}, from=3-2, to=5-4]
-	\arrow[from=3-3, to=1-4]
-	\arrow[from=3-3, to=5-4]
-	\arrow[from=3-7, to=1-9]
-	\arrow[from=3-7, to=5-9]
-	\arrow[color={rgb,255:red,214;green,92;blue,92}, from=3-8, to=1-9]
-	\arrow[color={rgb,255:red,92;green,92;blue,214}, from=3-8, to=5-9]
-	\arrow[color={rgb,255:red,92;green,92;blue,214}, from=4-1, to=3-2]
-	\arrow[color={rgb,255:red,92;green,92;blue,214}, from=4-6, to=3-7]
-\end{tikzcd}\]
+%\[\begin{tikzcd}[cramped]
+%	&&& b &&&&& b \\
+%	\dots &&&&& \cdots \\
+%	& a & {a'} && \rightsquigarrow && a & {a'} \\
+%	\dots &&&&& \cdots \\
+%	&&& c &&&&& c
+%	\arrow[color={rgb,255:red,214;green,92;blue,92}, from=2-1, to=3-2]
+%	\arrow[color={rgb,255:red,214;green,92;blue,92}, from=2-6, to=3-7]
+%	\arrow[color={rgb,255:red,214;green,92;blue,92}, from=3-2, to=1-4]
+%	\arrow[color={rgb,255:red,92;green,92;blue,214}, from=3-2, to=5-4]
+%	\arrow[from=3-3, to=1-4]
+%	\arrow[from=3-3, to=5-4]
+%	\arrow[from=3-7, to=1-9]
+%	\arrow[from=3-7, to=5-9]
+%	\arrow[color={rgb,255:red,214;green,92;blue,92}, from=3-8, to=1-9]
+%	\arrow[color={rgb,255:red,92;green,92;blue,214}, from=3-8, to=5-9]
+%	\arrow[color={rgb,255:red,92;green,92;blue,214}, from=4-1, to=3-2]
+%	\arrow[color={rgb,255:red,92;green,92;blue,214}, from=4-6, to=3-7]
+%\end{tikzcd}\]
 \begin{theorem}\label{thm:cog-span-generally}
-    Let $v \in \Ker_\EE \mathcal{O}$.
-    Then we can write
+    Any $v \in \Ker_\FF \mathcal{O}$ can be written as
     \[
         v = \sum_{a^\pm \in A^\pm} \lambda_{a^\pm} \cdot a^+ \between a^-
     \]
-    with $\lambda_{a^\pm} \in v(\mathcal{O})$.
+    with $\lambda_{a^\pm} \in \FF$.
 \end{theorem}
-This is an easier induction on $|I|$ then on $?\overline{\vsup{v}}$.
-If $I = \emptyset$, the decomposition is trivial; 
-if $v$ is unambiguous already, the decomposition comes from \autoref{prop:?-free-decomposition}.
+\begin{proof}
+This is similar to the proof of Prop.~\ref{prop:?-free-decomposition}, but simpler.
+We proceed again by induction, first on $|I|$ then on number of equational conflicts in $v$.
+The outer base case $I = \emptyset$ is trivial as before, and 
+and the inner base case is Prop.~\ref{prop:?-free-decomposition}.
 
-Now suppose $?\overline{\vsup{v}}$ contains some $(i, a_i)$,
-and use the outer inductive hypothesis to write 
+Suppose that a location $(i, a)$ is part of an equational conflict in $v$. By the outer inductive hypothesis, we get:
 \[
-    v^{i:a_i}
-    = v^{i:a_i}_{-i} a_i 
-    = \sum_{A^\pm} (\lambda_{a^\pm} \cdot a^+ \between a^-) a_i.
+    v^{i:a}
+    = (v^{i:a}|^{-i}) a 
+    = \sum_{a^\pm\in A^\pm} (\lambda_{a^\pm} \cdot a^+ \between a^-) a.
 \]
-Then neither $S$ nor $\sqrt{A^\pm}$ contains $a_i$,
-so $X = S \cup \sqrt{\vsup{v} \cup A^\pm} \setminus \{a_i\}$ contains $S \cup \sqrt{A^\pm}$.
-Using Lemma~\ref{lem:free-fresh}, we may find some $\pi \in \Aut(\A / X)$ such that 
-$\pi(a_i) \not\in X$, 
-$\pi(a_i) > a_i$, 
-$\pi(a_i) \amalgindep a_i$. % This 'stationary independence relation' symbol means: 
-% \pi(a_i) and a_i are freely amalgamated in A0 over the empty set (and thus over anything).
-We can check that
-\begin{enumerate}
-    \item 
-    $a^+ a_i \parallel a^- \pi(a_i)$ is an $\mathcal{O}$-dipole, given any $a^\pm \in A^\pm$;
+Then neither $S$ nor $\sqrt{A^\pm}$ contains $a$,
+so 
+\[
+X = S \cup \sqrt{\vsup{v} \cup A^\pm} \setminus \{a\}
+\]
+contains $S \cup \sqrt{A^\pm}$.
+Using Lemma~\ref{lem:free-fresh} (putting $z=a$ and $Y=\emptyset$), find $\pi \in \Aut(\A)_{(X)}$ such that $\pi(a)$ is not in $X$, is greater than $a$, and is otherwise unrelated to $a$. Denote $a'=\tau(a)$. 
 
-    \item 
-    $v - \sum_{A^\pm} \lambda_{a^\pm} \cdot a^+ a_i \between a^- \pi(a_i) = v - v^{i:a_i} + v^{i:\pi(a_i)} = v^{i:a_i \mapsto \pi(a_i)}$
-    satisfies 
-    \[
-        {?}\overline{\vsup{v^{i:a_i \mapsto \pi(a_i)}}} \subseteq {?}\overline{\vsup{v}} \setminus \{(i, a_i)\}.
-    \]
-\end{enumerate}
-It follows from the inner inductive hypothesis that
+Then, for any $a^\pm \in A^\pm$, it is easy to check that $a^+ a \parallel a^- a'$ is an $\mathcal{O}$-duo. Moreover, 
+the vector
 \begin{align*}
-    v 
-    &= \sum_{a^\pm \in A^\pm} \lambda_{a^\pm} \cdot a^+ a_i \between a^- \pi(a_i) + v^{i:a_i \mapsto \pi(a_i)} \\
-    &= \sum_{a^\pm \in A^\pm} \lambda_{a^\pm} \cdot a^+ a_i \between a^- \pi(a_i) + \sum_{b^\pm \in B^\pm} \lambda_{b^\pm} \cdot b^+ \between b^-.
+    v' = v - \sum_{a^\pm\in A^\pm} \lambda_{a^\pm} \cdot a^+ a \between a^- a'
+    &= v -  v^{i:a} + v^{i:a'} 
 \end{align*}
-
+has strictly fewer equationally conflicting locations than $v$, as the location $(i,a)$ disappears from it.
+%
+It follows from the inner inductive hypothesis that we can write
+\[
+    v' = \sum_{b^\pm \in B^\pm} \lambda_{b^\pm} \cdot b^+ \between b^-,
+\]
+which gives a decomposition of $v$ as required.
+\end{proof}
 
 
 \section{All those equivariant subspaces}
