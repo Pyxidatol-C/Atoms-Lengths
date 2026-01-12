@@ -379,14 +379,15 @@ where edges with coefficient $+1$ are marked as blue, and with $-1$ as red. The 
 
 Note that $v$ is balanced. Graphically, this means that every atom has as many outgoing red edges as outgoing blue edges, and as many incoming red edges as incoming blue edges.
 
-It is easy to draw $\cal O$-cogs in this way. Assuming some additional atom $z>h$ which is connected by edges to $a$ and $g$, the $\cal O$-cog $ah\between gz$ can be drawn as:
+It is easy to draw $\cal O$-cogs in this way. Assuming some additional atom $z>h$ which is connected by edges to $a$ and $g$ but not to $h$, the $\cal O$-cog $ah\between gz$ can be drawn as:
 \[\rotatebox{5}{
 \xymatrix{
 \rotatebox{-5}{$h$} & \rotatebox{-5}{$z$} \\
 \rotatebox{-5}{$a$}\ar@[blue][u]\ar@[red][ur] & \rotatebox{-5}{$g$}\ar@[red][ul]\ar@[blue][u]  
 }}
 \]
-We would like to present $v$ as a sum of such ${\cal O}$-cogs. Some additional atoms must be used for that, as no four atoms among the original nine form an $\cal O$-duo. It would be very convenient to have an atom $z$, larger than every atom in $v$, and connected by edges to every atom which is a source of a directed edge in $v$ (equivalently: which occurs as the first component of a pair in $v$). However, such a $z$ does not exist in the triangle-free graph $\A$. There are two problems:
+We would like to present $v$ as a sum of such ${\cal O}$-cogs. Some additional atoms must be used for that, as no four atoms among the original nine form an $\cal O$-duo \textcolor{red}{--- this is not the case for the ordered atoms; see the proof of \cite[Claim~4.7]{BFKM24}.}
+It would be very convenient to have an atom $z$, larger than every atom in $v$, and connected by edges to every atom which is a source of a directed edge in $v$ (equivalently: which occurs as the first component of a pair in $v$). However, such a $z$ does not exist in the triangle-free graph $\A$. There are two problems:
 \begin{itemize}
 \item The atom $g$ occurs both as the first and as the second component in pairs present in $v$. In particular, $z$ as prescribed would create a triangle $dgz$ in $\A$, which is forbidden.
 \item Atoms $a$ and $b$ both occur as first components in $v$, and they are connected by an edge in $\A$. As a result, an atom $z$ as prescribed would create a triangle $abz$ in $\A$.
@@ -440,7 +441,7 @@ For any $i \in I$ and $a \in \A$, we write
 \[
     \mathcal{O}^{i:a} = \{b \in \mathcal{O} \mid b_i = a\};
 \]
-this is an $\Aut(\A)_{S a}$-orbit, and its projection $\mathcal{O}^{i:a} |^{-i}$ is $Sa$-ordered.
+this is an $\Aut(\A)_{(S a)}$-orbit, and its projection $\mathcal{O}^{i:a} |^{-i}$ is $Sa$-ordered.
 For a vector $v \in \Lin_\FF \mathcal{O}$, by
 \[
     v^{i:a} \in \Lin_\FF \mathcal{O}^{i:a}
@@ -448,7 +449,7 @@ For a vector $v \in \Lin_\FF \mathcal{O}$, by
 we mean the subvector of $v$ consisting of all pairs in $\FF \times \mathcal{O}^{i:a}$.
 
 \begin{lemma}\label{lem:balanced-projected-subvector}
-    Let $v \in \Lin_\EE \mathcal{O}$ be balanced. 
+    Let $v \in \Lin_\FF \mathcal{O}$ be balanced. 
     Then any projected subvector $v^{i:a}|^{-i} \in \Lin_\FF \mathcal{O}^{i:a}|^{-i}$ is also balanced.
 \end{lemma}
 \begin{proof}
@@ -456,7 +457,7 @@ we mean the subvector of $v$ consisting of all pairs in $\FF \times \mathcal{O}^
     By assumption we have \[
         0 = v|^{-j} = \sum_a v^{i:a}|^{-j} %\in \Lin_\FF \A^{I \setminus \{j\}};
     \]
-    (the above sum is finite, as it runs over those atoms $a$ that occur as the $i$-th entries in $\vsup{v}$).
+    \textcolor{red}{(the above sum is finite, as it runs over those atoms $a$ that occur as the $i$-th entries in $\vsup{v}$).}
     By looking at $i$-th entries, we see that each $v^{i:a}|^{-j}$ must be the zero vector.
     Hence so is $v^{i:a}|^{-j}|^{-i} = v^{i:a}|^{-i}|^{-j}$,
     which shows that $v^{i:a}|^{-i}$ is balanced.
@@ -465,7 +466,7 @@ we mean the subvector of $v$ consisting of all pairs in $\FF \times \mathcal{O}^
 For a finite subset $T \subseteq \mathcal{O}$, a {\em location} in $T$ is a pair $(i,a)\in I\times\A$ such that $a=c_i$ for some $c\in T$. Note that for any fixed $i,j\in I$, for all $c\in\cal O$ the atoms $c_i$ and $c_j$ are related in the same way in $\A$. We say that two locations $(i,a)$ and $(j,b)$ in $T$ are in:
 \begin{itemize}
 \item an {\em equational conflict}, if $i\neq j$ but $a=b$, and in
-\item a {\em relational conflict}, if $a$ and $b$ are related in $A_0$ but not in the same way as $c_i$ and $c_j$ for $c\in\cal O$.
+\item a {\em relational conflict}, if $a$ and $b$ are related in $\A_0$ but not in the same way as $c_i$ and $c_j$ for $c\in\cal O$.
 \end{itemize}
 %write
 %\[
@@ -652,7 +653,7 @@ Since any two elements in $F$ are necessarily related, we must have $a, b \not\i
 Similarly, whenever $F$ contains an atom $x_i$ for any $x\in A^\pm\cup B^\pm$, then it does not contain $y_i$ for any other $y\in A^\pm\cup B^\pm$.
 It follows that, fixing any $a^\pm\in A^\pm$,
 \[
-    s \mapsto s,\quad x_i \mapsto a^+_i\quad z \mapsto a
+    s \mapsto s,\quad x_i \mapsto a^+_i,\quad z \mapsto a
 \]
 defines an injective function $\phi : F \to \A_0$,
 which is furthermore an embedding (we only need to check this for pairs!) because $A^\pm \cup B^\pm$ is conflict-free and any $x_i, y_{j}$ for $i \neq j$ are related.
