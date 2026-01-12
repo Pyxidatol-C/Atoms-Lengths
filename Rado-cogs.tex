@@ -94,15 +94,8 @@ Conversely, we call $\A$ the \emph{generically ordered expansion} of $\A_0$ or s
     Continuing from Example~\ref{ex:free-amalg-graphs}, we obtain generically ordered expansions of the Rado graph and of the $K_n$-free Henson graphs.
     The ordered Rado graph was studied in \cite{BPP15}.
     In the examples below, we will work with the ordered triangle-free Henson graph.
-    (We do not know an easy, explicit description of the structure, even without the order.)
+    \textcolor{red}{(Unfortunately we do not know an easy, explicit description of the structure, even without the order.)}
 \end{example}
-
-\textcolor{red}{Introduce Lachlan's classification of homogeneous graphs. 
-The Rado graph and the Henson $K_n$-free graphs are directly treated; 
-the disjoint union of cliques interpret in the ordered atoms.}
-
-\textcolor{red}{Introduce tournaments and the Henson digraphs. 
-Mention that the universal homogeneous tournament is a reduct of the ordered Rado graph \cite[Section~2.2]{BPP15}.}
 
 \section{How the cogs turn: proof of Theorem~\ref{thm:ordered-free-amalg-has-finite-length}}
 
@@ -111,13 +104,11 @@ Mention that the universal homogeneous tournament is a reduct of the ordered Rad
 
 To start with, let us view $\A^d$ as $\A^{\{1, \dots, d\}}$. More generally, it will be convenient to consider $\A^I$ for a finite totally ordered indexing set $I \subseteq \Q$.
 Fix a finite support $S \subseteq \A$.
-%As $\A$ is oligomorphic, the tuples in $\A^I$ split into finitely many $\Aut(\A)_{(S)}$-equivariant orbits.
-%Let $\mathcal{O} = \Aut(\A)_{(S)} \cdot o$ be one such orbit.
-We shall say than an $a\in\A^I$ is {\em ($S$-)ordered} if $a_i \not\in S$ for all $i$, and if $a_i < a_j$ whenever $i < j$. Then the orbit
-$\mathcal{O} = \Aut(\A)_{(S)} \cdot a$ only contains $S$-ordered elements, and we will call the orbit $S$-ordered as well.
-If $a$ is not $S$-ordered, by removing the entries that repeat or come from $S$ and reordering the rest, we can always find an $\Aut(\A)_{(S)}$-equivariant bijection from $\cal O$ to an $S$-ordered orbit. (Here and in the following, $\Aut(\A)_{(S)}$ is the group of those automorphisms of $A$ that fix every element of $S$.)
+We shall say that a tuple $a\in\A^I$ is {\em ($S$-)ordered} if $a_i \not\in S$ for all $i$, and $a_i < a_j$ whenever $i < j$. Then the orbit
+$\mathcal{O} = \Aut(\A)_{(S)} \cdot a$ only contains $S$-ordered tuples, and we will call the orbit $S$-ordered as well.
+If $a$ is not $S$-ordered, by removing the entries that repeat or come from $S$ and reordering the rest, we can always find an $\Aut(\A)_{(S)}$-equivariant bijection from $\cal O$ to an $S$-ordered orbit. (Here and in the following, $\Aut(\A)_{(S)}$ is the group of those automorphisms of $\A$ that fix every element of $S$.)
 
-To study length of orbit-finitely spanned spaces, we may focus on a single ordered orbit at a time:
+To study the lengths of orbit-finitely spanned spaces, we may focus on a single ordered orbit at a time:
 \begin{proposition}\label{prop:reduction-to-one-orbit}
     The following are equivalent:
     \begin{enumerate}
@@ -127,20 +118,19 @@ To study length of orbit-finitely spanned spaces, we may focus on a single order
 \end{proposition}
 \begin{proof}
     Since $\A$ is oligomorphic, given any $d$ and $S$, 
-    we know that $\A^d$ is in an $\Aut(\A)_{(S)}$-equivariant bijection with a finite disjoint union of $S$-ordered orbits $\cal O_i$.
-    So the $S$-length of $\A^d$ equals \[
-        \len(\Lin_\FF(\biguplus_i \mathcal{O}_i)) = \len(\bigoplus_i \Lin_\FF \mathcal{O}_i) = \sum_i \len(\Lin_\FF \mathcal{O}_i).
-        \qedhere
+    we know that $\A^d$ is in an $\Aut(\A)_{(S)}$-equivariant bijection with a finite disjoint union $\biguplus_i \cal O_i$ of $S$-ordered orbits.
+    Hence the \textcolor{red}{$S$-length} of $\Lin_\FF \A^d$ equals \[
+        \len(\Lin_\FF(\biguplus_i \mathcal{O}_i)) = \len(\bigoplus_i \Lin_\FF \mathcal{O}_i) = \sum_i \len(\Lin_\FF \mathcal{O}_i),
     \]
+    which is finite if and only if each summands is finite.
 \end{proof}
 
 So fix an ordered orbit $\mathcal{O} = \Aut(\A)_{(S)} \cdot o \subseteq \A^I$.
 From here we take an inductive approach.
 By $o |^J$ we mean the restriction of $o : I \to \A$ to $J \subseteq I$;
-we will often write $o |^{-i}$ instead of $o |^{ I \setminus \{i\} }$.
+particularly, we will often write $o |^{-i}$ instead of $o |^{ I \setminus \{i\} }$.
 The image $\mathcal{O}|^J$ of $\mathcal{O}$ under this projection agrees with $\Aut(\A)_{(S)} \cdot o |^J$ and is still ordered.
 
-%To anticipate more general statements later, Let $\EE$ be a finite-dimensional $\FF$-vector space --- for instance, $\FF$ itself.
 The function $(-)|^J$ lifts to a linear $\Aut(\A)_{(S)}$-equivariant map
 \begin{align*}
     (-)|^J : \Lin_\FF \mathcal{O} &\to \Lin_\FF \mathcal{O}|^J.
@@ -160,9 +150,9 @@ of $\Lin_\FF \mathcal{O}$.
     \end{enumerate}
 \end{proposition}
 \begin{proof}
-    That 1) implies 2) is clear as $\Ker_\FF \mathcal{O} \subseteq \Lin_\FF \mathcal{O}$.
+    That (1) implies (2) is clear as $\Ker_\FF \mathcal{O} \subseteq \Lin_\FF \mathcal{O}$.
     
-    To prove the other implication, assume 2) and let $\mathcal{O} \subseteq \A^I$.
+    To prove the other implication, assume (2) and let $\mathcal{O} \subseteq \A^I$.
     We proceed by induction on $|I|$.
     If $I = \emptyset$, then $\mathcal{O}$ must be the entire singleton $\A^\emptyset = \{ () \}$; 
     as $\Lin_\FF \mathcal{O}$ has no nontrivial subspaces (let alone finitely supported ones), it has length $1$.
@@ -180,8 +170,8 @@ of $\Lin_\FF \mathcal{O}$.
     which shows that $\len( \Lin_\FF \mathcal{O} )$ is finite from the assumptions.
 \end{proof}
 
-We call a vector from the projection kernel \emph{balanced}.
-As we will see in the next subsection, cogs are a prominent example.
+Following the terminology used in \cite[Equation (4)]{BFKM24}, we shall call a vector from the projection kernel \emph{balanced}.
+As we will see shortly, there exist balanced vectors other than $0$.
 
 \subsection{Cogs}
 
@@ -190,71 +180,59 @@ From now on we will use a lightweight notation for combining tuples of atoms: fo
 \begin{definition}\label{def:duo}
     Let $\mathcal{O} \subseteq \A^I$ be an $S$-ordered orbit. 
     An \emph{$\mathcal{O}$-duo} $a \parallel b$ consists of tuples $a, b \in \cal O$ such that:
- %   $2|I|$ atoms in $\A\setminus S$ such that: with the following $\mathcal{L}$-structure on $\{a_i, b_i \mid i \in I\} \cup S$:
     \begin{enumerate}
         \item 
         $a_i < b_i$ for all $i\in I$;
         
         \item 
         $b_i < a_j$ for all $i<j\in I$;
-        
-       % \item
-       % $a_{i_1} < b_{i_1} < a_{i_2} < b_{i_2} < \dots < a_{i_d} < b_{i_d}$ where $I$ consists of the indices $i_1 < i_2 < \dots < i_d$;
-        
-        %\item 
-        %$a_i , b_i < s$ if and only if $o_i < s$;       
 
         \item 
         for any binary $R$ in $\mathcal{L}_0$ (except for $=$) and $i,j\in I$:
-        \[R(a_i,b_j) \iff R(b_i,a_j) \iff R(a_i,a_j).\] 
+        \begin{align*}
+            R(a_i,b_j) \iff R(&a_i,a_j) \\
+            &\Updownarrow \text{ as $a, b \in \mathcal{O}$} \\
+            R(b_i,a_j) \iff R(&b_i,b_j).
+        \end{align*}
      \end{enumerate}
 \end{definition}
 \begin{remark}\label{rem:duo}
 Conditions (1) and (2) specify a total order on the $2|I|$ atoms in a duo.
-Moreover, thanks to irreflexivity \textcolor{red}{TODO: explain somewhere that we assume this!}, each $a_i$ is unrelated to its counterpart $b_i$.
+Moreover, thanks to irreflexivity \textcolor{red}{TODO: explain somewhere that we assume this!}, each $a_i$ is \textcolor{red}{unrelated} to its counterpart $b_i$.
 Further, given any $J \subseteq I$, the combined tuple $a|^{I\setminus J} b|^J$ satisfies the same relations as $a$ (and $b$), so it lies in $\mathcal{O}$. In particular, taking $J=\{i\}$, there is an automorphism $\pi_i$ that sends $a_i$ to $b_i$ and fixes all the other elements of $a$, $b$ and $S$.
 \end{remark}
 
 \begin{definition}
-    Given a %$\lambda \in \EE$ and an 
-    $\mathcal{O}$-duo $a \parallel b$, the corresponding \emph{$\mathcal{O}$-cog} %with coefficient $\lambda$ 
-    is the vector
+    Given a $\mathcal{O}$-duo $a \parallel b$, the corresponding \emph{$\mathcal{O}$-cog} is the vector
     \[
-        %\lambda \cdot 
         a \between b =
-        \sum_{J \subseteq I} (-1)^{|J|} %\lambda \cdot  
+        \sum_{J \subseteq I} (-1)^{|J|}
         (a|^{I \setminus J} b|^{J})
     \]
     in $\Lin_\FF \mathcal{O}$.
-    The linear span of all $\mathcal{O}$-cogs 
-    %with coefficients from $\EE$ 
-    is denoted by $\Cog_\FF \mathcal{O}$.
+    The linear span of all $\mathcal{O}$-cogs is denoted by $\Cog_\FF \mathcal{O}$.
 \end{definition}
-%As remarked above, given any two $\mathcal{O}$-duos there is some $\pi \in \Aut(\A)_{(S)}$ such that $\pi \cdot (a \parallel b) = a' \parallel b'$ and thus $\pi \cdot (a \between b) = a' \between b'$.
 Note that, for a fixed $S$-ordered orbit $\cal O$, all $\mathcal{O}$-duos (hence all $\cal O$-cogs) are in the same $\Aut(\A)_{(S)}$-equivariant orbit.
-As a result, $\Cog_\FF \mathcal{O}$ is an $\Aut(\A)_{(S)}$-equivariant subspace of $\Lin_\FF \mathcal{O}$ and it is generated by %cogs based on a single duo.
-a single cog.
-
-\begin{proposition}[Cog calculus]
-    \textcolor{red}{$$a x \between b y = (a \between b) x - (a \between b) y$$}
-\end{proposition}
+As a result, $\Cog_\FF \mathcal{O}$ is an $\Aut(\A)_{(S)}$-equivariant subspace of $\Lin_\FF \mathcal{O}$ and it is generated by 
+any single cog.
 
 \begin{proposition}\label{prop:cogs-are-balanced}
     $\Cog_\FF \mathcal{O}\subseteq \Ker_\FF \mathcal{O}$.
 \end{proposition}
 \begin{proof}
-   % \textcolor{red}{TODO: rewrite using the cog calculus.}
     Let $\mathcal{O} \subseteq \A^I$, let $a\parallel b$ be an $\mathcal{O}$-duo, and take any $i \in I$.
     The subsets of $I$ come in pairs of $J$ and $J \cup \{i\}$, where $J\subseteq I \setminus \{i\}$.
     The two tuples $a|^{I\setminus J} b|^{J}$ and $a|^{I \setminus (J \cup \{i\})}b|^{J \cup \{i\}}$ are present in 
-    %$\lambda\cdot 
     $a\between b$ with the opposite coefficients, and they differ only on the $i$-th entry.
-    Therefore they cancel out under $(-)|^{-i}$, hence %$( \lambda \cdot 
-    $(a \between b )|^{-i} = 0$.
+    Therefore they cancel out under $(-)|^{-i}$; hence $(a \between b )|^{-i} = 0$.
 \end{proof}
 
-In fact, cogs arise anywhere.
-We combine the free amalgamation in $\cal C_0$ and the generic order of $\A$ into the following lemma.
+So far, we have not shown that $\cal O$-cogs even exist.
+Let us rectify this by showing that they can be found almost everywhere.
+
+
+\subsection{Finding cogs}
+We begin with a technical lemma, which combines the free amalgamation in $\cal C_0$ and the generic order of $\A$.
 \begin{lemma}\label{lem:free-fresh}
     Let $X, Y, \{z\} \subseteq \A$ be disjoint and finite.
     Then there is an automorphism $\tau \in \Aut(\A)$ such that
@@ -266,15 +244,15 @@ We combine the free amalgamation in $\cal C_0$ and the generic order of $\A$ int
 \end{lemma}
 \begin{proof}
     Form the free amalgam of structures in ${\cal C}_0$:
-% https://q.uiver.app/#q=WzAsNCxbMCwxLCJYIl0sWzEsMiwiWCBcXGN1cCBcXHt6XFx9Il0sWzEsMCwiWCBcXGN1cCBZIFxcY3VwIFxce3pcXH0iXSxbMiwxLCJYIFxcY3VwIFkgXFxjdXAgXFx7eiwgeidcXH0iXSxbMCwxLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFswLDIsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzEsMywieCBcXGluIFggXFxtYXBzdG8geCwgeiBcXG1hcHN0byB6JyIsMSx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn0sImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsyLDMsIlxcc3Vic2V0ZXEiLDEseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
-\[\begin{tikzcd}[cramped]
+% https://q.uiver.app/#q=WzAsNCxbMCwxLCJYIl0sWzEsMiwiWCBcXGN1cCBcXHt6XFx9Il0sWzEsMCwiWCBcXGN1cCBZIFxcY3VwIFxce3pcXH0iXSxbMiwxLCJYIFxcY3VwIFkgXFxjdXAgXFx7eiwgeidcXH0iXSxbMCwxXSxbMCwyXSxbMSwzLCJ4IFxcaW4gWCBcXG1hcHN0byB4LFxcIHogXFxtYXBzdG8geiciLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMiwzLCJcXHN1YnNldGVxIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV1d
+\[\begin{tikzcd}
 	& {X \cup Y \cup \{z\}} \\
 	X && {X \cup Y \cup \{z, z'\}} \\
 	& {X \cup \{z\}}
-	\arrow["\subseteq"{description}, dashed, hook, from=1-2, to=2-3]
-	\arrow[hook, from=2-1, to=1-2]
-	\arrow[hook, from=2-1, to=3-2]
-	\arrow["{x \in X \mapsto x, z \mapsto z'}"{description}, dashed, hook, from=3-2, to=2-3]
+	\arrow["\subseteq"{description}, dotted, from=1-2, to=2-3]
+	\arrow[from=2-1, to=1-2]
+	\arrow[from=2-1, to=3-2]
+	\arrow["{x \in X \mapsto x,\ z \mapsto z'}"{description}, dotted, from=3-2, to=2-3]
 \end{tikzcd}\]
     so that no element of $Y \cup \{z\}$ is related to $z'$.
     To make $X \cup Y \cup \{z, z'\}$ an $\mathcal{L}$-structure, 
@@ -283,7 +261,7 @@ We combine the free amalgamation in $\cal C_0$ and the generic order of $\A$ int
     By homogeneity, $X \cup Y \cup \{z, z'\}$ embeds into $\A$ via some $f$ which is the identity on $X \cup Y \cup \{z\}$;
     again by homogeneity, we may extend the embedding \[ 
         x \in X \mapsto x, \quad z \mapsto f(z')
-    \] to some automorphism $\tau$ which makes 1), 2), and 3) true.
+    \] to some automorphism $\tau$ that satisfies (1), (2), and (3).
 \end{proof}
 
 \begin{lemma}\label{lem:cog-fresh-single}
@@ -291,19 +269,19 @@ We combine the free amalgamation in $\cal C_0$ and the generic order of $\A$ int
     Given $z \in S$, 
     \begin{itemize}
         \item write $S' = S \setminus \{z\}$;
-        \item let $j \not\in I$ be such that ${\cal O'}=\Aut(\A)_{(S')} \cdot az \subseteq \A^{I \cup \{j\}}$ is $S'$-ordered;
+        \item let $j \not\in I$ be such that $a z \in \A^{I \cup \{j\}}$ --- thus ${\cal O'}=\Aut(\A)_{(S')} \cdot az \subseteq \A^{I \cup \{j\}}$ --- is $S'$-ordered;
         \item let $X \subseteq \A$ be any finite set containing $\{a_i, b_i \mid i \in I\} \cup S'$ but not $z$.
  %       \item let $Y \subseteq \A$ be any finite set disjoint from $X \cup \{z\}$;
     \end{itemize}
-    Denote $z'=\tau(z)$, where $\tau \in \Aut(\A)_{(X)}$ is afforded by Lemma~\ref{lem:free-fresh} (putting $Y=\emptyset$). Then $az \parallel bz'$ is an $\mathcal{O}'$-duo.
+    Denote $z'=\tau(z)$, where $\tau \in \Aut(\A)_{(X)}$ is afforded by Lemma~\ref{lem:free-fresh} (putting $Y=\emptyset$ \textcolor{red}{--- later we use it with bigger $Y$'s}). Then $az \parallel bz'$ is an $\mathcal{O}'$-duo.
 \end{lemma}
 \begin{proof}
-    First, notice that $bz'\in {\cal O}'$ and that we have the required order relations with $z$ and $z'$. The remaining condition (3) of Def.~\ref{def:duo}, for any $R$ in $\mathcal{L}_0$, splits into the following cases (and their symmetric versions):
+    First, notice that $bz'\in {\cal O}'$ and that we have the required order relations with $z$ and $z'$. The remaining condition (3) of Definition~\ref{def:duo}, for any binary $R$ in $\mathcal{L}_0$, splits into the following cases (and their symmetric counterparts):
 \begin{itemize}
-\item[-] $R(a_i,b_{i'})\iff R(a_i,a_{i'})$ since $a \parallel b$ is an $\mathcal{O}$-duo;
-\item[-] $R(a_i,z')\iff R(a_i,z)$ since $\tau$ is an automorphism that fixes all $a_i$;
-\item[-] $R(a_i,z)\iff R(b_i,z)$ since $a, b \in \mathcal{O}$ and $z\in S$;
-\item[-] $R(z,z')$ and $R(z,z)$ are both false: $z'$ is unrelated to $z$ by Lemma~\ref{lem:free-fresh}, and $R$ is irreflexive.
+\item $R(a_i,b_{i'})\iff R(a_i,a_{i'})$ since $a \parallel b$ is an $\mathcal{O}$-duo;
+\item $R(a_i,z')\iff R(a_i,z)$ since $\tau$ is an automorphism that fixes all $a_i$;
+\item $R(a_i,z)\iff R(b_i,z)$ since $a, b \in \mathcal{O}$ and $z\in S$;
+\item $R(z,z')$ and $R(z,z)$ are both false: $z'$ is unrelated to $z$ by Lemma~\ref{lem:free-fresh}, and $R$ is irreflexive.
 \end{itemize}
 \end{proof}
 
@@ -326,43 +304,9 @@ Starting from an empty duo, we may apply Lemma~\ref{lem:cog-fresh-single} induct
         a|^{\{i_1, \dots, i_k, i_{k+1}\}} \parallel (i_1 \mapsto b_{i_1}, \dots, i_k \mapsto b_{i_k}, i_{k+1} \mapsto b_{i_{k+1}})
     \] a duo for $\mathcal{O}_{k+1}$.
     For $k=d$ this gives the desired duo for $\mathcal{O}_d = \mathcal{O}$.
-%    The automorphisms $\pi_{i_k}$ now come directly from homogeneity and the definition of an $\mathcal{O}$-duo: 
-%    the map
-%    \begin{align*}
-%        a_{i_1} \mapsto a_{i_1}, \dots,{} &a_{i_k} \mapsto b_{i_k}, \dots, a_{i_d} \mapsto a_{i_d} \\
-%        b_{i_1} \mapsto b_{i_1}, \dots,{} &\phantom{a_{i_k} \mapsto b_{i_k}}, \dots, b_{i_d} \mapsto b_{i_d}, s \in S \mapsto s
-%    \end{align*}
-%    is an embedding.
 \end{proof}
 
-%%% This used E in place of F
-%The result below substantiates the slogan that cogs are found everywhere. 
-%\begin{theorem} \label{thm:cogs-arise-everywhere}
-%    Any $\Aut(\A)_{(S)}$-equivariant subspace $V$ of $\Lin_\EE \mathcal{O}$ contains $\Cog_{\EE(V)} \mathcal{O}$,
-%    where $\mathcal{O} \subseteq \A^I$ is $S$-ordered and $\EE(V)$ is the subspace spanned by $\{ v(a) \mid v \in V, a \in \mathcal{O} \}$ of $\EE$.
-%\end{theorem}
-%\begin{proof}
-%    Pick any $v \in V$ and $a \in \mathcal{O}$;
-%    it is enough to show that $V$ contains $v(a) \cdot a \between b$ for some $\mathcal{O}$-duo $a \parallel b$.
-%    Actually, write 
-%    \[
-%        S' = S \cup \{c_i \mid v(c) \neq 0, i \in I\} \setminus \{a_i \mid i \in I\} \supseteq S
-%    \]
-%    and put $\mathcal{O}' = \Aut(\A)_{(S')} \cdot a \subseteq \mathcal{O}$ --- then $\mathcal{O}'$ is $S'$-ordered.
-%    By Proposition~\ref{prop:cog-fresh-full}, we can find $b \in \mathcal{O}'$ such that $a \parallel b$ is an $\mathcal{O}'$-duo and \emph{a fortiori} an $\mathcal{O}$-duo.
-%    Take the automorphisms $\pi_{i_1}, \dots, \pi_{i_d}$ from Remark~\ref{rem:duo}, where $i_1, \dots, i_d$ enumerate $I$.
-%    Now define $v^{(0)} = v$ and \[
-%        v^{(k)} = v^{(k-1)} - \pi_{i_k} \cdot v^{(k-1)}.
-%    \]
-%    We can check inductively that for $k = 0, 1, \dots, d$, 
-%    with $\mathcal{O}^{(k)} = \{ c \mid v(c_\bullet) \neq 0, \{c_{i_1}, \dots, c_{i_k}, \dots, c_{i_d}\} \supseteq \{a_{i_1}, \dots, a_{i_k}\} \}$ we have
-%    \[
-%        v^{(k)} = \sum_{c \in \mathcal{O}^{(k)}} \sum_{J \subseteq \{i_1, \dots, i_k\}} (-1)^{|J|} v(c) \prod_{j \in J} \pi_j \cdot c.
-%    \]
-%    But $\{c_{i_1}, \dots, c_{i_d}\} \supseteq \{a_{i_1}, \dots, a_{i_d}\}$ means that $c = a$, so at the end $v^{(d)}$ is the desired $\mathcal{O}$-cog.
-%\end{proof}
-
-The result below strengthens Prop.~\ref{prop:cogs-are-balanced}, apart from the fact that the latter also implies that $\Ker_\FF{\cal O}$ is nontrivial.
+The result below \textcolor{red}{strengthens} Proposition~\ref{prop:cogs-are-balanced}, apart from the fact that the latter also implies that $\Ker_\FF{\cal O}$ is nontrivial.
 \begin{theorem} \label{thm:cogs-arise-everywhere}
     Any nontrivial $\Aut(\A)_{(S)}$-equivariant subspace $V\subseteq \Lin_\FF \mathcal{O}$ contains $\Cog_\FF \mathcal{O}$.
 \end{theorem}
@@ -387,7 +331,6 @@ The result below strengthens Prop.~\ref{prop:cogs-are-balanced}, apart from the 
     where
     \[C_k = \{ c \mid v(c) \neq 0, \{c_{i_1}, \dots, c_{i_k}, \dots, c_{i_d}\} \supseteq \{a_{i_1}, \dots, a_{i_k}\} \}.
     \]
-
     But $\{c_{i_1}, \dots, c_{i_d}\} \supseteq \{a_{i_1}, \dots, a_{i_d}\}$ means that $c = a$, so $C_d=\{a\}$ and $\frac{1}{v(a)}v^{(d)}=a\between b$.
 \end{proof}
 
@@ -397,7 +340,7 @@ The result below strengthens Prop.~\ref{prop:cogs-are-balanced}, apart from the 
 \begin{proof}
 %    Let $V \subseteq \Cog_\FF \mathcal{O}$ be a non-zero $\Aut(\A)_{(S)}$-equivariant subspace.
  %   Then $\{0\} \subsetneq \EE(V) \subseteq \EE = \FF$ so $\EE$ must be the entire field $\FF$, and by above $V$ must be $\Cog_\FF \mathcal{O}$ itself.
- By Theorem~\ref{thm:cogs-arise-everywhere}, $\Cog_\FF \mathcal{O}$ has no nontrivial $\Aut(\A)_{(S)}$-equivariant subspaces.
+ By Theorem~\ref{thm:cogs-arise-everywhere}, $\Cog_\FF \mathcal{O}$ \textcolor{red}{is nontrivial and} has no nontrivial $\Aut(\A)_{(S)}$-equivariant subspaces.
 \end{proof}
 
 In light of Propositions~\ref{prop:reduction-to-one-orbit},~\ref{prop:reduction-to-kernel} and~\ref{prop:cogs-are-balanced}, for the finite length property it is enough to prove that $\Ker_\FF \mathcal{O} \subseteq \Cog_\FF \mathcal{O}$. In words, we need to show that every balanced vector in $\Lin_\FF{\cal O}$ is a linear combination of $\cal O$-cogs. Before we show a proof of this, let us illustrate its key ideas on an example.
@@ -790,7 +733,7 @@ is a decomposition of $v$ into a linear combination of $\cal O$-cogs as required
 We proceed again by induction, first on $|I|$ then on number of relational conflicts in $v$.
 The outer base case $I = \emptyset$ is trivial 
 --- we have $v = \lambda \cdot ( \between )$, and no conflicts arise
---- and the inner base case is just Prop.~\ref{prop:!-free-decomposition}.
+--- and the inner base case is just Proposition~\ref{prop:!-free-decomposition}.
 
 Suppose that a location $(i, a)$ is part of a relational conflict in $v$.
 Since every location in $v^{i:a}|^{-i}$ is also a location in $v$, we know that $v^{i:a}|^{-i}$ has no equational conflicts, and by Lemma~\ref{lem:balanced-projected-subvector} it is balanced.
@@ -866,10 +809,10 @@ as required.
     with $\lambda_{a^\pm} \in \FF$.
 \end{theorem}
 \begin{proof}
-This is similar to the proof of Prop.~\ref{prop:?-free-decomposition}, but simpler.
+This is similar to the proof of Proposition~\ref{prop:?-free-decomposition}, but simpler.
 We proceed again by induction, first on $|I|$ then on number of equational conflicts in $v$.
 The outer base case $I = \emptyset$ is trivial as before, and 
-and the inner base case is Prop.~\ref{prop:?-free-decomposition}.
+and the inner base case is Proposition~\ref{prop:?-free-decomposition}.
 
 Suppose that a location $(i, a)$ is part of an equational conflict in $v$. By the outer inductive hypothesis, we get:
 \[
@@ -900,224 +843,3 @@ It follows from the inner inductive hypothesis that we can write
 \]
 which gives a decomposition of $v$ as required.
 \end{proof}
-
-%
-%\section{All those equivariant subspaces}
-%We finish this section with an important corollary of Theorem~\ref{thm:cog-span-generally}.
-%Let $\mathcal{O}_1 \subseteq \A^{I_1}, \dots, \mathcal{O}_n \subseteq \A^{I_n}$ all be $S$-ordered orbits.
-%Then $\len(\Lin_\FF(\mathcal{O}_1 \uplus \dots \uplus \mathcal{O}_n)) = 2^{|I_1|} + \dots + 2^{|I_n|}$;
-%in fact, we know and can characterise all the $\Aut(\A)_{(S)}$-equivariant subspaces of $\Lin_\FF(\mathcal{O}_1 \uplus \dots \uplus \mathcal{O}_n) \simeq \Lin_\FF(\mathcal{O}_1) \oplus \cdots \oplus \Lin_\FF(\mathcal{O}_n)$.
-%
-%\paragraph{Local coefficients}
-%First we set up some notations.
-%Consider the $\sum_k 2^{|I_k|}$ projected $S$-ordered orbits $\mathcal{O}_k|^{J}$ for $1 \leq k \leq n, J \subseteq I_k$.
-%Suppose
-%\[
-%    f : \mathcal{O}_k|^J \to \mathcal{O}_{k'}|^{J'}
-%\]
-%is an $\Aut(\A)_{(S)}$-equivariant bijection.
-%Take any $o_\bullet \in \mathcal{O}_k|^J$,
-%and enumerate its entries as $o_1 < \dots < o_{|J|}$.
-%Similarly, enumerate the entries of $f(o_\bullet)$ as $o'_1 < \dots < o'_{|J'|}$.
-%Then $\{o_1, \dots, o_{|J|}\} = \{ o'_1, \dots, o'_{|J'|} \}$ because $\A$ has no algebraicity; 
-%since the orbits are ordered, we must have $|J| = |J'|$ and $o_1 = o'_1, \dots, o_{|J|} = o'_{|J'|}$.
-%That is, $f$ must be the obvious function that reindexes a $J$-tuple to a $J'$-tuple
-%--- hence we will write $o^{/J'}_\bullet$ instead of $f(o_\bullet)$, leaving $f$ implicit.
-%
-%Now, let $\mathcal{Q}_{1} = \mathcal{O}_{k_1}|^{J_1}, \dots, \mathcal{Q}_{t} = \mathcal{O}_{k_t}|^{J_t}$ be the distinct $S$-ordered orbits up to $\Aut(\A)_{(S)}$-equivariant bijections,
-%which we enumerate in such a way that $|J_1| \geq |J_2| \geq \dots \geq |J_t| = 0$.
-%
-%\begin{definition}
-%    For $i = 1, \dots, t$, let $P_i$ consist of pairs $(k, J)$ such that $\mathcal{O}_k|^J$ is $\Aut(\A)_{(S)}$-equivariantly isomorphic to $\mathcal{Q}_i$.
-%    Assemble all $|P_i|$ projections into a single map
-%    \[
-%        (-){\restriction_i} : \Lin_\FF(\mathcal{O}_1 \uplus \dots \uplus \mathcal{O}_n) \to \Lin_{\FF^{P_i}} \mathcal{Q}_i.
-%    \]
-%    More precisely $(v_1, \dots, v_n){\restriction_i}(a_\bullet)$ is the $P_i$-tuple whose entry at $(k, J)$ is $v_k|^J(a^{/J}_\bullet) \in \FF$.
-%    It is straightforward to check that $(-){\restriction_i}$ is $\Aut(\A)_{(S)}$-equivariant and linear.
-%\end{definition}
-%
-%Let $W \subseteq \Lin_\FF( \mathcal{O}_1 \uplus \dots \uplus \mathcal{O}_n )$ be an $\Aut(\A)_{(S)}$-equivariant subspace.
-%Using the $t$ finite-dimensional vector spaces $W {\restriction_1} (\mathcal{Q}_1) \subseteq \FF^{P_1}, \dots, W {\restriction_t} (\mathcal{Q}_t) \subseteq \FF^{P_t}$
-%we define $\widetilde W$, which consists of all vectors $v \in \Lin_\FF( \mathcal{O}_1 \uplus \dots \uplus \mathcal{O}_n )$ such that
-%\[
-%    v {\restriction_1} (\mathcal{Q}_1) \subseteq W {\restriction_1} (\mathcal{Q}_1), \dots, v {\restriction_t} (\mathcal{Q}_t) \subseteq W {\restriction_t} (\mathcal{Q}_t).
-%\]
-%Then $\widetilde W$ is an $\Aut(\A)_{(S)}$-equivariant subspace that contains $W$.
-%It turns out these two are equal:
-%
-%\begin{lemma}\label{lem:coeff-approximation}
-%    \begin{align*}
-%        &\widetilde W \cap \ker(\restriction_{i+1}) \cap \cdots \cap \ker(\restriction_t) \\
-%        \subseteq{}&W \cap \ker(\restriction_{i+1}) \cap \cdots \cap \ker(\restriction_t).
-%    \end{align*}
-%    In particular $\widetilde W \subseteq W$ when $i = t$.
-%\end{lemma}
-%
-%\paragraph{Proof of the lemma}
-%by induction on $i$.
-%When $i = 0$, this containment is trivial:
-%\begin{claim}
-%    $\ker(\restriction_1) \cap \ker(\restriction_2) \cdots \cap \ker(\restriction_t) = \{0\}$.
-%\end{claim}
-%\begin{proof}
-%    Let $v = (v_1, \dots, v_n) \in \ker(\restriction_1) \cap \ker(\restriction_2) \cdots \cap \ker(\restriction_t)$. 
-%    Each $(k, I_k)$ belongs to some $P_i$; 
-%    that $v {\restriction_i} = 0$ implies $0 = v_k|^{I_k} = v_k$. 
-%\end{proof}
-%
-%To prove the containment for $i + 1$, 
-%we allow $v {\restriction_{i+1}}$ to be non-zero.
-%But $v {\restriction_{i+1}}$ satisfies the next best property:
-%\begin{claim}
-%    The image of \[
-%        \widetilde W \cap \ker(\restriction_{i+2}) \cap \cdots \cap \ker(\restriction_t)
-%    \] under $\restriction_{i+1}$ 
-%    is contained in $\Ker_{W {\restriction}_{i+1} (\mathcal{Q}_{i+1})} \mathcal{Q}_{i+1}$. 
-%\end{claim}
-%\begin{proof}
-%    Take any $v = (v_1, \dots, v_n)$ satisfying \[
-%        v {\restriction_{i+2}} = 0, \dots, v {\restriction_t} = 0
-%    \] from $\widetilde W$.
-%    That $v {\restriction_{i+1}} \in \Lin_{W{\restriction_{i+1}}(\mathcal{Q}_{i+1})} \mathcal{Q}_{i+1}$ is clear from the definition of $\widetilde W$.
-%    Recall that $\mathcal{Q}_{i+1}$ = $\mathcal{O}_{k_{i+1}}|^{J_{i+1}}$.
-%    Given $j \in J_{i+1}$,
-%    we need to prove that $v {\restriction_{i+1}} |^{-j} = 0$.
-%    
-%    To do so, take $(k, J) \in P_{i+1}$;
-%    the unique monotone bijection between $J_{i+1}$ and $J$ restricts to one between $J_{i+1} \setminus \{j\}$ and $J \setminus \{j'\}$.
-%    Now $(k, J \setminus \{j'\})$ belongs to some $P_{i'}$ with $i' > i + 1$,
-%    so $v {\restriction_{i'}} = 0$.
-%    We calculate that $v {\restriction_{i+1}} |^{-j}(a_\bullet)_{k, J}$ is equal to 
-%    \[
-%        \sum_{b_\bullet \in \mathcal{O}_k, b|^{J \setminus \{j'\}}_\bullet = a^{/ J \setminus \{j'\}}_\bullet} v_k(b_\bullet),
-%    \]
-%    and that so is $0 = v {\restriction_{i'}} (a^{/ J \setminus \{j'\}}_\bullet)_{k, J \setminus \{j'\}}$.
-%\end{proof}
-%
-%Now Theorem~\ref{thm:cog-span-generally} tells us that $\Ker_{\widetilde W {\restriction_{i+1}} (\mathcal{Q}_{i+1})} \mathcal{Q}_{i+1} \subseteq \Cog_{\widetilde W {\restriction_{i+1}} (\mathcal{Q}_{i+1})} \mathcal{Q}_{i+1}$,
-%which is good news:
-%\begin{claim}
-%    $\Cog_{W {\restriction}_{i+1} (\mathcal{Q}_{i+1})} \mathcal{Q}_{i+1}$ is contained in
-%    the image of \[
-%        W \cap \ker(\restriction_{i+2}) \cap \cdots \cap \ker(\restriction_t)
-%    \] under $\restriction_{i+1}$. 
-%\end{claim}
-%\begin{proof}
-%    Let $w {\restriction_{i+1}} (a_\bullet) \in W {\restriction_{i+1}} (\mathcal{Q}_{i+1})$.
-%    Let $S'$ consist of $S$ together with every atom appearing in $w$ but not in $a_\bullet$.
-%    We generalise the proof of Theorem~\ref{thm:cogs-arise-everywhere}.
-%    
-%    Start by applying Proposition~\ref{prop:cog-fresh-full} and Remark~\ref{rem:duo} to get automorphisms $\pi_j$ for $j \in J_{i+1}$ such that $a_\bullet \parallel \prod_{j \in J_{i+1}} \pi_j \cdot a_\bullet$ is an $\mathcal{Q}_{i+1}$-duo, 
-%    where $\pi_j$ fixes $S'$ and $a_{j'}, \pi_{j'} \cdot a_{j'}$ for $j' \in J \setminus \{j\}$.
-%    Put \[
-%        w' = \prod_{j \in J_{i+1}} (1 - \pi_j) \cdot w \in W.
-%    \]
-%    Given $1 \leq i' \leq t$, observe that as no more atoms can appear in $w{\restriction_{i'}}$ than in $w$, we have
-%    \begin{align*}
-%        &w' {\restriction_{i'}}
-%        = \prod_{j \in J_{i+1}} (1 - \pi_j) \cdot w {\restriction_{i'}} \\ 
-%        &{}= \sum_{b_\bullet \in \mathcal{Q}_{i'}, \{b_j \mid j\} \supseteq \{a_j \mid j\}} \sum_{J' \subseteq J} (-1)^{|J'|}  
-%            w {\restriction_{i'}}(b_\bullet) \prod_{j \in J'} \pi_j \cdot b_\bullet.
-%    \end{align*}
-%    Suppose $\{b_j \mid j \in J_{i'}\} \supseteq \{a_j \mid j \in J_{i+1}\}$. 
-%    Then $i' \leq i + 1$; if $i' = i + 1$, we must have $b_\bullet = a_\bullet$.
-%    We therefore have \[
-%        w' {\restriction_{i+1}} = w {\restriction_{i+1}} (a_\bullet) \cdot a_\bullet \between \prod_{j \in J_{i+1}} \pi_j \cdot a_\bullet
-%    \]
-%    and $w' {\restriction_{i+2}} = 0, \dots, w' {\restriction_{t}} = 0$.
-%    This proves that $(W \cap \ker\restriction_{i+2} \cap \cdots \cap \ker\restriction_t) {\restriction_{i+1}}$ contains $\Cog_{W {\restriction_{i+1}}(\mathcal{Q}_{i+1})} \mathcal{Q}_{i+1}$.
-%\end{proof}
-%
-%This is enough to establish Lemma~\ref{lem:coeff-approximation} for $i + 1$ assuming the result for $i$.
-%Indeed, given $v \in \widetilde W \cap \ker(\restriction_{i+2}) \cap \dots \cap \ker(\restriction_t)$,
-%we can find $w \in W \cap \ker(\restriction_{i+2}) \cap \dots \cap \ker(\restriction_t) \subseteq \widetilde W$ such that 
-%\[
-%    v {\restriction_{i+1}} = w {\restriction_{i+1}}
-%\]
-%by the preceding claims.
-%But $(v - w) {\restriction_{i+1}} = 0$ --- 
-%that is, $v - w$ lies in in $\ker(\restriction_{i+1})$ as well as $\widetilde W \cap \ker(\restriction_{i+2}) \cap \cdots \cap \ker(\restriction_t)$.
-%It follows from the inductive hypothesis that \[
-%    v - w \in W \cap \ker(\restriction_{i+2}) \cap \dots \cap \ker(\restriction_t),
-%\]
-%so $v = (v - w) + w$ is a member of $W \cap \ker(\restriction_{i+2}) \cap \dots \cap \ker(\restriction_t)$ as well.
-%
-%\paragraph{Lengths}
-%Let $W, W'$ be two $\Aut(\A)_{(S)}$-equivariant subspaces of $\Lin_\FF(\mathcal{O}_1 \uplus \dots \uplus \mathcal{O}_n)$.
-%If we have $W {\restriction_1}(\mathcal{Q}_1) = W' {\restriction_1}(\mathcal{Q}_1), \dots, W {\restriction_t}(\mathcal{Q}_t) = W' {\restriction_t}(\mathcal{Q}_t)$,
-%then $W = \widetilde W = \widetilde{W'} = W'$ by Lemma~\ref{lem:coeff-approximation}.
-%An immediate consquence is:
-%
-%\begin{proposition}\label{prop:length-upper-bound}
-%    Let $W_0 \subsetneq W_1 \subsetneq \cdots \subsetneq W_l$ be a chain of $\Aut(\A)_{(S)}$-equivariant subspaces in $\Lin_\FF(\mathcal{O}_1 \uplus \dots \uplus \mathcal{O}_n)$.
-%    Then $l \leq 2^{|I_1|} + \cdots + 2^{|I_n|}$. 
-%\end{proposition}
-%\begin{proof}
-%    We obtain $t$ chains
-%    \begin{align*}
-%        W_0 {\restriction_1} (\mathcal{Q}_1) \subseteq W_1 {\restriction_1} (\mathcal{Q}_1) \subseteq \cdots \subseteq W_l {\restriction_1} (\mathcal{Q}_1) \subseteq \FF^{P_1}, \\
-%        W_0 {\restriction_2} (\mathcal{Q}_2) \subseteq W_1 {\restriction_2} (\mathcal{Q}_2) \subseteq \cdots \subseteq W_l {\restriction_2} (\mathcal{Q}_2) \subseteq \FF^{P_2}, \\
-%        \vdots \\
-%        W_0 {\restriction_t} (\mathcal{Q}_t) \subseteq W_1 {\restriction_t} (\mathcal{Q}_t) \subseteq \cdots \subseteq W_l {\restriction_t} (\mathcal{Q}_t) \subseteq \FF^{P_t}.
-%    \end{align*}
-%    At each of the $l$ steps, one of the $t$ containments must be strict.
-%    Hence $l \leq |P_1| + |P_2| + \dots + |P_t| = 2^{|I_1|} + \dots + 2^{|I_t|}$. 
-%\end{proof}
-%
-%It follows that any $\Aut(\A)_{(S)}$-equivariant subspace of $\Lin_\FF(\mathcal{O}_1 \uplus \dots \uplus \mathcal{O}_n)$ is finitely generated.
-%We can compute the local coefficients of such subspaces easily:
-%\begin{remark}
-%    For $v \in \Lin_\FF(\mathcal{O}_1 \uplus \dots \uplus \mathcal{O}_n)$, 
-%    let $\langle v \rangle$ denote the $\Aut(\A)_{(S)}$-equivariant subspace it generates.
-%    Then:
-%    \begin{enumerate}
-%        \item 
-%        $\langle v \rangle {\restriction_i}(\mathcal{Q}_i)$ is the subspace of $\FF^{P_i}$ generated by vectors of the form $v {\restriction_i} (a_\bullet)$,
-%        which is zero unless every atom appearing in $a_\bullet$ appears in $v$
-%        --- there are only finitely many such $a_\bullet$'s;
-%
-%        \item 
-%        $\langle v, v' \rangle {\restriction_i}(\mathcal{Q}_i) = \langle v \rangle {\restriction_i}(\mathcal{Q}_i) + \langle v' \rangle {\restriction_i}(\mathcal{Q}_i)$.
-%    \end{enumerate}
-%\end{remark}
-%
-%We may now exhibit a chain of $\Aut(\A)_{(S)}$-equivariant subspaces whose length is precisely $\sum_{i=1}^t 2^{|P_i|}$,
-%generalising \cite[Corollary~4.12]{BFKM24}.
-%Take any $(k, J) \in P_i$. 
-%Pick some $a_\bullet \in \mathcal{O}_k$,
-%and let $\pi_j, j \in I_k$ be the automorphisms from Proposition~\ref{prop:cog-fresh-full}.
-%Define a vector
-%\begin{align*}
-%    v^i_{k, J}
-%    &\in \Lin_\FF(\mathcal{O}_1 \uplus \dots \uplus \mathcal{O}_n)\\
-%    &\simeq \Lin_\FF(\mathcal{O}_1) \oplus \dots \oplus \Lin_\FF(\mathcal{O}_n)
-%\end{align*}
-%with $\prod_{j \in J} (1 - \pi_j) \cdot a_\bullet$ as its $k$th component and zero everywhere else.
-%Then 
-%\[
-%    \langle v^i_{k, J} \rangle {\restriction_{i'}} (\mathcal{Q}_{i'})_{k', J'} =
-%    \begin{cases}
-%        \FF & \text{if $k = k'$ and $J \subseteq J'$}, \\
-%        \{0\} & \text{otherwise}.
-%    \end{cases}
-%\]
-%Enumerating each $P_i$ as $(k^i_1, J^i_1), (k^i_2, J^i_2), \dots, (k^i_{|P_i|}, J^i_{|P_i|})$,
-%we obtain a chain
-%\begin{align*}
-%    &\langle  \rangle \\
-%    \subsetneq{} &\langle v^t_{k^t_1, J^t_1} \rangle \\ 
-%    \subsetneq{} &\langle v^t_{k^t_1, J^t_1}, v^t_{k^t_2, J^t_2} \rangle \\ 
-%    \subsetneq{} &\cdots \\
-%    \subsetneq{} &\langle v^t_{k^t_1, J^t_1}, v^t_{k^t_2, J^t_2}, \dots, v^t_{k^t_{|P_t|}, J^t_{|P_t|}} \rangle \\
-%    \subsetneq{} &\langle v^t_{k^t_1, J^t_1}, v^t_{k^t_2, J^t_2}, \dots, v^t_{k^t_{|P_t|}, J^t_{|P_t|}}, v^{t-1}_{k^{t-1}_1, J^{t-1}_1} \rangle \\
-%    \subsetneq{} &\cdots
-%\end{align*}
-%of length $|P_t| + |P_{t-1}| + \cdots + |P_1| = 2^{|I_1|} + \cdots + 2^{|I_n|}$.
-%With the upper bound in Proposition~\ref{prop:length-upper-bound}, we conclude:
-%\begin{theorem}
-%    $\len(\Lin_\FF(\mathcal{O}_1 \uplus \dots \uplus \mathcal{O}_n)) = 2^{|I_1|} + \dots + 2^{|I_n|}$.
-%\end{theorem}
-%=======
-
-%>>>>>>> c274f451ed3008ffd13328b7906e04401ef0351f
