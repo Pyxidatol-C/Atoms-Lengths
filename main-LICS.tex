@@ -65,6 +65,8 @@
 
 
 \usepackage[shortlabels]{enumitem}
+\renewcommand{\labelitemi}{-}
+
 \usepackage{mathtools}
 \usepackage{stmaryrd}
 
@@ -94,11 +96,7 @@
 \newtheorem{example}[\COUNTER]{Example}
 \newtheorem{non-example}[\COUNTER]{Non-example}
 
-\theoremstyle{remark}
 \newtheorem{remark}[\COUNTER]{Remark}
-
-% \usepackage{etoolbox}
-% \AtBeginEnvironment{proof}{\color{gray}}
 
 \newcommand{\Bclass}{\mathscr{B}}
 
@@ -139,18 +137,21 @@
 \author{Jingjie Yang}
 \affiliation{%
   \institution{University of Oxford}
+  \city{}
   \country{UK}
 }
 
 \author{Mikołaj Bojańczyk}
 \affiliation{%
   \institution{University of Warsaw}
+  \city{}
   \country{Poland}
 }
 
 \author{Bartek Klin}
 \affiliation{%
   \institution{University of Oxford}
+  \city{}
   \country{UK}
 }
 
@@ -160,7 +161,7 @@
 %% other information printed in the page headers. This command allows
 %% the author to define a more concise list
 %% of authors' names for this purpose.
-\renewcommand{\shortauthors}{Trovato et al.}
+% \renewcommand{\shortauthors}{Trovato et al.}
 
 %%
 %% The abstract is a short summary of the work to be presented in the
@@ -170,8 +171,8 @@
     in the corresponding free vector space, strict chains of equivariant subspaces are bounded in length.
     It has been  shown that the countable pure set and the dense linear ordering without endpoints have this property.
     In this paper, we generalise these two results to
-    a)~interpretations in smoothly approximable structures, provided the field has characteristic zero, and
-    b)~generaically ordered expansions of Fraïssé limits with free amalgamation over a graph language.
+    (a)~interpretations in smoothly approximable structures, provided the field has characteristic zero, and
+    (b)~generaically ordered expansions of Fraïssé limits with free amalgamation over a graph language.
     As a special case, we prove the finite length property of the Rado graph using both methods.
 \end{abstract}
 
