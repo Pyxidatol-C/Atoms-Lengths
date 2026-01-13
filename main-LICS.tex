@@ -82,7 +82,6 @@
 
 \usepackage[all]{xy}
 
-\usepackage{macros}
 % \numberwithin{equation}{section}\newcommand{\COUNTER}{equation}\newtheorem{theorem}[\COUNTER]{Theorem}
 \theoremstyle{definition}
 \newtheorem{theorem}{Theorem}[section]\newcommand{\COUNTER}{theorem}
@@ -98,7 +97,10 @@
 
 \newtheorem{remark}[\COUNTER]{Remark}
 
+
 \newcommand{\Bclass}{\mathscr{B}}
+\newcommand{\Cclass}{\mathscr{C}}
+\newcommand{\Fclass}{\mathscr{F}}
 
 \newcommand{\A}{\mathbb{A}}
 \newcommand{\B}{\mathbb{B}}
@@ -110,7 +112,7 @@
 
 \newcommand{\FF}{\mathsf{F}} % field
 \newcommand{\ff}{\mathsf{f}} % finite field
-\newcommand{\EE}{\mathsf{E}} % abelian group
+\newcommand{\EE}{\mathsf{E}} % finite-dimensional vector space
 
 \newcommand{\Aut}{\operatorname{Aut}}
 \newcommand{\Lin}{\operatorname{Lin}}
@@ -121,10 +123,31 @@
 
 \newcommand{\vsup}[1]{[#1]}
 \newcommand{\rt}[1]{\sqrt{#1}}
-\def\amalgindep{\mathrel{\raise0.2ex\hbox{\ooalign{\hidewidth$\vert$\hidewidth\cr\raise-0.9ex\hbox{$\smile$}}}}}
 
-\newcommand{\EConf}{\mathsf{EC}}
-\newcommand{\RConf}{\mathsf{RC}}
+% a field
+\newcommand{\field}{\mathsf{k}}
+
+% a set 
+\newcommand{\set}[1]{\{#1\}}
+
+% set builder expression, which can be multiline
+\newcommand{\setbuild}[2]{\set{#1 \ | 
+\begin{tabular}{l}
+	#2
+\end{tabular}}}
+
+
+\newcommand{\myunderbrace}[2]{\underbrace{#1}_{\mathclap{\text{\scriptsize 
+\begin{tabular}{c}
+	#2
+\end{tabular} }}}}
+
+% various kinds of function spaces
+\newcommand{\lineqfun}[2]{ #1 \underset{\textup{lineq}}{\longrightarrow} #2}
+\newcommand{\linfsfun}[2]{ #1 \underset{\textup{linfs}}{\longrightarrow} #2}
+\newcommand{\eqfun}[2]{ #1 \underset{\textup{eq}}{\longrightarrow} #2}
+\newcommand{\fsfun}[2]{ #1 \underset{\textup{fs}}{\longrightarrow} #2}
+
 
 
 \begin{document}

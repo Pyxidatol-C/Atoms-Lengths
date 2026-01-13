@@ -7,43 +7,43 @@ We give an adaptation of the proof there in this section to richer ordered struc
 In particular, we will deduce the finite length property for all homogeneous undirected graphs and uncountably many non-isomorphic homogeneous directed graphs.
 These results are new.
 
-Throughout this section, we will work with the following setting.
+Throughout this and the next two sections, we will work with the following setting.
 
 \paragraph*{Graph vocabulary}
-Consider a finite relational language $\cal L_0$ consisting of unary and binary symbols.
+Consider a finite relational vocabulary $\sigma_0$ consisting of unary and binary symbols.
 (This allows us to talk about graphs with coloured vertices and edges, but in the running example we will consider a single edge relation.)
 
 \paragraph*{Free amalgamation class}
-Let $\cal C_0$ be a \emph{free} amalgamation class of finite $\cal L_0$-structures. 
+Let $\Cclass_0$ be a \emph{free} amalgamation class of finite $\sigma_0$-structures. 
 This is a standard notion in model theory --- see \cite[Section~2.1]{Macpherson11}.
 Informally, it means that when we perform amalgamation, we do not need to glue together more elements than necessary or introduce new relations.
 
-There is a more useful characterisation \cite[Lemma~4.5]{SS20} of the amalgamation class $\cal C_0$ being free.
-Since $\cal C_0$ is closed under substructures and isomorphisms, 
-we know that $\cal C_0$ consists of all the finite $\cal L_0$-structures which do not embed any structure from $\cal F$, 
-where $\cal F$ consists of all the minimal finite $\cal L_0$-structures that do not belong to $\cal C_0$;
+There is a more useful characterisation \cite[Lemma~4.5]{SS20} of the amalgamation class $\Cclass_0$ being free.
+Since $\Cclass_0$ is closed under substructures and isomorphisms, 
+we know that $\Cclass_0$ consists of all the finite $\sigma_0$-structures which do not embed any structure from $\Fclass$, 
+where $\Fclass$ consists of all the minimal finite $\sigma_0$-structures that do not belong to $\Cclass_0$;
 we write \[
-    \cal C_0 = \Forb(\cal F).
+    \Cclass_0 = \Forb(\Fclass).
 \]
-That $\cal C_0$ is close under free amalgamation means that in each $F \in \cal F$, 
-any two elements $x, y$ are either equal or satisfy at least one of $R(x, y)$ and $R(y, x)$ for some binary relation $R \in \cal L_0$
+That $\Cclass_0$ is close under free amalgamation means that in each $F \in \Fclass$, 
+any two elements $x, y$ are either equal or satisfy at least one of $R(x, y)$ and $R(y, x)$ for some binary relation $R \in \sigma_0$
 --- from here on, we will just say $x, y$ are \emph{related}.
-Conversely, given a family $\cal F$ of finite $\cal L_0$-structures in each of which any two elements are related,
-the class $\Forb(\cal F)$ of finite $\cal L_0$-structures form a \emph{free} amalgamation class.
+Conversely, given a family $\Fclass$ of finite $\sigma_0$-structures in each of which any two elements are related,
+the class $\Forb(\Fclass)$ of finite $\sigma_0$-structures form a \emph{free} amalgamation class.
 
 Here are a few free amalgamation classes.
 
 \begin{example}\label{ex:free-amalg-equality}
-    Let $\cal L_0$ be empty. 
-    Then $\cal C_0 = \Forb(\{\})$ is a free amalgamation class consisting of all finite pure sets.
+    Let $\sigma_0$ be empty. 
+    Then $\Cclass_0 = \Forb(\{\})$ is a free amalgamation class consisting of all finite pure sets.
 \end{example}
 
 \begin{example}\label{ex:free-amalg-graphs}
-    Let $\cal L_0$ consist of a single binary symbol $\sim$. 
-    Consider $\cal L_0$-structures ${\circlearrowright} = \{x\}$ and ${\rightarrow} = \{y, z\}$, where the relation $\sim$ is interpreted as $\{(x, x)\}$ and $\{(y, z)\}$.
-    Then $\cal C_0 = \Forb(\{{\circlearrowright}, {\rightarrow}\})$ is a free amalgamation class consisting of all finite undirected graphs.
+    Let $\sigma_0$ consist of a single binary symbol $\sim$. 
+    Consider $\sigma_0$-structures ${\circlearrowright} = \{x\}$ and ${\rightarrow} = \{y, z\}$, where the relation $\sim$ is interpreted as $\{(x, x)\}$ and $\{(y, z)\}$.
+    Then $\Cclass_0 = \Forb(\{{\circlearrowright}, {\rightarrow}\})$ is a free amalgamation class consisting of all finite undirected graphs.
 
-    In addition, let $K_n$ be the $\cal L_0$-structure representing a complete graph on $n$ vertices.
+    In addition, let $K_n$ be the $\sigma_0$-structure representing a complete graph on $n$ vertices.
     Then 
     \begin{align*}
         \Forb(\{{\circlearrowright}, {\rightarrow}, K_3\}) 
@@ -58,25 +58,25 @@ Here are a few free amalgamation classes.
 
 
 \paragraph*{Generically ordered expansion}
-Now, let $\cal L$ consist of $\cal L_0$ together with a new binary symbol $<$.
-Consider the class $\cal C$ of $\cal L$-structures obtained from $\cal C_0$, 
-by interpreting $<$ in any $\cal L_0$-structure there as any total order.
+Now, let $\sigma$ consist of $\sigma_0$ together with a new binary symbol $<$.
+Consider the class $\Cclass$ of $\sigma$-structures obtained from $\Cclass_0$, 
+by interpreting $<$ in any $\sigma_0$-structure there as any total order.
 
-Observe that $\cal C$ is an amalgamation class.
-Indeed, let $X, Y_1, Y_2$ be $\cal L$-structures in $\cal C$ with $X \subseteq Y_1 \cap Y_2$.
-Then we can amalgamate $Y_1, Y_2$ over $X$ as $\cal L_0$-structures and as $\{<\}$-structures, 
+Observe that $\Cclass$ is an amalgamation class.
+Indeed, let $X, Y_1, Y_2$ be $\sigma$-structures in $\Cclass$ with $X \subseteq Y_1 \cap Y_2$.
+Then we can amalgamate $Y_1, Y_2$ over $X$ as $\sigma_0$-structures and as $\{<\}$-structures, 
 both using the disjoint union of $Y_1, Y_2$ over $X$ as the underlying set. 
-Superposing these relations will give an $\cal L$-structure in $\cal C$, which is the desired amalgamation.
-(Because of the total order, this amalgamation in $\cal C$ is not free unless it is trivial.)
-Denote the Fraïssé limit of $\cal C$ by $\A$.
+Superposing these relations will give an $\sigma$-structure in $\Cclass$, which is the desired amalgamation.
+(Because of the total order, this amalgamation in $\Cclass$ is not free unless it is trivial.)
+Denote the Fraïssé limit of $\Cclass$ by $\A$.
 
 \begin{theorem}\label{thm:ordered-free-amalg-has-finite-length}
     The ordered structure $\A$, even with finitely many constants fixed, has the finite length property over any field.
 \end{theorem}
 
-The Fraïssé limit $\A_0$ of $\cal C$ is a reduct of $\A$.
-To see this, notice that $\A$, when viewed as an $\cal L_0$-structure, shares the same age as $\A_0$ --- namely, $\cal C_0$.
-Moreover, it follows from a back-and-forth argument \cite[Lemma~7.1.4]{Hodges93} that the $\cal L_0$-structure $\A$ is also homogeneous and, therefore, that it is isomorphic to $\A_0$.
+The Fraïssé limit $\A_0$ of $\Cclass$ is a reduct of $\A$.
+To see this, notice that $\A$, when viewed as an $\sigma_0$-structure, shares the same age as $\A_0$ --- namely, $\Cclass_0$.
+Moreover, it follows from a back-and-forth argument \cite[Lemma~7.1.4]{Hodges93} that the $\sigma_0$-structure $\A$ is also homogeneous and, therefore, that it is isomorphic to $\A_0$.
 So we may assume that $\A$ and $\A_0$ have the same universe; we then have $\Aut(\A) \subseteq \Aut(\A_0)$.
 
 \begin{corollary}
@@ -98,6 +98,8 @@ Conversely, we call $\A$ the \emph{generically ordered expansion} of $\A_0$ or s
 \end{example}
 
 \section{How the cogs turn: proof of Theorem~\ref{thm:ordered-free-amalg-has-finite-length}}
+\textcolor{red}{Before anything, let us get a technical assumption out of the way:
+we may assume that in $\Cclass_0$ and hence in $\A$, every binary relation $R \in \sigma_0$ is interpreted irreflexively.}
 
 
 \subsection{Orbits and projections}
@@ -105,7 +107,7 @@ Conversely, we call $\A$ the \emph{generically ordered expansion} of $\A_0$ or s
 To start with, let us view $\A^d$ as $\A^{\{1, \dots, d\}}$. More generally, it will be convenient to consider $\A^I$ for a finite totally ordered indexing set $I \subseteq \Q$.
 Fix a finite support $S \subseteq \A$.
 We shall say that a tuple $a\in\A^I$ is {\em ($S$-)ordered} if $a_i \not\in S$ for all $i$, and $a_i < a_j$ whenever $i < j$. Then the orbit
-$\mathcal{O} = \Aut(\A)_{(S)} \cdot a$ only contains $S$-ordered tuples, and we will call the orbit $S$-ordered as well.
+$\cal O = \Aut(\A)_{(S)} \cdot a$ only contains $S$-ordered tuples, and we will call the orbit $S$-ordered as well.
 If $a$ is not $S$-ordered, by removing the entries that repeat or come from $S$ and reordering the rest, we can always find an $\Aut(\A)_{(S)}$-equivariant bijection from $\cal O$ to an $S$-ordered orbit. (Here and in the following, $\Aut(\A)_{(S)}$ is the group of those automorphisms of $\A$ that fix every element of $S$.)
 
 To study the lengths of orbit-finitely spanned spaces, we may focus on a single ordered orbit at a time:
@@ -113,73 +115,72 @@ To study the lengths of orbit-finitely spanned spaces, we may focus on a single 
     The following are equivalent:
     \begin{enumerate}
         \item For any $d$ and any finite $S \subseteq \A$, chains of $\Aut(\A)_{(S)}$-equivariant subspaces in $\Lin_\FF \A^d$ are bounded in length;
-        \item $\Lin_\FF \mathcal{O}$ has finite length for any ordered orbit $\mathcal{O}$.
+        \item $\Lin_\FF \cal O$ has finite length for any ordered orbit $\cal O$.
     \end{enumerate}
 \end{proposition}
 \begin{proof}
     Since $\A$ is oligomorphic, given any $d$ and $S$, 
     we know that $\A^d$ is in an $\Aut(\A)_{(S)}$-equivariant bijection with a finite disjoint union $\biguplus_i \cal O_i$ of $S$-ordered orbits.
     Hence the length of $\Lin_\FF \A^d$, under the action of $\Aut(\A)_{(S)}$, equals \[
-        \len(\Lin_\FF(\biguplus_i \mathcal{O}_i)) = \len(\bigoplus_i \Lin_\FF \mathcal{O}_i) = \sum_i \len(\Lin_\FF \mathcal{O}_i),
+        \len(\Lin_\FF(\biguplus_i \cal O_i)) = \len(\bigoplus_i \Lin_\FF \cal O_i) = \sum_i \len(\Lin_\FF \cal O_i),
     \]
     which is finite if and only if each summands is finite.
 \end{proof}
 
-So fix an ordered orbit $\mathcal{O} = \Aut(\A)_{(S)} \cdot o \subseteq \A^I$.
+So fix an ordered orbit $\cal O = \Aut(\A)_{(S)} \cdot o \subseteq \A^I$.
 From here we take an inductive approach.
 By $o |^J$ we mean the restriction of $o : I \to \A$ to $J \subseteq I$;
 particularly, we will often write $o |^{-i}$ instead of $o |^{ I \setminus \{i\} }$.
-The image $\mathcal{O}|^J$ of $\mathcal{O}$ under this projection agrees with $\Aut(\A)_{(S)} \cdot o |^J$ and is still ordered.
+The image $\cal O|^J$ of $\cal O$ under this projection agrees with $\Aut(\A)_{(S)} \cdot o |^J$ and is still ordered.
 
 The function $(-)|^J$ lifts to a linear $\Aut(\A)_{(S)}$-equivariant map
 \begin{align*}
-    (-)|^J : \Lin_\FF \mathcal{O} &\to \Lin_\FF \mathcal{O}|^J.
+    (-)|^J : \Lin_\FF \cal O &\to \Lin_\FF \cal O|^J.
 \end{align*}
 Many cancellations can occur under $(-)|^J$; 
 the \emph{projection kernel} is the $\Aut(\A)_{(S)}$-equivariant subspace
 \[
-    \Ker_\FF \mathcal{O} = \bigcap_{i \in I} \ker{ (-)|^{-i} }
+    \Ker_\FF \cal O = \bigcap_{i \in I} \ker{ (-)|^{-i} }
 \]
-of $\Lin_\FF \mathcal{O}$.
+of $\Lin_\FF \cal O$.
 
 \begin{proposition}\label{prop:reduction-to-kernel}
     The following are equivalent:
     \begin{enumerate}
-        \item $\Lin_\FF \mathcal{O}$ has finite length for every ordered orbit $\mathcal{O}$;
-        \item $\Ker_\FF \mathcal{O}$ has finite length for every ordered orbit $\mathcal{O}$.
+        \item $\Lin_\FF \cal O$ has finite length for every ordered orbit $\cal O$;
+        \item $\Ker_\FF \cal O$ has finite length for every ordered orbit $\cal O$.
     \end{enumerate}
 \end{proposition}
 \begin{proof}
-    That (1) implies (2) is clear as $\Ker_\FF \mathcal{O} \subseteq \Lin_\FF \mathcal{O}$.
+    That (1) implies (2) is clear as $\Ker_\FF \cal O \subseteq \Lin_\FF \cal O$.
     
-    To prove the other implication, assume (2) and let $\mathcal{O} \subseteq \A^I$.
+    To prove the other implication, assume (2) and let $\cal O \subseteq \A^I$.
     We proceed by induction on $|I|$.
-    If $I = \emptyset$, then $\mathcal{O}$ must be the entire singleton $\A^\emptyset = \{ () \}$; 
-    as $\Lin_\FF \mathcal{O}$ has no non-trivial subspaces (let alone finitely supported ones), it has length $1$.
+    If $I = \emptyset$, then $\cal O$ must be the entire singleton $\A^\emptyset = \{ () \}$; 
+    as $\Lin_\FF \cal O$ has no non-trivial subspaces (let alone finitely supported ones), it has length $1$.
     Now if $|I| \geq 1$, assemble all $|I|$ projection maps into a single map
     \begin{align*}
-        \Lin_\FF \mathcal{O} &\to \bigoplus_{i \in I} \mathcal{O}|^{-i} \\
+        \Lin_\FF \cal O &\to \bigoplus_{i \in I} \cal O|^{-i} \\
         v &\mapsto ( v|^{-i} )_{i \in I}
     \end{align*}
-    whose kernel is precisely $\Ker_\FF \mathcal{O}$.
+    whose kernel is precisely $\Ker_\FF \cal O$.
     We have
     \[
-        \len( \Lin_\FF \mathcal{O} ) - \len( \Ker_\FF \mathcal{O} )
-        \leq \sum_{i \in I} \len( \Lin_\FF \mathcal{O}|^{-i} )
+        \len( \Lin_\FF \cal O ) - \len( \Ker_\FF \cal O )
+        \leq \sum_{i \in I} \len( \Lin_\FF \cal O|^{-i} )
     \]
-    which shows that $\len( \Lin_\FF \mathcal{O} )$ is finite from the assumptions.
+    which shows that $\len( \Lin_\FF \cal O )$ is finite from the assumptions.
 \end{proof}
 
 Following the terminology used in \cite[Equation (4)]{BFKM24}, we shall call a vector from the projection kernel \emph{balanced}.
 As we will see shortly, there exist balanced vectors other than $0$.
 
 \subsection{Cogs}
-
 From now on we will use a lightweight notation for combining tuples of atoms: for disjoint indexing sets $I$ and $J$, if $a\in\A^I$ and $b\in\A^{J}$ are both ordered, then $ab\in \A^{I\cup J}$ will denote their obvious combination. We will only use this notation if the combined tuple $ab$ is ordered. For an obvious example, for any $S$-ordered $a\in\A^I$ and $J\subseteq I$, we have $a|^{I\setminus J}a|^J=a$.
 
 \begin{definition}\label{def:duo}
-    Let $\mathcal{O} \subseteq \A^I$ be an $S$-ordered orbit. 
-    An \emph{$\mathcal{O}$-duo} $a \parallel b$ consists of tuples $a, b \in \cal O$ such that:
+    Let $\cal O \subseteq \A^I$ be an $S$-ordered orbit. 
+    An \emph{$\cal O$-duo} $a \parallel b$ consists of tuples $a, b \in \cal O$ such that:
     \begin{enumerate}
         \item 
         $a_i < b_i$ for all $i\in I$;
@@ -191,36 +192,36 @@ From now on we will use a lightweight notation for combining tuples of atoms: fo
         for any binary $R$ in $\mathcal{L}_0$ (except for $=$) and $i,j\in I$:
         \begin{align*}
             R(a_i,b_j) \iff R(&a_i,a_j) \\
-            &\Updownarrow \text{ as $a, b \in \mathcal{O}$} \\
+            &\Updownarrow \text{ as $a, b \in \cal O$} \\
             R(b_i,a_j) \iff R(&b_i,b_j).
         \end{align*}
      \end{enumerate}
 \end{definition}
 \begin{remark}\label{rem:duo}
 Conditions (1) and (2) specify a total order on the $2|I|$ atoms in a duo.
-Moreover, thanks to irreflexivity \textcolor{red}{TODO: explain somewhere that we may assume this!}, 
+Moreover, thanks to irreflexivity, 
 each $a_i$ is unrelated to its counterpart $b_i$.
-Further, given any $J \subseteq I$, the combined tuple $a|^{I\setminus J} b|^J$ satisfies the same relations as $a$ (and $b$), so it lies in $\mathcal{O}$. In particular, taking $J=\{i\}$, there is an automorphism $\pi_i$ that sends $a_i$ to $b_i$ and fixes all the other elements of $a$, $b$ and $S$.
+Further, given any $J \subseteq I$, the combined tuple $a|^{I\setminus J} b|^J$ satisfies the same relations as $a$ (and $b$), so it lies in $\cal O$. In particular, taking $J=\{i\}$, there is an automorphism $\pi_i$ that sends $a_i$ to $b_i$ and fixes all the other elements of $a$, $b$ and $S$.
 \end{remark}
 
 \begin{definition}
-    Given a $\mathcal{O}$-duo $a \parallel b$, the corresponding \emph{$\mathcal{O}$-cog} is the vector
+    Given a $\cal O$-duo $a \parallel b$, the corresponding \emph{$\cal O$-cog} is the vector
     \[
         a \between b =
         \sum_{J \subseteq I} (-1)^{|J|}
         (a|^{I \setminus J} b|^{J})
     \]
-    in $\Lin_\FF \mathcal{O}$.
-    The linear span of all $\mathcal{O}$-cogs is denoted by $\Cog_\FF \mathcal{O}$.
+    in $\Lin_\FF \cal O$.
+    The linear span of all $\cal O$-cogs is denoted by $\Cog_\FF \cal O$.
 \end{definition}
-Note that, for a fixed $S$-ordered orbit $\cal O$, all $\mathcal{O}$-duos (hence all $\cal O$-cogs) are in the same $\Aut(\A)_{(S)}$-equivariant orbit.
-As a result, $\Cog_\FF \mathcal{O}$ is an $\Aut(\A)_{(S)}$-equivariant subspace of $\Lin_\FF \mathcal{O}$ and it is generated by any single cog.
+Note that, for a fixed $S$-ordered orbit $\cal O$, all $\cal O$-duos (hence all $\cal O$-cogs) are in the same $\Aut(\A)_{(S)}$-equivariant orbit.
+As a result, $\Cog_\FF \cal O$ is an $\Aut(\A)_{(S)}$-equivariant subspace of $\Lin_\FF \cal O$ and it is generated by any single cog.
 
 \begin{proposition}\label{prop:cogs-are-balanced}
-    $\Cog_\FF \mathcal{O}\subseteq \Ker_\FF \mathcal{O}$.
+    $\Cog_\FF \cal O\subseteq \Ker_\FF \cal O$.
 \end{proposition}
 \begin{proof}
-    Let $\mathcal{O} \subseteq \A^I$, let $a\parallel b$ be an $\mathcal{O}$-duo, and take any $i \in I$.
+    Let $\cal O \subseteq \A^I$, let $a\parallel b$ be an $\cal O$-duo, and take any $i \in I$.
     The subsets of $I$ come in pairs of $J$ and $J \cup \{i\}$, where $J\subseteq I \setminus \{i\}$.
     The two tuples $a|^{I\setminus J} b|^{J}$ and $a|^{I \setminus (J \cup \{i\})}b|^{J \cup \{i\}}$ are present in 
     $a\between b$ with the opposite coefficients, and they differ only on the $i$-th entry.
@@ -232,7 +233,7 @@ Let us rectify this by showing that they can be found in all but one $\Aut(\A)_{
 
 
 \subsection{Finding cogs}
-We begin with a technical lemma, which combines the free amalgamation in $\cal C_0$ and the generic order of $\A$.
+We begin with a technical lemma, which combines the free amalgamation in $\Cclass_0$ and the generic order of $\A$.
 \begin{lemma}\label{lem:free-fresh}
     Let $X, Y, \{z\} \subseteq \A$ be disjoint and finite.
     Then there is an automorphism $\tau \in \Aut(\A)$ such that
@@ -243,7 +244,7 @@ We begin with a technical lemma, which combines the free amalgamation in $\cal C
     \end{enumerate}
 \end{lemma}
 \begin{proof}
-    Form the free amalgam of structures in ${\cal C}_0$:
+    Form the free amalgam of structures in ${\Cclass}_0$:
 % https://q.uiver.app/#q=WzAsNCxbMCwxLCJYIl0sWzEsMiwiWCBcXGN1cCBcXHt6XFx9Il0sWzEsMCwiWCBcXGN1cCBZIFxcY3VwIFxce3pcXH0iXSxbMiwxLCJYIFxcY3VwIFkgXFxjdXAgXFx7eiwgeidcXH0iXSxbMCwxXSxbMCwyXSxbMSwzLCJ4IFxcaW4gWCBcXG1hcHN0byB4LFxcIHogXFxtYXBzdG8geiciLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMiwzLCJcXHN1YnNldGVxIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV1d
 \[\begin{tikzcd}
 	& {X \cup Y \cup \{z\}} \\
@@ -265,7 +266,7 @@ We begin with a technical lemma, which combines the free amalgamation in $\cal C
 \end{proof}
 
 \begin{lemma}\label{lem:cog-fresh-single}
-    Suppose $a\parallel b$ is an $\mathcal{O}$-duo, where $\mathcal{O} \subseteq \A^I$ is $S$-ordered.
+    Suppose $a\parallel b$ is an $\cal O$-duo, where $\cal O \subseteq \A^I$ is $S$-ordered.
     Given $z \in S$, 
     \begin{itemize}
         \item write $S' = S \setminus \{z\}$;
@@ -273,22 +274,22 @@ We begin with a technical lemma, which combines the free amalgamation in $\cal C
         \item let $X \subseteq \A$ be any finite set containing $\{a_i, b_i \mid i \in I\} \cup S'$ but not $z$.
  %       \item let $Y \subseteq \A$ be any finite set disjoint from $X \cup \{z\}$;
     \end{itemize}
-    Denote $z'=\tau(z)$, where $\tau \in \Aut(\A)_{(X)}$ is afforded by Lemma~\ref{lem:free-fresh} (with an arbitrary $Y$). Then $az \parallel bz'$ is an $\mathcal{O}'$-duo.
+    Denote $z'=\tau(z)$, where $\tau \in \Aut(\A)_{(X)}$ is afforded by Lemma~\ref{lem:free-fresh} (with an arbitrary $Y$). Then $az \parallel bz'$ is an $\cal O'$-duo.
 \end{lemma}
 \begin{proof}
     First, notice that $bz'\in {\cal O}'$ and that we have the required order relations with $z$ and $z'$. The remaining condition (3) of Definition~\ref{def:duo}, for any binary $R$ in $\mathcal{L}_0$, splits into the following cases (and their symmetric counterparts):
 \begin{itemize}
-\item $R(a_i,b_{i'})\iff R(a_i,a_{i'})$ since $a \parallel b$ is an $\mathcal{O}$-duo;
+\item $R(a_i,b_{i'})\iff R(a_i,a_{i'})$ since $a \parallel b$ is an $\cal O$-duo;
 \item $R(a_i,z')\iff R(a_i,z)$ since $\tau$ is an automorphism that fixes all $a_i$;
-\item $R(a_i,z)\iff R(b_i,z)$ since $a, b \in \mathcal{O}$ and $z\in S$;
+\item $R(a_i,z)\iff R(b_i,z)$ since $a, b \in \cal O$ and $z\in S$;
 \item $R(z,z')$ and $R(z,z)$ are both false: $z'$ is unrelated to $z$ by Lemma~\ref{lem:free-fresh}, and $R$ is irreflexive. \qedhere
 \end{itemize}
 \end{proof}
 
 Starting from an empty duo, we may apply Lemma~\ref{lem:cog-fresh-single} inductively.
 \begin{proposition}\label{prop:cog-fresh-full}
-    Let $\mathcal{O} \subseteq \A^I$ be an $S$-ordered orbit.
-    Then any $a \in \mathcal{O}$ can be extended to an ${\cal O}$-duo $a\parallel b$.
+    Let $\cal O \subseteq \A^I$ be an $S$-ordered orbit.
+    Then any $a \in \cal O$ can be extended to an ${\cal O}$-duo $a\parallel b$.
 \end{proposition}
 \begin{proof}
     Enumerate the indices of $I$ as $i_1, \dots, i_d$.
@@ -296,31 +297,31 @@ Starting from an empty duo, we may apply Lemma~\ref{lem:cog-fresh-single} induct
     \[
         a|^{\{i_1, \dots, i_k\}} \parallel (i_1 \mapsto b_{i_1}, \dots, i_k \mapsto b_{i_k})
     \] 
-    is a duo for $\mathcal{O}_k = \Aut(\A)_{(S \cup \{a_{i_{k+1}}, \dots, a_{i_d}\})} \cdot a|^{\{i_1, \dots, i_k\}}$ 
-    --- note that $() \parallel ()$ is certainly a duo for $\mathcal{O}_0$ at the start.
+    is a duo for $\cal O_k = \Aut(\A)_{(S \cup \{a_{i_{k+1}}, \dots, a_{i_d}\})} \cdot a|^{\{i_1, \dots, i_k\}}$ 
+    --- note that $() \parallel ()$ is certainly a duo for $\cal O_0$ at the start.
     If $k < d$, putting $z = a_{i_{k+1}}$, $X = \{a_{i_1}, b_{i_1}, \dots, a_{i_k}, b_{i_k}\} \cup S \cup \{a_{i_{k+2}}, \dots, a_{i_d}\}$, and $Y = \emptyset$, 
     Lemma~\ref{lem:cog-fresh-single} yields an atom $b_{i_{k+1}}$ that makes
     \[
         a|^{\{i_1, \dots, i_k, i_{k+1}\}} \parallel (i_1 \mapsto b_{i_1}, \dots, i_k \mapsto b_{i_k}, i_{k+1} \mapsto b_{i_{k+1}})
-    \] a duo for $\mathcal{O}_{k+1}$.
-    For $k=d$ this gives the desired duo for $\mathcal{O}_d = \mathcal{O}$.
+    \] a duo for $\cal O_{k+1}$.
+    For $k=d$ this gives the desired duo for $\cal O_d = \cal O$.
 \end{proof}
 
 As some $a \in \cal O$ always exists, it follows that Proposition~\ref{prop:cogs-are-balanced} was not vacuous:
 we now know $\Cog_\FF{\cal O}$, and hence $\Ker_\FF{\cal O}$, is non-trivial --- but barely so.
 Indeed, as the result below shows, $\Cog_\FF{\cal O}$ admits no non-trivial $\Aut(\A)_{(S)}$-equivariant subspaces.
 \begin{theorem} \label{thm:cogs-arise-everywhere}
-    Any non-trivial $\Aut(\A)_{(S)}$-equivariant subspace $V\subseteq \Lin_\FF \mathcal{O}$ contains $\Cog_\FF \mathcal{O}$.
+    Any non-trivial $\Aut(\A)_{(S)}$-equivariant subspace $V\subseteq \Lin_\FF \cal O$ contains $\Cog_\FF \cal O$.
 \end{theorem}
 \begin{proof}
-    Pick any $v \in V$ and $a \in \mathcal{O}$ with $v(a)\neq 0$;
-    it is enough to show that $V$ contains $a \between b$ for some $b\in \mathcal{O}$.
+    Pick any $v \in V$ and $a \in \cal O$ with $v(a)\neq 0$;
+    it is enough to show that $V$ contains $a \between b$ for some $b\in \cal O$.
     Define:
     \[
         S' = S \cup \{c_i \mid v(c) \neq 0, i \in I\} \setminus \{a_i \mid i \in I\} \supseteq S
     \]
-    and put $\mathcal{O}' = \Aut(\A)_{(S')} \cdot a \subseteq \mathcal{O}$ --- then $\mathcal{O}'$ is $S'$-ordered.
-    By Proposition~\ref{prop:cog-fresh-full}, we can find $b \in \mathcal{O}'$ such that $a \parallel b$ is an $\mathcal{O}'$-duo and \emph{a fortiori} an $\mathcal{O}$-duo.
+    and put $\cal O' = \Aut(\A)_{(S')} \cdot a \subseteq \cal O$ --- then $\cal O'$ is $S'$-ordered.
+    By Proposition~\ref{prop:cog-fresh-full}, we can find $b \in \cal O'$ such that $a \parallel b$ is an $\cal O'$-duo and \emph{a fortiori} an $\cal O$-duo.
     Take the automorphisms $\pi_{i_1}, \dots, \pi_{i_d}$ from Remark~\ref{rem:duo}, where $i_1, \dots, i_d$ enumerate $I$.
     Now define $v^{(0)} = v$ and \[
         v^{(k)} = v^{(k-1)} - \pi_{i_k} \cdot v^{(k-1)}.
@@ -337,10 +338,10 @@ Indeed, as the result below shows, $\Cog_\FF{\cal O}$ admits no non-trivial $\Au
 \end{proof}
 
 \begin{corollary}
-    $\Cog_\FF \mathcal{O}$ has length $1$.
+    $\Cog_\FF \cal O$ has length $1$.
 \end{corollary}
 
-In light of Propositions~\ref{prop:reduction-to-one-orbit},~\ref{prop:reduction-to-kernel} and~\ref{prop:cogs-are-balanced}, for the finite length property it is enough to prove that $\Ker_\FF \mathcal{O} \subseteq \Cog_\FF \mathcal{O}$. In words, we need to show that every balanced vector in $\Lin_\FF{\cal O}$ is a linear combination of $\cal O$-cogs. Before we show a proof of this, let us illustrate its key ideas on an example.
+In light of Propositions~\ref{prop:reduction-to-one-orbit},~\ref{prop:reduction-to-kernel} and~\ref{prop:cogs-are-balanced}, for the finite length property it is enough to prove that $\Ker_\FF \cal O \subseteq \Cog_\FF \cal O$. In words, we need to show that every balanced vector in $\Lin_\FF{\cal O}$ is a linear combination of $\cal O$-cogs. Before we show a proof of this, let us illustrate its key ideas on an example.
 
 \subsection{Spanning by cogs: an example}
 
@@ -357,7 +358,7 @@ Let $\A_0$ be the universal triangle-free (undirected) graph, and $\A$ its total
 }}\]
 This graph is drawn so that the total order of the atoms corresponds to the vertical order.
 
-Putting $S=\emptyset$ and $|I|=2$, let ${\cal O}$ be the ordered orbit of pairs of atoms which are connected by an edge. Consider the following vector:
+Putting $S=\emptyset$ and $|I|=2$, let ${\cal O}$ be the ordered orbit of pairs of atoms which are adjacent. Consider the following vector:
 \[
 v = ah - ae + ce - cg + dg - df + bf - bi + gi - gh \in \Lin_\FF{\cal O}.
 \]
@@ -366,32 +367,41 @@ This can be graphically presented as the following graph:
 \xymatrix@R=6pt@C=15pt{
 \rotatebox{-2}{$h$} & & & & & & \rotatebox{-2}{$i$} \\
 \\
-& & & \rotatebox{-2}{$g$}\ar@[red][uulll]\ar@[blue][uurrr] \\
+& & & \rotatebox{-2}{$g$}\ar@[blue][uulll]\ar@[red][uurrr] \\
 & \rotatebox{-2}{$e$} & & & & \rotatebox{-2}{$f$} \\
-& & \rotatebox{-2}{$c$}\ar@[blue][ul]\ar@[red][uur] & & \rotatebox{-2}{$d$}\ar@[blue][uul]\ar@[red][ur] \\
-\rotatebox{-2}{$a$}\ar@{-}[rrrrrr]\ar@[blue][uuuuu]\ar@[red][uur] & & & & & & \rotatebox{-2}{$b$}\ar@[blue][uul]\ar@[red][uuuuu]
+& & \rotatebox{-2}{$c$}\ar@[red][ul]\ar@[blue][uur] & & \rotatebox{-2}{$d$}\ar@[red][uul]\ar@[blue][ur] \\
+\rotatebox{-2}{$a$}\ar@{-}[rrrrrr]\ar@[red][uuuuu]\ar@[blue][uur] & & & & & & \rotatebox{-2}{$b$}\ar@[red][uul]\ar@[blue][uuuuu]
 }}
 \]
-where edges with coefficient $+1$ are marked as blue, and with $-1$ as red. The arrows on the chosen edges remind us that the pairs in $\cal O$ are ordered, but this is mere decoration: the definition of $\cal O$ means that all arrows must point upwards.
+where edges with coefficient $+1$ are marked as red, and with $-1$ as blue. The arrows on the chosen edges remind us that the pairs in $\cal O$ are ordered, but this is mere decoration: the definition of $\cal O$ means that all arrows must point upwards.
 
 Note that $v$ is balanced. Graphically, this means that every atom has as many outgoing red edges as outgoing blue edges, and as many incoming red edges as incoming blue edges.
 
-It is easy to draw $\cal O$-cogs in this way. Assuming some additional atom $z>h$ which is connected by edges to $a$ and $g$ but not to $h$, the $\cal O$-cog $ah\between gz$ can be drawn as:
+It is easy to draw $\cal O$-cogs in this way. Assuming some additional atom $z>h$ which is adjacent to $a$ and $g$ but not to $h$, the $\cal O$-cog $ah\between gz$ can be drawn as:
 \[\rotatebox{5}{
 \xymatrix{
 \rotatebox{-5}{$h$} & \rotatebox{-5}{$z$} \\
-\rotatebox{-5}{$a$}\ar@[blue][u]\ar@[red][ur] & \rotatebox{-5}{$g$}\ar@[red][ul]\ar@[blue][u]  
+\rotatebox{-5}{$a$}\ar@[red][u]\ar@[blue][ur] & \rotatebox{-5}{$g$}\ar@[blue][ul]\ar@[red][u]  
 }}
 \]
-We would like to present $v$ as a sum of such ${\cal O}$-cogs. Some additional atoms must be used for that, as no four atoms among the original nine form an $\cal O$-duo \textcolor{red}{--- this is not the case for the ordered atoms; see the proof of \cite[Claim~4.7]{BFKM24}.}
-It would be very convenient to have an atom $z$, larger than every atom in $v$, and connected by edges to every atom which is a source of a directed edge in $v$ (equivalently: which occurs as the first component of a pair in $v$). However, such a $z$ does not exist in the triangle-free graph $\A$. There are two problems:
+
+We would like to present $v$ as a sum of such ${\cal O}$-cogs. Some additional atoms must be used for that, as no four atoms among the original nine form an $\cal O$-duo.
+(This is not the case if $\A$ is the ordered atoms: see the proof of \cite[Claim~4.7]{BFKM24}.)
+It would be very convenient to introduce a single new atom $z$ to form all the $\cal O$-duos that we will use. 
+We can naïvely require $z$ to be:
 \begin{itemize}
-\item The atom $g$ occurs both as the first and as the second component in pairs present in $v$. In particular, $z$ as prescribed would create a triangle $dgz$ in $\A$, which is forbidden.
-\item Atoms $a$ and $b$ both occur as first components in $v$, and they are connected by an edge in $\A$. As a result, an atom $z$ as prescribed would create a triangle $abz$ in $\A$.
+    \item larger than every atom in $v$,
+    \item adjacent to every atom that is a source of a directed edge in $v$ (equivalently: that occurs as the first component of a pair in $v$), and
+    \item not adjacent to any atom that is a target of a directed edge in $v$ (equivalently: that occurs as the second component of a pair in $v$).
 \end{itemize}
-We get rid of such {\em conflicts} by considering auxiliary atoms $g'>g$ and $b'>b$, with just enough edges to make $gh\parallel g'i$ and $bf\parallel b'i$ valid ${\cal O}$-duos. Specifically, we postulate edges \textcolor{red}{$g'$---$h$, $g'$---$i$, $b'$---$f$ and $b'$---$i$} and no more. Such atoms exist by the homogeneity of $\A$. We then define:
+However, such a $z$ does not exist in the triangle-free graph $\A$. There are two problems:
+\begin{itemize}
+\item The atom $g$ occurs both as the first and as the second component in pairs present in $v$. Our specification of whether $z$ is adjacent to $g$ is therefore inconsistent.
+\item Atoms $a$ and $b$ both occur as first components in $v$, and they are adjacent in $\A$. As a result, an atom $z$ as prescribed would create a triangle $abz$ in $\A$, which is forbidden.
+\end{itemize}
+We resolve such {\em conflicts} by considering auxiliary atoms $g'>g$ and $b'>b$, with just enough edges to make $gh\parallel g'i$ and $bf\parallel b'i$ valid ${\cal O}$-duos. Specifically, we postulate edges $g' \sim h$, $g'\sim i$, $b' \sim f$ and $b' \sim i$ and no more. Such atoms exist by Lemma~\ref{lem:free-fresh}. We then define:
 \[
-v' = v - (gh \between g'i) - (bf \between b'i)
+v' = v + (gh \between g'i) - (bf \between b'i)
 \]
 which can be drawn as:
 \[
@@ -399,55 +409,61 @@ which can be drawn as:
 \xymatrix@R=6pt@C=15pt{
 \rotatebox{-2}{$h$} & & & & & & \rotatebox{-2}{$i$} \\
 \\
-& & & \rotatebox{-2}{$g$}\ar@{-}[uulll]\ar@{-}[uurrr] & \rotatebox{-2}{$g'$}\ar@[red][uullll]\ar@[blue][uurr] \\
+& & & \rotatebox{-2}{$g$}\ar@{-}[uulll]\ar@{-}[uurrr] & \rotatebox{-2}{$g'$}\ar@[blue]@/_2ex/[uullll]\ar@[red]@/_1ex/[uurr] \\
 & \rotatebox{-2}{$e$} & & & & \rotatebox{-2}{$f$} \\
-& & \rotatebox{-2}{$c$}\ar@[blue][ul]\ar@[red][uur] & & \rotatebox{-2}{$d$}\ar@[blue][uul]\ar@[red][ur] \\
-\rotatebox{-2}{$a$}\ar@{-}[rrrrrr]\ar@[blue][uuuuu]\ar@[red][uur] & & & & & & \rotatebox{-2}{$b$}\ar@{-}[uul]\ar@{-}[uuuuu] & \rotatebox{-2}{$b'$}\ar@[blue][uull]\ar@[red][uuuuul]
+& & \rotatebox{-2}{$c$}\ar@[red][ul]\ar@[blue][uur] & & \rotatebox{-2}{$d$}\ar@[red][uul]\ar@[blue][ur] \\
+\rotatebox{-2}{$a$}\ar@{-}[rrrrrr]\ar@[red][uuuuu]\ar@[blue][uur] & & & & & & \rotatebox{-2}{$b$}\ar@{-}[uul]\ar@{-}[uuuuu] & \rotatebox{-2}{$b'$}\ar@[red]@/_1ex/[uull]\ar@[blue]@/_1ex/[uuuuul]
 }}
 \]
 Now an atom $z$ as postulated above does not create any triangles:
 \[
 \rotatebox{2}{
 \xymatrix@R=6pt@C=15pt{
-& & & \rotatebox{-2}{$z$}\ar@{-}@/_4ex/[llldddddd]\ar@{-}[lddddd]\ar@{-}[rddddd]\ar@{-}[rddd]\ar@{-}[rrrrdddddd] \\
+& & & \rotatebox{-2}{$z$}\ar@{-}@/_4ex/[llldddddd]\ar@{-}[lddddd]\ar@{-}[rddddd]\ar@{-}@/_-0.5ex/[rddd]\ar@{-}@/_-3ex/[rrrrdddddd] \\
 \rotatebox{-2}{$h$} & & & & & & \rotatebox{-2}{$i$} \\
 \\
-& & & \rotatebox{-2}{$g$}\ar@{-}[uulll]\ar@{-}[uurrr] & \rotatebox{-2}{$g'$}\ar@[red][uullll]\ar@[blue][uurr] \\
+& & & \rotatebox{-2}{$g$}\ar@{-}[uulll]\ar@{-}[uurrr] & \rotatebox{-2}{$g'$}\ar@[blue]@/_2ex/[uullll]\ar@[red]@/_1ex/[uurr] \\
 & \rotatebox{-2}{$e$} & & & & \rotatebox{-2}{$f$} \\
-& & \rotatebox{-2}{$c$}\ar@[blue][ul]\ar@[red][uur] & & \rotatebox{-2}{$d$}\ar@[blue][uul]\ar@[red][ur] \\
-\rotatebox{-2}{$a$}\ar@{-}[rrrrrr]\ar@[blue][uuuuu]\ar@[red][uur] & & & & & & \rotatebox{-2}{$b$}\ar@{-}[uul]\ar@{-}[uuuuu] & \rotatebox{-2}{$b'$}\ar@[blue][uull]\ar@[red][uuuuul]
+& & \rotatebox{-2}{$c$}\ar@[red][ul]\ar@[blue][uur] & & \rotatebox{-2}{$d$}\ar@[red][uul]\ar@[blue][ur] \\
+\rotatebox{-2}{$a$}\ar@{-}[rrrrrr]\ar@[red][uuuuu]\ar@[blue][uur] & & & & & & \rotatebox{-2}{$b$}\ar@{-}[uul]\ar@{-}[uuuuu] & \rotatebox{-2}{$b'$}\ar@[red]@/_1ex/[uull]\ar@[blue]@/_1ex/[uuuuul]
 }}
 \]
 and it is easy to calculate:
 \[
 v' = (ah \between g'z)  - (ae \between cz) - (cg \between dz) + (b'f \between dz) -(b'i \between g'z)
 \]
-which presents $v$ as a linear combination of $\cal O$-cogs.
+which presents $v = v' - (gh \between g'i) + (bf \between b'i)$ as a linear combination of $\cal O$-cogs.
+
+It is worth noting that, unlike with the atom $z$, we do not invent new coefficients here: for instance,
+\begin{itemize}
+    \item the $-1$ coefficient of $gh \between g'i$ comes from $v(gh) = -1$;
+    \item the $-1$ coefficient of $b'i \between g'z$ comes from $v'(b' i) = -1$, which  in turn comes from $v(b i) = -1$.
+\end{itemize}
 
 \subsection{Spanning by cogs: a proof}
 
-Inspired by the previous example, we shall now prove that $\Ker_\FF \mathcal{O} \subseteq \Cog_\FF \mathcal{O}$ for any $S$-ordered orbit $\cal O\subseteq \A^I$.
+Inspired by the previous example, we shall now prove that $\Ker_\FF \cal O \subseteq \Cog_\FF \cal O$ for any $S$-ordered orbit $\cal O\subseteq \A^I$.
 
 \subsubsection{Subvectors, locations, conflicts} \ \\
 %
 We begin by introducing some additional terminology and notation. First, let us make explicit a view we have tacitly taken:
-with $\mathcal{O}$ as a standard basis, a vector $v \in \Lin_\FF \mathcal{O}$ is just a finite set of pairs in $\FF \times \mathcal{O}$.
+with $\cal O$ as a standard basis, a vector $v \in \Lin_\FF \cal O$ is just a finite set of pairs in $\FF \times \cal O$.
 A \emph{subvector} of $v$ is a subset of these pairs. We write $\vsup{v}\subseteq {\cal O}$ for the set of tuples which are present in $v$. For a finite subset $T\subseteq\cal O$, we write $\sqrt T\subseteq\A$ for the set of atoms present anywhere in $T$, and for a vector $v$, we write $\sqrt v$ to mean $\sqrt{\vsup{v}}$.
 
 For any $i \in I$ and $a \in \A$, we write 
 \[
-    \mathcal{O}^{i:a} = \{b \in \mathcal{O} \mid b_i = a\};
+    \cal O^{i:a} = \{b \in \cal O \mid b_i = a\};
 \]
-this is an $\Aut(\A)_{(S a)}$-orbit, and its projection $\mathcal{O}^{i:a} |^{-i}$ is $Sa$-ordered.
-For a vector $v \in \Lin_\FF \mathcal{O}$, by
+this is an $\Aut(\A)_{(S a)}$-orbit, and its projection $\cal O^{i:a} |^{-i}$ is $Sa$-ordered.
+For a vector $v \in \Lin_\FF \cal O$, by
 \[
-    v^{i:a} \in \Lin_\FF \mathcal{O}^{i:a}
+    v^{i:a} \in \Lin_\FF \cal O^{i:a}
 \]
-we mean the subvector of $v$ consisting of all pairs in $\FF \times \mathcal{O}^{i:a}$.
+we mean the subvector of $v$ consisting of all pairs in $\FF \times \cal O^{i:a}$.
 
 \begin{lemma}\label{lem:balanced-projected-subvector}
-    Let $v \in \Lin_\FF \mathcal{O}$ be balanced. 
-    Then any projected subvector $v^{i:a}|^{-i} \in \Lin_\FF \mathcal{O}^{i:a}|^{-i}$ is also balanced.
+    Let $v \in \Lin_\FF \cal O$ be balanced. 
+    Then any projected subvector $v^{i:a}|^{-i} \in \Lin_\FF \cal O^{i:a}|^{-i}$ is also balanced.
 \end{lemma}
 \begin{proof}
     Let $j \in I \setminus \{i\}$. 
@@ -460,28 +476,12 @@ we mean the subvector of $v$ consisting of all pairs in $\FF \times \mathcal{O}^
     which shows that $v^{i:a}|^{-i}$ is balanced.
 \end{proof}
 
-For a finite subset $T \subseteq \mathcal{O}$, a {\em location} in $T$ is a pair $(i,a)\in I\times\A$ such that $a=c_i$ for some $c\in T$. Note that for any fixed $i,j\in I$, for all $c\in\cal O$ the atoms $c_i$ and $c_j$ are related in the same way in $\A$. We say that two locations $(i,a)$ and $(j,b)$ in $T$ are in:
+For a finite subset $T \subseteq \cal O$, a {\em location} in $T$ is a pair $(i,a)\in I\times\A$ such that $a=c_i$ for some $c\in T$. Note that for any fixed $i,j\in I$, for all $c\in\cal O$ the atoms $c_i$ and $c_j$ are related in the same way in $\A$. We say that two locations $(i,a)$ and $(j,b)$ in $T$ are in:
 \begin{itemize}
 \item an {\em equational conflict}, if $i\neq j$ but $a=b$, and in
 \item a {\em relational conflict}, if $a$ and $b$ are related in $\A_0$ but not in the same way as $c_i$ and $c_j$ for $c\in\cal O$.
 \end{itemize}
-%write
-%\[
-%    \overline{\sigma} = \{ (i, a_i) \mid i \in I, a \in \sigma \}
-%\]
-%and define two binary relations 
-%\begin{align*}
-%    &(i, a_i) {?} (j, b_j) \iff a_i = b_j \text{ but } i \neq j, \\
-%    &(i, a_i) {!} (j, b_j) \iff \text{$a_i, b_j$ are related but not in the same way as $a_i, a_j$}
-%    % or equivalently $b_i, b_j$ since both $a$ and $b$ are in $\mathcal{O}$
-%\end{align*}
-%called \emph{ambiguities} and \emph{obstructions}.
 (A situation where $a$ and $b$ are not related by any relation in $\A_0$ at all, does not constitute a conflict even if $c_i$ and $c_j$ are related.) Seeing equality as a binary relation in $\A_0$, an equational conflict is a special case of a relational one.
-%(Recall that $a_i$ and $b_j$ are \emph{not related} if they are freely amalgamated in the reduct $\A_0$ of $\A$ 
-%--- i.e., they are not equal, and for no $R \in \mathcal{L}_0$ does $R(a_i, b_j) \vee R(b_j, a_i)$ hold;
-%in that case, we write $a_i \amalgindep b_j$).
-%Both relations are symmetric and ${?} \subseteq {!}$;
-%denote their images by ${?\overline{\sigma}} \subseteq {!\overline{\sigma}} \subseteq \overline{\sigma}$.
 A location in a vector $v$ means a location in the set $[v]$.
 %Let $\EConf(T)$ and $\RConf(T)$ denote, respectively, the sets of those locations which take part in, respectively, equational and relational conflicts in $T$. For a vector $v$, we write $\EConf(v)$ and $\RConf(v)$ for $\EConf([v])$ and $\RConf([v])$.
 
@@ -494,7 +494,7 @@ $A^+$ to mean $\bigcup_{a^\pm\in A^\pm}\{a^+\}$, and $A^-$ to mean $\bigcup_{a^\
 %
 The following sister lemmas, relying on free amalgamation as distilled in Lemma~\ref{lem:free-fresh}, show how to merge conflict-free subsets of $\cal O$ in a way that avoids introducing new conflicts. This will be useful in Sections~\ref{sec:unobstructed} and~\ref{sec:unambiguous}.
 %
-%Let $v \in \Ker_\EE \mathcal{O}$ and let $v^{i:a_i}$ be a subvector.
+%Let $v \in \Ker_\EE \cal O$ and let $v^{i:a_i}$ be a subvector.
 %In the cog decomposition results we are about to prove,
 %we will work with the assumption that $V = \vsup{v}$ is unobstructed (resp., unambiguous);
 %then so is $V' = \vsup{v^{i:a_i}} \subseteq \vsup{v}$.
@@ -530,10 +530,10 @@ The following sister lemmas, relying on free amalgamation as distilled in Lemma~
 %\end{center}
 
 \begin{lemma}\label{lem:?}
-    Let $K, V_0, V$ be finite subsets of $\mathcal{O}$ such that $V_0 \subseteq V$ and both $V_0\cup K$ and $V$ are free from equational conflicts. Then there exists a $\pi\in\Aut(\A)$ that fixes all atoms in $S$ and in $\rt{V_0}$, and such that $V \cup \pi(K)$ is free from equational conflicts.
+    Let $K, V_0, V$ be finite subsets of $\cal O$ such that $V_0 \subseteq V$ and both $V_0\cup K$ and $V$ are free from equational conflicts. Then there exists a $\pi\in\Aut(\A)$ that fixes all atoms in $S$ and in $\rt{V_0}$, and such that $V \cup \pi(K)$ is free from equational conflicts.
 \end{lemma}
 \begin{proof}
-    Fix $V_0, V$ and induct on the number of equationally conflicting locations in $V \cup K$. Take any such locations $(i,a)$ and $(j,a)$; without loss of generality $(i,a)$ is a location in $K$ and $(j,a)$ a location in $V$. Since there are no equational conflicts in $V_0\cup K$ or in $V$, we see that $a \not\in \sqrt{V_0}$; also $a\not\in S$, as $\mathcal{O}$ is $S$-ordered.
+    Fix $V_0, V$ and induct on the number of equationally conflicting locations in $V \cup K$. Take any such locations $(i,a)$ and $(j,a)$; without loss of generality $(i,a)$ is a location in $K$ and $(j,a)$ a location in $V$. Since there are no equational conflicts in $V_0\cup K$ or in $V$, we see that $a \not\in \sqrt{V_0}$; also $a\not\in S$, as $\cal O$ is $S$-ordered.
     Put 
     \[
         X = S \cup \sqrt{K \cup V} \setminus \{a\}
@@ -545,7 +545,7 @@ The following sister lemmas, relying on free amalgamation as distilled in Lemma~
 \end{proof}
 
 \begin{lemma}\label{lem:!}
-    Let $K, V_0, V$ be finite subsets of $\mathcal{O}$ such that $V_0 \subseteq V$ and both $V_0\cup K$ and $V$ are free from relational conflicts. Then there exists a $\pi\in\Aut(\A)$ that fixes all atoms in $S$ and in $\rt{V_0}$, and such that $V \cup \pi(K)$ is free from relational conflicts.
+    Let $K, V_0, V$ be finite subsets of $\cal O$ such that $V_0 \subseteq V$ and both $V_0\cup K$ and $V$ are free from relational conflicts. Then there exists a $\pi\in\Aut(\A)$ that fixes all atoms in $S$ and in $\rt{V_0}$, and such that $V \cup \pi(K)$ is free from relational conflicts.
 \end{lemma}
 \begin{proof}
     By \autoref{lem:?} we may assume that $V \cup K$ is free from {\em equational} conflicts.  As before, fix $V_0, V$ and proceed by induction on the number of relationally conflicting locations in $V \cup K$.
@@ -585,7 +585,7 @@ The following sister lemmas, relying on free amalgamation as distilled in Lemma~
 %	\arrow[from=5-6, to=4-7]
 %\end{tikzcd}\]
 \begin{proposition}\label{prop:!-free-decomposition}
-    If $v \in \Ker_\FF \mathcal{O}$ is free from conflicts, then it can be written as a linear combination of $\cal O$-cogs:
+    If $v \in \Ker_\FF \cal O$ is free from conflicts, then it can be written as a linear combination of $\cal O$-cogs:
     \[
         v = \sum_{a^\pm \in A^\pm} \lambda_{a^\pm} \cdot a^+ \between a^-
     \]
@@ -642,7 +642,7 @@ We now invent a new element $z$, on which we impose the following relations with
         % \item $R(a_d, z), R(b_d, z) \;:\Longleftrightarrow\; \bot$;
         \item and symmetrically for $R(-, z)$.
     \end{enumerate}
-    These are well-defined because $a^\pm a, b^\pm b \in \mathcal{O}$ and $i = j$ whenever $a^\pm_i = b^\pm_j$.
+    These are well-defined because $a^\pm a, b^\pm b \in \cal O$ and $i = j$ whenever $a^\pm_i = b^\pm_j$.
 \end{enumerate}
 To see that the $\mathcal{L}$-structure $S \cup \sqrt{A^\pm a \cup B^\pm b} \cup \{z\}$ still embeds into $\A$, 
 suppose towards a contradiction that it contains a forbidden $\mathcal{L}_0$-substructure $F$.
@@ -657,7 +657,7 @@ defines an injective function $\phi : F \to \A_0$,
 which is furthermore an embedding (we only need to check this for pairs!) because $A^\pm \cup B^\pm$ is conflict-free and any $x_i, y_{j}$ for $i \neq j$ are related.
 This is a contradiction. We may therefore assume that $z \in \A$.
 
-It is now routine to check that $a^+ a \parallel a^- z$ and $b^+ b \parallel b^- z$ are $\mathcal{O}$-duos for all $a^\pm \in A^\pm, b^\pm \in B^\pm$,
+It is now routine to check that $a^+ a \parallel a^- z$ and $b^+ b \parallel b^- z$ are $\cal O$-duos for all $a^\pm \in A^\pm, b^\pm \in B^\pm$,
 and that 
 \[
 A^+ a \cup A^- z \cup B^+ b \cup B^- z
@@ -722,7 +722,7 @@ is a decomposition of $v$ into a linear combination of $\cal O$-cogs as required
 %	\arrow[color={rgb,255:red,92;green,92;blue,214}, from=4-6, to=5-7]
 %\end{tikzcd}\]
 \begin{proposition}\label{prop:?-free-decomposition}
-     If $v \in \Ker_\FF \mathcal{O}$ has no equational conflicts, then it can be written as a linear combination of $\cal O$-cogs:
+     If $v \in \Ker_\FF \cal O$ has no equational conflicts, then it can be written as a linear combination of $\cal O$-cogs:
     \[
         v = \sum_{a^\pm \in A^\pm} \lambda_{a^\pm} \cdot a^+ \between a^-
     \]
@@ -752,7 +752,7 @@ X = S \cup \sqrt{\vsup{v} \cup A^\pm} \setminus (Y \cup \{a\})
 \]
 contains $S \cup \sqrt{A^\pm}$ and that $X, Y, \{a\}$ are pairwise disjoint.
 Use Lemma~\ref{lem:free-fresh} (putting $z=a$) to find $\tau \in \Aut(\A)_{(X)}$ such that $\tau(a) \not\in X \cup Y \cup \{a\}$, is greater than $a$, and is not related to any of $Y \cup \{a\}$. Denote $a'=\tau(a)$.
-Then, for any $a^\pm \in A^\pm$, it is \textcolor{red}{easy (using \ref{lem:cog-fresh-single})} to check that $a^+ a \parallel a^- a'$ is an $\mathcal{O}$-duo. Moreover, 
+Then, for any $a^\pm \in A^\pm$, it is \textcolor{red}{easy (using \ref{lem:cog-fresh-single})} to check that $a^+ a \parallel a^- a'$ is an $\cal O$-duo. Moreover, 
 $\vsup{v} \cup A^+ a \cup A^- a'$
 has no equational conflicts, and the vector
 \begin{align*}
@@ -801,7 +801,7 @@ as required.
 %	\arrow[color={rgb,255:red,92;green,92;blue,214}, from=4-6, to=3-7]
 %\end{tikzcd}\]
 \begin{theorem}\label{thm:cog-span-generally}
-    Any $v \in \Ker_\FF \mathcal{O}$ can be written as
+    Any $v \in \Ker_\FF \cal O$ can be written as
     \[
         v = \sum_{a^\pm \in A^\pm} \lambda_{a^\pm} \cdot a^+ \between a^-
     \]
@@ -827,7 +827,7 @@ X = S \cup \sqrt{\vsup{v} \cup A^\pm} \setminus \{a\}
 contains $S \cup \sqrt{A^\pm}$.
 Using Lemma~\ref{lem:free-fresh} (putting $z=a$ and $Y=\emptyset$), find $\pi \in \Aut(\A)_{(X)}$ such that $\pi(a)$ is not in $X$, is greater than $a$, and is otherwise unrelated to $a$. Denote $a'=\tau(a)$. 
 
-Then, for any $a^\pm \in A^\pm$, it is easy to check that $a^+ a \parallel a^- a'$ is an $\mathcal{O}$-duo. Moreover, 
+Then, for any $a^\pm \in A^\pm$, it is easy to check that $a^+ a \parallel a^- a'$ is an $\cal O$-duo. Moreover, 
 the vector
 \begin{align*}
     v' = v - \sum_{a^\pm\in A^\pm} \lambda_{a^\pm} \cdot a^+ a \between a^- a'
