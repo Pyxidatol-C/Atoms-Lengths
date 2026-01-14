@@ -1,7 +1,7 @@
 \section{Application: solving orbit-finite linear equations}
 We will now show an important corollary of Theorem~\ref{thm:cog-span-generally}.
 Let $\mathcal{O} \subseteq \A^{I}$ be an $S$-ordered orbit.
-Then $\len(\Lin_\FF\mathcal{O}) = 2^{|I_1|}$;
+Then $\len(\Lin_\FF\mathcal{O}) = 2^{|I|}$;
 in fact, we can characterise all the $\Aut(\A)_{(S)}$-equivariant subspaces of $\Lin_\FF\mathcal{O}$.
 
 %\paragraph{Local coefficients}
@@ -24,16 +24,16 @@ Now, let $\mathcal{Q}_{1} = \mathcal{O}|^{J_1}, \dots, \mathcal{Q}_{t} = \mathca
 enumerated in such a way that $|J_1| \geq |J_2| \geq \dots \geq |J_t|$. (In particular, $J_1=I$ and $J_t=\emptyset$.)
 
 %\begin{definition}
-    For $i = 1, \dots, t$, let $P_i$ consist of all sets $J$ such that $\mathcal{O}|^J$ is in $\Aut(\A)_{(S)}$-equivariant bijection with $\mathcal{Q}_i$.
-    Assemble all $|P_i|$ projections into a single map
+    For $i = 1, \dots, t$, let $\Jclass_i$ consist of all sets $J$ such that $\mathcal{O}|^J$ is in $\Aut(\A)_{(S)}$-equivariant bijection with $\mathcal{Q}_i$.
+    Assemble all $|\Jclass_i|$ projections into a single map
     \[
-        (-){\restriction_i} : \Lin_\FF\mathcal{O} \to \Lin_{\FF^{P_i}} \mathcal{Q}_i.
+        (-){\restriction_i} : \Lin_\FF\mathcal{O} \to \Lin_{\FF^{\Jclass_i}} \mathcal{Q}_i.
     \]
-    More precisely, $v{\restriction_i}(a)$ (for $a\in{\cal Q}_i$) is the $P_i$-tuple whose $J$-th entry is $v|^J(a^{/J}) \in \FF$.
+    To be more precise $v{\restriction_i}(a)$ is, for $a\in{\cal Q}_i$, the $\Jclass_i$-tuple whose $J$-th entry is $v|^J(a^{/J}) \in \FF$.
     It is straightforward to check that $(-){\restriction_i}$ is $\Aut(\A)_{(S)}$-equivariant and linear.
 %\end{definition}
 
-Let $W \subseteq \Lin_\FF \mathcal{O}$ be an $\Aut(\A)_{(S)}$-equivariant subspace. Let $W {\restriction_i} (\mathcal{Q}_i) \subseteq \FF^{P_i}$ be the set of all $P_i$-tuples that can be obtained as $w {\restriction_i} (a)$ for some $w\in W$ and $a\in{\cal Q}_i$. This is a finite-dimensional vector space.
+Let $W \subseteq \Lin_\FF \mathcal{O}$ be an $\Aut(\A)_{(S)}$-equivariant subspace. Let $W {\restriction_i} (\mathcal{Q}_i) \subseteq \FF^{\Jclass_i}$ be the set of all $\Jclass_i$-tuples that can be obtained as $w {\restriction_i} (a)$ for some $w\in W$ and $a\in{\cal Q}_i$. This is a finite-dimensional vector space.
 Now define $\widetilde W$, which consists of all vectors $v \in \Lin_\FF \mathcal{O}$ such that
 \[
     v {\restriction_i} (\mathcal{Q}_i) \subseteq W {\restriction_i} (\mathcal{Q}_i) \qquad \text{for all } i=1,\ldots, t.
@@ -50,9 +50,9 @@ For every $i=0,\ldots, t$,
     In particular $\widetilde W \subseteq W$ when $i = t$.
 \end{lemma}
 
-{\sc Proof.}
+\begin{proof}
 We proceed by induction on $i$.
-The base case $i = 0$ is trivial, since $\ker(\restriction_1) = \{0\}$. Indeed, $P_1=\{I\}$, so $v{\restriction_1}$ is the identity map.
+The base case $i = 0$ is trivial, since $\ker(\restriction_1) = \{0\}$. Indeed, $\Jclass_1=\{I\}$, so $v{\restriction_1}$ is the identity map.
 
 To prove the containment for some $i>0$, 
 we allow $v {\restriction_i}$ to be non-zero.
@@ -68,11 +68,11 @@ But $v {\restriction_i}$ satisfies the next best property:
     That $v {\restriction_{i}} \in \Lin_{W{\restriction_{i}}(\mathcal{Q}_{i})} \mathcal{Q}_{i}$ is clear from the definition of $\widetilde W$.
     Recall that $\mathcal{Q}_{i}$ = $\mathcal{O}|^{J_{i}}$.
     For every $j \in J_{i}$,
-    we need to prove that $v {\restriction_{i}} |^{-j} = 0$. In more elementary terms, given any $a\in\mathcal{O}|^{J_{i}\setminus\{j\}}$, we need that the $J$-th entry of $v {\restriction_{i}} |^{-j}(a)$ is $0$, for every $J\in P_i$.
+    we need to prove that $v {\restriction_{i}} |^{-j} = 0$. In more elementary terms, given any $a\in\mathcal{O}|^{J_{i}\setminus\{j\}}$, we need the $J$-th entry of $v {\restriction_{i}} |^{-j}(a)$ to be $0$, for every $J\in \Jclass_i$.
     
-    So take any $J \in P_{i}$.
-    The unique monotone bijection between $J_{i}$ and $J$ restricts to one between $J_{i} \setminus \{j\}$ and $J \setminus \{j'\}$, for some $j'\in J$. Denote $J'=J \setminus \{j'\}$.
-    Then $J'$ belongs to some $P_{i'}$ with $i' > i $,
+    So take any $J \in \Jclass_{i}$.
+    The unique ordered bijection between $J_{i}$ and $J$ restricts to one between $J_{i} \setminus \{j\}$ and $J \setminus \{j'\}$, for some $j'\in J$. Denote $J'=J \setminus \{j'\}$.
+    Then $J'$ belongs to some $\Jclass_{i'}$ with $i' > i $,
     so $v {\restriction_{i'}} = 0$. Now calculate (with $a\in\mathcal{O}|^{J_{i}\setminus\{j\}}$, $b\in{\cal Q}_i$, $c\in {\cal O}|^J$ and $d\in\cal O$):
 \begin{align*}
 	(v{\restriction_i}|^{-j}(a))_J &= \sum_{b|^{-j}=a}(v{\restriction_i}(b))_J
@@ -80,6 +80,7 @@ But $v {\restriction_i}$ satisfies the next best property:
 	= \sum_{c|^{-j'}=a^{/J'}}v|^J(c) \\
 	&= \sum_{d|^{J'}=a^{/J'}}v(d)
 	\,\, = v|^{J'}(a^{/J'}) = (v{\restriction_{i'}}(a))_{J'} = 0.
+    \qedhere
 \end{align*}    
 \end{proof}
 
@@ -97,30 +98,30 @@ Furthermore:
     Let $S'$ consist of $S$ together with every atom appearing in $w$ but not in $a$.
     We generalise the construction used in the proof of Theorem~\ref{thm:cogs-arise-everywhere}.
     
-    Apply Proposition~\ref{prop:cog-fresh-full} and Remark~\ref{rem:duo} to get automorphisms $\pi_j$ for $j \in J_i$ such that $a \parallel \prod_{j \in J_i} \pi_j \cdot a$ is an $\mathcal{Q}_i$-duo, 
-    where each $\pi_j$ fixes $S'$ and all $a_{j'}$ and $\pi_{j'}(a_{j'})$ for $j'\neq j$. Since all $\mathcal{Q}_i$-duos are in the same orbit, it is enough to show that the cog corresponding to this particular duo, with the coefficient $\lambda$, belongs to the $\restriction_i$-image as in the statement of the Claim.
+    Apply Proposition~\ref{prop:cog-fresh-full} and Remark~\ref{rem:duo} to get automorphisms $\pi_j$ for $j \in J_i$ such that $a \parallel \prod_{j \in J_i} \pi_j a$ is an $\mathcal{Q}_i$-duo, 
+    where each $\pi_j$ fixes $S'$ and all $a_{j'}$ and $\pi_{j'}(a_{j'})$ for $j'\neq j$. Since all $\mathcal{Q}_i$-duos are in the same orbit, it is enough to show that the cog corresponding to this particular duo, with the coefficient $\lambda$, belongs to the $\restriction_i$-image as in the statement of the claim.
     
     
-    Put \[
-        w' = \prod_{j \in J_{i}} (1 - \pi_j) \cdot w \in W.
+    Put: \[
+        w' = \prod_{j \in J_{i}} (1 - \pi_j) w \in W.
     \]
-    For any $1 \leq i' \leq t$, note that as no more atoms can appear in $w{\restriction_{i'}}$ than in $w$, we have
+    For any $1 \leq i' \leq t$, noting that as no more atoms can appear in $w{\restriction_{i'}}$ than in $w$, we have
     \begin{align*}
         &w' {\restriction_{i'}}
-        = \prod_{j \in J_{i}} (1 - \pi_j) \cdot w {\restriction_{i'}} 
+        = \prod_{j \in J_{i}} (1 - \pi_j) w {\restriction_{i'}} 
         = \sum_{c \in C_i} \sum_{J' \subseteq J_i} (-1)^{|J'|}  
-            w {\restriction_{i'}}(c) \left(\prod_{j \in J'} \pi_j \cdot c\right)
+            w {\restriction_{i'}}(c) \cdot \left(\prod_{j \in J'} \pi_j c\right)
 %        &{}= \sum_{b_\bullet \in \mathcal{Q}_{i'}, \{b_j \mid j\} \supseteq \{a_j \mid j\}} \sum_{J' \subseteq J} (-1)^{|J'|}  
 %            w {\restriction_{i'}}(b_\bullet) \prod_{j \in J'} \pi_j \cdot b_\bullet.
     \end{align*}
     where
-        \[C_i = \{ c\in{\cal Q}_{i'} \mid \{c_j\mid j\in J_{i'}\} \supseteq \{a_j \mid j\in J_i\} \}.
+        \[C_i = \{ c\in{\cal Q}_{i'} : \{c_j\mid j\in J_{i'}\} \supseteq \{a_j \mid j\in J_i\} \}.
     \]
     (The formula used in the proof of Theorem~\ref{thm:cogs-arise-everywhere} is a special case of this for $i'=1$ so that $J_{i'}=I$ and ${\cal Q}_{i'}={\cal O}$.) Now, if $i'>i$ then $C_i$ is empty, and so $w' {\restriction_{i+1}} = \cdots = w' {\restriction_{t}} = 0$. Moreover, if $i'=i$ then $C_i = \{a\}$ and we obtain the cog from before:
     \[
-        w' {\restriction_{i}} = \lambda \left(a \between \prod_{j \in J_{i}} \pi_j \cdot a\right).
+        w' {\restriction_{i}} = \lambda \cdot \left(a \between \prod_{j \in J_{i}} \pi_j a\right).
     \]
-So $w'$ is a witness for the inclusion from the Claim.
+So $w'$ is a witness for the inclusion from the claim.
 \end{proof}
 
 This is enough to establish Lemma~\ref{lem:coeff-approximation} for $i$, assuming it for $i-1$.
@@ -129,11 +130,12 @@ we can find $w \in W \cap \ker(\restriction_{i+1}) \cap \dots \cap \ker(\restric
 $v {\restriction_i} = w {\restriction_i}$.
 But then $(v - w) {\restriction_{i}} = 0$, so $v - w$ lies in $\ker(\restriction_{i})$ as well as $\widetilde W \cap \ker(\restriction_{i+1}) \cap \cdots \cap \ker(\restriction_t)$.
 It follows from the inductive hypothesis that \[
-    v - w \in W \cap \ker(\restriction_{i+1}) \cap \dots \cap \ker(\restriction_t),
+    v - w \in W \cap \ker(\restriction_i) \cap \ker(\restriction_{i+1}) \cap \dots \cap \ker(\restriction_t),
 \]
 so $v = (v - w) + w$ is in $W \cap \ker(\restriction_{i+1}) \cap \dots \cap \ker(\restriction_t)$ as well.
 
-This completes the proof of Lemma~\ref{lem:coeff-approximation}. \qed
+This completes the proof of Lemma~\ref{lem:coeff-approximation}.
+\end{proof}
 
 \paragraph{Lengths}
 Let $W, W'$ be two $\Aut(\A)_{(S)}$-equivariant subspaces of $\Lin_\FF(\mathcal{O})$.
@@ -148,13 +150,13 @@ As a consquence:
 \begin{proof}
     We obtain $t$ chains
     \begin{align*}
-        W_0 {\restriction_1} (\mathcal{Q}_1) \subseteq W_1 {\restriction_1} (\mathcal{Q}_1) \subseteq \cdots \subseteq W_l {\restriction_1} (\mathcal{Q}_1) \subseteq \FF^{P_1}, \\
-        W_0 {\restriction_2} (\mathcal{Q}_2) \subseteq W_1 {\restriction_2} (\mathcal{Q}_2) \subseteq \cdots \subseteq W_l {\restriction_2} (\mathcal{Q}_2) \subseteq \FF^{P_2}, \\
+        W_0 {\restriction_1} (\mathcal{Q}_1) \subseteq W_1 {\restriction_1} (\mathcal{Q}_1) \subseteq \cdots \subseteq W_l {\restriction_1} (\mathcal{Q}_1) \subseteq \FF^{\Jclass_1}, \\
+        W_0 {\restriction_2} (\mathcal{Q}_2) \subseteq W_1 {\restriction_2} (\mathcal{Q}_2) \subseteq \cdots \subseteq W_l {\restriction_2} (\mathcal{Q}_2) \subseteq \FF^{\Jclass_2}, \\
         \vdots \\
-        W_0 {\restriction_t} (\mathcal{Q}_t) \subseteq W_1 {\restriction_t} (\mathcal{Q}_t) \subseteq \cdots \subseteq W_l {\restriction_t} (\mathcal{Q}_t) \subseteq \FF^{P_t}.
+        W_0 {\restriction_t} (\mathcal{Q}_t) \subseteq W_1 {\restriction_t} (\mathcal{Q}_t) \subseteq \cdots \subseteq W_l {\restriction_t} (\mathcal{Q}_t) \subseteq \FF^{\Jclass_t}.
     \end{align*}
     At each of the $l$ steps, one of the $t$ containments must be strict.
-    Hence $l \leq |P_1| + |P_2| + \dots + |P_t| = 2^{|I|}$. 
+    Hence $l \leq |\Jclass_1| + |\Jclass_2| + \dots + |\Jclass_t| = 2^{|I|}$. 
 \end{proof}
 
 It follows that every $\Aut(\A)_{(S)}$-equivariant subspace of $\Lin_\FF(\mathcal{O})$ is finitely generated.
@@ -165,7 +167,7 @@ We can compute the local coefficients of such subspaces easily:
     Then:
     \begin{enumerate}
         \item 
-        $\langle v \rangle {\restriction_i}(\mathcal{Q}_i)$ is the subspace of $\FF^{P_i}$ generated by vectors of the form $v {\restriction_i} (a)$,
+        $\langle v \rangle {\restriction_i}(\mathcal{Q}_i)$ is the subspace of $\FF^{\Jclass_i}$ generated by vectors of the form $v {\restriction_i} (a)$,
         which is zero unless every atom appearing in $a$ appears in $v$
         --- there are only finitely many such $a$'s;
 
@@ -174,37 +176,37 @@ We can compute the local coefficients of such subspaces easily:
     \end{enumerate}
 \end{remark}
 
-To complement the upper bound from Prop.~\ref{prop:length-upper-bound}, we now exhibit a chain of $\Aut(\A)_{(S)}$-equivariant subspaces whose length is precisely $\sum_{i=1}^t 2^{|P_i|}$, generalising \cite[Corollary~4.12]{BFKM24}.
-Take any $J \in P_i$. 
+To complement the upper bound from Prop.~\ref{prop:length-upper-bound}, we now exhibit a chain of $\Aut(\A)_{(S)}$-equivariant subspaces whose length is precisely $\sum_{i=1}^t 2^{|\Jclass_i|}$, generalising \cite[Corollary~4.12]{BFKM24}.
+Take any $J \in \Jclass_i$. 
 Pick some $a\in \mathcal{O}$,
 and let $\pi_j$ (for $j \in I$) be the automorphisms from Prop.~\ref{prop:cog-fresh-full}.
 Define a vector
 \begin{align*}
-    v^i_{J} =  \prod_{j \in J} (1 - \pi_j) \cdot a \in \Lin_\FF(\mathcal{O}).
+    v_{J} =  \prod_{j \in J} (1 - \pi_j) a \in \Lin_\FF(\mathcal{O}).
 \end{align*}
 Then 
 \[
-    (\langle v^i_{J} \rangle {\restriction_{i'}} (\mathcal{Q}_{i'}))_{J'} =
+    (\langle v_{J} \rangle {\restriction_{i'}} (\mathcal{Q}_{i'}))_{J'} =
     \begin{cases}
         \FF & \text{if $J \subseteq J'$}, \\
         \{0\} & \text{otherwise}.
     \end{cases}
 \]
-Enumerating each $P_i$ in any order as $J^i_1, J^i_2, \dots, J^i_{|P_i|}$,
+Enumerating each $\Jclass_i$ in any order as $J_i^1, J_i^2, \dots, J_i^{|\Jclass_i|}$,
 we obtain a chain
 \begin{align*}
     \langle  \rangle 
-    & \subsetneq{} \langle v^t_{J^t_1} \rangle 
-    \subsetneq{} \langle v^t_{J^t_1}, v^t_{J^t_2} \rangle  
+    & \subsetneq{} \langle v_{J_t^1} \rangle 
+    \subsetneq{} \langle v_{J_t^1}, v_{J_t^2} \rangle  
     \subsetneq{} \cdots 
-    \subsetneq{} \langle v^t_{J^t_1}, v^t_{J^t_2}, \dots, v^t_{J^t_{|P_t|}} \rangle \\
-   & \subsetneq{} \langle v^t_{J^t_1}, v^t_{J^t_2}, \dots, v^t_{J^t_{|P_t|}}, v^{t-1}_{J^{t-1}_1} \rangle 
+    \subsetneq{} \langle v_{J_t^1}, v_{J_t^2}, \dots, v_{J_t^{|\Jclass_t|}} \rangle \\
+   & \subsetneq{} \langle v_{J_t^1}, v_{J_t^2}, \dots, v_{J_t^{|\Jclass_t|}}, v_{J_{t-1}^1} \rangle 
      \subsetneq{} \cdots
 \end{align*}
-of length $|P_t| + |P_{t-1}| + \cdots + |P_1| = 2^{|I|}$.
+of length $|\Jclass_t| + |\Jclass_{t-1}| + \cdots + |\Jclass_1| = 2^{|I|}$.
 Together with the upper bound from Proposition~\ref{prop:length-upper-bound}, we conclude:
 \begin{theorem}
-    $\len(\Lin_\FF(\mathcal{O}) = 2^{|I|}$.
+    $\len(\Lin_\FF\mathcal{O}) = 2^{|I|}$.
 \end{theorem}
 Along the lines of Proposition~\ref{prop:reduction-to-one-orbit}, this generalises to multi-orbit sets:
 \[
