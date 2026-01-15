@@ -60,7 +60,7 @@ Here are a few free amalgamation classes.
 \end{example}
 
 \paragraph*{Irreflexivity} 
-For technical reasons, we restrict attention to classes $\Cclass_0$ where all structures are {\em irreflexive}, i.e. such that if $R(x,y)$ then $x\neq y$ for each relation $R$. This does not lose generality: for any free amalgamation class $\Cclass_0$, we may replace every binary relation $R$ in the vocabulary with a new unary predicate $\check{R}$, interpreted in every structure so that $\check{R}(x)$ iff $R(x,x)$, and a binary relation interpreted as the irreflexive part of $R$. Then $\Cclass_0$ interpreted over this modified language is still a free amalgamation class, and all our results transport back to the original $\Cclass_0$. This way of encoding arbitrary structures as irreflexive ones is standard, see e.g.~\cite{Herwig1998,SS20}. All examples considered here are already irreflexive.
+For technical reasons, we restrict attention to classes $\Cclass_0$ where all structures are {\em irreflexive}, i.e. such that if $R(x,y)$ then $x\neq y$ for each relation $R$. This does not lose generality: for any free amalgamation class $\Cclass_0$, we may replace every binary relation $R$ in the vocabulary with a new unary predicate $R_=$, interpreted in every structure so that $R_=(x)$ iff $R(x,x)$, and a binary relation interpreted as the irreflexive part of $R$. Then $\Cclass_0$ interpreted over this modified language is still a free amalgamation class, and all our results transport back to the original $\Cclass_0$. This way of encoding arbitrary structures as irreflexive ones is standard, see e.g.~\cite{Herwig1998,SS20}. All examples considered here are already irreflexive.
 
 \paragraph*{Generically ordered expansion}
 Now, let $\sigma$ consist of $\sigma_0$ together with a new binary symbol $<$.
@@ -106,9 +106,9 @@ Conversely, we call $\A$ the \emph{generically ordered expansion} of $\A_0$ or s
 
 
 \section{How the cogs turn: proof of Theorem~\ref{thm:ordered-free-amalg-has-finite-length}}
-We will proceed in several steps, the structure being similar to \cite[]{BFKM24}
-The zeroth step is to assume that in $\A$, every binary relation $R \in \sigma_0$ is interpreted irreflexively. 
-This is a harmless assumption: we can always split $R$ into a unary predicate $R_=$ and a binary, irreflexive relation $R_\neq$ without changing the automorphism group.
+We will proceed in several steps, with the general idea similar to \cite[]{BFKM24}, but with significant new complications arising from the presence of nontrivial relations in $\A_0$.
+%The zeroth step is to assume that in $\A$, every binary relation $R \in \sigma_0$ is interpreted irreflexively. 
+%This is a harmless assumption: we can always split $R$ into a unary predicate $R_=$ and a binary, irreflexive relation $R_\neq$ without changing the automorphism group.
 
 
 \subsection{Orbits and projections}
@@ -185,7 +185,7 @@ Following the terminology used in \cite[Equation (4)]{BFKM24}, we shall call a v
 As we will see shortly, there exist balanced vectors other than $0$.
 
 \subsection{Cogs}
-From now on we will use a lightweight notation for combining tuples of atoms: for disjoint indexing sets $I$ and $J$, if $a\in\A^I$ and $b\in\A^{J}$ are both ordered, then $ab\in \A^{I\cup J}$ will denote their obvious combination. We will only use this notation if the combined tuple $ab$ is ordered. For an obvious example, for any $S$-ordered $a\in\A^I$ and $J\subseteq I$, we have $a|^{I\setminus J}a|^J=a$.
+From now on we will use a lightweight notation for combining tuples of atoms: for disjoint indexing sets $I$ and $J$, if $a\in\A^I$ and $b\in\A^{J}$ are both ordered, then $ab\in \A^{I\cup J}$ will denote their obvious combination. We will only use this notation if this $ab$ is ordered. For an obvious example, for any $S$-ordered $a\in\A^I$ and $J\subseteq I$, we have $a|^{I\setminus J}a|^J=a$.
 
 \begin{definition}\label{def:duo}
     Let $\cal O \subseteq \A^I$ be an $S$-ordered orbit. 
@@ -213,6 +213,8 @@ each $a_i$ is unrelated to its counterpart $b_i$.
 Further, given any $J \subseteq I$, the combined tuple $a|^{I\setminus J} b|^J$ satisfies the same relations as $a$ (and $b$), so it lies in $\cal O$. In particular, taking $J=\{i\}$, there is an automorphism $\pi_i$ that sends $a_i$ to $b_i$ and fixes all the other elements of $a$, $b$ and $S$.
 \end{remark}
 
+For the special case of the ordered atoms (Ex.~ \ref{ex:order-atoms} \&~\ref{ex:geneircally-ordered-equality}) the following construction was studied  in~\cite{BFKM24}, and it was introduced earlier in~\cite{Gray97} under the name of ``polytabloids''.
+
 \begin{definition}
     Given a $\cal O$-duo $a \parallel b$, the corresponding \emph{$\cal O$-cog} is the vector
     \[
@@ -237,7 +239,7 @@ As a result, $\Cog_\FF \cal O$ is an $\Aut(\A)_{(S)}$-equivariant subspace of $\
     Therefore they cancel out under $(-)|^{-i}$; hence $(a \between b )|^{-i} = 0$.
 \end{proof}
 
-So far, we have not shown that $\cal O$-cogs even exist.
+So far, we have not shown that $\cal O$-duos and $\cal O$-cogs even exist in general.
 Let us rectify this by showing that they can be found in all but one $\Aut(\A)_{(S)}$-equivariant subspaces of $\Lin_\FF{\cal O}$.
 
 
