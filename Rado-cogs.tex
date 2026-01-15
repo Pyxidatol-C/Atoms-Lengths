@@ -2,40 +2,33 @@
 \newcommand{\cal}{\mathcal}
 
 As we saw in Non-example~\ref{non-ex:weak-smooth-approximation}, the ordered atoms do not have oligomorphic approximation. 
-Nontheless they do have the finite length property over any field \cite[Theorem~4.8]{BFKM24}, not just those of characteristic zero.
-\textcolor{red}{
-We give an adaptation of the proof there in this section to richer ordered structures.
-In particular, we will deduce the finite length property for the Rado graph and the, even with finitely many constants fixed.}
+Nontheless they do have the finite length property over any field \cite[Theorem~4.8]{BFKM24}, not just over those of characteristic zero. We shall now generalise that result to a wide class of structures. In particular, we will deduce the finite length property for the Rado graph and its variants, even with finitely many constants fixed.
 
-\textcolor{red}{
-In this section, we state the setting and results.
-The next section is devoted to the proof.
-The section after that, we show an application.
-Throughout this and the next two sections, we will work with the following setting.}
+We shall now state our assumptions and results, with proofs in Section~\ref{sec:cogs-turn}.
 
 \paragraph*{Graph vocabulary}
-Consider a finite relational vocabulary $\sigma_0$ consisting of unary and binary symbols.
+Consider a finite relational vocabulary $\sigma_0$ consisting of unary and binary symbols only.
 (This allows us to talk about graphs with coloured vertices and edges, but in the running example we will consider a single edge relation.)
 
 \paragraph*{Free amalgamation class}
 Let $\Cclass_0$ be a \emph{free} amalgamation class of finite $\sigma_0$-structures. 
 This is a standard notion in model theory --- see \cite[Section~2.1]{Macpherson11}.
-Informally, it means that when we perform amalgamation, we do not need to glue together more elements than necessary or introduce new relations.
+Informally, it means that when we perform amalgamation, we do not need to glue together any new elements, or introduce new relations.
 
-There is a more useful characterisation \cite[Lemma~4.5]{SS20} of the amalgamation class $\Cclass_0$ being free.
+There is a useful characterisation \cite[Lemma~4.5]{SS20} of the amalgamation class $\Cclass_0$ being free.
 Since $\Cclass_0$ is closed under substructures and isomorphisms, 
-we know that $\Cclass_0$ consists of all the finite $\sigma_0$-structures which do not embed any structure from $\Fclass$, 
+we know that it consists of all the finite $\sigma_0$-structures which do not embed any structure from $\Fclass$, 
 where $\Fclass$ consists of all the minimal finite $\sigma_0$-structures that do not belong to $\Cclass_0$;
 we write \[
     \Cclass_0 = \Forb(\Fclass).
 \]
-That $\Cclass_0$ is close under free amalgamation means that in each $F \in \Fclass$, 
+That $\Cclass_0$ is a free amalgamation class means that in each $F \in \Fclass$, 
 any two elements $x, y$ are either equal or satisfy at least one of $R(x, y)$ and $R(y, x)$ for some binary relation $R \in \sigma_0$
 --- from here on, we will just say $x, y$ are \emph{related}.
-Conversely, given a family $\Fclass$ of finite $\sigma_0$-structures in each of which any two elements are related,
-the class $\Forb(\Fclass)$ of finite $\sigma_0$-structures form a \emph{free} amalgamation class.
+Conversely, given a family $\Fclass$ of finite $\sigma_0$-structures where every two elements are related,
+the class $\Forb(\Fclass)$ of finite $\sigma_0$-structures form a free amalgamation class.
 
-Here are a few free amalgamation classes.
+%Here are a few free amalgamation classes.
 
 \begin{example}\label{ex:free-amalg-equality}
     Let $\sigma_0$ be empty. 
@@ -52,8 +45,8 @@ Here are a few free amalgamation classes.
     \begin{align*}
         \Forb(\{{\circlearrowright}, {\rightarrow}, K_3\}) 
         \subseteq \Forb(\{{\circlearrowright}, {\rightarrow}, K_4\})
-        \subseteq \Forb(\{{\circlearrowright}, {\rightarrow}, K_5\})
-        \subseteq \cdots \\
+      %  \subseteq \Forb(\{{\circlearrowright}, {\rightarrow}, K_5\})
+        \subseteq \cdots 
         \subseteq \Forb(\{{\circlearrowright}, {\rightarrow}\})
     \end{align*}    
     are all free amalagamation classes.
@@ -79,8 +72,7 @@ Denote the Fraïssé limit of $\Cclass$ by $\A$.
     The ordered structure $\A$, even with finitely many constants fixed, has the finite length property over any field.
 \end{theorem}
 
-We devote the next section to proving Theorem~\ref{thm:ordered-free-amalg-has-finite-length}.
-For now, we state a consequence and give some examples.
+Before we prove this theorem in Section~\ref{sec:cogs-turn}, let us state an easy consequence of it and give some examples.
 
 The Fraïssé limit $\A_0$ of $\Cclass$ is a reduct of $\A$.
 To see this, notice that $\A$, when viewed as an $\sigma_0$-structure, shares the same age as $\A_0$ --- namely, $\Cclass_0$.
@@ -105,7 +97,7 @@ Conversely, we call $\A$ the \emph{generically ordered expansion} of $\A_0$ or s
 \end{example}
 
 
-\section{How the cogs turn: proof of Theorem~\ref{thm:ordered-free-amalg-has-finite-length}}
+\section{How the cogs turn: proof of Theorem~\ref{thm:ordered-free-amalg-has-finite-length}}\label{sec:cogs-turn}
 We will proceed in several steps, with the general idea similar to \cite[]{BFKM24}, but with significant new complications arising from the presence of nontrivial relations in $\A_0$.
 %The zeroth step is to assume that in $\A$, every binary relation $R \in \sigma_0$ is interpreted irreflexively. 
 %This is a harmless assumption: we can always split $R$ into a unary predicate $R_=$ and a binary, irreflexive relation $R_\neq$ without changing the automorphism group.
