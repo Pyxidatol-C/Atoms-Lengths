@@ -3,7 +3,7 @@
 In this section, we briefly recall some basic notions from model theory and describe the main examples of structures that we will consider in this paper.
 
 Let us begin by fixing some notation.
-A \emph{vocabulary} is a set of relations, each with a specified arity (we do not use functions in this paper). For example, the vocabulary of graphs will contain one binary relation $E(x,y)$, which is meant to describe edges. Similarly, the vocabulary of ordered structures will also contain one binary relation $x \leq y$.   A structure $\A$ over a vocabulary consists of an underlying set, together with interpretations of the \textcolor{red}{symbols} in the vocabulary as relations on the underlying set. An \emph{embedding} of a structure into another one over the same vocabulary is an injective map between their underlying sets that is consistent with all relations. An \emph{isomorphism} is a surjective embedding. An \emph{automorphism} of a structure is an isomorphism of the structure with itself; these form a group. 
+A \emph{vocabulary} is a set of relations, each with a specified arity (we do not use functions in this paper). For example, the vocabulary of graphs will contain one binary relation $E(x,y)$, which is meant to describe edges. Similarly, the vocabulary of ordered structures will also contain one binary relation $x \leq y$.   A structure $\A$ over a vocabulary consists of an underlying set, together with interpretations of the symbols in the vocabulary as relations on the underlying set. An \emph{embedding} of a structure into another one over the same vocabulary is an injective map between their underlying sets that is consistent with all relations. An \emph{isomorphism} is a surjective embedding. An \emph{automorphism} of a structure is an isomorphism of the structure with itself; these form a group. 
 
 We will be interested in applying  automorphisms  of $\A$ to  tuples in $\A^d$; they are applied component-wise.  When we talk about orbits in $\A^d$, we mean the orbits under this action of the  automorphism group. For example, if $\A$ is a graph, then two pairs $(a_1,a_2)$ and $(b_1,b_2)$ are in the same orbit if and only if there is some automorphism of the graph that maps $a_1$ to $b_1$ and $a_2$ to $b_2$. In particular, the edge relation must be defined in the same way for both pairs.
 
@@ -13,15 +13,14 @@ All structures considered in this paper will be countable, and we will always wa
     A structure $\A$ is \emph{oligomorphic} if $\A^d$ has finitely many orbits  for every $d \in \set{1,2,\ldots}$.
 \end{definition}
 
-A relation $R \subseteq \A^d$ in a structure is called \emph{equivariant} if it is invariant under the action of the automorphism group. This means that the  relation is a union of orbits.  If the structure is oligomorphic, then there are finitely many orbits to consider once the dimension $d$ is fixed, and therefore there  can only be finitely many equivariant relations. By the Ryll-Nardzewski theorem, if the structure is oligomorphic and countable, then the equivariant relations are exactly those that can be defined in first-order logic --- see, e.g., \cite[Lemma 5.9]{bojanczyk_slightly}. In fact, the infinite structures that we consider in this paper will have a stronger property, namely the equivariant relations will be definable not only in first-order logic, but even by quantifier-free formulas. This will be guaranteed by the homogeneity property defined below. 
-Recall that a substructure of $\A$ is any structure obtained by restricting $\A$ to some subset  of its underlying set; we do not distinguish between substructures and subsets.
+A relation $R \subseteq \A^d$ in a structure is called \emph{equivariant} if it is invariant under the action of the automorphism group. This means that the  relation is a union of orbits.  If the structure is oligomorphic, then there are finitely many orbits to consider once the dimension $d$ is fixed, and therefore there  can only be finitely many equivariant relations. By the Ryll-Nardzewski theorem, if the structure is oligomorphic and countable, then the equivariant relations are exactly those that can be defined in first-order logic, \textcolor{red}{see~\cite[Lemma 5.9]{bojanczyk_slightly}.} In fact, the infinite structures that we consider in this paper will have a stronger property, namely the equivariant relations will be definable not only in first-order logic, but even by quantifier-free formulas. This will be guaranteed by the homogeneity property defined below. 
+\textcolor{red}{Recall that a substructure of $\A$ is any structure obtained by restricting $\A$ to some subset  of its underlying set.}
 
 \begin{definition}
     [Homogeneous structure] A structure $\A$ is \emph{homogeneous} if every isomorphism between finite substructures of $\A$ extends to an automorphism of $\A$.
 \end{definition}
 
-In a homogeneous structure, every equivariant relation is definable by a quantifier-free formula --- see \cite[Theorem 6.3]{bojanczyk_slightly}. We will be mainly interested in countable structures that are both oligomorphic and homogeneous. Every homogeneous structure arises via a construction called the Fraïssé limit, from classes of finite structures that satisfy certain closure properties (the so-called Fraïssé/amalgamation classes). 
-For the Fraïssé limit to be not only homogeneous, but also oligomorphic, we need to assume that the underlying class --- which, up to isomorphism, coincides with the finite substructures of the Fraïssé limit --- has only finitely many non-isomorphic structures of each finite size. Here are some of the important examples of oligomorphic structures that we will consider in this paper. These are Fraïssé limits of the following classes of finite structures: (a) sets with equality only; (b) linear orders; (c) vector spaces over a finite field; and (d) graphs.
+In a homogeneous structure, every equivariant relation is definable by a quantifier-free formula, see~\cite[Theorem 6.3]{bojanczyk_slightly}. We will be mainly interested in countable structures that are both oligomorphic and homogeneous. Every homogeneous structure arises via a construction called the Fraïssé limit, from classes of finite structures that satisfy certain closure properties (the so-called Fraïssé/amalgamation classes). For the Fraïssé limit to be not only homogeneous, but also oligomorphic, we need to assume that the underlying class has only finitely many non-isomorphic structures of each finite size. Here are some of the important examples of oligomorphic structures that we will consider in this paper. These are Fraïssé limits of the following classes of finite structures: (a) sets with equality only; (b) linear orders; (c) vector spaces over a finite field; and (d) graphs.
 \begin{example}[Equality only] \label{ex:equality-atoms} In this structure, the underlying set is countably infinite and there are no relations or functions.  Automorphisms are arbitrary permutations, and two tuples are in the same orbit if and only if they have the same equality pattern. Since there are finitely many equality patterns for tuples of fixed length, this structure is oligomorphic. For example, in dimension $d=2$ there are two orbits: $x_1=x_2$ and $x_1 \neq x_2$.
 \end{example}
 
@@ -47,3 +46,15 @@ $x_1 < x_2$, $x_1 = x_2$, and $x_1 > x_2$.
 For instance, in $d = 2$ there are three orbits:
 the two coordinates can be equal, adjacent (hence distinct), or distinct but non-adjacent.
 \end{example}
+
+
+
+
+% \color{red}
+% Definitions: 
+% \begin{enumerate}
+%     \item oligomorphic
+%     \item homogeneous
+%     \item smooth approximation by homogeneous substructures \cite{KLM89} (N.B. not the 'smooth approximation' from \cite[Definitino~4]{MP24})
+%     \item \emph{oligomorphic approximation} of a homogeneous structure by finite substructures with uniformly few orbits (i.e., types) that cover the age of $\A$
+% \end{enumerate}
