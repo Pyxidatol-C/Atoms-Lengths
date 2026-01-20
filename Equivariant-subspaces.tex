@@ -1,10 +1,9 @@
 \section{All those equivariant subspaces}\label{sec:equivariant-subspaces}
-We will now show an important corollary of Theorem~\ref{thm:cog-span-generally}.
-Let $\mathcal{O} \subseteq \A^{I}$ be an $S$-ordered orbit.
-Then $\len(\Lin_\FF\mathcal{O}) = 2^{|I|}$;
-in fact, we can characterise all the $\Aut(\A)_{(S)}$-equivariant subspaces of $\Lin_\FF\mathcal{O}$.
+We continue working in the setting of Section~\ref{sec:free-amalg} so that we can demonstrate an important application of Theorem~\ref{thm:cog-span-generally}:
+given an orbit-finite set $X$, we can describe every equivariant subspace $\Lin_\FF X$ through finite-dimensional vector spaces.
+In particular, we will show that $\Lin_\FF \cal O$ has length $2^{|I|}$.
 
-%\paragraph{Local coefficients}
+\subsection{Local coefficients}
 First we set up some useful notation.
 Consider the $2^{|I|}$ projected $S$-ordered orbits $\mathcal{O}|^{J}$ for $J \subseteq I$.
 Suppose that
@@ -64,92 +63,6 @@ For every $i=0,\ldots, t$,
     In particular $\widetilde W \subseteq W$ when $i = t$.
 \end{lemma}
 
-\begin{proof}
-We proceed by induction on $i$.
-The base case $i = 0$ is trivial, since $\ker(\restriction_1) = \{0\}$. Indeed, $\Jclass_1=\{I\}$, so $v{\restriction_1}$ is the identity map.
-
-To prove the containment for some $i>0$, 
-we allow $v {\restriction_i}$ to be non-zero.
-But $v {\restriction_i}$ satisfies the next best property:
-\begin{claim}
-  The image of \[
-        \widetilde W \cap \ker(\restriction_{i+1}) \cap \cdots \cap \ker(\restriction_t)
-    \] under $\restriction_{i}$ 
-    is contained in $\Ker_{W {\restriction}_{i} (\mathcal{Q}_{i})} \mathcal{Q}_{i}$. 
-\end{claim}
-\begin{proof}
-    Take any $v \in \widetilde W$ such that  $v {\restriction_{i'}} = 0$ for all $i'>i$.
-    That $v {\restriction_{i}} \in \Lin_{W{\restriction_{i}}(\mathcal{Q}_{i})} \mathcal{Q}_{i}$ is clear from the definition of $\widetilde W$.
-    Recall that $\mathcal{Q}_{i}$ = $\mathcal{O}|^{J_{i}}$.
-    For every $j \in J_{i}$,
-    we need to prove that $v {\restriction_{i}} |^{-j} = 0$. In more elementary terms, given any $a\in\mathcal{O}|^{J_{i}\setminus\{j\}}$, we need the $J$-th entry of $v {\restriction_{i}} |^{-j}(a)$ to be $0$, for every $J\in \Jclass_i$.
-    
-    So take any $J \in \Jclass_{i}$.
-    The unique ordered bijection between $J_{i}$ and $J$ restricts to one between $J_{i} \setminus \{j\}$ and $J \setminus \{j'\}$, for some $j'\in J$. Denote $J'=J \setminus \{j'\}$.
-    Then $J'$ belongs to some $\Jclass_{i'}$ with $i' > i $,
-    so $v {\restriction_{i'}} = 0$. Now calculate (with $a\in\mathcal{O}|^{J_{i}\setminus\{j\}}$, $b\in{\cal Q}_i$, $c\in {\cal O}|^J$ and $d\in\cal O$):
-\begin{align*}
-	(v{\restriction_i}|^{-j}(a))_J &= \sum_{b|^{-j}=a}(v{\restriction_i}(b))_J
-	= \sum_{b|^{-j}=a}v|^J(b^{/J}) 
-	= \sum_{c|^{-j'}=a^{/J'}}v|^J(c) \\
-	&= \sum_{d|^{J'}=a^{/J'}}v(d)
-	\,\, = v|^{J'}(a^{/J'}) = (v{\restriction_{i'}}(a))_{J'} = 0.
-    \qedhere
-\end{align*}    
-\end{proof}
-
-In light of Remark~\ref{rem:FF-EE}, from Theorem~\ref{thm:cog-span-generally} we get: 
-\[\Ker_{W {\restriction_{i}} (\mathcal{Q}_{i})} \mathcal{Q}_{i} \subseteq \Cog_{W {\restriction_{i}} (\mathcal{Q}_{i})} \mathcal{Q}_{i}.\]
-Furthermore:
-\begin{claim}\label{claim:cogs-arise-everywhere}
-    $\Cog_{W {\restriction}_{i} (\mathcal{Q}_{i})} \mathcal{Q}_{i}$ is contained in
-    the image of \[
-        W \cap \ker(\restriction_{i+1}) \cap \cdots \cap \ker(\restriction_t)
-    \] under $\restriction_{i}$. 
-\end{claim}
-\begin{proof}
-    Consider any ${\cal Q}_i$-cog with a coefficient $\lambda\in W {\restriction_{i}} (\mathcal{Q}_{i})$, and let $w\in W$ and $a\in{\cal Q}_i$ be such that $\lambda = w{\restriction_{i}}(a)$.
-    Let $S'$ consist of $S$ together with every atom appearing in $w$ but not in $a$.
-    We generalise the construction used in the proof of Theorem~\ref{thm:cogs-arise-everywhere}.
-    
-    Apply Proposition~\ref{claim:cog-fresh-full} and Remark~\ref{rem:duo} to get automorphisms $\pi_j$ for $j \in J_i$ such that $a \parallel \prod_{j \in J_i} \pi_j a$ is an $\mathcal{Q}_i$-duo, 
-    where each $\pi_j$ fixes $S'$ and all $a_{j'}$ and $\pi_{j'}(a_{j'})$ for $j'\neq j$. Since all $\mathcal{Q}_i$-duos are in the same orbit, it is enough to show that the cog corresponding to this particular duo, with the coefficient $\lambda$, belongs to the $\restriction_i$-image as in the statement of the claim.
-    
-    
-    Put: \[
-        w' = \prod_{j \in J_{i}} (\mathrm{id} - \pi_j) w \in W.
-    \]
-    For any $1 \leq i' \leq t$, noting that as no more atoms can appear in $w{\restriction_{i'}}$ than in $w$, we have
-    \begin{align*}
-        &w' {\restriction_{i'}}
-        = \prod_{j \in J_{i}} (\mathrm{id} - \pi_j) w {\restriction_{i'}} 
-        = \sum_{c \in C_i} \sum_{J' \subseteq J_i} (-1)^{|J'|}  
-            w {\restriction_{i'}}(c) \cdot \left(\prod_{j \in J'} \pi_j c\right)
-%        &{}= \sum_{b_\bullet \in \mathcal{Q}_{i'}, \{b_j \mid j\} \supseteq \{a_j \mid j\}} \sum_{J' \subseteq J} (-1)^{|J'|}  
-%            w {\restriction_{i'}}(b_\bullet) \prod_{j \in J'} \pi_j \cdot b_\bullet.
-    \end{align*}
-    where
-        \[C_i = \{ c\in{\cal Q}_{i'} : \{c_j\mid j\in J_{i'}\} \supseteq \{a_j \mid j\in J_i\} \}.
-    \]
-    (The formula used in the proof of Theorem~\ref{thm:cogs-arise-everywhere} is a special case of this for $i'=1$ so that $J_{i'}=I$ and ${\cal Q}_{i'}={\cal O}$.) Now, if $i'>i$ then $C_i$ is empty, and so $w' {\restriction_{i+1}} = \cdots = w' {\restriction_{t}} = 0$. Moreover, if $i'=i$ then $C_i = \{a\}$ and we obtain the cog from before:
-    \[
-        w' {\restriction_{i}} = \lambda \cdot \left(a \between \prod_{j \in J_{i}} \pi_j a\right).
-    \]
-So $w'$ is a witness for the inclusion from the claim.
-\end{proof}
-
-This is enough to establish Lemma~\ref{lem:coeff-approximation} for $i$, assuming it for $i-1$.
-Indeed, given $v \in \widetilde W \cap \ker(\restriction_{i+1}) \cap \dots \cap \ker(\restriction_t)$, by the preceding claims
-we can find $w \in W \cap \ker(\restriction_{i+1}) \cap \dots \cap \ker(\restriction_t) \subseteq \widetilde W$ such that 
-$v {\restriction_i} = w {\restriction_i}$.
-But then $(v - w) {\restriction_{i}} = 0$, so $v - w$ lies in $\ker(\restriction_{i})$ as well as $\widetilde W \cap \ker(\restriction_{i+1}) \cap \cdots \cap \ker(\restriction_t)$.
-It follows from the inductive hypothesis that \[
-    v - w \in W \cap \ker(\restriction_i) \cap \ker(\restriction_{i+1}) \cap \dots \cap \ker(\restriction_t),
-\]
-so $v = (v - w) + w$ is in $W \cap \ker(\restriction_{i+1}) \cap \dots \cap \ker(\restriction_t)$ as well.
-
-This completes the proof of Lemma~\ref{lem:coeff-approximation}.
-\end{proof}
 
 \paragraph{Lengths}
 Let $W, W'$ be two $\Aut(\A)_{(S)}$-equivariant subspaces of $\Lin_\FF(\mathcal{O})$.
