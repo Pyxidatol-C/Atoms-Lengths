@@ -7,7 +7,7 @@ Nontheless they do have the finite length property over any field \cite[Theorem~
 We shall now state our assumptions and results, with proofs in Section~\ref{sec:cogs-turn}.
 
 \paragraph*{Graph vocabulary}
-Consider a finite relational vocabulary $\sigma_0$ consisting of unary and binary symbols only.
+Consider a finite relational vocabulary $\sigma_0$ consisting of unary and binary relations only.
 (This allows us to talk about graphs with coloured vertices and edges, but in the running example we will consider a single edge relation.)
 
 \paragraph*{Free amalgamation class}
@@ -36,7 +36,7 @@ the class $\Forb(\Fclass)$ of finite $\sigma_0$-structures form a free amalgamat
 \end{example}
 
 \begin{example}\label{ex:free-amalg-graphs}
-    Let $\sigma_0$ consist of a single binary symbol $\sim$. 
+    Let $\sigma_0$ consist of a single binary relation $\sim$. 
     Consider $\sigma_0$-structures ${\circlearrowright} = \{x\}$ and ${\rightarrow} = \{y, z\}$, where the relation $\sim$ is interpreted as $\{(x, x)\}$ and $\{(y, z)\}$.
     Then $\Cclass_0 = \Forb(\{{\circlearrowright}, {\rightarrow}\})$ is a free amalgamation class consisting of all finite undirected graphs.
 
@@ -56,7 +56,7 @@ the class $\Forb(\Fclass)$ of finite $\sigma_0$-structures form a free amalgamat
 For technical reasons, we restrict attention to classes $\Cclass_0$ where all structures are {\em irreflexive}, i.e. such that if $R(x,y)$ then $x\neq y$ for each relation $R$. This does not lose generality: for any free amalgamation class $\Cclass_0$, we may replace every binary relation $R$ in the vocabulary with a new unary predicate $R_=$, interpreted in every structure so that $R_=(x)$ iff $R(x,x)$, and a binary relation interpreted as the irreflexive part of $R$. Then $\Cclass_0$ interpreted over this modified language is still a free amalgamation class, and all our results transport back to the original $\Cclass_0$. This way of encoding arbitrary structures as irreflexive ones is standard; see e.g.~\cite[\S2.4]{Herwig1998} and \cite[p.~121]{SS20}. All examples considered here are already irreflexive.
 
 \paragraph*{Generically ordered expansion}
-Now, let $\sigma$ consist of $\sigma_0$ together with a new binary symbol $<$.
+Now, let $\sigma$ consist of $\sigma_0$ together with a new binary relation $<$.
 Consider the class $\Cclass$ of $\sigma$-structures obtained from $\Cclass_0$, 
 by interpreting $<$ in any $\sigma_0$-structure there as any total order.
 
@@ -77,13 +77,14 @@ Before we prove this theorem in Section~\ref{sec:cogs-turn}, let us state an eas
 The Fraïssé limit $\A_0$ of $\Cclass$ is a reduct of $\A$.
 To see this, notice that $\A$, when viewed as an $\sigma_0$-structure, shares the same age as $\A_0$ --- namely, $\Cclass_0$.
 Moreover, it follows from a back-and-forth argument \cite[Lemma~7.1.4]{Hodges93} that the $\sigma_0$-structure $\A$ is also homogeneous and, therefore, that it is isomorphic to $\A_0$.
-So we may assume that $\A$ and $\A_0$ have the same universe; we then have $\Aut(\A) \subseteq \Aut(\A_0)$.
+So we may assume that $\A$ and $\A_0$ have the same underlying set; we then have $\Aut(\A) \subseteq \Aut(\A_0)$, where $\Aut(X)$ denotes the group of automorphisms of $X$.
 
 \begin{corollary}\label{cor:free-finite-length}
     The reduct $\A_0$ of $\A$, even with finitely many constants fixed, has the finite length property over any field.
 \end{corollary}
 \begin{proof}
-    A chain of $\Aut(\A_0)$-equivariant subspaces in $\Lin_\FF \A_0^d = \Lin_\FF \A^d$ is also a chain of $\Aut(\A)$-equivariant subspaces,
+    \color{red}
+    A chain of $\Aut(\A_0)_{(S)}$-equivariant subspaces in $\Lin_\FF \A_0^d = \Lin_\FF \A^d$ is also a chain of $\Aut(\A)_{(S)}$-equivariant subspaces,
     which has a bounded length.
 \end{proof}
 
