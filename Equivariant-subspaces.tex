@@ -1,141 +1,38 @@
 \section{All those equivariant subspaces}\label{sec:equivariant-subspaces}
 We continue working in the setting of Section~\ref{sec:free-amalg} so that we can demonstrate an important application of Theorem~\ref{thm:cog-span-generally}:
-given an orbit-finite set $X$, we can describe every equivariant subspace $\Lin_\FF X$ through finite-dimensional vector spaces.
-In particular, we will show that $\Lin_\FF \cal O$ has length $2^{|I|}$.
+given an orbit-finite set $X$ over $\A$, we can find a family of equivariant maps out of $\Lin_\FF X$, indexed by finite-dimensional vector spaces, whose kernels exhaust all the equivariant subspaces of $\Lin_\FF X$.
+In particular, we will show that for a single $S$-ordered orbit $\cal O \subseteq \A^I$, the length of $\Lin_\FF \cal O$ is precisely $2^{|I|}$.
 
-\subsection{Local coefficients}
-First we set up some useful notation.
-Consider the $2^{|I|}$ projected $S$-ordered orbits $\mathcal{O}|^{J}$ for $J \subseteq I$.
-Suppose that
-\[
-    f : \mathcal{O}|^J \to \mathcal{O}|^{J'}
-\]
-is an $\Aut(\A)_{(S)}$-equivariant bijection.
-Take any $a \in \mathcal{O}|^J$,
-and enumerate its entries as $a_1 < \dots < a_{|J|}$.
-Similarly, enumerate the entries of $f(a)$ as $b_1 < \dots < b_{|J'|}$.
-Then $\{a_1, \dots, a_{|J|}\} = \{ b_1, \dots, b_{|J'|} \}$ because $\A$ has no algebraicity; 
-since the orbits are ordered, we must have $|J| = |J'|$ and $a_1 = b_1, \dots, a_{|J|} = b_{|J'|}$.
-That is, $f$ must be the obvious function that reindexes a $J$-tuple to a $J'$-tuple
---- hence we will write $a^{/J'}$ instead of $f(a)$, leaving $f$ implicit.
 
-Now, let $\mathcal{Q}_{1} = \mathcal{O}|^{J_1}, \dots, \mathcal{Q}_{t} = \mathcal{O}|^{J_t}$ be distinct projected $S$-ordered orbits up to $\Aut(\A)_{(S)}$-equivariant bijections,
+Let $X$ be an orbit-finite set over $\A$.
+Then $X$ is isomorphic to a finite disjoint union $\biguplus_k \cal O_k$ of equivariant ordered orbits, where $\cal O_k \subseteq \A^{I_k}$.
+For $J \subseteq I_k$, we have an equivariant map $\cal O_k \twoheadrightarrow \cal O_k|^J \hookrightarrow \A^{|J|}$.
+The images of $\cal O_k|^J$ and $\cal O_{k'}|^{J'}$ agree only if $|J| = |J'|$.
+Group $\cal O_k|^J$ by their images $\Jclass_i$.
+
+Now, let $\mathcal{Q}_{1} = \mathcal{O}|^{J_1}, \dots, \mathcal{Q}_{t} = \mathcal{O}|^{J_t}$ be distinct projected $S$-ordered orbits up to $\Aut(\A/S)$-equivariant bijections,
 enumerated in such a way that $|J_1| \geq |J_2| \geq \dots \geq |J_t|$. (In particular, $J_1=I$ and $J_t=\emptyset$.)
 
 %\begin{definition}
-    For $i = 1, \dots, t$, let $\Jclass_i$ consist of all sets $J$ such that $\mathcal{O}|^J$ is in $\Aut(\A)_{(S)}$-equivariant bijection with $\mathcal{Q}_i$.
+    For $i = 1, \dots, t$, let $\Jclass_i$ consist of all sets $J$ such that $\mathcal{O}|^J$ is in $\Aut(\A/S)$-equivariant bijection with $\mathcal{Q}_i$.
     Assemble all $|\Jclass_i|$ projections into a single map
     \[
         (-){\restriction_i} : \Lin_\FF\mathcal{O} \to \Lin_{\FF^{\Jclass_i}} \mathcal{Q}_i.
     \]
     To be more precise $v{\restriction_i}(a)$ is, for $a\in{\cal Q}_i$, the $\Jclass_i$-tuple whose $J$-th entry is $v|^J(a^{/J}) \in \FF$.
-    It is straightforward to check that $(-){\restriction_i}$ is $\Aut(\A)_{(S)}$-equivariant and linear.
+    It is straightforward to check that $(-){\restriction_i}$ is $\Aut(\A/S)$-equivariant and linear.
 %\end{definition}
 
-\begin{remark}\label{rem:FF-EE}
-We must tread carefully here, as $\FF^{\Jclass_i}$ is not a field, so notation such as $\Lin_{\FF^{\Jclass_i}} \mathcal{O}$ may seem suspicious. However, $\FF^{\Jclass_i}$ is a vector space over $\FF$, and for any such space $\EE$ one can naturally see $\Lin_\EE\cal O$ and $\Ker_{\EE}\cal O$ as vector spaces over $\FF$. 
 
-A little more care is needed when we want to define a vector in $\Lin_\EE \cal O$:
-as $\lambda \in \EE$ is not a scalar in general, we need to understand
+\begin{theorem}
+Every equivariant subspace of $\Lin X$ is of the form
 \[
-    \lambda \cdot a
+    \bigcap_{i} \ker( \Lin X \xrightarrow{ \restriction_i } \Lin_{\FF^{\Jclass_i}} \cal Q_i \xrightarrow{\text{proj}} \Lin_{V_i^\perp} \cal Q_i )
 \]
-as a formal expression.
-Similarly, We redefine $\Cog_\EE\cal O$ to be spanned by formal expressions $\lambda\cdot(a^+ \between a^-)$ for $\lambda\in\EE$. 
+where $V_i \subseteq \FF^{\Jclass_i}$ is a (finite-dimensional) subspace.
+\end{theorem}
 
-But this changes little: in our proof of Theorem~\ref{thm:cog-span-generally} we only ever added or substracted vectors and cogs from one another, so that theorem holds even if $\EE$ is an arbitrary abelian group. This is not so for Theorem~\ref{thm:cogs-arise-everywhere}, whose proof involves scalar division, which is why in Claim~\ref{claim:cogs-arise-everywhere} below we need to prove a more subtle version of it. 
-\end{remark}
-
-Let $W \subseteq \Lin_\FF \mathcal{O}$ be an $\Aut(\A)_{(S)}$-equivariant subspace. Let $W {\restriction_i} (\mathcal{Q}_i) \subseteq \FF^{\Jclass_i}$ be the set of all $\Jclass_i$-tuples that can be obtained as $w {\restriction_i} (a)$ for some $w\in W$ and $a\in{\cal Q}_i$. This is a finite-dimensional vector space.
-Now define $\widetilde W$, which consists of all vectors $v \in \Lin_\FF \mathcal{O}$ such that
-\[
-    v {\restriction_i} (\mathcal{Q}_i) \subseteq W {\restriction_i} (\mathcal{Q}_i) \qquad \text{for all } i=1,\ldots, t.
-\]
-Then $\widetilde W$ is an $\Aut(\A)_{(S)}$-equivariant subspace that contains $W$.
-It turns out these two are equal:
-
-\begin{lemma}\label{lem:coeff-approximation}
-For every $i=0,\ldots, t$,
-\[
-        \widetilde W \cap \ker(\restriction_{i+1}) \cap \cdots \cap \ker(\restriction_t) 
-        \subseteq W \cap \ker(\restriction_{i+1}) \cap \cdots \cap \ker(\restriction_t).
-\]
-    In particular $\widetilde W \subseteq W$ when $i = t$.
-\end{lemma}
-
-
-\paragraph{Lengths}
-Let $W, W'$ be two $\Aut(\A)_{(S)}$-equivariant subspaces of $\Lin_\FF(\mathcal{O})$.
-If we have $W {\restriction_i}(\mathcal{Q}_i) = W' {\restriction_i}(\mathcal{Q}_i)$ for all $i=1,\ldots, t$,
-then $W = \widetilde W = \widetilde{W'} = W'$ by Lemma~\ref{lem:coeff-approximation}.
-As a consquence:
-
-\begin{proposition}\label{prop:length-upper-bound}
-    Let $W_0 \subsetneq W_1 \subsetneq \cdots \subsetneq W_l$ be a chain of $\Aut(\A)_{(S)}$-equivariant subspaces of $\Lin_\FF(\mathcal{O})$.
-    Then $l \leq 2^{|I|}$. 
-\end{proposition}
-\begin{proof}
-    We obtain $t$ chains
-    \begin{align*}
-        W_0 {\restriction_1} (\mathcal{Q}_1) \subseteq W_1 {\restriction_1} (\mathcal{Q}_1) \subseteq \cdots \subseteq W_l {\restriction_1} (\mathcal{Q}_1) \subseteq \FF^{\Jclass_1}, \\
-        W_0 {\restriction_2} (\mathcal{Q}_2) \subseteq W_1 {\restriction_2} (\mathcal{Q}_2) \subseteq \cdots \subseteq W_l {\restriction_2} (\mathcal{Q}_2) \subseteq \FF^{\Jclass_2}, \\
-        \vdots \\
-        W_0 {\restriction_t} (\mathcal{Q}_t) \subseteq W_1 {\restriction_t} (\mathcal{Q}_t) \subseteq \cdots \subseteq W_l {\restriction_t} (\mathcal{Q}_t) \subseteq \FF^{\Jclass_t}.
-    \end{align*}
-    At each of the $l$ steps, one of the $t$ containments must be strict.
-    Hence $l \leq |\Jclass_1| + |\Jclass_2| + \dots + |\Jclass_t| = 2^{|I|}$. 
-\end{proof}
-
-It follows that every $\Aut(\A)_{(S)}$-equivariant subspace of $\Lin_\FF(\mathcal{O})$ is finitely generated.
-We can compute the local coefficients of such subspaces easily:
-\begin{remark}
-    For $v \in \Lin_\FF(\mathcal{O})$, 
-    let $\langle v \rangle$ denote the $\Aut(\A)_{(S)}$-equivariant subspace it generates.
-    Then:
-    \begin{enumerate}
-        \item 
-        $\langle v \rangle {\restriction_i}(\mathcal{Q}_i)$ is the subspace of $\FF^{\Jclass_i}$ generated by vectors of the form $v {\restriction_i} (a)$,
-        which is zero unless every atom appearing in $a$ appears in $v$
-        --- there are only finitely many such $a$'s;
-
-        \item 
-        $\langle v, v' \rangle {\restriction_i}(\mathcal{Q}_i) = \langle v \rangle {\restriction_i}(\mathcal{Q}_i) + \langle v' \rangle {\restriction_i}(\mathcal{Q}_i)$.
-    \end{enumerate}
-\end{remark}
-
-To complement the upper bound from Prop.~\ref{prop:length-upper-bound}, we now exhibit a chain of $\Aut(\A)_{(S)}$-equivariant subspaces whose length is precisely $\sum_{i=1}^t |\Jclass_i|$, generalising \cite[Corollary~4.12]{BFKM24}.
-Take any $J \in \Jclass_i$. 
-Pick some $a\in \mathcal{O}$,
-and let $\pi_j$ (for $j \in I$) be the automorphisms from Prop.~\ref{claim:cog-fresh-full}.
-Define a vector
-\begin{align*}
-    v_{J} =  \prod_{j \in J} (1 - \pi_j) a \in \Lin_\FF(\mathcal{O}).
-\end{align*}
-Then 
-\[
-    (\langle v_{J} \rangle {\restriction_{i'}} (\mathcal{Q}_{i'}))_{J'} =
-    \begin{cases}
-        \FF & \text{if $J \subseteq J'$}, \\
-        \{0\} & \text{otherwise}.
-    \end{cases}
-\]
-Enumerating each $\Jclass_i$ in any order as $J_i^1, J_i^2, \dots, J_i^{|\Jclass_i|}$,
-we obtain a chain
-\begin{align*}
-    \langle  \rangle 
-    & \subsetneq{} \langle v_{J_t^1} \rangle 
-    \subsetneq{} \langle v_{J_t^1}, v_{J_t^2} \rangle  
-    \subsetneq{} \cdots 
-    \subsetneq{} \langle v_{J_t^1}, v_{J_t^2}, \dots, v_{J_t^{|\Jclass_t|}} \rangle \\
-   & \subsetneq{} \langle v_{J_t^1}, v_{J_t^2}, \dots, v_{J_t^{|\Jclass_t|}}, v_{J_{t-1}^1} \rangle 
-     \subsetneq{} \cdots
-\end{align*}
-of length $|\Jclass_t| + |\Jclass_{t-1}| + \cdots + |\Jclass_1| = 2^{|I|}$.
-Together with the upper bound from Proposition~\ref{prop:length-upper-bound}, we conclude:
 \begin{theorem}
     $\len(\Lin_\FF\mathcal{O}) = 2^{|I|}$.
 \end{theorem}
-Along the lines of Proposition~\ref{claim:reduction-to-one-orbit}, this generalises to multi-orbit sets:
-\[
-\len(\Lin_\FF(\mathcal{O}_1 \uplus \dots \uplus \mathcal{O}_n)) = 2^{|I_1|} + \dots + 2^{|I_n|}.
-\]
+
