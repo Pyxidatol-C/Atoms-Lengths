@@ -1,14 +1,12 @@
-\section{\textcolor{red}{Orbit-finitely spanned vector spaces}}
-In this section, we introduce the main topic of this paper, which is vector spaces that are built on an orbit-finite basis.
-For a field $\field$ and a set $X$, we write 
-\begin{align*}
-\Lin_\field X
-\end{align*}
-for the free vector space over $\field$ with basis $X$. This space consists of finite formal linear combinations of elements in $X$, with coefficients from the field $\field$.  We will be interested in the case when the basis $X$ is an orbit-finite set over some oligomorphic structure $\A$, typically $X = \A^d$. In such a case, the vector space is said to have \emph{orbit-finite dimension}. This space has two kinds of structure: the structure of a vector space, and the action of the automorphism group of $\A$. We will be interested in subsets that preserve both kinds of structure, i.e.~they are closed under taking linear combinations, and applying automorphisms of $\A$. Such subsets are called \emph{equivariant subspaces}. The main topic of this paper is the study of strictly growing chains of equivariant spaces 
-\begin{align*}
- V_0 \subset V_1  \subset \cdots \subset V_n.
-\end{align*}
-The number $n$ of strict inclusions is called the \emph{length} of such a chain. 
+\section{Orbit-finitely spanned vector spaces}
+In this section, we introduce the main topic of this paper, which is orbit-finitely spanned  vector spaces. We begin with the special case of spaces that have an orbit-finite basis; this special case will be the relevant one for almost all results of this paper. 
+
+\begin{definition}[Orbit-finite basis]
+    A vector space with an orbit-finite basis is any space of the form $\Lin_\field X$, where $X$ is an orbit-finite set, $\field$ is a field, and $\Lin_\field X$ describes the vector space of finite formal linear combinations of elements in $X$.
+\end{definition}
+
+Note that there is an implicit parameter in the above definition, which is the oligomorphic structure over which $X$ is an orbit-finite set.
+The spaces described in the above definition have  two kinds of structure: the structure of a vector space, and the action of the automorphism group of $\A$. We will be interested in subsets that preserve both kinds of structure, i.e.~they are closed under taking linear combinations, and applying automorphisms of $\A$. Such subsets are called \emph{equivariant subspaces}. 
 
 
 \begin{example}
@@ -16,8 +14,51 @@ The number $n$ of strict inclusions is called the \emph{length} of such a chain.
     \begin{align*}
     \Lin_\field \A
     \end{align*}
-    has only three equivariant subspaces: the zero subspace, the whole space, and the subspace which consists of vectors where all coefficients sum to zero. These three spaces form a chain of length two.
+    has only three equivariant subspaces: the zero subspace, the full space, and  subspace which consists of vectors where all coefficients sum to zero. 
 \end{example}
+
+Spaces  with an orbit-finite basis have a nice elementary definition. Unfortunately, the lack desired closure properties, in particular they are not closed under taking equivariant subspaces. This is apparent already in the above example, since the unique nontrivial subspace of $\Lin_\field A$ does not have a basis that is equivariant. For this reason, one uses a more general notion of vector space, which is the orbit-finitely spanned vector spaces defined below.
+
+\begin{definition}
+    [Orbit-finitely spanned vector space] An \emph{orbit-finitely spanned vector space} over an atom structure  $\A$ is a vector space  equipped with an action of atom automorphisms such that: 
+    \begin{enumerate}
+        \item The vector space structure is equivariant, which means that vector addition $(v,w) \mapsto v+w$ is equivariant, and likewise for  scalar multiplication $v \mapsto \lambda v$ for every field element $\lambda$.
+        \item Every vector has finite support, which means that for every $v \in V$ there is some finite set $S \subseteq \A$ such that if an atom automorphism fixes all atoms in $S$, then it also fixes $v$. 
+        \item The space is spanned by some subset that  is orbit-finite.
+    \end{enumerate}
+\end{definition}
+
+
+
+
+\begin{definition}[Orbit-finitely spanned]
+    An orbit-finitely spanned vector space is any vector space of the form $V/U$, where $V \subseteq U \subseteq \Lin_\field X$ are equivariant subspaces for some orbit-finite $X$.
+\end{definition}
+
+
+The spaces in the above definition are called orbit-finitely spanned because they have an orbit-finite spanning subset: initially the subset is a basis, but 
+
+$\Lin_\field X$
+
+
+
+
+\begin{lemma}
+    Let $\A$ be an oligomorphic structure such that 
+    \begin{align*}
+    \Lin_k \A^d
+    \end{align*}
+     has the ascending chain property for every $d \in \set{0,1,\ldots}$. Then orbit-finitely spanned vector spaces are closed under taking equivariant subspaces, and quotients under such subspaces. Furthermore, every orbit-finitely spanned vector space is of the form $V/U$ where $U \subseteq V$ are equivariant subspaces of $\Lin_k \A^d$ for some 
+\end{lemma}
+
+The main topic of this paper is the study of strictly growing chains of equivariant spaces 
+\begin{align*}
+ V_0 \subset V_1  \subset \cdots \subset V_n.
+\end{align*}
+The number $n$ of strict inclusions is called the \emph{length} of such a chain. 
+
+
+
 
 
 
