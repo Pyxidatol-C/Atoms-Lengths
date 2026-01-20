@@ -1,15 +1,15 @@
 \section{Orbit-finitely spanned vector spaces}
-In this section, we introduce the main topic of this paper, which is orbit-finitely spanned  vector spaces. We begin with the special case of spaces that have an orbit-finite basis; this special case will be the relevant one for almost all results of this paper. 
+In this section, we introduce the main topic of this paper, which is orbit-finitely spanned  vector spaces. We begin with the special case of spaces that have an orbit-finite basis; this special case has an elementary definition, and yet it will be the  relevant case for almost all results of this paper. 
 
-\begin{definition}[Orbit-finite basis]
+\begin{definition}[Orbit-finite basis]\label{def:orbit-finite-basis}
     A vector space with an orbit-finite basis is any space of the form $\Lin_\field X$, where $X$ is an orbit-finite set, $\field$ is a field, and $\Lin_\field X$ describes the vector space of finite formal linear combinations of elements in $X$.
 \end{definition}
 
-Note that there is an implicit parameter in the above definition, which is the oligomorphic structure over which $X$ is an orbit-finite set.
+There are two  important parameters in the above definition, namely the field $\field$ and  the oligomorphic structure over which $X$ is an orbit-finite set.
 The spaces described in the above definition have  two kinds of structure: the structure of a vector space, and the action of the automorphism group of $\A$. We will be interested in subsets that preserve both kinds of structure, i.e.~they are closed under taking linear combinations, and applying automorphisms of $\A$. Such subsets are called \emph{equivariant subspaces}. 
 
 
-\begin{example}
+\begin{example}\label{ex:length-one-dim-one}
     Let $\A$ be the structure with equality only, let $\field$ be any field, and let the atom dimension be $d=1$. As explained in~\cite[Example 4.2]{BFKM24}, this corresponding vector space with atoms
     \begin{align*}
     \Lin_\field \A
@@ -17,22 +17,57 @@ The spaces described in the above definition have  two kinds of structure: the s
     has only three equivariant subspaces: the zero subspace, the full space, and  subspace which consists of vectors where all coefficients sum to zero. 
 \end{example}
 
-Spaces  with an orbit-finite basis have a nice elementary definition. Unfortunately, the lack desired closure properties, in particular they are not closed under taking equivariant subspaces. This is apparent already in the above example, since the unique nontrivial subspace of $\Lin_\field A$ does not have a basis that is equivariant. For this reason, one uses a more general notion of vector space, which is the orbit-finitely spanned vector spaces defined below.
+ Unfortunately, there is a price to pay for the elementary character of Definition~\ref{def:orbit-finite-basis}, which is the  failure of certain closure  properties. In particular, the spaces are not closed under taking equivariant subspaces, or quotients under such spaces. The problem with subspaces  is apparent already in Example~\ref{ex:length-one-dim-one},  since the unique nontrivial subspace of $\Lin_\field A$ does not have a basis that is equivariant, regardless of the underlying field~\cite[Example 6.1]{BFKM24}. For this reason, we use a more general notion of vector space, which is presented below, in a style that emphasis the group action, similarly to Definition~\ref{def:orbit-finite-set-alternative}.
 
 \begin{definition}
-    [Orbit-finitely spanned vector space] An \emph{orbit-finitely spanned vector space} over an atom structure  $\A$ is a vector space  equipped with an action of atom automorphisms such that: 
+    [Orbit-finitely spanned vector space, abstractly] An \emph{orbit-finitely spanned vector space} over an oligomorphic structure  $\A$ is a vector space  equipped with an action of  automorphisms of $\A$ such that: 
     \begin{enumerate}
-        \item The vector space structure is equivariant, which means that vector addition $(v,w) \mapsto v+w$ is equivariant, and likewise for  scalar multiplication $v \mapsto \lambda v$ for every field element $\lambda$.
-        \item Every vector has finite support, which means that for every $v \in V$ there is some finite set $S \subseteq \A$ such that if an atom automorphism fixes all atoms in $S$, then it also fixes $v$. 
-        \item The space is spanned by some subset that  is orbit-finite.
+        \item \label{item:equivariance-of-vector-space-structure} vector addition and scalar multiplication are equivariant;
+        \item vector is supported by a finite set of atoms; 
+        \item \label{item:orbit-finite-spanning-subset} the space is spanned by some subset that  is orbit-finite.
     \end{enumerate}
 \end{definition}
 
+In item~\ref{item:equivariance-of-vector-space-structure} above, by equivariance of scalar multiplication we mean that for every field element $\lambda$, the operation $v \mapsto \lambda v$ is equivariant. The above definition is easily seen to be closed under taking quotients (when talking about quotients, we mean quotienting under an equivariant subspace). However, closure under equivariant subspaces is not obvious;  one could imagine that condition~\ref{item:orbit-finite-spanning-subset} in the above definition, which talks about orbit-finite spanning subsets, is violated by restricting to an equivariant subspace. It turns out that closure under equivariant subspaces is intimately related to the ascending chain property that was discussed in the introduction, and which is one of the main topics of this paper. 
 
 
+\begin{theorem}
+    Fix some field $\field$ and an oligomorphic structure $\A$. Then the following conditions are equivalent: 
+    \begin{enumerate}
+        \item orbit-finitely spanned vector spaces are closed under taking equivariant subspaces; 
+        \item for every $d \in \set{0,1,\ldots}$,  the vector space 
+        $
+        \Lin_\field \A^d
+        $ does not have any infinite ascending chain of equivariant subspaces;
+        \item for every orbit-finitely spanned vector space $V$, there are no infinite ascending chains of equivariant subspaces in $V$.
+    \end{enumerate}
+\end{theorem}
+% \begin{proof}
+%     We first show that item (2) is equivalent to 
+%     \begin{itemize}
+%         \item[(3)] no orbit-finitely spanned vector space has an infinite ascending chain of equivariant subspaces. 
+%     \end{itemize}
+%     Condition (3) in turn implies (1), since an orbit-finite spanning set can be constructed by a greedy procedure, which keeps on adding orbits of vectors until a spanning set is reached.  On the other hand, (2) implies (1). 
+
+%     By definition, every orbit-finitely spanned vector space can be obtained as a quotient 
+%     \begin{align*}
+%     (\Lin_\field \A^d)/U
+%     \end{align*}
+%     for some 
+%     Suppose that condition (2) is violated. Then 
+% \end{proof}
+
+We say that an atom structure $\A$ has the \emph{ascending chain property} over a field $\field$ if any of the equivalent conditions in the above theorem are satisfied. One interpretation of the above theorem is that it shows that  the ascending chain property is necessary for the theory of vector spaces to be well-behaved. 
+Another advantage of the ascending chain condition, which further reinforces its relevance,  is that it gives us an alternative and more concrete description of the vector spaces, as stated in the theorem. When talking about an isomorphism in the theorem, we mean a bijective equivariant linear map 
+
+\begin{theorem}\label{thm:two-definitions-of-orbit-finitely-spanned-equivalent}
+    Assume that $\A$ has the ascending chain property over some field. Then every orbit-finitely spanned vector space is isomorphic to one of the form $V/U$, where $V \subseteq U$ are equivariant subspaces of $\Lin_\field \A^d$ for some $d \in \set{0,1,\ldots}$.
+\end{theorem}
+
+The theorem can be seen as vector space version of the result from the previous section, which said that  the two definitions of orbit-finitess coincide. The theorem further reinforces the relevance of the ascending chain condition.
 
 \begin{definition}[Orbit-finitely spanned]
-    An orbit-finitely spanned vector space is any vector space of the form $V/U$, where $V \subseteq U \subseteq \Lin_\field X$ are equivariant subspaces for some orbit-finite $X$.
+    An orbit-finitely spanned vector space is any vector space of the form 
 \end{definition}
 
 

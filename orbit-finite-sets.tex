@@ -11,7 +11,7 @@ The general idea is that we start with some infinite structure $\A$. We think of
 \end{align*}
 Since we want to be able to construct tuples of arbitrary finite length, and we want them to be finite up to symmetries, we will need to assume that the underlying structure of atoms is oligomorphic.
 
-There are several equivalent definitions of orbit-finiteness. Among these, we use one that is based on first-order interpretations. To construct an orbit-finite set, we  proceed in three steps: take a finite power of the atoms (as in the first example above), restrict this power to an equivariant subset (as in the second example above), and then take a quotient under an equivariant equivalence relation (as in the third example above, where the equivalence relation identifies two pairs if they differ only in their order). The formal definition is given below.
+There are several equivalent definitions of orbit-finiteness. Of these, we use one that is based on first-order interpretations~\cite[Section 5.3]{hodges1993model}. To construct an orbit-finite set, we  proceed in three steps: take a finite power of the atoms (as in the first example above), restrict this power to an equivariant subset (as in the second example above), and then take a quotient under an equivariant equivalence relation (as in the third example above, where the equivalence relation identifies two pairs if they differ only in their order). The formal definition is given below.
 
  \begin{definition}[Orbit-finite set]\label{def:orbit-finite-set}
     An \emph{orbit-finite set} over an oligomorphic structure $\A$ is any set that is obtained as follows: 
@@ -22,22 +22,29 @@ There are several equivalent definitions of orbit-finiteness. Among these, we us
     \end{enumerate}
  \end{definition}
 
+Let us justify the name ``orbit-finite'' in the above definition. 
+An orbit-finite set is  equipped with an action of the automorphism group of the original structure $\A$, namely the action inherited  from $\A^d$, suitably extended to the quotient. Under this action, the set has finitely many orbits, since $\A^d$ has finitely many orbits by assumption on oligomorphism, and  the number of orbits can only go down when  restricting to an equivariant subset and quotienting under an equivariant equivalence relation. 
 
-An orbit-finite set is  equipped with an action of the automorphism group of the original structure $\A$, namely the action inherited  from $\A^d$, suitably extended to the quotient. Under this action, the set has finitely many orbits, since $\A^d$ has finitely many orbits by assumption on oligomorphism, and  the number of orbits can only go down when  restricting to an equivariant subset and quotienting under an equivariant equivalence relation. This explains the name \emph{orbit-finite set}.  
- 
-We can think of an orbit-finite set as a relational structure, by equipping it with some relations that are equivariant with respect to the action of the automorphism group of $\A$. 
-  Since we assume the atoms to be oligomorphic, the equivariant relations are exactly those that can be defined in first-order logic. Therefore, the above definition is the same as a first-order interpretation in $\A$, see~\cite[Section 5.3]{hodges1993model}. 
+Let us now explain how the above definition coincides with first-order interpretations. We can think of an orbit-finite set as a relational structure, by equipping it with some relations that are equivariant with respect to the action of the automorphism group of $\A$. 
+  Since we assume the atoms to be oligomorphic, the equivariant relations are exactly those that can be defined in first-order logic. Therefore, the above definition is the same as a first-order interpretation in $\A$. 
   
-  As we mentioned earlier, there are other equivalent definitions of orbit-finite sets. One of these, see~\cite[Theorem 5.13]{bojanczyk_slightly}, is that an orbit-finite set is a set  equipped with an action of the automorphism group of $\A$, such that: (a) there are finitely many orbits; and (b) every element has finite support.
+  As we mentioned earlier, there are other equivalent definitions of orbit-finite sets. One, see Definition~\ref{def:orbit-finite-set-alternative} below, emphasises the role of the  group action. In this definition, we use the following notion of support: if $X$ is a set equipped with an action of the automorphism group of $\A$, then a \emph{support} for an element $x \in X$ is any set $S \subseteq \A$ such that every automorphism $\pi$ of $\A$ satisfies
+  \begin{align*}
+  \myunderbrace{\forall a \in S\ \pi(a)=a}{action of $\pi$ on $\A$}
+  \quad \implies \quad 
+  \myunderbrace{\pi(x)=x}{action of $\pi$ on $X$}.
+  \end{align*}
 \begin{definition}
-   [Orbit-finite sets, abstractly] An \emph{orbit-finite set} over an oligomorphic structure $\A$ is a set $X$ equipped with an action of the automorphism group of $\A$ such that: 
+   [Orbit-finite sets, abstractly] \label{def:orbit-finite-set-alternative} An \emph{orbit-finite set} over an oligomorphic structure $\A$ is a set $X$ equipped with an action of the automorphism group of $\A$ such that: 
    \begin{enumerate}
       \item there are finitely many orbits under the action;
-      \item every element has finite support, which means that for every $x \in X$ there is some finite set of atoms $S \subseteq \A$ such that if an automorphism of $\A$ fixes all atoms in $S$, then it also fixes $x$. 
+      \item every element has some finite support; 
    \end{enumerate}
 \end{definition}
- \paragraph*{Orbit-finite automata.} As mentioned in the introduction,  the study of orbit-finite sets was originally motivated by automata and regular languages over infinite alphabets~\cite{bojanczykNominalMonoids2013,bojanczykAutomataTheoryNominal2014}. The idea is to use standard models of computation, but to replace finite sets with orbit-finite ones, while keeping all structure equivariant. The standard example is orbit-finite automata, defined as follows.
-    An orbit-finite nondeterministic automaton over atoms $\A$ is defined like a nondeterministic finite automaton, except that the states and alphabet are orbit-finite sets over $\A$, instead of finite ones, and all structure (the sets of initial and final states and the transition relation) are equivariant. A deterministic orbit-finite automaton is the special case which has only one initial state, and where the transition relation is a function. 
+
+Thanks to oligomorphism of the underlying atom structure, the  two definitions above are equivalent in the sense that they describe the same sets, up to equivariant bijections, see~\cite[Theorem 5.13]{bojanczyk_slightly}. Both definitions have their uses. Definition~\ref{def:orbit-finite-set} is more concrete, and it comes with a finite representation, which can be used for algorithms that process orbit-finite sets. On the other hand, some constructions will result in sets that are consistent with the second, more relaxed, definition. One such example of the latter phenomenon arises in automata theory, where the  minimal automaton, whose states are equivalence classes of input word with respect to some equivalence relation~\cite[Theorem 5.2]{bojanczykAutomataTheoryNominal2014}. 
+%  \paragraph*{Orbit-finite automata.} As mentioned in the introduction,  the study of orbit-finite sets was originally motivated by automata and regular languages over infinite alphabets~\cite{bojanczykNominalMonoids2013,bojanczykAutomataTheoryNominal2014}. The idea is to use standard models of computation, but to replace finite sets with orbit-finite ones, while keeping all structure equivariant. The standard example is orbit-finite automata, defined as follows.
+%     An orbit-finite nondeterministic automaton over atoms $\A$ is defined like a nondeterministic finite automaton, except that the states and alphabet are orbit-finite sets over $\A$, instead of finite ones, and all structure (the sets of initial and final states and the transition relation) are equivariant. A deterministic orbit-finite automaton is the special case which has only one initial state, and where the transition relation is a function. 
 %  \begin{example}[Cycles in the Rado graph]
 %     Assume that the atoms are the Rado graph. The cycles in the Rado graph can be viewed as a language $L \subseteq \A^*$, which consists of words where every two consecutive letters are related by an edge in the atoms, and furthermore there is an edge between the last and the first letter. This language can be recognised by a deterministic  orbit-finite automaton, which uses its states to remember the first letter of the input word as well as the most recently read letter. The state space of this automaton is the disjoint union
 %     \begin{align*}
