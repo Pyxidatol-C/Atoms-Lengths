@@ -1,27 +1,21 @@
 \section{The length-scape}
-With Corollaries~\ref{cor:weak-finite-length} and \ref{cor:free-finite-length} in hand, 
-the finite length property is far beyond a theory of two examples.
+With Theorems~\ref{thm:weak-smooth-approximation-finite-length} and \ref{thm:ordered-free-amalg-has-finite-length} and their corollaries, we have extended the finite length property far beyond equality and ordered atoms, the two examples considered in~\cite{BFKM24}.
 One quick way to produce even more examples is by considering an \emph{interpretation} in $\A$, 
 which consists of an orbit-finite set $\B$ over $\A$ equipped with $\Aut(\A)$-equivariant relations.
-(In particular, $\B$ is a \emph{first-order reduct} of $\A$ if the underlying orbit-finite set is just $\A$.)
+($\B$ is called a \emph{first-order reduct} of $\A$ if its underlying set is just $\A$.)
 
 \begin{lemma}\label{lem:interpretations-preserve-fin-len}
-    If $\A$ is oligomorphic (resp., has the finite length property over the field $\FF$), then so does any interpretation $\B$ in $\A$.
+    If $\A$ has the finite length property over a field $\FF$, then so does any interpretation $\B$ in $\A$.
 \end{lemma}
 \begin{proof}
-    Recall that $\B$ is acted upon by $\Aut(\A)$.
-    In fact, any $\pi \in \Aut(\A)$ defines a bijection $\hat \pi : \B \to \B ; a \mapsto \pi(a)$ which by definition belongs to $\Aut(\B)$. 
-    As $\A$ is oligomorphic, $\B^d$ is an orbit-finite set over $\A$ for every $d$.
-    But \[
-        \Aut(\B) \cdot b \mapsto \Aut(\A) \cdot b, \quad b \in \B^d
-    \] defines a surjection of the  $\Aut(\B)$-orbits onto the $\Aut(\A)$-orbits,
-    so $\B^d$ is orbit-finite over $\B$ as well
-    --- this shows $\B$ is oligomorphic.
-
+It is a standard result in model theory (see e.g.~\cite[Chap. 5,7]{hodges1993model}) that $\B$ is oligomorphic if $\A$ is.
+%
     Now, consider a chain $V_0 \subset V_1 \subset \cdots \subset V_l \subseteq \Lin_\FF \B^d$ of $\Aut(\B)$-equivariant subspaces. 
-    As $\pi(v) = \hat \pi(v)$, each $V_i$ is also $\Aut(\A)$-equivariant.
-    The finite length property of $\A$ then yields an upper bound on $l$.
+    Then each $V_i$ is also $\Aut(\A)$-equivariant,
+    and the finite length property of $\A$ yields an upper bound on $l$.
 \end{proof}
+
+As an example application:
 
 \begin{theorem}
     Every countable homogeneous undirected graph has the finite length property over any field.
@@ -34,59 +28,48 @@ which consists of an orbit-finite set $\B$ over $\A$ equipped with $\Aut(\A)$-eq
         \item the $K_n$-free Henson graph, where $n \geq 3$; or
         \item $m$ disjoint copies of the complete graph $K_n$, where at least one of $m$ and $n$ is infinite.
     \end{enumerate}
-    Since a graph $(\A, \sim)$ and its complement $(\A, \nsim)$ share the same automorphism group, 
+    Since a graph $\A$ and its complement share the same automorphism group, 
     when studying the length of $\Lin_\FF \A^d$ we only need to examine the former graph.
     
-    In cases (1) and (2), the finite length property follow directly from Corollary~\ref{cor:free-finite-length}.
-    For case (3), observe that $\{1, \dots, m\} \times \N$, $\N \times \{1, \dots, n\}$, and $\N \times \N$ are all orbit-finite sets over the equality atoms $(\N, =)$, where $m$ and $n$ are finite;
-    on each of these, the binary relation $\sim$ checking equality on the first coordinate is certainly equivariant.
-    We thus conclude using Lemma~\ref{lem:interpretations-preserve-fin-len}:
-    again by Corollary~\ref{cor:free-finite-length}, the equality atoms have the finite length property, as do any interpretations.
-\end{proof}
+    For (1) and (2), the finite length property follows directly from Corollary~\ref{cor:free-finite-length}.
+    The case (3) follows from Lemma~\ref{lem:interpretations-preserve-fin-len}, as those graphs admit interpretations in the equality atoms.
+    \end{proof}
 
-Another recipe for producing more structures from $\A$ is by considering $(\A, {=}c_1, \dots, {=}c_k)$, where $c_1, \dots, c_k \in \A$ are now constants.
+Another recipe for producing more structures from $\A$ is by considering $(\A, {=}c_1, \dots, {=}c_k)$, where $c_1, \dots, c_k \in \A$ are seen as constants.
 Because $\A^{d+k}$ is orbit-finite for every $d$,
-this expansion is again oligomorphic if $\A$ is so.
-Whether the finite length property is preserved is more subtle;
-we list some positive examples:
+this expansion is again oligomorphic if $\A$ is so. But we do not know whether the finite length property of the expansion can be deduced from the property for $\A$ in general. We only know a few positive examples:
 \begin{itemize}
     \item 
-    Expansions of $(\N, =)$ or $(\Q, \leq)$ by finitely many constants are interpretable in the original structure~\cite[Lemma~2.22]{BodirskyBodorMarimon_25},
+    Expansions of $(\N, =)$ or $(\Q, \leq)$ by finitely many constants are interpretable in the original structure~\cite[Lem~2.22]{BodirskyBodorMarimon_25},
     so they have the finite length property by Theorem~\ref{thm:ordered-free-amalg-has-finite-length} in light of 
-    Lemma~\ref{lem:interpretations-preserve-fin-len}. 
-    (We just paraphrased the proof of \cite[Theorem~4.10]{BFKM24} model-theoretically.)
-
+    Lemma~\ref{lem:interpretations-preserve-fin-len}. (See also~\cite[Thm.~4.10]{BFKM24}.)
     \item 
-    On the other hand, when $\A$ is the Rado graph, it was shown in \cite{no-constant-interpreted-in-Rado} that for no $c \in \A$ does $(\A, {=}c)$ interpret in $\A$. 
+    On the other hand, for $\A$ the Rado graph, it was shown in \cite{no-constant-interpreted-in-Rado} that $(\A, {=}c)$ does not interpret in $\A$ for any $c \in \A$. 
     Instead, we explicitly took the constant into account when we established the finite length property in Corollary~\ref{cor:free-finite-length}.
 
-    \item
-    \textcolor{red}{Homogeneous, smoothly approximable structures are also closed under expansions by constants? Do we mention this?}
+%    \item
+%    \textcolor{red}{Homogeneous, smoothly approximable structures are also closed under expansions by constants? Do we mention this?}
 \end{itemize}
 
 
-Let us summarise where the cog-based approach in Sections~\ref{sec:free-amalg}--\ref{sec:equivariant-subspaces} brings us. 
-We treat the generically ordered Fraïssé limit of any free amalgamation class, over a finite relational vocabulary that has to be binary for technical reasons. 
-(This restriction is necessary for tackling forbidden substructures. Whilst we believe the proofs can be adapted to handle the Fraïssé limit of ordered $k$-uniform hypergraphs,
-Evans's result \cite[Proposition~3.10]{Evans_pm1} that $\Lin \A^2$ has finite length without this arity assumption seems out of reach.) 
-This approach culminates in Theorem~\ref{thm:cog-span-generally}, 
-which allows us in Section~\ref{sec:equivariant-subspaces} to describe all equivariant subspaces in any orbit-finite-dimensional vector space --- in the presence of constants, in any field --- and deduce the finite length property with a tight bound.
+Let us summarise the scope of our results. In the cog-based approach of Sections~\ref{sec:free-amalg}--\ref{sec:equivariant-subspaces}, we cover the generically ordered Fraïssé limit of any free amalgamation class over a finite relational vocabulary of relational symbols of arity at most $2$. We do not know how to drop the arity restriction from our proofs, so it is interesting that recently, using a different approach, Evans proved~\cite[Prop.~3.10]{Evans_pm1} that $\Lin \A^2$ has finite length for a vocabulary of any arity. We do not know how to combine these results. 
+
+Our main cog-based result is Theorem~\ref{thm:cog-span-generally}, 
+which allows us in Section~\ref{sec:equivariant-subspaces} to describe all equivariant subspaces in any orbit-finite-dimensional vector space, and to deduce the finite length property with a tight bound.
 However, as we saw in Section~\ref{sec:duals}, these structures can give rise to ill-behaved models of computation:
-over the Rado and Henson graphs, orbit-finitely spanned sets do not admit orbit-finitely spanned function spaces, and weighted register automata fail to be closed under reversal.
+over the Rado and Henson graphs, orbit-finitely spanned sets do not admit orbit-finitely spanned function spaces, and weighted register automata are not closed under reversal.
 
-The cogless approach for oligomorphically approximated structures in Section~\ref{sec:characteristic-zero} is almost the opposite.
-The finite length property only holds over characteristic zero, 
-orthogonal to the model-theoretic motivation to refute Thomas's conjecture.
-(And indeed some structures do not have the finite length property over finite fields.)
-The proof here is quick and elegant, and cover two important subclasses of oligomorphic structures. 
-The first is those that are $\omega$-stable: 
-these admit orbit-finitely spanned dual spaces according to \cite[Theorem~3.7]{Przybyłek_2024}.
-The second is those that are weakly Lie coordinitisable, which are thoroughly studied in \cite{CherlinHrushovski_03} and provide a rich arsenal of examples for us to understand.
+The cog-less approach to oligomorphically approximated structures in Section~\ref{sec:characteristic-zero} is almost complementary.
+The finite length property is proved there only over fields of characteristic $0$; indeed some structures covered in that setting, notably vector atoms (Ex.~\ref{ex:vector-space-atoms}), do not have the finite length property over finite fields~\cite[Sec.~4.4]{BFKM24}.
+But the proof here is quick and elegant, and covers two important subclasses of oligomorphic structures. 
+The first is $\omega$-stable structures, which admit orbit-finitely spanned dual spaces according to~\cite[Thm.~3.7]{Przybyłek_2024}.
+The second is weakly Lie coordinatisable structures, which are thoroughly studied in \cite{CherlinHrushovski_03} and provide a rich variety of examples.
 
-\textcolor{red}{
-We leave two concrete open questions. Which has the finite length property:
-\begin{enumerate}
-    \item the Fraïssé limit of finite partially ordered sets?
-    \item the Fraïssé limit of finite Boolean algebras, over characteristic zero?
-\end{enumerate}
-}
+A few major questions remain open:
+\begin{itemize}
+\item \cite[Q.~2]{CaminaEvans_91} Does every oligomorphic structure have the ascending chain property? 
+\item ~\cite[Q.~1.4]{Evans_pm1} Does every structure homogeneous over a finite vocabulary have the finite length property?
+\item Does every oligomorphic structure have the finite length property over fields of characteristic $0$?
+\end{itemize}
+We do not even know whether the ascending chain property or the finite length property hold for some concrete and well-studied Fraïssé limits, notably the universal partial order or the countable atomless Boolean algebra.
+
