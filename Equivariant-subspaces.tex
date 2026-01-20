@@ -1,4 +1,4 @@
-\section{Application: solving orbit-finite linear equations}
+\section{Application: solving orbit-finite linear equations}\label{sec:equivariant-subspaces}
 We will now show an important corollary of Theorem~\ref{thm:cog-span-generally}.
 Let $\mathcal{O} \subseteq \A^{I}$ be an $S$-ordered orbit.
 Then $\len(\Lin_\FF\mathcal{O}) = 2^{|I|}$;
@@ -117,12 +117,12 @@ Furthermore:
     
     
     Put: \[
-        w' = \prod_{j \in J_{i}} (1 - \pi_j) w \in W.
+        w' = \prod_{j \in J_{i}} (\mathrm{id} - \pi_j) w \in W.
     \]
     For any $1 \leq i' \leq t$, noting that as no more atoms can appear in $w{\restriction_{i'}}$ than in $w$, we have
     \begin{align*}
         &w' {\restriction_{i'}}
-        = \prod_{j \in J_{i}} (1 - \pi_j) w {\restriction_{i'}} 
+        = \prod_{j \in J_{i}} (\mathrm{id} - \pi_j) w {\restriction_{i'}} 
         = \sum_{c \in C_i} \sum_{J' \subseteq J_i} (-1)^{|J'|}  
             w {\restriction_{i'}}(c) \cdot \left(\prod_{j \in J'} \pi_j c\right)
 %        &{}= \sum_{b_\bullet \in \mathcal{Q}_{i'}, \{b_j \mid j\} \supseteq \{a_j \mid j\}} \sum_{J' \subseteq J} (-1)^{|J'|}  
