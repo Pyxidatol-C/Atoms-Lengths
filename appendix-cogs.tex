@@ -1,4 +1,6 @@
 \section{Spanning by cogs: a proof}\label{sec:appendix-cogs}
+Recall that setting of Section~\ref{sec:free-amalg} and the notations of Section~\ref{sec:cogs-turn}.
+Consider an $S$-ordered orbit $\cal O \subseteq \A^I$.
 \subsection{Subvectors, locations, conflicts}
 We begin by introducing some additional terminology and notation. First, let us make explicit a view we have tacitly taken:
 with $\cal O$ as a standard basis, a vector $v \in \Lin_\FF \cal O$ is just a finite set of pairs in $\FF \times \cal O$.
@@ -93,13 +95,13 @@ The following sister lemmas, relying on free amalgamation as distilled in Lemma~
 \end{proof}
 
 \subsection{Conflict-free vectors}\label{subsec:unobstructed}
-\begin{proposition}\label{prop:!-free-decomposition}
+\begin{claim}\label{claim:!-free-decomposition}
     If $v \in \Ker_\FF \cal O$ is free from conflicts, then it can be written as a linear combination of $\cal O$-cogs:
     \[
         v = \sum_{a^\pm \in A^\pm} \lambda_{a^\pm} \cdot a^+ \between a^-
     \]
     with $\lambda_{a^\pm} \in \FF$, where moreover $\vsup{v} \cup A^\pm$ is free from conflicts.
-\end{proposition}
+\end{claim}
 \begin{proof}
 We proceed by induction on the dimension $|I|$, 
 noting that when $I = \emptyset$ we just have $v = \lambda \cdot () = \lambda \cdot ( \between )$.
@@ -207,18 +209,18 @@ is a decomposition of $v$ into a linear combination of $\cal O$-cogs as required
 \end{proof}
 
 \subsection{Vectors without equational conflicts}\label{subsec:unambiguous}
-\begin{proposition}\label{prop:?-free-decomposition}
+\begin{claim}\label{claim:?-free-decomposition}
      If $v \in \Ker_\FF \cal O$ has no equational conflicts, then it can be written as a linear combination of $\cal O$-cogs:
     \[
         v = \sum_{a^\pm \in A^\pm} \lambda_{a^\pm} \cdot a^+ \between a^-
     \]
     with $\lambda_{a^\pm} \in \FF$, where moreover $\vsup{v} \cup A^\pm$ has no equational conflicts.
-\end{proposition}
+\end{claim}
 \begin{proof}
 We proceed again by induction, first on $|I|$ then on the number of relational conflicts in $v$.
 The outer base case $I = \emptyset$ is trivial 
 --- we have $v = \lambda \cdot ( \between )$, and no conflicts arise
---- and the inner base case is just Proposition~\ref{prop:!-free-decomposition}.
+--- and the inner base case is just Claim~\ref{claim:!-free-decomposition}.
 
 Suppose that a location $(i, a)$ is part of a relational conflict in $v$.
 Since every location in $v^{i:a}|^{-i}$ is also a location in $v$, we know that $v^{i:a}|^{-i}$ has no equational conflicts, and by Lemma~\ref{lem:balanced-projected-subvector} it is balanced.
@@ -268,7 +270,8 @@ as required.
 \end{proof}
 
 \subsection{Arbitrary vectors}
-\begin{theorem}[Theorem~\ref{thm:cog-span-generally} restated]
+We restate and prove Theorem~\ref{thm:cog-span-generally}:
+\begin{theorem}
     Any $v \in \Ker_\FF \cal O$ can be written as
     \[
         v = \sum_{a^\pm \in A^\pm} \lambda_{a^\pm} \cdot a^+ \between a^-
@@ -276,10 +279,10 @@ as required.
     with $\lambda_{a^\pm} \in \FF$.
 \end{theorem}
 \begin{proof}
-This is similar to the proof of Proposition~\ref{prop:?-free-decomposition}, but simpler.
+This is similar to the proof of Claim~\ref{claim:?-free-decomposition}, but simpler.
 We proceed again by induction, first on $|I|$ then on the number of equational conflicts in $v$.
 The outer base case $I = \emptyset$ is trivial as before, and 
-and the inner base case is Proposition~\ref{prop:?-free-decomposition}.
+and the inner base case is Claim~\ref{claim:?-free-decomposition}.
 
 Suppose that a location $(i, a)$ is part of an equational conflict in $v$. By the outer inductive hypothesis, we get:
 \[
