@@ -1,4 +1,4 @@
-\section{Application: solving orbit-finite linear equations}\label{sec:equivariant-subspaces}
+\section{All those equivariant subspaces}\label{sec:equivariant-subspaces}
 We will now show an important corollary of Theorem~\ref{thm:cog-span-generally}.
 Let $\mathcal{O} \subseteq \A^{I}$ be an $S$-ordered orbit.
 Then $\len(\Lin_\FF\mathcal{O}) = 2^{|I|}$;
@@ -112,7 +112,7 @@ Furthermore:
     Let $S'$ consist of $S$ together with every atom appearing in $w$ but not in $a$.
     We generalise the construction used in the proof of Theorem~\ref{thm:cogs-arise-everywhere}.
     
-    Apply Proposition~\ref{prop:cog-fresh-full} and Remark~\ref{rem:duo} to get automorphisms $\pi_j$ for $j \in J_i$ such that $a \parallel \prod_{j \in J_i} \pi_j a$ is an $\mathcal{Q}_i$-duo, 
+    Apply Proposition~\ref{claim:cog-fresh-full} and Remark~\ref{rem:duo} to get automorphisms $\pi_j$ for $j \in J_i$ such that $a \parallel \prod_{j \in J_i} \pi_j a$ is an $\mathcal{Q}_i$-duo, 
     where each $\pi_j$ fixes $S'$ and all $a_{j'}$ and $\pi_{j'}(a_{j'})$ for $j'\neq j$. Since all $\mathcal{Q}_i$-duos are in the same orbit, it is enough to show that the cog corresponding to this particular duo, with the coefficient $\lambda$, belongs to the $\restriction_i$-image as in the statement of the claim.
     
     
@@ -193,7 +193,7 @@ We can compute the local coefficients of such subspaces easily:
 To complement the upper bound from Prop.~\ref{prop:length-upper-bound}, we now exhibit a chain of $\Aut(\A)_{(S)}$-equivariant subspaces whose length is precisely $\sum_{i=1}^t |\Jclass_i|$, generalising \cite[Corollary~4.12]{BFKM24}.
 Take any $J \in \Jclass_i$. 
 Pick some $a\in \mathcal{O}$,
-and let $\pi_j$ (for $j \in I$) be the automorphisms from Prop.~\ref{prop:cog-fresh-full}.
+and let $\pi_j$ (for $j \in I$) be the automorphisms from Prop.~\ref{claim:cog-fresh-full}.
 Define a vector
 \begin{align*}
     v_{J} =  \prod_{j \in J} (1 - \pi_j) a \in \Lin_\FF(\mathcal{O}).
@@ -222,7 +222,7 @@ Together with the upper bound from Proposition~\ref{prop:length-upper-bound}, we
 \begin{theorem}
     $\len(\Lin_\FF\mathcal{O}) = 2^{|I|}$.
 \end{theorem}
-Along the lines of Proposition~\ref{prop:reduction-to-one-orbit}, this generalises to multi-orbit sets:
+Along the lines of Proposition~\ref{claim:reduction-to-one-orbit}, this generalises to multi-orbit sets:
 \[
 \len(\Lin_\FF(\mathcal{O}_1 \uplus \dots \uplus \mathcal{O}_n)) = 2^{|I_1|} + \dots + 2^{|I_n|}.
 \]
