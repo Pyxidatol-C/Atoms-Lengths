@@ -1,16 +1,31 @@
 \section{Introduction}
 
 This paper is rooted in the programme on orbit-finite sets. In this programme, one starts with some relational structure $\A$, which is called the \emph{atom structure}, and whose elements are called \emph{atoms}. Based on this structure, one constructs sets which are called \emph{orbit-finite}. A precise definition will be given later in the paper, but the understanding is that elements of an orbit-finite set are constructed using atoms, and there are finitely many of them up to automorphisms of the atom structure. For the theory to make sense, we must assume that the atom structure is \emph{oligomorphic}, which means that $\A^d$ has finitely many orbits for every $d$. The simplest example of an oligomorphic structure is what we refer to as the \emph{equality atoms}, this is the structure which has a countably infinite underlying set, and no relations except for equality. This structure, like all oligomorphic structures, arises by applying a model theoretic construction (the Fraïssé limit) to a  well-behaved class of finite structures. Figure~\ref{fig:fraisse-limits} contains other examples of such structures. 
+% \begin{figure}
+%     \begin{center}
+%     \begin{tabular}{ll|l}
+%    &  class of finite structures & its Fraïssé limit\\
+%     \hline
+%     1.& finite sets with equality only & infinite set with equality only \\
+%     2.& finite orders & rational numbers with order \\
+%     3.& finite graphs & the Rado graph \\ 
+%     4.& vector spaces of finite & vector space of countably\\  
+%     & \quad dimension over $\mathbb F_2$ & \quad infinite  dimension over $\mathbb F_2$
+% \end{tabular}
+% \end{center}
+% \caption{\label{fig:fraisse-limits} Examples of Fraïssé limits}
+% \end{figure}
 \begin{figure}
     \begin{center}
-    \begin{tabular}{ll|l}
+    \begin{tabular}{lll}
    &  class of finite structures & its Fraïssé limit\\
-    \hline
-    1.& finite sets with equality only & infinite set with equality only \\
-    2.& finite orders & rational numbers with order \\
-    3.& finite graphs & the Rado graph \\ 
-    4.& vector spaces of finite & vector space of countably\\  
-    & \quad dimension over $\mathbb F_2$ & \quad infinite  dimension over $\mathbb F_2$
+    \toprule
+    1.& finite sets with equality only & $(\N, =)$ \\
+    2.& finite orders & $(\Q, \leq)$ \\
+    3.& finite graphs & $(\text{the Rado graph}, \sim)$ \\ 
+    4.& finite $\mathbb F_2$-vector spaces & $\mathbb{F}_2 \oplus \mathbb{F}_2 \oplus \mathbb{F}_2 \oplus \cdots$ 
+    \\
+    \bottomrule  
 \end{tabular}
 \end{center}
 \caption{\label{fig:fraisse-limits} Examples of Fraïssé limits}
@@ -36,7 +51,7 @@ To the best of our knowledge, this question was first recognised by Camina and E
 \begin{description}\item[Question.]
 Which orbit-finitely spanned vector spaces over an oligomorphic structure  have the ascending chain property?
 \end{description}
-In~\cite{CaminaEvans_91}, the authors identify a sufficient condition for the ascending chain property, namely the existence of an Ahlbrandt-Ziegler enumeration. Using this sufficient condition, they show the  ascending chain property for some vector spaces, notably $\Lin {\A \choose d}$ for the equality atoms (the first row of Figure~\ref{fig:fraisse-limits}), and also for a similar space in the bit-vector atoms (the last row of Figure~\ref{fig:fraisse-limits}).
+In~\cite{CaminaEvans_91}, the authors identify a sufficient condition for the ascending chain property, namely the existence of an Ahlbrandt-Ziegler enumeration. Using this sufficient condition, they show the  ascending chain property for some vector spaces, notably $\Lin {\binom \A d}$ for the equality atoms (the first row of Figure~\ref{fig:fraisse-limits}), and also for a similar space in the bit-vector atoms (the last row of Figure~\ref{fig:fraisse-limits}).
 
 In~\cite[p.~21]{BFKM24}, it is conjectured that the answer to the above question is ``all of them'', i.e.~every orbit-finitely spanned vector space over an oligomorphic structure has the ascending chain property. This conjecture has been confirmed for some oligomorphic structures, as we now explain. In some cases, we can prove a stronger property, which we call the \emph{finite length property}: for every orbit-finitely spanned vector space, there is some finite upper bound on the length of chains of subspaces. By the Jordan-Holder Theorem, the finite length property is equivalent to saying that both ascending and descending chains of subspaces are finite.
 \begin{itemize}

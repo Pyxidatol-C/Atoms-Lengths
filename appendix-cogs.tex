@@ -70,7 +70,7 @@ The following sister lemmas, relying on free amalgamation as distilled in Lemma~
         X = S \cup \sqrt{K \cup V} \setminus \{a\},
     \]
     and note that $X$ contains $S \cup \sqrt{V_0}$.
-    Use Lemma~\ref{lem:free-fresh} (putting $z=a$ and $Y=\emptyset$) to obtain an automorphism $\pi \in \Aut(\A)_{(X)}$ such that $\pi(a) \not\in X \cup \{a\}$. 
+    Use Lemma~\ref{lem:free-fresh} (putting $z=a$ and $Y=\emptyset$) to obtain an automorphism $\pi \in \Aut(\A/X)$ such that $\pi(a) \not\in X \cup \{a\}$. 
     
     In the set $V\cup\pi(K)$, the conflicting location $(i,a)$ disappears and no new equational conflicts are created, so the number of equationally conflicting locations drops compared to $V\cup K$.
     Because $V_0 \cup \pi(K)$ is still conflict-free,
@@ -93,7 +93,7 @@ The following sister lemmas, relying on free amalgamation as distilled in Lemma~
         X = S \cup \sqrt{K \cup V} \setminus (Y \cup \{a\}).
     \]
     Then $X, Y, \{a\}$ are pairwise disjoint, and $X$ contains $S \cup \sqrt{V_0}$. It also contains all atoms in $\sqrt{K}$ except $a$.
-   Using Lemma~\ref{lem:free-fresh}, find some $\pi\in \Aut(\A)_{(X)}$ such that $\pi(a) \not\in X \cup Y \cup \{a\}$ and $\pi(a)$ is not related to any atom in $Y$. In $V\cup\pi(K)$ the conflicting location $(i,a)$ disappears and no new conflicts are created, so the conclusion follows from the inductive hypothesis.
+   Using Lemma~\ref{lem:free-fresh}, find some $\pi\in \Aut(\A/X)$ such that $\pi(a) \not\in X \cup Y \cup \{a\}$ and $\pi(a)$ is not related to any atom in $Y$. In $V\cup\pi(K)$ the conflicting location $(i,a)$ disappears and no new conflicts are created, so the conclusion follows from the inductive hypothesis.
 \end{proof}
 
 \subsection{Conflict-free vectors}\label{subsec:unobstructed}
@@ -120,7 +120,7 @@ By the outer inductive hypothesis, we get \[
     v^{j:a} = (v^{j:a}|^{-j}) a = \sum_{a^\pm\in A^\pm} (\lambda_{a^\pm} \cdot a^+ \between a^-)a
 \]
 where $[v^{j:a}|^{-j}]\cup A^\pm$ is free from conflicts, which immediately implies that $[v^{j:a}]\cup A^\pm a$ is free from conflicts as well. 
-Note that if a $\pi \in \Aut(\A)_{(S)}$ fixes every atom in $v^{j:a}$ --- in particular, $a$ ---  then
+Note that if a $\pi \in \Aut(\A/S)$ fixes every atom in $v^{j:a}$ --- in particular, $a$ ---  then
 \[
     v^{j:a} = \pi(v^{j:a}) = \sum_{a^\pm \in A^\pm} \lambda_{a^\pm} \cdot \pi a^+ \between \pi a^-,
 \]
@@ -243,7 +243,7 @@ Also, $b \not\in S$.
 X = S \cup \sqrt{\vsup{v} \cup A^\pm} \setminus (Y \cup \{a\})   
 \]
 contains $S \cup \sqrt{A^\pm}$ and that $X, Y, \{a\}$ are pairwise disjoint.
-Use Lemma~\ref{lem:free-fresh} (putting $z=a$) to find $\tau \in \Aut(\A)_{(X)}$ such that $\tau(a) \not\in X \cup Y \cup \{a\}$, is greater than $a$, and is not related to any of $Y \cup \{a\}$. Denote $a'=\tau(a)$.
+Use Lemma~\ref{lem:free-fresh} (putting $z=a$) to find $\tau \in \Aut(\A/X)$ such that $\tau(a) \not\in X \cup Y \cup \{a\}$, is greater than $a$, and is not related to any of $Y \cup \{a\}$. Denote $a'=\tau(a)$.
 Then, for any $a^\pm \in A^\pm$, it follows by Lemma~\ref{lem:cog-fresh-single} that $a^+ a \parallel a^- a'$ is an $\cal O$-duo. Moreover, 
 $\vsup{v} \cup A^+ a \cup A^- a'$
 has no equational conflicts, and the vector
@@ -298,7 +298,7 @@ so
 X = S \cup \sqrt{\vsup{v} \cup A^\pm} \setminus \{a\}
 \]
 contains $S \cup \sqrt{A^\pm}$.
-Using Lemma~\ref{lem:free-fresh} (putting $z=a$ and $Y=\emptyset$), find $\pi \in \Aut(\A)_{(X)}$ such that $\pi(a)$ is not in $X$, is greater than $a$, and is otherwise unrelated to $a$. Denote $a'=\tau(a)$. 
+Using Lemma~\ref{lem:free-fresh} (putting $z=a$ and $Y=\emptyset$), find $\pi \in \Aut(\A/X)$ such that $\pi(a)$ is not in $X$, is greater than $a$, and is otherwise unrelated to $a$. Denote $a'=\tau(a)$. 
 Then, for any $a^\pm \in A^\pm$, it follos by Lemma~\ref{lem:cog-fresh-single} that $a^+ a \parallel a^- a'$ is an $\cal O$-duo. Moreover, 
 the vector
 \begin{align*}
