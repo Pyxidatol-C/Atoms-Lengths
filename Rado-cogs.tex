@@ -36,8 +36,8 @@ the class $\Forb(\Fclass)$ of finite $\sigma_0$-structures form a free amalgamat
 \end{example}
 
 \begin{example}\label{ex:free-amalg-graphs}
-    Let $\sigma_0$ consist of a single binary relation $\sim$. 
-    Consider $\sigma_0$-structures ${\circlearrowright} = \{x\}$ and ${\rightarrow} = \{y, z\}$, where the relation $\sim$ is interpreted as $\{(x, x)\}$ and $\{(y, z)\}$.
+    Let $\sigma_0$ consist of a single binary relation $E$. 
+    Consider $\sigma_0$-structures ${\circlearrowright} = \{x\}$ and ${\rightarrow} = \{y, z\}$, where the relation $E$ is interpreted as $\{(x, x)\}$ and $\{(y, z)\}$.
     Then $\Cclass_0 = \Forb(\{{\circlearrowright}, {\rightarrow}\})$ is a free amalgamation class consisting of all finite undirected graphs.
 
     In addition, let $K_n$ be the $\sigma_0$-structure representing a complete graph on $n$ vertices.
@@ -404,7 +404,7 @@ However, such a $z$ does not exist in the triangle-free graph $\A$. There are tw
 \item The atom $g$ occurs both as the first and as the second component in pairs present in $v$. Our specification of whether $z$ is adjacent to $g$ is therefore inconsistent.
 \item Atoms $a$ and $b$ both occur as first components in $v$, and they are adjacent in $\A$. As a result, an atom $z$ as prescribed would create a triangle $abz$ in $\A$, which is forbidden.
 \end{itemize}
-We resolve such {\em conflicts} by considering auxiliary atoms $g'>g$ and $b'>b$, with just enough edges to make $gh\parallel g'i$ and $bf\parallel b'i$ valid ${\cal O}$-duos. Specifically, we postulate edges $g' \sim h$, $g'\sim i$, $b' \sim f$ and $b' \sim i$ and no more. Such atoms exist by Lemma~\ref{lem:free-fresh}. We then define:
+We resolve such {\em conflicts} by considering auxiliary atoms $g'>g$ and $b'>b$, with just enough edges to make $gh\parallel g'i$ and $bf\parallel b'i$ valid ${\cal O}$-duos. Specifically, we postulate edges $E(g', h)$, $E(g', i)$, $E(b', f)$, $E(b', i)$ and no more. Such atoms exist by Lemma~\ref{lem:free-fresh}. We then define:
 \[
 v' = v + (gh \between g'i) - (bf \between b'i)
 \]
