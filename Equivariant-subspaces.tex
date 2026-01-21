@@ -1,7 +1,33 @@
 \section{All those equivariant subspaces}\label{sec:equivariant-subspaces}
 We continue working in the setting of Section~\ref{sec:free-amalg} so that we can demonstrate an important application of Theorem~\ref{thm:cog-span-generally}:
-given an orbit-finite set $X$ over $\A$, we can find a family of equivariant maps out of $\Lin_\FF X$, indexed by finite-dimensional vector spaces, whose kernels exhaust all the equivariant subspaces of $\Lin_\FF X$.
+given an orbit-finite set $X$ over $\A$, we can find \textcolor{red}{a family of equivariant maps out of $\Lin_\FF X$, indexed by finite-dimensional vector spaces, whose kernels} exhaust all the equivariant subspaces of $\Lin_\FF X$.
 In particular, we will show that for a single $S$-ordered orbit $\cal O \subseteq \A^I$, the length of $\Lin_\FF \cal O$ is precisely $2^{|I|}$.
+
+
+\subsection{Local coefficients}
+Fix an orbit-finite set $X$ over $\A$.
+Then it is in an equivariant bijection with a finite disjoint union $\biguplus_k \cal O_k$ of equivariant ordered orbits $\cal O_k \subseteq \A^{I_k}$ \textcolor{red}{(since the local symmetries are rigid)}. 
+Given $J \subseteq I_k$, we can project a tuple $a \in \cal O_k$ to the $J$ coordinates and then standardise the indices:
+\[
+    \cal O_k \to \cal O_k|^J \to \A^{|J|}.
+\]
+This process is equivariant, and the image of $\cal O_k$ is an ordered orbit $\cal Q \subseteq \A^{|J|}$.
+We want to consider every $k$ and $J \subseteq I_k$ that yields the same image $\cal Q$;
+let $\Jclass$ consist of these pairs $(J, k)$.
+We can group together the projection maps as follows:
+\begin{align*}
+    {\restriction} : \Lin_\FF X &\rightarrow \Lin_{\FF^\Jclass} \cal Q \\
+    v {\restriction} (q)_{J, k} &= v_k |^J (q^J).
+\end{align*}
+In words, $v {\restriction}$ allows us to have local information around $q$ about the coefficients in $v$.
+
+We do it for all such $\cal Q$.
+
+
+\textcolor{red}{The column-fintie and equivariant restriction does not lose generality for the ordered atoms.}
+
+\subsection{Lengths}
+
 
 
 Let $X$ be an orbit-finite set over $\A$.
