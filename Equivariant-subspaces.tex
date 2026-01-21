@@ -12,53 +12,48 @@ Given $J \subseteq I_k$, we can project a tuple $a \in \cal O_k$ to the $J$ coor
     \cal O_k \to \cal O_k|^J \to \A^{|J|}.
 \]
 This process is equivariant, and the image of $\cal O_k$ is an ordered orbit $\cal Q \subseteq \A^{|J|}$.
-We want to consider every $k$ and $J \subseteq I_k$ that yields the same image $\cal Q$;
+For now, let us fix $\cal Q$.
+We want to consider every $k$ and $J \subseteq I_k$ that yields the same image $\cal Q$ together:
 let $\Jclass$ consist of these pairs $(J, k)$.
-We can group together the projection maps as follows:
+We can assemble the projection maps as follows:
 \begin{align*}
     {\restriction} : \Lin_\FF X &\rightarrow \Lin_{\FF^\Jclass} \cal Q \\
-    v {\restriction} (q)_{J, k} &= v_k |^J (q^J).
+    v {\restriction} (q)_{J, k} &= v_k |^J (q^J)
 \end{align*}
-In words, $v {\restriction}$ allows us to have local information around $q$ about the coefficients in $v$.
+where $v_k$ is the projection of $v$ onto $\Lin_\FF \cal O_k$ and $q^J$ is the reindexed version of $q \in \cal Q$.
+(This map is equivariant and linear; note $\Lin_\EE \cal Q$ is a vector space over $\FF$ for any vector space $\EE$.)
+In words, $v {\restriction}$ allows us to probe local information around $q$ about the coefficients in $v$.
+An extremal example is when $\cal Q = \{()\}$,
+in which case $v {\restriction} ()$ tells us what coefficients sum to in each of the $v_k$'s.
+Also, given an equivariant subspace $V \subseteq \Lin_\FF X$, we obtain a finite-dimensinoal vector space 
+\[
+    V {\restriction} (\cal Q)
+    = \{ v {\restriction} (q) : v \in V, q \in \cal Q \} \subseteq \FF^\Jclass.
+\]
+For a vector $w \in \Lin_\FF X$ to belong to $V$, a necessary condition is that $w {\restriction}$ must belong to $\Lin_{V {\restriction} (\cal Q)} \cal Q$.
 
-We do it for all such $\cal Q$.
-
-
-\textcolor{red}{The column-fintie and equivariant restriction does not lose generality for the ordered atoms.}
-
-\subsection{Lengths}
-
-
-
-Let $X$ be an orbit-finite set over $\A$.
-Then $X$ is isomorphic to a finite disjoint union $\biguplus_k \cal O_k$ of equivariant ordered orbits, where $\cal O_k \subseteq \A^{I_k}$.
-For $J \subseteq I_k$, we have an equivariant map $\cal O_k \twoheadrightarrow \cal O_k|^J \hookrightarrow \A^{|J|}$.
-The images of $\cal O_k|^J$ and $\cal O_{k'}|^{J'}$ agree only if $|J| = |J'|$.
-Group $\cal O_k|^J$ by their images $\Jclass_i$.
-
-Now, let $\mathcal{Q}_{1} = \mathcal{O}|^{J_1}, \dots, \mathcal{Q}_{t} = \mathcal{O}|^{J_t}$ be distinct projected $S$-ordered orbits up to $\Aut(\A/S)$-equivariant bijections,
-enumerated in such a way that $|J_1| \geq |J_2| \geq \dots \geq |J_t|$. (In particular, $J_1=I$ and $J_t=\emptyset$.)
-
-%\begin{definition}
-    For $i = 1, \dots, t$, let $\Jclass_i$ consist of all sets $J$ such that $\mathcal{O}|^J$ is in $\Aut(\A/S)$-equivariant bijection with $\mathcal{Q}_i$.
-    Assemble all $|\Jclass_i|$ projections into a single map
-    \[
-        (-){\restriction_i} : \Lin_\FF\mathcal{O} \to \Lin_{\FF^{\Jclass_i}} \mathcal{Q}_i.
-    \]
-    To be more precise $v{\restriction_i}(a)$ is, for $a\in{\cal Q}_i$, the $\Jclass_i$-tuple whose $J$-th entry is $v|^J(a^{/J}) \in \FF$.
-    It is straightforward to check that $(-){\restriction_i}$ is $\Aut(\A/S)$-equivariant and linear.
-%\end{definition}
-
+Let us now consider all the orbits $\cal Q_i$ that arise from the $\sum_k 2^{|I_k|}$ projections $\cal O_k|^J$.
+Given subspaces $E_i \subseteq \FF^{\Jclass_i}$, we can define 
+\begin{equation}
+    \{ v \in \Lin X : v{\restriction_i}(q) \in E_i \text{ for all $i$ and $q \in \cal Q_i$} \}.
+\end{equation}
+This is an equivariant subspace.
 
 \begin{theorem}
-Every equivariant subspace of $\Lin X$ is of the form
-\[
-    \bigcap_{i} \ker( \Lin X \xrightarrow{ \restriction_i } \Lin_{\FF^{\Jclass_i}} \cal Q_i \xrightarrow{\text{proj}} \Lin_{V_i^\perp} \cal Q_i )
-\]
-where $V_i \subseteq \FF^{\Jclass_i}$ is a (finite-dimensional) subspace.
+    Every equivariant subspace $V \subseteq \Lin_\FF X$ is of this form.
+    (Put $E_i = V {\restriction_i} (\cal Q_i)$.)
 \end{theorem}
 
+
+Using this we can solve orbit-finite systems of equations. 
+By this we mean the decision procedure: given $\mathrm{A}, \mathrm{b}$, does there exist a solution to $\mathrm{A} \mathrm{x} = \mathrm{b}$?
+Here the rows and columns are orbit-finite, the matrix is equivariant, and in every column there are only finitely many non-zero entries.
+(The column-finite restriction does not lose generality: see Arka's justification in Lics'24. Also, equivariance can be relaxed to finitely supported: $(\Q, \leq, {=}c)$ interprets in the ordered atoms.)
+
+\subsection{Lengths}
+Consider now the case when $X = \cal O$ is a single ordered orbit in $\A^d$.
+
 \begin{theorem}
-    $\len(\Lin_\FF\mathcal{O}) = 2^{|I|}$.
+    $\len(\Lin_\FF\mathcal{O}) = 2^d$.
 \end{theorem}
 
