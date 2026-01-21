@@ -34,18 +34,18 @@ $x_1 < x_2$, $x_1 = x_2$, and $x_1 > x_2$.
 \end{example}
 
 \begin{example}
-    [Vector space] \label{ex:vector-space-atoms} Fix some finite field, and let $\A$ be the vector space of \textcolor{blue}{countably infinite} dimension over this field. This vector space is seen as a structure over an infinite vocabulary, which contains a relation 
+    [Vector space] \label{ex:vector-space-atoms} Fix some finite field $\innerfield$, and let $\A$ be the vector space of \textcolor{blue}{countably infinite} dimension over $\innerfield$. This vector space is seen as a structure over an infinite vocabulary, which contains a relation 
     \begin{align*}
     \setbuild{(a_1,\ldots,a_d) \in \A^d}{ $\lambda_1 a_1 + \cdots + \lambda_d a_d = 0$ }
     \end{align*}
-    for every $d \in \set{1,2,\ldots}$ and every  field coefficients $\lambda_1, \ldots, \lambda_d$. The vocabulary is defined so that automorphisms are the same thing as permutations that are linear maps. Two tuples are in the same orbit if and only if they have the same linear dependencies. Over a finite field there are finitely many linear dependency patterns for tuples of fixed length, so this structure is oligomorphic.
+    for every $d \in \set{1,2,\ldots}$ and all coefficients $\lambda_1, \ldots, \lambda_d$ in $\innerfield$. The vocabulary is defined so that automorphisms are the same thing as permutations that are linear maps. Two tuples are in the same orbit if and only if they have the same linear dependencies. Over a finite field there are finitely many linear dependency patterns for tuples of fixed length, so this structure is oligomorphic.
     In particular, in dimension $d = 2$, there are three more orbits than there are elements in the field: 
     $x_1 = 0 = x_2$;
     $x_1 = 0 \neq x_2$;
     $0 \neq x_1 = \lambda \cdot x_2$, where $\lambda$ ranges over the field;
     and $x_1, x_2$ being linearly independent. 
     
-    This particular example can lead to some confusion, since here $\A$ is itself a vector space, and we will later on consider the vector space (possibly over different fields) with $\A$ as a basis. %Hence, there will be two vector space structures under consideration. 
+    This particular example can lead to some confusion, since here $\A$ is itself a vector space, and we will later on consider the vector space (possibly over a different field) with $\A$ as a basis. %Hence, there will be two vector space structures under consideration. 
 \end{example}
 
 \begin{example}[Rado graph]\label{ex:rado-graph} The Rado graph is the Fraïssé limit of the class of finite undirected graphs. Here, an undirected graph is viewed as a structure that has one binary relation that is symmetric and irreflexive. 
