@@ -1,59 +1,28 @@
 \section{All those equivariant subspaces}\label{sec:equivariant-subspaces}
 We continue working in the setting of Section~\ref{sec:free-amalg} so that we can demonstrate an important application of Theorem~\ref{thm:cog-span-generally}:
-given an orbit-finite set $X$ over $\A$, we can find \textcolor{red}{a family of equivariant maps out of $\Lin_\FF X$, indexed by finite-dimensional vector spaces, whose kernels} exhaust all the equivariant subspaces of $\Lin_\FF X$.
-In particular, we will show that for a single $S$-ordered orbit $\cal O \subseteq \A^I$, the length of $\Lin_\FF \cal O$ is precisely $2^{|I|}$.
-
-
-\subsection{Local coefficients}
-Fix an orbit-finite set $X$ over $\A$.
-Then it is in an equivariant bijection with a finite disjoint union $\biguplus_k \cal O_k$ of equivariant ordered orbits $\cal O_k \subseteq \A^{I_k}$ \textcolor{red}{(since the local symmetries are rigid)}. 
-Given $J \subseteq I_k$, we can project a tuple $a \in \cal O_k$ to the $J$ coordinates and then standardise the indices:
-\[
-    \cal O_k \to \cal O_k|^J \to \A^{|J|}.
-\]
-This process is equivariant, and the image of $\cal O_k$ is an ordered orbit $\cal Q \subseteq \A^{|J|}$.
-For now, let us fix $\cal Q$.
-We want to consider every $k$ and $J \subseteq I_k$ that yields the same image $\cal Q$ together:
-let $\Jclass$ consist of these pairs $(J, k)$.
-We can assemble the projection maps as follows:
-\begin{align*}
-    {\restriction} : \Lin_\FF X &\rightarrow \Lin_{\FF^\Jclass} \cal Q \\
-    v {\restriction} (q)_{J, k} &= v_k |^J (q^J)
-\end{align*}
-where $v_k$ is the projection of $v$ onto $\Lin_\FF \cal O_k$ and $q^J$ is the reindexed version of $q \in \cal Q$.
-(This map is equivariant and linear; note $\Lin_\EE \cal Q$ is a vector space over $\FF$ for any vector space $\EE$.)
-In words, $v {\restriction}$ allows us to probe local information around $q$ about the coefficients in $v$.
-An extremal example is when $\cal Q = \{()\}$,
-in which case $v {\restriction} ()$ tells us what coefficients sum to in each of the $v_k$'s.
-Also, given an equivariant subspace $V \subseteq \Lin_\FF X$, we obtain a finite-dimensinoal vector space 
-\[
-    V {\restriction} (\cal Q)
-    = \{ v {\restriction} (q) : v \in V, q \in \cal Q \} \subseteq \FF^\Jclass.
-\]
-For a vector $w \in \Lin_\FF X$ to belong to $V$, a necessary condition is that $w {\restriction}$ must belong to $\Lin_{V {\restriction} (\cal Q)} \cal Q$.
-
-Let us now consider all the orbits $\cal Q_i$ that arise from the $\sum_k 2^{|I_k|}$ projections $\cal O_k|^J$.
-Given subspaces $E_i \subseteq \FF^{\Jclass_i}$, we can define 
-\begin{equation}
-    \{ v \in \Lin X : v{\restriction_i}(q) \in E_i \text{ for all $i$ and $q \in \cal Q_i$} \}.
-\end{equation}
-This is an equivariant subspace.
+we can enumerate all the equivariant subspaces of an orbit-finitely spanned vector space.
 
 \begin{theorem}
-    Every equivariant subspace $V \subseteq \Lin_\FF X$ is of this form.
-    (Put $E_i = V {\restriction_i} (\cal Q_i)$.)
+    Assume Lemma~\ref{lem:cog-fresh-full} and Theorem~\ref{thm:cog-span-generally} about cogs.
+    Given $d \in \{1, 2, \dots\}$, there exist a finite family of equivariant linear maps $\restriction_i : \Lin_\FF \A^d \to \Lin_{\FF^{n_i}} \cal O_i$ such that:
+    \begin{enumerate}
+        \item 
+        every equivariant subspace of $\Lin_\FF \A^d$ is of the form
+        \[
+            \{v \in \Lin_\FF \A^d \mid \forall i, \forall a \in \cal{O}_i : v{\restriction_i}(a) \in \EE_i \}
+        \]
+        where $\EE_i \subseteq F^{n_i}$ are finite-dimensional subspaces;
+
+        \item
+        if $W \subseteq \Lin_\FF \A^d$ is an equivariant subspace, 
+        then $W$ is precisely the space above with $\EE_i = \{w {\restriction_i}(b) \mid w \in W, b \in \cal O_i \}$.
+    \end{enumerate}
+    
 \end{theorem}
 
+\begin{corollary}
+    The length of $Lin_\FF \cal O$, where $\cal O \subseteq \A^d$ is an ordered orbit, is precisely $2^d$.
+\end{corollary}
 
-Using this we can solve orbit-finite systems of equations. 
-By this we mean the decision procedure: given $\mathbf{A}, \mathbf{b}$, does there exist a solution to $\mathbf{A} \mathbf{x} = \mathbf{b}$?
-Here the rows and columns are indexed by orbit-finite setes, the matrix is equivariant, and in every column there are only finitely many non-zero entries.
-(The column-finite restriction does not lose generality: see Arka's justification in Lics'24. Also, equivariance can be relaxed to finitely supported: $(\Q, \leq, {=}c)$ interprets in the ordered atoms.)
-
-\subsection{Lengths}
-Consider now the case when $X = \cal O$ is a single ordered orbit in $\A^d$.
-
-\begin{theorem}
-    $\len(\Lin_\FF\mathcal{O}) = 2^d$.
-\end{theorem}
-
+We supply the full proofs in Section~\ref{sec:appendix-eqsubsp} of the appendix,
+but we spend the rest of this section explaining the situation when $\A$ is the order atoms and $d = 2$.

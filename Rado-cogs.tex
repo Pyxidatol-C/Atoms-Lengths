@@ -292,25 +292,25 @@ We begin with a technical lemma, which combines the free amalgamation in $\Cclas
 \end{proof}
 
 Starting from an empty duo, we may apply Lemma~\ref{lem:cog-fresh-single} inductively.
-\begin{claim}\label{claim:cog-fresh-full}
+\begin{lemma}\label{lem:cog-fresh-full}
     Let $\cal O \subseteq \A^I$ be an $S$-ordered orbit.
     Then any $a \in \cal O$ can be extended to an ${\cal O}$-duo $a\parallel b$.
-\end{claim}
-\begin{proof}
-    Enumerate the indices of $I$ as $i_1, \dots, i_d$.
-    Suppose that we have found $b_{i_1}, \dots, b_{i_k}$ such that 
-    \[
-        a|^{\{i_1, \dots, i_k\}} \parallel (i_1 \mapsto b_{i_1}, \dots, i_k \mapsto b_{i_k})
-    \] 
-    is a duo for $\cal O_k = \Aut(\A)_{(S \cup \{a_{i_{k+1}}, \dots, a_{i_d}\})} \cdot a|^{\{i_1, \dots, i_k\}}$ 
-    --- note that $() \parallel ()$ is certainly a duo for $\cal O_0$ at the start.
-    If $k < d$, putting $z = a_{i_{k+1}}$, $X = \{a_{i_1}, b_{i_1}, \dots, a_{i_k}, b_{i_k}\} \cup S \cup \{a_{i_{k+2}}, \dots, a_{i_d}\}$, and $Y = \emptyset$, 
-    Lemma~\ref{lem:cog-fresh-single} yields an atom $b_{i_{k+1}}$ that makes
-    \[
-        a|^{\{i_1, \dots, i_k, i_{k+1}\}} \parallel (i_1 \mapsto b_{i_1}, \dots, i_k \mapsto b_{i_k}, i_{k+1} \mapsto b_{i_{k+1}})
-    \] a duo for $\cal O_{k+1}$.
-    For $k=d$ this gives the desired duo for $\cal O_d = \cal O$.
-\end{proof}
+\end{lemma}
+% \begin{proof}
+%     Enumerate the indices of $I$ as $i_1, \dots, i_d$.
+%     Suppose that we have found $b_{i_1}, \dots, b_{i_k}$ such that 
+%     \[
+%         a|^{\{i_1, \dots, i_k\}} \parallel (i_1 \mapsto b_{i_1}, \dots, i_k \mapsto b_{i_k})
+%     \] 
+%     is a duo for $\cal O_k = \Aut(\A)_{(S \cup \{a_{i_{k+1}}, \dots, a_{i_d}\})} \cdot a|^{\{i_1, \dots, i_k\}}$ 
+%     --- note that $() \parallel ()$ is certainly a duo for $\cal O_0$ at the start.
+%     If $k < d$, putting $z = a_{i_{k+1}}$, $X = \{a_{i_1}, b_{i_1}, \dots, a_{i_k}, b_{i_k}\} \cup S \cup \{a_{i_{k+2}}, \dots, a_{i_d}\}$, and $Y = \emptyset$, 
+%     Lemma~\ref{lem:cog-fresh-single} yields an atom $b_{i_{k+1}}$ that makes
+%     \[
+%         a|^{\{i_1, \dots, i_k, i_{k+1}\}} \parallel (i_1 \mapsto b_{i_1}, \dots, i_k \mapsto b_{i_k}, i_{k+1} \mapsto b_{i_{k+1}})
+%     \] a duo for $\cal O_{k+1}$.
+%     For $k=d$ this gives the desired duo for $\cal O_d = \cal O$.
+% \end{proof}
 
 As some $a \in \cal O$ always exists, it follows that Claim~\ref{claim:cogs-are-balanced} was not vacuous:
 we now know $\Cog_\FF{\cal O}$, and hence $\Ker_\FF{\cal O}$, is nontrivial --- but barely so.
@@ -326,7 +326,7 @@ Indeed, as the result below shows, $\Cog_\FF{\cal O}$ admits no nontrivial $\Aut
         S' = S \cup \{c_i \mid v(c) \neq 0, i \in I\} \setminus \{a_i \mid i \in I\} \supseteq S
     \]
     and put $\cal O' = \Aut(\A)_{(S')} \cdot a \subseteq \cal O$ --- then $\cal O'$ is $S'$-ordered.
-    By Claim~\ref{claim:cog-fresh-full}, we can find $b \in \cal O'$ such that $a \parallel b$ is an $\cal O'$-duo and \emph{a fortiori} an $\cal O$-duo.
+    By Lemma~\ref{lem:cog-fresh-full}, we can find $b \in \cal O'$ such that $a \parallel b$ is an $\cal O'$-duo and \emph{a fortiori} an $\cal O$-duo.
     Take the automorphisms $\pi_{i_1}, \dots, \pi_{i_d}$ from Remark~\ref{rem:duo}, where $i_1, \dots, i_d$ enumerate $I$.
     Now define $v^{(0)} = v$ and \[
         v^{(k)} = v^{(k-1)} - \pi_{i_k} v^{(k-1)}.
