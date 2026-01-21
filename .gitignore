@@ -15,4 +15,4 @@
 *.bbl
 *.pdf
 .DS_Store
-*.synctex
+*.synctex(busy)
