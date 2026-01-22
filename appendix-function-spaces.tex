@@ -1,0 +1,19 @@
+\section{Example~\ref{ex:no-function-spaces} continued}
+In this part of the appendix, we prove that the space $V$ from Example~\ref{ex:no-function-spaces} is not orbit-finitely spanned.
+
+Suppose towards a contradiction that $V$ has an orbit-finite spanning set. Without loss of generality we can assume that this spanning set uses only vectors of the form $f_S$, i.e.~the spanning set is $\{ f_S \mid S \in \mathcal{S} \}$  for some orbit-finite family $\mathcal{S}$ of finite subsets of $\A$.
+    Take any finite set  $T \subseteq \A$ that is strictly bigger in terms of size than any set in $\mathcal S$. 
+    Then we can write
+    \[
+    f_T = \lambda_1 \cdot f_{S_1} + \cdots + \lambda_n \cdot f_{S_n}
+    \]
+    for $S_i \in \mathcal{S}$.  
+    We will prove that all coefficients $\lambda_i$ are zero, and hence $f_T$ is zero. This cannot be true, since one can find an atom that is a common neighbour of all atoms in $T$.
+
+    To prove that $\lambda_i = 0$, we use induction on $n$. In the induction proof we assume without loss of generality that the sets $S_1,\ldots,S_n$ are sorted by size in a non-decreasing way. Suppose that we have proved that all coefficients $\lambda_j$ are zero for $j < i$. By the assumption on non-decreasing sizes, each of the sets $S_{i+1},\ldots,S_{n}$ and $T$ contains at least one atom that is not in $S_i$. Therefore, we can  find some $a \in \A$ that is adjacent to all atoms in  $S_i$, but which is non-adjacent to at least one atom in each of the sets $S_{i+1},\ldots,S_{n}$ and $T$. 
+    As $\lambda_1, \dots, \lambda_{i-1} = 0$,
+    we see that
+    \[
+        0 = f_T(a) = \sum_j \lambda_j \cdot f_{S_j}(a) = 0 + \lambda_i + 0
+    \]
+    and hence $\lambda_i=0$.

@@ -1,0 +1,9 @@
+\section{Proof of Theorem~\ref{thm:ACP}}
+
+\begin{proof}
+    The equivalence of (3) and (1) is a classical result in module theory. Let us recall the proof. For (3) $\Rightarrow$ (1), we build an orbit-finite spanning set for the subspace greedily, by adding orbit after orbit of vectors. Thanks to (3), this must stabilise. For  (1) $\Rightarrow$ (3), we use (1) to get an orbit-finite spanning set for the union of the chain from (3), and then we observe that orbits from this set can only be added finitely often in the chain. 
+
+    Let us now prove the ``furthermore'' part. Take some orbit-finitely spanned vector space $V$.  By Definition~\ref{def:orbit-finite-set},  the spanning set can be obtained from some equivariant subset of $\A^d$, by quotienting under an equivariant equivalence relation. This  gives us a surjective equivariant linear map to $V$ from an equivariant subspace of  $\Lin_\field \A^d$, thus establishing the ``furthermore'' part.
+
+    From the ``furthermore'' part we also get equivalence of (2) and (3). The implication (3) $\Rightarrow$ (2) is immediate, and the converse implication follows from the ``furthermore'' part, since the lack of infinite ascending chains is preserved by taking equivariant subspaces and images under equivariant linear maps. 
+\end{proof}
