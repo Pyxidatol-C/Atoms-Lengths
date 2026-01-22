@@ -94,8 +94,19 @@
 \theoremstyle{definition}
 \newtheorem{definition}[\COUNTER]{Definition}
 \newtheorem{conjecture}[\COUNTER]{Conjecture}
-\newtheorem{example}[\COUNTER]{Example}
+
+
+\newtheorem{myexample}[\COUNTER]{Example}
+\AtBeginEnvironment{myexample}{%
+  \pushQED{\qed}\renewcommand{\qedsymbol}{$\blacktriangle$}%
+}
+\AtEndEnvironment{myexample}{\popQED}
+
 \newtheorem{non-example}[\COUNTER]{Non-example}
+\AtBeginEnvironment{non-example}{%
+  \pushQED{\qed}\renewcommand{\qedsymbol}{$\blacktriangledown$}%
+}
+\AtEndEnvironment{non-example}{\popQED}
 
 \newtheorem{remark}[\COUNTER]{Remark}
 
@@ -149,17 +160,6 @@
 \newcommand{\linfsfun}[2]{ #1 \underset{\textup{linfs}}{\longrightarrow} #2}
 \newcommand{\eqfun}[2]{ #1 \underset{\textup{eq}}{\longrightarrow} #2}
 \newcommand{\fsfun}[2]{ #1 \underset{\textup{fs}}{\longrightarrow} #2}
-
-
-% ********* myexample **********
-%  A custom example environment. I think that the main feature is that it finishes with a box, so that it is clear where the example ends.
-\newcounter{ourexamplecounter}
-\newenvironment{myexample}{
-\medskip
-\refstepcounter{ourexamplecounter}
-\smallskip\noindent{\textbf{{Example \arabic{ourexamplecounter}. }}}}{
-$\Box$ \smallskip 
-}
 
 
 \begin{document}
