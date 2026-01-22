@@ -1,5 +1,6 @@
 
-\section{Symplectic structures}\label{sec:appendix-symplectic}
+\section{Proof of Theorem~\ref{thm:have-oligomorphic-approximation}(3)}\label{sec:appendix-symplectic}
+\textcolor{red}{Explain why I produced a self-contained exposition while this subject is known to mathematicians.}
 \subsection{Symplectic vector spaces}
 Throughout this subsection let $\ff$ denote a finite field.
 \begin{definition}
@@ -12,27 +13,29 @@ Throughout this subsection let $\ff$ denote a finite field.
 \end{definition}
 
 \begin{example}
-    Let $\W_n$ be the $\ff$-vector space with basis $e_1  , \ldots, e_n, f_1, \ldots, f_n$.
+    Let $\W_n$ be the $\ff$-vector space with basis \[e_1  , \ldots, e_n, f_1, \ldots, f_n.\]
     Define $\omega$ by bilinearly extending
     \begin{equation}\label{eq:symplectic-basis}
         \omega(e_i, f_i) = 1 = -\omega(f_i, e_i),\quad
         \omega(-, *) = 0 \text{ elsewhere;}
-        \tag{\S}
+        \tag{$\ddagger$}
     \end{equation}
     one may straightforwardly check that $\omega$ is alternating and non-degenerate.
     Moreover, noticing that $\W_0 \subseteq \W_1 \subseteq \W_2 \subseteq \cdots$,
     we obtain a countable-dimensional symplectic vector space $\W_\infty = \bigcup_n \W_n$.
 \end{example}
 
-We will refer to vectors satisfying \eqref{eq:symplectic-basis} as a \emph{symplectic basis}. 
-Note such vectors must be linearly independent:
+We will refer to vectors satisfying \eqref{eq:symplectic-basis} as a \emph{symplectic subbasis}. 
+As the name suggests, such vectors must be linearly independent:
 if $v = \sum_i \lambda_i e_i + \mu_i f_i = 0$, then $\lambda_i = \omega(v, f_i) = 0$ and $\mu_i = \omega(e_i, v) = 0$ for each $i$.
 Such bases behave very much like the usual bases.
 
 \begin{proposition}\label{prop:symplectic-basis}
     Assume that $\W$ is a symplectic vector space that is at most countable.
-    Then any finite symplectic basis $e_1, \ldots, e_n, f_1, \ldots, f_n$ 
-    can be extended to a symplectic basis that spans the whole $\W$.
+    Then any finite symplectic subbasis \[
+        e_1, \ldots, e_n, f_1, \ldots, f_n
+    \] 
+    can be extended to a symplectic subbasis that spans the whole $\W$ (i.e., a symplectic basis).
 \end{proposition}
 \begin{proof}
     Suppose that $e_1, \ldots, e_n, f_1, \ldots, f_n$ does not already span $\W$;
@@ -51,11 +54,11 @@ Such bases behave very much like the usual bases.
         f_{n+1} = w - \sum_{i=1^n} \omega(e_i, w) f_i + \sum_{i=1}^n \omega(f_i, w) e_i
     \]
     in a similar manner, 
-    making $e_1, \ldots, e_n, e_{n+1}, f_1, \ldots, f_n, f_{n+1}$ a symplectic basis that spans $v$.
+    making $e_1, \ldots, e_n, e_{n+1}, f_1, \ldots, f_n, f_{n+1}$ a symplectic subbasis that spans $v$.
     We go through every element of $\W$ by continuing this way.
 \end{proof}
 
-In fact, we will also make use of the ``symplectic basis and a half'' variant below. 
+We may even forget some pairs.
 \begin{proposition}\label{prop:symplectic-basis-and-a-half}\textcolor{gray}
     Now assume $\W$ is a finite-dimensional symplectic vector space.
     Let 
@@ -64,7 +67,7 @@ In fact, we will also make use of the ``symplectic basis and a half'' variant be
         &f_1, \ldots, f_n
     \end{align*}
     be linearly independent vectors satisfying \eqref{eq:symplectic-basis}.
-    Then we can find the missing $f_{n+1}, \ldots, f_{n+k}$ to complete the symplectic basis.
+    Then we can find the missing $f_{n+1}, \ldots, f_{n+k}$ to form a symplectic subbasis.
 \end{proposition}
 \color{black}
 
@@ -78,7 +81,7 @@ In fact, we will also make use of the ``symplectic basis and a half'' variant be
     Notice these vectors are linearly independent:
     in a linear combination that sums to $0$,
     the coefficients of $e_1, f_1, \dots, e_{n+i}, f_{n+i}$ must be zero,
-    and we assumed the linear independence of $e_{n+i+1}, \dots, e_{n+k}$.
+    and we assumed that $e_{n+i+1}, \dots, e_{n+k}$ are linearly independent.
     By extending these to a basis $B$ of $\W$, we may define a linear function 
     \[
         \psi : \W \to \ff
@@ -119,8 +122,8 @@ we will opt for a more direct proof that also establishes smooth approximation.
 
 \begin{proposition}[Witt Extension] \label{prop:symplectic-witt-extension}
     Any isometric linear injection $\alpha : \langle X \rangle \subseteq \W_n \to \W_n$ 
-    can be extended to an automorphism of $\W_n$ (i.e., an isometric linear bijection)
-    and in turn to one of $\W_\infty$.
+    can be extended to an isometric linear bijection of $\W_n$ to itself,
+    and in turn to one of $\W_\infty$ to itself.
 \end{proposition}
 
 \begin{proof}
@@ -153,15 +156,14 @@ we will opt for a more direct proof that also establishes smooth approximation.
     \end{align*}
     form a basis for $\alpha(\langle X \rangle)$ and also satisfy \eqref{eq:symplectic-basis}.
     Therefore apply Proposition~\ref{prop:symplectic-basis-and-a-half} twice to find the missing 
-    $y_1, \ldots, y_k$ and $y'_1, \ldots, y'_k$ to complete the two symplectic bases --- call them $\mathcal{B}$ and $\mathcal{B}'$.
+    $y_1, \ldots, y_k$ and $y'_1, \ldots, y'_k$ and form two symplectic subbases --- call them $\mathcal{B}$ and $\mathcal{B}'$.
     They are of the same size.
 
-    Now, by using Proposition~\ref{prop:symplectic-basis}, extend $\mathcal{B}$ and $\mathcal{B}'$ to symplectic bases $\mathcal{C}$ and $\mathcal{C}'$ that span $\W_n$.
+    Now, by using Proposition~\ref{prop:symplectic-basis}, extend $\mathcal{B}$ and $\mathcal{B}'$ to symplectic subbases $\mathcal{C}$ and $\mathcal{C}'$ that span $\W_n$.
     These must both have size $2n$, 
     so by Lemma~\ref{lem:symplectic-basis-gives-isometry} we obtain an isometric linear automorphism $\beta : \W_n \to \W_n$ extending $\alpha$.
 
-    To finish, notice that $\mathcal{C}, e_{n+1}, \ldots, f_{n+1}, \ldots$ as well as $\mathcal{C}', e_{n+1}, \ldots, f_{n+1}, \ldots$ 
-    form a symplectic basis spanning $\W_\infty$.
+    To finish, notice that $\mathcal{C}, e_{n+1}, \ldots, f_{n+1}, \ldots$ form a symplectic subbasis spanning $\W_\infty$, as do $\mathcal{C}', e_{n+1}, \ldots, f_{n+1}, \ldots$.
     We obtain from Lemma~\ref{lem:symplectic-basis-gives-isometry} another time an isometric linear automorphism $\gamma : \W_\infty \to \W_\infty$ extending $\beta$ 
     that is the identity almost everywhere.
 \end{proof}
@@ -182,8 +184,12 @@ we will opt for a more direct proof that also establishes smooth approximation.
 \end{proposition}
 \begin{remark}
     To anticipate the next subsection, we note a similarity with the Rado graph: 
-    in $\G^k$ there are $\sum_{d=0}^k \left\{\begin{matrix}k \\ d \end{matrix}\right\} \cdot 2^{\binom{d}{2}}$ orbits 
-    --- we may impose any edge relation on $d$ vertices.
+    in $\G^k$ there are \[
+        \sum_{d=0}^k \left\{\begin{matrix}k \\ d \end{matrix}\right\} \cdot 2^{\binom{d}{2}}
+        \geq 
+        \sum_{d = 0}^k \begin{bmatrix}k \\ d \end{bmatrix}_2 \cdot 2^{\binom{d}{2}}
+    \] orbits,
+    where the curly brackets count the number equivalence relations with $d$ classes on a $k$-element set.
 \end{remark}
 
 \begin{proof}
@@ -214,7 +220,7 @@ we will opt for a more direct proof that also establishes smooth approximation.
     \end{align*}
     gives an isometric linear injection for some large enough $n$.
     Observe that $\alpha$ must send $v_j \mapsto w_j$ for $j \not\in I$ too,
-    and that it may be extended to an automorphism $\pi$ of $\W_\infty$ by Propsoition~\ref{prop:symplectic-witt-extension}.
+    and that it may be extended to an \textcolor{red}{automorphism} $\pi$ of $\W_\infty$ by Propsoition~\ref{prop:symplectic-witt-extension}.
     Furthermore we can find some $v_\bullet$ that realises any given type $(I, \{\Lambda_j\}_j, \Omega)$:
     it suffices to put
     \[
