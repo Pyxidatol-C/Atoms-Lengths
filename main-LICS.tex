@@ -152,6 +152,16 @@
 \newcommand{\fsfun}[2]{ #1 \underset{\textup{fs}}{\longrightarrow} #2}
 
 
+% ********* myexample **********
+%  A custom example environment. I think that the main feature is that it finishes with a box, so that it is clear where the example ends.
+\newcounter{ourexamplecounter}
+\newenvironment{myexample}{
+\medskip
+\refstepcounter{ourexamplecounter}
+\smallskip\noindent{\textbf{{Example \arabic{ourexamplecounter}. }}}}{
+$\Box$ \smallskip 
+}
+
 
 \begin{document}
 
