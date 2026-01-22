@@ -90,6 +90,7 @@
 \newtheorem{proposition}[\COUNTER]{Proposition}
 \newtheorem{corollary}[\COUNTER]{Corollary}
 \newtheorem{claim}[\COUNTER]{Claim}
+\newtheorem{fact}[\COUNTER]{Fact}
 
 \theoremstyle{definition}
 \newtheorem{definition}[\COUNTER]{Definition}
@@ -104,7 +105,7 @@
 \AtEndEnvironment{myexample}{\popQED}
 
 % \newtheorem{non-example}[myexample]{Non-example}
-\newtheorem{non-example}[\COUNTER]{NonExample}
+\newtheorem{non-example}[\COUNTER]{Non-example}
 \AtBeginEnvironment{non-example}{%
   \pushQED{\qed}\renewcommand{\qedsymbol}{$\blacktriangledown$}%
 }
@@ -126,7 +127,7 @@
 \newcommand{\W}{\mathbb{W}} % symplectic --- w for omega, or « double v » for the vector pair e, f
 
 \newcommand{\FF}{\mathsf{F}} % field
-\newcommand{\ff}{\mathsf{f}} % finite field
+\newcommand{\ff}{\innerfield} % finite field
 \newcommand{\EE}{\mathsf{E}} % finite-dimensional vector space
 
 \newcommand{\Aut}{\operatorname{Aut}}

@@ -14,18 +14,18 @@ The spaces defined here have two kinds of structure: that of a vector space, and
     has only three equivariant subspaces: the zero subspace, the full space, and  subspace which consists of those vectors where the coefficients add up to zero. 
 \end{myexample}
 
- Unfortunately, there is a price to pay for the elementary character of Definition~\ref{def:orbit-finite-basis}, which is the  failure of certain closure  properties. In particular, the spaces are not closed under taking equivariant subspaces, or quotients under such spaces. The problem with subspaces  is apparent already in Example~\ref{ex:length-one-dim-one},  since the unique nontrivial subspace of $\Lin_\field \A$ does not have any equivariant basis, regardless of the underlying field~\cite[Ex.~6.1]{BFKM24}.\footnote{This phenomenon is common for modules over rings.} For this reason, we use a more general notion of vector space, which is presented below, in a style that emphasises the group action, as in Definition~\ref{def:orbit-finite-set-alternative}.
+ Unfortunately, there is a price to pay for the elementary character of Definition~\ref{def:orbit-finite-basis}, which is the  failure of certain closure  properties. In particular, the spaces are not closed under taking equivariant subspaces, or quotients under such spaces. The problem with subspaces  is apparent already in Example~\ref{ex:length-one-dim-one},  since the unique nontrivial subspace of $\Lin_\field \A$ does not have any equivariant basis, regardless of the underlying field~\cite[Ex.~6.1]{BFKM24}. For this reason, we use a more general notion of vector space, which is presented below, in a style that emphasises the group action, as was done in Definition~\ref{def:orbit-finite-set-alternative}.
 
-\begin{definition}
+\begin{definition}\label{def:orbit-finitely-spanned-abstract}
     [Orbit-finitely spanned vector space, abstractly] An \emph{orbit-finitely spanned vector space} over an oligomorphic structure  $\A$ is a vector space  equipped with an action of  automorphisms of $\A$ such that: 
     \begin{enumerate}
-        \item \label{item:equivariance-of-vector-space-structure} vector addition and scalar multiplication are equivariant;
+        \item \label{item:equivariance-of-vector-space-structure} vector addition and scalar multiplication are equivariant;\footnote{Equivalently, the group action $v \mapsto \pi(v)$ is linear.}
         \item every vector is supported by a finite set of atoms; 
         \item \label{item:orbit-finite-spanning-subset} the space is spanned by some subset that  is orbit-finite.
     \end{enumerate}
 \end{definition}
 
-In~\eqref{item:equivariance-of-vector-space-structure}, by equivariance of scalar multiplication we mean that for every field element $\lambda$, the operation $v \mapsto \lambda v$ is equivariant. (From another perspective, the group action $v \mapsto \pi(v)$ is linear.) The above definition is easily seen to be closed under taking quotients by equivariant subspaces. Closure under taking equivariant subspaces is less obvious;  one could imagine that condition~\eqref{item:orbit-finite-spanning-subset} above is violated by moving to an equivariant subspace. It turns out that closure under equivariant subspaces is intimately related to the ascending chain property discussed in the introduction:
+In~\eqref{item:equivariance-of-vector-space-structure}, by equivariance of scalar multiplication we mean that for every field element $\lambda$, the operation $v \mapsto \lambda v$ is equivariant. The above definition is easily seen to be closed under taking quotients by equivariant subspaces. Closure under taking equivariant subspaces is less obvious: one could imagine that condition~\eqref{item:orbit-finite-spanning-subset} above is violated by moving to an equivariant subspace. It turns out that closure under equivariant subspaces is intimately related to the ascending chain property discussed in the introduction:
 
 \begin{theorem}\label{thm:ACP}
     For any field $\field$ and oligomorphic structure $\A$, the following conditions are equivalent: 
@@ -41,7 +41,7 @@ In~\eqref{item:equivariance-of-vector-space-structure}, by equivariance of scala
 \end{theorem}
 
 
-We say that an atom structure $\A$ has the \emph{ascending chain property} over a field $\field$ if any of the equivalent conditions in Theorem~\ref{thm:ACP} are satisfied. One interpretation of the theorem is that   the ascending chain property is necessary for the theory of vector spaces to be well-behaved.  In particular, thanks to the ``furthermore'' part, we get a similar result to the equivalence of Definitions~\ref{def:orbit-finite-set} and~\ref{def:orbit-finite-set-alternative} in the previous section, i.e.~a concrete characterisation of the orbit-finitely spanned vector spaces that can be used in algorithms. 
+We say that an atom structure $\A$ has the \emph{ascending chain property} over a field $\field$ if any of the equivalent conditions in Theorem~\ref{thm:ACP} are satisfied. One interpretation of the theorem is that   the ascending chain property is necessary for the theory of vector spaces to be well-behaved.  In particular, thanks to the ``furthermore'' part, we get a similar result to the equivalence of Definitions~\ref{def:orbit-finite-set} and~\ref{def:orbit-finite-set-alternative} in the previous section, i.e.~a concrete characterisation of the orbit-finitely spanned vector spaces that can be used in algorithms (provided we know how to represent equivariant subspaces --- see Section~\ref{sec:equivariant-subspaces}). 
 
 
 We are therefore interested in atom structures that have the ascending chain property. As it turns out, the techniques used in this paper will yield a stronger property, namely a finite bound on the length of chains: 
@@ -53,12 +53,12 @@ We are therefore interested in atom structures that have the ascending chain pro
     [Finite length property]
     \label{def:finite-length-property}
     An oligomorphic structure $\A$ has the \emph{finite length property over a field $\field$} if for every orbit-finite set $X$ over $\A$, there is a finite upper bound on the length of chains of equivariant subspaces 
-    of $\Lin_\field X$.
+    of $\Lin_\field X$.%
+    \footnote{The supremum of the chain lengths is called the \emph{length} of $\Lin_\FF X$, which is a standard notion in algebra. We will use standard properties about lengths in the sections that follow. See Section~\ref{sec:appendix-modules} in the appendix for a refresher and for a proof of Theorem~\ref{thm:ACP}.}
 \end{definition}
 
-
 In light of Theorem~\ref{thm:ACP}, we could have used $\A^d$ instead of $X$ in the above theorem.
-As mentioned in the introduction, the finite length property can be strictly stronger than the ascending chain property, which arises using the vector atoms from Example~\ref{ex:vector-space-atoms}.  (Note that when we talk about the vector atoms, there  two fields involved, namely the finite field used to define $\A$, and the field $\field$ used to define the vector space with atoms. In the counterexample, both fields are the two-element field.)
+As mentioned in the introduction, the finite length property can be strictly stronger than the ascending chain property, as witnessed by the vector atoms from Example~\ref{ex:vector-space-atoms}.  (Note that when we talk about the vector atoms, there  two fields involved, namely the finite field used to define $\A$, and the field $\field$ used to define the vector space with atoms. In the counterexample, both fields are the two-element field.)
 The finite length property was studied in~\cite{BFKM24}, where it was shown that the equality atoms (Example~\ref{ex:equality-atoms}) and the ordered atoms (Example~\ref{ex:order-atoms}) have this property over any field. 
 
 The main contribution of this paper is to establish the finite length property for more structures. We will use two different techniques for this purpose.
