@@ -2,7 +2,7 @@
 \newcommand{\cal}{\mathcal}
 
 As we saw in Non-example~\ref{non-ex:weak-smooth-approximation}, the ordered atoms do not have oligomorphic approximation. 
-Nonetheless they do have the finite length property over any field \cite[Theorem~4.8]{BFKM24}, not just over those of characteristic zero. We shall now generalise that result to a wide class of structures. In particular, we will deduce the finite length property for the Rado graph and its variants, even with finitely many constants fixed.
+Nonetheless they do have the finite length property over any field \cite[Thm.~4.8]{BFKM24}, not just over those of characteristic zero. We shall now generalise that result to a wide class of structures. In particular, we will deduce the finite length property for the Rado graph and its variants, even with finitely many constants fixed.
 
 We shall now state our assumptions and results, with proofs in Section~\ref{sec:cogs-turn}.
 
@@ -12,10 +12,10 @@ Consider a finite relational vocabulary $\sigma_0$ consisting of unary and binar
 
 \paragraph*{Free amalgamation class}
 Let $\Cclass_0$ be a \emph{free} amalgamation class of finite $\sigma_0$-structures. 
-This is a standard notion in model theory --- see \cite[Section~2.1]{Macpherson11}.
+This is a standard notion in model theory --- see \cite[Sec.~2.1]{Macpherson11}.
 Informally, it means that when we perform amalgamation, we do not need to glue together any new elements, or introduce new relations.
 
-There is a useful characterisation \cite[Lemma~4.5]{SS20} of the amalgamation class $\Cclass_0$ being free.
+There is a useful characterisation \cite[Lem.~4.5]{SS20} of the amalgamation class $\Cclass_0$ being free.
 Since $\Cclass_0$ is closed under substructures and isomorphisms, 
 we know that it consists of all the finite $\sigma_0$-structures which do not embed any structure from $\Fclass$, 
 where $\Fclass$ consists of all the minimal finite $\sigma_0$-structures that do not belong to $\Cclass_0$;
@@ -53,7 +53,7 @@ the class $\Forb(\Fclass)$ of finite $\sigma_0$-structures form a free amalgamat
 \end{example}
 
 \paragraph*{Irreflexivity} 
-For technical reasons, we restrict attention to classes $\Cclass_0$ where all structures are {\em irreflexive}, i.e. such that if $R(x,y)$ then $x\neq y$ for each relation $R$. This does not lose generality: for any free amalgamation class $\Cclass_0$, we may replace every binary relation $R$ in the vocabulary with a new unary predicate $R_=$, interpreted in every structure so that $R_=(x)$ iff $R(x,x)$, and a binary relation interpreted as the irreflexive part of $R$. Then $\Cclass_0$ interpreted over this modified language is still a free amalgamation class, and all our results transport back to the original $\Cclass_0$. This way of encoding arbitrary structures as irreflexive ones is standard; see e.g.~\cite[Section~2.4]{Herwig1998} and \cite[p.~121]{SS20}. All examples considered here are already irreflexive.
+For technical reasons, we restrict attention to classes $\Cclass_0$ where all structures are {\em irreflexive}, i.e. such that if $R(x,y)$ then $x\neq y$ for each relation $R$. This does not lose generality: for any free amalgamation class $\Cclass_0$, we may replace every binary relation $R$ in the vocabulary with a new unary predicate $R_=$, interpreted in every structure so that $R_=(x)$ iff $R(x,x)$, and a binary relation interpreted as the irreflexive part of $R$. Then $\Cclass_0$ interpreted over this modified language is still a free amalgamation class, and all our results transport back to the original $\Cclass_0$. This way of encoding arbitrary structures as irreflexive ones is standard; see e.g.~\cite[Sec.~2.4]{Herwig1998} and \cite[p.~121]{SS20}. All examples considered here are already irreflexive.
 
 \paragraph*{Generically ordered expansion}
 Now, let $\sigma$ consist of $\sigma_0$ together with a new binary relation $<$.
@@ -76,7 +76,7 @@ Before we prove this theorem in Section~\ref{sec:cogs-turn}, let us state an eas
 
 The Fraïssé limit $\A_0$ of $\Cclass$ is a reduct of $\A$.
 To see this, notice that $\A$, when viewed as an $\sigma_0$-structure, shares the same age as $\A_0$ --- namely, $\Cclass_0$.
-Moreover, it follows from a back-and-forth argument \cite[Lemma~7.1.4]{hodges1993model} that the $\sigma_0$-structure $\A$ is also homogeneous and, therefore, that it is isomorphic to $\A_0$.
+Moreover, it follows from a back-and-forth argument \cite[Lem.~7.1.4]{hodges1993model} that the $\sigma_0$-structure $\A$ is also homogeneous and, therefore, that it is isomorphic to $\A_0$.
 So we may assume that $\A$ and $\A_0$ have the same underlying set; we then have $\Aut(\A) \subseteq \Aut(\A_0)$, where $\Aut(X)$ denotes the group of automorphisms of $X$.
 
 \begin{corollary}\label{cor:free-finite-length}
@@ -102,7 +102,7 @@ Conversely, we call $\A$ the \emph{generically ordered expansion} of $\A_0$ or s
 
 
 \section{How the cogs turn: proof of Theorem~\ref{thm:ordered-free-amalg-has-finite-length}}\label{sec:cogs-turn}
-We will proceed in several steps, with the general idea similar to \cite[Section~4.1]{BFKM24}, but with significant new complications arising from the presence of nontrivial relations in $\A_0$.
+We will proceed in several steps, with the general idea similar to \cite[Sec.~4.1]{BFKM24}, but with significant new complications arising from the presence of nontrivial relations in $\A_0$.
 
 
 \subsection{Orbits and projections}
@@ -175,7 +175,7 @@ of $\Lin_\FF \cal O$.
     which shows that $\len( \Lin_\FF \cal O )$ is finite from the assumptions.
 \end{proof}
 
-Following the terminology used in \cite[Equation (4)]{BFKM24}, we shall call a vector from the projection kernel \emph{balanced}.
+Following the terminology used in \cite[Eq.~(4)]{BFKM24}, we shall call a vector from the projection kernel \emph{balanced}.
 As we will see shortly, there exist balanced vectors other than $0$.
 
 \subsection{Cogs}
@@ -346,11 +346,11 @@ Indeed, as the result below shows, $\Cog_\FF{\cal O}$ admits no nontrivial $\Aut
     $\Cog_\FF \cal O$ has length $1$.
 \end{corollary}
 
-\subsection{Spanning by cogs}
-In light of Claims~\ref{claim:reduction-to-one-orbit},~\ref{claim:reduction-to-kernel},~\ref{claim:cogs-are-balanced}, and Corollary~\ref{cor:cog-simple}, for the finite length property it is enough to prove that $\Ker_\FF \cal O \subseteq \Cog_\FF \cal O$. In words, we need to show that every balanced vector in $\Lin_\FF{\cal O}$ is a linear combination of $\cal O$-cogs.
+In light of Claims~\ref{claim:reduction-to-one-orbit},~\ref{claim:reduction-to-kernel} and~\ref{claim:cogs-are-balanced}, for the finite length property it is enough to prove that $\Ker_\FF \cal O \subseteq \Cog_\FF \cal O$. In words, we need to show that every balanced vector in $\Lin_\FF{\cal O}$ is a linear combination of $\cal O$-cogs.
 Before we show a proof of this (stated as Theorem~\ref{thm:cog-span-generally}), let us illustrate its key ideas on an example.
 
-\begin{example}
+\subsection{Spanning by cogs: an extended example}
+
 Let $\A_0$ be the universal triangle-free (undirected) graph, and $\A$ its totally ordered version. Consider nine atoms $\{a,\ldots,i\}$, ordered by~$<$ alphabetically, with the edge relation as shown here:
 \[
 \rotatebox{2}{
@@ -392,7 +392,7 @@ It is easy to draw $\cal O$-cogs in this way. Assuming some additional atom $z>h
 \]
 
 We would like to present $v$ as a sum of such ${\cal O}$-cogs. Some additional atoms must be used for that, as no four atoms among the original nine form an $\cal O$-duo.
-(This is not the case if $\A$ is the ordered atoms: see the proof of \cite[Claim~4.7]{BFKM24}.)
+(This is not the case if $\A$ is the ordered atoms: see the proof of \cite[Cl.~4.7]{BFKM24}.)
 It would be very convenient to introduce a single new atom $z$ to form all the $\cal O$-duos that we will use. 
 We can naïvely require $z$ to be:
 \begin{itemize}
@@ -441,30 +441,36 @@ v' = (ah \between g'z)  - (ae \between cz) - (cg \between dz) + (b'f \between dz
 which presents $v = v' - (gh \between g'i) + (bf \between b'i)$ as a linear combination of $\cal O$-cogs.
 
 
-\textcolor{red}{
-It is worth noting that, unlike with the atom $z$, we do not invent new coefficients here: for instance,
-\begin{itemize}
-    \item the $-1$ coefficient of $gh \between g'i$ comes from $v(gh) = -1$;
-    \item the $-1$ coefficient of $b'i \between g'z$ comes from $v'(b' i) = -1$, which  in turn comes from $v(b i) = -1$.
-    \hfill $\blacktriangleleft$
-\end{itemize}}
-\end{example}
 
+\subsection{All those equivariant subspaces}\label{sec:equivariant-subspaces}
 Inspired by the example, we shall now assert:
 
 \begin{theorem}\label{thm:cog-span-generally}
-    Any $v \in \Ker_\FF \cal O$ can be written as
+    Every $v \in \Ker_\EE \cal O$ can be written as
     \[
         v = \sum_{a \parallel b} \lambda_{a \parallel b} \cdot a \between b
     \]
-    with $\lambda_{a \parallel b} \in \FF$.
+    with $\lambda_{a \parallel b} \in \EE$,
+    where $\EE$ is a commutative ring.
 \end{theorem}
+
+\begin{remark}\label{rem:FF-EE}
+We must tread carefully here, as $\FF^{\Jclass_i}$ is not a field, so notation such as $\Lin_{\FF^{\Jclass_i}} \mathcal{O}$ may seem suspicious. However, $\FF^{\Jclass_i}$ is a vector space over $\FF$, and for any such space $\EE$ one can naturally see $\Lin_\EE\cal O$ and $\Ker_{\EE}\cal O$ as vector spaces over $\FF$. 
+
+A little more care is needed when we want to define a vector in $\Lin_\EE \cal O$:
+as $\lambda \in \EE$ is not a scalar in general, we need to understand
+\[
+    \lambda \cdot a
+\]
+as a formal expression.
+Similarly, We redefine $\Cog_\EE\cal O$ to be spanned by formal expressions $\lambda\cdot(a^+ \between a^-)$ for $\lambda\in\EE$. 
+
+But this changes little: in our proof of Theorem~\ref{thm:cog-span-generally} we only ever added or substracted vectors and cogs from one another, so that theorem holds even if $\EE$ is an arbitrary abelian group. This is not so for Theorem~\ref{thm:cogs-arise-everywhere}, whose proof involves scalar division, which is why in Claim~\ref{claim:cogs-arise-everywhere} below we need to prove a more subtle version of it. 
+\end{remark}
 
 Leaving the proof to Section~\ref{sec:appendix-cogs} of the appendix, 
 we have --- as discussed at start of this section --- established Theorem~\ref{thm:ordered-free-amalg-has-finite-length}.
 
-
-\subsection{All those equivariant subspaces}
 
 \begin{theorem}
     Fix $d \in \{1, 2, \dots\}$. There exists a finite family of linear maps $\set{\restriction_i}_{i \in I}$, with each one of the form 

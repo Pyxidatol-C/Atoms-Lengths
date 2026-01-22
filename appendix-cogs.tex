@@ -4,7 +4,7 @@ consider an $S$-ordered orbit $\cal O \subseteq \A^I$.
 
 \subsection{Subvectors, locations, conflicts}
 We begin by introducing some additional terminology and notation. First, let us make explicit a view we have tacitly taken:
-with $\cal O$ as a standard basis, a vector $v \in \Lin_\FF \cal O$ is just a finite set of pairs in $\FF \times \cal O$.
+with $\cal O$ as a standard basis, a vector $v \in \Lin_\EE \cal O$ is just a finite set of pairs in $\EE \times \cal O$.
 A \emph{subvector} of $v$ is a subset of these pairs. We write $\vsup{v}\subseteq {\cal O}$ for the set of tuples which are present in $v$. For a finite subset $T\subseteq\cal O$, we write $\sqrt T\subseteq\A$ for the set of atoms present anywhere in $T$.
 
 For any $i \in I$ and $a \in \A$ (which is equal to $b_i$ for some $b \in \cal O$), we write 
@@ -12,15 +12,15 @@ For any $i \in I$ and $a \in \A$ (which is equal to $b_i$ for some $b \in \cal O
     \cal O^{i:a} = \{c \in \cal O \mid c_i = a\};
 \]
 this is an $\Aut(\A)_{(S a)}$-orbit (containing $b$), and its projection $\cal O^{i:a} |^{-i}$ is $Sa$-ordered.
-For a vector $v \in \Lin_\FF \cal O$, by
+For a vector $v \in \Lin_\EE \cal O$, by
 \[
-    v^{i:a} \in \Lin_\FF \cal O^{i:a}
+    v^{i:a} \in \Lin_\EE \cal O^{i:a}
 \]
-we mean the subvector of $v$ consisting of all pairs in $\FF \times \cal O^{i:a}$.
+we mean the subvector of $v$ consisting of all pairs in $\EE \times \cal O^{i:a}$.
 
 \begin{lemma}\label{lem:balanced-projected-subvector}
-    Let $v \in \Lin_\FF \cal O$ be balanced. 
-    Then any projected subvector $v^{i:a}|^{-i} \in \Lin_\FF \cal O^{i:a}|^{-i}$ is also balanced.
+    Let $v \in \Lin_\EE \cal O$ be balanced. 
+    Then any projected subvector $v^{i:a}|^{-i} \in \Lin_\EE \cal O^{i:a}|^{-i}$ is also balanced.
 \end{lemma}
 \begin{proof}
     Let $j \in I \setminus \{i\}$. 
@@ -97,11 +97,11 @@ The following sister lemmas, relying on free amalgamation as distilled in Lemma~
 
 \subsection{Conflict-free vectors}\label{subsec:unobstructed}
 \begin{claim}\label{claim:!-free-decomposition}
-    If $v \in \Ker_\FF \cal O$ is free from conflicts, then it can be written as a linear combination of $\cal O$-cogs:
+    If $v \in \Ker_\EE \cal O$ is free from conflicts, then it can be written as a linear combination of $\cal O$-cogs:
     \[
         v = \sum_{a^\pm \in A^\pm} \lambda_{a^\pm} \cdot a^+ \between a^-
     \]
-    with $\lambda_{a^\pm} \in \FF$, where moreover $\vsup{v} \cup A^\pm$ is free from conflicts.
+    with $\lambda_{a^\pm} \in \EE$, where moreover $\vsup{v} \cup A^\pm$ is free from conflicts.
 \end{claim}
 \begin{proof}
 We proceed by induction on the dimension $|I|$, 
@@ -211,11 +211,11 @@ is a decomposition of $v$ into a linear combination of $\cal O$-cogs as required
 
 \subsection{Vectors without equational conflicts}\label{subsec:unambiguous}
 \begin{claim}\label{claim:?-free-decomposition}
-     If $v \in \Ker_\FF \cal O$ has no equational conflicts, then it can be written as a linear combination of $\cal O$-cogs:
+     If $v \in \Ker_\EE \cal O$ has no equational conflicts, then it can be written as a linear combination of $\cal O$-cogs:
     \[
         v = \sum_{a^\pm \in A^\pm} \lambda_{a^\pm} \cdot a^+ \between a^-
     \]
-    with $\lambda_{a^\pm} \in \FF$, where moreover $\vsup{v} \cup A^\pm$ has no equational conflicts.
+    with $\lambda_{a^\pm} \in \EE$, where moreover $\vsup{v} \cup A^\pm$ has no equational conflicts.
 \end{claim}
 \begin{proof}
 We proceed again by induction, first on $|I|$ then on the number of relational conflicts in $v$.
@@ -273,11 +273,11 @@ as required.
 \subsection{Arbitrary vectors}
 We restate and prove Theorem~\ref{thm:cog-span-generally}:
 \begin{theorem}
-    Any $v \in \Ker_\FF \cal O$ can be written as
+    Any $v \in \Ker_\EE \cal O$ can be written as
     \[
         v = \sum_{a^\pm \in A^\pm} \lambda_{a^\pm} \cdot a^+ \between a^-
     \]
-    with $\lambda_{a^\pm} \in \FF$.
+    with $\lambda_{a^\pm} \in \EE$.
 \end{theorem}
 \begin{proof}
 This is similar to the proof of Claim~\ref{claim:?-free-decomposition}, but simpler.
