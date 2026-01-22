@@ -1,8 +1,13 @@
 
-\section{Proof of Theorem~\ref{thm:have-oligomorphic-approximation}(3)}\label{sec:appendix-symplectic}
-\textcolor{red}{Explain why I produced a self-contained exposition while this subject is known to mathematicians.}
+\section{A tutorial on symplectic spaces and graphs}\label{sec:appendix-symplectic}
+
+The symplectic vector spaces is used as a basic building block in \cite{KLM89}.
+Described as a classical geometry, it can indeed be found in classical textbooks such as \cite[pp.~114--121]{Artin_symplectic} and \cite[pp.~75--83]{Aschbacher_symplectic},
+though it is often not clear whether we assume finite dimension or characteristic zero for the results we require. 
+As symplectic vector spaces are an important and interesting structure to understand, we reproduce a self-contained exposition here, taking a straight-line path to oligomorphic approximation.
+
 \subsection{Symplectic vector spaces}
-Throughout this subsection let $\ff$ denote a finite field.
+Let $\ff$ denote a finite field.
 \begin{definition}
     A \emph{symplectic vector space} is an $\ff$-vector space $\W$ 
     equipped with a bilinear form $\omega: \W \times \W \to \ff$ that is
@@ -51,7 +56,7 @@ Such bases behave very much like the usual bases.
     --- some $w$ such that $\omega(e_{n+1}, w) = 1$. 
     Now define
     \[
-        f_{n+1} = w - \sum_{i=1^n} \omega(e_i, w) f_i + \sum_{i=1}^n \omega(f_i, w) e_i
+        f_{n+1} = w - \sum_{i=1}^n \omega(e_i, w) f_i + \sum_{i=1}^n \omega(f_i, w) e_i
     \]
     in a similar manner, 
     making $e_1, \ldots, e_n, e_{n+1}, f_1, \ldots, f_n, f_{n+1}$ a symplectic subbasis that spans $v$.
@@ -122,7 +127,7 @@ we will opt for a more direct proof that also establishes smooth approximation.
 
 \begin{proposition}[Witt Extension] \label{prop:symplectic-witt-extension}
     Any isometric linear injection $\alpha : \langle X \rangle \subseteq \W_n \to \W_n$ 
-    can be extended to an isometric linear bijection of $\W_n$ to itself,
+    can be extended to an isometric linear bijection of $\W_n$ to itself (i.e.~automorphism),
     and in turn to one of $\W_\infty$ to itself.
 \end{proposition}
 
@@ -220,7 +225,7 @@ we will opt for a more direct proof that also establishes smooth approximation.
     \end{align*}
     gives an isometric linear injection for some large enough $n$.
     Observe that $\alpha$ must send $v_j \mapsto w_j$ for $j \not\in I$ too,
-    and that it may be extended to an \textcolor{red}{automorphism} $\pi$ of $\W_\infty$ by Propsoition~\ref{prop:symplectic-witt-extension}.
+    and that it may be extended to an isometric linear automorphism $\pi$ of $\W_\infty$ by Propsoition~\ref{prop:symplectic-witt-extension}.
     Furthermore we can find some $v_\bullet$ that realises any given type $(I, \{\Lambda_j\}_j, \Omega)$:
     it suffices to put
     \[
@@ -273,7 +278,7 @@ we will opt for a more direct proof that also establishes smooth approximation.
 
 
 \subsection{Symplectic graphs}
-For this subsection let $\ff$ be the two-element field $\ff_2$.
+Here, let $\ff$ be the two-element field.
 \begin{definition}
     For $n = 0, 1, 2, \ldots$, the \emph{symplectic graph} $\widetilde \W_n$ has vertices $\W_n$ and edges
     \[
@@ -286,7 +291,7 @@ For this subsection let $\ff$ be the two-element field $\ff_2$.
     $\Aut(\widetilde \W_n) = \Aut(\W_n)$.
 \end{proposition}
 \begin{proof}
-    Clearly any isometric linear automorphism of $\W_n$ is a graph automorphism of $\widetilde \W_n$.
+    Clearly any isometric linear bijection of $\W_n$ is a graph automorphism of $\widetilde \W_n$.
     Conversely, any $f \in \widetilde \W_n$ is evidently isometric.
     To show that $f$ is linear, take $\lambda_1, \lambda_2 \in \ff$ and $v_1, v_2 \in \W$.
     We calculate:
@@ -309,7 +314,8 @@ It remains to show $\widetilde \W_0 \subseteq \widetilde \W_1 \subseteq \widetil
 \begin{proposition}[{\cite[Thm.~8.11.2]{GR01}}]
     Every graph on at most $2n$ vertices embeds into $\widetilde \W_n$.
 \end{proposition}
-\begin{proof}
+\begin{proof}[Proof (without graph-theoretic jargon)]
+
     Let $G$ be a graph on at most $2n$ vertices. 
     The conclusion is trivial when $n = 0$.
     Also, if $G$ contains no edges, we can choose any $2n$ of the $2^n$ vectors in 
@@ -345,5 +351,5 @@ It remains to show $\widetilde \W_0 \subseteq \widetilde \W_1 \subseteq \widetil
     The Rado graph has the finite length property over any field of characteristic $0$.
 \end{corollary}
 
-This proof of finite length also applies to \emph{oriented graphs} (i.e.~$x \to y \implies y \not\to x$ but unlike in a tournament, it may occur that $x \not\to y \wedge y \not\to x$)
---- use the three-element field instead of $\ff_2$.
+A different finite field $\innerfield$ can encode different structures.
+For example, the 3-element field allows us to prove the finite length property of the Fraïssé limit of \emph{oriented graphs}, where the edge relation is irreflexive and anti-symmetric.\footnote{We are again grateful to Ehud Hrushovski for pointing this out.}
