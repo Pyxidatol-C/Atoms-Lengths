@@ -1,37 +1,59 @@
-\section{Application: weighted register automata}\label{sec:duals}
-Consider the equivariant set
-\[
+\section{Function spaces and  weighted automata}\label{sec:duals}
+
+The original motivation to inroduce orbit-finitely spanned vector spaces in~\cite{BFKM24} was the study of orbit-finite weighted automata. In this section, we recall this motivation, and discuss how it is relates to our new results. This discussion also involves  the issue of function spaces, which is arguably more important, so we begin with that.
+ 
+\paragraph*{Function spaces.} If we have two orbit-finitely spanned vector spaces $V$ and $W$ over the same atoms, then there are two natural ideas for a function space: the space of all linear maps from $V \to W$, and the subspace which consists of equivariant linear maps. As it turns out, the most relevant function space lies between them, as formalised in the following definition.
+
+
+\begin{definition}[Finitely supported function space]\label{def:function-space}
+    For two orbit-finitely spanned vector spaces $V$ and $W$, we define their \emph{function space}, denoted by 
+    \begin{align*}
+     \linfsfun{V}{W},
+    \end{align*}
+    to be the space of linear maps $f$ wich satisfy the following {finite support condition}: there is some finite set of atoms $S \subseteq \A$ such that for every atom automorphism $\pi$ that fixes all atoms in $S$, we have 
+    \begin{align*}
+    \pi(f(v)) = f(\pi(v)) \quad \text{for all $v \in V$.}
+    \end{align*}
+\end{definition}
+
+The notion of finite supports in the above definition is the same one as used in Section~\ref{sec:orbit-finite-sets}, except that it is applied to the space of linear maps from $V$ to $W$. As argued in~\cite[Section 8.3]{bojanczyk_slightly}, the finitely supported function space is the most relevant kind of function space, since it ensures that the corresponding category is becomes monoidal closed. For this reason, we when talking about function spaces, we mean the finitely-supported function spaces from the above definition. 
+\begin{description}
+    \item[Question.]  Consider an atom structure. Are orbit-finitely spanned vector spaces closed under taking function spaces?
+\end{description}
+The answer to the above question  is  ``yes'' for the equality and order atoms, which was shown in~\cite[Corollary 6.8]{BFKM24} for a special case of function spaces, namely duals, with the  general case of function spaces being treated in~\cite[Section 8.3]{bojanczyk_slightly}. 
+On the other hand, the answer  is ``no'' for the  Rado graph, as shown in the following example. 
+\begin{example}
+    Assume that the atoms are the Rado graph. (The example would also work for the Hensen graph that will be defined later.) A variant of this example for the two-element field was shown in~\cite[Example 6.9]{BFKM24}, but here we can use any field, in particular a field of characteristic zero as treated in the previous section. 
+    
+    Consider the space 
+    \begin{align}\label{eq:dual-space}
     \fsfun \A \field
-\]
-of \textcolor{red}{finitely supported (did we ever define this?)} functions from the atom structure $\A$ to a field $\field$.
-Here is one way they arise:
-given some finite set $S \subseteq \A$, its characteristic function --- which we also denote by $S$ --- is a function with values in $\{0, 1\} \subseteq \field$.
-For instance, $\A : \A \to \field$ is the constant function outputting $1$.
-
-Under pointwise addition and scalar multiplication, these $\field$-valued finitely supported functions form a vector space.
-It makes sense to ask whether this \emph{dual space} is orbit-finitely spanned.
-In \cite[Thm.~6.7 and Ex.~6.9]{BFKM24}, a positive answer was given for the equality atoms and the ordered atoms, whilst a negative answer was given for the Rado graph when $\field$ is the two-element field.
-We now show how to drop the assumption on the field,
-and we spell out some negative consequences for computation models over the graph atoms.
-
-For the rest of this section, assume that $\A$ is the Rado graph or the {\color{red}{$K_n$-free Henson graph} (never introduced!)}. For any $S \subseteq \A$, let $N_G \subseteq \A$ denote the common neighbours of all atoms in $S$. 
-
-\begin{proposition} The space
-    \[
-        \langle N_S : \A \to \field \mid S \subseteq \A \text{ is finite} \rangle
-    \]
-    is not orbit-finitely spanned, for any field $\field$.
-\end{proposition}
-\begin{proof}
-    Suppose towards a contradiction that $\{ N_S \mid S \in \mathcal{S} \}$ is a spanning set for some orbit-finite set $\mathcal{S}$ of finite subsets of $\A$.
-    (If $\A$ is the $K_n$-free Henson graph, we may assume that no $S \in \mathcal{S}$ contains a clique on $n - 1$ vertices: otherwise $N_S$ is the constantly zero function, so we may as well remove it from the spanning set.)
-    Let $T \subseteq \A$ be an anti-clique on more than $\max_{S \in \mathcal{S}}|S|$ vertices.
+    \end{align}
+    which consists of functions  from atoms to the field that are finitely supported in the sense of Definition~\ref{def:function-space}. The space above does not talk about linear maps, since there is no vector space structure on the domain $\A$. However, it is  isomorphic to the function space 
+    \begin{align}\label{eq:dual-space-two}
+    \linfsfun{\Lin_\field \A}{\field}.
+    \end{align}
+    We will show that~\eqref{eq:dual-space} is not orbit-finitely spanned, and hence the same is true for the isomorphic function space~\eqref{eq:dual-space-two}. 
+    
+    For a finite set $S \subseteq \A$ of atoms, define a function  $    f_S : \A \to \field$  by
+    \begin{align*}
+    \quad 
+    a \mapsto
+    \begin{cases}
+        1 & \text{if $a$ is a neighbour of all atoms in $S$}\\
+        0 & \text{otherwise}.
+    \end{cases}
+    \end{align*}
+    Define $V$ to be the subspace of~\eqref{eq:dual-space} that is spanned 
+    to be the functions $f_S$, where $S$ ranges over finite sets of atoms. Being orbit-finitely spanned is closed under taking subspaces, which follows from   Theorem~\ref{thm:ACP} and the fact that the Rado graph has the ascending chain property (which was already proved in Theorem~\ref{thm:weak-smooth-approximation-finite-length }  for characteristic zero and will be proved later for any field). Therefore, if we show that $V$ is not orbit-finitely spanned, then the same will follow for~\eqref{eq:dual-space}. 
+    
+    Suppose towards a contradiction that $\{ f_S \mid S \in \mathcal{S} \}$ is a spanning set for some orbit-finite family $\mathcal{S}$ of finite subsets of $\A$.
+    Let $T \subseteq \A$ be an independent set (i.e.~no edges inside the set) on more than $\max_{S \in \mathcal{S}}|S|$ vertices.
     Then we can write
     \[
-        N_T = \lambda_1 \cdot N_{S_1} + \cdots + \lambda_n \cdot N_{S_m}
+    f_T = \lambda_1 \cdot f_{S_1} + \cdots + \lambda_n \cdot f_{S_n}
     \]
     for $S_i \in \mathcal{S}$, where we may assume $|S_1| \leq \cdots \leq |S_m| < |H|$.
-    
     Let us prove $\lambda_i = 0$ by induction on $i = 1, \dots, n$.
     We may find some $a \in \A$ that is adjacent to all of $S_i$ but to none of 
     \[
@@ -40,26 +62,38 @@ For the rest of this section, assume that $\A$ is the Rado graph or the {\color{
     As $\lambda_1, \dots, \lambda_{i-1} = 0$ and each of $S_{i+1}, \dots, S_m, T$ contains some vertex outside of $S_i$,
     we see that
     \[
-        0 = N_T(a) = \sum_j \lambda_j \cdot N_{S_j}(a) = 0 + \lambda_i + 0.
+        0 = f_T(a) = \sum_j \lambda_j \cdot f_{S_j}(a) = 0 + \lambda_i + 0.
     \]
+    It follows that $f_T$ is the zero function, which cannot be true, since one can find an atom that is a common neighbour of all atoms in $T$.
+\end{example}
+ 
+Since we prove that the Rado graph has the finite length property, and it does not have orbit-finitely spanned function spaces, it follows that one property does not imply the other.
 
-    It follows that $N_S$ is the zero function, which is impossible:
-    any finite star certainly embeds in $\A$.
-\end{proof}
+
+% \begin{theorem}
+%     Assume that the atoms $\A$ are such that orbit-finitely spanned vector spaces are closed under taking function spaces. Then two views of orbit-finite weighted automata, deterministic and nondeterministic,  are equivalent. 
+% \end{theorem}
+% \begin{proof}
+%     To go 
+% \end{proof}
+% A special case of a function space is the dual space 
+% \begin{align*}
+% \linfsfun V \field.
+% \end{align*}
+% If $V$ has a basis $X$, then this space is isomorphic to the space 
+% \begin{align}\label{eq:fsfun}
+% \fsfun X \field,
+% \end{align}
+% which consists of functions from $X$ to the field that are finitely supported in the sense described in Definition~\ref{def:function-space}. Note that there is a terminology clash, since the expression ``finitely supported'', when applied to functions of type $X \to \field$, could also be understood as ``zero almost everywhere''. 
 
 
-\begin{corollary}
-    Orbit-finitely spanned vector spaces are not closed under taking function spaces.
-\end{corollary}
-\begin{proof}
-As each $N_S$ is finitely supported (by $S$), we have exhibited an equivariant subspace of 
-\[
-    (\fsfun \A \field)
-    \cong (\linfsfun {\Lin \A } {\Lin \{*\}})
-\]
-that fails to be orbit-finitely spanned.
-So the superspace does not have finite length, and therefore it cannot be orbit-finitely spanned by {\color{red}Theorem~\ref{thm:ordered-free-amalg-has-finite-length} -- why 7.3?}.    
-\end{proof}
+\paragraph*{Weighted automata.} We now describe the orbit-finite version of weighted automata, and explain how the issues with function spaces have an impact on the theory of these automata. 
+
+There are several ways of defining weighted automata, we choose one that  views them as deterministic automata, in which the states are endowed with a vector space structure.  An \emph{orbit-finite weighted automaton} has an input alphabet $\Sigma$, which is an orbit-finite set, and a state space $Q$, which is an orbit-finitely spanned vector space $Q$. In the state space, there is a distinguished  initial vector $q_0$ that is equivariant, an equivariant transition function 
+\begin{align*}
+\delta : Q \times \Sigma \to Q
+\end{align*}
+which becomes a linear map once any input letter $a \in \Sigma$ is fixed, and a  final function which is an equivariant linear map from $Q$ to the field. The output of the automaton is defined by applying the final map to the last state in the run. 
 
 
 \begin{corollary}

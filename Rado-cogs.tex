@@ -467,8 +467,11 @@ we have --- as discussed at start of this section --- established Theorem~\ref{t
 \subsection{All those equivariant subspaces}
 
 \begin{theorem}
-    Fix $d \in \{1, 2, \dots\}$. 
-    There are equivariant linear maps $\restriction_i : \Lin_\FF \A^d \to \Lin_{\FF^{n_i}} \cal O_i$ such that every equivariant subspace of $\Lin_\FF \A^d$ is of the form
+    Fix $d \in \{1, 2, \dots\}$. There exists a finite family of linear maps $\set{\restriction_i}_{i \in I}$, with each one of the form 
+    \begin{align*}
+     \restriction_i : \Lin_\FF \A^d \to \Lin_{\FF^{n_i}} \cal O_i,
+    \end{align*}
+    where $\cal O_i$ is an orbit of $\A^e$ with $e < d$, and $n_i \in \set{1,2,\ldots}$, with the following property.  Every equivariant subspace of $\Lin_\FF \A^d$ is equal to
     \begin{equation}\label{eq:equiv-subsp}
         \{v \in \Lin_\FF \A^d \mid \forall i, \forall a \in \cal{O}_i : v{\restriction_i}(a) \in \EE_i \}
     \end{equation}
