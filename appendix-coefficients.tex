@@ -1,5 +1,33 @@
 \section{Proofs missing in Section~\ref{sec:equivariant-subspaces}}\label{sec:appendix-eqsubsp}
 
+First we set up some useful notation.
+Consider the $2^{|I|}$ projected $S$-ordered orbits $\mathcal{O}|^{J}$ for $J \subseteq I$.
+Suppose that
+\[
+    f : \mathcal{O}|^J \to \mathcal{O}|^{J'}
+\]
+is an $\Aut(\A)_{(S)}$-equivariant bijection.
+Take any $a \in \mathcal{O}|^J$,
+and enumerate its entries as $a_1 < \dots < a_{|J|}$.
+Similarly, enumerate the entries of $f(a)$ as $b_1 < \dots < b_{|J'|}$.
+Then $\{a_1, \dots, a_{|J|}\} = \{ b_1, \dots, b_{|J'|} \}$ because $\A$ has no algebraicity; 
+since the orbits are ordered, we must have $|J| = |J'|$ and $a_1 = b_1, \dots, a_{|J|} = b_{|J'|}$.
+That is, $f$ must be the obvious function that reindexes a $J$-tuple to a $J'$-tuple
+--- hence we will write $a^{/J'}$ instead of $f(a)$, leaving $f$ implicit.
+
+Now, let $\mathcal{Q}_{1} = \mathcal{O}|^{J_1}, \dots, \mathcal{Q}_{t} = \mathcal{O}|^{J_t}$ be distinct projected $S$-ordered orbits up to $\Aut(\A)_{(S)}$-equivariant bijections,
+enumerated in such a way that $|J_1| \geq |J_2| \geq \dots \geq |J_t|$. (In particular, $J_1=I$ and $J_t=\emptyset$.)
+
+%\begin{definition}
+    For $i = 1, \dots, t$, let $\Jclass_i$ consist of all sets $J$ such that $\mathcal{O}|^J$ is in $\Aut(\A)_{(S)}$-equivariant bijection with $\mathcal{Q}_i$.
+    Assemble all $|\Jclass_i|$ projections into a single map
+    \[
+        (-){\restriction_i} : \Lin_\FF\mathcal{O} \to \Lin_{\FF^{\Jclass_i}} \mathcal{Q}_i.
+    \]
+    To be more precise $v{\restriction_i}(a)$ is, for $a\in{\cal Q}_i$, the $\Jclass_i$-tuple whose $J$-th entry is $v|^J(a^{/J}) \in \FF$.
+    It is straightforward to check that $(-){\restriction_i}$ is $\Aut(\A)_{(S)}$-equivariant and linear.
+%\end{definition}
+
 \begin{remark}\label{rem:FF-EE}
 We must tread carefully here, as $\FF^{\Jclass_i}$ is not a field, so notation such as $\Lin_{\FF^{\Jclass_i}} \mathcal{O}$ may seem suspicious. However, $\FF^{\Jclass_i}$ is a vector space over $\FF$, and for any such space $\EE$ one can naturally see $\Lin_\EE\cal O$ and $\Ker_{\EE}\cal O$ as vector spaces over $\FF$. 
 
