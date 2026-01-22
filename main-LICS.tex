@@ -96,13 +96,15 @@
 \newtheorem{conjecture}[\COUNTER]{Conjecture}
 
 
+% \newtheorem{myexample}{Example}
 \newtheorem{myexample}[\COUNTER]{Example}
 \AtBeginEnvironment{myexample}{%
   \pushQED{\qed}\renewcommand{\qedsymbol}{$\blacktriangle$}%
 }
 \AtEndEnvironment{myexample}{\popQED}
 
-\newtheorem{non-example}[\COUNTER]{Non-example}
+% \newtheorem{non-example}[myexample]{Non-example}
+\newtheorem{non-example}[\COUNTER]{NonExample}
 \AtBeginEnvironment{non-example}{%
   \pushQED{\qed}\renewcommand{\qedsymbol}{$\blacktriangledown$}%
 }
@@ -144,10 +146,7 @@
 \newcommand{\set}[1]{\{#1\}}
 
 % set builder expression, which can be multiline
-\newcommand{\setbuild}[2]{\set{#1 \ | 
-\begin{tabular}{l}
-	#2
-\end{tabular}}}
+\newcommand{\setbuild}[2]{\set{#1 \mid \text{#2}}}
 
 
 \newcommand{\myunderbrace}[2]{\underbrace{#1}_{\mathclap{\text{\footnotesize 
