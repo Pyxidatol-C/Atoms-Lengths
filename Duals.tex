@@ -25,7 +25,7 @@ The notion of finite supports in the above definition is the same  the one as us
 
 As it turns out, some oligomorphic atom structures have this property, and some do not.
 The equality and ordered atoms have it,  which was shown in~\cite[Cor. 6.8]{BFKM24} for a special case of function spaces, namely duals, with the  general case of function spaces being treated in~\cite[Sec. 8.3]{bojanczyk_slightly}. 
-On the other hand, the Rado atoms fails this property, as explained in the following example. (In particular, the finite length property does not imply the function space property.)
+On the other hand, the Rado atoms fail this property, as explained in the following example. (In particular, the finite length property does not imply the function space property.)
 
 \begin{myexample}\label{ex:no-function-spaces}
     Assume that the $\A$ is the Rado atoms, and the field is arbitrary\footnote{A variant of this example for the two-element field was shown in~\cite[Ex. 6.9]{BFKM24}, but here we can use any field, in particular a field of characteristic zero as treated in the previous section.}. (The example would also work for the Hensen graph that will be defined later.)  
@@ -71,7 +71,7 @@ On the other hand, the Rado atoms fails this property, as explained in the follo
 
 
 \subsection{Weighted automata} We now describe  weighted automata, and explain how the issues with function spaces have an impact on the theory of these automata. 
-There are several ways of defining weighted automata, we choose one that  views them as deterministic automata, in which the states are endowed with a vector space structure.  
+There are several ways of defining weighted automata; we choose one that  views them as deterministic automata, in which the states are endowed with a vector space structure.  
 \begin{definition}\label{def:orbit-finite-weighted}
 An \emph{orbit-finite weighted automaton} is given by: 
 \begin{itemize}
@@ -84,10 +84,11 @@ An \emph{orbit-finite weighted automaton} is given by:
 \end{definition}
 An automaton as in the above definition computes a function of type $\Sigma^* \to \field$, which is defined in the same way as for deterministic automata. 
 
-From the finite length property, we can conclude decidability results about weighted automata. 
-As shown in~\cite[Sec. 5]{BFKM24}, using the finite length property one can derive an equivalence algorithm for orbit-finite weighted automata. In light of the results from this paper, such an algorithm exists if we use the Rado graph as the atoms, or other structures for which we have established the finite length property. Also, weighted automata can be effectively minimized~\cite[Sec. 7]{BFKM24}.
+From the finite length property, we can conclude decidability results about orbit-finite weighted automata. 
+For example, a zeroness algorithm is derived in in~\cite[Sec. 5]{BFKM24}. 
+In light of the results from this paper, such an algorithm exists if we use the Rado graph as the atoms, or other structures for which we have established the finite length property. Also, weighted automata can be minimized~\cite[Sec. 7]{BFKM24}, effectively, using the bound for chains.
 
-However, certain other results on weighted automata will depend on the funciton space property. Let us give one such example. Our  definition of weighted automata  is deterministic in the left-to-right direction. One could imagine a symmetric right-to-left model. Are these models equivalent? If the atoms have the function space property, then one can introduce a symmetric model based on monoids to show that the left-to-right and right-to-left variants of weighted automata are equivalent, see~\cite[Thm. 7.4]{BFKM24}. However, as we show in the following example, the equivalence can fail without the  function space property.
+However, certain other results on weighted automata will depend on the funciton space property. Let us give one such example. Our  definition of weighted automata  is deterministic in the left-to-right direction. One could imagine a symmetric right-to-left model. Are these models equivalent? If the atoms have the function space property, then one can introduce a symmetric model based on monoids to show that the left-to-right and right-to-left variants of weighted automata are equivalent: see~\cite[Thm. 7.4]{BFKM24}. However, as we show in the following example, the equivalence can fail without the  function space property.
 
 \begin{myexample}
  Consider the Rado atoms and any field. In this example, we prove that the left-to-right and right-to-left variants of  Definition~\ref{def:orbit-finite-weighted} are not equivalent. The counterexample is  the characteristic function of the language ``the first letter is adjacent to all later ones'', i.e.~the function $f$ defined by 
@@ -106,6 +107,6 @@ However, certain other results on weighted automata will depend on the funciton 
 \end{align*}
 Using the usual Myhill-Nerode construction, one can show that a function is computed by a left-to-right orbit-finite weighted automaton if and only if its left derivatives are orbit-finitely spanned, and similarly for right-to-left derivatives. To finish the counterexample, we will now show that the left derviatives are orbit-finitely spanned, but the right ones are not.
 
-The set of left derivatives is not only orbit-finitely spanned, but it is even orbit-finite: there is one left derivative for each $a \in \A$, plus one extra derivative for the always zero function. On the other hand, the set of right derviatives is the same as the spanning set of the vector space $V$ from Example~\ref{ex:no-function-spaces}, and therefore it is not orbit-finitely spanned.  
+The set of left derivatives is not only orbit-finitely spanned, but it is even orbit-finite: there is one left derivative for each $a \in \A$, plus one extra derivative for the always zero function. On the other hand, the set of right derviatives is the same as the spanning set of the vector space $V$ from Example~\ref{ex:no-function-spaces}, and therefore it cannot be orbit-finitely spanned.  
 \end{myexample}
 
