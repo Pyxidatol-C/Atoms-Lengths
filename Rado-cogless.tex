@@ -9,44 +9,60 @@ The method that we use will work for structures that satisfy the following condi
     [Oligomorphic approximation]
     \label{def:oligomorphic-approximation} We say that a structure  $\A$ has \emph{oligomorphic approximation} if it is homogeneous and,  for every $d \in \set{1,2,\ldots}$, there exists a family $\Bclass$ of finite substructures of $\A$ such that: 
     \begin{enumerate}
-        \item \label{item:oligomorphic-approximation-embedding} every finite substructure of $\A$ \textcolor{red}{embeds} into some $\B \in \Bclass$; and
+        \item \label{item:oligomorphic-approximation-embedding} every finite substructure of $\A$ is contained in some $\B \in \Bclass$; and
         \item \label{item:oligomorphic-approximation-orbits} there is a common finite upper bound on the number of orbits in $\B^d$ for $\B \in \Bclass$.
     \end{enumerate}
 \end{definition}
 
-This is a relaxation of a stronger notion of  \emph{smooth approximation} known in model theory. There, the family $\Bclass$ is independent of $d$, and we require $\B \in Bclass$ to be homogeneous itself~\cite[p.~440]{KLM89}. 
+This is a relaxation of a stronger notion of  \emph{smooth approximation} known in model theory. There, the family $\Bclass$ is independent of $d$; 
+also, in the place of (2) we require $\B \in \Bclass$ to be homogeneous itself and $\A$ to be oligomorphic~\cite[p.~440]{KLM89}. 
+In that case, two tuples in $\B^d$ are in the same orbit if and only if they are in the same orbit of $\A^d$; 
+hence the number of orbits in $\B^d$ is at most that of $\A^d$, which is finite by oligomorphism.
 
 \begin{theorem}\label{thm:have-oligomorphic-approximation}
     The following structures have oligomorphic approximation: 
     \begin{enumerate}
         \item the equality atoms from Example~\ref{ex:equality-atoms};
         \item the vector atoms from Example~\ref{ex:vector-space-atoms}, for any finite field $\innerfield$;
-        \item the Rado atoms from Example~\ref{ex:rado-graph}.
+        \item \label{item:rado-has-oligomorphic-approximation} the Rado atoms from Example~\ref{ex:rado-graph}.
     \end{enumerate}
 \end{theorem}
-Before proving the above theorem, let us observe that the dense linear order (Example~\ref{ex:order-atoms}) does not have oligomorphic approximation.
+Before proving the above theorem, let us observe that the ordered atoms (Example~\ref{ex:order-atoms}) do not have oligomorphic approximation.
 
-
-\begin{non-example}[rational numbers with order]\label{non-ex:weak-smooth-approximation}
-A non-example is the rational numbers with the usual order. The finite substructures in this case are finite linear orders, and already for dimension $d=1$, a finite linear order of size $n$ will have $n$ orbits. Hence, we cannot have a common finite upper bound on the number of orbits in $\B^d$ for $\B \in \Bclass$.
+\begin{non-example}\label{non-ex:weak-smooth-approximation}
+Consider the rational numbers with the usual order. The finite substructures in this case are finite linear orders, and already for dimension $d=1$, a finite linear order of size $n$ will have $n$ orbits. 
+So no family $\B$ satisfies both condition (\ref{item:oligomorphic-approximation-embedding}) and (\ref{item:oligomorphic-approximation-orbits}).
 \end{non-example}
 
 \begin{proof}[Proof of Theorem~\ref{thm:have-oligomorphic-approximation}]
+    Note that, by relying on the homogeneity of $\A$, we can afford to be sloppy and only identify $\B$ up to isomorphism. 
 
-\ 
     \begin{enumerate}
-        \item For the equality atoms, we can choose $\Bclass$ so that it is independent of $d$, and this is simply all finite structures with equality only. For sufficiently large $\B \in \Bclass$, the number of orbits in $\B^d$ is the same as the number of orbits in $\A^d$. 
-        \item For the vector atoms, as in the previous example, we can choose $\Bclass$ independently of $d$, namely the family of vector spaces of finite dimension. This argument applies to any finite field $\innerfield$.
-        \item The most interesting case is the Rado atoms. The witness for oligomorphic approximation will be a family of \emph{symplectic graphs}, see~\cite[Sec.~8.11]{GR01}.\footnote{We are grateful to Ehud Hrushovski for drawing our attention to this construction.} For every $n \in \set{1,2,\ldots}$ define a finite graph as follows. The set of vertices is the vector space over the two-element field with basis 
-\begin{align*}
-\set{e_1,\ldots,e_n, f_1,\ldots,f_n}.
-\end{align*}
-Since the field has two elements, we can view vertices as subsets of this basis. In this graph, there is an edge between vertices $v$ and $w$ if and only if the sets 
-\begin{align*}
-\setbuild{ i \in \set{1,\ldots,n}}{ $e_i \in v$ and $f_i \in w$ }\\
-\setbuild{ i \in \set{1,\ldots,n}}{ $f_i \in v$ and $e_i \in w$ }
-\end{align*}
-have different sizes modulo two. These graphs satisfy condition~\eqref{item:oligomorphic-approximation-embedding} from Definition~\ref{def:oligomorphic-approximation}, i.e.~every finite graph embeds in some symplectic graph, see~\cite[Thm.~8.11.2]{GR01}. In Appendix~\ref{sec:appendix-symplectic}, we prove condition~\eqref{item:oligomorphic-approximation-orbits}, i.e.~that the number of orbits of $d$-tuples in symplectic graphs is uniformly bounded by a function of $d$ only.
+        \item For the equality atoms, we can simply choose $\Bclass$ to be all finite sets. 
+        These are all homogeneous: we can extend a bijection to a permutation.
+        \item For the vector atoms, we can also choose $\Bclass$ independently of $d$ to be the family of all vector spaces of finite dimension. 
+        These are all homogeneous, since we can extend linear bijections by extending a linearly independent set to a basis. 
+        This argument applies to any finite field $\innerfield$.
+        \item 
+        The most interesting case is the Rado atoms. 
+        The witness for oligomorphic approximation%
+        \footnote{But there is no smooth approximation --- see~\cite[Rem.~2.1.2]{CherlinHrushovski_03}. 
+        Essentially, the classification of finite homogeneous graphs \cite[p.~100]{Gardiner1976} means (1) cannot hold.} 
+        will be a family of \emph{symplectic graphs}: see~\cite[Sec.~8.11]{GR01}.%
+        \footnote{We are grateful to Ehud Hrushovski for drawing our attention to this construction.} 
+        For every $n \in \set{1,2,\ldots}$ define a finite graph as follows. 
+        The set of vertices is the vector space over the two-element field with basis 
+        \begin{align*}
+            \set{e_1,\ldots,e_n, f_1,\ldots,f_n}.
+        \end{align*}
+        Since the field has two elements, we can view vertices as subsets of this basis. In this graph, there is an edge between vertices $v$ and $w$ if and only if the sets 
+        \begin{align*}
+            \setbuild{ i \in \set{1,\ldots,n}}{ $e_i \in v$ and $f_i \in w$ }\\
+            \setbuild{ i \in \set{1,\ldots,n}}{ $f_i \in v$ and $e_i \in w$ }
+        \end{align*}
+        have different sizes modulo two. 
+        These graphs satisfy condition~\eqref{item:oligomorphic-approximation-embedding} from Definition~\ref{def:oligomorphic-approximation}, i.e.~every finite graph embeds in some symplectic graph~\cite[Thm.~8.11.2]{GR01}. 
+        In Appendix~\ref{sec:appendix-symplectic}, we prove condition~\eqref{item:oligomorphic-approximation-orbits}, i.e.~that the number of orbits of $d$-tuples in symplectic graphs is uniformly bounded by a function of $d$ only. \qedhere
     \end{enumerate}
 \end{proof}
 
@@ -62,7 +78,7 @@ Combining Theorems~\ref{thm:have-oligomorphic-approximation} and~\ref{thm:weak-s
     Over any field of characteristic $0$, the following structures have  the finite length property: (a) the equality atoms; (b) the vector atoms; and (c) the Rado atoms.
 \end{corollary}
 
-As mentioned in the introduction, the finite length property was already known for the equality atoms, for arbitrary fields. The results for the vector atoms and the Rado atoms are new. The assumption on characteristic zero is important, at least in case of the  vector atoms, where  the finite length property is known to fail over finite fields~\cite[Sec.~4.4]{BFKM24}. Later on in this paper, we will prove the result for the Rado atoms again using a different method that works for any field.
+As mentioned in the introduction, the finite length property was already known for the equality atoms, for arbitrary fields. The results for the vector atoms and the Rado atoms are new. The assumption on characteristic zero is important, at least in the case of the vector atoms, where  the finite length property is known to fail over finite fields --- see, most recently,~\cite[Sec.~4.4]{BFKM24}. Later on in this paper, we will prove the result for the Rado atoms again using a different method that works for any field.
 
 The rest of this section is devoted to proving Theorem~\ref{thm:weak-smooth-approximation-finite-length}.
 
@@ -89,7 +105,7 @@ $
         V_0 \subset V_1 \subset \ldots \subset V_n = \Lin \A^d,
         \end{align*}
         where equivariance is with respect to automorphisms of $\A$. 
-        For each $i \in \set{1,\ldots,n}$, choose some vector  that is in $V_i$ but not in $V_{i-1}$. Let $S$ be the (finite) set of atoms that appear in these chosen vectors, and choose some $\B \in \Bclass$ which contains all atoms from $S$. (We can assume without loss of generality that $\Bclass$ is closed under isomorphism, and therefore every finite subset $S$ of $\A$ is contained in some $\B \in \Bclass$.) Define  
+        For each $i \in \set{1,\ldots,n}$, choose some vector  that is in $V_i$ but not in $V_{i-1}$. Let $S$ be the (finite) set of atoms that appear in these chosen vectors, and choose some $\B \in \Bclass$ which contains all atoms from $S$. Define  
         \begin{align*}
         W_i = V_i \cap \Lin \B^d.
         \end{align*}
@@ -99,13 +115,13 @@ $
 
     Thanks to the above lemma, it remains to show that the length of $\Lin \B^d$ is bounded by some number that depends only on $d$. In our proof, this bound will be the number of orbits in $\A^{2d}$. What we have gained by moving from $\A$ to $\Bclass$ is that our vector spaces now have finite (albeit unbounded) linear dimension, and the group actions use finite (albeit unbounded) groups. This will let us leverage a central result from representation theory, called Maschke's Theorem (see e.g.~\cite[Chap.~8]{JamesLiebeck01}), which decomposes  spaces  into irreducible parts.  (In the theorem below, $\oplus$ stands for the direct sum of vector spaces, i.e.~$V \oplus W$ is the set of pairs $(v,w)$ where $v \in V$ and $w \in W$, with the operations defined coordinate-wise.)
 
-        \begin{theorem}[Maschke's Theorem]
+        \begin{fact}[Maschke's Theorem]
           Let $V$ be a finite dimensional vector space over a field of characteristic zero, equipped with an action of a finite group $G$. Then $V$ can be decomposed as 
             \begin{align*}
             V = V_1 \oplus \cdots \oplus V_n,
             \end{align*}
             where each $V_i$ is an equivariant subspace (with respect to the action of $G$)  and  is  irreducible, i.e.~the only equivariant subspaces of $V_i$ are the zero space  and the full space $V_i$.
-        \end{theorem}
+        \end{fact}
 
 
     We will use Maschke's Theorem to bound the length of the vector  spaces $\Lin \B^d$. 
@@ -136,16 +152,16 @@ $
     Thanks to Lemmas~\ref{lem:reduce-to-finite-substructures} and~\ref{lem:dim-bounds-length}, the length of the vector space with atoms $\Lin \A^d$ is bounded by the dimensions of the vector spaces
     \begin{align}
         \label{eq:endo-maps-b-d}
- \lineqfun { \Lin \B^d} {\Lin \B^d},
+ \lineqfun { \Lin \B^d} {\Lin \B^d},\tag{$*$}
     \end{align}
     where $\B$ ranges over the family $\Bclass$.
     To complete the proof of the theorem, it remains to show that these dimensions  are bounded by some constant that depends only on $d$. This is done in the following lemma, which   completes the    proof of Theorem~\ref{thm:weak-smooth-approximation-finite-length}. 
 
     \begin{lemma}\label{lem:bound-on-dim-for-finite-set} 
-        For every  $\B \in \Bclass$ the dimension of the vector space  in~\eqref{eq:endo-maps-b-d} is at most the number of orbits in $\A^{2d}$.
+        For every  $\B \in \Bclass$ the dimension of the vector space  in~\eqref{eq:endo-maps-b-d} is at most the number of orbits in $\B^{2d}$.
     \end{lemma}
     \begin{proof}
-        A linear map  in the space~\eqref{eq:endo-maps-b-d} is the same thing as a square matrix indexed by $\B^d$, i.e.~a function of type  
+        A linear map  in the $\FF$-vector space~\eqref{eq:endo-maps-b-d} is the same thing as a square matrix indexed by $\B^d$, i.e.~a function of type  
         \begin{align*}
         {\B^d \times \B^d} \to \field.
         \end{align*}
@@ -165,7 +181,7 @@ This completes the proof of Theorem~\ref{thm:weak-smooth-approximation-finite-le
 \ar[d, phantom, "\rotatebox{90}{$\geq$} \text{\quad  (Lemma~\ref{lem:dim-bounds-length})}"']
 \\
 \displaystyle\sup_{\B \in \Bclass} \text{dimension of } \lineqfun {\Lin \B^d} {\Lin \B^d}
-\ar[d, phantom, "\rotatebox{90}{$\geq$} \text{\quad( Lemma~\ref{lem:bound-on-dim-for-finite-set})}"']
+\ar[d, phantom, "\rotatebox{90}{$\geq$} \text{\quad(Lemma~\ref{lem:bound-on-dim-for-finite-set})}"']
 \\
 \displaystyle\sup_{\B \in \Bclass} \text{number of orbits in $\B^{2d}$}
 \ar[d, phantom, "\rotatebox{90}{$>$} \text{\quad(by definition)}"']
@@ -180,3 +196,4 @@ This completes the proof of Theorem~\ref{thm:weak-smooth-approximation-finite-le
 \end{figure}
 
 The inequalities shown in Figure~\ref{fig:proof-summary-cogless} give us upper bounds on the length. In the case of the equality atoms, this bound is exponential in $d$. In the case of the vector atoms from Example~\ref{ex:vector-space-atoms}, the bound is the number of  linear dependency patterns for $2d$-tuples over a finite field. Such a pattern is described by: (a) indicating a subset of the coordinates which is a basis for the tuple; and (b) indicating the basis decompositions for the remaining coordinates. This can be done in at most exponentially many ways in $d$, and therefore the overall bound is  exponential in $d$.
+In Appendix~\ref{sec:appendix-symplectic} we give an upper bound in the case of the Rado atoms, also exponential in $d$.

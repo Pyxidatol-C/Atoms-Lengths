@@ -4,7 +4,7 @@
 The symplectic vector spaces is used as a basic building block in \cite{KLM89}.
 Described as a classical geometry, it can indeed be found in classical textbooks such as \cite[pp.~114--121]{Artin_symplectic} and \cite[pp.~75--83]{Aschbacher_symplectic},
 though it is often not clear whether we assume finite dimension or characteristic zero for the results we require. 
-As symplectic vector spaces are an important and interesting structure to understand, we reproduce a self-contained exposition here, taking a straight-line path to oligomorphic approximation.
+As symplectic vector spaces are an important and interesting structure to understand, we provide a self-contained exposition here, taking a tourist path to the oligomorphic approximation of the Rado graph in Theorem~\ref{thm:appendix-rado-oligo-approx}.
 
 \subsection{Symplectic vector spaces}
 Let $\ff$ denote a finite field.
@@ -123,7 +123,7 @@ It then follows from Proposition~\ref{prop:symplectic-basis} that,
 up to isometric linear bijections, 
 $\W_0, \W_1, \W_2, \ldots, \W_\infty$ are all the countable symplectic vector spaces.
 Whilst we may deduce that $\W_\infty$ is oligomorphic by appealing to Ryll-Nardzewski,
-we will opt for a more direct proof that also establishes smooth approximation.
+we will opt for another approach that establishes smooth approximation and gives an explicit orbit count.
 
 \begin{proposition}[Witt Extension] \label{prop:symplectic-witt-extension}
     Any isometric linear injection $\alpha : \langle X \rangle \subseteq \W_n \to \W_n$ 
@@ -270,6 +270,8 @@ we will opt for a more direct proof that also establishes smooth approximation.
     $\W_0 \subseteq \W_1 \subseteq \W_2 \subseteq \cdots$.
 \end{theorem}
 
+As smooth approximation is a special case of oligomorphic approximation, 
+by Theorem~\ref{thm:weak-smooth-approximation-finite-length} we establish the finite length property for yet another class of structures:
 \begin{corollary}
     The symplectic $\ff$-vector space $\W_\infty$ has the finite length property over any field of characteristic $0$.
 \end{corollary}
@@ -278,6 +280,7 @@ we will opt for a more direct proof that also establishes smooth approximation.
 
 
 \subsection{Symplectic graphs}
+Let us finish the proof of Theorem~\ref{thm:have-oligomorphic-approximation}(\ref{item:rado-has-oligomorphic-approximation}).
 Here, let $\ff$ be the two-element field.
 \begin{definition}
     For $n = 0, 1, 2, \ldots$, the \emph{symplectic graph} $\widetilde \W_n$ has vertices $\W_n$ and edges
@@ -331,8 +334,12 @@ It remains to show $\widetilde \W_0 \subseteq \widetilde \W_1 \subseteq \widetil
         t &\mapsto f_n
     \end{align*}
     where $\llbracket \phi \rrbracket$ is $1$ if $\phi$ holds and $0$ otherwise.
-    Then we have $\omega(f'(x), f'(s)) = \llbracket E(x, s) \rrbracket$ 
-    and $\omega(f'(x), f'(t)) = \llbracket E(x, t) \rrbracket$ as desired, on one hand.
+    On one hand, we have
+    \begin{align*}
+        \omega(f'(x), f'(s)) &= \llbracket E(x, s) \rrbracket, \\
+        \omega(f'(x), f'(t)) &= \llbracket E(x, t) \rrbracket
+    \end{align*}
+    as desired.
     On the other,
     \begin{align*}
         \omega( f'(x_1), f'(x_2) ) 
@@ -343,7 +350,8 @@ It remains to show $\widetilde \W_0 \subseteq \widetilde \W_1 \subseteq \widetil
     tells us how we should define the edge relation in $G_{s,t}$ for $f'$ to be an embedding of graphs.
 \end{proof}
 
-\begin{theorem}
+As the Rado graph is homogeneous, we may consider the symplectic graphs $\widetilde \W_i$ as its induced subgraphs.
+\begin{theorem} \label{thm:appendix-rado-oligo-approx}
     The Rado graph is oligomorphically approximated by $\widetilde \W_0 \subseteq \widetilde \W_1 \subseteq \widetilde \W_2 \subseteq \cdots$.
 \end{theorem}
 
