@@ -31,7 +31,7 @@ The spaces described in the above definition have  two kinds of structure: the s
 In item~\ref{item:equivariance-of-vector-space-structure} above, by equivariance of scalar multiplication we mean that for every field element $\lambda$, the operation $v \mapsto \lambda v$ is equivariant. The above definition is easily seen to be closed under taking quotients (when talking about quotients, we mean quotienting under an equivariant subspace). However, closure under equivariant subspaces is not obvious;  one could imagine that condition~\ref{item:orbit-finite-spanning-subset} in the above definition, which talks about orbit-finite spanning subsets, is violated by restricting to an equivariant subspace. It turns out that closure under equivariant subspaces is intimately related to the ascending chain property that was discussed in the introduction, and which is one of the main topics of this paper. 
 
 
-\begin{theorem}
+\begin{theorem}\label{thm:why-ascending-chains}
     Fix some field $\field$ and an oligomorphic structure $\A$. Then the following conditions are equivalent: 
     \begin{enumerate}
         \item orbit-finitely spanned vector spaces are closed under taking equivariant subspaces; 
@@ -67,6 +67,7 @@ Motivated by the above theore, we will be interested in atom structures that hav
     in  $\Lin_\field X$.
 \end{definition}
 
+In light of Theorem~\ref{thm:why-ascending-chains}, we could use $\A^d$ instead of $X$ in the above theorem, without changing the notion.
 As mentioned in the introduction, the finite length property can be strictly stronger than the ascending chain property, which arises using the vector space atoms from Example~\ref{ex:vector-space-atoms}.  (Note that when we talk about the vector space atoms, there  two fields involved here, namely the finite field used to define $\A$, and the field $\field$ used to define the vector space with atoms. In the counterexample, both fields are the two-element field.)
 The finite length property was studied in~\cite{BFKM24}, where it was shown that the equality atoms (Example~\ref{ex:equality-atoms}) and the order atoms (Example~\ref{ex:order-atoms}) have this property over any field. 
 
