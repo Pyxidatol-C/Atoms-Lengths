@@ -2,7 +2,7 @@
 \newcommand{\cal}{\mathcal}
 
 As we saw in Non-example~\ref{non-ex:weak-smooth-approximation}, the ordered atoms do not have oligomorphic approximation. 
-Nonetheless they do have the finite length property over any field \cite[Thm.~4.8]{BFKM24}, not just over those of characteristic zero. We shall now generalise that result to a wide class of structures. In particular, we will deduce the finite length property for the Rado graph and its variants, even with finitely many constants fixed.
+Nonetheless they do have the finite length property over any field \cite[Thm.~4.8]{BFKM24}, not just over those of characteristic zero. We shall now generalise that result to a wide class of structures. In particular, we will deduce the finite length property for the Rado atoms and its variants, even with finitely many constants fixed.
 
 We shall now state our assumptions and results, with proofs in Section~\ref{sec:cogs-turn}.
 
@@ -501,30 +501,30 @@ we have --- as discussed at start of this section --- established Theorem~\ref{t
     \end{align*}    
 \end{myexample}
 
-\begin{myexample}
-    $\A$ is the ordered atoms, $d = 2$.
+% \begin{myexample}
+%     $\A$ is the ordered atoms, $d = 2$.
 
-\begin{align*}
-    v {\restriction_1} (a < b) &= ( v(a, b),\ v(b, a) ); \\
-    v {\restriction_2} (c) &= (\begin{aligned}
-        &\sum_{{-} < c} v({-}, c), \sum_{c < {\sim}} v(c, {\sim}), v(c, c), \\
-        &\sum_{{-} < c} v({-}, c), \sum_{c < {\sim}} v({\sim}, c)
-    \end{aligned}); \\
-    v {\restriction_3} () &= ( \sum_{{-} < {\sim}} v({-}, {\sim}), \sum_{{-} < {\sim}} v({\sim}, {-}), \sum_{=} v(=, =)).
-\end{align*}
-\end{myexample}
+% \begin{align*}
+%     v {\restriction_1} (a < b) &= ( v(a, b),\ v(b, a) ); \\
+%     v {\restriction_2} (c) &= (\begin{aligned}
+%         &\sum_{{-} < c} v({-}, c), \sum_{c < {\sim}} v(c, {\sim}), v(c, c), \\
+%         &\sum_{{-} < c} v({-}, c), \sum_{c < {\sim}} v({\sim}, c)
+%     \end{aligned}); \\
+%     v {\restriction_3} () &= ( \sum_{{-} < {\sim}} v({-}, {\sim}), \sum_{{-} < {\sim}} v({\sim}, {-}), \sum_{=} v(=, =)).
+% \end{align*}
+% \end{myexample}
 
 \begin{corollary}
     The length of $Lin_\FF \cal O$, where $\cal O \subseteq \A^d$ is an ordered orbit, is precisely $2^d$.
 \end{corollary}
 
-\begin{myexample}
-    continuing from above,
-    \begin{align*}
-        V_0 &= \{0\} \\
-        V_1 &= V_0 + \langle (5, 9) - (5.01, 9) - (5, 9.1) + (5.01, 9.1) \rangle \\
-        V_2 &= V_1 + \langle (5, 9) - (5.01, 9) \rangle \\
-        V_3 &= V_2 + \langle (5, 9) - (5, 9.1) \rangle \\
-        V_4 &= V_3 + \langle (5, 9) \rangle        
-    \end{align*}    
-\end{myexample}
+% \begin{myexample}
+%     continuing from above,
+%     \begin{align*}
+%         V_0 &= \{0\} \\
+%         V_1 &= V_0 + \langle (5, 9) - (5.01, 9) - (5, 9.1) + (5.01, 9.1) \rangle \\
+%         V_2 &= V_1 + \langle (5, 9) - (5.01, 9) \rangle \\
+%         V_3 &= V_2 + \langle (5, 9) - (5, 9.1) \rangle \\
+%         V_4 &= V_3 + \langle (5, 9) \rangle        
+%     \end{align*}    
+% \end{myexample}

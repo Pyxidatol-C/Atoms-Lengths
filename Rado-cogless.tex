@@ -1,7 +1,7 @@
 \section{Finite length in characteristic zero}
 \label{sec:characteristic-zero}
 
-In this section, we present the first of our two main results, which is a  method for proving the finite length property, assuming that the field has characteristic zero. Under this assumption, we will establish the finite length property for the Rado graph (Example~\ref{ex:rado-graph}) and for the vector atoms (Example~\ref{ex:vector-space-atoms}). These are new results. We also think that the proof itself, even when applied to get already known results, is of independent interest and arguably simpler than previously known proofs.
+In this section, we present the first of our two main results, which is a  method for proving the finite length property, assuming that the field has characteristic zero. Under this assumption, we will establish the finite length property for the Rado atoms (Example~\ref{ex:rado-graph}) and for the vector atoms (Example~\ref{ex:vector-space-atoms}). These are new results. We also think that the proof itself, even when applied to get already known results, is of independent interest and arguably simpler than previously known proofs.
 
 The method that we use will work for structures that satisfy the following condition. 
  
@@ -19,9 +19,9 @@ This is a relaxation of a stronger notion of  \emph{smooth approximation} known 
 \begin{theorem}\label{thm:have-oligomorphic-approximation}
     The following structures have oligomorphic approximation: 
     \begin{enumerate}
-        \item the structure with equality only from Example~\ref{ex:equality-atoms};
-        \item the vector space from Example~\ref{ex:vector-space-atoms}, for any finite field $\innerfield$;
-        \item the Rado graph from Example~\ref{ex:rado-graph}.
+        \item the equality atoms from Example~\ref{ex:equality-atoms};
+        \item the vector atoms from Example~\ref{ex:vector-space-atoms}, for any finite field $\innerfield$;
+        \item the Rado atoms from Example~\ref{ex:rado-graph}.
     \end{enumerate}
 \end{theorem}
 Before proving the above theorem, let us observe that the dense linear order (Example~\ref{ex:order-atoms}) does not have oligomorphic approximation.
@@ -35,9 +35,9 @@ A non-example is the rational numbers with the usual order. The finite substruct
 
 \ 
     \begin{enumerate}
-        \item For the structure with equality only, we can choose $\Bclass$ so that it is independent of $d$, and this is simply all finite structures with equality only. For sufficiently large $\B \in \Bclass$, the number of orbits in $\B^d$ is the same as the number of orbits in $\A^d$. 
-        \item For the vector space structure, as in the previous example, we can choose $\Bclass$ independently of $d$, namely the family of vector spaces of finite dimension. This argument applies to any finite field $\innerfield$.
-        \item The most interesting case is the Rado graph. The witness for oligomorphic approximation will be a family of \emph{symplectic graphs}, see~\cite[Sec.~8.11]{GR01}.\footnote{We are grateful to Ehud Hrushovski for drawing our attention to this construction.} For every $n \in \set{1,2,\ldots}$ define a finite graph as follows. The set of vertices is the vector space over the two-element field with basis 
+        \item For the equality atoms, we can choose $\Bclass$ so that it is independent of $d$, and this is simply all finite structures with equality only. For sufficiently large $\B \in \Bclass$, the number of orbits in $\B^d$ is the same as the number of orbits in $\A^d$. 
+        \item For the vector atoms, as in the previous example, we can choose $\Bclass$ independently of $d$, namely the family of vector spaces of finite dimension. This argument applies to any finite field $\innerfield$.
+        \item The most interesting case is the Rado atoms. The witness for oligomorphic approximation will be a family of \emph{symplectic graphs}, see~\cite[Sec.~8.11]{GR01}.\footnote{We are grateful to Ehud Hrushovski for drawing our attention to this construction.} For every $n \in \set{1,2,\ldots}$ define a finite graph as follows. The set of vertices is the vector space over the two-element field with basis 
 \begin{align*}
 \set{e_1,\ldots,e_n, f_1,\ldots,f_n}.
 \end{align*}
@@ -59,10 +59,10 @@ The main result of this section is the following theorem.
 Combining Theorems~\ref{thm:have-oligomorphic-approximation} and~\ref{thm:weak-smooth-approximation-finite-length}, we can get the following results, both old and new, on the finite length property.
 
 \begin{corollary}\label{cor:weak-finite-length}
-    Over any field of characteristic $0$, the following structures have  the finite length property: (a) the equality atoms; (b) the vector atoms; and (c) the Rado graph.
+    Over any field of characteristic $0$, the following structures have  the finite length property: (a) the equality atoms; (b) the vector atoms; and (c) the Rado atoms.
 \end{corollary}
 
-As mentioned in the introduction, the finite length property was already known for the equality atoms, for arbitrary fields. The results for the vector atoms and the Rado graph are new. The assumption on characteristic zero is important, at least in case of the  vector atoms, where  the finite length property is known to fail over finite fields~\cite[Sec.~4.4]{BFKM24}. Later on in this paper, we will prove the result for the Rado graph again using a different method that works for any field.
+As mentioned in the introduction, the finite length property was already known for the equality atoms, for arbitrary fields. The results for the vector atoms and the Rado atoms are new. The assumption on characteristic zero is important, at least in case of the  vector atoms, where  the finite length property is known to fail over finite fields~\cite[Sec.~4.4]{BFKM24}. Later on in this paper, we will prove the result for the Rado atoms again using a different method that works for any field.
 
 The rest of this section is devoted to proving Theorem~\ref{thm:weak-smooth-approximation-finite-length}.
 

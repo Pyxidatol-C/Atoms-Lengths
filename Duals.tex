@@ -25,10 +25,10 @@ The notion of finite supports in the above definition is the same  the one as us
 
 As it turns out, some oligomorphic atom structures have this property, and some do not.
 The equality and ordered atoms have it,  which was shown in~\cite[Cor. 6.8]{BFKM24} for a special case of function spaces, namely duals, with the  general case of function spaces being treated in~\cite[Sec. 8.3]{bojanczyk_slightly}. 
-On the other hand, the Rado graph fails this property, as explained in the following example. (In particular, the finite length property does not imply the function space property.)
+On the other hand, the Rado atoms fails this property, as explained in the following example. (In particular, the finite length property does not imply the function space property.)
 
 \begin{myexample}\label{ex:no-function-spaces}
-    Assume that the atoms are the Rado graph, and the field is arbitrary\footnote{A variant of this example for the two-element field was shown in~\cite[Ex. 6.9]{BFKM24}, but here we can use any field, in particular a field of characteristic zero as treated in the previous section.}. (The example would also work for the Hensen graph that will be defined later.)  
+    Assume that the $\A$ is the Rado atoms, and the field is arbitrary\footnote{A variant of this example for the two-element field was shown in~\cite[Ex. 6.9]{BFKM24}, but here we can use any field, in particular a field of characteristic zero as treated in the previous section.}. (The example would also work for the Hensen graph that will be defined later.)  
     Consider the space 
     \begin{align}\label{eq:dual-space}
     \fsfun \A \field
@@ -48,7 +48,7 @@ On the other hand, the Rado graph fails this property, as explained in the follo
     \end{cases}
     \end{align*}
     Define $V$ to be the subspace of~\eqref{eq:dual-space} that is spanned 
-    to be the functions $f_S$, where $S$ ranges over finite sets of atoms. The spanning set $\set{f_S}_S$ is not orbit-finite, and as we will show in a moment, no orbit-finite spanning set can be found. Being orbit-finitely spanned is closed under taking subspaces, which follows from   Theorem~\ref{thm:ACP} and the fact that the Rado graph has the ascending chain property (which was already proved in Theorem~\ref{thm:weak-smooth-approximation-finite-length}  for characteristic zero and will be proved later for any field). In the appendix, we show that $V$ is not orbit-finitely spanned, and thus the same is true  for~\eqref{eq:dual-space}. 
+    to be the functions $f_S$, where $S$ ranges over finite sets of atoms. The spanning set $\set{f_S}_S$ is not orbit-finite, and as we will show in a moment, no orbit-finite spanning set can be found. Being orbit-finitely spanned is closed under taking subspaces, which follows from   Theorem~\ref{thm:ACP} and the fact that the Rado atoms has the ascending chain property (which was already proved in Theorem~\ref{thm:weak-smooth-approximation-finite-length}  for characteristic zero and will be proved later for any field). In the appendix, we show that $V$ is not orbit-finitely spanned, and thus the same is true  for~\eqref{eq:dual-space}. 
 \end{myexample}
  
 
@@ -90,7 +90,7 @@ As shown in~\cite[Sec. 5]{BFKM24}, using the finite length property one can deri
 However, certain other results on weighted automata will depend on the funciton space property. Let us give one such example. Our  definition of weighted automata  is deterministic in the left-to-right direction. One could imagine a symmetric right-to-left model. Are these models equivalent? If the atoms have the function space property, then one can introduce a symmetric model based on monoids to show that the left-to-right and right-to-left variants of weighted automata are equivalent, see~\cite[Thm. 7.4]{BFKM24}. However, as we show in the following example, the equivalence can fail without the  function space property.
 
 \begin{myexample}
- Consider the Rado graph, and any field. In this example, we prove that the left-to-right and right-to-left variants of  Definition~\ref{def:orbit-finite-weighted} are not equivalent. The counterexample is  the characteristic function of the language ``the first letter is adjacent to all later ones'', i.e.~the function $f$ defined by 
+ Consider the Rado atoms and any field. In this example, we prove that the left-to-right and right-to-left variants of  Definition~\ref{def:orbit-finite-weighted} are not equivalent. The counterexample is  the characteristic function of the language ``the first letter is adjacent to all later ones'', i.e.~the function $f$ defined by 
  \begin{align*}
  a_1 \cdots a_n \in \A^* \quad \mapsto \quad 
  \begin{cases}
