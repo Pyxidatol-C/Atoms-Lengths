@@ -17,17 +17,17 @@ The original motivation to inroduce orbit-finitely spanned vector spaces in~\cit
      holds for every atom automorphism $\pi$ that fixes all atoms in $S$.
 \end{definition}
 
-The notion of finite supports in the above definition is the same  the one as used in Section~\ref{sec:orbit-finite-sets}, except that it is applied to the space of linear maps from $V$ to $W$. It is also the standard restriction used in the study of orbit-finite sets. As argued in~\cite[Section 8.3]{bojanczyk_slightly} using categorical arguments, the finitely supported function space is the most relevant kind of function space; a similar phenomenon ocurs in nominal sets~\cite[Thm 3.13]{PittsAM:nomsns}. For this reason, we when talking about function spaces, we mean the finitely-supported function spaces from the above definition.  This definition motivates the following property.
+The notion of finite supports in the above definition is the same  the one as used in Section~\ref{sec:orbit-finite-sets}, except that it is applied to the space of linear maps from $V$ to $W$. It is also the standard restriction used in the study of orbit-finite sets. As argued in~\cite[Sec. 8.3]{bojanczyk_slightly} using categorical arguments, the finitely supported function space is the most relevant kind of function space; a similar phenomenon ocurs in nominal sets~\cite[Thm. 3.13]{PittsAM:nomsns}. For this reason, we when talking about function spaces, we mean the finitely-supported function spaces from the above definition.  This definition motivates the following property.
 
 \begin{definition}[Function space property]\label{def:function-space-property}
     We say that an atom structure has the \emph{function space property} if orbit-finitely spanned vector spaces closed under taking function spaces.
 \end{definition}
 
 As it turns out, some oligomorphic atom structures have this property, and some do not.
-The equality and ordered atoms have it,  which was shown in~\cite[Corollary 6.8]{BFKM24} for a special case of function spaces, namely duals, with the  general case of function spaces being treated in~\cite[Section 8.3]{bojanczyk_slightly}. 
+The equality and ordered atoms have it,  which was shown in~\cite[Cor. 6.8]{BFKM24} for a special case of function spaces, namely duals, with the  general case of function spaces being treated in~\cite[Sec. 8.3]{bojanczyk_slightly}. 
 On the other hand, the Rado graph fails this property, as explained in the following example. (In particular, the finite length property does not imply the function space property.)
-\begin{example}\label{ex:no-function-spaces}
-    Assume that the atoms are the Rado graph, and the field is arbitrary\footnote{A variant of this example for the two-element field was shown in~\cite[Example 6.9]{BFKM24}, but here we can use any field, in particular a field of characteristic zero as treated in the previous section.}. (The example would also work for the Hensen graph that will be defined later.)  
+\begin{myexample}\label{ex:no-function-spaces}
+    Assume that the atoms are the Rado graph, and the field is arbitrary\footnote{A variant of this example for the two-element field was shown in~\cite[Ex. 6.9]{BFKM24}, but here we can use any field, in particular a field of characteristic zero as treated in the previous section.}. (The example would also work for the Hensen graph that will be defined later.)  
     Consider the space 
     \begin{align}\label{eq:dual-space}
     \fsfun \A \field
@@ -65,7 +65,7 @@ On the other hand, the Rado graph fails this property, as explained in the follo
         0 = f_T(a) = \sum_j \lambda_j \cdot f_{S_j}(a) = 0 + \lambda_i + 0
     \]
     and hence $\lambda_i=0$.
-\end{example}
+\end{myexample}
  
 
 
@@ -101,9 +101,9 @@ An \emph{orbit-finite weighted automaton} is given by:
 An automaton as in the above definition computes a function of type $\Sigma^* \to \field$, which is defined in the same way as for deterministic automata. 
 
 From the finite length property, we can conclude decidability results about weighted automata. 
-As shown in~\cite[Sec 5]{BFKM24}, using the finite length property one can derive an equivalence algorithm for orbit-finite weighted automata. In light of the results from this paper, such an algorithm exists if we use the Rado graph as the atoms, or other structures for which we have established the finite length property. Also, weighted automata can be effectively minimized~\cite[Sec 7]{BFKM24}.
+As shown in~\cite[Sec. 5]{BFKM24}, using the finite length property one can derive an equivalence algorithm for orbit-finite weighted automata. In light of the results from this paper, such an algorithm exists if we use the Rado graph as the atoms, or other structures for which we have established the finite length property. Also, weighted automata can be effectively minimized~\cite[Sec. 7]{BFKM24}.
 
-However, certain other results on weighted automata will depend on the funciton space property. Let us give one such example. Our  definition of weighted automata  is deterministic in the left-to-right direction. One could imagine a symmetric right-to-left model. Are these models equivalent? If the atoms have the function space property, then one can introduce a symmetric model based on monoids to show that the left-to-right and right-to-left variants of weighted automata are equivalent, see~\cite[Theorem 7.4]{BFKM24}. However, as we show in the following example, the equivalence can fail without the  function space property.
+However, certain other results on weighted automata will depend on the funciton space property. Let us give one such example. Our  definition of weighted automata  is deterministic in the left-to-right direction. One could imagine a symmetric right-to-left model. Are these models equivalent? If the atoms have the function space property, then one can introduce a symmetric model based on monoids to show that the left-to-right and right-to-left variants of weighted automata are equivalent, see~\cite[Thm. 7.4]{BFKM24}. However, as we show in the following example, the equivalence can fail without the  function space property.
 
 \begin{myexample}
  Consider the Rado graph, and any field. In this example, we prove that the left-to-right and right-to-left variants of  Definition~\ref{def:orbit-finite-weighted} are not equivalent. The counterexample is  the characteristic function of the language ``the first letter is adjacent to all later ones'', i.e.~the function $f$ defined by 

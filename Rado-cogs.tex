@@ -30,12 +30,12 @@ the class $\Forb(\Fclass)$ of finite $\sigma_0$-structures form a free amalgamat
 
 %Here are a few free amalgamation classes.
 
-\begin{example}\label{ex:free-amalg-equality}
+\begin{myexample}\label{ex:free-amalg-equality}
     Let $\sigma_0$ be empty. 
     Then $\Cclass_0 = \Forb(\{\})$ is a free amalgamation class consisting of all finite pure sets.
-\end{example}
+\end{myexample}
 
-\begin{example}\label{ex:free-amalg-graphs}
+\begin{myexample}\label{ex:free-amalg-graphs}
     Let $\sigma_0$ consist of a single binary relation $E$. 
     Consider $\sigma_0$-structures ${\circlearrowright} = \{x\}$ and ${\rightarrow} = \{y, z\}$, where the relation $E$ is interpreted as $\{(x, x)\}$ and $\{(y, z)\}$.
     Then $\Cclass_0 = \Forb(\{{\circlearrowright}, {\rightarrow}\})$ is a free amalgamation class consisting of all finite undirected graphs.
@@ -50,7 +50,7 @@ the class $\Forb(\Fclass)$ of finite $\sigma_0$-structures form a free amalgamat
         \subseteq \Forb(\{{\circlearrowright}, {\rightarrow}\})
     \end{align*}    
     are all free amalagamation classes.
-\end{example}
+\end{myexample}
 
 \paragraph*{Irreflexivity} 
 For technical reasons, we restrict attention to classes $\Cclass_0$ where all structures are {\em irreflexive}, i.e. such that if $R(x,y)$ then $x\neq y$ for each relation $R$. This does not lose generality: for any free amalgamation class $\Cclass_0$, we may replace every binary relation $R$ in the vocabulary with a new unary predicate $R_=$, interpreted in every structure so that $R_=(x)$ iff $R(x,x)$, and a binary relation interpreted as the irreflexive part of $R$. Then $\Cclass_0$ interpreted over this modified language is still a free amalgamation class, and all our results transport back to the original $\Cclass_0$. This way of encoding arbitrary structures as irreflexive ones is standard; see e.g.~\cite[Sec.~2.4]{Herwig1998} and \cite[p.~121]{SS20}. All examples considered here are already irreflexive.
@@ -89,16 +89,16 @@ So we may assume that $\A$ and $\A_0$ have the same underlying set; we then have
 
 Conversely, we call $\A$ the \emph{generically ordered expansion} of $\A_0$ or simply the ``ordered $\A_0$''.
 
-\begin{example}\label{ex:geneircally-ordered-equality}
+\begin{myexample}\label{ex:geneircally-ordered-equality}
     Continuing from Example~\ref{ex:free-amalg-equality},
     the ordered atoms (Example~\ref{ex:order-atoms}) is the generically ordered expansion of the equality atoms (Example~\ref{ex:equality-atoms}).
-\end{example}
+\end{myexample}
 
-\begin{example}\label{ex:geneircally-ordered-graphs}
+\begin{myexample}\label{ex:geneircally-ordered-graphs}
     Continuing from Example~\ref{ex:free-amalg-graphs}, we obtain generically ordered expansions of the Rado graph and of the $K_n$-free Henson graphs.
     The ordered Rado graph was studied in \cite{BPP15}.
     In the example below, we will work with the ordered triangle-free Henson graph.
-\end{example}
+\end{myexample}
 
 
 \section{How the cogs turn: proof of Theorem~\ref{thm:ordered-free-amalg-has-finite-length}}\label{sec:cogs-turn}
@@ -491,7 +491,7 @@ we have --- as discussed at start of this section --- established Theorem~\ref{t
 \textcolor{red}{$\EE$ vs $\FF$. Thm: These ideas are in some capacity present in \cite[Cor.~3.17]{Gray97}, \cite{HofmanRozycki_2022}, \cite{ghosh2023orbit}, and in Arka's notes. Cor: this tightens the bound in \cite{BFKM24}.}
 
 
-\begin{example}
+\begin{myexample}
     $\A$ is the ordered atoms, 
     $d = 1$.
 
@@ -499,9 +499,9 @@ we have --- as discussed at start of this section --- established Theorem~\ref{t
         v {\restriction_1} (a) &= v(a)
         v {\restriction_2} () &= \sum_{-} v(-) \\
     \end{align*}    
-\end{example}
+\end{myexample}
 
-\begin{example}
+\begin{myexample}
     $\A$ is the ordered atoms, $d = 2$.
 
 \begin{align*}
@@ -512,13 +512,13 @@ we have --- as discussed at start of this section --- established Theorem~\ref{t
     \end{aligned}); \\
     v {\restriction_3} () &= ( \sum_{{-} < {\sim}} v({-}, {\sim}), \sum_{{-} < {\sim}} v({\sim}, {-}), \sum_{=} v(=, =)).
 \end{align*}
-\end{example}
+\end{myexample}
 
 \begin{corollary}
     The length of $Lin_\FF \cal O$, where $\cal O \subseteq \A^d$ is an ordered orbit, is precisely $2^d$.
 \end{corollary}
 
-\begin{example}
+\begin{myexample}
     continuing from above,
     \begin{align*}
         V_0 &= \{0\} \\
@@ -527,4 +527,4 @@ we have --- as discussed at start of this section --- established Theorem~\ref{t
         V_3 &= V_2 + \langle (5, 9) - (5, 9.1) \rangle \\
         V_4 &= V_3 + \langle (5, 9) \rangle        
     \end{align*}    
-\end{example}
+\end{myexample}

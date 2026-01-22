@@ -45,7 +45,7 @@ Let us now explain how the above definition coincides with first-order interpret
 Thanks to oligomorphism of the underlying atom structure, the  two definitions above are equivalent in the sense that they describe the same sets, up to equivariant bijections, see~\cite[Thm.~5.13]{bojanczyk_slightly}. Both definitions have their uses. Definition~\ref{def:orbit-finite-set} is more concrete, and it comes with a finite representation, which can be used for algorithms that process orbit-finite sets. On the other hand, some constructions will result in sets that are consistent with the second, more relaxed, definition. %An example of this arises in automata theory, where the  minimal automaton, whose states are equivalence classes of input word with respect to some equivalence relation~\cite[Thm.~5.2]{bojanczykAutomataTheoryNominal2014}. 
 %  \paragraph*{Orbit-finite automata.} As mentioned in the introduction,  the study of orbit-finite sets was originally motivated by automata and regular languages over infinite alphabets~\cite{bojanczykNominalMonoids2013,bojanczykAutomataTheoryNominal2014}. The idea is to use standard models of computation, but to replace finite sets with orbit-finite ones, while keeping all structure equivariant. The standard example is orbit-finite automata, defined as follows.
 %     An orbit-finite nondeterministic automaton over atoms $\A$ is defined like a nondeterministic finite automaton, except that the states and alphabet are orbit-finite sets over $\A$, instead of finite ones, and all structure (the sets of initial and final states and the transition relation) are equivariant. A deterministic orbit-finite automaton is the special case which has only one initial state, and where the transition relation is a function. 
-%  \begin{example}[Cycles in the Rado graph]
+%  \begin{myexample}[Cycles in the Rado graph]
 %     Assume that the atoms are the Rado graph. The cycles in the Rado graph can be viewed as a language $L \subseteq \A^*$, which consists of words where every two consecutive letters are related by an edge in the atoms, and furthermore there is an edge between the last and the first letter. This language can be recognised by a deterministic  orbit-finite automaton, which uses its states to remember the first letter of the input word as well as the most recently read letter. The state space of this automaton is the disjoint union
 %     \begin{align*}
 %       \myunderbrace{\set{\varepsilon}}{initial \\ state}
@@ -55,4 +55,4 @@ Thanks to oligomorphism of the underlying atom structure, the  two definitions a
 %         \myunderbrace{\set{\bot}}{rejecting \\ sink state}.
 %     \end{align*}
 %     This is an orbit-finite set. This is because the initial and sink states can be seen as two copies of $\A^0$, and  orbit-finite sets are closed under disjoint unions, assuming that the atom structure has at least two elements.
-%  \end{example}
+%  \end{myexample}
