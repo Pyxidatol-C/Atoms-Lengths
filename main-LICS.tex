@@ -56,6 +56,7 @@
 \RequirePackage[
   datamodel=acmdatamodel,
   style=alphabetic,
+  maxnames=10,
   ]{biblatex}
 
 %% Declare bibliography sources (one \addbibresource command per source)
@@ -126,7 +127,8 @@
 \newcommand{\vsup}[1]{[#1]}
 
 % a field
-\newcommand{\field}{\mathsf{k}}
+\newcommand{\field}{\FF}
+\newcommand{\innerfield}{\mathsf{k}}
 
 % a set 
 \newcommand{\set}[1]{\{#1\}}

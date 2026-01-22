@@ -3,64 +3,67 @@ Consider the equivariant set
 \[
     \fsfun \A \field
 \]
-of \textcolor{red}{finitely supported (did we ever define this?)} functions from the atoms $\A$ to the field $\field$.
+of \textcolor{red}{finitely supported (did we ever define this?)} functions from the atom structure $\A$ to a field $\field$.
 Here is one way they arise:
-given some finitely supported set $S \subseteq \A$, its characteristic function --- which we also denote by $S$ --- is a function with values in $\{0, 1\} \subseteq \field$.
+given some finite set $S \subseteq \A$, its characteristic function --- which we also denote by $S$ --- is a function with values in $\{0, 1\} \subseteq \field$.
 For instance, $\A : \A \to \field$ is the constant function outputting $1$.
 
 Under pointwise addition and scalar multiplication, these $\field$-valued finitely supported functions form a vector space.
 It makes sense to ask whether this \emph{dual space} is orbit-finitely spanned.
-In \cite[Theorem~6.7 and Example~6.9]{BFKM24}, a positive answer was given for the equality atoms and the ordered atoms, whilst a negative answer was given for the Rado graph when $\field$ is the two-element field.
-We show how to lift the assumption on the field,
+In \cite[Thm.~6.7 and Ex.~6.9]{BFKM24}, a positive answer was given for the equality atoms and the ordered atoms, whilst a negative answer was given for the Rado graph when $\field$ is the two-element field.
+We now show how to drop the assumption on the field,
 and we spell out some negative consequences for computation models over the graph atoms.
 
-Hereafter, assume $\A$ is the Rado graph or the $K_n$-free Henson graph.
-Let $N_G \subseteq \A$ denote the common neighbours of all atoms in $G \subseteq \A$. 
+For the rest of this section, assume that $\A$ is the Rado graph or the {\color{red}{$K_n$-free Henson graph} (never introduced!)}. For any $S \subseteq \A$, let $N_G \subseteq \A$ denote the common neighbours of all atoms in $S$. 
 
-\begin{proposition}
+\begin{proposition} The space
     \[
-        \langle N_G : \A \to \field \mid G \subseteq \A \text{ is finite} \rangle
+        \langle N_S : \A \to \field \mid S \subseteq \A \text{ is finite} \rangle
     \]
-    is not orbit-finitely spanned for any field $\field$.
+    is not orbit-finitely spanned, for any field $\field$.
 \end{proposition}
 \begin{proof}
-    Suppose towards a contradiction that $\{ N_G \mid G \in \mathcal{G} \}$ is a spanning set for some orbit-finite $\mathcal{G}$.
-    (If $\A$ is the $K_n$-free Henson graph, we may assume that no $G \in \mathcal{G}$ contains a clique on $n - 1$ vertices: otherwise $N_G$ is the constant zero function, so we may as well remove it from the spanning set.)
-    Let $H \subseteq \A$ be an anti-clique on more than $\max_{G \in \mathcal{G}}$ vertices.
+    Suppose towards a contradiction that $\{ N_S \mid S \in \mathcal{S} \}$ is a spanning set for some orbit-finite set $\mathcal{S}$ of finite subsets of $\A$.
+    (If $\A$ is the $K_n$-free Henson graph, we may assume that no $S \in \mathcal{S}$ contains a clique on $n - 1$ vertices: otherwise $N_S$ is the constantly zero function, so we may as well remove it from the spanning set.)
+    Let $T \subseteq \A$ be an anti-clique on more than $\max_{S \in \mathcal{S}}|S|$ vertices.
     Then we can write
     \[
-        N_H = \lambda_1 \cdot N_{G_1} + \cdots + \lambda_n \cdot N_{G_m}
+        N_T = \lambda_1 \cdot N_{S_1} + \cdots + \lambda_n \cdot N_{S_m}
     \]
-    for $G_i \in \mathcal{G}$, where we may assume $|G_1| \leq \cdots \leq |G_m| < |H|$.
+    for $S_i \in \mathcal{S}$, where we may assume $|S_1| \leq \cdots \leq |S_m| < |H|$.
     
-    Let us prove $\lambda_i = 0$ for $i = 1, \dots, n$.
-    We may find some $a \in \A$ that is adjacent to all of $G_i$ but to none of $G_{i+1} \cup \dots \cup G_m \cup H \setminus G_i$.
-    As $\lambda_1, \dots, \lambda_{i-1} = 0$ and $G_{i+1}, \dots, G_m, H$ each contains some vertex outside $G_i$,
+    Let us prove $\lambda_i = 0$ by induction on $i = 1, \dots, n$.
+    We may find some $a \in \A$ that is adjacent to all of $S_i$ but to none of 
+    \[
+    (S_{i+1} \cup \dots \cup S_m \cup T) \setminus S_i.
+    \]
+    As $\lambda_1, \dots, \lambda_{i-1} = 0$ and each of $S_{i+1}, \dots, S_m, T$ contains some vertex outside of $S_i$,
     we see that
     \[
-        0 = N_H(a) = \sum_j \lambda_j \cdot N_{G_j}(a) = 0 + \lambda_i + 0.
+        0 = N_T(a) = \sum_j \lambda_j \cdot N_{S_j}(a) = 0 + \lambda_i + 0.
     \]
 
-    It follows that $N_H$ is the zero function, which is impossible:
+    It follows that $N_S$ is the zero function, which is impossible:
     any finite star certainly embeds in $\A$.
 \end{proof}
 
 
 \begin{corollary}
-    Orbit-finitely spanned vector spaces do not admit function spaces.
+    Orbit-finitely spanned vector spaces are not closed under taking function spaces.
 \end{corollary}
 \begin{proof}
-As each $N_G$ is finitely supported (by $G$), we have exhibited an equivariant subspace of 
+As each $N_S$ is finitely supported (by $S$), we have exhibited an equivariant subspace of 
 \[
     (\fsfun \A \field)
     \cong (\linfsfun {\Lin \A } {\Lin \{*\}})
 \]
 that fails to be orbit-finitely spanned.
-So the superspace does not have finite length, and therefore it cannot be orbit-finitely spanned by Theorem~\ref{thm:ordered-free-amalg-has-finite-length}.    
+So the superspace does not have finite length, and therefore it cannot be orbit-finitely spanned by {\color{red}Theorem~\ref{thm:ordered-free-amalg-has-finite-length} -- why 7.3?}.    
 \end{proof}
 
 
 \begin{corollary}
+{\color{red}This looks very isolated, with automata etc. never introduced}
     An unambiguous automaton with guessing can recognise the language
     \[
         \text{``the last letter (exists and) is adjacent to every previous letter''}.

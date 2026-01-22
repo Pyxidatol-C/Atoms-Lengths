@@ -1,64 +1,28 @@
 \section{All those equivariant subspaces}\label{sec:equivariant-subspaces}
 We continue working in the setting of Section~\ref{sec:free-amalg} so that we can demonstrate an important application of Theorem~\ref{thm:cog-span-generally}:
-given an orbit-finite set $X$ over $\A$, we can find \textcolor{red}{a family of equivariant maps out of $\Lin_\FF X$, indexed by finite-dimensional vector spaces, whose kernels} exhaust all the equivariant subspaces of $\Lin_\FF X$.
-In particular, we will show that for a single $S$-ordered orbit $\cal O \subseteq \A^I$, the length of $\Lin_\FF \cal O$ is precisely $2^{|I|}$.
-
-
-\subsection{Local coefficients}
-Fix an orbit-finite set $X$ over $\A$.
-Then it is in an equivariant bijection with a finite disjoint union $\biguplus_k \cal O_k$ of equivariant ordered orbits $\cal O_k \subseteq \A^{I_k}$ \textcolor{red}{(since the local symmetries are rigid)}. 
-Given $J \subseteq I_k$, we can project a tuple $a \in \cal O_k$ to the $J$ coordinates and then standardise the indices:
-\[
-    \cal O_k \to \cal O_k|^J \to \A^{|J|}.
-\]
-This process is equivariant, and the image of $\cal O_k$ is an ordered orbit $\cal Q \subseteq \A^{|J|}$.
-We want to consider every $k$ and $J \subseteq I_k$ that yields the same image $\cal Q$;
-let $\Jclass$ consist of these pairs $(J, k)$.
-We can group together the projection maps as follows:
-\begin{align*}
-    {\restriction} : \Lin_\FF X &\rightarrow \Lin_{\FF^\Jclass} \cal Q \\
-    v {\restriction} (q)_{J, k} &= v_k |^J (q^J).
-\end{align*}
-In words, $v {\restriction}$ allows us to have local information around $q$ about the coefficients in $v$.
-
-We do it for all such $\cal Q$.
-
-
-\textcolor{red}{The column-fintie and equivariant restriction does not lose generality for the ordered atoms.}
-
-\subsection{Lengths}
-
-
-
-Let $X$ be an orbit-finite set over $\A$.
-Then $X$ is isomorphic to a finite disjoint union $\biguplus_k \cal O_k$ of equivariant ordered orbits, where $\cal O_k \subseteq \A^{I_k}$.
-For $J \subseteq I_k$, we have an equivariant map $\cal O_k \twoheadrightarrow \cal O_k|^J \hookrightarrow \A^{|J|}$.
-The images of $\cal O_k|^J$ and $\cal O_{k'}|^{J'}$ agree only if $|J| = |J'|$.
-Group $\cal O_k|^J$ by their images $\Jclass_i$.
-
-Now, let $\mathcal{Q}_{1} = \mathcal{O}|^{J_1}, \dots, \mathcal{Q}_{t} = \mathcal{O}|^{J_t}$ be distinct projected $S$-ordered orbits up to $\Aut(\A/S)$-equivariant bijections,
-enumerated in such a way that $|J_1| \geq |J_2| \geq \dots \geq |J_t|$. (In particular, $J_1=I$ and $J_t=\emptyset$.)
-
-%\begin{definition}
-    For $i = 1, \dots, t$, let $\Jclass_i$ consist of all sets $J$ such that $\mathcal{O}|^J$ is in $\Aut(\A/S)$-equivariant bijection with $\mathcal{Q}_i$.
-    Assemble all $|\Jclass_i|$ projections into a single map
-    \[
-        (-){\restriction_i} : \Lin_\FF\mathcal{O} \to \Lin_{\FF^{\Jclass_i}} \mathcal{Q}_i.
-    \]
-    To be more precise $v{\restriction_i}(a)$ is, for $a\in{\cal Q}_i$, the $\Jclass_i$-tuple whose $J$-th entry is $v|^J(a^{/J}) \in \FF$.
-    It is straightforward to check that $(-){\restriction_i}$ is $\Aut(\A/S)$-equivariant and linear.
-%\end{definition}
-
+we can enumerate all the equivariant subspaces of an orbit-finitely spanned vector space.
 
 \begin{theorem}
-Every equivariant subspace of $\Lin X$ is of the form
-\[
-    \bigcap_{i} \ker( \Lin X \xrightarrow{ \restriction_i } \Lin_{\FF^{\Jclass_i}} \cal Q_i \xrightarrow{\text{proj}} \Lin_{V_i^\perp} \cal Q_i )
-\]
-where $V_i \subseteq \FF^{\Jclass_i}$ is a (finite-dimensional) subspace.
+    Assume Lemma~\ref{lem:cog-fresh-full} and Theorem~\ref{thm:cog-span-generally} about cogs.
+    Given $d \in \{1, 2, \dots\}$, there exist a finite family of equivariant linear maps $\restriction_i : \Lin_\FF \A^d \to \Lin_{\FF^{n_i}} \cal O_i$ such that:
+    \begin{enumerate}
+        \item 
+        every equivariant subspace of $\Lin_\FF \A^d$ is of the form
+        \[
+            \{v \in \Lin_\FF \A^d \mid \forall i, \forall a \in \cal{O}_i : v{\restriction_i}(a) \in \EE_i \}
+        \]
+        where $\EE_i \subseteq F^{n_i}$ are finite-dimensional subspaces;
+
+        \item
+        if $W \subseteq \Lin_\FF \A^d$ is an equivariant subspace, 
+        then $W$ is precisely the space above with $\EE_i = \{w {\restriction_i}(b) \mid w \in W, b \in \cal O_i \}$.
+    \end{enumerate}
+    
 \end{theorem}
 
-\begin{theorem}
-    $\len(\Lin_\FF\mathcal{O}) = 2^{|I|}$.
-\end{theorem}
+\begin{corollary}
+    The length of $Lin_\FF \cal O$, where $\cal O \subseteq \A^d$ is an ordered orbit, is precisely $2^d$.
+\end{corollary}
 
+We supply the full proofs in Section~\ref{sec:appendix-eqsubsp} of the appendix,
+but we spend the rest of this section explaining the situation when $\A$ is the order atoms and $d = 2$.
