@@ -1,6 +1,6 @@
 \section{Function spaces and  weighted automata}\label{sec:duals}
 
-The original motivation to inroduce orbit-finitely spanned vector spaces in~\cite{BFKM24} was the study of orbit-finite weighted automata. In this section, we recall this motivation, and discuss how it is relates to our new results. This discussion also involves  the issue of function spaces, arguably more important, so we begin with that.
+The original motivation to introduce orbit-finitely spanned vector spaces in~\cite{BFKM24} was the study of orbit-finite weighted automata. In this section, we recall this motivation, and discuss how it is relates to our new results. This discussion also involves  the issue of function spaces, arguably more important, so we begin with that.
  
 \subsection{Function spaces} If we have two orbit-finitely spanned vector spaces $V$ and $W$ over the same atoms, then there are two natural ideas for a function space: the space of all linear maps from $V \to W$, and the subspace which consists of equivariant linear maps. As it turns out, the most relevant function space lies between them, as formalised in the following definition.
 
@@ -10,14 +10,14 @@ The original motivation to inroduce orbit-finitely spanned vector spaces in~\cit
     \begin{align*}
      \linfsfun{V}{W},
     \end{align*}
-    to be the space of linear maps $f$ wich satisfy the following {finite support condition}: there is some finite set of atoms $S \subseteq \A$ such that
+    to be the space of linear maps $f$ which satisfy the following {finite support condition}: there is some finite set of atoms $S \subseteq \A$ such that
     \begin{align*}
     \pi(f(v)) = f(\pi(v)) \quad \text{for all $v \in V$}
     \end{align*}
      holds for every atom automorphism $\pi$ that fixes all atoms in $S$.
 \end{definition}
 
-The notion of finite supports in the above definition is the same  the one as used in Section~\ref{sec:orbit-finite-sets}, except that it is applied to the space of linear maps from $V$ to $W$. It is also the standard restriction used in the study of orbit-finite sets. As argued in~\cite[Sec. 8.3]{bojanczyk_slightly} using categorical arguments, the finitely supported function space is the most relevant kind of function space; a similar phenomenon ocurs in nominal sets~\cite[Thm. 3.13]{PittsAM:nomsns}. For this reason, we when talking about function spaces, we mean the finitely-supported function spaces from the above definition.  This definition motivates the following property.
+The notion of finite supports in the above definition is the same  the one as used in Section~\ref{sec:orbit-finite-sets}, except that it is applied to the space of linear maps from $V$ to $W$. It is also the standard restriction used in the study of orbit-finite sets. As argued in~\cite[Sec. 8.3]{bojanczyk_slightly} using categorical arguments, the finitely supported function space is the most relevant kind of function space; a similar phenomenon occurs in nominal sets~\cite[Thm. 3.13]{PittsAM:nomsns}. For this reason, we when talking about function spaces, we mean the finitely-supported function spaces from the above definition.  This definition motivates the following property.
 
 \begin{definition}[Function space property]\label{def:function-space-property}
     We say that an atom structure has the \emph{function space property} if orbit-finitely spanned vector spaces closed under taking function spaces.
@@ -48,7 +48,7 @@ On the other hand, the Rado atoms fail this property, as explained in the follow
     \end{cases}
     \end{align*}
     Define $V$ to be the subspace of~\eqref{eq:dual-space} that is spanned 
-    to be the functions $f_S$, where $S$ ranges over finite sets of atoms.\footnote{The example would also work for the Hensen graphs that will be defined later, but for that $S$ will only range over anti-cliques.} 
+    to be the functions $f_S$, where $S$ ranges over finite sets of atoms.\footnote{The example would also work for the Henson graphs that will be defined later, but for that $S$ will only range over anti-cliques.} 
     The spanning set $\set{f_S}_S$ is not orbit-finite, and as we will show in Appendix~\ref{sec:appendix-no-function-spaces}, no orbit-finite spanning set can be found. Being orbit-finitely spanned is closed under taking subspaces, which follows from   Theorem~\ref{thm:ACP} and the fact that the Rado atoms has the ascending chain property (which was already proved in Theorem~\ref{thm:weak-smooth-approximation-finite-length}  for characteristic zero and will be proved later for any field). In the appendix, we show that $V$ is not orbit-finitely spanned, and thus the same is true  for~\eqref{eq:dual-space}. 
 \end{myexample}
  
@@ -89,7 +89,7 @@ From the finite length property, we can conclude decidability results about orbi
 For example, a zeroness algorithm is derived in in~\cite[Sec. 5]{BFKM24}. 
 In light of the results from this paper, such an algorithm exists if we use the Rado graph as the atoms, or other structures for which we have established the finite length property. Also, weighted automata can be minimized~\cite[Sec. 7]{BFKM24}, effectively, using the bound for chains.
 
-However, certain other results on weighted automata will depend on the funciton space property. Let us give one such example. Our  definition of weighted automata  is deterministic in the left-to-right direction. One could imagine a symmetric right-to-left model. Are these models equivalent? If the atoms have the function space property, then one can introduce a symmetric model based on monoids to show that the left-to-right and right-to-left variants of weighted automata are equivalent: see~\cite[Thm. 7.4]{BFKM24}. However, as we show in the following example, the equivalence can fail without the  function space property.
+However, certain other results on weighted automata will depend on the function space property. Let us give one such example. Our  definition of weighted automata  is deterministic in the left-to-right direction. One could imagine a symmetric right-to-left model. Are these models equivalent? If the atoms have the function space property, then one can introduce a symmetric model based on monoids to show that the left-to-right and right-to-left variants of weighted automata are equivalent: see~\cite[Thm. 7.4]{BFKM24}. However, as we show in the following example, the equivalence can fail without the  function space property.
 
 \begin{myexample}
  Consider the Rado atoms and any field. In this example, we prove that the left-to-right and right-to-left variants of  Definition~\ref{def:orbit-finite-weighted} are not equivalent. The counterexample is  the characteristic function of the language ``the first letter is adjacent to all later ones'', i.e.~the function $f$ defined by 

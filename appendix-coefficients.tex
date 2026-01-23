@@ -1,7 +1,8 @@
-\section{Proof of Theorem~\ref{thm:coeff-approximation}}\label{sec:appendix-eqsubsp}
+\section{Proofs of Theorem~\ref{thm:coeff-approximation} and Corollary~\ref{cor:2d-length}}\label{sec:appendix-eqsubsp}
 
 The hardest part of this proof is to set up the notation to define the maps $\{\restriction_i\}_i$.
 
+\textcolor{red}{Fix $\biguplus_k \cal O_k$ with $\cal O_k \subseteq \A^{I_k}$. To minimise changes in the following, we write $J \subseteq I_k$ to mean $(J, k)$.}
 
 Consider the $2^{|I|}$ projected $S$-ordered orbits $\mathcal{O}|^{J}$ for $J \subseteq I$.
 Suppose that
@@ -128,19 +129,18 @@ This completes the proof of Theorem~\ref{thm:coeff-approximation}.
 \end{proof}
 
 
-\section{Proof of Corollary~\ref{cor:2d-length}}
 Now let $\cal O \subseteq \A^d$ be an ordered orbit.
 For two equivariant subspaces $W, W' \subseteq \Lin_\FF \cal O$, 
 if we have $W {\restriction_i}(\mathcal{Q}_i) = W' {\restriction_i}(\mathcal{Q}_i)$ for all $i=1,\ldots, t$,
 then $W = \widehat W = \widehat{W'} = W'$ by Lemma~\ref{lem:coeff-approximation}.
-As a consquence:
+As a consequence:
 
 \begin{proposition}\label{prop:length-upper-bound}
     Let $W_0 \subset W_1 \subset \cdots \subset W_l$ be a chain of $\Aut(\A/S)$-equivariant subspaces of $\Lin_\FF(\mathcal{O})$.
     Then $l \leq 2^{|I|}$. 
 \end{proposition}
 \begin{proof}
-    We obtain $t$ chains
+    We obtain $t$ chains \textcolor{red}{These $t$ come from previously:}
     \begin{align*}
         W_0 {\restriction_1} (\mathcal{Q}_1) \subseteq W_1 {\restriction_1} (\mathcal{Q}_1) \subseteq \cdots \subseteq W_l {\restriction_1} (\mathcal{Q}_1) \subseteq \FF^{\Jclass_1}, \\
         W_0 {\restriction_2} (\mathcal{Q}_2) \subseteq W_1 {\restriction_2} (\mathcal{Q}_2) \subseteq \cdots \subseteq W_l {\restriction_2} (\mathcal{Q}_2) \subseteq \FF^{\Jclass_2}, \\

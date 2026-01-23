@@ -1,6 +1,6 @@
 \section{Proof of Theorem~\ref{thm:cog-span-generally}}\label{sec:appendix-cogs}
 Recall the setting of Section~\ref{sec:free-amalg} and the notations of Section~\ref{sec:cogs-turn}.
-Consider a vector space $\EE$ over $\FF$, and heed the warning of \ref{rem:FF-EE}:
+Consider a subspace $\EE \subseteq \FF^n$, and heed the warning of \ref{rem:FF-EE}:
 remember that a cog is of the form $\lambda \cdot a \between b$ now.
 Finally, fix an $S$-ordered orbit $\cal O \subseteq \A^I$.
 
@@ -56,7 +56,7 @@ and $A^+ a$ to mean $\bigcup_{a^\pm\in A^\pm}\{a^+ a\}$.
 The following sister lemmas, relying on free amalgamation as distilled in Lemma~\ref{lem:free-fresh}, show how to merge conflict-free subsets of $\cal O$ in a way that avoids introducing new conflicts. This will be useful in Sections~\ref{subsec:unobstructed} and~\ref{subsec:unambiguous}.
 
 \begin{lemma}\label{lem:?}
-    Let $K, V_0 \subseteq V$ be finite subsets of $\cal O$ such that both $V_0\cup K$ and $V$ are free from equational conflicts. Then there exists a $\pi\in\Aut(\A)$ that, while fixeing all atoms in $S$ and in $\sqrt{V_0}$, makes $V \cup \pi(K)$ free from equational conflicts.
+    Let $K, V_0 \subseteq V$ be finite subsets of $\cal O$ such that both $V_0\cup K$ and $V$ are free from equational conflicts. Then there exists a $\pi\in\Aut(\A)$ that, while fixing all atoms in $S$ and in $\sqrt{V_0}$, makes $V \cup \pi(K)$ free from equational conflicts.
 \end{lemma}
 \begin{proof}
     Fix $V_0, V$ and induct on the number of equationally conflicting locations in $V \cup K$. 
@@ -300,7 +300,7 @@ X = S \cup \sqrt{\vsup{v} \cup A^\pm} \setminus \{a\}
 \]
 contains $S \cup \sqrt{A^\pm}$.
 Using Lemma~\ref{lem:free-fresh} (putting $z=a$ and $Y=\emptyset$), find $\pi \in \Aut(\A/X)$ such that $\pi(a)$ is not in $X$, is greater than $a$, and is otherwise unrelated to $a$. Denote $a'=\tau(a)$. 
-Then, for any $a^\pm \in A^\pm$, it follos by Lemma~\ref{lem:cog-fresh-single} that $a^+ a \parallel a^- a'$ is an $\cal O$-duo. Moreover, 
+Then, for any $a^\pm \in A^\pm$, it follows by Lemma~\ref{lem:cog-fresh-single} that $a^+ a \parallel a^- a'$ is an $\cal O$-duo. Moreover, 
 the vector
 \begin{align*}
     v' = v - \sum_{a^\pm\in A^\pm} \lambda_{a^\pm} \cdot a^+ a \between a^- a'

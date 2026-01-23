@@ -451,11 +451,14 @@ Inspired by the example, we shall now assert:
         v = \sum_{a \parallel b} \lambda_{a \parallel b} \cdot a \between b
     \]
     with $\lambda_{a \parallel b} \in \EE$,
-    where $\EE$ is a vector space over $\FF$.
+    where $\EE$ is a subspace of some $\FF^n$.
 \end{theorem}
 
 \begin{remark}\label{rem:FF-EE}
 We must tread carefully here, as $\EE$ is not a field.
+(E.g.~$\EE$ is $\{ (\kappa, -\kappa) \mid \kappa \in \FF \}$ in $\FF^2$. 
+Then $\Lin_\EE \cal O$ is an equivariant subspace of $\Lin_{\FF^2} \cal O$; 
+this latter is more traditionally viewed as $\Lin_\FF \cal O \oplus \Lin_\FF \cal O$.)
 Given $\lambda \in \EE$ and $a \in \cal O$, we need to understand
 \[
     \lambda \cdot a
@@ -504,7 +507,7 @@ Solving a linear equation $\mathbf{A x} = \mathbf{b}$ amounts to checking whethe
 In the orbit-finite setting, we assume that every column has finitely many non-zero entries, and that $j \mapsto \mathbf{A}_{-, j}$ is equivariant.
 Theorem~\ref{thm:coeff-approximation} allows us to check membership in an orbit-finitely spanned subspace.
 The column-finite assumption is without loss of generality over the ordered atoms (which has the function space property),
-and we can relax equivariance to finite supports because the structure interprets constnats.
+and we can relax equivariance to finite supports because the structure interprets constants.
 
 \paragraph*{Lengths.}
 The characterisation gives us an upper bound on $\Lin_\FF \cal O$, which meets with the lower bound given by \cite[Cor.~4.12]{BFKM24}.
