@@ -95,10 +95,16 @@ Conversely, we call $\A$ the \emph{generically ordered expansion} of $\A_0$ or s
 \end{myexample}
 
 \begin{myexample}\label{ex:generically-ordered-graphs}
-    Continuing from Example~\ref{ex:free-amalg-graphs}, we obtain generically ordered expansions of the Rado graph and of the $K_n$-free Henson graphs.
-    The ordered Rado graph was studied in \cite{BPP15}.
-    In the example below, we will work with the ordered triangle-free Henson graph.
+    Continuing from Example~\ref{ex:free-amalg-graphs}, we obtain generically ordered expansions of the Rado graph and of the $K_n$-free versions of it, which are called \emph{Henson graphs}.
+    The ordered Rado graph was studied in \cite{BPP15}. The triangle-free  Henson graph will be studied in an extended example in Section~\ref{ex:extended-example}.
 \end{myexample}
+
+Using a classification result of Lachlan and Woodrow~\cite{LachlanWoodrow_80}, we can get the following general result.
+
+\begin{theorem}\label{thm:lachlan-woodrow}
+    Every countable homogeneous undirected graph has the finite length property over any field.
+\end{theorem}
+
 
 
 
@@ -351,9 +357,10 @@ In light of Claims~\ref{claim:reduction-to-one-orbit},~\ref{claim:reduction-to-k
 Before we show a proof of this (stated as Theorem~\ref{thm:cog-span-generally}), let us illustrate its key ideas on an example.
 
 \subsection{Spanning by cogs: an extended example}
-
+\label{ex:extended-example}
 Let $\A_0$ be the universal triangle-free (undirected) graph, and $\A$ its totally ordered version. Consider nine atoms $\{a,\ldots,i\}$, ordered by~$<$ alphabetically, with the edge relation as shown here:
 \[
+\scalebox{0.8}{
 \rotatebox{2}{
 \xymatrix@R=6pt@C=15pt{
 \rotatebox{-2}{$h$} & & & & & & \rotatebox{-2}{$i$} \\
@@ -362,7 +369,7 @@ Let $\A_0$ be the universal triangle-free (undirected) graph, and $\A$ its total
 & \rotatebox{-2}{$e$} & & & & \rotatebox{-2}{$f$} \\
 & & \rotatebox{-2}{$c$}\ar@{-}[ul]\ar@{-}[uur] & & \rotatebox{-2}{$d$}\ar@{-}[uul]\ar@{-}[ur] \\
 \rotatebox{-2}{$a$}\ar@{-}[rrrrrr]\ar@{-}[uuuuu]\ar@{-}[uur] & & & & & & \rotatebox{-2}{$b$}\ar@{-}[uul]\ar@{-}[uuuuu]
-}}\]
+}}}\]
 This graph is drawn so that the total order of the atoms corresponds to the vertical order.
 
 Putting $S=\emptyset$ and $|I|=2$, let ${\cal O}$ be the ordered orbit of pairs of atoms which are adjacent. Consider the following vector:
@@ -370,7 +377,8 @@ Putting $S=\emptyset$ and $|I|=2$, let ${\cal O}$ be the ordered orbit of pairs 
 v = ah - ae + ce - cg + dg - df + bf - bi + gi - gh \in \Lin_\FF{\cal O}.
 \]
 This can be graphically presented as the following graph:
-\[\rotatebox{2}{
+\[
+\scalebox{0.8}{\rotatebox{2}{
 \xymatrix@R=6pt@C=15pt{
 \rotatebox{-2}{$h$} & & & & & & \rotatebox{-2}{$i$} \\
 \\
@@ -378,18 +386,20 @@ This can be graphically presented as the following graph:
 & \rotatebox{-2}{$e$} & & & & \rotatebox{-2}{$f$} \\
 & & \rotatebox{-2}{$c$}\ar@[red][ul]\ar@[blue][uur] & & \rotatebox{-2}{$d$}\ar@[red][uul]\ar@[blue][ur] \\
 \rotatebox{-2}{$a$}\ar@{-}[rrrrrr]\ar@[red][uuuuu]\ar@[blue][uur] & & & & & & \rotatebox{-2}{$b$}\ar@[red][uul]\ar@[blue][uuuuu]
-}}
+}}}
 \]
 where edges with coefficient $+1$ are marked as red, and with $-1$ as blue. The arrows on the chosen edges remind us that the pairs in $\cal O$ are ordered, but this is mere decoration: the definition of $\cal O$ means that all arrows must point upwards.
 
 Note that $v$ is balanced. Graphically, this means that every atom has as many outgoing red edges as outgoing blue edges, and as many incoming red edges as incoming blue edges.
 
 It is easy to draw $\cal O$-cogs in this way. Assuming some additional atom $z>h$ which is adjacent to $a$ and $g$ but not to $h$, the $\cal O$-cog $ah\between gz$ can be drawn as:
-\[\rotatebox{5}{
+\[
+\scalebox{0.8}{
+    \rotatebox{5}{
 \xymatrix{
 \rotatebox{-5}{$h$} & \rotatebox{-5}{$z$} \\
 \rotatebox{-5}{$a$}\ar@[red][u]\ar@[blue][ur] & \rotatebox{-5}{$g$}\ar@[blue][ul]\ar@[red][u]  
-}}
+}}}
 \]
 
 We would like to present $v$ as a sum of such ${\cal O}$-cogs. Some additional atoms must be used for that, as no four atoms among the original nine form an $\cal O$-duo.
@@ -412,7 +422,8 @@ v' = v + (gh \between g'i) - (bf \between b'i)
 \]
 which can be drawn as:
 \[
-\rotatebox{2}{
+\scalebox{0.8}{
+    \rotatebox{2}{
 \xymatrix@R=6pt@C=15pt{
 \rotatebox{-2}{$h$} & & & & & & \rotatebox{-2}{$i$} \\
 \\
@@ -420,10 +431,11 @@ which can be drawn as:
 & \rotatebox{-2}{$e$} & & & & \rotatebox{-2}{$f$} \\
 & & \rotatebox{-2}{$c$}\ar@[red][ul]\ar@[blue][uur] & & \rotatebox{-2}{$d$}\ar@[red][uul]\ar@[blue][ur] \\
 \rotatebox{-2}{$a$}\ar@{-}[rrrrrr]\ar@[red][uuuuu]\ar@[blue][uur] & & & & & & \rotatebox{-2}{$b$}\ar@{-}[uul]\ar@{-}[uuuuu] & \rotatebox{-2}{$b'$}\ar@[red]@/_1ex/[uull]\ar@[blue]@/_1ex/[uuuuul]
-}}
+}}}
 \]
 Now an atom $z$ as postulated above does not create any triangles:
 \[
+\scalebox{0.8}{
 \rotatebox{2}{
 \xymatrix@R=6pt@C=15pt{
 & & & \rotatebox{-2}{$z$}\ar@{-}@/_4ex/[llldddddd]\ar@{-}[lddddd]\ar@{-}[rddddd]\ar@{-}@/_-0.5ex/[rddd]\ar@{-}@/_-3ex/[rrrrdddddd] \\
@@ -433,7 +445,7 @@ Now an atom $z$ as postulated above does not create any triangles:
 & \rotatebox{-2}{$e$} & & & & \rotatebox{-2}{$f$} \\
 & & \rotatebox{-2}{$c$}\ar@[red][ul]\ar@[blue][uur] & & \rotatebox{-2}{$d$}\ar@[red][uul]\ar@[blue][ur] \\
 \rotatebox{-2}{$a$}\ar@{-}[rrrrrr]\ar@[red][uuuuu]\ar@[blue][uur] & & & & & & \rotatebox{-2}{$b$}\ar@{-}[uul]\ar@{-}[uuuuu] & \rotatebox{-2}{$b'$}\ar@[red]@/_1ex/[uull]\ar@[blue]@/_1ex/[uuuuul]
-}}
+}}}
 \]
 and it is easy to calculate:
 \[
