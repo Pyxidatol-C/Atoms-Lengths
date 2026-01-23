@@ -1,7 +1,7 @@
 
 \section{Proof of Theorem~\ref{thm:have-oligomorphic-approximation}(\ref{item:rado-has-oligomorphic-approximation})}\label{sec:appendix-symplectic}
 
-The symplectic vector spaces is used as a basic building block in \cite{KLM89}.
+The symplectic vector spaces are used as a basic building block in \cite{KLM89}.
 Described as a classical geometry, it can indeed be found in classical textbooks such as \cite[pp.~114--121]{Artin_symplectic} and \cite[pp.~75--83]{Aschbacher_symplectic},
 though it is often not clear whether we assume finite dimension or characteristic zero for the results we require. 
 As symplectic vector spaces are an important and interesting structure to understand, we provide a self-contained exposition here, taking a straight-line path to the oligomorphic approximation of the Rado graph in Theorem~\ref{thm:appendix-rado-oligo-approx}.
@@ -231,7 +231,7 @@ we will opt for another approach that establishes smooth approximation and gives
     \[
         v_i = e_i + \sum_{i' \in I, i' < i} \Omega(i', i) f_{i'}
     \]
-    for $i \in I$ and $v_j = \sum_{i \in I, i < j} \in \Lambda_j(i) v_i$ for $j \not\in I$.
+    for $i \in I$ and $v_j = \sum_{i \in I, i < j} \Lambda_j(i) v_i$ for $j \not\in I$.
     Therefore the number of types is precisely the number of orbits in $\W_\infty^k$.
 
     Finally, we do some combinatorics.
@@ -311,7 +311,7 @@ Here, let $\ff$ be the two-element field.
 
 So the number of orbits in $\widetilde \W_n^k$ is precisely equal to the number of orbits in $\W_n^k$
 --- in particular, it is bounded above by $\sum_{d=0}^k \begin{bsmallmatrix}k \\ d\end{bsmallmatrix}_2 \cdot 2^{\binom{d}{2}}$ independently of $n$ by Proposition~\ref{prop:symplectic-oligomorphic}.%
-\footnote{This is the $k$th term in the \href{https://oeis.org/A028361}{OEIS sequence A028631}.}
+\footnote{This is the $k$th term in the \href{https://oeis.org/A028361}{OEIS sequence A028361}.}
 It remains to show $\widetilde \W_0 \subseteq \widetilde \W_1 \subseteq \widetilde \W_2 \subseteq \cdots$ embeds all finite graphs:
 
 \begin{proposition}[{\cite[Thm.~8.11.2]{GR01}}]
