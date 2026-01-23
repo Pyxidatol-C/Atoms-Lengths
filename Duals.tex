@@ -1,6 +1,6 @@
 \section{Function spaces and  weighted automata}\label{sec:duals}
 
-The original motivation to introduce orbit-finitely spanned vector spaces in~\cite{BFKM24} was the study of orbit-finite weighted automata. In this section, we recall this motivation, and discuss how it is relates to our new results. This discussion also involves  the issue of function spaces, arguably more important, so we begin with that.
+The original motivation to introduce orbit-finitely spanned vector spaces in~\cite{BFKM24} was the study of orbit-finite weighted automata. In this section, we recall this motivation, and discuss how it is related to our new results. This discussion also involves  the issue of function spaces, arguably more important, so we begin with that.
  
 \subsection{Function spaces} If we have two orbit-finitely spanned vector spaces $V$ and $W$ over the same atoms, then there are two natural ideas for a function space: the space of all linear maps from $V \to W$, and the subspace which consists of equivariant linear maps. As it turns out, the most relevant function space lies between them, as formalised in the following definition.
 
@@ -20,7 +20,7 @@ The original motivation to introduce orbit-finitely spanned vector spaces in~\ci
 The notion of finite supports in the above definition is the same  the one as used in Section~\ref{sec:orbit-finite-sets}, except that it is applied to the space of linear maps from $V$ to $W$. It is also the standard restriction used in the study of orbit-finite sets. As argued in~\cite[Sec. 8.3]{bojanczyk_slightly} using categorical arguments, the finitely supported function space is the most relevant kind of function space; a similar phenomenon occurs in nominal sets~\cite[Thm. 3.13]{PittsAM:nomsns}. For this reason, we when talking about function spaces, we mean the finitely-supported function spaces from the above definition.  This definition motivates the following property.
 
 \begin{definition}[Function space property]\label{def:function-space-property}
-    We say that an atom structure has the \emph{function space property} if orbit-finitely spanned vector spaces closed under taking function spaces.
+    We say that an atom structure has the \emph{function space property} if orbit-finitely spanned vector spaces are closed under taking function spaces.
 \end{definition}
 
 As it turns out, some oligomorphic atom structures have this property, and some do not.
@@ -86,7 +86,7 @@ An \emph{orbit-finite weighted automaton} is given by:
 An automaton as in the above definition computes a function of type $\Sigma^* \to \field$, which is defined in the same way as for deterministic automata. 
 
 From the finite length property, we can conclude decidability results about orbit-finite weighted automata. 
-For example, a zeroness algorithm is derived in in~\cite[Sec. 5]{BFKM24}. 
+For example, a zeroness algorithm is derived in~\cite[Sec. 5]{BFKM24}. 
 In light of the results from this paper, such an algorithm exists if we use the Rado graph as the atoms, or other structures for which we have established the finite length property. Also, weighted automata can be minimized~\cite[Sec. 7]{BFKM24}, effectively, using the bound for chains.
 
 However, certain other results on weighted automata will depend on the function space property. Let us give one such example. Our  definition of weighted automata  is deterministic in the left-to-right direction. One could imagine a symmetric right-to-left model. Are these models equivalent? If the atoms have the function space property, then one can introduce a symmetric model based on monoids to show that the left-to-right and right-to-left variants of weighted automata are equivalent: see~\cite[Thm. 7.4]{BFKM24}. However, as we show in the following example, the equivalence can fail without the  function space property.

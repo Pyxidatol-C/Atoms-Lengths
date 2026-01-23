@@ -208,7 +208,7 @@ each $a_i$ is unrelated to its counterpart $b_i$.
 Further, given any $J \subseteq I$, the combined tuple $a|^{I\setminus J} b|^J$ satisfies the same relations as $a$ (and $b$), so it lies in $\cal O$. In particular, taking $J=\{i\}$, there is an automorphism $\pi_i$ that sends $a_i$ to $b_i$ and fixes all the other elements of $a$, $b$ and $S$.
 \end{remark}
 
-For the special case of the ordered atoms (Ex.~\ref{ex:order-atoms} \&~\ref{ex:geneircally-ordered-equality}) the following construction was studied in~\cite[p.~11]{BFKM24}, and it already appeared earlier in~\cite[p.~125]{Gray97} under the name of ``polytabloids''.
+For the special case of the ordered atoms (Ex.~\ref{ex:order-atoms} \&~\ref{ex:generically-ordered-equality}) the following construction was studied in~\cite[p.~11]{BFKM24}, and it already appeared earlier in~\cite[p.~125]{Gray97} under the name of ``polytabloids''.
 
 \begin{definition}
     Given a $\cal O$-duo $a \parallel b$, the corresponding \emph{$\cal O$-cog} is the vector
@@ -471,7 +471,7 @@ We still have $\Lin_{\FF^n} \cal O \supseteq \Lin_\EE \cal O \supseteq \Ker_\EE 
 
 Leaving the proof to Appendix~\ref{sec:appendix-cogs}, 
 we have --- as discussed at the end of Section~\ref{subsec:finding-cogs} --- established Theorem~\ref{thm:ordered-free-amalg-has-finite-length}, by taking $\EE = \FF$.
-But by allowing $\EE$ to be finite-dimensional vector spaces, we can now describe all equivariant subspaces:
+But by allowing $\EE$ to be finite-dimensional vector spaces, we can now describe all equivariant subspaces. 
 
 \begin{theorem}\label{thm:coeff-approximation}
     Fix $d \in \{1, 2, \dots\}$. 
@@ -492,48 +492,36 @@ But by allowing $\EE$ to be finite-dimensional vector spaces, we can now describ
 
 \begin{myexample}
     Let $\A$ be the ordered atoms. 
-    For $d = 1$, the maps are
-    \begin{align*}
-        v {\restriction_1} (a) &= v(a) \\
-        v {\restriction_2} () &= \sum_{-} v(-)
-    \end{align*}
-    This shows that $\Lin \A$ has the same structure as the space over the equality atoms in Example~\ref{ex:length-one-dim-one}.
+    For $d = 1$ there are two maps, $\restriction_{1} : \Lin_\FF \A \to \Lin_\FF \A$ and $\restriction_{2} : \Lin_\FF \A \to \FF$, given by  
+    \[
+        v {\restriction_1} (a) = v(a), \qquad
+        v {\restriction_2} () = \sum_{-} v(-).
+    \]
+    For an equivariant vector space $V \subseteq \Lin_\FF \A$, the subspace $V {\restriction_1}(\A) \subseteq \FF$ is either $\{0\}$ or the entire $\FF$.
+    \begin{itemize}
+        \item In the first case, $V$ must be the zero space.
+        \item Otherwise, we similarly distinguish two cases for $V {\restriction_2}() \subseteq \FF$:
+        \begin{itemize}
+            \item if it is the entire $\FF$, then $V$ must be the full space $\Lin_\FF \A$ by Theorem~\ref{thm:coeff-approximation};
+            \item if it is $\{0\}$, then $V$ must be the zero-sum space spanned by $\{a - b \mid a, b \in \A\}$ again using Theorem~\ref{thm:coeff-approximation}.
+        \end{itemize}
+    \end{itemize}
+    So $\Lin \A$ has the same structure as the space over the equality atoms in Example~\ref{ex:length-one-dim-one}.
+
+    For $d = 2$, there will be a map $\restriction_1 : \Lin_\FF \A^2 \to \Lin_{\FF^5} \A$. 
+    By considering subspaces of $\FF^5$, when the field is infinite we can exhibit infinitely many equivariant subspaces of $\Lin_\FF \A^2$.
+    Note that $\Lin_\FF \A^2$ has finite length (equal to $2^1 + 2^2 + 2^2$, by below) nonetheless.
 \end{myexample}
-
-
-The ideas of using these local coefficients to enumerate equivariant subspaces can be found in \cite[Cor.~3.17]{Gray97}, \cite{HofmanRozycki_2022}, and \cite{ghosh2023orbit}.
-
-\paragraph*{Systems of linear equations.}
-Solving a linear equation $\mathbf{A x} = \mathbf{b}$ amounts to checking whether $\mathbf{b}$ is spanned by the columns of $\mathbf{A}$.
-As explained in \cite[Sec.~9]{GhoshLasota_24}
-In the orbit-finite setting, we assume that every column has finitely many non-zero entries, and that $j \mapsto \mathbf{A}_{-, j}$ is equivariant.
-Theorem~\ref{thm:coeff-approximation} allows us to check membership in an orbit-finitely spanned subspace.
-The column-finite assumption is without loss of generality over the ordered atoms (which has the function space property),
-and we can relax equivariance to finite supports because the structure interprets constants.
-
-\paragraph*{Precise lengths.}
-The characterisation gives us an upper bound on $\Lin_\FF \cal O$, which meets with the lower bound given by \cite[Cor.~4.12]{BFKM24}.
-
-
-
-
-% \begin{myexample}
-%     $\A$ is the ordered atoms, $d = 2$.
-
-
-% \end{myexample}
 
 \begin{corollary}\label{cor:2d-length}
     The length of $Lin_\FF \cal O$, where $\cal O \subseteq \A^d$ is an ordered orbit, is precisely $2^d$.
 \end{corollary}
 
-% \begin{myexample}
-%     continuing from above,
-%     \begin{align*}
-%         V_0 &= \{0\} \\
-%         V_1 &= V_0 + \langle (5, 9) - (5.01, 9) - (5, 9.1) + (5.01, 9.1) \rangle \\
-%         V_2 &= V_1 + \langle (5, 9) - (5.01, 9) \rangle \\
-%         V_3 &= V_2 + \langle (5, 9) - (5, 9.1) \rangle \\
-%         V_4 &= V_3 + \langle (5, 9) \rangle        
-%     \end{align*}    
-% \end{myexample}
+Variants of Theorem~\ref{thm:coeff-approximation} have been shown over the equality and the ordered atoms: 
+see in \cite[Cor.~3.17]{Gray97}, \cite[Thm.~15]{HofmanLerouxTotzke_17}, \cite[Thm.~3.4]{HofmanRozycki_2022}, and \cite[Thm.~19]{Arka_notes}, \cite[Sec.~6]{GhoshHofmanLasota_22}.
+As described in \cite[Sec.~9]{GhoshLasota_24}, such results allow us to decide the solvability of orbit-finite systems of linear equations. 
+Checking whether the system $\mathbf{A} \mathbf{x} = \mathbf{b}$ admits a solution amounts to checking whether $\mathbf{b}$ is spanned by the columns of $\mathbf{A}$,
+which we briefly repeat.
+In the orbit-finite setting, we assume that the rows and columns are indexed by $\A^n$, that every column has finitely many non-zero entries, and that $j \mapsto \mathbf{A}_{-, j}$ is equivariant.
+That is, we ask whether $\mathbf{b} \in \Lin_\FF \A^d$ is in the span of $\mathbf{A}_{-, j}$. 
+By Theorem~\ref{thm:coeff-approximation}, it suffices to check whether $\mathbf{b} {\restriction_i} (\cal O_i) \subseteq \mathbf{A}_{-, j_1} {\restriction_i} (\cal O_i) + \cdots + \mathbf{A}_{-, j_n} {\restriction_i} (\cal O_i)$, in the finite dimensional space $\FF^{n_i}$, having chosen orbit representatives $j_1, \dots, j_n \in \A^d$.
