@@ -1,6 +1,8 @@
-\section{Proofs of Theorem~\ref{thm:}}\label{sec:appendix-eqsubsp}
+\section{Proof of Theorem~\ref{thm:coeff-approximation}}\label{sec:appendix-eqsubsp}
 
-First we set up some useful notation.
+The hardest part of this proof is to set up the notation to define the maps $\{\restriction_i\}_i$.
+
+
 Consider the $2^{|I|}$ projected $S$-ordered orbits $\mathcal{O}|^{J}$ for $J \subseteq I$.
 Suppose that
 \[
@@ -30,22 +32,30 @@ enumerated in such a way that $|J_1| \geq |J_2| \geq \dots \geq |J_t|$. (In part
 
 
 
+\begin{lemma}\label{lem:coeff-approximation}
+    For $i = 0, 1, \dots, t$,
+    \begin{align*}
+        &W \cap \ker(\restriction_i) \cap \ker(\restriction_{i+1}) \cap \cdots \cap \ker(\restriction_t) \\
+        \subseteq{} &\widehat W \cap \ker(\restriction_i) \cap \ker(\restriction_{i+1}) \cap \cdots \cap \ker(\restriction_t).
+    \end{align*}
+\end{lemma}
+
 \begin{proof}
 We proceed by induction on $i$.
-The base case $i = 0$ is trivial, since $\ker(\restriction_1) = \{0\}$. Indeed, $\Jclass_1=\{I\}$, so $v{\restriction_1}$ is the identity map.
+The base case $i = 0$ is trivial, \textcolor{red}{since $\ker(\restriction_1) = \{0\}$.} Indeed, $\Jclass_1=\{I\}$, so $v{\restriction_1}$ is the identity map.
 
 To prove the containment for some $i>0$, 
 we allow $v {\restriction_i}$ to be non-zero.
 But $v {\restriction_i}$ satisfies the next best property:
 \begin{claim}
   The image of \[
-        \widetilde W \cap \ker(\restriction_{i+1}) \cap \cdots \cap \ker(\restriction_t)
+        \widehat W \cap \ker(\restriction_{i+1}) \cap \cdots \cap \ker(\restriction_t)
     \] under $\restriction_{i}$ 
     is contained in $\Ker_{W {\restriction}_{i} (\mathcal{Q}_{i})} \mathcal{Q}_{i}$. 
 \end{claim}
 \begin{proof}
-    Take any $v \in \widetilde W$ such that  $v {\restriction_{i'}} = 0$ for all $i'>i$.
-    That $v {\restriction_{i}} \in \Lin_{W{\restriction_{i}}(\mathcal{Q}_{i})} \mathcal{Q}_{i}$ is clear from the definition of $\widetilde W$.
+    Take any $v \in \widehat W$ such that  $v {\restriction_{i'}} = 0$ for all $i'>i$.
+    That $v {\restriction_{i}} \in \Lin_{W{\restriction_{i}}(\mathcal{Q}_{i})} \mathcal{Q}_{i}$ is clear from the definition of $\widehat W$.
     Recall that $\mathcal{Q}_{i}$ = $\mathcal{O}|^{J_{i}}$.
     For every $j \in J_{i}$,
     we need to prove that $v {\restriction_{i}} |^{-j} = 0$. In more elementary terms, given any $a\in\mathcal{O}|^{J_{i}\setminus\{j\}}$, we need the $J$-th entry of $v {\restriction_{i}} |^{-j}(a)$ to be $0$, for every $J\in \Jclass_i$.
@@ -105,26 +115,28 @@ So $w'$ is a witness for the inclusion from the claim.
 \end{proof}
 
 This is enough to establish Lemma~\ref{lem:coeff-approximation} for $i$, assuming it for $i-1$.
-Indeed, given $v \in \widetilde W \cap \ker(\restriction_{i+1}) \cap \dots \cap \ker(\restriction_t)$, by the preceding claims
-we can find $w \in W \cap \ker(\restriction_{i+1}) \cap \dots \cap \ker(\restriction_t) \subseteq \widetilde W$ such that 
+Indeed, given $v \in \widehat W \cap \ker(\restriction_{i+1}) \cap \dots \cap \ker(\restriction_t)$, by the preceding claims
+we can find $w \in W \cap \ker(\restriction_{i+1}) \cap \dots \cap \ker(\restriction_t) \subseteq \widehat W$ such that 
 $v {\restriction_i} = w {\restriction_i}$.
-But then $(v - w) {\restriction_{i}} = 0$, so $v - w$ lies in $\ker(\restriction_{i})$ as well as $\widetilde W \cap \ker(\restriction_{i+1}) \cap \cdots \cap \ker(\restriction_t)$.
+But then $(v - w) {\restriction_{i}} = 0$, so $v - w$ lies in $\ker(\restriction_{i})$ as well as $\widehat W \cap \ker(\restriction_{i+1}) \cap \cdots \cap \ker(\restriction_t)$.
 It follows from the inductive hypothesis that \[
     v - w \in W \cap \ker(\restriction_i) \cap \ker(\restriction_{i+1}) \cap \dots \cap \ker(\restriction_t),
 \]
 so $v = (v - w) + w$ is in $W \cap \ker(\restriction_{i+1}) \cap \dots \cap \ker(\restriction_t)$ as well.
 
-This completes the proof of Lemma~\ref{lem:coeff-approximation}.
+This completes the proof of Theorem~\ref{thm:coeff-approximation}.
 \end{proof}
 
 
-Let $W, W'$ be two $\Aut(\A/S)$-equivariant subspaces of $\Lin_\FF(\mathcal{O})$.
-If we have $W {\restriction_i}(\mathcal{Q}_i) = W' {\restriction_i}(\mathcal{Q}_i)$ for all $i=1,\ldots, t$,
-then $W = \widetilde W = \widetilde{W'} = W'$ by Lemma~\ref{lem:coeff-approximation}.
+\section{Proof of Corollary~\ref{cor:2d-length}}
+Now let $\cal O \subseteq \A^d$ be an ordered orbit.
+For two equivariant subspaces $W, W' \subseteq \Lin_\FF \cal O$, 
+if we have $W {\restriction_i}(\mathcal{Q}_i) = W' {\restriction_i}(\mathcal{Q}_i)$ for all $i=1,\ldots, t$,
+then $W = \widehat W = \widehat{W'} = W'$ by Lemma~\ref{lem:coeff-approximation}.
 As a consquence:
 
 \begin{proposition}\label{prop:length-upper-bound}
-    Let $W_0 \subsetneq W_1 \subsetneq \cdots \subsetneq W_l$ be a chain of $\Aut(\A/S)$-equivariant subspaces of $\Lin_\FF(\mathcal{O})$.
+    Let $W_0 \subset W_1 \subset \cdots \subset W_l$ be a chain of $\Aut(\A/S)$-equivariant subspaces of $\Lin_\FF(\mathcal{O})$.
     Then $l \leq 2^{|I|}$. 
 \end{proposition}
 \begin{proof}
@@ -139,32 +151,16 @@ As a consquence:
     Hence $l \leq |\Jclass_1| + |\Jclass_2| + \dots + |\Jclass_t| = 2^{|I|}$. 
 \end{proof}
 
-It follows that every $\Aut(\A/S)$-equivariant subspace of $\Lin_\FF(\mathcal{O})$ is finitely generated.
-We can compute the local coefficients of such subspaces easily:
-\begin{remark}
-    For $v \in \Lin_\FF(\mathcal{O})$, 
-    let $\langle v \rangle$ denote the $\Aut(\A/S)$-equivariant subspace it generates.
-    Then:
-    \begin{enumerate}
-        \item 
-        $\langle v \rangle {\restriction_i}(\mathcal{Q}_i)$ is the subspace of $\FF^{\Jclass_i}$ generated by vectors of the form $v {\restriction_i} (a)$,
-        which is zero unless every atom appearing in $a$ appears in $v$
-        --- there are only finitely many such $a$'s;
+To complement the upper bound from Proposition~\ref{prop:length-upper-bound}, we now exhibit a chain of equivariant subspaces whose length is precisely $\sum_{i=1}^t |\Jclass_i|$, using the same idea as \cite[Cor.~4.12]{BFKM24}.
 
-        \item 
-        $\langle v, v' \rangle {\restriction_i}(\mathcal{Q}_i) = \langle v \rangle {\restriction_i}(\mathcal{Q}_i) + \langle v' \rangle {\restriction_i}(\mathcal{Q}_i)$.
-    \end{enumerate}
-\end{remark}
-
-To complement the upper bound from Proposition~\ref{prop:length-upper-bound}, we now exhibit a chain of $\Aut(\A/S)$-equivariant subspaces whose length is precisely $\sum_{i=1}^t |\Jclass_i|$, generalising \cite[Cor.~4.12]{BFKM24}.
-Take any $J \in \Jclass_i$. 
-Pick some $a\in \mathcal{O}$,
-and let $\pi_j$ (for $j \in I$) be the automorphisms from Lemma~\ref{lem:cog-fresh-full}.
-Define a vector
+Pick some $a\in \cal O$, and let $\pi_j$ (for $j \in I$) be the automorphisms from Lemma~\ref{lem:cog-fresh-full}.
+Given $J \in \Jclass_i$, define a vector
 \begin{align*}
-    v_{J} =  \prod_{j \in J} (1 - \pi_j) a \in \Lin_\FF(\mathcal{O}).
+    v_{J} =  \prod_{j \in J} (1 - \pi_j) a
 \end{align*}
-Then 
+in $\Lin_\FF(\cal O)$. 
+Let $\langle v_J \rangle$ be the linear span of permutations of $v_J$; this is an equivariant subspace.
+Given $J' \in \Jclass_{i'}$, we compute:
 \[
     (\langle v_{J} \rangle {\restriction_{i'}} (\mathcal{Q}_{i'}))_{J'} =
     \begin{cases}
@@ -176,19 +172,17 @@ Enumerating each $\Jclass_i$ in any order as $J_i^1, J_i^2, \dots, J_i^{|\Jclass
 we obtain a chain
 \begin{align*}
     \langle  \rangle 
-    & \subsetneq{} \langle v_{J_t^1} \rangle 
-    \subsetneq{} \langle v_{J_t^1}, v_{J_t^2} \rangle  
-    \subsetneq{} \cdots 
-    \subsetneq{} \langle v_{J_t^1}, v_{J_t^2}, \dots, v_{J_t^{|\Jclass_t|}} \rangle \\
-   & \subsetneq{} \langle v_{J_t^1}, v_{J_t^2}, \dots, v_{J_t^{|\Jclass_t|}}, v_{J_{t-1}^1} \rangle 
-     \subsetneq{} \cdots
+    & \subset{} \langle v_{J_t^1} \rangle 
+    \subset{} \langle v_{J_t^1}, v_{J_t^2} \rangle  
+    \subset{} \cdots 
+    \subset{} \langle v_{J_t^1}, v_{J_t^2}, \dots, v_{J_t^{|\Jclass_t|}} \rangle \\
+   & \subset{} \langle v_{J_t^1}, v_{J_t^2}, \dots, v_{J_t^{|\Jclass_t|}}, v_{J_{t-1}^1} \rangle 
+     \subset{} \cdots
 \end{align*}
 of length $|\Jclass_t| + |\Jclass_{t-1}| + \cdots + |\Jclass_1| = 2^{|I|}$.
-Together with the upper bound from Proposition~\ref{prop:length-upper-bound}, we conclude:
+We conclude that the upper bound from Proposition~\ref{prop:length-upper-bound} is tight.
 
-$2^{|I|}$ length.
-
-Along the lines of Claim~\ref{claim:reduction-to-one-orbit}, this generalises to multi-orbit sets:
-\[
-\len(\Lin_\FF(\mathcal{O}_1 \uplus \dots \uplus \mathcal{O}_n)) = 2^{|I_1|} + \dots + 2^{|I_n|}.
-\]
+% Along the lines of Claim~\ref{claim:reduction-to-one-orbit}, this generalises to multi-orbit sets:
+% \[
+% \len(\Lin_\FF(\mathcal{O}_1 \uplus \dots \uplus \mathcal{O}_n)) = 2^{|I_1|} + \dots + 2^{|I_n|}.
+% \]

@@ -1,9 +1,34 @@
-\section{Proof of Theorem~\ref{thm:ACP}}
+\section{Refresher on modules}\label{sec:appendix-modules}
+We quickly explain how the theory of modules enter the picture:
+an orbit-finitely vector space over an oligomorphic structure $\A$ as in Definition~\ref{def:orbit-finite-basis} amounts to a finitely generated module over the group ring $\Lin_\FF \Aut(\A)$, with the additional continuity condition --- see \cite[Lemma~4.1.5]{hodges1993model} --- that every element is finitely supported.
+This condition is inherited by subspaces.
+Since an equivariant subspace is the same as a submodule, 
+Theorem~\ref{thm:ACP} that we prove below says all orbit-finitely spanned vector spaces are Noetherian if and only if $\Lin_\FF \A^d$ is Noetherian for every $d \in \{0, 1, \dots\}$.
 
-\begin{proof}
+\begin{proof}[Proof of Theorem~\ref{thm:ACP}]
     The equivalence of (3) and (1) is a classical result in module theory. Let us recall the proof. For (3) $\Rightarrow$ (1), we build an orbit-finite spanning set for the subspace greedily, by adding orbit after orbit of vectors. Thanks to (3), this must stabilise. For  (1) $\Rightarrow$ (3), we use (1) to get an orbit-finite spanning set for the union of the chain from (3), and then we observe that orbits from this set can only be added finitely often in the chain. 
 
     Let us now prove the ``furthermore'' part. Take some orbit-finitely spanned vector space $V$.  By Definition~\ref{def:orbit-finite-set},  the spanning set can be obtained from some equivariant subset of $\A^d$, by quotienting under an equivariant equivalence relation. This  gives us a surjective equivariant linear map to $V$ from an equivariant subspace of  $\Lin_\field \A^d$, thus establishing the ``furthermore'' part.
 
     From the ``furthermore'' part we also get equivalence of (2) and (3). The implication (3) $\Rightarrow$ (2) is immediate, and the converse implication follows from the ``furthermore'' part, since the lack of infinite ascending chains is preserved by taking equivariant subspaces and images under equivariant linear maps. 
 \end{proof}
+
+We mention some basic properties about lengths. 
+Let $V$ be a module over the group ring.
+A finite chain
+\[
+    V_0 \subset V_1 \subset \cdots \subset V_l
+\]
+of submodules in $V$ is called \emph{maximal} if $\{0\} = V_0$, no submodule $W$ satisfies $V_i \subset W \subset V_{i+1}$, and $V_l = V$.
+There are two definitions of $\len(V) \in \N \cup \{\infty\}$: 
+\begin{enumerate}
+    \item as the supremum of the length $l$ over all finite chains;
+    \item as the length $l$ of some maximal chain, and $\infty$ if none exists.
+\end{enumerate}
+The Jordan--Hölder Theorem says that (2) is well-defined and agrees with (1).
+We can show that:
+\begin{fact}
+    $\len(V)  = \len(V/U) + \len(U)$,
+    where we define $n + \infty = \infty = \infty + n$.
+\end{fact}
+From this, it follows that $\len(V)$ is finite if and only if there are no infinite ascending and descending chains.

@@ -454,52 +454,63 @@ Inspired by the example, we shall now assert:
     where $\EE$ is a vector space over $\FF$.
 \end{theorem}
 
-Leaving the proof to Appendix~\ref{sec:appendix-cogs}, 
-we have --- as discussed at the end of Section~\ref{subsec:finding-cogs} --- established Theorem~\ref{thm:ordered-free-amalg-has-finite-length}.
-
 \begin{remark}\label{rem:FF-EE}
 We must tread carefully here, as $\EE$ is not a field.
-Particularly, we need to understand
+Given $\lambda \in \EE$ and $a \in \cal O$, we need to understand
 \[
     \lambda \cdot a
 \]
-as a formal expression.
-Similarly, We redefine $\Cog_\EE\cal O$ to be spanned by formal expressions $\lambda\cdot(a^+ \between a^-)$ for $\lambda\in\EE$. 
-$\Lin_\EE \cal O$ and $\Ker_\EE \cal O$ are still vector spaces over $\FF$.
+as a formal expression for an element of $\Lin_\EE \cal O$, instead of the result of a scalar multiplication.
+Accordingly, we need to redefine $\Cog_\EE\cal O$ to be spanned by formal expressions $\lambda\cdot(a \between b)$ for $\lambda\in\EE$. 
+However, once that is done, we can naturally view $\Lin_\EE \cal O$, $\Ker_\EE \cal O$, and $\Cog_\EE \cal O$ as vector spaces over $\FF$.
 \end{remark}
 
-
-
+Leaving the proof to Appendix~\ref{sec:appendix-cogs}, 
+we have --- as discussed at the end of Section~\ref{subsec:finding-cogs} --- established Theorem~\ref{thm:ordered-free-amalg-has-finite-length}, by taking $\EE = \FF$.
+But by allowing $\EE$ to be finite-dimensional vector spaces, we can now describe all equivariant subspaces:
 
 \begin{theorem}\label{thm:coeff-approximation}
-    Fix $d \in \{1, 2, \dots\}$. There exists a finite family of linear maps $\set{\restriction_i}_{i \in I}$, with each one of the form 
-    \begin{align*}
-     \restriction_i : \Lin_\FF \A^d \to \Lin_{\FF^{n_i}} \cal O_i,
-    \end{align*}
-    where $\cal O_i$ is an orbit of $\A^e$ with $e < d$, and $n_i \in \set{1,2,\ldots}$, with the following property.  
-    Every equivariant subspace $W \subseteq \Lin_\FF \A^d$ is equal to
+    Fix $d \in \{1, 2, \dots\}$. 
+    Then there exists a finite family of equivariant linear maps of the form
+    \[
+        \restriction_i : \Lin_\FF \A^d \to \Lin_{\FF^{n_i}} \cal O_i,
+    \]
+    where $\cal O_i$ is an ordered orbit of $\A^{d_i}$ with $d > d_i$, 
+    such that every equivariant subspace $W \subseteq \Lin_\FF \A^d$ is equal to
     \begin{equation}\label{eq:equiv-subsp}
         \{v \in \Lin_\FF \A^d \mid \forall i, \forall a \in \cal{O}_i : v{\restriction_i}(a) \in \EE_i \}
     \end{equation}
-    where $\EE_i \subseteq F^{n_i}$ are finite-dimensional subspaces for $i = 0, 1, \dots, t$.
-    More precisely: these spaces are defined, given an equivariant subspace $W \subseteq \Lin_\FF \A^d$, 
-    by \[
+    with the finite-dimensional subspaces $\EE_i \subseteq \FF^{n_i}$ given by
+    \[
         \EE_i = \{w {\restriction_i}(b) \mid w \in W, b \in \cal O_i \}.
     \]
 \end{theorem}
 
-\textcolor{red}{These ideas are in some capacity present in \cite[Cor.~3.17]{Gray97}, \cite{HofmanRozycki_2022}, \cite{ghosh2023orbit}, and in Arka's notes. Cor: this tightens the bound in \cite{BFKM24}.}
-
-
 \begin{myexample}
-    $\A$ is the ordered atoms, 
-    $d = 1$.
-
+    When $\A$ is the ordered atoms and $d = 1$,
+    the maps are
     \begin{align*}
         v {\restriction_1} (a) &= v(a) \\
         v {\restriction_2} () &= \sum_{-} v(-)
-    \end{align*}    
+    \end{align*}
+    This shows that $\Lin \A$ has the same structure as the space over the equality atoms in Example~\ref{ex:length-one-dim-one}.
 \end{myexample}
+
+
+The ideas of using these local coefficients to enumerate equivariant subspaces can be found in \cite[Cor.~3.17]{Gray97}, \cite{HofmanRozycki_2022}, and \cite{ghosh2023orbit}.
+
+\paragraph*{Systems of linear equations.}
+Solving a linear equation $\mathbf{A x} = \mathbf{b}$ amounts to checking whether $\mathbf{b}$ is spanned by the columns of $\mathbf{A}$.
+In the orbit-finite setting, we assume that every column has finitely many non-zero entries, and that $j \mapsto \mathbf{A}_{-, j}$ is equivariant.
+Theorem~\ref{thm:coeff-approximation} allows us to check membership in an orbit-finitely spanned subspace.
+The column-finite assumption is without loss of generality over the ordered atoms (which has the function space property),
+and we can relax equivariance to finite supports because the structure interprets constnats.
+
+\paragraph*{Lengths.}
+The characterisation gives us an upper bound on $\Lin_\FF \cal O$, which meets with the lower bound given by \cite[Cor.~4.12]{BFKM24}.
+
+
+
 
 % \begin{myexample}
 %     $\A$ is the ordered atoms, $d = 2$.
