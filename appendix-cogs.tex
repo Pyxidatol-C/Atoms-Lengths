@@ -1,6 +1,8 @@
 \section{Proof of Theorem~\ref{thm:cog-span-generally}}\label{sec:appendix-cogs}
-Recall that setting of Section~\ref{sec:free-amalg} and the notations of Section~\ref{sec:cogs-turn};
-consider an $S$-ordered orbit $\cal O \subseteq \A^I$.
+Recall the setting of Section~\ref{sec:free-amalg} and the notations of Section~\ref{sec:cogs-turn}.
+Consider a vector space $\EE$ over $\FF$, and heed the warning of \ref{rem:FF-EE}:
+remember that a cog is of the form $\lambda \cdot a \between b$ now.
+Finally, fix an $S$-ordered orbit $\cal O \subseteq \A^I$.
 
 \subsection{Subvectors, locations, conflicts}
 We begin by introducing some additional terminology and notation. First, let us make explicit a view we have tacitly taken:
@@ -97,7 +99,7 @@ The following sister lemmas, relying on free amalgamation as distilled in Lemma~
 
 \subsection{Conflict-free vectors}\label{subsec:unobstructed}
 \begin{claim}\label{claim:!-free-decomposition}
-    If $v \in \Ker_\EE \cal O$ is free from conflicts, then it can be written as a linear combination of $\cal O$-cogs:
+    If $v \in \Ker_\EE \cal O$ is free from conflicts, then it can be written as a sum of $\cal O$-cogs:
     \[
         v = \sum_{a^\pm \in A^\pm} \lambda_{a^\pm} \cdot a^+ \between a^-
     \]
@@ -206,12 +208,12 @@ We conclude that
     + \sum_{b^\pm\in B^\pm} \mu_{b^\pm} \cdot b^+ b \between b^- z \\
     + \sum_{c^\pm\in C^\pm} \kappa_{c^\pm} \cdot c^+ \between c^-
 \end{align*}
-is a decomposition of $v$ into a linear combination of $\cal O$-cogs as required.
+is a decomposition of $v$ into a sum of $\cal O$-cogs as required.
 \end{proof}
 
 \subsection{Vectors without equational conflicts}\label{subsec:unambiguous}
 \begin{claim}\label{claim:?-free-decomposition}
-     If $v \in \Ker_\EE \cal O$ has no equational conflicts, then it can be written as a linear combination of $\cal O$-cogs:
+     If $v \in \Ker_\EE \cal O$ has no equational conflicts, then it can be written as a sum of $\cal O$-cogs:
     \[
         v = \sum_{a^\pm \in A^\pm} \lambda_{a^\pm} \cdot a^+ \between a^-
     \]
