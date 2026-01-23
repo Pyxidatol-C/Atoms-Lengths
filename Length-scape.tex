@@ -4,16 +4,16 @@ One quick way to produce even more examples is by considering an \emph{interpret
 which consists of an orbit-finite set $\B$ over $\A$ equipped with $\Aut(\A)$-equivariant relations.
 ($\B$ is called a \emph{first-order reduct} of $\A$ if its underlying set is just $\A$.)
 
-\begin{lemma}\label{lem:interpretations-preserve-fin-len}
-    If $\A$ has the finite length property over a field $\FF$, then so does any interpretation $\B$ in $\A$.
-\end{lemma}
-\begin{proof}
-It is a standard result in model theory (see e.g.~\cite[Chap.~5,7]{hodges1993model}) that $\B$ is oligomorphic if $\A$ is.
-%
-    Now, consider a chain $V_0 \subset V_1 \subset \cdots \subset V_l \subseteq \Lin_\FF \B^d$ of $\Aut(\B)$-equivariant subspaces. 
-    Then each $V_i$ is also $\Aut(\A)$-equivariant,
-    and the finite length property of $\A$ yields an upper bound on $l$.
-\end{proof}
+% \begin{lemma}\label{lem:interpretations-preserve-fin-len}
+%     If $\A$ has the finite length property over a field $\FF$, then so does any interpretation $\B$ in $\A$.
+% \end{lemma}
+% \begin{proof}
+% It is a standard result in model theory (see e.g.~\cite[Chap.~5,7]{hodges1993model}) that $\B$ is oligomorphic if $\A$ is.
+% %
+%     Now, consider a chain $V_0 \subset V_1 \subset \cdots \subset V_l \subseteq \Lin_\FF \B^d$ of $\Aut(\B)$-equivariant subspaces. 
+%     Then each $V_i$ is also $\Aut(\A)$-equivariant,
+%     and the finite length property of $\A$ yields an upper bound on $l$.
+% \end{proof}
 
 As an example application:
 
@@ -22,16 +22,9 @@ As an example application:
 \end{theorem}
 
 \begin{proof}
-    We rely on the intricate classification result of Lachlan and Woodrow~\cite{LachlanWoodrow_80} which says that any countable homogeneous graph, or its complement, is isomorphic to: 
-    \begin{enumerate}
-        \item the Rado graph;
-        \item the $K_n$-free Henson graph, where $n \geq 3$; or
-        \item $m$ disjoint copies of the complete graph $K_n$, where at least one of $m$ and $n$ is infinite.
-    \end{enumerate}
+    We rely on the intricate classification result of Lachlan and Woodrow~\cite{LachlanWoodrow_80} which says that any countable homogeneous graph, or its complement, is isomorphic to one of: (a) the Rado graph;  (b) the $K_n$-free Henson graph, where $n \geq 3$; or (c) $m$ disjoint copies of the complete graph $K_n$, where at least one of $m$ and $n$ is infinite.
     Since a graph $\A$ and its complement share the same automorphism group, 
-    when studying the length of $\Lin_\FF \A^d$ we only need to examine the former graph.    
-    For (1) and (2), the finite length property follows directly from Corollary~\ref{cor:free-finite-length}.
-    The case (3) follows from Lemma~\ref{lem:interpretations-preserve-fin-len}, as those graphs admit interpretations in the equality atoms.
+    when studying the length of $\Lin_\FF \A^d$ we only need to examine the structures of kinds (a), (b) and (c). For the first two kinds, the finite length property follows directly from Corollary~\ref{cor:free-finite-length}. The structures of kind (c) admit a first-order interpretation in the equality atoms, and hence they inherit the finitel length property from them. This is because by doing a first-order interpretation, we can only have fewer orbit-finite sets and orbit-finitely vector spaces. 
     \end{proof}
 
 % Another recipe for producing more structures from $\A$ is by considering $(\A, {=}c_1, \dots, {=}c_k)$, where $c_1, \dots, c_k \in \A$ are seen as constants.
@@ -48,7 +41,7 @@ As an example application:
 % \end{itemize}
 
 
-Let us summarise the scope of our results. In the cog-based approach of Sections~\ref{sec:free-amalg}--\ref{sec:equivariant-subspaces}, we cover the generically ordered Fraïssé limit of any free amalgamation class over a finite relational vocabulary of relational symbols of arity at most $2$. We do not know how to drop the arity restriction from our proofs, so it is interesting that recently, using a different approach, Evans proved~\cite[Prop.~3.10]{Evans_pm1} that $\Lin \A^2$ has finite length for a vocabulary of any arity. We do not know how to combine these results. 
+Let us summarise the scope of our results. In the cog-based approach of Sections~\ref{sec:free-amalg}--\ref{sec:equivariant-subspaces}, we cover the generically ordered Fraïssé limit of any free amalgamation class over a finite relational vocabulary of relational symbols of arity at most $2$. We do not know how to drop the arity restriction from our proofs, so it is interesting that recently, using a different approach, Evans proved~\cite[Prop.~3.10]{Evans_pm1} that $\Lin \A^2$ has finite length for certain structures with  vocabularies of arbitrarily high arity. We do not know how to combine these results. 
 
 Our main cog-based result is Theorem~\ref{thm:cog-span-generally}, 
 which allows us in Section~\ref{sec:equivariant-subspaces} to describe all equivariant subspaces in any orbit-finite-dimensional vector space, and to deduce the finite length property with a tight bound.
