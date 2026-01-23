@@ -49,7 +49,7 @@ the class $\Forb(\Fclass)$ of finite $\sigma_0$-structures form a free amalgamat
         \subseteq \cdots 
         \subseteq \Forb(\{{\circlearrowright}, {\rightarrow}\})
     \end{align*}    
-    are all free amalagamation classes.
+    are all free amalgamation classes.
 \end{myexample}
 
 \paragraph*{Irreflexivity} 
@@ -89,12 +89,12 @@ So we may assume that $\A$ and $\A_0$ have the same underlying set; we then have
 
 Conversely, we call $\A$ the \emph{generically ordered expansion} of $\A_0$ or simply the ``ordered $\A_0$''.
 
-\begin{myexample}\label{ex:geneircally-ordered-equality}
+\begin{myexample}\label{ex:generically-ordered-equality}
     Continuing from Example~\ref{ex:free-amalg-equality},
     the ordered atoms (Example~\ref{ex:order-atoms}) is the generically ordered expansion of the equality atoms (Example~\ref{ex:equality-atoms}).
 \end{myexample}
 
-\begin{myexample}\label{ex:geneircally-ordered-graphs}
+\begin{myexample}\label{ex:generically-ordered-graphs}
     Continuing from Example~\ref{ex:free-amalg-graphs}, we obtain generically ordered expansions of the Rado graph and of the $K_n$-free Henson graphs.
     The ordered Rado graph was studied in \cite{BPP15}.
     In the example below, we will work with the ordered triangle-free Henson graph.
@@ -465,7 +465,7 @@ Given $\lambda \in \EE$ and $a \in \cal O$, we need to understand
 \]
 as a formal expression for an element of $\Lin_\EE \cal O$, instead of the result of a scalar multiplication.
 Accordingly, we need to redefine $\Cog_\EE\cal O$ to be spanned by formal expressions $\lambda\cdot(a \between b)$ for $\lambda\in\EE$. 
-However, once that is done, we can naturally view $\Lin_\EE \cal O$, $\Ker_\EE \cal O$, and $\Cog_\EE \cal O$ as vector spaces over $\FF$.
+We still have $\Lin_{\FF^n} \cal O \supseteq \Lin_\EE \cal O \supseteq \Ker_\EE \cal O = \Cog_\EE \cal O$ as equivariant spaces over $\FF$.
 \end{remark}
 
 Leaving the proof to Appendix~\ref{sec:appendix-cogs}, 
@@ -490,8 +490,8 @@ But by allowing $\EE$ to be finite-dimensional vector spaces, we can now describ
 \end{theorem}
 
 \begin{myexample}
-    When $\A$ is the ordered atoms and $d = 1$,
-    the maps are
+    Let $\A$ be the ordered atoms. 
+    For $d = 1$, the maps are
     \begin{align*}
         v {\restriction_1} (a) &= v(a) \\
         v {\restriction_2} () &= \sum_{-} v(-)
@@ -504,12 +504,13 @@ The ideas of using these local coefficients to enumerate equivariant subspaces c
 
 \paragraph*{Systems of linear equations.}
 Solving a linear equation $\mathbf{A x} = \mathbf{b}$ amounts to checking whether $\mathbf{b}$ is spanned by the columns of $\mathbf{A}$.
+As explained in \cite[Sec.~9]{GhoshLasota_24}
 In the orbit-finite setting, we assume that every column has finitely many non-zero entries, and that $j \mapsto \mathbf{A}_{-, j}$ is equivariant.
 Theorem~\ref{thm:coeff-approximation} allows us to check membership in an orbit-finitely spanned subspace.
 The column-finite assumption is without loss of generality over the ordered atoms (which has the function space property),
 and we can relax equivariance to finite supports because the structure interprets constants.
 
-\paragraph*{Lengths.}
+\paragraph*{Precise lengths.}
 The characterisation gives us an upper bound on $\Lin_\FF \cal O$, which meets with the lower bound given by \cite[Cor.~4.12]{BFKM24}.
 
 
@@ -518,14 +519,7 @@ The characterisation gives us an upper bound on $\Lin_\FF \cal O$, which meets w
 % \begin{myexample}
 %     $\A$ is the ordered atoms, $d = 2$.
 
-% \begin{align*}
-%     v {\restriction_1} (a < b) &= ( v(a, b),\ v(b, a) ); \\
-%     v {\restriction_2} (c) &= (\begin{aligned}
-%         &\sum_{{-} < c} v({-}, c), \sum_{c < {\sim}} v(c, {\sim}), v(c, c), \\
-%         &\sum_{{-} < c} v({-}, c), \sum_{c < {\sim}} v({\sim}, c)
-%     \end{aligned}); \\
-%     v {\restriction_3} () &= ( \sum_{{-} < {\sim}} v({-}, {\sim}), \sum_{{-} < {\sim}} v({\sim}, {-}), \sum_{=} v(=, =)).
-% \end{align*}
+
 % \end{myexample}
 
 \begin{corollary}\label{cor:2d-length}
