@@ -101,9 +101,9 @@ Conversely, we call $\A$ the \emph{generically ordered expansion} of $\A_0$ or s
 
 Using a classification result of Lachlan and Woodrow~\cite{LachlanWoodrow_80}, we can get the following general result.
 
-\begin{theorem}\label{thm:lachlan-woodrow}
+\begin{corollary}\label{cor:lachlan-woodrow}
     Every countable homogeneous undirected graph has the finite length property over any field.
-\end{theorem}
+\end{corollary}
 
 
 
@@ -530,10 +530,10 @@ But by allowing $\EE$ to be finite-dimensional vector spaces, we can now describ
 \end{corollary}
 
 Variants of Theorem~\ref{thm:coeff-approximation} have been shown over the equality and the ordered atoms: 
-see in \cite[Cor.~3.17]{Gray97}, \cite[Thm.~15]{HofmanLerouxTotzke_17}, \cite[Thm.~3.4]{HofmanRozycki_2022}, and \cite[Thm.~19]{Arka_notes}, \cite[Sec.~6]{GhoshHofmanLasota_22}.
+see \cite[Cor.~3.17]{Gray97}, \cite[Thm.~15]{HofmanLerouxTotzke_17}, \cite[Thm.~3.4]{HofmanRozycki_2022}, and \cite[Thm.~19]{Arka_notes}, \cite[Sec.~6]{GhoshHofmanLasota_22}.
 As described in \cite[Sec.~9]{GhoshLasota_24}, such results allow us to decide the solvability of orbit-finite systems of linear equations. 
-Checking whether the system $\mathbf{A} \mathbf{x} = \mathbf{b}$ admits a solution amounts to checking whether $\mathbf{b}$ is spanned by the columns of $\mathbf{A}$,
-which we briefly repeat.
+We briefly repeat the explanation.
+Checking whether the system $\mathbf{A} \mathbf{x} = \mathbf{b}$ admits a solution amounts to checking whether $\mathbf{b}$ is spanned by the columns of $\mathbf{A}$.
 In the orbit-finite setting, we assume that the rows and columns are indexed by $\A^n$, that every column has finitely many non-zero entries, and that $j \mapsto \mathbf{A}_{-, j}$ is equivariant.
 That is, we ask whether $\mathbf{b} \in \Lin_\FF \A^d$ is in the span of $\mathbf{A}_{-, j}$. 
 By Theorem~\ref{thm:coeff-approximation}, it suffices to check whether $\mathbf{b} {\restriction_i} (\cal O_i) \subseteq \mathbf{A}_{-, j_1} {\restriction_i} (\cal O_i) + \cdots + \mathbf{A}_{-, j_n} {\restriction_i} (\cal O_i)$, in the finite dimensional space $\FF^{n_i}$, having chosen orbit representatives $j_1, \dots, j_n \in \A^d$.

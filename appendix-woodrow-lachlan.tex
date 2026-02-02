@@ -1,4 +1,20 @@
-\section{Proof of Theorem~\ref{thm:lachlan-woodrow}}
-    We rely on the intricate classification result of Lachlan and Woodrow~\cite{LachlanWoodrow_80} which says that any countable homogeneous graph, or its complement, is isomorphic to one of: (a) the Rado graph;  (b) the $K_n$-free Henson graph, where $n \geq 3$; or (c) $m$ disjoint copies of the complete graph $K_n$, where at least one of $m$ and $n$ is infinite.
+\section{Proof of Corollary~\ref{cor:lachlan-woodrow}}
+    We rely on the intricate classification result of Lachlan and Woodrow~\cite{LachlanWoodrow_80} which says that any countable homogeneous graph, or its complement, is isomorphic to one of: 
+    \begin{enumerate}[(a)]
+        \item the Rado graph;
+        \item the $K_n$-free Henson graph, where $n \geq 3$;
+        \item $m$ disjoint copies of the complete graph $K_n$, where at least one of $m$ and $n$ is infinite.
+    \end{enumerate}
     Since a graph $\A$ and its complement share the same automorphism group, 
-    when studying the length of $\Lin_\FF \A^d$ we only need to examine the structures of kinds (a), (b) and (c). For the first two kinds, the finite length property follows directly from Corollary~\ref{cor:free-finite-length}. The structures of kind (c) admit a first-order interpretation in the equality atoms, and hence they inherit the finitel length property from them. This is because by doing a first-order interpretation, we can only have fewer orbit-finite sets and orbit-finitely vector spaces. 
+    when studying the length of $\Lin_\FF \A^d$ we only need to examine the structures of kinds (a), (b) and (c). 
+    For the first two kinds, the finite length property follows directly from Corollary~\ref{cor:free-finite-length}. 
+    The structures of kind (c) admit a first-order interpretation in the equality atoms, 
+    and hence they inherit the finite length property from them --- we can only have fewer orbit-finite sets and orbit-finitely spanned vector spaces.
+    
+    (In more detail, a \emph{first-order interpretation} $\B$ in $\A$ consists of an orbit-finite set over $\A$ equipped with equivariant relations.
+    Observe that, given $\pi \in \Aut(\A)$, the induced action $b \mapsto \pi(b)$ on $\B$ is an automorphism of $\B$.
+    So an $\Aut(\B)$-orbit of tuples in $\B^d$ is equivariant under $\Aut(\A)$, i.e., a union of $\Aut(\A)$-orbits;
+    since $\A$ is oligomorphic, so is $\B$.
+    Similarly, consider a chain of $\Aut(\B)$-equivariant subspaces in $\Lin_\FF \B^d$.
+    Then these spaces are necessarily $\Aut(\A)$-equivariant, 
+    so the chain has bounded length because $\B^d$ is an orbit-finite set over $\A$.)
