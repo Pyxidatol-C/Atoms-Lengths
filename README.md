@@ -1,11 +1,11 @@
+![the length-scape](Lengthscape.png)
+
 A structure 𝔸:
 - is _oligomorphic_ if $\text{ 𝔸}^d$ has finitely many orbits under the automorphism group of 𝔸 for $d = 1, 2, \dots$;
 - is _finitely homogeneous_ if it is a first-order reduct of a homogeneous structure in a finite relational vocabulary.
 - has the _ascending chain property (ACP)_ if $\text{Lin}_F\text{ 𝔸}^d$ is Noetherian for $d = 1, 2, \dots$ over any field $F$;
 - has the _finite length property (FLP)_ if $\text{Lin}_F\text{ 𝔸}^d$ has finite length for $d = 1, 2, \dots$ over any field $F$;
 - has _FLP/fin_ (resp., _FLP/0_) if it has the finite length property over all finite fields (resp., fields of characteristic 0).
-
-![the length-scape](Lengthscape.png)
 
 **Conjectures:**
 1. oligomorphic => ACP
@@ -30,7 +30,7 @@ In particular, we establish FLP/0 for some structures that are not finitely homo
 Below is a selection of concrete structures and the length-scape.
 
 | class of finite structures | Fraïssé limit | ACP | FLP | FLP/0 |
-| --- | --- | --- | :--: | --- |
+| --- | --- | :-: | :--: | :-: |
 | sets | (ℕ, =) | ✅ | ✅ | ✅ |
 | total orders | (ℚ, ≤) | ✅ | ✅ | ✅ |
 | partial orders | (ℙ, ⊑) |  |  |  |
