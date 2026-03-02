@@ -74,7 +74,7 @@ Denote the Fraïssé limit of $\Cclass$ by $\A$.
 
 Before we prove this theorem in Section~\ref{sec:cogs-turn}, let us state an easy consequence of it and give some examples.
 
-The Fraïssé limit $\A_0$ of $\Cclass$ is a reduct of $\A$.
+The Fraïssé limit $\A_0$ of $\Cclass_0$ is a reduct of $\A$.
 To see this, notice that $\A$, when viewed as an $\sigma_0$-structure, shares the same age as $\A_0$ --- namely, $\Cclass_0$.
 Moreover, it follows from a back-and-forth argument \cite[Lem.~7.1.4]{hodges1993model} that the $\sigma_0$-structure $\A$ is also homogeneous and, therefore, that it is isomorphic to $\A_0$.
 So we may assume that $\A$ and $\A_0$ have the same underlying set; we then have $\Aut(\A) \subseteq \Aut(\A_0)$, where $\Aut(X)$ denotes the group of automorphisms of $X$.
@@ -257,20 +257,20 @@ We begin with a technical lemma, which combines the free amalgamation in $\Cclas
 \end{lemma}
 \begin{proof}
     Form the free amalgam of structures in ${\Cclass}_0$:
-% https://q.uiver.app/#q=WzAsNCxbMCwxLCJYIl0sWzEsMiwiWCBcXGN1cCBcXHt6XFx9Il0sWzEsMCwiWCBcXGN1cCBZIFxcY3VwIFxce3pcXH0iXSxbMiwxLCJYIFxcY3VwIFkgXFxjdXAgXFx7eiwgeidcXH0iXSxbMCwxXSxbMCwyXSxbMSwzLCJ4IFxcaW4gWCBcXG1hcHN0byB4LFxcIHogXFxtYXBzdG8geiciLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMiwzLCJcXHN1YnNldGVxIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV1d
+% https://q.uiver.app/#q=WzAsNCxbMCwxLCJYIl0sWzEsMiwiWCBcXGN1cCBcXHt6XFx9Il0sWzEsMCwiWCBcXGN1cCBZIFxcY3VwIFxce3pcXH0iXSxbMiwxLCJYIFxcY3VwIFkgXFxjdXAgXFx7eiwgeidcXH0iXSxbMCwxLCJcXHN1YnNldGVxIiwxXSxbMCwyLCJcXHN1YnNldGVxIiwxXSxbMSwzLCJ4IFxcaW4gWCBcXG1hcHN0byB4LFxcIHogXFxtYXBzdG8geiciLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMiwzLCJcXHN1YnNldGVxIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV1d
 \[\begin{tikzcd}
-	& {X \cup Y \cup \{z\}} \\
+	& {X \cup Y \cup \{z\}} & \\
 	X && {X \cup Y \cup \{z, z'\}} \\
 	& {X \cup \{z\}}
 	\arrow["\subseteq"{description}, dotted, from=1-2, to=2-3]
-	\arrow[from=2-1, to=1-2]
-	\arrow[from=2-1, to=3-2]
+	\arrow["\subseteq"{description}, from=2-1, to=1-2]
+	\arrow["\subseteq"{description}, from=2-1, to=3-2]
 	\arrow["{x \in X \mapsto x,\ z \mapsto z'}"{description}, dotted, from=3-2, to=2-3]
 \end{tikzcd}\]
     so that no element of $Y \cup \{z\}$ is related to $z'$.
     To make $X \cup Y \cup \{z, z'\}$ an $\sigma$-structure, 
     inherit the order on $X \cup Y \cup \{z\}$ from $\A$,
-    and declare that $z < z'$, as well as $z' < a$ whenever $z<a$ for $a\in X \cup Y$. This makes the above a diagram of embeddings in the presence of the order.
+    and declare that $z < z'$, as well as $z' < a$ whenever $z<a$ for $a\in X \cup Y$. (This makes the above a diagram of embeddings in the presence of the order; we only use the bottom right embedding.)
     By homogeneity, $X \cup Y \cup \{z, z'\}$ embeds into $\A$ via some $f$ which is the identity on $X \cup Y \cup \{z\}$;
     again by homogeneity, we may extend the embedding \[ 
         x \in X \mapsto x, \quad z \mapsto f(z')
@@ -404,7 +404,7 @@ It is easy to draw $\cal O$-cogs in this way. Assuming some additional atom $z>h
 
 We would like to present $v$ as a sum of such ${\cal O}$-cogs. Some additional atoms must be used for that, as no four atoms among the original nine form an $\cal O$-duo.
 It would be very convenient to introduce a single new atom $z$ to form all the $\cal O$-duos that we will use. 
-(If $\A$ is the ordered atoms, we can simply take $z$ to be the largest atom present in $v$: cf.~the proof of \cite[\text{Cl.~4.7}]{BFKM24}.)
+(Such a new atom is not necessary if $\A$ is the ordered atoms, as we can simply take $z$ to be the largest atom present in the vector: cf.~the proof of \cite[\text{Cl.~4.7}]{BFKM24}.)
 We can naïvely require $z$ to be:
 \begin{itemize}
     \item larger than every atom in $v$,
@@ -483,7 +483,10 @@ We still have $\Lin_{\FF^n} \cal O \supseteq \Lin_\EE \cal O \supseteq \Ker_\EE 
 
 Leaving the proof to Appendix~\ref{sec:appendix-cogs}, 
 we have --- as discussed at the end of Section~\ref{subsec:finding-cogs} --- established Theorem~\ref{thm:ordered-free-amalg-has-finite-length}, by taking $\EE = \FF$.
-But by allowing $\EE$ to be finite-dimensional vector spaces, we can now describe all equivariant subspaces. 
+But by allowing $\EE$ to be finite-dimensional vector spaces, we can now describe all equivariant subspaces: 
+we only need to look at local sums of coefficients.
+(Stated in a another way, there are no interesting subspaces here --- 
+unlike the infinite chain exhibited in \cite[Thm.~4.14]{BFKM24} for the bit-vector atoms from Example~\ref{ex:vector-space-atoms}.) 
 
 \begin{theorem}\label{thm:coeff-approximation}
     Fix $d \in \{1, 2, \dots\}$. 
@@ -491,7 +494,7 @@ But by allowing $\EE$ to be finite-dimensional vector spaces, we can now describ
     \[
         \restriction_i : \Lin_\FF \A^d \to \Lin_{\FF^{n_i}} \cal O_i,
     \]
-    where $\cal O_i$ is an ordered orbit of $\A^{d_i}$ with $d > d_i$, 
+    where $\cal O_i$ is an ordered orbit of $\A^{d_i}$ with $d \geq d_i$, 
     such that every equivariant subspace $W \subseteq \Lin_\FF \A^d$ is equal to
     \begin{equation}\label{eq:equiv-subsp}
         \{v \in \Lin_\FF \A^d \mid \forall i, \forall a \in \cal{O}_i : v{\restriction_i}(a) \in \EE_i \}
@@ -534,6 +537,6 @@ see \cite[Cor.~3.17]{Gray97}, \cite[Thm.~15]{HofmanLerouxTotzke_17}, \cite[Thm.~
 As described in \cite[Sec.~9]{GhoshLasota_24}, such results allow us to decide the solvability of orbit-finite systems of linear equations. 
 We briefly repeat the explanation.
 Checking whether the system $\mathbf{A} \mathbf{x} = \mathbf{b}$ admits a solution amounts to checking whether $\mathbf{b}$ is spanned by the columns of $\mathbf{A}$.
-In the orbit-finite setting, we assume that the rows and columns are indexed by $\A^n$, that every column has finitely many non-zero entries, and that $j \mapsto \mathbf{A}_{-, j}$ is equivariant.
+In the orbit-finite setting, we assume that the rows and columns are indexed by $\A^d$, that every column has finitely many non-zero entries, and that $j \mapsto \mathbf{A}_{-, j}$ is equivariant.
 That is, we ask whether $\mathbf{b} \in \Lin_\FF \A^d$ is in the span of $\mathbf{A}_{-, j}$. 
-By Theorem~\ref{thm:coeff-approximation}, it suffices to check whether $\mathbf{b} {\restriction_i} (\cal O_i) \subseteq \mathbf{A}_{-, j_1} {\restriction_i} (\cal O_i) + \cdots + \mathbf{A}_{-, j_n} {\restriction_i} (\cal O_i)$, in the finite dimensional space $\FF^{n_i}$, having chosen orbit representatives $j_1, \dots, j_n \in \A^d$.
+By Theorem~\ref{thm:coeff-approximation}, it suffices to check whether $\mathbf{b} {\restriction_i} (\cal O_i) \subseteq \mathbf{A}_{-, j_1} {\restriction_i} (\cal O_i) + \cdots + \mathbf{A}_{-, j_r} {\restriction_i} (\cal O_i)$ for all $i$, in the finite-dimensional spaces $\FF^{n_i}$, having chosen orbit representatives $j_1, \dots, j_r \in \A^d$.

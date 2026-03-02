@@ -16,3 +16,4 @@
 *.pdf
 .DS_Store
 *.synctex(busy)
+aux/*
