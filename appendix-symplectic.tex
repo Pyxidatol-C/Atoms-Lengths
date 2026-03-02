@@ -350,7 +350,15 @@ It remains to show $\widetilde \W_0 \subseteq \widetilde \W_1 \subseteq \widetil
     tells us how we should define the edge relation in $G_{s,t}$ for $f'$ to be an embedding of graphs.
 \end{proof}
 
-As the Rado graph is homogeneous, we may consider the symplectic graphs $\widetilde \W_i$ as its induced subgraphs.
+Note that $\bigcup_{i} \widetilde \W_i$ is not isomorphic to the Rado graph.
+For instance, there are no common neighbours of $e_i$, $f_i$, and $e_i + f_i$:
+to have $1 = \omega(v, e_i + f_i) = \omega(v, e_i) + \omega(v, f_i) = 1 + 1$ is impossible.
+Since $\bigcup_{i} \widetilde \W_i$ and the Rado graph share the same age, the homogeneity of the latter means two things:
+\begin{enumerate}
+    \item $\bigcup_{i} \widetilde \W_i$ cannot be a homogeneous graph as well;
+    \item nonetheless, we may consider the symplectic graphs $\widetilde \W_i$ as induced subgraphs of the Rado graph.
+\end{enumerate}
+
 \begin{theorem} \label{thm:appendix-rado-oligo-approx}
     The Rado graph is oligomorphically approximated by $\widetilde \W_0 \subseteq \widetilde \W_1 \subseteq \widetilde \W_2 \subseteq \cdots$.
 \end{theorem}
