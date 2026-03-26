@@ -1,4 +1,7 @@
+TODO: use Edwards--Venn 'cog' diagram instead
 ![the length-scape](Lengthscape.png)
+
+`git latexdiff ef64caa --biber -o ./LICS-submission-with-fixes.pdf && git add . && git commit --amend --no-edit `
 
 A structure 𝔸:
 - is _oligomorphic_ if $\text{ 𝔸}^d$ has finitely many orbits under the automorphism group of 𝔸 for $d = 1, 2, \dots$;

@@ -49,11 +49,11 @@ the class $\Forb(\Fclass)$ of finite $\sigma_0$-structures form a free amalgamat
         \subseteq \cdots 
         \subseteq \Forb(\{{\circlearrowright}, {\rightarrow}\})
     \end{align*}    
-    are all free amalgamation classes.
+    are all free amalgamation classes --- notice that in each forbidden structure, any two elements are related. 
 \end{myexample}
 
 \paragraph*{Irreflexivity} 
-For technical reasons, we restrict attention to classes $\Cclass_0$ where all structures are {\em irreflexive}, i.e. such that if $R(x,y)$ then $x\neq y$ for each relation $R$. This does not lose generality: for any free amalgamation class $\Cclass_0$, we may replace every binary relation $R$ in the vocabulary with a new unary predicate $R_=$, interpreted in every structure so that $R_=(x)$ iff $R(x,x)$, and a binary relation interpreted as the irreflexive part of $R$. Then $\Cclass_0$ interpreted over this modified language is still a free amalgamation class, and all our results transport back to the original $\Cclass_0$. This way of encoding arbitrary structures as irreflexive ones is standard; see e.g.~\cite[Sec.~2.4]{Herwig1998} and \cite[p.~121]{SS20}. All examples considered here are already irreflexive.
+For technical reasons, we restrict attention to classes $\Cclass_0$ where all structures are {\em irreflexive}, i.e. such that if $R(x,y)$ then $x\neq y$ for each relation $R$. This does not lose generality: for any free amalgamation class $\Cclass_0$, we may replace every binary relation $R$ in the vocabulary with a new unary predicate $R_=$, interpreted in every structure so that $R_=(x)$ iff $R(x,x)$, and a binary relation interpreted as the irreflexive part of $R$. Then $\Cclass_0$ interpreted over this modified vocabulary is still a free amalgamation class, and all our results transport back to the original $\Cclass_0$. This way of encoding arbitrary structures as irreflexive ones is standard; see e.g.~\cite[Sec.~2.4]{Herwig1998} and \cite[p.~121]{SS20}. All examples considered here are already irreflexive.
 
 \paragraph*{Generically ordered expansion}
 Now, let $\sigma$ consist of $\sigma_0$ together with a new binary relation $<$.
@@ -64,12 +64,23 @@ Observe that $\Cclass$ is an amalgamation class.
 Indeed, let $X, Y_1, Y_2$ be $\sigma$-structures in $\Cclass$ with $X \subseteq Y_1 \cap Y_2$.
 Then we can amalgamate $Y_1, Y_2$ over $X$ as $\sigma_0$-structures and as $\{<\}$-structures, 
 both using the disjoint union of $Y_1, Y_2$ over $X$ as the underlying set. 
-Superposing these relations will give an $\sigma$-structure in $\Cclass$, which is the desired amalgamation.
+Superposing these relations will give a $\sigma$-structure in $\Cclass$, which is the desired amalgamation.
 (Because of the total order, this amalgamation in $\Cclass$ is not free unless it is trivial.)
 Denote the Fraïssé limit of $\Cclass$ by $\A$.
 
+Our main result of this section is that this ordered structure $\A$ has the finite length property over any field.
+For clarity, we begin with a terse restatement of the setting.
+
 \begin{theorem}\label{thm:ordered-free-amalg-has-finite-length}
-    The ordered structure $\A$, even with finitely many constants fixed, has the finite length property over any field.
+    Consider:
+    \begin{itemize}
+        \item[$\sigma_0$] a finite, at-most-binary relational vocabulary;
+        \item[$\Cclass_0$] a free amalgamation class of finite, irreflexive $\sigma_0$-structures;
+        \item[$\Cclass$] all total orderings of all structures in $\Cclass_0$, viewed as $(\sigma_0 \uplus \{<\})$-structures;
+        \item[$\A$] the Fraïssé limit of $\Cclass$, which is a homogeneous and oligomorphic\footnote{Every homogeneous structure over a finite relational vocabulary is oligomorphic. See ~\cite[1607--1608]{Macpherson11} for instance.} 
+        $(\sigma_0 \uplus \{<\})$-structure.
+    \end{itemize}
+    Then the totally ordered structure $\A$, even with finitely many constants fixed, has the finite length property over any field.
 \end{theorem}
 
 Before we prove this theorem in Section~\ref{sec:cogs-turn}, let us state an easy consequence of it and give some examples.
@@ -135,7 +146,7 @@ To study the lengths of orbit-finitely spanned spaces, we may focus on a single 
     Hence the length of $\Lin_\FF \A^d$, under the action of $\Aut(\A/S)$, equals \[
         \len(\Lin_\FF(\biguplus_i \cal O_i)) = \len(\bigoplus_i \Lin_\FF \cal O_i) = \sum_i \len(\Lin_\FF \cal O_i),
     \]
-    which is finite if and only if each summands is finite.
+    which is finite if and only if each summand is finite.
 \end{proof}
 
 So fix an ordered orbit $\cal O = \Aut(\A/S) \cdot o \subseteq \A^I$.
@@ -361,14 +372,14 @@ Before we show a proof of this (stated as Theorem~\ref{thm:cog-span-generally}),
 Let $\A_0$ be the universal triangle-free (undirected) graph, and $\A$ its totally ordered version. Consider nine atoms $\{a,\ldots,i\}$, ordered by~$<$ alphabetically, with the edge relation as shown here:
 \[
 \scalebox{0.8}{
-\rotatebox{2}{
+\rotatebox{7}{
 \xymatrix@R=6pt@C=15pt{
-\rotatebox{-2}{$h$} & & & & & & \rotatebox{-2}{$i$} \\
+\rotatebox{-7}{$h$} & & & & & & \rotatebox{-7}{$i$} \\
 \\
-& & & \rotatebox{-2}{$g$}\ar@{-}[uulll]\ar@{-}[uurrr] \\
-& \rotatebox{-2}{$e$} & & & & \rotatebox{-2}{$f$} \\
-& & \rotatebox{-2}{$c$}\ar@{-}[ul]\ar@{-}[uur] & & \rotatebox{-2}{$d$}\ar@{-}[uul]\ar@{-}[ur] \\
-\rotatebox{-2}{$a$}\ar@{-}[rrrrrr]\ar@{-}[uuuuu]\ar@{-}[uur] & & & & & & \rotatebox{-2}{$b$}\ar@{-}[uul]\ar@{-}[uuuuu]
+& & & \rotatebox{-7}{$g$}\ar@{-}[uulll]\ar@{-}[uurrr] \\
+& \rotatebox{-7}{$e$} & & & & \rotatebox{-7}{$f$} \\
+& & \rotatebox{-7}{$c$}\ar@{-}[ul]\ar@{-}[uur] & & \rotatebox{-7}{$d$}\ar@{-}[uul]\ar@{-}[ur] \\
+\rotatebox{-7}{$a$}\ar@{-}[rrrrrr]\ar@{-}[uuuuu]\ar@{-}[uur] & & & & & & \rotatebox{-7}{$b$}\ar@{-}[uul]\ar@{-}[uuuuu]
 }}}\]
 This graph is drawn so that the total order of the atoms corresponds to the vertical order.
 
@@ -378,14 +389,14 @@ v = ah - ae + ce - cg + dg - df + bf - bi + gi - gh \in \Lin_\FF{\cal O}.
 \]
 This can be graphically presented as the following graph:
 \[
-\scalebox{0.8}{\rotatebox{2}{
+\scalebox{0.8}{\rotatebox{7}{
 \xymatrix@R=6pt@C=15pt{
-\rotatebox{-2}{$h$} & & & & & & \rotatebox{-2}{$i$} \\
+\rotatebox{-7}{$h$} & & & & & & \rotatebox{-7}{$i$} \\
 \\
-& & & \rotatebox{-2}{$g$}\ar@[blue][uulll]\ar@[red][uurrr] \\
-& \rotatebox{-2}{$e$} & & & & \rotatebox{-2}{$f$} \\
-& & \rotatebox{-2}{$c$}\ar@[red][ul]\ar@[blue][uur] & & \rotatebox{-2}{$d$}\ar@[red][uul]\ar@[blue][ur] \\
-\rotatebox{-2}{$a$}\ar@{-}[rrrrrr]\ar@[red][uuuuu]\ar@[blue][uur] & & & & & & \rotatebox{-2}{$b$}\ar@[red][uul]\ar@[blue][uuuuu]
+& & & \rotatebox{-7}{$g$}\ar@[blue][uulll]\ar@[red][uurrr] \\
+& \rotatebox{-7}{$e$} & & & & \rotatebox{-7}{$f$} \\
+& & \rotatebox{-7}{$c$}\ar@[red][ul]\ar@[blue][uur] & & \rotatebox{-7}{$d$}\ar@[red][uul]\ar@[blue][ur] \\
+\rotatebox{-7}{$a$}\ar@{-}[rrrrrr]\ar@[red][uuuuu]\ar@[blue][uur] & & & & & & \rotatebox{-7}{$b$}\ar@[red][uul]\ar@[blue][uuuuu]
 }}}
 \]
 where edges with coefficient $+1$ are marked as red, and with $-1$ as blue. The arrows on the chosen edges remind us that the pairs in $\cal O$ are ordered, but this is mere decoration: the definition of $\cal O$ means that all arrows must point upwards.
@@ -423,28 +434,28 @@ v' = v + (gh \between g'i) - (bf \between b'i)
 which can be drawn as:
 \[
 \scalebox{0.8}{
-    \rotatebox{2}{
+    \rotatebox{7}{
 \xymatrix@R=6pt@C=15pt{
-\rotatebox{-2}{$h$} & & & & & & \rotatebox{-2}{$i$} \\
+\rotatebox{-7}{$h$} & & & & & & \rotatebox{-7}{$i$} \\
 \\
-& & & \rotatebox{-2}{$g$}\ar@{-}[uulll]\ar@{-}[uurrr] & \rotatebox{-2}{$g'$}\ar@[blue]@/_2ex/[uullll]\ar@[red]@/_1ex/[uurr] \\
-& \rotatebox{-2}{$e$} & & & & \rotatebox{-2}{$f$} \\
-& & \rotatebox{-2}{$c$}\ar@[red][ul]\ar@[blue][uur] & & \rotatebox{-2}{$d$}\ar@[red][uul]\ar@[blue][ur] \\
-\rotatebox{-2}{$a$}\ar@{-}[rrrrrr]\ar@[red][uuuuu]\ar@[blue][uur] & & & & & & \rotatebox{-2}{$b$}\ar@{-}[uul]\ar@{-}[uuuuu] & \rotatebox{-2}{$b'$}\ar@[red]@/_1ex/[uull]\ar@[blue]@/_1ex/[uuuuul]
+& & & \rotatebox{-7}{$g$}\ar@{-}[uulll]\ar@{-}[uurrr] & \rotatebox{-7}{$g'$}\ar@[blue]@/_2ex/[uullll]\ar@[red]@/_1ex/[uurr] \\
+& \rotatebox{-7}{$e$} & & & & \rotatebox{-7}{$f$} \\
+& & \rotatebox{-7}{$c$}\ar@[red][ul]\ar@[blue][uur] & & \rotatebox{-7}{$d$}\ar@[red][uul]\ar@[blue][ur] \\
+\rotatebox{-7}{$a$}\ar@{-}[rrrrrr]\ar@[red][uuuuu]\ar@[blue][uur] & & & & & & \rotatebox{-7}{$b$}\ar@{-}[uul]\ar@{-}[uuuuu] & \rotatebox{-7}{$b'$}\ar@[red]@/_1ex/[uull]\ar@[blue]@/_1ex/[uuuuul]
 }}}
 \]
 Now an atom $z$ as postulated above does not create any triangles:
 \[
 \scalebox{0.8}{
-\rotatebox{2}{
+\rotatebox{7}{
 \xymatrix@R=6pt@C=15pt{
-& & & \rotatebox{-2}{$z$}\ar@{-}@/_4ex/[llldddddd]\ar@{-}[lddddd]\ar@{-}[rddddd]\ar@{-}@/_-0.5ex/[rddd]\ar@{-}@/_-3ex/[rrrrdddddd] \\
-\rotatebox{-2}{$h$} & & & & & & \rotatebox{-2}{$i$} \\
+& & & \rotatebox{-7}{$z$}\ar@{-}@/_4ex/[llldddddd]\ar@{-}[lddddd]\ar@{-}[rddddd]\ar@{-}@/_-0.5ex/[rddd]\ar@{-}@/_-3ex/[rrrrdddddd] \\
+\rotatebox{-7}{$h$} & & & & & & \rotatebox{-7}{$i$} \\
 \\
-& & & \rotatebox{-2}{$g$}\ar@{-}[uulll]\ar@{-}[uurrr] & \rotatebox{-2}{$g'$}\ar@[blue]@/_2ex/[uullll]\ar@[red]@/_1ex/[uurr] \\
-& \rotatebox{-2}{$e$} & & & & \rotatebox{-2}{$f$} \\
-& & \rotatebox{-2}{$c$}\ar@[red][ul]\ar@[blue][uur] & & \rotatebox{-2}{$d$}\ar@[red][uul]\ar@[blue][ur] \\
-\rotatebox{-2}{$a$}\ar@{-}[rrrrrr]\ar@[red][uuuuu]\ar@[blue][uur] & & & & & & \rotatebox{-2}{$b$}\ar@{-}[uul]\ar@{-}[uuuuu] & \rotatebox{-2}{$b'$}\ar@[red]@/_1ex/[uull]\ar@[blue]@/_1ex/[uuuuul]
+& & & \rotatebox{-7}{$g$}\ar@{-}[uulll]\ar@{-}[uurrr] & \rotatebox{-7}{$g'$}\ar@[blue]@/_2ex/[uullll]\ar@[red]@/_1ex/[uurr] \\
+& \rotatebox{-7}{$e$} & & & & \rotatebox{-7}{$f$} \\
+& & \rotatebox{-7}{$c$}\ar@[red][ul]\ar@[blue][uur] & & \rotatebox{-7}{$d$}\ar@[red][uul]\ar@[blue][ur] \\
+\rotatebox{-7}{$a$}\ar@{-}[rrrrrr]\ar@[red][uuuuu]\ar@[blue][uur] & & & & & & \rotatebox{-7}{$b$}\ar@{-}[uul]\ar@{-}[uuuuu] & \rotatebox{-7}{$b'$}\ar@[red]@/_1ex/[uull]\ar@[blue]@/_1ex/[uuuuul]
 }}}
 \]
 and it is easy to calculate:
