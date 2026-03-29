@@ -7,12 +7,12 @@
 %% values in them; it is your responsibility as an author to replace
 %% the commands and values with those provided to you when you
 %% complete the rights form.
-\setcopyright{acmlicensed}
+\setcopyright{rightsretained}
 \copyrightyear{2026}
 \acmYear{2026}
 \acmDOI{}
 %% These commands are for a PROCEEDINGS abstract or paper.
-\acmConference[under review for LICS'26]{}{}{}
+\acmConference[LICS '26]{41st Annual Symposium on Logic in Computer Science}{July 20--23, 2026}{Lisbon, Portugal}
 %%
 %%  Uncomment \acmBooktitle if the title of the proceedings is different
 %%  from ``Proceedings of ...''!
@@ -157,10 +157,10 @@
 \end{tabular} }}}}
 
 % various kinds of function spaces
-\newcommand{\lineqfun}[2]{ #1 \underset{\textup{lineq}}{\longrightarrow} #2}
-\newcommand{\linfsfun}[2]{ #1 \underset{\textup{linfs}}{\longrightarrow} #2}
-\newcommand{\eqfun}[2]{ #1 \underset{\textup{eq}}{\longrightarrow} #2}
-\newcommand{\fsfun}[2]{ #1 \underset{\textup{fs}}{\longrightarrow} #2}
+\newcommand{\lineqfun}[2]{(#1 \underset{\textup{lineq}}{\longrightarrow} #2)}
+\newcommand{\linfsfun}[2]{(#1 \underset{\textup{linfs}}{\longrightarrow} #2)}
+\newcommand{\eqfun}[2]{(#1 \underset{\textup{eq}}{\longrightarrow} #2)}
+\newcommand{\fsfun}[2]{(#1 \underset{\textup{fs}}{\longrightarrow} #2)}
 
 
 \begin{document}
@@ -171,6 +171,7 @@
 \title{The Finite Length Property of the Rado Graph and Friends}
 
 \author{Jingjie Yang}
+\orcid{0009-0002-5393-6083}
 \affiliation{%
   \institution{University of Oxford}
   \city{}
@@ -185,6 +186,7 @@
 }
 
 \author{Bartek Klin}
+\orcid{0000-0001-5793-7425}
 \affiliation{%
   \institution{University of Oxford}
   \city{}
@@ -203,7 +205,13 @@
 %% The abstract is a short summary of the work to be presented in the
 %% article.
 \begin{abstract}
-  An infinite structure has the finite length property (over a given field) if, for each of its finite powers, strict chains of equivariant subspaces in the corresponding free vector space are bounded in length. Prior work showed that the countable pure set and the dense linear order without endpoints have this property. We generalise these results to (a) structures approximated by finite substructures with few orbits, provided the field is of characteristic zero, and (b) generically ordered expansions of Fraïssé limits with free amalgamation, in vocabularies consisting of unary and binary relations. As a special case, we deduce the finite length property of the Rado graph using both methods. We also describe some connections with function spaces, weighted register automata, and solving orbit-finite systems of linear equations.
+  An infinite structure has the finite length property (over a given field) if, for each of its finite powers, strict chains of equivariant subspaces in the corresponding free vector space are bounded in length. 
+  Prior work showed that the countable pure set and the dense linear order without endpoints have this property. 
+  We generalise these results to 
+  (a)~any structure approximated by finite substructures with few orbits, provided the field is of characteristic zero, and 
+  (b)~any Fraïssé limit with free amalgamation in a vocabulary consisting of unary and binary relations, possibly expanded with a generic total order. 
+  As a special case, we deduce the finite length property of the Rado graph using both methods. 
+  We also describe some connections with function spaces, weighted register automata, and solving orbit-finite systems of linear equations.
 \end{abstract}
 
 %%
@@ -262,6 +270,7 @@
 The first author is partially funded by an IDUB I.1.5 TPB grant and the NCN grant 2022/45/N/ST6/03242.
 
 We thank Ehud Hrushovski, Arka Ghosh, and David Evans for helpful discussions.
+We also thank the anonymous reviewers for their feedback.
 \emergencystretch=1em
 \printbibliography
 
