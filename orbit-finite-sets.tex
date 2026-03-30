@@ -1,36 +1,49 @@
 \section{Orbit-finite sets}
 \label{sec:orbit-finite-sets}
 We shall now briefly explain the concept of orbit-finiteness.
-We start with a countable oligomorphic structure $\A$, as described in Section~\ref{sec:structures}, whose elements we call \emph{atoms}. These can be used to construct sets that are finite up to the symmetries of $\A$, such as
+We start with a countable oligomorphic structure $\A$, as described in Section~\ref{sec:structures}, whose elements we call \emph{atoms}. 
+These can be used to construct sets that are finite up to the symmetries of $\A$, such as
 \begin{align*}
-\myunderbrace{\A^2}{pairs}
-\qquad 
-\myunderbrace{\setbuild{ (a,b) \in \A^2}{ $a \neq b$ }}{non-repeating pairs}
-\qquad 
-\myunderbrace{\binom \A 2}{unordered pairs}.
+   \myunderbrace{\A^2}{pairs}
+   \qquad 
+   \myunderbrace{\setbuild{ (a,b) \in \A^2}{ $a \neq b$ }}{non-repeating pairs}
+   \qquad 
+   \myunderbrace{\binom \A 2}{unordered pairs}.
 \end{align*}
-% Since we want to be able to construct tuples of arbitrary finite length, and we want them to be finite up to symmetries, we will need to assume $\A$ is oligomorphic.
 
-There are several equivalent definitions of orbit-finiteness. Of these, we use one that is based on first-order interpretations~\cite[Sec.~4.3]{hodges1993model}. To construct an orbit-finite set, we  proceed in three steps: take a finite power of the atoms (as in the first example above), restrict this power to an equivariant subset (as in the second example above), and then take a quotient under an equivariant equivalence relation (as in the third example above, where the equivalence relation identifies two pairs if they differ only in their order). The formal definition is given below.
+There are several equivalent definitions of orbit-finiteness. 
+Of these, we use one that is based on first-order interpretations~\cite[Sec.~4.3]{hodges1993model}. 
+To construct an orbit-finite set, we proceed in three steps: 
+take a finite power of the atoms (as in the first example above); 
+restrict this power to an equivariant subset (as in the second example above); 
+and then take a quotient under an equivariant equivalence relation (as in the third example above, where the equivalence relation identifies two pairs if they differ only in the order of their elements). 
+The formal definition is given below.
 
  \begin{definition}[Orbit-finite set]\label{def:orbit-finite-set}
     An \emph{orbit-finite set} over an oligomorphic structure $\A$ is any set that is obtained as follows: 
     \begin{enumerate}
         \item Start with a finite power $\A^d$ for some $d \in \set{0,1,\ldots}$.
         \item Restrict it to an equivariant subset $X \subseteq \A^d$.
-        \item Quotient  $X$ under an equivariant equivalence relation. 
+        \item Quotient $X$ under an equivariant equivalence relation. 
     \end{enumerate}
  \end{definition}
 
 Let us justify the name ``orbit-finite'' in this definition. 
-An orbit-finite set is  equipped with an action of the automorphism group of the original structure $\A$, namely the action inherited  from $\A^d$, suitably extended to the quotient. Under this action, the set has finitely many orbits: $\A^d$ has finitely many orbits by the assumption on oligomorphism, and the number of orbits can only go down when  restricting to an equivariant subset and quotienting under an equivariant equivalence relation. 
+An orbit-finite set is equipped with an action of the automorphism group of the original structure $\A$, namely the action inherited from $\A^d$, suitably extended to the quotient. 
+Under this action, the set has finitely many orbits: 
+$\A^d$ has finitely many orbits by the assumption on oligomorphism, 
+and the number of orbits can only go down when restricting to an equivariant subset and quotienting under an equivariant equivalence relation. 
   
- There are other equivalent definitions of orbit-finite sets. One, given in Definition~\ref{def:orbit-finite-set-alternative} below, emphasises the role of the  group action. In this definition, we use the following notion of support: if $X$ is a set equipped with an action of the automorphism group of $\A$, then a \emph{support} for an element $x \in X$ is any set $S \subseteq \A$ such that every automorphism $\pi$ of $\A$ satisfies
-  \begin{align*}
-  \myunderbrace{\forall a \in S\ \pi(a)=a}{action of $\pi$ on $\A$}
-  \quad \implies \quad 
-  \myunderbrace{\pi(x)=x}{action of $\pi$ on $X$}.
-  \end{align*}
+There are other equivalent definitions of orbit-finite sets. 
+One, given in Definition~\ref{def:orbit-finite-set-alternative} below, emphasises the role of the group action. 
+In this definition, we use the following notion of support: 
+if $X$ is a set equipped with an action of the automorphism group of $\A$, 
+then a \emph{support} for an element $x \in X$ is any set $S \subseteq \A$ such that every automorphism $\pi$ of $\A$ satisfies
+\begin{align*}
+   \myunderbrace{\forall a \in S\ \pi(a)=a}{action of $\pi$ on $\A$}
+   \quad \implies \quad 
+   \myunderbrace{\pi(x)=x}{action of $\pi$ on $X$}.
+\end{align*}
 \begin{definition}
    [Orbit-finite sets, abstractly] \label{def:orbit-finite-set-alternative} An \emph{orbit-finite set} over an oligomorphic structure $\A$ is a set $X$ equipped with an action of the automorphism group of $\A$ such that: 
    \begin{enumerate}
@@ -39,4 +52,8 @@ An orbit-finite set is  equipped with an action of the automorphism group of the
    \end{enumerate}
 \end{definition}
 
-Thanks to oligomorphism of the underlying atom structure, the  two definitions above are equivalent in the sense that they describe the same sets, up to equivariant bijections --- see~\cite[Thm.~5.13]{bojanczyk_slightly}. Both definitions have their uses. Definition~\ref{def:orbit-finite-set} is more concrete, and it comes with a finite representation, which can be used for algorithms that process orbit-finite sets. On the other hand, some constructions --- e.g.~disjoint unions, products --- will result in sets that are consistent with the second, more relaxed, definition. 
+Thanks to oligomorphism of the underlying atom structure, the two definitions above are equivalent 
+in the sense that they describe the same sets, up to equivariant bijections --- see~\cite[Thm.~5.13]{bojanczyk_slightly}. 
+Both definitions have their uses. 
+Definition~\ref{def:orbit-finite-set} is more concrete, and it comes with a finite representation, which can be used for algorithms that process orbit-finite sets. 
+On the other hand, some constructions --- e.g.~disjoint unions, Cartesian products --- will result in sets that are more naturally consistent with the second, more relaxed, definition. 
