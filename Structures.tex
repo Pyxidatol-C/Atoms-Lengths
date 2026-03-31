@@ -52,7 +52,7 @@ Here are some of the important examples that we will consider in this paper.
 \begin{myexample}[Ordered atoms] \label{ex:order-atoms} In this structure, the underlying set is the set of rational numbers, equipped with the usual order --- 
 the vocabulary consists of this binary relation only.
 Automorphisms are order-preserving permutations, and two tuples are in the same orbit if and only if they have the same order pattern. Since there are finitely many order patterns for tuples of fixed length, this structure is oligomorphic. 
-\color{magenta}We should explain homogeneity better? I can move my explanation from Theorem 5.2 to here. (More specifically: for eq and vec, extend first to a local isomorphism then extend with identity; for ord and rado, go back-and-forth)\color{black}
+\textcolor{magenta}{Homogeneity follows because we can define a piecewise linear map, but that can be misleading; consider Cantor's back-and-forth instead.}
 In dimension $d = 2$ there are three orbits: 
 $x_1 < x_2$, $x_1 = x_2$, and $x_1 > x_2$.
 \end{myexample}
@@ -68,8 +68,8 @@ $x_1 < x_2$, $x_1 = x_2$, and $x_1 > x_2$.
     $x_1 = 0 \neq x_2$;
     $0 \neq x_1 = \lambda x_2$, where $\lambda$ ranges over the field $\innerfield$;
     and $x_1, x_2$ being linearly independent. 
-    
-    This particular example can lead to some confusion, since here $\A$ is itself a vector space, and we will later on consider the vector space (possibly over a different field than $\innerfield$) with $\A$ as a basis. %Hence, there will be two vector space structures under consideration. 
+    % This particular example can lead to some confusion, since here $\A$ is itself a vector space, and we will later on consider the vector space (possibly over a different field than $\innerfield$) with $\A$ as a basis. 
+    %Hence, there will be two vector space structures under consideration. 
 \end{myexample}
 
 \begin{myexample}[Rado atoms]\label{ex:rado-graph} The Rado graph is the Fraïssé limit of the class of finite undirected graphs. Here, an undirected graph is viewed as a structure that has one binary relation that is symmetric and irreflexive. 

@@ -18,13 +18,14 @@ Such subsets are called \emph{equivariant subspaces}.
 \begin{myexample}\label{ex:length-one-dim-one}
     Let $\A$ be the equality atoms and let $\field$ be an arbitrary field. 
     As explained in~\cite[Ex.~4.2]{BFKM24}, the corresponding vector space $\Lin_\field \A$ has only three equivariant subspaces: 
-    the zero subspace, the full space, and the subspace that consists of those vectors whose coefficients add up to zero 
+    the zero subspace, the full space, and the subspace consisting of vectors whose coefficients add up to zero 
     (e.g.~$a + b - 2 c$ with $a, b, c \in \A$ distinct). 
 \end{myexample}
 
  Unfortunately, there is a price to pay for the elementary character of Definition~\ref{def:orbit-finite-basis}, 
- and that is the failure of certain closure  properties. 
- In particular, these spaces are not closed under taking equivariant subspaces or quotients under such spaces. 
+ and that is the failure of certain closure properties. 
+ In particular, these spaces are not closed under taking equivariant subspaces (or quotients under such spaces). 
+ Here our consideration is modulo isomorphism 
  \color{magenta}example: equality atoms, $(a, b) / \langle (a, b) + (b, c) - (a, c) \rangle \mapsto a - b$ gives an isomorphism $\Lin \A^{(2)} / \langle \cdots \rangle \cong \langle a - b \rangle$\color{black}. 
  The problem with subspaces is apparent already in Example~\ref{ex:length-one-dim-one}, since the unique nontrivial subspace of $\Lin_\field \A$ does not have any equivariant basis, regardless of the underlying field~\cite[Ex.~6.1]{BFKM24}. 
  \textcolor{magenta}{Cite Arka's thesis}
@@ -34,7 +35,7 @@ Such subsets are called \emph{equivariant subspaces}.
     An \emph{orbit-finitely spanned vector space} over an oligomorphic structure $\A$ is a vector space equipped with an action of automorphisms of $\A$ such that: 
     \begin{enumerate}
         \item \label{item:equivariance-of-vector-space-structure} 
-        vector addition and scalar multiplication are equivariant (where the action on the field is trivial);%
+        vector addition and scalar multiplication are equivariant (with the action on the field being trivial);%
         \footnote{Equivalently, the group action $v \mapsto \pi(v)$ of each $\pi$ is linear.}
 
         \item 
@@ -59,7 +60,7 @@ This closure property turns out to be intimately related to the ascending chain 
         \item orbit-finitely spanned vector spaces are closed under taking equivariant subspaces; 
         \item for every $d \in \set{1,2,\ldots}$,  the vector space 
         $
-        \Lin_\field \A^d
+            \Lin_\field \A^d
         $ does not have any infinite ascending chain of equivariant subspaces;
         \item for every orbit-finitely spanned vector space $V$, there are no infinite ascending chains of equivariant subspaces in $V$.
     \end{enumerate}
