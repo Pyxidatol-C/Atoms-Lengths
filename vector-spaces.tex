@@ -3,52 +3,80 @@ We now introduce the main topic of this paper: vector spaces with an orbit-finit
 We begin with the special case of spaces that have an orbit-finite basis; 
 this special case has an elementary definition, and yet it will be the relevant case for almost all results of this paper. 
 
-\begin{definition}\label{def:orbit-finite-basis}
-    $\Lin_\field X$ (where $X$ is an orbit-finite set and $\field$ is a field) is the vector space of finite formal linear combinations of elements in $X$ over $\field$.
-    \textcolor{magenta}{Perhaps I oversimplified: need to define vector spaces \emph{with} an orbit-finite basis and isomorphisms.}
+\begin{definition}[Orbit-finite basis]\label{def:orbit-finite-basis}
+    $\Lin_\field X$ is --- given an orbit-finite set $X$ and a field $\field$ --- the vector space of finite formal linear combinations of elements in $X$ over $\field$.
 \end{definition}
 
 This definition has two important parameters: the field $\field$ and the oligomorphic structure $\A$ over which $X$ is an orbit-finite set.
-The spaces defined here have two kinds of structure: that of a vector space, and the action of the automorphism group of $\A$. We will be interested in subsets that preserve both kinds of structure, i.e.~they are closed under taking linear combinations as well as applying automorphisms of $\A$. Such subsets are called \emph{equivariant subspaces}. 
+The spaces defined here have two kinds of structure: that of a vector space, and the action of the automorphism group of $\A$
+--- via $\pi(\sum_i \lambda_i x_i) = \sum_i \lambda_i \pi(x_i)$. 
+We will be interested in subsets that preserve both kinds of structure, 
+i.e.~those that are closed under taking linear combinations as well as applying automorphisms of $\A$. 
+Such subsets are called \emph{equivariant subspaces}. 
 
 
 \begin{myexample}\label{ex:length-one-dim-one}
-    Let $\A$ be the equality atoms and let $\field$ be an arbitrary field. As explained in~\cite[Ex.~4.2]{BFKM24}, the corresponding vector space $\Lin_\field \A$
-    has only three equivariant subspaces: the zero subspace, the full space, and the subspace that consists of those vectors whose coefficients add up to zero. 
+    Let $\A$ be the equality atoms and let $\field$ be an arbitrary field. 
+    As explained in~\cite[Ex.~4.2]{BFKM24}, the corresponding vector space $\Lin_\field \A$ has only three equivariant subspaces: 
+    the zero subspace, the full space, and the subspace that consists of those vectors whose coefficients add up to zero 
+    (e.g.~$a + b - 2 c$ with $a, b, c \in \A$ distinct). 
 \end{myexample}
 
- Unfortunately, there is a price to pay for the elementary character of Definition~\ref{def:orbit-finite-basis}, and that is the  failure of certain closure  properties. In particular, the spaces are not closed under taking equivariant subspaces, or quotients under such spaces \color{magenta}example: equality atoms, $(a, b) / \langle (a, b) + (b, c) - (a, c) \rangle \mapsto a - b$ gives an isomorphism $\Lin \A^{(2)} / \langle \cdots \rangle \cong \langle a - b \rangle$\color{black}. The problem with subspaces  is apparent already in Example~\ref{ex:length-one-dim-one},  since the unique nontrivial subspace of $\Lin_\field \A$ does not have any equivariant basis, regardless of the underlying field~\cite[Ex.~6.1]{BFKM24}. For this reason, we use a more general notion of vector space, which is presented below, in a style that emphasises the group action, as was done in Definition~\ref{def:orbit-finite-set-alternative}.
+ Unfortunately, there is a price to pay for the elementary character of Definition~\ref{def:orbit-finite-basis}, 
+ and that is the failure of certain closure  properties. 
+ In particular, these spaces are not closed under taking equivariant subspaces or quotients under such spaces. 
+ \color{magenta}example: equality atoms, $(a, b) / \langle (a, b) + (b, c) - (a, c) \rangle \mapsto a - b$ gives an isomorphism $\Lin \A^{(2)} / \langle \cdots \rangle \cong \langle a - b \rangle$\color{black}. 
+ The problem with subspaces is apparent already in Example~\ref{ex:length-one-dim-one}, since the unique nontrivial subspace of $\Lin_\field \A$ does not have any equivariant basis, regardless of the underlying field~\cite[Ex.~6.1]{BFKM24}. 
+ \textcolor{magenta}{Cite Arka's thesis}
+ For this reason, we use a more general notion of vector space, which is presented below, in a style that emphasises the group action, as was done in Definition~\ref{def:orbit-finite-set-alternative}.
 
-\begin{definition}\label{def:orbit-finitely-spanned-abstract}
-    [Orbit-finitely spanned vector space, abstractly] An \emph{orbit-finitely spanned vector space} over an oligomorphic structure  $\A$ is a vector space  equipped with an action of  automorphisms of $\A$ such that: 
+\begin{definition}[Orbit-finitely spanned vector space, abstractly]\label{def:orbit-finitely-spanned-abstract}
+    An \emph{orbit-finitely spanned vector space} over an oligomorphic structure $\A$ is a vector space equipped with an action of automorphisms of $\A$ such that: 
     \begin{enumerate}
-        \item \label{item:equivariance-of-vector-space-structure} vector addition and scalar multiplication are equivariant;\footnote{Equivalently, the group action $v \mapsto \pi(v)$ is linear.}
-        \item every vector is supported by a finite set of atoms;\footnote{Equivalently, the group action is continuous, where the automorphism group is endowed with the topology of pointwise convergence and the vector space is endowed with the discrete topology --- see \cite[Lemma~4.1.5]{hodges1993model}.}
-        \item \label{item:orbit-finite-spanning-subset} the space is spanned by some subset that  is orbit-finite.\footnote{Equivalently, the vector space is finitely generated as a module over the group ring of automorphisms.}
+        \item \label{item:equivariance-of-vector-space-structure} 
+        vector addition and scalar multiplication are equivariant (where the action on the field is trivial);%
+        \footnote{Equivalently, the group action $v \mapsto \pi(v)$ of each $\pi$ is linear.}
+
+        \item 
+        every vector is supported by a finite set of atoms;%
+        \footnote{Equivalently, the application $(\pi, v) \mapsto \pi(v)$ is continuous, where the automorphism group is endowed with the topology of pointwise convergence whilst the vector space is endowed with the discrete topology. 
+        See \cite[Lemma~4.1.5]{hodges1993model}.}
+
+        \item \label{item:orbit-finite-spanning-subset} 
+        the space is spanned by some subset that is orbit-finite.%
+        \footnote{Equivalently, the vector space is finitely generated as a module over the group ring of automorphisms.}
     \end{enumerate}
 \end{definition}
 
-In~\eqref{item:equivariance-of-vector-space-structure}, by equivariance of scalar multiplication we mean that for every field element $\lambda$, the operation $v \mapsto \lambda v$ is equivariant. The above definition is easily seen to be closed under taking quotients by equivariant subspaces. Closure under taking equivariant subspaces is less obvious: one could imagine that condition~\eqref{item:orbit-finite-spanning-subset} above is violated by moving to an equivariant subspace. It turns out that closure under equivariant subspaces is intimately related to the ascending chain property discussed in the introduction:
+The above definition is easily seen to be closed under taking quotients by equivariant subspaces. 
+Closure under taking equivariant subspaces is less obvious: 
+one could imagine that condition~\eqref{item:orbit-finite-spanning-subset} above is violated by moving to an equivariant subspace. 
+This closure property turns out to be intimately related to the ascending chain property discussed in the introduction:
 
 \begin{theorem}\label{thm:ACP}
     For any field $\field$ and oligomorphic structure $\A$, the following conditions are equivalent: 
     \begin{enumerate}
         \item orbit-finitely spanned vector spaces are closed under taking equivariant subspaces; 
-        \item for every $d \in \set{0,1,\ldots}$,  the vector space 
+        \item for every $d \in \set{1,2,\ldots}$,  the vector space 
         $
         \Lin_\field \A^d
         $ does not have any infinite ascending chain of equivariant subspaces;
         \item for every orbit-finitely spanned vector space $V$, there are no infinite ascending chains of equivariant subspaces in $V$.
     \end{enumerate}
-    Furthermore, if these conditions hold, then  every orbit-finitely spanned vector space is isomorphic to one of the form $U/W$, where $W \subseteq U$ are equivariant subspaces of $\Lin_\field \A^d$ for some $d \in \set{0,1,\ldots}$.
+    Furthermore, if these conditions hold, then every orbit-finitely spanned vector space is isomorphic (via an equivariant linear bijection) to one of the form $U/W$, 
+    where $W \subseteq U$ are equivariant subspaces of $\Lin_\field \A^d$ for some $d \in \set{0,1,\ldots}$.
 \end{theorem}
 
 
-We say that an atom structure $\A$ has the \emph{ascending chain property} over a field $\field$ if any of the equivalent conditions in Theorem~\ref{thm:ACP} are satisfied. One interpretation of the theorem is that   the ascending chain property is necessary for the theory of vector spaces to be well-behaved.  In particular, thanks to the ``furthermore'' part, we get a similar result to the equivalence of Definitions~\ref{def:orbit-finite-set} and~\ref{def:orbit-finite-set-alternative} in the previous section, i.e.~a concrete characterisation of the orbit-finitely spanned vector spaces that can be used in algorithms (provided we know how to represent equivariant subspaces --- see Section~\ref{sec:equivariant-subspaces}). 
+We say that an atom structure $\A$ has the \emph{ascending chain property} over a field $\field$ if any of the equivalent conditions in Theorem~\ref{thm:ACP} are satisfied. 
+One interpretation of the theorem is that the ascending chain property is necessary for the theory of vector spaces to be well-behaved. 
+In particular, thanks to the ``furthermore'' part, we get a similar result to the equivalence of Definitions~\ref{def:orbit-finite-set} and~\ref{def:orbit-finite-set-alternative} in the previous section, 
+i.e.~a concrete characterisation of the orbit-finitely spanned vector spaces that can be used in algorithms (provided we know how to represent equivariant subspaces --- see Section~\ref{sec:equivariant-subspaces}). 
 \textcolor{magenta}{Also, we don't know how to test for isomorphism --- oops!}
 
 
-We are therefore interested in atom structures that have the ascending chain property. As it turns out, the techniques used in this paper will yield a stronger property, namely a finite bound on the length of chains: 
+We are therefore interested in atom structures that have the ascending chain property. 
+As it turns out, the techniques used in this paper will yield a stronger property, namely a finite bound on the length of chains: 
 
 
 
@@ -63,7 +91,9 @@ We are therefore interested in atom structures that have the ascending chain pro
 
 In light of Theorem~\ref{thm:ACP} \textcolor{magenta}{AND because chains can pass to superspaces and back from surjective images}, we could have used $\A^d$ instead of $X$ in the above definition.
 As mentioned in the introduction, the finite length property can be strictly stronger than the ascending chain property, as witnessed by the vector atoms from Example~\ref{ex:vector-space-atoms}. 
-(Note that when we talk about the vector atoms, there are two fields involved, namely the finite field used to define $\A$ and the field $\field$ used to define $\Lin_\field \A$. In the counterexample, both fields are the two-element field.)
+(Note that when we talk about the vector atoms, there are two fields involved, namely the finite field used to define $\A$ and the field $\field$ used to define $\Lin_\field \A$. 
+In the counterexample, both fields are the two-element field.)
 The finite length property was studied in~\cite{BFKM24}, where it was shown that the equality atoms (Example~\ref{ex:equality-atoms}) and the ordered atoms (Example~\ref{ex:order-atoms}) have this property over any field. 
 
-The main contribution of this paper is to establish the finite length property for more structures. We will use two different techniques for this purpose.
+The main contribution of this paper is to establish the finite length property for more structures. 
+We will use two different techniques for this purpose.

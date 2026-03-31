@@ -2,7 +2,9 @@
 \newcommand{\cal}{\mathcal}
 
 As we saw in Non-example~\ref{non-ex:weak-smooth-approximation}, the ordered atoms do not have oligomorphic approximation. 
-Nonetheless they do have the finite length property over any field \cite[Thm.~4.8]{BFKM24}, not just over those of characteristic zero. We shall now generalise that result to a wide class of structures. In particular, we will deduce the finite length property for the Rado atoms and its variants, even with finitely many constants fixed.
+Nonetheless they do have the finite length property over any field \cite[Thm.~4.8]{BFKM24}, not just over those of characteristic zero. 
+We shall now generalise that result to a wide class of structures. 
+In particular, we will deduce the finite length property for the Rado atoms and its variants, even with finitely many constants fixed.
 
 We shall now state our assumptions and results, with proofs in Section~\ref{sec:cogs-turn}.
 
@@ -56,7 +58,7 @@ the class $\Forb(\Fclass)$ of finite $\sigma_0$-structures form a free amalgamat
 \end{myexample}
 
 \paragraph*{Irreflexivity} 
-For technical reasons, we restrict attention to classes $\Cclass_0$ where all structures are {\em irreflexive}, i.e. such that if $R(x,y)$ then $x\neq y$ for each relation $R$. This does not lose generality: for any free amalgamation class $\Cclass_0$, we may replace every binary relation $R$ in the vocabulary with a new unary predicate $R_=$, interpreted in every structure so that $R_=(x)$ iff $R(x,x)$, and a binary relation interpreted as the irreflexive part of $R$. Then $\Cclass_0$ interpreted over this modified vocabulary is still a free amalgamation class, and all our results transport back to the original $\Cclass_0$. This way of encoding arbitrary structures as irreflexive ones is standard; see e.g.~\cite[Sec.~2.4]{Herwig1998} and \cite[p.~121]{SS20}. All examples considered here are already irreflexive.
+For technical reasons, we restrict attention to classes $\Cclass_0$ where all structures are {\em irreflexive} (or \emph{injective}), i.e. such that if $R(x,y)$ then $x\neq y$ for each relation $R$. This does not lose generality: for any free amalgamation class $\Cclass_0$, we may replace every binary relation $R$ in the vocabulary with a new unary predicate $R_=$, interpreted in every structure so that $R_=(x)$ iff $R(x,x)$, and a binary relation interpreted as the irreflexive part of $R$. Then $\Cclass_0$ interpreted over this modified vocabulary is still a free amalgamation class, and all our results transport back to the original $\Cclass_0$. This way of encoding arbitrary structures as irreflexive ones is standard; see e.g.~\cite[Sec.~2.4]{Herwig1998} and \cite[p.~121]{SS20}. All examples considered here are already irreflexive.
 
 \paragraph*{Generically ordered expansion}
 Now, let $\sigma$ consist of $\sigma_0$ together with a new binary relation $<$.
@@ -67,7 +69,7 @@ Observe that $\Cclass$ is an amalgamation class.
 Indeed, let $X, Y_1, Y_2$ be $\sigma$-structures in $\Cclass$ with $X \subseteq Y_1 \cap Y_2$.
 Then we can amalgamate $Y_1, Y_2$ over $X$ as $\sigma_0$-structures and as $\{<\}$-structures, 
 both using the disjoint union of $Y_1, Y_2$ over $X$ as the underlying set. 
-Superposing these relations will give a $\sigma$-structure in $\Cclass$, which is the desired amalgamation.
+Superposing these relations gives a $\sigma$-structure in $\Cclass$, which is the desired amalgamation.
 (Because of the total order, this amalgamation in $\Cclass$ is not free unless it is trivial.)
 Denote the Fraïssé limit of $\Cclass$ by $\A$.
 
@@ -138,7 +140,6 @@ Using a classification result of Lachlan and Woodrow~\cite{LachlanWoodrow_80}, w
     \color{magenta}
     \begin{enumerate}
         \item the ordered atoms, the equality atoms;
-        \item the ordered Rado graph, the ordered triangle-free Henson graph;
         \item every countable homogeneous graph;
         \item the universal homogeneous tournament;
         \item dense linear order with a dense co-dense unary predicate;
@@ -160,7 +161,7 @@ Throughout we fix $\A$ from the statement of Theorem~\ref{thm:ordered-free-amalg
 To start with, let us view $\A^d$ as $\A^{\{1, \dots, d\}}$. More generally, it will be convenient to consider $\A^I$ for a finite totally ordered indexing set $I$ (say contained in $\Q$, so that we may take unions later).
 Fix a finite support $S \subseteq \A$.
 We shall say that a tuple(!) $a\in\A^I$ is {\em ($S$-)ordered} if $a_i \not\in S$ for all $i$, and $a_i < a_j$ whenever $i < j$. Then the orbit
-$\cal O = \Aut(\A/S) \cdot a$ only contains $S$-ordered tuples, and we will call the orbit $S$-ordered as well.%
+$\cal O = \Aut(\A/S) \cdot a$ only contains $S$-ordered tuples, and we shall call the orbit $S$-ordered as well.%
 \footnote{Here and in the following, $\Aut(\A/S)$ is the group of those automorphisms of $\A$ that fix every element of $S$. So ``$\Aut(\A/S)$-equivariant'' is synonymous with ``$S$-supported''.}
 If $a$ is not $S$-ordered, by removing the entries that repeat or come from $S$ and reordering the rest, we can always find an $\Aut(\A/S)$-equivariant bijection from $\cal O$ to an $S$-ordered orbit.
 
@@ -231,7 +232,12 @@ Following the terminology used in \cite[Eq.~(4)]{BFKM24}, we shall call a vector
 As we will see shortly, there exist balanced vectors other than $0$.
 
 \subsection{Cogs}
-From now on we will use a lightweight notation for combining tuples of atoms: for disjoint indexing sets $I$ and $J$, if $a\in\A^I$ and $b\in\A^{J}$ are both ordered, then $ab\in \A^{I\cup J}$ will denote their obvious combination. We will only use this notation if this $ab$ is ordered. For an obvious example, for any $S$-ordered $a\in\A^I$ and $J\subseteq I$, we have $a|^{I\setminus J}a|^J=a$.
+From now on we will use a lightweight notation for combining tuples of atoms: 
+for disjoint indexing sets $I$ and $J$ (contained in $\Q$), 
+if $a\in\A^I$ and $b\in\A^{J}$ are both ordered, 
+then $ab\in \A^{I\cup J}$ will denote their obvious combination. 
+We only use this notation if this $ab$ is ordered. 
+For an obvious example, for any $S$-ordered $a\in\A^I$ and $J\subseteq I$, we have $a|^{I\setminus J}a|^J=a$.
 
 \begin{definition}\label{def:duo}
     Let $\cal O \subseteq \A^I$ be an $S$-ordered orbit. 
@@ -568,9 +574,9 @@ unlike the infinite chain exhibited in \cite[Thm.~4.14]{BFKM24} for the bit-vect
     \end{itemize}
     So $\Lin \A$ has the same structure as the space over the equality atoms in Example~\ref{ex:length-one-dim-one}.
 
-    For $d = 2$, there will be a map $\restriction_1 : \Lin_\FF \A^2 \to \Lin_{\FF^5} \A$. 
+    For $d = 2$, there are three maps, one of which is the form $\restriction_2 : \Lin_\FF \A^2 \to \Lin_{\FF^5} \A$. 
     By considering subspaces of $\FF^5$, when the field is infinite we can exhibit infinitely many equivariant subspaces of $\Lin_\FF \A^2$.
-    Note that $\Lin_\FF \A^2$ has finite length (equal to $2^1 + 2^2 + 2^2$, by below) nonetheless.
+    Note that $\Lin_\FF \A^2$ has finite length nonetheless (equal to $2^1 + 2^2 + 2^2$, by below).
 \end{myexample}
 
 \begin{corollary}\label{cor:2d-length}
@@ -578,7 +584,7 @@ unlike the infinite chain exhibited in \cite[Thm.~4.14]{BFKM24} for the bit-vect
 \end{corollary}
 
 Variants of Theorem~\ref{thm:coeff-approximation} have been shown over the equality and the ordered atoms: 
-see \cite[Cor.~3.17]{Gray97}, \cite[Thm.~15]{HofmanLerouxTotzke_17}, \cite[Thm.~3.4]{HofmanRozycki_2022}, and \cite[Thm.~19]{Arka_notes}, \cite[Sec.~6]{GhoshHofmanLasota_22}.
+see \cite[Cor.~3.17]{Gray97}, \cite[Thm.~15]{HofmanLerouxTotzke_17}, \cite[Thm.~3.4]{HofmanRozycki_2022}, \cite[Sec.~6]{GhoshHofmanLasota_22}, and \cite[Thm.~19]{Arka_notes}.
 As described in \cite[Sec.~9]{GhoshLasota_24}, such results allow us to decide the solvability of orbit-finite systems of linear equations. 
 We briefly repeat the explanation.
 Checking whether the system $\mathbf{A} \mathbf{x} = \mathbf{b}$ admits a solution amounts to checking whether $\mathbf{b}$ is spanned by the columns of $\mathbf{A}$.
