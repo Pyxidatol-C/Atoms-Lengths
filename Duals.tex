@@ -38,9 +38,10 @@ For this reason, we consider the following property.
 \end{definition}
 
 As it turns out, some oligomorphic atom structures have this property, and some do not.
-The equality \textcolor{magenta}{and ordered atoms --- does it?} have it, 
-which was shown in~\cite[Cor. 6.8]{BFKM24} for a special case of function spaces, namely duals, 
+The equality and ordered atoms have it, which was shown in~\cite[Cor. 6.8]{BFKM24} for a special case of function spaces, namely duals, 
 with the general case of function spaces being treated in~\cite[Sec. 8.3]{bojanczyk_slightly}. 
+\textcolor{magenta}{Yes: only N is shown to have the full function space property.}
+\textcolor{magenta}{Q and $\omega$-stable structures [after Przybyłek], which is a subclass of smoothly approximated structures, have the dual space property.}
 On the other hand, the Rado atoms fail this property, as explained in the following example. 
 (In particular, the finite length property does not imply the function space property.)
 
@@ -125,18 +126,19 @@ However, as we show in the following example, the equivalence can fail without t
     To prove this, we use a Myhill--Nerode style argument. 
     For an input word $w \in \A^*$, we define two functions of type $\A^* \to \field$ as follows:
     \begin{align*}
-        \myunderbrace{v \mapsto f(wv)}{left derivative}
+        \myunderbrace{u \mapsto f(wu)}{left derivative}
         \quad \text{and} \quad 
-        \myunderbrace{v \mapsto f(vw)}{right derivative}.
+        \myunderbrace{u \mapsto f(uw)}{right derivative}.
     \end{align*}
-    Using the usual Myhill-Nerode construction \cite[Thm.~4.4]{bojanczyk_automata_2025}, 
+    Using the usual Myhill--Nerode construction \cite[Thm.~6.19]{aliceBob}, 
     one can show that a function is computed by a left-to-right orbit-finite weighted automaton 
-    if and only if its left derivatives are orbit-finitely spanned, and similarly for right-to-left derivatives. 
-    To finish the counterexample, we will now show that the left derivatives are orbit-finitely spanned, but the right ones are not.
+    if and only if the span of its left derivatives are orbit-finitely spanned, and similarly for right-to-left derivatives. 
+    To finish the counterexample, we will now examine these spans.
 
-    The set of left derivatives is not only orbit-finitely spanned, but it is even orbit-finite: 
+    The set of left derivatives is already orbit-finite: 
     there is one left derivative for each $a \in \A$, plus one extra derivative for the always zero function. 
+    Hence the span of left derivatives is certainly orbit-finitely spanned.
     On the other hand, the set of right derviatives is the same as the spanning set of the vector space $V$ from Example~\ref{ex:no-function-spaces}, 
-    and therefore it cannot be orbit-finitely spanned.
+    and therefore its span cannot be orbit-finitely spanned.
 \end{myexample}
 
