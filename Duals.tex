@@ -1,13 +1,15 @@
 \section{Function spaces and  weighted automata}\label{sec:duals}
 
-The original motivation to introduce orbit-finitely spanned vector spaces in~\cite{BFKM24} was the study of orbit-finite weighted automata. 
-In this section, we recall this motivation, and discuss how it is related to our new results. 
-This discussion also involves  the issue of function spaces, arguably more important, so we begin with that.
+The original motivation to introduce orbit-finitely spanned vector spaces in~\cite{BFKM24} was the study of weighted orbit-finite automata. 
+In this section, we recall this motivation and discuss how it relates to our new results. 
+This discussion also involves the issue of function spaces, arguably more fundamental, so we begin with that.
+
+\textcolor{magenta}{isomorphic -> equivariant linear bijection}
  
 \subsection{Function spaces} 
-If we have two orbit-finitely spanned vector spaces $V$ and $W$ over the same atoms, then there are two natural ideas for a function space: 
-the space of all linear maps from $V \to W$, and the subspace that consists of equivariant linear maps. 
-As it turns out, the most relevant function space lies between them, as formalised in the following definition.
+If we have two orbit-finitely spanned vector spaces $V$ and $W$ over the same atom structure, then there are two natural ideas for a function space: 
+the space of all linear maps from $V \to W$, and the subspace consisting of equivariant linear maps. 
+As it turns out, the most relevant function space lies between them.
 
 
 \begin{definition}[Finitely supported function space]\label{def:function-space}
@@ -15,31 +17,31 @@ As it turns out, the most relevant function space lies between them, as formalis
     \begin{align*}
      \linfsfun{V}{W},
     \end{align*}
-    to be the space of linear maps $f$ that satisfy the following {finite support condition}: 
+    to be the vector space of linear maps $f$ that satisfy the following {finite support condition}: 
     there is some finite set of atoms $S \subseteq \A$ such that
     \begin{align*}
-        \forall a \in S\ \pi(a)=a
+        \forall a \in S : \pi(a)=a
         \quad \implies \quad 
-        \forall v \in V\ \pi(f(v)) = f(\pi(v)).
+        \forall v \in V : \pi(f(v)) = f(\pi(v)).
     \end{align*}
 \end{definition}
 
-The notion of finite supports in the above definition is the same as the one used in Section~\ref{sec:orbit-finite-sets}, 
-except that it is applied to the space of linear maps from $V$ to $W$. 
-It is also the standard restriction used in the study of orbit-finite sets. 
-As argued in~\cite[Sec. 8.3]{bojanczyk_slightly} on categorical grounds, 
-the finitely supported function space is the most relevant kind of function space; 
-a similar phenomenon occurs in nominal sets~\cite[Thm. 3.13]{PittsAM:nomsns}. 
-% For this reason, we consider the following property.
+The notion of finite support in the above definition is the same as the one used in Section~\ref{sec:orbit-finite-sets}, 
+but applied to the space of linear maps from $V$ to $W$. 
+It is also the standard restriction used in the study of nominal sets~\cite[Thm.~2.19]{PittsAM:nomsns}.
+As argued in~\cite[Sec.~8.3]{bojanczyk_slightly} on category-theoretic grounds, 
+the finitely supported function space is the ``right'' function space.
+We thus speak of the following property:
 
-\begin{definition}[Dual space property]\label{def:function-space-property}
-    We say an (oligomorphic and infinite) atom structure $\A$ has the \emph{function space property} 
+\begin{definition}[Function space property]\label{def:function-space-property}
+    We say an atom structure $\A$ has the \emph{function space property} 
     if orbit-finitely spanned vector spaces over $\A$ are closed under taking finitely supported function spaces.
 \end{definition}
 
-As it turns out, only the equality atoms are known to have this property~\cite[Sec. 8.3]{bojanczyk_slightly}.
+As it turns out, only the equality atoms are known to have this property~\cite[Thm.~8.16]{bojanczyk_slightly}.
+A weaker property for dual spaces was shown for the ordered atoms and 
 
-The equality and ordered atoms have it, which was shown in~\cite[Cor. 6.8]{BFKM24} for a special case of function spaces, namely duals, 
+The equality and ordered atoms have it, which was shown in~\cite[Cor.~6.8]{BFKM24} for a special case of function spaces, namely duals, 
 with the general case of function spaces being treated in~. 
 \textcolor{magenta}{Yes: only N is shown to have the full function space property.}
 \textcolor{magenta}{Q and $\omega$-stable structures [after Przybyłek], which is a subclass of smoothly approximated structures, have the dual space property.}
@@ -48,13 +50,13 @@ On the other hand, the Rado atoms fail this property, as explained in the follow
 
 \begin{myexample}\label{ex:no-function-spaces}
     Assume that $\A$ is the Rado atoms and the field $\FF$ is arbitrary.%
-    \footnote{A variant of this example for the two-element field was shown in~\cite[Ex. 6.9]{BFKM24}, but here we can use any field, in particular a field of characteristic zero as treated in the previous section.}
+    \footnote{A variant of this example for the two-element field was shown in~\cite[Ex.~6.9]{BFKM24}, 
+    but here we can use any field --- in particular a field of characteristic zero as treated in the previous section.}
     Consider the vector space 
     \begin{align}\label{eq:dual-space}
         \fsfun \A \field
     \end{align}
-    consisting of functions (not linear maps, which would be nonsensical) from atoms to the field that are finitely supported in the sense of Definition~\ref{def:function-space}.%
-    \footnote{There is a terminology clash, since the expression ``finitely supported'', when applied to functions of type $X \to \field$, could also be understood as ``zero almost everywhere''. } 
+    consisting of functions (not linear maps) from atoms to the field that are finitely supported in the sense of Definition~\ref{def:function-space}.
     This space is isomorphic to the function space 
     \begin{align}\label{eq:dual-space-two}
         \linfsfun{\Lin_\field \A}{\field}.
@@ -74,6 +76,7 @@ On the other hand, the Rado atoms fail this property, as explained in the follow
     Being orbit-finitely spanned is closed under taking subspaces, which follows from Theorem~\ref{thm:ACP} and the fact that the Rado atoms has the ascending chain property
     (which was already proved in Theorem~\ref{thm:weak-smooth-approximation-finite-length} for characteristic zero and will be proved later for any field). 
     In Appendix~\ref{sec:appendix-no-function-spaces}, we show that $V$ is not orbit-finitely spanned, and thus neither is~\eqref{eq:dual-space}. 
+    \textcolor{magenta}{TF?}
 \end{myexample}
  
 
@@ -96,19 +99,20 @@ we choose one viewing them as deterministic automata, in which the states are en
 \end{definition}
 
 From the finite length property, we can conclude decidability results about orbit-finite weighted automata. 
-For example, a zeroness algorithm is derived in~\cite[Sec. 5]{BFKM24}. 
+For example, a nondeterministic algorithm for non-equivalence is derived in~\cite[Sec.~5]{BFKM24}. 
 In light of the results from this paper, such an algorithm exists if we use the Rado graph as the atoms 
 --- or any other structure for which we have established the finite length property. 
-Also, weighted automata can be minimized~\cite[Sec. 7]{BFKM24}, iteratively, using the bound for chains.
+Also, weighted automata can be minimized~\cite[Sec.~7]{BFKM24}, syntactic congruence is decidable using the bound for chains.
+\textcolor{magenta}{Check. Also mention decidability/representation makes more sense if $Q$ has a basis.}
 
-However, certain other results on weighted automata will depend on the dual space property. 
+However, certain other results on weighted automata will depend on the function space property. 
 Let us give one such example. 
 Our definition of weighted automata is deterministic in the left-to-right direction. 
 One could also imagine a model where the input word is processed right-to-left. 
 Are these equivalent? 
-If the atoms have the function space and the ascending chain properties, then one can introduce a symmetric model based on monoids to show that 
-the left-to-right and right-to-left variants of weighted automata are equivalent: see~\cite[Thm. 7.4]{BFKM24}. 
-However, as we show in the following example, the equivalence can fail without this property.
+If the atoms have the function space property and the ascending chain property, then one can introduce a symmetric model based on monoids (or more precisely, unital associative $\field$-algebras) to show that 
+the left-to-right and right-to-left variants of weighted automata are equivalent: see, essentially,~\cite[Thm.~7.4]{BFKM24}. 
+However, as we show in the following example, this equivalence can fail without the function space property.
 
 \begin{myexample}
     Consider the Rado atoms and any field. 
@@ -123,8 +127,8 @@ However, as we show in the following example, the equivalence can fail without t
         \end{cases}
     \end{align*}
     We will show that this function is computed by a left-to-right orbit-finite weighted automaton, but not by a right-to-left one. 
-    To prove this, we use a Myhill--Nerode style argument. 
-    For an input word $w \in \A^*$, we define two functions of type $\A^* \to \field$ as follows:
+    
+    To prove this, for an input word $w \in \A^*$, we define two functions of type $\A^* \to \field$ as follows:
     \begin{align*}
         \myunderbrace{u \mapsto f(wu)}{left derivative}
         \quad \text{and} \quad 
@@ -132,14 +136,14 @@ However, as we show in the following example, the equivalence can fail without t
     \end{align*}
     Using the usual Myhill--Nerode construction, 
     one can show that a function is computed by a left-to-right orbit-finite weighted automaton 
-    if and only if the span of its left derivatives are orbit-finitely spanned \cite[Thm.~6.19]{aliceBob}, 
-    and similarly for right-to-left derivatives. 
+    if and only if the span of its left derivatives are orbit-finitely spanned~\cite[Thm.~6.19]{aliceBob}, 
+    and similarly for its right derivatives. 
     To finish the counterexample, we will now examine these spans.
 
     The set of left derivatives is already orbit-finite: 
     there is one left derivative for each $a \in \A$, plus one extra derivative for the always-zero function. 
     Hence the span of left derivatives is certainly orbit-finitely spanned.
     On the other hand, the set of right derviatives is precisely the spanning set of the vector space $V$ from Example~\ref{ex:no-function-spaces}, 
-    and therefore its span cannot be orbit-finitely spanned.
+    which is not orbit-finitely spanned.
 \end{myexample}
 

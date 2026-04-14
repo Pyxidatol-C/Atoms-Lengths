@@ -24,23 +24,23 @@ Such subsets are called \emph{equivariant subspaces}.
 
  Unfortunately, there is a price to pay for the elementary character of Definition~\ref{def:orbit-finite-basis}, 
  and that is the failure of certain closure properties. 
- In particular, these spaces are not closed --- even up to isomorphisms, i.e.~equivariant linear bijections --- under taking equivariant subspaces or quotients under such spaces. 
+ In particular, these spaces are not closed --- even up to equivariant linear bijections --- under taking equivariant subspaces, or quotients under such spaces. 
  The problem with subspaces is apparent already in Example~\ref{ex:length-one-dim-one}, since the unique nontrivial subspace of $\Lin_\field \A$ does not have any equivariant basis, regardless of the underlying field~\cite[Ex.~6.1]{BFKM24}; 
  this subspace with no orbit-finite basis can also be realised as a quotient of $\Lin_\field \A^2$.
- % (Also an orbit-finite-dimensional vector space can have two orbit-finite bases without an equivariant bijection between them \cite[\S3.4]{Ghosh25}.)
- For this reason, we use a more general notion of vector spaces, which is presented below, in a style that emphasises the group action, as was done in Definition~\ref{def:orbit-finite-set-alternative}.
+ % (Also an orbit-finite-dimensional vector space can have two orbit-finite bases without an equivariant bijection between them~\cite[Sec.~3.4]{Ghosh25}.)
+ For this reason, below we present a more general notion of a vector space, in a style that emphasises the group action as was done in Definition~\ref{def:orbit-finite-set-alternative}.
 
 \begin{definition}[Orbit-finitely spanned vector space, abstractly]\label{def:orbit-finitely-spanned-abstract}
     An \emph{orbit-finitely spanned vector space} over an oligomorphic structure $\A$ is a vector space equipped with an action of automorphisms of $\A$ such that: 
     \begin{enumerate}
         \item \label{item:equivariance-of-vector-space-structure} 
         vector addition and scalar multiplication are equivariant, with the action on the field being trivial;%
-        \footnote{Equivalently, the group action $v \mapsto \pi(v)$ of each $\pi$ is linear.}
+        \footnote{Equivalently, the group action $v \mapsto \pi(v)$ of each automorphism $\pi$ is linear.}
 
         \item 
         every vector is supported by a finite set of atoms;%
         \footnote{Equivalently, the application $(\pi, v) \mapsto \pi(v)$ is continuous, where the automorphism group is endowed with the topology of pointwise convergence whilst the vector space is endowed with the discrete topology. 
-        See \cite[Lemma~4.1.5]{hodges1993model}.}
+        See~\cite[Lemma~4.1.5]{hodges1993model}.}
 
         \item \label{item:orbit-finite-spanning-subset} 
         the space is spanned by some subset that is orbit-finite.%
@@ -57,14 +57,14 @@ This closure property turns out to be intimately related to the ascending chain 
     For any field $\field$ and oligomorphic structure $\A$, the following conditions are equivalent: 
     \begin{enumerate}
         \item orbit-finitely spanned vector spaces are closed under taking equivariant subspaces; 
-        \item for every $d \in \set{1,2,\ldots}$,  the vector space 
+        \item for every $d \in \set{0,1,\ldots}$,  the vector space 
         $
             \Lin_\field \A^d
         $ does not have any infinite ascending chain of equivariant subspaces;
         \item for every orbit-finitely spanned vector space $V$, there are no infinite ascending chains of equivariant subspaces in $V$.
     \end{enumerate}
-    Furthermore, if these conditions hold, then every orbit-finitely spanned vector space is isomorphic (via an equivariant linear bijection) to one of the form $U/W$, 
-    where $W \subseteq U$ are equivariant subspaces of $\Lin_\field \A^d$ for some $d \in \set{0,1,\ldots}$.
+    Furthermore, if these conditions hold, then the orbit-finitely spanned vector spaces are --- up to equivariant linear bijections --- precisely the vector spaces of the form $U/W$, 
+    where $W \subseteq U$ are equivariant subspaces of $\Lin_\field \A^d$ and $d \in \set{0,1,\ldots}$.
 \end{theorem}
 
 

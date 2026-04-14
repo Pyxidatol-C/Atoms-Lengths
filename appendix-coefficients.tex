@@ -1,7 +1,7 @@
 \section{Proofs missing in Section~\ref{sec:equivariant-subspaces}}\label{sec:appendix-eqsubsp}
 
 \subsection{Proof of Theorem~\ref{thm:coeff-approximation}}
-For notational simplicity, we will prove the result for a single ordered orbit $\cal O \subseteq \A^I$.
+For notational simplicity, we will prove the result for a single equivariant ordered orbit $\cal O \subseteq \A^I$.
 The general multi-orbited case is very similar, because we will be projecting onto a single orbit anyway.
 
 Consider the $2^{|I|}$ projected $S$-ordered orbits $\mathcal{O}|^{J}$ for $J \subseteq I$.
@@ -116,7 +116,7 @@ Furthermore:
 So $w'$ is a witness for the inclusion from the claim.
 \end{proof}
 
-This is enough to establish Lemma~\ref{lem:coeff-approximation} for $i$, assuming it for $i-1$.
+This is enough to establish Lemma~\ref{lem:coeff-approximation} for $i$, assuming it holds for $i-1$.
 Indeed, given $v \in \widehat W \cap \ker(\restriction_{i+1}) \cap \dots \cap \ker(\restriction_t)$, by the preceding claims
 we can find $w \in W \cap \ker(\restriction_{i+1}) \cap \dots \cap \ker(\restriction_t) \subseteq \widehat W$ such that 
 $v {\restriction_i} = w {\restriction_i}$.
@@ -131,7 +131,7 @@ This completes the proof of Theorem~\ref{thm:coeff-approximation}.
 
 
 \subsection{Proof of Corollary~\ref{cor:2d-length}}
-Now we specialise to the case where we have a single ordered orbit $\cal O \subseteq \A^d$.
+Now we specialise (as done prematurely above) to the case where we have a single equivariant ordered orbit $\cal O \subseteq \A^d$.
 The maps $\{\restriction_i : \Lin_\FF \cal O \to \Lin_{\FF^{\Jclass_i}} \cal Q_i\}_{1 \leq i \leq t}$ are as before.
 
 For two equivariant subspaces $W, W' \subseteq \Lin_\FF \cal O$, 
@@ -155,7 +155,7 @@ As a consequence:
     Hence $l \leq |\Jclass_1| + |\Jclass_2| + \dots + |\Jclass_t| = 2^{|I|}$. 
 \end{proof}
 
-To complement the upper bound from Proposition~\ref{prop:length-upper-bound}, we now exhibit a chain of equivariant subspaces whose length is precisely $\sum_{i=1}^t |\Jclass_i|$, using the same idea as \cite[Cor.~4.12]{BFKM24}.
+To complement the upper bound from Proposition~\ref{prop:length-upper-bound}, we now exhibit a chain of equivariant subspaces whose length is precisely $\sum_{i=1}^t |\Jclass_i|$, using the same idea as~\cite[Cor.~4.12]{BFKM24}.
 
 Pick some $a\in \cal O$, and let $\pi_j$ (for $j \in I$) be the automorphisms from Lemma~\ref{lem:cog-fresh-full}.
 Given $J \in \Jclass_i$, define a vector
@@ -163,7 +163,7 @@ Given $J \in \Jclass_i$, define a vector
     v_{J} =  \prod_{j \in J} (1 - \pi_j) a
 \end{align*}
 in $\Lin_\FF(\cal O)$. 
-Let $\langle v_J \rangle$ be the linear span of permutations of $v_J$; this is an equivariant subspace.
+Write $\langle v_J \rangle$ for the linear span of the orbit of $v_J$; this is an equivariant subspace of $\Lin_\FF(\cal O)$.
 Given $J' \in \Jclass_{i'}$, we compute:
 \[
     (\langle v_{J} \rangle {\restriction_{i'}} (\mathcal{Q}_{i'}))_{J'} =

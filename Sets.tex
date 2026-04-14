@@ -40,20 +40,20 @@ In this definition, we use the following notion of support:
 if $X$ is a set equipped with an action of the automorphism group of $\A$, 
 then a \emph{support} for an element $x \in X$ is any set $S \subseteq \A$ such that every automorphism $\pi$ of $\A$ satisfies
 \begin{align*}
-   \myunderbrace{\forall a \in S\ \pi(a)=a}{action of $\pi$ on $\A$}
+   \myunderbrace{\forall a \in S : \pi(a)=a}{action of $\pi$ on $\A$}
    \quad \implies \quad 
    \myunderbrace{\pi(x)=x}{action of $\pi$ on $X$}.
 \end{align*}
 \begin{definition}
    [Orbit-finite set, abstractly] \label{def:orbit-finite-set-alternative} An \emph{orbit-finite set} over an oligomorphic structure $\A$ is a set $X$ equipped with an action of the automorphism group of $\A$ such that: 
    \begin{enumerate}
-      \item there are finitely many orbits under the action;
-      \item every element has some finite support.
+      \item every element has some finite support;
+      \item there are finitely many orbits under the action.
    \end{enumerate}
 \end{definition}
 
 Thanks to oligomorphism of the underlying atom structure, the two definitions above are equivalent 
-in the sense that they describe the same sets, up to equivariant bijections --- see~\cite[Thm.~5.12]{bojanczyk_slightly} bearing in mind \cite[Prop.~2.19]{BodirskyBodorMarimon_25}. 
+in the sense that they describe the same sets, up to equivariant bijections --- see~\cite[Thm.~5.12]{bojanczyk_slightly} bearing in mind~\cite[Prop.~2.19]{BodirskyBodorMarimon_25}. 
 Both definitions have their uses. 
 Definition~\ref{def:orbit-finite-set} is more concrete, and it comes with a finite representation, which can be used for algorithms that process orbit-finite sets. 
 On the other hand, some constructions (e.g.~disjoint unions, Cartesian products) will result in sets that are more naturally consistent with the second, more relaxed, definition. 

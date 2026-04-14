@@ -1,8 +1,8 @@
 
 \section{Proof of Theorem~\ref{thm:have-oligomorphic-approximation}(\ref{item:rado-has-oligomorphic-approximation})}\label{sec:appendix-symplectic}
 
-The symplectic vector spaces are used as a basic building block in \cite{KLM89}.
-Described as a classical geometry, it can indeed be found in classical textbooks such as \cite[pp.~114--121]{Artin_symplectic} and \cite[pp.~75--83]{Aschbacher_symplectic},
+The symplectic vector spaces are used as a basic building block in~\cite{KLM89}.
+Described as a classical geometry, they can indeed be found in classical textbooks such as~\cite[pp.~114--121]{Artin_symplectic} and~\cite[pp.~75--83]{Aschbacher_symplectic},
 though it is often not clear whether we assume finite dimension or characteristic zero for the results we require. 
 As symplectic vector spaces are an important and interesting structure to understand, we provide a self-contained exposition here, taking a straight-line path to the oligomorphic approximation of the Rado graph in Theorem~\ref{thm:appendix-rado-oligo-approx}.
 
@@ -43,7 +43,7 @@ Such bases behave very much like the usual bases.
     can be extended to a symplectic subbasis that spans the whole $\W$ (i.e.~a symplectic basis).
 \end{proposition}
 \begin{proof}
-    Suppose that $e_1, \ldots, e_n, f_1, \ldots, f_n$ does not already span $\W$;
+    Suppose that $e_1, \ldots, e_n, f_1, \ldots, f_n$ do not already span $\W$;
     take $v$ to be a witness (that is least according to some fixed enumeration of $\W$ 
     in the case it is infinite).
     Put
@@ -101,7 +101,7 @@ We may even forget some pairs.
     \[
         \omega(e_{n+i+1}, f_{n+i+1}) = \psi(e_{n+i+1}) = 1,
     \]
-    whereas $\psi(e_1), \dots, \psi(e_{n+k}), \psi(f_1), \dots, \psi(f_{n+i})$ are all $0$
+    whereas $\psi(e_1), \dots, \psi(e_{n+k}), \psi(f_1), \dots, \psi(f_{n+i})$ are all $0$.
     Thus we have \eqref{eq:symplectic-basis} as required.
 \end{proof}
 
@@ -126,9 +126,11 @@ Whilst we may deduce that $\W_\infty$ is oligomorphic by appealing to Ryll-Nardz
 we will opt for another approach that establishes smooth approximation and gives an explicit orbit count.
 \textcolor{magenta}{Mention homogeneity too.}
 
+\textcolor{magenta}{Explain automorphism, and mention we treat $\omega$ as two binary relations.}
+
 \begin{proposition}[Witt Extension] \label{prop:symplectic-witt-extension}
     Any isometric linear injection $\alpha : \langle X \rangle \subseteq \W_n \to \W_n$ 
-    can be extended to an isometric linear bijection of $\W_n$ to itself (i.e.~automorphism),
+    can be extended to an isometric linear bijection of $\W_n$ to itself (i.e.~an automorphism),
     and in turn to one of $\W_\infty$ to itself.
 \end{proposition}
 
@@ -272,7 +274,7 @@ we will opt for another approach that establishes smooth approximation and gives
 \end{theorem}
 
 As smooth approximation is a special case of oligomorphic approximation, 
-by Theorem~\ref{thm:weak-smooth-approximation-finite-length} we establish the finite length property for yet another class of structures:
+by Theorem~\ref{thm:weak-smooth-approximation-finite-length} we establish the finite length property for yet another \textcolor{magenta}{family} of structures:
 \begin{corollary}
     The symplectic $\ff$-vector space $\W_\infty$ has the finite length property over any field of characteristic $0$.
 \end{corollary}
@@ -295,8 +297,8 @@ Here, let $\ff$ be the two-element field.
     $\Aut(\widetilde \W_n) = \Aut(\W_n)$.
 \end{proposition}
 \begin{proof}
-    Clearly any isometric linear bijection of $\W_n$ is a graph automorphism of $\widetilde \W_n$.
-    Conversely, any $f \in \widetilde \W_n$ is evidently isometric.
+    Clearly each isometric linear bijection of $\W_n$ is a graph automorphism of $\widetilde \W_n$.
+    Conversely, every graph automorphism $f \in \Aut(\widetilde \W_n)$ is evidently isometric.
     To show that $f$ is linear, take $\lambda_1, \lambda_2 \in \ff$ and $v_1, v_2 \in \W$.
     We calculate:
     \begin{align*}
@@ -326,7 +328,7 @@ It remains to show $\widetilde \W_0 \subseteq \widetilde \W_1 \subseteq \widetil
     $\langle e_1, \ldots, e_n \rangle \subseteq \widetilde \W_n$.
     
     So suppose $n \geq 1$ and $G$ has an edge $E(s, t)$.
-    Let $G_{s,t}$ be the graph on vertices $G \setminus \{s, t\}$ with edges which we will specify later.
+    Let $G_{s,t}$ be the graph on vertices $G \setminus \{s, t\}$ with edges $E_{s,t}$ that we will specify later.
     By induction, some embedding $f : G_{s, t} \to \widetilde \W_{n-1}$ exists.
     Define $f' : G \to \widetilde \W_n$ by
     \begin{align*}
@@ -344,11 +346,12 @@ It remains to show $\widetilde \W_0 \subseteq \widetilde \W_1 \subseteq \widetil
     On the other,
     \begin{align*}
         \omega( f'(x_1), f'(x_2) ) 
-        = \llbracket E(x_1, x_2) \rrbracket 
+        = \llbracket E_{s,t}(x_1, x_2) \rrbracket 
         &+ \llbracket E(x_1, s) \rrbracket \llbracket E(x_2, t) \rrbracket \\
-        &+ \llbracket E(x_1, t) \rrbracket \llbracket E(x_2, s) \rrbracket
+        &- \llbracket E(x_1, t) \rrbracket \llbracket E(x_2, s) \rrbracket
     \end{align*}
-    tells us how we should define the edge relation in $G_{s,t}$ for $f'$ to be an embedding of graphs.
+    tells us how we should define the edge relation $E_{s,t}$ in $G_{s,t}$ for $f'$ to be an embedding of graphs, 
+    i.e.~so that $\llbracket E(x_1, x_2) \rrbracket = \omega( f'(x_1), f'(x_2) )$.
 \end{proof}
 
 Note that $\bigcup_{i} \widetilde \W_i$ is not isomorphic to the Rado graph.

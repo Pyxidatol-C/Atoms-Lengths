@@ -8,9 +8,19 @@
     and then we observe that orbits from this set can only be added finitely often in the chain. 
 
     Let us now prove the ``furthermore'' part. 
-    Take some orbit-finitely spanned vector space $V$. 
-    By Definition~\ref{def:orbit-finite-set}, the spanning set can be obtained from some equivariant subset of $\A^d$ by quotienting under an equivariant equivalence relation. 
-    This gives us a surjective equivariant linear map to $V$ from an equivariant subspace of $\Lin_\field \A^d$.
+    \begin{itemize}
+        \item 
+        In one direction, take some orbit-finitely spanned vector space $V$. 
+        By Definition~\ref{def:orbit-finite-set}, the spanning set can be obtained from some equivariant subset of $\A^d$ by quotienting under an equivariant equivalence relation. 
+        This gives us a surjective equivariant linear map to $V$ from an equivariant subspace $U$ of $\Lin_\field \A^d$; 
+        call its kernel $W$, so that we have a bijective equivariant linear map $V \leftarrow U/W$. 
+
+        \item 
+        In the other direction, consider equivariant subspaces $W \subseteq U \subseteq \Lin_\field \A^d$.
+        As $\A$ is oligomorphic, the basis $\A^d$ is orbit-finite; 
+        in particular $\Lin_\field \A^d$ is orbit-finitely spanned.
+        But so is $U$ by (1), as is the quotient $U/W$. 
+    \end{itemize}
 
     Finally the implication (3) $\Rightarrow$ (2) is immediate, 
     whilst the converse implication follows from the ``furthermore'' part: 
