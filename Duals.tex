@@ -3,8 +3,6 @@
 The original motivation to introduce orbit-finitely spanned vector spaces in~\cite{BFKM24} was the study of weighted orbit-finite automata. 
 In this section, we recall this motivation and discuss how it relates to our new results. 
 This discussion also involves the issue of function spaces, arguably more fundamental, so we begin with that.
-
-\textcolor{magenta}{isomorphic -> equivariant linear bijection}
  
 \subsection{Function spaces} 
 If we have two orbit-finitely spanned vector spaces $V$ and $W$ over the same atom structure, then there are two natural ideas for a function space: 
@@ -31,37 +29,37 @@ but applied to the space of linear maps from $V$ to $W$.
 It is also the standard restriction used in the study of nominal sets~\cite[Thm.~2.19]{PittsAM:nomsns}.
 As argued in~\cite[Sec.~8.3]{bojanczyk_slightly} on category-theoretic grounds, 
 the finitely supported function space is the ``right'' function space.
-We thus speak of the following property:
+We thus consider:
 
 \begin{definition}[Function space property]\label{def:function-space-property}
     We say an atom structure $\A$ has the \emph{function space property} 
     if orbit-finitely spanned vector spaces over $\A$ are closed under taking finitely supported function spaces.
 \end{definition}
 
-As it turns out, only the equality atoms are known to have this property~\cite[Thm.~8.16]{bojanczyk_slightly}.
-A weaker property for dual spaces was shown for the ordered atoms and 
+As it turns out, the only structure known to have this property is the equality atoms~\cite[Thm.~8.16]{bojanczyk_slightly}.
+If we only require function spaces of the form \[
+    \linfsfun{V}{\field}
+\] to be orbit-finitely spanned, we accordingly speak of the \emph{dual space property}. 
+This weaker property is satisfied also by the ordered atoms~\cite[Cor.~6.8]{BFKM24} and, following \cite[Thm~3.7]{Przybylek_2024}, by $\omega$-stable oligomorphic structures 
+--- a subclass \cite[Cor.~7.4]{CherlinLachlanHarrington} of the smoothly approximated structures from Theorem~\ref{thm:have-oligomorphic-approximation}.
+In contrast, the Rado atoms (not smoothly approximated but having the finite length property) fail even the dual space property, as we explain below.
 
-The equality and ordered atoms have it, which was shown in~\cite[Cor.~6.8]{BFKM24} for a special case of function spaces, namely duals, 
-with the general case of function spaces being treated in~. 
-\textcolor{magenta}{Yes: only N is shown to have the full function space property.}
-\textcolor{magenta}{Q and $\omega$-stable structures [after Przybyłek], which is a subclass of smoothly approximated structures, have the dual space property.}
-On the other hand, the Rado atoms fail this property, as explained in the following example. 
-(In particular, the finite length property does not imply the function space property.)
 
 \begin{myexample}\label{ex:no-function-spaces}
-    Assume that $\A$ is the Rado atoms and the field $\FF$ is arbitrary.%
-    \footnote{A variant of this example for the two-element field was shown in~\cite[Ex.~6.9]{BFKM24}, 
-    but here we can use any field --- in particular a field of characteristic zero as treated in the previous section.}
-    Consider the vector space 
+    Assume that $\A$ is the Rado atoms and the field $\FF$ is arbitrary --- in particular, a field of characteristic zero as treated in the previous section.
+    (A variant of this example for the two-element field was shown in~\cite[Ex.~6.9]{BFKM24}, when the finite length property had not been established yet.)
+    We will show that
+    \[
+        \linfsfun{\Lin_\field \A}{\field}.
+    \]
+    is not orbit-finitely spanned.
+    In fact, this function space is easily seen to be in a linear equivariant bijection with the vector space
     \begin{align}\label{eq:dual-space}
         \fsfun \A \field
     \end{align}
-    consisting of functions (not linear maps) from atoms to the field that are finitely supported in the sense of Definition~\ref{def:function-space}.
-    This space is isomorphic to the function space 
-    \begin{align}\label{eq:dual-space-two}
-        \linfsfun{\Lin_\field \A}{\field}.
-    \end{align}
-    We will show that~\eqref{eq:dual-space} is not orbit-finitely spanned, and hence neither is the isomorphic function space~\eqref{eq:dual-space-two}. 
+    consisting of functions (not linear maps --- there is no linear structure on $\A$) from atoms to the field that are finitely supported in the sense of Definition~\ref{def:function-space}.
+    So we will show that \eqref{eq:dual-space} is not orbit-finitely spanned instead.
+    
     For a finite set $S \subseteq \A$ of atoms, define a function $f_S : \A \to \field$ by
     \begin{align*}
         a \mapsto
@@ -70,13 +68,11 @@ On the other hand, the Rado atoms fail this property, as explained in the follow
             0 & \text{otherwise}.
         \end{cases}
     \end{align*}
-    Define $V$ to be the subspace of~\eqref{eq:dual-space} that is spanned by the functions $f_S$, 
-    where $S$ ranges over finite sets of atoms.
-    The spanning set $\set{f_S}_S$ is not orbit-finite, and as we will show in Appendix~\ref{sec:appendix-no-function-spaces}, no orbit-finite spanning set can be found. 
-    Being orbit-finitely spanned is closed under taking subspaces, which follows from Theorem~\ref{thm:ACP} and the fact that the Rado atoms has the ascending chain property
-    (which was already proved in Theorem~\ref{thm:weak-smooth-approximation-finite-length} for characteristic zero and will be proved later for any field). 
-    In Appendix~\ref{sec:appendix-no-function-spaces}, we show that $V$ is not orbit-finitely spanned, and thus neither is~\eqref{eq:dual-space}. 
-    \textcolor{magenta}{TF?}
+    Define $V$ to be the subspace of~\eqref{eq:dual-space} that is spanned by the functions $f_S$, where $S$ ranges over finite sets of atoms.
+    The spanning set $\set{f_S}_S$ is not orbit-finite, and as we prove in Appendix~\ref{sec:appendix-no-function-spaces}, no orbit-finite spanning set can be found. 
+    But being orbit-finitely spanned is closed under taking subspaces, which follows from Theorem~\ref{thm:ACP} and the fact that the Rado atoms have the ascending chain property
+    (by Theorem~\ref{thm:weak-smooth-approximation-finite-length} for characteristic zero, and by the upcoming Corollary~\ref{cor:free-finite-length} for all other fields). 
+    Hence~\eqref{eq:dual-space} cannot be orbit-finitely spanned. 
 \end{myexample}
  
 
@@ -98,12 +94,14 @@ we choose one viewing them as deterministic automata, in which the states are en
     Such an automaton computes a function of type $\Sigma^* \to \field$, defined in the same way as for deterministic automata. 
 \end{definition}
 
-From the finite length property, we can conclude decidability results about orbit-finite weighted automata. 
+
+From the finite length property of the underlying atoms structure, we can deduce decidability results about orbit-finite weighted automata. 
+(Though, to be able to effectively represent the maps $\delta$ and $F$, we should assume that $Q$ has an orbit-finite basis.)
 For example, a nondeterministic algorithm for non-equivalence is derived in~\cite[Sec.~5]{BFKM24}. 
 In light of the results from this paper, such an algorithm exists if we use the Rado graph as the atoms 
 --- or any other structure for which we have established the finite length property. 
-Also, weighted automata can be minimized~\cite[Sec.~7]{BFKM24}, syntactic congruence is decidable using the bound for chains.
-\textcolor{magenta}{Check. Also mention decidability/representation makes more sense if $Q$ has a basis.}
+Also, weighted automata can be minimized~\cite[Sec.~7]{BFKM24}; 
+the bound for chains allows us to decide whether two input words are syntactically congruent.
 
 However, certain other results on weighted automata will depend on the function space property. 
 Let us give one such example. 
