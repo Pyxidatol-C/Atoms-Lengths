@@ -55,7 +55,7 @@ But $v {\restriction_i}$ satisfies the next best property:
     \] under $\restriction_{i}$ 
     is contained in $\Ker_{W {\restriction}_{i} (\mathcal{Q}_{i})} \mathcal{Q}_{i}$. 
 \end{claim}
-\begin{proof}
+\begin{claimproof}
     Take any $v \in \widehat W$ such that  $v {\restriction_{i'}} = 0$ for all $i'>i$.
     That $v {\restriction_{i}} \in \Lin_{W{\restriction_{i}}(\mathcal{Q}_{i})} \mathcal{Q}_{i}$ is clear from the definition of $\widehat W$.
     Recall that $\mathcal{Q}_{i}$ = $\mathcal{O}|^{J_{i}}$.
@@ -72,9 +72,9 @@ But $v {\restriction_i}$ satisfies the next best property:
 	= \sum_{c|^{-j'}=a^{/J'}}v|^J(c) \\
 	&= \sum_{d|^{J'}=a^{/J'}}v(d)
 	\,\, = v|^{J'}(a^{/J'}) = (v{\restriction_{i'}}(a))_{J'} = 0.
-    \qedhere
+    \claimqedhere
 \end{align*}    
-\end{proof}
+\end{claimproof}
 
 In light of Remark~\ref{rem:FF-EE}, from Theorem~\ref{thm:cog-span-generally} we get: 
 \[\Ker_{W {\restriction_{i}} (\mathcal{Q}_{i})} \mathcal{Q}_{i} \subseteq \Cog_{W {\restriction_{i}} (\mathcal{Q}_{i})} \mathcal{Q}_{i}.\]
@@ -85,7 +85,7 @@ Furthermore:
         W \cap \ker(\restriction_{i+1}) \cap \cdots \cap \ker(\restriction_t)
     \] under $\restriction_{i}$. 
 \end{claim}
-\begin{proof}
+\begin{claimproof}
     Consider any ${\cal Q}_i$-cog with a coefficient $\lambda\in W {\restriction_{i}} (\mathcal{Q}_{i})$, and let $w\in W$ and $a\in{\cal Q}_i$ be such that $\lambda = w{\restriction_{i}}(a)$.
     Let $S'$ consist of $S$ together with every atom appearing in $w$ but not in $a$.
     We generalise the construction used in the proof of Theorem~\ref{thm:cogs-arise-everywhere}.
@@ -114,7 +114,7 @@ Furthermore:
         w' {\restriction_{i}} = \lambda \cdot \left(a \between \prod_{j \in J_{i}} \pi_j a\right).
     \]
 So $w'$ is a witness for the inclusion from the claim.
-\end{proof}
+\end{claimproof}
 
 This is enough to establish Lemma~\ref{lem:coeff-approximation} for $i$, assuming it holds for $i-1$.
 Indeed, given $v \in \widehat W \cap \ker(\restriction_{i+1}) \cap \dots \cap \ker(\restriction_t)$, by the preceding claims

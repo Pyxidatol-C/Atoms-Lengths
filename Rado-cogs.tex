@@ -1,5 +1,5 @@
 \section{Finite length from free amalgamation with a generic order}\label{sec:free-amalg}
-\newcommand{\cal}{\mathcal}
+\renewcommand{\cal}{\mathcal}
 
 As we saw in Non-example~\ref{non-ex:weak-smooth-approximation}, the ordered atoms do not have oligomorphic approximation. 
 Nonetheless they do have the finite length property over any field~\cite[Thm.~4.8]{BFKM24}, not just over those of characteristic zero. 
@@ -35,12 +35,12 @@ the class $\Forb(\Fclass)$ of finite $\sigma_0$-structures form a free amalgamat
 
 %Here are a few free amalgamation classes.
 
-\begin{myexample}\label{ex:free-amalg-equality}
+\begin{example}\label{ex:free-amalg-equality}
     Let $\sigma_0$ be empty. 
     Then $\Cclass_0 = \Forb(\{\})$ is a free amalgamation class consisting of all finite pure sets.
-\end{myexample}
+\lipicsEnd\end{example}
 
-\begin{myexample}\label{ex:free-amalg-graphs}
+\begin{example}\label{ex:free-amalg-graphs}
     Let $\sigma_0$ consist of a single binary relation $E$. 
     Consider $\sigma_0$-structures ${\circlearrowright} = \{x\}$ and ${\rightarrow} = \{y, z\}$, where the relation $E$ is interpreted as $\{(x, x)\}$ and $\{(y, z)\}$.
     Then $\Cclass_0 = \Forb(\{{\circlearrowright}, {\rightarrow}\})$ is a free amalgamation class consisting of all finite undirected graphs.
@@ -55,7 +55,7 @@ the class $\Forb(\Fclass)$ of finite $\sigma_0$-structures form a free amalgamat
         \subseteq \Forb(\{{\circlearrowright}, {\rightarrow}\})
     \end{align*}    
     are all free amalgamation classes --- notice that in each forbidden structure, any two elements are related. 
-\end{myexample}
+\lipicsEnd\end{example}
 
 \paragraph*{Irreflexivity} 
 For technical reasons, we restrict attention to classes $\Cclass_0$ where all structures are {\em irreflexive} (or \emph{injective}), i.e. such that if $R(x,y)$ then $x\neq y$ for each relation $R$. This does not lose generality: for any free amalgamation class $\Cclass_0$, we may replace every binary relation $R$ in the vocabulary with a new unary predicate $R_=$, interpreted in every structure so that $R_=(x)$ iff $R(x,x)$, and a binary relation interpreted as the irreflexive part of $R$. Then $\Cclass_0$ interpreted over this modified vocabulary is still a free amalgamation class, and all our results transport back to the original $\Cclass_0$. This way of encoding arbitrary structures as irreflexive ones is standard; see e.g.~\cite[Sec.~2.4]{Herwig1998} and~\cite[p.~121]{SS20}. All examples considered here are already irreflexive.
@@ -109,15 +109,15 @@ So we may assume that $\A$ and $\A_0$ have the same underlying set; we then have
 
 Conversely, we call $\A$ the \emph{generically ordered expansion} of $\A_0$ or simply the ``ordered $\A_0$''.
 
-\begin{myexample}\label{ex:generically-ordered-equality}
+\begin{example}\label{ex:generically-ordered-equality}
     Continuing from Example~\ref{ex:free-amalg-equality},
     the ordered atoms (Example~\ref{ex:order-atoms}) is the generically ordered expansion of the equality atoms (Example~\ref{ex:equality-atoms}).
-\end{myexample}
+\lipicsEnd\end{example}
 
-\begin{myexample}\label{ex:generically-ordered-graphs}
+\begin{example}\label{ex:generically-ordered-graphs}
     Continuing from Example~\ref{ex:free-amalg-graphs}, we obtain generically ordered expansions of the Rado graph and of the $K_n$-free versions of it, which are called \emph{Henson graphs}.
     The ordered Rado graph was studied in~\cite{BPP15} along with its first-order reducts (e.g., the universal homogeneous tournament). The triangle-free  Henson graph will be studied in an extended example in Section~\ref{ex:extended-example}.
-\end{myexample}
+\lipicsEnd\end{example}
 
 \textcolor{magenta}{Reviewer A: Theorem 7.3/Cor. 7.4 has more corollaries.}
 %Fell free to add them: The following structures have the finite length property over any field: 
@@ -175,7 +175,7 @@ To study the lengths of orbit-finitely spanned spaces, we may focus on a single 
         \item $\Lin_\FF \cal O$ has finite length with respect to $\Aut(\A/S)$ for every $S$-ordered orbit $\cal O$ (of every $\A^{d'}$).
     \end{enumerate}
 \end{claim}
-\begin{proof}
+\begin{claimproof}
     \color{magenta}
     Since $\A$ is oligomorphic, given any $S$ and $d$, 
     we know that $\A^d$ is in an $\Aut(\A/S)$-equivariant bijection with a finite disjoint union $\biguplus_i \cal O_i$ of $S$-ordered orbits (possibly in lower ``dimensions'').
@@ -183,7 +183,7 @@ To study the lengths of orbit-finitely spanned spaces, we may focus on a single 
         \len(\Lin_\FF(\biguplus_i \cal O_i)) = \len(\bigoplus_i \Lin_\FF \cal O_i) = \sum_i \len(\Lin_\FF \cal O_i),
     \]
     which is finite if and only if each summand is finite.
-\end{proof}
+\end{claimproof}
 
 So fix an $S$-ordered orbit $\cal O = \Aut(\A/S) \cdot o \subseteq \A^I$.
 From here we take an inductive approach.
@@ -208,7 +208,7 @@ Many cancellations can occur under $(-)|^J$;
         \item $\Ker_\FF \cal O$ has finite length with respect to $\Aut(\A/S)$ for every $S$-ordered orbit $\cal O$.
     \end{enumerate}
 \end{claim}
-\begin{proof}
+\begin{claimproof}
     That (1) implies (2) is clear as $\Ker_\FF \cal O \subseteq \Lin_\FF \cal O$.
     
     To prove the other implication, assume (2) and let $\cal O \subseteq \A^I$.
@@ -227,7 +227,7 @@ Many cancellations can occur under $(-)|^J$;
         \leq \sum_{i \in I} \len( \Lin_\FF \cal O|^{-i} )
     \]
     which shows that $\len( \Lin_\FF \cal O )$ is finite from the assumptions.
-\end{proof}
+\end{claimproof}
 
 Following the terminology used in~\cite[Eq.~(4)]{BFKM24}, we shall call a vector from the projection kernel \emph{balanced}.
 As we will see shortly, there exist balanced vectors other than $0$.
@@ -284,13 +284,13 @@ As a result, $\Cog_\FF \cal O$ is an $\Aut(\A/S)$-equivariant subspace of $\Lin_
 \begin{claim}\label{claim:cogs-are-balanced}
     $\Cog_\FF \cal O\subseteq \Ker_\FF \cal O$.
 \end{claim}
-\begin{proof}
+\begin{claimproof}
     Let $\cal O \subseteq \A^I$, let $a\parallel b$ be an $\cal O$-duo, and take any $i \in I$.
     The subsets of $I$ come in pairs of $J$ and $J \cup \{i\}$, where $J\subseteq I \setminus \{i\}$.
     The two tuples $a|^{I\setminus J} b|^{J}$ and $a|^{I \setminus (J \cup \{i\})}b|^{J \cup \{i\}}$ are present in 
     $a\between b$ with the opposite coefficients, and they differ only on the $i$-th entry.
     Therefore they cancel out under $(-)|^{-i}$; hence $(a \between b )|^{-i} = 0$.
-\end{proof}
+\end{claimproof}
 
 So far, we have not shown that $\cal O$-duos and $\cal O$-cogs even exist in general.
 Let us rectify this by showing that they can be found in all but one $\Aut(\A/S)$-equivariant subspaces of $\Lin_\FF{\cal O}$.
@@ -558,7 +558,7 @@ unlike the infinite chain exhibited in~\cite[Thm.~4.14]{BFKM24} for the bit-vect
 \end{theorem}
 We do not know how to test for equality.
 
-\begin{myexample}
+\begin{example}
     Let $\A$ be the ordered atoms. 
     For $d = 1$ there are two maps, $\restriction_{1} : \Lin_\FF \A \to \Lin_\FF \A$ and $\restriction_{2} : \Lin_\FF \A \to \FF$, given by  
     \[
@@ -579,7 +579,7 @@ We do not know how to test for equality.
     For $d = 2$, there are three maps, one of which is the form $\restriction_2 : \Lin_\FF \A^2 \to \Lin_{\FF^5} \A$. 
     By considering subspaces of $\FF^5$, when the field is infinite we can exhibit infinitely many equivariant subspaces of $\Lin_\FF \A^2$.
     Note that $\Lin_\FF \A^2$ has finite length nonetheless (equal to $2^1 + 2^2 + 2^2$, by below).
-\end{myexample}
+\lipicsEnd\end{example}
 
 \textcolor{magenta}{there are redundancies, so the thm only gives an upper bound. Luckily we find a chain of matching length.}
 

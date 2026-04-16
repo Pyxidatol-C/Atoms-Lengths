@@ -15,12 +15,12 @@ i.e.~those that are closed under taking linear combinations as well as applying 
 Such subsets are called \emph{equivariant subspaces}. 
 
 
-\begin{myexample}\label{ex:length-one-dim-one}
+\begin{example}\label{ex:length-one-dim-one}
     Let $\A$ be the equality atoms and let $\field$ be an arbitrary field. 
     As explained in~\cite[Ex.~4.2]{BFKM24}, the corresponding vector space $\Lin_\field \A$ has only three equivariant subspaces: 
     the zero subspace, the full space, and the subspace consisting of vectors whose coefficients add up to zero 
     (e.g.~$a - b$ and $a + b - 2 c$, with $a, b, c \in \A$ distinct). 
-\end{myexample}
+\lipicsEnd\end{example}
 
  Unfortunately, there is a price to pay for the elementary character of Definition~\ref{def:orbit-finite-basis}, 
  and that is the failure of certain closure properties. 
@@ -32,8 +32,8 @@ Such subsets are called \emph{equivariant subspaces}.
 
 \begin{definition}[Orbit-finitely spanned vector space, abstractly]\label{def:orbit-finitely-spanned-abstract}
     An \emph{orbit-finitely spanned vector space} over an oligomorphic structure $\A$ is a vector space equipped with an action of automorphisms of $\A$ such that: 
-    \begin{enumerate}
-        \item \label{item:equivariance-of-vector-space-structure} 
+    \begin{bracketenumerate}
+        \item
         vector addition and scalar multiplication are equivariant, with the action on the field being trivial;%
         \footnote{Equivalently, the group action $v \mapsto \pi(v)$ of each automorphism $\pi$ is linear.}
 
@@ -45,7 +45,7 @@ Such subsets are called \emph{equivariant subspaces}.
         \item \label{item:orbit-finite-spanning-subset} 
         the space is spanned by some subset that is orbit-finite.%
         \footnote{Equivalently, the vector space is finitely generated as a module over the group ring of automorphisms.}
-    \end{enumerate}
+    \end{bracketenumerate}
 \end{definition}
 
 The spaces defined above are easily seen to be closed under taking quotients by equivariant subspaces. 

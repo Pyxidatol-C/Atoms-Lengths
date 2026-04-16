@@ -105,7 +105,7 @@ The following sister lemmas, relying on free amalgamation as distilled in Lemma~
     \]
     with $\lambda_{a^\pm} \in \EE$, where moreover $\vsup{v} \cup A^\pm$ is free from conflicts.
 \end{claim}
-\begin{proof}
+\begin{claimproof}
 We proceed by induction on the dimension $|I|$, 
 noting that when $I = \emptyset$ we just have $v = \lambda \cdot () = \lambda \cdot ( \between )$.
 
@@ -209,7 +209,7 @@ We conclude that
     + \sum_{c^\pm\in C^\pm} \kappa_{c^\pm} \cdot c^+ \between c^-
 \end{align*}
 is a decomposition of $v$ into a sum of $\cal O$-cogs as required.
-\end{proof}
+\end{claimproof}
 
 \subsection{Vectors without equational conflicts}\label{subsec:unambiguous}
 \begin{claim}\label{claim:?-free-decomposition}
@@ -219,7 +219,7 @@ is a decomposition of $v$ into a sum of $\cal O$-cogs as required.
     \]
     with $\lambda_{a^\pm} \in \EE$, where moreover $\vsup{v} \cup A^\pm$ has no equational conflicts.
 \end{claim}
-\begin{proof}
+\begin{claimproof}
 We proceed again by induction, first on $|I|$ then on the number of relational conflicts in $v$.
 The outer base case $I = \emptyset$ is trivial 
 --- we have $v = \lambda \cdot ( \between )$, and no conflicts arise
@@ -270,7 +270,7 @@ is also free from equational conflicts. We conclude that
     v =\sum_{a^\pm\in A^\pm} \lambda_{a^\pm} \cdot a^+ a \between a^-a'+ \sum_{b^\pm\in B^\pm} \mu_{b^\pm} \cdot b^+ \between b^-
 \]
 as required.
-\end{proof}
+\end{claimproof}
 
 \subsection{Arbitrary vectors}
 We restate and prove Theorem~\ref{thm:cog-span-generally}:
