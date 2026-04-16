@@ -1,6 +1,6 @@
 \documentclass[a4paper,UKenglish,numberwithinsect]{lipics-v2021}
 \pdfoutput=1
-\hideLIPIcs %TODO only uncomment for arXiv
+% \hideLIPIcs %TODO only uncomment for arXiv
 \bibliographystyle{plainurl}
 
 \title{The Finite Length Property of the~Rado~Graph~and~Friends}
@@ -167,14 +167,14 @@ We are also grateful to the anonymous reviewers for their insightful comments.}
   We also describe some connections with function spaces, weighted register automata, and orbit-finite systems of linear equations.
 \end{abstract}
 
-\input{Intro}
-\input{Structures}
-\input{Sets}
-\input{Spaces}
-\input{Rado-cogless}
-\input{Duals}
-\input{Rado-cogs}
-\input{Conclusion.tex}
+\input{src/Intro}
+\input{src/Structures}
+\input{src/Sets}
+\input{src/Spaces}
+\input{src/Rado-cogless}
+\input{src/Duals}
+\input{src/Rado-cogs}
+\input{src/Conclusion}
 
 
 \emergencystretch=1em
@@ -182,12 +182,12 @@ We are also grateful to the anonymous reviewers for their insightful comments.}
 
 \newpage
 \appendix
-\input{appendix-acp}
-\input{appendix-symplectic}
-\input{appendix-function-spaces}
-\input{appendix-woodrow-lachlan}
-\input{appendix-cogs.tex}
-\input{appendix-coefficients.tex}
+\input{src/appendix-acp}
+\input{src/appendix-symplectic}
+\input{src/appendix-function-spaces}
+\input{src/appendix-woodrow-lachlan}
+\input{src/appendix-cogs.tex}
+\input{src/appendix-coefficients.tex}
 
 
 \end{document}
