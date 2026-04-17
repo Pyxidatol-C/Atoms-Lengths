@@ -85,10 +85,10 @@ For clarity, we begin with a terse restatement of the setting.
 \begin{theorem}\label{thm:ordered-free-amalg-has-finite-length}
     Consider:
     \begin{itemize}
-        \item[$\sigma_0$] a finite, at-most-binary relational vocabulary;
-        \item[$\Cclass_0$] a free amalgamation class of finite, irreflexive $\sigma_0$-structures;
-        \item[$\Cclass$] all total orderings of all structures in $\Cclass_0$, over the vocabulary $\sigma_0 \uplus \{<\}$;
-        \item[$\A$] the Fraïssé limit of $\Cclass$ --- a homogeneous and oligomorphic $(\sigma_0 \uplus \{<\})$-structure.
+        \item $\sigma_0$\quad a finite, at-most-binary relational vocabulary;
+        \item $\Cclass_0$\quad a free amalgamation class of finite, irreflexive $\sigma_0$-structures;
+        \item $\Cclass$\quad all total orderings of all structures in $\Cclass_0$, over the vocabulary $\sigma_0 \uplus \{<\}$;
+        \item $\A$\quad the Fraïssé limit of $\Cclass$ --- a homogeneous and oligomorphic $(\sigma_0 \uplus \{<\})$-structure.
     \end{itemize}
     Then the totally ordered structure $\A$, even with finitely many constants fixed, has the finite length property over any field.
 \end{theorem}
@@ -138,14 +138,14 @@ Using a classification result of Lachlan and Woodrow~\cite{LachlanWoodrow_80}, w
 \begin{corollary}\label{cor:lachlan-woodrow}
     The following structures have the finite length property over any field:
     \color{magenta}
-    \begin{enumerate}
+    \begin{romanenumerate}
         \item the ordered atoms;
         \item the equality atoms;
         \item the Rado atoms;
         \item all countable homogeneous graphs;
         \item all homogeneous tournaments (universal one in~\cite{BPP15}, dense local order in~\cite{NguyenVanThe13});
         \item uncountably many digraphs obtained by forbidding tournaments (cite Macpherson)
-    \end{enumerate}
+    \end{romanenumerate}
     Every countable homogeneous undirected graph has the finite length property over any field.
 
     Mention the vector atoms / universal partial order are not free?
@@ -170,10 +170,10 @@ To study the lengths of orbit-finitely spanned spaces, we may focus on a single 
 \begin{claim}\label{claim:reduction-to-one-orbit}
     \color{magenta}
     The following are equivalent for every finite $S \subseteq \A$ (where $\A$ is oligomorphic):
-    \begin{enumerate}
+    \begin{alphaenumerate}
         \item For each $d \in \{1, 2, \dots\}$, there is some finite bound $l_d$ such that chains of $\Aut(\A/S)$-equivariant subspaces in $\Lin_\FF \A^d$ have length at most $l_d$;
         \item $\Lin_\FF \cal O$ has finite length with respect to $\Aut(\A/S)$ for every $S$-ordered orbit $\cal O$ (of every $\A^{d'}$).
-    \end{enumerate}
+    \end{alphaenumerate}
 \end{claim}
 \begin{claimproof}
     \color{magenta}
@@ -203,22 +203,26 @@ Many cancellations can occur under $(-)|^J$;
 
 \begin{claim}\label{claim:reduction-to-kernel}
     The following are equivalent for every finite $S \subseteq \A$:
-    \begin{enumerate}
-        \item $\Lin_\FF \cal O$ has finite length with respect to $\Aut(\A/S)$ for every $S$-ordered orbit $\cal O$;
-        \item $\Ker_\FF \cal O$ has finite length with respect to $\Aut(\A/S)$ for every $S$-ordered orbit $\cal O$.
-    \end{enumerate}
+    \begin{alphaenumerate}
+        \item\label{item:LinO-finite-length}
+        $\Lin_\FF \cal O$ has finite length with respect to $\Aut(\A/S)$ for every $S$-ordered orbit $\cal O$;
+
+        \item\label{item:balancedLinO-finite-length}
+        $\Ker_\FF \cal O$ has finite length with respect to $\Aut(\A/S)$ for every $S$-ordered orbit $\cal O$.
+    \end{alphaenumerate}
 \end{claim}
 \begin{claimproof}
-    That (1) implies (2) is clear as $\Ker_\FF \cal O \subseteq \Lin_\FF \cal O$.
+    That (\ref{item:LinO-finite-length}) implies (\ref{item:balancedLinO-finite-length}) is clear as $\Ker_\FF \cal O \subseteq \Lin_\FF \cal O$.
     
-    To prove the other implication, assume (2) and let $\cal O \subseteq \A^I$.
+    To prove the other implication, assume (\ref{item:balancedLinO-finite-length}) and let $\cal O \subseteq \A^I$.
     We proceed by induction on $|I|$.
     If $I = \emptyset$, then $\cal O$ must be the entire singleton $\A^\emptyset = \{ () \}$; 
     as $\Lin_\FF \cal O$ has no nontrivial subspaces (let alone finitely supported ones), it has length $1$.
     Now if $|I| \geq 1$, assemble all $|I|$ projection maps into a single map
     \begin{align*}
-        \Lin_\FF \cal O &\to \bigoplus_{i \in I} \cal O|^{-i} \\
-        v &\mapsto ( v|^{-i} )_{i \in I}
+        \Lin_\FF \cal O \to \bigoplus_{i \in I} \cal O|^{-i};
+        \quad
+        v \mapsto ( v|^{-i} )_{i \in I}
     \end{align*}
     whose kernel is precisely $\Ker_\FF \cal O$.
     We have
@@ -243,11 +247,11 @@ For an obvious example, for any $S$-ordered $a\in\A^I$ and $J\subseteq I$, we ha
 \begin{definition}\label{def:duo}
     Let $\cal O \subseteq \A^I$ be an $S$-ordered orbit. 
     An \emph{$\cal O$-duo} $a \parallel b$ consists of tuples $a, b \in \cal O$ such that:
-    \begin{enumerate}
-        \item 
+    \begin{bracketenumerate}
+        \item\label{item:cog-ai-bi} 
         $a_i < b_i$ for all $i\in I$;
         
-        \item 
+        \item\label{item:cog-bi-aj}  
         $b_i < a_j$ for all $i<j\in I$;
 
         \item 
@@ -257,16 +261,16 @@ For an obvious example, for any $S$-ordered $a\in\A^I$ and $J\subseteq I$, we ha
             &\Updownarrow \text{ as $a, b \in \cal O$} \\
             R(b_i,a_j) \iff R(&b_i,b_j).
         \end{align*}
-     \end{enumerate}
+     \end{bracketenumerate}
 \end{definition}
 \begin{remark}\label{rem:duo}
-Conditions (1) and (2) specify a total order on the $2|I|$ atoms in a duo.
+Conditions (\ref{item:cog-ai-bi}) and (\ref{item:cog-bi-aj}) specify a total order on the $2|I|$ atoms in a duo.
 Moreover, thanks to irreflexivity, 
 each $a_i$ is unrelated to its counterpart $b_i$.
 Further, given any $J \subseteq I$, the combined tuple $a|^{I\setminus J} b|^J$ satisfies the same relations as $a$ (and $b$), so it lies in $\cal O$. In particular, taking $J=\{i\}$, there is an automorphism $\pi_i$ that sends $a_i$ to $b_i$ and fixes all the other elements of $a$, $b$ and $S$.
 \end{remark}
 
-For the special case of the ordered atoms (Examples~\ref{ex:order-atoms} \&~\ref{ex:generically-ordered-equality}) the following construction was studied in~\cite[p.~11]{BFKM24}, and it already appeared earlier in~\cite[p.~125]{Gray97} under the name of ``polytabloids''.
+For the special case of the ordered atoms (Examples~\ref{ex:order-atoms} and~\ref{ex:generically-ordered-equality}) the following construction was studied in~\cite[p.~11]{BFKM24}, and it already appeared earlier in~\cite[p.~125]{Gray97} under the name of ``polytabloids''.
 
 \begin{definition}
     Given a $\cal O$-duo $a \parallel b$, the corresponding \emph{$\cal O$-cog} is the vector
@@ -301,11 +305,16 @@ We begin with a technical lemma, which combines the free amalgamation in $\Cclas
 \begin{lemma}\label{lem:free-fresh}
     Let $X, Y, \{z\} \subseteq \A$ be disjoint and finite.
     Then there is an automorphism $\tau \in \Aut(\A)$ such that
-    \begin{enumerate}
-        \item $\tau$ fixes every $x \in X$;
-        \item $\tau(z)$ is unrelated to all $y \in Y$ and to $z$;
-        \item $\tau(z) > z$.
-    \end{enumerate}
+    \begin{bracketenumerate}
+        \item\label{item:tau-fixes-X} 
+        $\tau$ fixes every $x \in X$;
+
+        \item\label{item:tau-frees-from-Yz} 
+        $\tau(z)$ is unrelated to all $y \in Y$ and to $z$;
+        
+        \item\label{item:tau-adds-epsilon} 
+        $\tau(z) > z$.
+    \end{bracketenumerate}
 \end{lemma}
 \begin{proof}
     Form the free amalgam of structures in ${\Cclass}_0$:
@@ -326,7 +335,7 @@ We begin with a technical lemma, which combines the free amalgamation in $\Cclas
     By homogeneity, $X \cup Y \cup \{z, z'\}$ embeds into $\A$ via some $f$ which is the identity on $X \cup Y \cup \{z\}$;
     again by homogeneity, we may extend the embedding \[ 
         x \in X \mapsto x, \quad z \mapsto f(z')
-    \] to some automorphism $\tau$ that satisfies (1), (2), and (3).
+    \] to some automorphism $\tau$ that satisfies (\ref{item:tau-fixes-X}), (\ref{item:tau-frees-from-Yz}), and (\ref{item:tau-adds-epsilon}).
 \end{proof}
 
 \begin{lemma}\label{lem:cog-fresh-single}

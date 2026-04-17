@@ -55,14 +55,19 @@ This closure property turns out to be intimately related to the ascending chain 
 
 \begin{theorem}\label{thm:ACP}
     For any field $\field$ and oligomorphic structure $\A$, the following conditions are equivalent: 
-    \begin{enumerate}
-        \item orbit-finitely spanned vector spaces are closed under taking equivariant subspaces; 
-        \item for every $d \in \set{0,1,\ldots}$,  the vector space 
+    \begin{alphaenumerate}
+        \item\label{item:sub-ofs-is-ofs}
+        orbit-finitely spanned vector spaces are closed under taking equivariant subspaces; 
+        
+        \item\label{item:LinAd-is-Noetherian}
+        for every $d \in \set{0,1,\ldots}$, the vector space 
         $
             \Lin_\field \A^d
         $ does not have any infinite ascending chain of equivariant subspaces;
-        \item for every orbit-finitely spanned vector space $V$, there are no infinite ascending chains of equivariant subspaces in $V$.
-    \end{enumerate}
+        
+        \item\label{item:ofs-implies-Noetherian}
+        for every orbit-finitely spanned vector space $V$, there are no infinite ascending chains of equivariant subspaces in $V$.
+    \end{alphaenumerate}
     Furthermore, if these conditions hold, then the orbit-finitely spanned vector spaces are --- up to equivariant linear bijections --- precisely the vector spaces of the form $U/W$, 
     where $W \subseteq U$ are equivariant subspaces of $\Lin_\field \A^d$ and $d \in \set{0,1,\ldots}$.
 \end{theorem}
@@ -88,7 +93,7 @@ As it turns out, the techniques used in this paper will yield a stronger propert
     (The supremum of the chain lengths, finite or not, is called the \emph{length} of $\Lin_\FF X$.)
 \end{definition}
 
-In light of Theorem~\ref{thm:ACP} and the proof of (2) $\Rightarrow$ (3) in Appendix~\ref{sec:appendix-modules}, we could have used $\A^d$ instead of $X$ in the above definition.
+In light of Theorem~\ref{thm:ACP} and the proof of (\ref{item:LinAd-is-Noetherian}) $\Rightarrow$ (\ref{item:ofs-implies-Noetherian}) in Appendix~\ref{sec:appendix-modules}, we could have used $\A^d$ instead of $X$ in the above definition.
 Like mentioned in the introduction, the finite length property can be strictly stronger than the ascending chain property, as witnessed by the vector atoms from Example~\ref{ex:vector-space-atoms}. 
 (Note that when we talk about the vector atoms, there are two fields involved, namely the finite field used to define $\A$ and the field $\field$ used to define $\Lin_\field \A$. 
 In the counterexample, both fields are the two-element field.)

@@ -92,8 +92,6 @@ Furthermore:
     
     Apply Lemma~\ref{lem:cog-fresh-full} and Remark~\ref{rem:duo} to get automorphisms $\pi_j$ for $j \in J_i$ such that $a \parallel \prod_{j \in J_i} \pi_j a$ is an $\mathcal{Q}_i$-duo, 
     where each $\pi_j$ fixes $S'$ and all $a_{j'}$ and $\pi_{j'}(a_{j'})$ for $j'\neq j$. Since all $\mathcal{Q}_i$-duos are in the same orbit, it is enough to show that the cog corresponding to this particular duo, with the coefficient $\lambda$, belongs to the $\restriction_i$-image as in the statement of the claim.
-    
-    
     Put: \[
         w' = \prod_{j \in J_{i}} (\mathrm{id} - \pi_j) w \in W.
     \]
@@ -118,14 +116,15 @@ So $w'$ is a witness for the inclusion from the claim.
 
 This is enough to establish Lemma~\ref{lem:coeff-approximation} for $i$, assuming it holds for $i-1$.
 Indeed, given $v \in \widehat W \cap \ker(\restriction_{i+1}) \cap \dots \cap \ker(\restriction_t)$, by the preceding claims
-we can find $w \in W \cap \ker(\restriction_{i+1}) \cap \dots \cap \ker(\restriction_t) \subseteq \widehat W$ such that 
+we can find \[
+    w \in W \cap \ker(\restriction_{i+1}) \cap \dots \cap \ker(\restriction_t)
+\] such that 
 $v {\restriction_i} = w {\restriction_i}$.
-But then $(v - w) {\restriction_{i}} = 0$, so $v - w$ lies in $\ker(\restriction_{i})$ as well as $\widehat W \cap \ker(\restriction_{i+1}) \cap \cdots \cap \ker(\restriction_t)$.
+But then $(v - w) {\restriction_{i}} = 0$, so $v - w$ lies in $\ker(\restriction_{i})$, $\ker(\restriction_{i+1}), \dots, \ker(\restriction_t)$ as well as $\widehat{W}$ (which contains $W$).
 It follows from the inductive hypothesis that \[
     v - w \in W \cap \ker(\restriction_i) \cap \ker(\restriction_{i+1}) \cap \dots \cap \ker(\restriction_t),
 \]
 so $v = (v - w) + w$ is in $W \cap \ker(\restriction_{i+1}) \cap \dots \cap \ker(\restriction_t)$ as well.
-
 This completes the proof of Theorem~\ref{thm:coeff-approximation}.
 \end{proof}
 
@@ -185,8 +184,3 @@ we obtain a chain
 \end{align*}
 of length $|\Jclass_t| + |\Jclass_{t-1}| + \cdots + |\Jclass_1| = 2^{|I|}$.
 We conclude that the upper bound from Proposition~\ref{prop:length-upper-bound} is tight.
-
-% Along the lines of Claim~\ref{claim:reduction-to-one-orbit}, this generalises to multi-orbit sets:
-% \[
-% \len(\Lin_\FF(\mathcal{O}_1 \uplus \dots \uplus \mathcal{O}_n)) = 2^{|I_1|} + \dots + 2^{|I_n|}.
-% \]

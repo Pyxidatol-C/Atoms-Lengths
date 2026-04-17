@@ -1,10 +1,10 @@
 \section{Proof of Theorem~\ref{thm:ACP}}\label{sec:appendix-modules}
 \begin{proof}[Proof of Theorem~\ref{thm:ACP}]
-    The equivalence of (3) and (1) is a classical result in module theory. 
+    The equivalence of (\ref{item:ofs-implies-Noetherian}) and (\ref{item:sub-ofs-is-ofs}) is a classical result in module theory. 
     Let us recall the proof. 
-    For (3) $\Rightarrow$ (1), we build an orbit-finite spanning set for the subspace greedily, by adding orbit after orbit of vectors. 
-    Thanks to (3), this must stabilise. 
-    For (1) $\Rightarrow$ (3), we use (1) to get an orbit-finite spanning set for the union of the chain from (3), 
+    For (\ref{item:ofs-implies-Noetherian}) $\Rightarrow$ (\ref{item:sub-ofs-is-ofs}), we build an orbit-finite spanning set for the subspace greedily, by adding orbit after orbit of vectors. 
+    Thanks to (\ref{item:ofs-implies-Noetherian}), this must stabilise. 
+    For (\ref{item:sub-ofs-is-ofs}) $\Rightarrow$ (\ref{item:ofs-implies-Noetherian}), we use (\ref{item:sub-ofs-is-ofs}) to get an orbit-finite spanning set for the union of the chain from (3), 
     and then we observe that orbits from this set can only be added finitely often in the chain. 
 
     Let us now prove the ``furthermore'' part. 
@@ -19,10 +19,10 @@
         In the other direction, consider equivariant subspaces $W \subseteq U \subseteq \Lin_\field \A^d$.
         As $\A$ is oligomorphic, the basis $\A^d$ is orbit-finite; 
         in particular $\Lin_\field \A^d$ is orbit-finitely spanned.
-        But so is $U$ by (1), as is the quotient $U/W$. 
+        But so is $U$ by (\ref{item:sub-ofs-is-ofs}), as is the quotient $U/W$. 
     \end{itemize}
 
-    Finally the implication (3) $\Rightarrow$ (2) is immediate, 
+    Finally the implication (\ref{item:ofs-implies-Noetherian}) $\Rightarrow$ (\ref{item:LinAd-is-Noetherian}) is immediate, 
     whilst the converse implication follows from the ``furthermore'' part: 
     the lack of infinite chains is preserved by taking equivariant subspaces and images under equivariant linear maps. 
 \end{proof}

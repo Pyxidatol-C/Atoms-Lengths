@@ -1,15 +1,23 @@
 \section{Finite length in characteristic zero}
 \label{sec:characteristic-zero}
 
-In this section, we present the first of our two main results, which is a  method for proving the finite length property assuming that the field has characteristic zero. Under this assumption, we will establish the finite length property for the Rado atoms (Example~\ref{ex:rado-graph}) and for the vector atoms (Example~\ref{ex:vector-space-atoms}). These are new results. We also think that the proof itself, even when applied to get already known results, is of independent interest and arguably simpler than previously known proofs.
+In this section, we present the first of our two main results, 
+which is a method for proving the finite length property assuming that the field has characteristic zero. 
+Under this assumption, we will establish the finite length property for the Rado atoms (Example~\ref{ex:rado-graph}) and for the vector atoms (Example~\ref{ex:vector-space-atoms}). 
+These are new results. 
+We also think that the proof itself, even when applied to get already known results (Example~\ref{ex:equality-atoms}), is of independent interest and arguably simpler than previously known proofs.
 The method that we use will work for all structures that satisfy the following condition. 
  
-\begin{definition}
-    [Oligomorphic approximation]
-    \label{def:oligomorphic-approximation} We say that a homogeneous structure $\A$ has \emph{oligomorphic approximation} if, for every $d \in \set{1,2,\ldots}$, there exists a family $\Bclass$ of finite substructures of $\A$ such that: 
+\begin{definition}[Oligomorphic approximation]\label{def:oligomorphic-approximation} 
+    We say that a homogeneous structure $\A$ has \emph{oligomorphic approximation} if, 
+    for every $d \in \set{1,2,\ldots}$, 
+    there exists a family $\Bclass$ of finite substructures of $\A$ such that: 
     \begin{bracketenumerate}
-        \item \label{item:oligomorphic-approximation-embedding} every finite substructure of $\A$ is a substructure of some $\B \in \Bclass$; and
-        \item \label{item:oligomorphic-approximation-orbits} there is a common finite upper bound, for all $\B \in \Bclass$, on the number of orbits in $\B^d$ with respect to automorphisms of $\B$.
+        \item \label{item:oligomorphic-approximation-embedding} 
+        every finite substructure of $\A$ is a substructure of some $\B \in \Bclass$; and
+
+        \item \label{item:oligomorphic-approximation-orbits} 
+        there is a common finite upper bound, for all $\B \in \Bclass$, on the number of orbits in $\B^d$ with respect to automorphisms of $\B$.
     \end{bracketenumerate}
 \end{definition}
 
@@ -22,12 +30,19 @@ hence the number of orbits in $\B^d$ is at most that of $\A^d$, which is finite 
 
 \begin{theorem}\label{thm:have-oligomorphic-approximation}
     The following structures have oligomorphic approximation: 
-    \begin{enumerate}
-        \item the equality atoms from Example~\ref{ex:equality-atoms};
-        \item the vector atoms from Example~\ref{ex:vector-space-atoms}, for any finite field $\innerfield$;
-        \item \label{item:rado-has-oligomorphic-approximation} the Rado atoms from Example~\ref{ex:rado-graph};
-        \item \textcolor{magenta}{smoothly approximated structures in the canonical vocabularies.}
-    \end{enumerate}
+    \begin{romanenumerate}
+        \item\label{item:eq-has-oligomorphic-approximation} 
+        the equality atoms from Example~\ref{ex:equality-atoms};
+        
+        \item\label{item:vec-has-oligomorphic-approximation}
+        the vector atoms from Example~\ref{ex:vector-space-atoms}, for any finite field $\innerfield$;
+        
+        \item\label{item:rado-has-oligomorphic-approximation} 
+        the Rado atoms from Example~\ref{ex:rado-graph};
+        
+        \item\label{item:smooth-implies-oligomorphic-approximation}   
+        \textcolor{magenta}{smoothly approximated structures in the canonical vocabularies.}
+    \end{romanenumerate}
 \end{theorem}
 Before proving the above theorem, let us observe that the ordered atoms (Example~\ref{ex:order-atoms}) do not have oligomorphic approximation.
 
@@ -42,7 +57,7 @@ So no family $\Bclass$ satisfies both condition (\ref{item:oligomorphic-approxim
     Note that, by relying on the homogeneity of $\A$, we can afford to be sloppy and only identify $\B$ up to isomorphism. 
     \color{black}
 
-    \begin{enumerate}
+    \begin{romanenumerate}
         \item For the equality atoms, we can simply choose $\Bclass$ to be all finite sets. 
         These are all homogeneous: we can extend a bijection between subsets to a permutation.
         \item For the vector atoms, we can also choose $\Bclass$ independently of $d$ to be the family of all vector spaces of finite dimension. 
@@ -68,7 +83,7 @@ So no family $\Bclass$ satisfies both condition (\ref{item:oligomorphic-approxim
         have different sizes modulo two. 
         These graphs satisfy condition~\eqref{item:oligomorphic-approximation-embedding} from Definition~\ref{def:oligomorphic-approximation}, i.e.~every finite graph embeds in some symplectic graph~\cite[Thm.~8.11.2]{GR01}. 
         In Appendix~\ref{sec:appendix-symplectic}, we prove condition~\eqref{item:oligomorphic-approximation-orbits}, i.e.~that the number of orbits of $d$-tuples in symplectic graphs is uniformly bounded by a function of $d$ only. \qedhere
-    \end{enumerate}
+    \end{romanenumerate}
 \end{proof}
 
 The main result of this section is the following theorem.
@@ -81,8 +96,10 @@ Combining Theorems~\ref{thm:have-oligomorphic-approximation} and~\ref{thm:weak-s
 
 \begin{corollary}\label{cor:weak-finite-length}
     Over any field of characteristic $0$, the following structures have the finite length property: 
-    (1) the equality atoms; (2) the vector atoms; (3) the Rado atoms;
-    and (4) smoothly approximated structures.
+    (\ref{item:eq-has-oligomorphic-approximation}) the equality atoms; 
+    (\ref{item:vec-has-oligomorphic-approximation}) the vector atoms; 
+    (\ref{item:rado-has-oligomorphic-approximation}) the Rado atoms; and 
+    (\ref{item:smooth-implies-oligomorphic-approximation}) smoothly approximated structures.
 \end{corollary}
 
 As mentioned in the introduction, the finite length property was already known for the equality atoms --- over arbitrary fields even. The results for the vector atoms and the Rado atoms are new. The assumption on characteristic zero is important, at least in the case of the vector atoms where  the finite length property is known to fail over finite fields --- see, most recently,~\cite[Sec.~4.4]{BFKM24}. Later on in this paper, we will prove the result for the Rado atoms again using a different method that works for any field.
@@ -100,6 +117,30 @@ $
 
 We will now proceed in three steps. 
 For convenience, we summarise these steps in Figure~\ref{fig:proof-summary-cogless}. 
+
+\begin{figure}
+\begin{center}
+\begin{tikzcd}[row sep=large]
+\text{length of $\Lin \A^d$} 
+\ar[d, phantom, "\rotatebox{90}{$\geq$} \text{\quad (Lemma~\ref{lem:reduce-to-finite-substructures})}"']
+\\
+\displaystyle\sup_{\B \in \Bclass} \text{length of $\Lin \B^d$} 
+\ar[d, phantom, "\rotatebox{90}{$\geq$} \text{\quad  (Lemma~\ref{lem:dim-bounds-length})}"']
+\\
+\displaystyle\sup_{\B \in \Bclass} \text{dimension of } \lineqfun {\Lin \B^d} {\Lin \B^d}
+\ar[d, phantom, "\rotatebox{90}{$=$} \text{\quad(Lemma~\ref{lem:bound-on-dim-for-finite-set})}"']
+\\
+\displaystyle\sup_{\B \in \Bclass} \text{number of orbits in $\B^{2d}$}
+\ar[d, phantom, "\rotatebox{90}{$>$} \text{\quad(Definition~\ref{def:oligomorphic-approximation})}"']
+\\
+\infty.
+\end{tikzcd}
+\end{center}
+\caption{
+    \label{fig:proof-summary-cogless}
+    Summary of the proof of Theorem~\ref{thm:weak-smooth-approximation-finite-length}.}
+\end{figure}
+
     \begin{lemma}\label{lem:reduce-to-finite-substructures}
         For every $d \in \set{1,2,\ldots}$ we have 
         \begin{align*}
@@ -186,30 +227,6 @@ For convenience, we summarise these steps in Figure~\ref{fig:proof-summary-cogle
     \end{proof}
 This dimension is bounded by some constant that depends only on $d$, by the assumption of oligomorphic approximation, which completes the proof of Theorem~\ref{thm:weak-smooth-approximation-finite-length}.
 \end{proof}
-
-
-\begin{figure}
-    \[
-\begin{tikzcd}[row sep=large]
-\text{length of $\Lin \A^d$} 
-\ar[d, phantom, "\rotatebox{90}{$\geq$} \text{\quad (Lemma~\ref{lem:reduce-to-finite-substructures})}"']
-\\
-\displaystyle\sup_{\B \in \Bclass} \text{length of $\Lin \B^d$} 
-\ar[d, phantom, "\rotatebox{90}{$\geq$} \text{\quad  (Lemma~\ref{lem:dim-bounds-length})}"']
-\\
-\displaystyle\sup_{\B \in \Bclass} \text{dimension of } \lineqfun {\Lin \B^d} {\Lin \B^d}
-\ar[d, phantom, "\rotatebox{90}{$=$} \text{\quad(Lemma~\ref{lem:bound-on-dim-for-finite-set})}"']
-\\
-\displaystyle\sup_{\B \in \Bclass} \text{number of orbits in $\B^{2d}$}
-\ar[d, phantom, "\rotatebox{90}{$>$} \text{\quad(Definition~\ref{def:oligomorphic-approximation})}"']
-\\
-\infty.
-\end{tikzcd}
-\]
-\caption{
-    \label{fig:proof-summary-cogless}
-    Summary of the proof of Theorem~\ref{thm:weak-smooth-approximation-finite-length}.}
-\end{figure}
 
 The inequalities shown in Figure~\ref{fig:proof-summary-cogless} give us upper bounds on the length. In the case of the equality atoms, this bound is exponential in $d$. In the case of the vector atoms from Example~\ref{ex:vector-space-atoms}, the bound is the number of  linear dependency patterns for $2d$-tuples over a finite field. Such a pattern is described by: (a) indicating a subset of the coordinates which is a basis for the tuple; and (b) indicating the basis decompositions for the remaining coordinates. This can be done in at most exponentially many ways in $d$, and therefore the overall bound is  exponential in $d$.
 In Appendix~\ref{sec:appendix-symplectic} we give an upper bound in the case of the Rado atoms, also exponential in $d$.
