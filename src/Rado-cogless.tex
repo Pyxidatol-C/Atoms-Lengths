@@ -5,8 +5,8 @@ In this section, we present the first of our two main results,
 which is a method for proving the finite length property assuming that the field has characteristic zero. 
 Under this assumption, we will establish the finite length property for the Rado atoms (Example~\ref{ex:rado-graph}) and for the vector atoms (Example~\ref{ex:vector-space-atoms}). 
 These are new results. 
-We also think that the proof itself, even when applied to get already known results (Example~\ref{ex:equality-atoms}), is of independent interest and arguably simpler than previously known proofs.
-The method that we use will work for all structures that satisfy the following condition. 
+We also think that the proof itself, even when applied to get already known results for the equality atoms (Example~\ref{ex:equality-atoms}), is of independent interest and arguably simpler than previously known proofs.
+The method that we use will work for all structures satisfying the following condition. 
  
 \begin{definition}[Oligomorphic approximation]\label{def:oligomorphic-approximation} 
     We say that a homogeneous structure $\A$ has \emph{oligomorphic approximation} if, 
@@ -14,19 +14,21 @@ The method that we use will work for all structures that satisfy the following c
     there exists a family $\Bclass$ of finite substructures of $\A$ such that: 
     \begin{bracketenumerate}
         \item \label{item:oligomorphic-approximation-embedding} 
-        every finite substructure of $\A$ is a substructure of some $\B \in \Bclass$; and
+        every finite substructure $S$ of $\A$ is a substructure of some $\B_S \in \Bclass$; and
 
         \item \label{item:oligomorphic-approximation-orbits} 
-        there is a common finite upper bound, for all $\B \in \Bclass$, on the number of orbits in $\B^d$ with respect to automorphisms of $\B$.
+        there is a common (finite) upper bound, for all $\B \in \Bclass$, on the number of orbits in $\B^d$ with respect to automorphisms of $\B$.
     \end{bracketenumerate}
 \end{definition}
 
-\color{magenta}
-This is a relaxation of the notion known as \emph{smooth approximation} in model theory. There, the family $\Bclass$ is independent of $d$,
-and the place of (2) we require each $\B \in \Bclass$ to be homogeneous itself and $\A$ to be oligomorphic~\cite[p.~440]{KLM89}. 
-In that case, two tuples in $\B^d$ are in the same orbit if and only if they are in the same orbit of $\A^d$; 
-hence the number of orbits in $\B^d$ is at most that of $\A^d$, which is finite by oligomorphism.
-\color{black}
+This is closely related to the notion known as \emph{smooth approximation} in model theory,
+developed in~\cite[p.~440]{KLM89} and the subject of the monograph~\cite{CherlinHrushovski_03}.
+There we ask for a family $\Bclass$ that does not depend on $d$, 
+where in the place of (\ref{item:oligomorphic-approximation-orbits}) we require: 
+\begin{description}
+    \item[(2')] \label{item:smooth-approximation} 
+    \it $\A$ is oligomorphic, and each $\B \in \Bclass$ is homogeneous. 
+\end{description}
 
 \begin{theorem}\label{thm:have-oligomorphic-approximation}
     The following structures have oligomorphic approximation: 
@@ -37,19 +39,22 @@ hence the number of orbits in $\B^d$ is at most that of $\A^d$, which is finite 
         \item\label{item:vec-has-oligomorphic-approximation}
         the vector atoms from Example~\ref{ex:vector-space-atoms}, for any finite field $\innerfield$;
         
+        \item\label{item:smooth-implies-oligomorphic-approximation}   
+        any smoothly approximated structure;\footnote{\color{magenta} So that it is homogeneous, we may need to consider the canonical vocabulary.}
+
         \item\label{item:rado-has-oligomorphic-approximation} 
         the Rado atoms from Example~\ref{ex:rado-graph};
-        
-        \item\label{item:smooth-implies-oligomorphic-approximation}   
-        \textcolor{magenta}{smoothly approximated structures in the canonical vocabularies.}
+
     \end{romanenumerate}
 \end{theorem}
+
 Before proving the above theorem, let us observe that the ordered atoms (Example~\ref{ex:order-atoms}) do not have oligomorphic approximation.
 
 \begin{non-example}\label{non-ex:weak-smooth-approximation}
 Consider the rational numbers with the usual order. 
-The finite substructures in this case are finite total orders, and already for dimension $d=1$, a finite total order of size $n$ has $n$ orbits. 
-So no family $\Bclass$ satisfies both condition (\ref{item:oligomorphic-approximation-embedding}) and (\ref{item:oligomorphic-approximation-orbits}).
+The finite substructures in this case are finite total orders, 
+and already for dimension $d=1$, a finite total order of size $n$ has $n$ orbits. 
+So no family $\Bclass$ satisfies both conditions (\ref{item:oligomorphic-approximation-embedding}) and (\ref{item:oligomorphic-approximation-orbits}).
 \lipicsEnd\end{non-example}
 
 \begin{proof}[Proof of Theorem~\ref{thm:have-oligomorphic-approximation}]
@@ -58,11 +63,19 @@ So no family $\Bclass$ satisfies both condition (\ref{item:oligomorphic-approxim
     \color{black}
 
     \begin{romanenumerate}
-        \item For the equality atoms, we can simply choose $\Bclass$ to be all finite sets. 
+        \item 
+        For the equality atoms, we can simply choose $\Bclass$ to be all finite sets. 
         These are all homogeneous: we can extend a bijection between subsets to a permutation.
-        \item For the vector atoms, we can also choose $\Bclass$ independently of $d$ to be the family of all vector spaces of finite dimension. 
+
+        \item 
+        For the vector atoms, we can also choose $\Bclass$ independently of $d$ to be the family of all vector spaces of finite dimension. 
         These are all homogeneous since we can, by extending a linearly independent set to a basis, extend linear bijections between subspaces to a linear permutation. 
         This argument applies to any finite field $\innerfield$.
+
+        \item
+        In that case, two tuples in $\B^d$ are in the same orbit if and only if they are in the same orbit of $\A^d$; 
+        hence the number of orbits in $\B^d$ is at most that of $\A^d$, which is finite by oligomorphism.
+
         \item 
         The most interesting case is the Rado atoms. 
         The witness for oligomorphic approximation%
@@ -89,7 +102,7 @@ So no family $\Bclass$ satisfies both condition (\ref{item:oligomorphic-approxim
 The main result of this section is the following theorem.
 
 \begin{theorem}\label{thm:weak-smooth-approximation-finite-length}
-    If an oligomorphic structure $\A$ has oligomorphic approximation, then it has the finite length property over any field of characteristic $0$.
+    If $\A$ has oligomorphic approximation, then it has the finite length property over any field of characteristic $0$.
 \end{theorem}
 
 Combining Theorems~\ref{thm:have-oligomorphic-approximation} and~\ref{thm:weak-smooth-approximation-finite-length}, we can get the following results, both old and new, concerning the finite length property.
@@ -98,8 +111,8 @@ Combining Theorems~\ref{thm:have-oligomorphic-approximation} and~\ref{thm:weak-s
     Over any field of characteristic $0$, the following structures have the finite length property: 
     (\ref{item:eq-has-oligomorphic-approximation}) the equality atoms; 
     (\ref{item:vec-has-oligomorphic-approximation}) the vector atoms; 
-    (\ref{item:rado-has-oligomorphic-approximation}) the Rado atoms; and 
-    (\ref{item:smooth-implies-oligomorphic-approximation}) smoothly approximated structures.
+    (\ref{item:smooth-implies-oligomorphic-approximation}) all smoothly approximated structures;
+    (\ref{item:rado-has-oligomorphic-approximation}) the Rado atoms.
 \end{corollary}
 
 As mentioned in the introduction, the finite length property was already known for the equality atoms --- over arbitrary fields even. The results for the vector atoms and the Rado atoms are new. The assumption on characteristic zero is important, at least in the case of the vector atoms where  the finite length property is known to fail over finite fields --- see, most recently,~\cite[Sec.~4.4]{BFKM24}. Later on in this paper, we will prove the result for the Rado atoms again using a different method that works for any field.
@@ -152,7 +165,7 @@ For convenience, we summarise these steps in Figure~\ref{fig:proof-summary-cogle
     \begin{proof}
         Consider some chain of equivariant subspaces 
         \begin{align*}
-        V_0 \subset V_1 \subset \ldots \subset V_n = \Lin \A^d,
+        V_0 \subset V_1 \subset \dots \subset V_n = \Lin \A^d,
         \end{align*}
         where equivariance is with respect to automorphisms of $\A$. 
         For each $i \in \set{1,\ldots,n}$, choose some vector  that is in $V_i$ but not in $V_{i-1}$. Let $S$ be the (finite) set of atoms that appear in these chosen vectors, and choose some $\B \in \Bclass$ which contains all atoms from $S$. Define  
