@@ -43,7 +43,7 @@ where in the place of (\ref{item:oligomorphic-approximation-orbits}) we require:
         any smoothly approximated structure;\footnote{\color{magenta} So that it is homogeneous, we may need to consider the canonical vocabulary.}
 
         \item\label{item:rado-has-oligomorphic-approximation} 
-        the Rado atoms from Example~\ref{ex:rado-graph};
+        the Rado atoms from Example~\ref{ex:rado-graph}.
 
     \end{romanenumerate}
 \end{theorem}
@@ -58,17 +58,13 @@ So no family $\Bclass$ satisfies both conditions (\ref{item:oligomorphic-approxi
 \lipicsEnd\end{non-example}
 
 \begin{proof}[Proof of Theorem~\ref{thm:have-oligomorphic-approximation}]
-    \color{magenta}
-    Note that, by relying on the homogeneity of $\A$, we can afford to be sloppy and only identify $\B$ up to isomorphism. 
-    \color{black}
-
     \begin{romanenumerate}
         \item 
-        For the equality atoms, we can simply choose $\Bclass$ to be all finite sets. 
+        For the equality atoms, we can simply choose $\Bclass$ to be all finite subsets. 
         These are all homogeneous: we can extend a bijection between subsets to a permutation.
 
         \item 
-        For the vector atoms, we can also choose $\Bclass$ independently of $d$ to be the family of all vector spaces of finite dimension. 
+        For the vector atoms, we can also choose $\Bclass$ to be all subspaces of finite dimension. 
         These are all homogeneous since we can, by extending a linearly independent set to a basis, extend linear bijections between subspaces to a linear permutation. 
         This argument applies to any finite field $\innerfield$.
 
@@ -78,7 +74,7 @@ So no family $\Bclass$ satisfies both conditions (\ref{item:oligomorphic-approxi
 
         \item 
         The most interesting case is the Rado atoms. 
-        The witness for oligomorphic approximation%
+        The witness for oligomorphic approximation %
         % \footnote{But there is no smooth approximation --- see~\cite[Rem.~2.1.2]{CherlinHrushovski_03}. 
         % Essentially, the classification of finite homogeneous graphs~\cite[p.~100]{Gardiner1976} means no such family can satisfy (1).} 
         is a family of \emph{symplectic graphs}: see~\cite[Sec.~8.11]{GR01}.%
@@ -165,42 +161,62 @@ For convenience, we summarise these steps in Figure~\ref{fig:proof-summary-cogle
     \begin{proof}
         Consider some chain of equivariant subspaces 
         \begin{align*}
-        V_0 \subset V_1 \subset \dots \subset V_n = \Lin \A^d,
+            V_0 \subset V_1 \subset \dots \subset V_n \subseteq \Lin \A^d,
         \end{align*}
         where equivariance is with respect to automorphisms of $\A$. 
-        For each $i \in \set{1,\ldots,n}$, choose some vector  that is in $V_i$ but not in $V_{i-1}$. Let $S$ be the (finite) set of atoms that appear in these chosen vectors, and choose some $\B \in \Bclass$ which contains all atoms from $S$. Define  
+        For each $i \in \set{1,\ldots,n}$, choose some vector that is in $V_i$ but not in $V_{i-1}$. 
+        Let $S$ be the (finite) set of atoms that appear in these chosen vectors, 
+        and choose some $\B \in \Bclass$ which contains all atoms from $S$. 
+        Define  
         \begin{align*}
-        W_i = V_i \cap \Lin \B^d \subseteq \Lin \B^d.
+            W_i = V_i \cap \Lin \B^d.
         \end{align*}
-        By homogeneity, every automorphism of $\B$ extends to an automorphism of $\A$, and therefore the space $W_i$ is  equivariant with respect to automorphisms of $\B$.  The chain of $W_i$'s continues to be strictly growing, since it contains vectors that witness the growth of the original chain. Hence, the new chain  witnesses the length of $\Lin \B^d$ being at least $n$. 
+        By homogeneity, every automorphism of $\B$ extends to an automorphism of $\A$, 
+        and therefore the space $W_i \subseteq \Lin \B^d$ is equivariant with respect to automorphisms of $\B$. 
+        The chain of $W_i$'s continues to be strictly growing, 
+        since it contains vectors that witness the growth of the original chain. 
+        Hence, the new chain forces the length of $\Lin \B^d$ to be at least $n$. 
     \end{proof}
 
 
-    Thanks to the above lemma, it remains to show that the length of $\Lin \B^d$ is bounded by some number that depends only on $d$. In our proof, this bound will be the number of orbits in $\B^{2d}$. What we have gained by moving from $\A$ to $\Bclass$ is that our vector spaces now have finite (albeit unbounded) linear dimension, and are acted upon by finite (albeit unbounded) groups. This will let us leverage an elementary result from representation theory called Maschke's Theorem (see e.g.~\cite[Ch.~8]{JamesLiebeck01}), which decomposes  spaces  into irreducible parts.  (In the theorem below, $\oplus$ stands for the direct sum of vector spaces, i.e.~$V \oplus W$ is the set of pairs $(v,w)$ with $v \in V$ and $w \in W$, where the operations are defined coordinate-wise.)
+    Thanks to the above lemma, it remains to show that the length of $\Lin \B^d$ is bounded by some number that depends only on $d$. 
+    In our proof, this bound will be the number of orbits in $\B^{2d}$. 
+    What we have gained by moving from $\A$ to $\B \in \Bclass$ is that our vector spaces now have finite (albeit unbounded) linear dimension, 
+    and are acted upon by finite (albeit unbounded) groups. 
+    This will let us leverage an elementary result from representation theory called Maschke's Theorem (\textcolor{magenta}{see (TODO: find better source that doesn't use C)} e.g.~\cite[Ch.~8]{JamesLiebeck01}), 
+    \textcolor{magenta}{which decomposes spaces into indecomposable parts.} 
+    (In the theorem below, $\oplus$ stands for the direct sum of vector spaces, i.e.~$V \oplus W$ is the set of pairs $(v,w)$ with $v \in V$ and $w \in W$, where the operations are defined coordinate-wise.)
 
-        \begin{fact}[Maschke's Theorem]
-          Let $V$ be a finite dimensional vector space over a field of characteristic zero, equipped with an action of a finite group $G$. Then $V$ can be decomposed as 
-            \begin{align*}
-            V = V_1 \oplus \cdots \oplus V_n,
-            \end{align*}
-            where each $V_i$ is an equivariant subspace (with respect to the action of $G$)  and  is  irreducible, i.e.~the only equivariant subspaces of $V_i$ are the zero space  and the full space $V_i$.
-        \end{fact}
+    \begin{fact}[Maschke's Theorem]
+        Let $V$ be a finite-dimensional vector space over a field of characteristic zero, equipped with a linear action of a finite group $G$. 
+        Then $V$ can be decomposed as 
+        \begin{align*}
+        V = V_1 \oplus \cdots \oplus V_n,
+        \end{align*}
+        where each $V_i$ is an equivariant subspace (with respect to the action of $G$) 
+        that has length $1$, 
+        i.e.~the only equivariant subspaces of $V_i$ are the zero space  and the full space $V_i$.
+    \end{fact}
 
 
-    We will use Maschke's Theorem to bound the length of the vector  spaces $\Lin \B^d$. 
-    For two vector spaces $V$ and $W$ equipped with an action of the same group $G$, let us write 
+    We will use Maschke's Theorem to bound the length of the vector  spaces $\Lin \B^d$ for $\B \in \Bclass$. 
+    For two vector spaces $V$ and $W$ equipped with a linear action of the same group $G$, let us write 
     \begin{align*}
-    \lineqfun V W
+        \lineqfun V W
     \end{align*}
     for the set of all those linear maps from $V$ to $W$ that are equivariant with respect to the action of $G$. 
     (The group and its action are  implicit in this notation.) 
     Elements of this set are closed under taking linear combinations, and therefore the set can be seen as a vector space. 
-    (We do not bother to equip this space with an action of $G$, yet --- here it would be trivial.) 
+    (We do not bother to equip this space with the action of $G$, yet --- here it would be trivial.) 
     In particular, it is meaningful to talk about the dimension of this vector space. 
     \begin{lemma}\label{lem:dim-bounds-length}
-        Let $V$ be a finite dimensional vector space over a field of characteristic zero, equipped with an action of a finite group $G$. Then 
+        Let $V$ be a finite dimensional vector space over a field of characteristic zero, 
+        equipped with a linear action of a finite group $G$. 
+        Then 
         \begin{align*}
-        \text{length of\, $V$} \quad \leq  \quad \text{dimension of\, }  \lineqfun V V.
+            \text{length of\, $V$} 
+            \quad \leq \quad 
+            \text{dimension of } \lineqfun V V.
         \end{align*}
     \end{lemma}
     \begin{proof}
@@ -208,38 +224,67 @@ For convenience, we summarise these steps in Figure~\ref{fig:proof-summary-cogle
         \begin{align*}
         V = V_1 \oplus \cdots \oplus V_n,
         \end{align*}
-        where the subspaces $V_1,\ldots,V_n$ are equivariant and irreducible, with respect to the action of the group $G$. Irreducible spaces have length one by definition, and the length is additive with respect to direct sums, i.e.
+        where the subspaces $V_1,\ldots,V_n$ are equivariant and of length $1$, with respect to the action of the group $G$. 
+        The length is additive with respect to direct sums, i.e.
         \begin{align*}
-            \text{length of $V$} = \text{length of $V_1$} + \cdots + \text{length of $V_n$},
+            \text{length of $V$} 
+            = \text{length of $V_1$} + \cdots + \text{length of $V_n$},
         \end{align*}
         so the length of $V$ is equal to $n$. 
         
         We will now consider the right-hand side of the inequality in the statement of the lemma.
-        For every $i \in \set{1,\ldots,n}$, we can define an equivariant linear map from $V$ to itself that is the identity on $V_i$ and maps vectors from the other components to zero.  This gives us  at least $n$ equivariant linear maps from $V$ to itself. None of these maps is spanned by the others, and hence the dimension is no less than $n$. 
+        For every $i \in \set{1,\ldots,n}$, we can define an equivariant linear map from $V$ to itself that 
+        \begin{itemize}
+            \item is the identity on $V_i$, and
+            \item maps vectors from the other components to zero.
+        \end{itemize}
+        This gives us at least $n$ equivariant linear maps from $V$ to itself. 
+        None of these maps can be spanned by the others, 
+        and hence the dimension is no less than $n$. 
     \end{proof}
 
-    Thanks to Lemmas~\ref{lem:reduce-to-finite-substructures} and~\ref{lem:dim-bounds-length}, the length of the vector space $\Lin \A^d$ is bounded by the dimensions of the vector spaces
-    \begin{align}
-        \label{eq:endo-maps-b-d}
- \lineqfun { \Lin \B^d} {\Lin \B^d},\tag{$*$}
+    Thanks to Lemmas~\ref{lem:reduce-to-finite-substructures} and~\ref{lem:dim-bounds-length}, 
+    the length of the vector space $\Lin \A^d$ is bounded by the dimensions of the vector spaces
+    \begin{align}\label{eq:endo-maps-b-d}
+        \lineqfun { \Lin \B^d} {\Lin \B^d}, 
+        \tag{$*$}
     \end{align}
     where $\B$ ranges over the family $\Bclass$.
-    To complete the proof of the theorem, it still remains to show that these dimensions  are bounded by some constant that depends only on $d$. This is done in the following lemma, which   completes the    proof of Theorem~\ref{thm:weak-smooth-approximation-finite-length}. 
+    To complete the proof of the theorem, it still remains to show that these dimensions are bounded by some constant that depends only on $d$. 
+    This is done in the following lemma, which completes the proof of Theorem~\ref{thm:weak-smooth-approximation-finite-length}. 
 
     \begin{lemma}\label{lem:bound-on-dim-for-finite-set} 
-        For every  $\B \in \Bclass$ the dimension of the vector space  in~\eqref{eq:endo-maps-b-d} is equal to the number of orbits in $\B^{2d}$.
+        For every $\B \in \Bclass$, 
+        the dimension of the vector space in~\eqref{eq:endo-maps-b-d} is 
+        precisely the number of orbits in $\B^{2d}$.
     \end{lemma}
     \begin{proof}
-        \color{magenta}
-        A linear map  in the $\FF$-vector space~\eqref{eq:endo-maps-b-d} is the same thing as a square matrix indexed by $\B^d$, i.e.~a function of type  
+        A linear map $\varphi$ in the $\FF$-vector space~\eqref{eq:endo-maps-b-d} amounts to a square matrix indexed by $\B^d$, 
+        i.e.~a function
         \begin{align*}
-        {\B^d \times \B^d} \to \field.
+            {\B^d \times \B^d} \to \field ;
+            \quad
+            (x, y) \mapsto \lambda_y \text{ where } \varphi(1 \cdot x) = \sum_{y'} \lambda_{y'} \cdot y'.
         \end{align*}
-        This function must be equivariant with respect to automorphisms of $\B$. This means that inputs in the same orbit must be mapped to the same field element. Therefore, to define  such a function, we need to choose one element of $\field$ for each orbit of the input.   Therefore, the dimension of the space in~\eqref{eq:endo-maps-b-d} is equal to the number of orbits of $\B^{2d}$, under the action of the group of automorphisms of $\B$. 
+        This function must be equivariant with respect to automorphisms of $\B$. 
+        This means that inputs in the same orbit must be mapped to the same field element. 
+        \textcolor{magenta}{As Reviewer 1 said, note it's $\pi^{-1}(x, y)$.}
+        Therefore, to define such a function, we need to choose one element of $\field$ for each orbit of the input. 
+        Therefore, the dimension of the space in~\eqref{eq:endo-maps-b-d} is equal to the number of orbits of $\B^{2d}$, 
+        under the action of the group of automorphisms of $\B$. 
         \color{black}
     \end{proof}
-This dimension is bounded by some constant that depends only on $d$, by the assumption of oligomorphic approximation, which completes the proof of Theorem~\ref{thm:weak-smooth-approximation-finite-length}.
+This dimension is bounded by some constant that depends only on $d$, 
+by the assumption of oligomorphic approximation, 
+which completes the proof of Theorem~\ref{thm:weak-smooth-approximation-finite-length}.
 \end{proof}
 
-The inequalities shown in Figure~\ref{fig:proof-summary-cogless} give us upper bounds on the length. In the case of the equality atoms, this bound is exponential in $d$. In the case of the vector atoms from Example~\ref{ex:vector-space-atoms}, the bound is the number of  linear dependency patterns for $2d$-tuples over a finite field. Such a pattern is described by: (a) indicating a subset of the coordinates which is a basis for the tuple; and (b) indicating the basis decompositions for the remaining coordinates. This can be done in at most exponentially many ways in $d$, and therefore the overall bound is  exponential in $d$.
-In Appendix~\ref{sec:appendix-symplectic} we give an upper bound in the case of the Rado atoms, also exponential in $d$.
+The inequalities shown in Figure~\ref{fig:proof-summary-cogless} give us upper bounds on the length. 
+In the case of the equality atoms, this bound is exponential in $d$. 
+In the case of the vector atoms from Example~\ref{ex:vector-space-atoms}, the bound is the number of linear dependency patterns for $2d$-tuples over a finite field. 
+Such a pattern is described by: 
+(a)~indicating a subset of the coordinates which is a basis for the tuple; 
+and (b)~indicating the basis decompositions for the remaining coordinates. 
+This can be done in at most exponentially many ways in $d$, and therefore the overall bound is exponential in $d$.
+In Appendix~\ref{sec:appendix-symplectic} we give an upper bound in the case of the Rado atoms, 
+also exponential in $d$.
