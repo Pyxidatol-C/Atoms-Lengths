@@ -69,8 +69,8 @@ So no family $\Bclass$ satisfies both conditions (\ref{item:oligomorphic-approxi
         This argument applies to any finite field $\innerfield$.
 
         \item
-        In that case, two tuples in $\B^d$ are in the same orbit if and only if they are in the same orbit of $\A^d$; 
-        hence the number of orbits in $\B^d$ is at most that of $\A^d$, which is finite by oligomorphism.
+        \textcolor{magenta}{In that case, two tuples in $\B^d$ are in the same orbit if and only if they are in the same orbit of $\A^d$; 
+        hence the number of orbits in $\B^d$ is at most that of $\A^d$, which is finite by oligomorphism.}
 
         \item 
         The most interesting case is the Rado atoms. 
@@ -183,9 +183,8 @@ For convenience, we summarise these steps in Figure~\ref{fig:proof-summary-cogle
     In our proof, this bound will be the number of orbits in $\B^{2d}$. 
     What we have gained by moving from $\A$ to $\B \in \Bclass$ is that our vector spaces now have finite (albeit unbounded) linear dimension, 
     and are acted upon by finite (albeit unbounded) groups. 
-    This will let us leverage an elementary result from representation theory called Maschke's Theorem (\textcolor{magenta}{see (TODO: find better source that doesn't use C)} e.g.~\cite[Ch.~8]{JamesLiebeck01}), 
-    \textcolor{magenta}{which decomposes spaces into indecomposable parts.} 
-    (In the theorem below, $\oplus$ stands for the direct sum of vector spaces, i.e.~$V \oplus W$ is the set of pairs $(v,w)$ with $v \in V$ and $w \in W$, where the operations are defined coordinate-wise.)
+    This will let us leverage an elementary result from representation theory called Maschke's Theorem (see e.g.~\cite[Thm.~6.3]{RepTheoryTextbook}).
+    Recall that $\oplus$ stands for the direct sum of vector spaces, i.e.~$V \oplus W$ is the set of pairs $(v,w)$ with $v \in V$ and $w \in W$, where the operations are defined coordinate-wise.
 
     \begin{fact}[Maschke's Theorem]
         Let $V$ be a finite-dimensional vector space over a field of characteristic zero, equipped with a linear action of a finite group $G$. 
@@ -195,7 +194,7 @@ For convenience, we summarise these steps in Figure~\ref{fig:proof-summary-cogle
         \end{align*}
         where each $V_i$ is an equivariant subspace (with respect to the action of $G$) 
         that has length $1$, 
-        i.e.~the only equivariant subspaces of $V_i$ are the zero space  and the full space $V_i$.
+        i.e.~the only equivariant subspaces of $V_i$ are the zero space and the full space $V_i$.
     \end{fact}
 
 
@@ -204,10 +203,9 @@ For convenience, we summarise these steps in Figure~\ref{fig:proof-summary-cogle
     \begin{align*}
         \lineqfun V W
     \end{align*}
-    for the set of all those linear maps from $V$ to $W$ that are equivariant with respect to the action of $G$. 
-    (The group and its action are  implicit in this notation.) 
+    for the set of all those linear maps from $V$ to $W$ that are \textcolor{magenta}{equivariant} with respect to the action of $G$. 
+    (The group and its action are implicit in this notation.) 
     Elements of this set are closed under taking linear combinations, and therefore the set can be seen as a vector space. 
-    (We do not bother to equip this space with the action of $G$, yet --- here it would be trivial.) 
     In particular, it is meaningful to talk about the dimension of this vector space. 
     \begin{lemma}\label{lem:dim-bounds-length}
         Let $V$ be a finite dimensional vector space over a field of characteristic zero, 
@@ -225,7 +223,7 @@ For convenience, we summarise these steps in Figure~\ref{fig:proof-summary-cogle
         V = V_1 \oplus \cdots \oplus V_n,
         \end{align*}
         where the subspaces $V_1,\ldots,V_n$ are equivariant and of length $1$, with respect to the action of the group $G$. 
-        The length is additive with respect to direct sums, i.e.
+        The length is additive with respect to direct sums (see e.g.~\cite[Prop.~3.17]{RepTheoryTextbook}), i.e.
         \begin{align*}
             \text{length of $V$} 
             = \text{length of $V_1$} + \cdots + \text{length of $V_n$},
