@@ -136,7 +136,7 @@ For convenience, we summarise these steps in Figure~\ref{fig:proof-summary-cogle
 \displaystyle\sup_{\B \in \Bclass} \text{length of $\Lin \B^d$} 
 \ar[d, phantom, "\rotatebox{90}{$\geq$} \text{\quad  (Lemma~\ref{lem:dim-bounds-length})}"']
 \\
-\displaystyle\sup_{\B \in \Bclass} \text{dimension of } \lineqfun {\Lin \B^d} {\Lin \B^d}
+\displaystyle\sup_{\B \in \Bclass} \text{dimension of } \lineqfun{\Lin \B^d}{\Lin \B^d}
 \ar[d, phantom, "\rotatebox{90}{$=$} \text{\quad(Lemma~\ref{lem:bound-on-dim-for-finite-set})}"']
 \\
 \displaystyle\sup_{\B \in \Bclass} \text{number of orbits in $\B^{2d}$}
@@ -201,7 +201,7 @@ For convenience, we summarise these steps in Figure~\ref{fig:proof-summary-cogle
     We will use Maschke's Theorem to bound the length of the vector  spaces $\Lin \B^d$ for $\B \in \Bclass$. 
     For two vector spaces $V$ and $W$ equipped with a linear action of the same group $G$, let us write 
     \begin{align*}
-        \lineqfun V W
+        \lineqfun{V}{W}
     \end{align*}
     for the set of all those linear maps from $V$ to $W$ that are \textcolor{magenta}{equivariant} with respect to the action of $G$. 
     (The group and its action are implicit in this notation.) 
@@ -214,7 +214,7 @@ For convenience, we summarise these steps in Figure~\ref{fig:proof-summary-cogle
         \begin{align*}
             \text{length of\, $V$} 
             \quad \leq \quad 
-            \text{dimension of } \lineqfun V V.
+            \text{dimension of } \lineqfun{V}{V}.
         \end{align*}
     \end{lemma}
     \begin{proof}
@@ -244,7 +244,7 @@ For convenience, we summarise these steps in Figure~\ref{fig:proof-summary-cogle
     Thanks to Lemmas~\ref{lem:reduce-to-finite-substructures} and~\ref{lem:dim-bounds-length}, 
     the length of the vector space $\Lin \A^d$ is bounded by the dimensions of the vector spaces
     \begin{align}\label{eq:endo-maps-b-d}
-        \lineqfun { \Lin \B^d} {\Lin \B^d}, 
+        \lineqfun{ \Lin \B^d}{\Lin \B^d}, 
         \tag{$*$}
     \end{align}
     where $\B$ ranges over the family $\Bclass$.
