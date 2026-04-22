@@ -11,7 +11,7 @@
 | 3-hypergraphs | (…, E<sub>3</sub>) |  | 🤔 |  |
 | 𓉴-free 3-hypergraphs | (…, E<sub>3</sub>) |  |  |  |
 | meet-trees | (𝕋, ∧, ≤) | ✅ |  |  |
-| vector spaces over F<sub>2</sub> | F<sub>2</sub> ⊕ F<sub>2</sub> ⊕ F<sub>2</sub> ⊕ F<sub>2</sub> ⊕ ⋯ | ✅ | ❌ over F<sub>2</sub> | ✅ |
+| vector spaces over F<sub>2</sub> | F<sub>2</sub> ⊕ F<sub>2</sub> ⊕ F<sub>2</sub> ⊕ F<sub>2</sub> ⊕ ⋯ | 🤔 | ❌ over F<sub>2</sub> | ✅ |
 | symplectic spaces over F<sub>2</sub> | (F<sub>2</sub> ⊕ F<sub>2</sub>) ⊕ (F<sub>2</sub> ⊕ F<sub>2</sub>) ⊕ ⋯ |  | ❌ over F<sub>2</sub> | ✅ |
 | Boolean algebras | clopens of 2<sup>ℕ</sup> |  | ❌ over F<sub>2</sub> |  |
 | | | | |
