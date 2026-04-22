@@ -1,15 +1,10 @@
 \section{Finite length from free amalgamation with a generic order}\label{sec:free-amalg}
-\renewcommand{\cal}{\mathcal}
+\newcommand{\cal}{\mathcal}
 
 As we saw in Non-example~\ref{non-ex:weak-smooth-approximation}, the ordered atoms do not have oligomorphic approximation. 
-Nonetheless they do have the finite length property over any field~\cite[Thm.~4.8]{BFKM24}, not just over those of characteristic zero. 
-We shall now generalise that result to a wide class of structures. 
-In particular, we will deduce the finite length property of the Rado atoms and its variants, even with finitely many constants fixed.
+Nonetheless they do have the finite length property over any field \cite[Thm.~4.8]{BFKM24}, not just over those of characteristic zero. We shall now generalise that result to a wide class of structures. In particular, we will deduce the finite length property for the Rado atoms and its variants, even with finitely many constants fixed.
 
 We shall now state our assumptions and results, with proofs in Section~\ref{sec:cogs-turn}.
-
-Rewrite this introduction: except for $\Q$ and maybe the Rado graph, 
-here it's easier to specify the age (define!) rather than the concrete structure.
 
 \paragraph*{Graph vocabulary}
 Consider a finite relational vocabulary $\sigma_0$ consisting of unary and binary relations only.
@@ -17,10 +12,10 @@ Consider a finite relational vocabulary $\sigma_0$ consisting of unary and binar
 
 \paragraph*{Free amalgamation class}
 Let $\Cclass_0$ be a \emph{free} amalgamation class of finite $\sigma_0$-structures. 
-This is a standard notion in model theory --- see~\cite[Sec.~2.1]{Macpherson11}.
+This is a standard notion in model theory --- see \cite[Sec.~2.1]{Macpherson11}.
 Informally, it means that when we perform amalgamation, we do not need to glue together any new elements, or introduce new relations.
 
-There is a useful characterisation~\cite[Lem.~4.5]{SS20} of the amalgamation class $\Cclass_0$ being free.
+There is a useful characterisation \cite[Lem.~4.5]{SS20} of the amalgamation class $\Cclass_0$ being free.
 Since $\Cclass_0$ is closed under substructures and isomorphisms, 
 we know that it consists of all the finite $\sigma_0$-structures which do not embed any structure from $\Fclass$, 
 where $\Fclass$ consists of all the minimal finite $\sigma_0$-structures that do not belong to $\Cclass_0$;
@@ -35,12 +30,12 @@ the class $\Forb(\Fclass)$ of finite $\sigma_0$-structures form a free amalgamat
 
 %Here are a few free amalgamation classes.
 
-\begin{example}\label{ex:free-amalg-equality}
+\begin{myexample}\label{ex:free-amalg-equality}
     Let $\sigma_0$ be empty. 
     Then $\Cclass_0 = \Forb(\{\})$ is a free amalgamation class consisting of all finite pure sets.
-\lipicsEnd\end{example}
+\end{myexample}
 
-\begin{example}\label{ex:free-amalg-graphs}
+\begin{myexample}\label{ex:free-amalg-graphs}
     Let $\sigma_0$ consist of a single binary relation $E$. 
     Consider $\sigma_0$-structures ${\circlearrowright} = \{x\}$ and ${\rightarrow} = \{y, z\}$, where the relation $E$ is interpreted as $\{(x, x)\}$ and $\{(y, z)\}$.
     Then $\Cclass_0 = \Forb(\{{\circlearrowright}, {\rightarrow}\})$ is a free amalgamation class consisting of all finite undirected graphs.
@@ -54,11 +49,11 @@ the class $\Forb(\Fclass)$ of finite $\sigma_0$-structures form a free amalgamat
         \subseteq \cdots 
         \subseteq \Forb(\{{\circlearrowright}, {\rightarrow}\})
     \end{align*}    
-    are all free amalgamation classes --- notice that in each forbidden structure, any two elements are related. 
-\lipicsEnd\end{example}
+    are all free amalgamation classes.
+\end{myexample}
 
 \paragraph*{Irreflexivity} 
-For technical reasons, we restrict attention to classes $\Cclass_0$ where all structures are {\em irreflexive} (or \emph{injective}), i.e. such that if $R(x,y)$ then $x\neq y$ for each relation $R$. This does not lose generality: for any free amalgamation class $\Cclass_0$, we may replace every binary relation $R$ in the vocabulary with a new unary predicate $R_=$, interpreted in every structure so that $R_=(x)$ iff $R(x,x)$, and a binary relation interpreted as the irreflexive part of $R$. Then $\Cclass_0$ interpreted over this modified vocabulary is still a free amalgamation class, and all our results transport back to the original $\Cclass_0$. This way of encoding arbitrary structures as irreflexive ones is standard; see e.g.~\cite[Sec.~2.4]{Herwig1998} and~\cite[p.~121]{SS20}. All examples considered here are already irreflexive.
+For technical reasons, we restrict attention to classes $\Cclass_0$ where all structures are {\em irreflexive}, i.e. such that if $R(x,y)$ then $x\neq y$ for each relation $R$. This does not lose generality: for any free amalgamation class $\Cclass_0$, we may replace every binary relation $R$ in the vocabulary with a new unary predicate $R_=$, interpreted in every structure so that $R_=(x)$ iff $R(x,x)$, and a binary relation interpreted as the irreflexive part of $R$. Then $\Cclass_0$ interpreted over this modified language is still a free amalgamation class, and all our results transport back to the original $\Cclass_0$. This way of encoding arbitrary structures as irreflexive ones is standard; see e.g.~\cite[Sec.~2.4]{Herwig1998} and \cite[p.~121]{SS20}. All examples considered here are already irreflexive.
 
 \paragraph*{Generically ordered expansion}
 Now, let $\sigma$ consist of $\sigma_0$ together with a new binary relation $<$.
@@ -69,41 +64,19 @@ Observe that $\Cclass$ is an amalgamation class.
 Indeed, let $X, Y_1, Y_2$ be $\sigma$-structures in $\Cclass$ with $X \subseteq Y_1 \cap Y_2$.
 Then we can amalgamate $Y_1, Y_2$ over $X$ as $\sigma_0$-structures and as $\{<\}$-structures, 
 both using the disjoint union of $Y_1, Y_2$ over $X$ as the underlying set. 
-Superposing these relations gives a $\sigma$-structure in $\Cclass$, which is the desired amalgamation.
+Superposing these relations will give an $\sigma$-structure in $\Cclass$, which is the desired amalgamation.
 (Because of the total order, this amalgamation in $\Cclass$ is not free unless it is trivial.)
 Denote the Fraïssé limit of $\Cclass$ by $\A$.
 
-Our main result of this section is that this ordered structure $\A$ has the finite length property over any field.
-For clarity, we begin with a terse restatement of the setting.
-
-%Theorem 7.3. Please write a standalone readable version of this theorem. 
-%Something like: “Let A_0 be a homogeneous relational structure in a binary language L such that Age(A_0) has free amalgamation. 
-%Let A_1 be a homogeneous structure in binary Language L disjoint union {<} such that Age(A_1) consists of all total orderings of Age(A_0)-structures where {<} is expressed to describe the total ordering. 
-%Then, A_1 has the finite length property over a field.” 
-%Feel free to write your own version instead or add assumptions if I have missed some.
-
 \begin{theorem}\label{thm:ordered-free-amalg-has-finite-length}
-    Consider:
-    \begin{itemize}
-        \item $\sigma_0$\quad a finite, at-most-binary relational vocabulary;
-        \item $\Cclass_0$\quad a free amalgamation class of finite, irreflexive $\sigma_0$-structures;
-        \item $\Cclass$\quad all total orderings of all structures in $\Cclass_0$, over the vocabulary $\sigma_0 \uplus \{<\}$;
-        \item $\A$\quad the Fraïssé limit of $\Cclass$ --- a homogeneous and oligomorphic $(\sigma_0 \uplus \{<\})$-structure.
-    \end{itemize}
-    Then the totally ordered structure $\A$, even with finitely many constants fixed, has the finite length property over any field.
+    The ordered structure $\A$, even with finitely many constants fixed, has the finite length property over any field.
 \end{theorem}
 
-\textcolor{magenta}{(I) We do not know how to drop the arity restriction from our proofs, 
-so it is interesting that recently, using a Ramsey-theoretic approach, 
-Evans proved~\cite[Prop.~3.10]{Evans_pm1} that $\Lin \A^2$ has finite length for similar structures with vocabularies of arbitrarily high arity. 
-We do not know how to combine these results.
-(II) we don't get constants for free: in \cite{BFKM24} we got lucky, since the equality atoms and the ordered atoms eliminate constants.}
-
-
 Before we prove this theorem in Section~\ref{sec:cogs-turn}, let us state an easy consequence of it and give some examples.
-The Fraïssé limit $\A_0$ of $\Cclass_0$ is a reduct of $\A$.
-To see this, notice that $\A$, when viewed as an $\sigma_0$-structure, embeds the same finite $\sigma_0$-structures as $\A_0$ --- namely, $\Cclass_0$.
-Moreover, it follows from a back-and-forth argument~\cite[Lem.~7.1.4]{hodges1993model} that the $\sigma_0$-structure $\A$ is also homogeneous and, therefore, that it is isomorphic to $\A_0$.
+
+The Fraïssé limit $\A_0$ of $\Cclass$ is a reduct of $\A$.
+To see this, notice that $\A$, when viewed as an $\sigma_0$-structure, shares the same age as $\A_0$ --- namely, $\Cclass_0$.
+Moreover, it follows from a back-and-forth argument \cite[Lem.~7.1.4]{hodges1993model} that the $\sigma_0$-structure $\A$ is also homogeneous and, therefore, that it is isomorphic to $\A_0$.
 So we may assume that $\A$ and $\A_0$ have the same underlying set; we then have $\Aut(\A) \subseteq \Aut(\A_0)$, where $\Aut(X)$ denotes the group of automorphisms of $X$.
 
 \begin{corollary}\label{cor:free-finite-length}
@@ -116,85 +89,56 @@ So we may assume that $\A$ and $\A_0$ have the same underlying set; we then have
 
 Conversely, we call $\A$ the \emph{generically ordered expansion} of $\A_0$ or simply the ``ordered $\A_0$''.
 
-\begin{example}\label{ex:generically-ordered-equality}
+\begin{myexample}\label{ex:generically-ordered-equality}
     Continuing from Example~\ref{ex:free-amalg-equality},
     the ordered atoms (Example~\ref{ex:order-atoms}) is the generically ordered expansion of the equality atoms (Example~\ref{ex:equality-atoms}).
-\lipicsEnd\end{example}
+\end{myexample}
 
-\begin{example}\label{ex:generically-ordered-graphs}
+\begin{myexample}\label{ex:generically-ordered-graphs}
     Continuing from Example~\ref{ex:free-amalg-graphs}, we obtain generically ordered expansions of the Rado graph and of the $K_n$-free versions of it, which are called \emph{Henson graphs}.
-    The ordered Rado graph was studied in~\cite{BPP15} along with its first-order reducts (e.g.~the universal homogeneous tournament). The triangle-free  Henson graph will be studied in an extended example in Section~\ref{ex:extended-example}.
-\lipicsEnd\end{example}
-
-\textcolor{magenta}{Reviewer A: Theorem 7.3/Cor. 7.4 has more corollaries.}
-%Fell free to add them: The following structures have the finite length property over any field: 
-%1) The random oriented tournament. That is the graph with vertices IN, 
-% such that between x and y is (if not x=y) an edge x→y or an edge y→x which is decided at random,
-% similar to the random graph. It is a reduct of the oritended random graph.
-%2) The total order with a dense+codence unary predicate. 
-% (Direct application where A_0 has a unary predicate.)
-% 3) The tournament graph which does not embed ({1,2,3,4},{(12),(13),(14),(23),(34),(42)}) 
-% and ({1,2,3,4},{(21),(31),(41),(32),(43),(24)}) 
-% as it is a reduct of the total order with a dense+codence unary predicate: 
-% This structure can be realized as the rational numbers with a dense+codense subset S 
-% where there is an edge x→y iff x<y and they are both in S, x<y and 
-% they are both not in S or x>y and exactly one of them is in S.
+    The ordered Rado graph was studied in \cite{BPP15}. The triangle-free  Henson graph will be studied in an extended example in Section~\ref{ex:extended-example}.
+\end{myexample}
 
 Using a classification result of Lachlan and Woodrow~\cite{LachlanWoodrow_80}, we can get the following general result.
 
-\begin{corollary}\label{cor:lachlan-woodrow}
-    The following structures have the finite length property over any field:
-    \color{magenta}
-    \begin{romanenumerate}
-        \item the ordered atoms;
-        \item the equality atoms;
-        \item the Rado atoms;
-        \item all countable homogeneous graphs;
-        \item all homogeneous tournaments (universal one in~\cite{BPP15}, dense local order in~\cite{NguyenVanThe13});
-        \item uncountably many digraphs obtained by forbidding tournaments (cite Macpherson)
-    \end{romanenumerate}
+\begin{theorem}\label{thm:lachlan-woodrow}
     Every countable homogeneous undirected graph has the finite length property over any field.
-
-    Mention the vector atoms / universal partial order are not free?
-\end{corollary}
+\end{theorem}
 
 
 
 
 \section{How the cogs turn: proof of Theorem~\ref{thm:ordered-free-amalg-has-finite-length}}\label{sec:cogs-turn}
-We will proceed in several steps, with the general idea similar to~\cite[Sec.~4.1]{BFKM24}, but with significant new complications arising from the presence of nontrivial relations in $\A_0$.
-Throughout we fix $\A$ from the statement of Theorem~\ref{thm:ordered-free-amalg-has-finite-length}.
+We will proceed in several steps, with the general idea similar to \cite[Sec.~4.1]{BFKM24}, but with significant new complications arising from the presence of nontrivial relations in $\A_0$.
+
 
 \subsection{Orbits and projections}
-To start with, let us view $\A^d$ as $\A^{\{1, \dots, d\}}$. More generally, it will be convenient to consider $\A^I$ for a finite totally ordered indexing set $I$ (say contained in $\Q$, so that we may take unions later).
+
+To start with, let us view $\A^d$ as $\A^{\{1, \dots, d\}}$. More generally, it will be convenient to consider $\A^I$ for a finite totally ordered indexing set $I \subseteq \Q$.
 Fix a finite support $S \subseteq \A$.
-We shall say that a tuple(!) $a\in\A^I$ is {\em ($S$-)ordered} if $a_i \not\in S$ for all $i$, and $a_i < a_j$ whenever $i < j$. Then the orbit
-$\cal O = \Aut(\A/S) \cdot a$ only contains $S$-ordered tuples, and we shall call the orbit $S$-ordered as well.%
+We shall say that a tuple $a\in\A^I$ is {\em ($S$-)ordered} if $a_i \not\in S$ for all $i$, and $a_i < a_j$ whenever $i < j$. Then the orbit
+$\cal O = \Aut(\A/S) \cdot a$ only contains $S$-ordered tuples, and we will call the orbit $S$-ordered as well.%
 \footnote{Here and in the following, $\Aut(\A/S)$ is the group of those automorphisms of $\A$ that fix every element of $S$. So ``$\Aut(\A/S)$-equivariant'' is synonymous with ``$S$-supported''.}
 If $a$ is not $S$-ordered, by removing the entries that repeat or come from $S$ and reordering the rest, we can always find an $\Aut(\A/S)$-equivariant bijection from $\cal O$ to an $S$-ordered orbit.
 
 To study the lengths of orbit-finitely spanned spaces, we may focus on a single ordered orbit at a time:
 \begin{claim}\label{claim:reduction-to-one-orbit}
-    \color{magenta}
-    The following are equivalent for every finite $S \subseteq \A$ (where $\A$ is oligomorphic):
-    \begin{alphaenumerate}
-        \item For each $d \in \{1, 2, \dots\}$, there is some finite bound $l_d$ such that chains of $\Aut(\A/S)$-equivariant subspaces in $\Lin_\FF \A^d$ have length at most $l_d$;
-        \item $\Lin_\FF \cal O$ has finite length with respect to $\Aut(\A/S)$ for every $S$-ordered orbit $\cal O$ (of every $\A^{d'}$).
-    \end{alphaenumerate}
+    The following are equivalent:
+    \begin{enumerate}
+        \item For any $d$ and finite $S \subseteq \A$, chains of $\Aut(\A/S)$-equivariant subspaces in $\Lin_\FF \A^d$ are bounded in length;
+        \item $\Lin_\FF \cal O$ has finite length for any ordered orbit $\cal O$.
+    \end{enumerate}
 \end{claim}
-\begin{claimproof}
-    \color{magenta}
-    TODO: eliminate $\len$ ?
-
-    Since $\A$ is oligomorphic, given any $S$ and $d$, 
-    we know that $\A^d$ is in an $\Aut(\A/S)$-equivariant bijection with a finite disjoint union $\biguplus_i \cal O_i$ of $S$-ordered orbits (possibly in lower ``dimensions'').
+\begin{proof}
+    Since $\A$ is oligomorphic, given any $d$ and $S$, 
+    we know that $\A^d$ is in an $\Aut(\A/S)$-equivariant bijection with a finite disjoint union $\biguplus_i \cal O_i$ of $S$-ordered orbits.
     Hence the length of $\Lin_\FF \A^d$, under the action of $\Aut(\A/S)$, equals \[
         \len(\Lin_\FF(\biguplus_i \cal O_i)) = \len(\bigoplus_i \Lin_\FF \cal O_i) = \sum_i \len(\Lin_\FF \cal O_i),
     \]
-    which is finite if and only if each summand is finite.
-\end{claimproof}
+    which is finite if and only if each summands is finite.
+\end{proof}
 
-So fix an $S$-ordered orbit $\cal O = \Aut(\A/S) \cdot o \subseteq \A^I$.
+So fix an ordered orbit $\cal O = \Aut(\A/S) \cdot o \subseteq \A^I$.
 From here we take an inductive approach.
 By $o |^J$ we mean the restriction of $o : I \to \A$ to $J \subseteq I$;
 particularly, we will often write $o |^{-i}$ instead of $o |^{ I \setminus \{i\} }$.
@@ -205,33 +149,29 @@ The function $(-)|^J$ lifts to a linear $\Aut(\A/S)$-equivariant map
     (-)|^J : \Lin_\FF \cal O &\to \Lin_\FF \cal O|^J.
 \end{align*}
 Many cancellations can occur under $(-)|^J$; 
-\textcolor{magenta}{the \emph{projection kernel} --- only call it balanced?} is the $\Aut(\A/S)$-equivariant subspace of $\Lin_\FF \cal O$ below:
+the \emph{projection kernel} is the $\Aut(\A/S)$-equivariant subspace of $\Lin_\FF \cal O$ below:
 \[
     \Ker_\FF \cal O = \bigcap_{i \in I} \ker{ (-)|^{-i} }.
 \]
 
 \begin{claim}\label{claim:reduction-to-kernel}
-    The following are equivalent for every finite $S \subseteq \A$:
-    \begin{alphaenumerate}
-        \item\label{item:LinO-finite-length}
-        $\Lin_\FF \cal O$ has finite length with respect to $\Aut(\A/S)$ for every $S$-ordered orbit $\cal O$;
-
-        \item\label{item:balancedLinO-finite-length}
-        $\Ker_\FF \cal O$ has finite length with respect to $\Aut(\A/S)$ for every $S$-ordered orbit $\cal O$.
-    \end{alphaenumerate}
+    The following are equivalent:
+    \begin{enumerate}
+        \item $\Lin_\FF \cal O$ has finite length for every ordered orbit $\cal O$;
+        \item $\Ker_\FF \cal O$ has finite length for every ordered orbit $\cal O$.
+    \end{enumerate}
 \end{claim}
-\begin{claimproof}
-    That (\ref{item:LinO-finite-length}) implies (\ref{item:balancedLinO-finite-length}) is clear as $\Ker_\FF \cal O \subseteq \Lin_\FF \cal O$.
+\begin{proof}
+    That (1) implies (2) is clear as $\Ker_\FF \cal O \subseteq \Lin_\FF \cal O$.
     
-    To prove the other implication, assume (\ref{item:balancedLinO-finite-length}) and let $\cal O \subseteq \A^I$.
+    To prove the other implication, assume (2) and let $\cal O \subseteq \A^I$.
     We proceed by induction on $|I|$.
     If $I = \emptyset$, then $\cal O$ must be the entire singleton $\A^\emptyset = \{ () \}$; 
     as $\Lin_\FF \cal O$ has no nontrivial subspaces (let alone finitely supported ones), it has length $1$.
     Now if $|I| \geq 1$, assemble all $|I|$ projection maps into a single map
     \begin{align*}
-        \Lin_\FF \cal O \to \bigoplus_{i \in I} \cal O|^{-i};
-        \quad
-        v \mapsto ( v|^{-i} )_{i \in I}
+        \Lin_\FF \cal O &\to \bigoplus_{i \in I} \cal O|^{-i} \\
+        v &\mapsto ( v|^{-i} )_{i \in I}
     \end{align*}
     whose kernel is precisely $\Ker_\FF \cal O$.
     We have
@@ -240,27 +180,22 @@ Many cancellations can occur under $(-)|^J$;
         \leq \sum_{i \in I} \len( \Lin_\FF \cal O|^{-i} )
     \]
     which shows that $\len( \Lin_\FF \cal O )$ is finite from the assumptions.
-\end{claimproof}
+\end{proof}
 
-Following the terminology used in~\cite[Eq.~(4)]{BFKM24}, we shall call a vector from the projection kernel \emph{balanced}.
+Following the terminology used in \cite[Eq.~(4)]{BFKM24}, we shall call a vector from the projection kernel \emph{balanced}.
 As we will see shortly, there exist balanced vectors other than $0$.
 
 \subsection{Cogs}
-From now on we will use a lightweight notation for combining tuples of atoms: 
-for disjoint indexing sets $I$ and $J$ (contained in $\Q$), 
-if $a\in\A^I$ and $b\in\A^{J}$ are both ordered, 
-then $ab\in \A^{I\cup J}$ will denote their obvious combination. 
-We only use this notation if this $ab$ is ordered. 
-For an obvious example, for any $S$-ordered $a\in\A^I$ and $J\subseteq I$, we have $a|^{I\setminus J}a|^J=a$.
+From now on we will use a lightweight notation for combining tuples of atoms: for disjoint indexing sets $I$ and $J$, if $a\in\A^I$ and $b\in\A^{J}$ are both ordered, then $ab\in \A^{I\cup J}$ will denote their obvious combination. We will only use this notation if this $ab$ is ordered. For an obvious example, for any $S$-ordered $a\in\A^I$ and $J\subseteq I$, we have $a|^{I\setminus J}a|^J=a$.
 
 \begin{definition}\label{def:duo}
     Let $\cal O \subseteq \A^I$ be an $S$-ordered orbit. 
     An \emph{$\cal O$-duo} $a \parallel b$ consists of tuples $a, b \in \cal O$ such that:
-    \begin{bracketenumerate}
-        \item\label{item:cog-ai-bi} 
+    \begin{enumerate}
+        \item 
         $a_i < b_i$ for all $i\in I$;
         
-        \item\label{item:cog-bi-aj}  
+        \item 
         $b_i < a_j$ for all $i<j\in I$;
 
         \item 
@@ -270,16 +205,16 @@ For an obvious example, for any $S$-ordered $a\in\A^I$ and $J\subseteq I$, we ha
             &\Updownarrow \text{ as $a, b \in \cal O$} \\
             R(b_i,a_j) \iff R(&b_i,b_j).
         \end{align*}
-     \end{bracketenumerate}
+     \end{enumerate}
 \end{definition}
 \begin{remark}\label{rem:duo}
-Conditions (\ref{item:cog-ai-bi}) and (\ref{item:cog-bi-aj}) specify a total order on the $2|I|$ atoms in a duo.
+Conditions (1) and (2) specify a total order on the $2|I|$ atoms in a duo.
 Moreover, thanks to irreflexivity, 
 each $a_i$ is unrelated to its counterpart $b_i$.
 Further, given any $J \subseteq I$, the combined tuple $a|^{I\setminus J} b|^J$ satisfies the same relations as $a$ (and $b$), so it lies in $\cal O$. In particular, taking $J=\{i\}$, there is an automorphism $\pi_i$ that sends $a_i$ to $b_i$ and fixes all the other elements of $a$, $b$ and $S$.
 \end{remark}
 
-For the special case of the ordered atoms (Examples~\ref{ex:order-atoms} and~\ref{ex:generically-ordered-equality}) the following construction was studied in~\cite[p.~11]{BFKM24}, and it already appeared earlier in~\cite[p.~125]{Gray97} under the name of ``polytabloids''.
+For the special case of the ordered atoms (Ex.~\ref{ex:order-atoms} \&~\ref{ex:generically-ordered-equality}) the following construction was studied in~\cite[p.~11]{BFKM24}, and it already appeared earlier in~\cite[p.~125]{Gray97} under the name of ``polytabloids''.
 
 \begin{definition}
     Given a $\cal O$-duo $a \parallel b$, the corresponding \emph{$\cal O$-cog} is the vector
@@ -288,7 +223,7 @@ For the special case of the ordered atoms (Examples~\ref{ex:order-atoms} and~\re
         \sum_{J \subseteq I} (-1)^{|J|}
         (a|^{I \setminus J} b|^{J})
     \]
-    in $\Lin_\FF \cal O$.\footnote{The name ``cog'' turns out to be cognate with Edwards--Venn diagrams.}
+    in $\Lin_\FF \cal O$.
     The linear span of all $\cal O$-cogs is denoted by $\Cog_\FF \cal O$.
 \end{definition}
 Note that, for a fixed $S$-ordered orbit $\cal O$, all $\cal O$-duos (hence all $\cal O$-cogs) are in the same $\Aut(\A/S)$-equivariant orbit.
@@ -297,13 +232,13 @@ As a result, $\Cog_\FF \cal O$ is an $\Aut(\A/S)$-equivariant subspace of $\Lin_
 \begin{claim}\label{claim:cogs-are-balanced}
     $\Cog_\FF \cal O\subseteq \Ker_\FF \cal O$.
 \end{claim}
-\begin{claimproof}
+\begin{proof}
     Let $\cal O \subseteq \A^I$, let $a\parallel b$ be an $\cal O$-duo, and take any $i \in I$.
     The subsets of $I$ come in pairs of $J$ and $J \cup \{i\}$, where $J\subseteq I \setminus \{i\}$.
     The two tuples $a|^{I\setminus J} b|^{J}$ and $a|^{I \setminus (J \cup \{i\})}b|^{J \cup \{i\}}$ are present in 
     $a\between b$ with the opposite coefficients, and they differ only on the $i$-th entry.
     Therefore they cancel out under $(-)|^{-i}$; hence $(a \between b )|^{-i} = 0$.
-\end{claimproof}
+\end{proof}
 
 So far, we have not shown that $\cal O$-duos and $\cal O$-cogs even exist in general.
 Let us rectify this by showing that they can be found in all but one $\Aut(\A/S)$-equivariant subspaces of $\Lin_\FF{\cal O}$.
@@ -314,37 +249,32 @@ We begin with a technical lemma, which combines the free amalgamation in $\Cclas
 \begin{lemma}\label{lem:free-fresh}
     Let $X, Y, \{z\} \subseteq \A$ be disjoint and finite.
     Then there is an automorphism $\tau \in \Aut(\A)$ such that
-    \begin{bracketenumerate}
-        \item\label{item:tau-fixes-X} 
-        $\tau$ fixes every $x \in X$;
-
-        \item\label{item:tau-frees-from-Yz} 
-        $\tau(z)$ is unrelated to all $y \in Y$ and to $z$;
-        
-        \item\label{item:tau-adds-epsilon} 
-        $\tau(z) > z$.
-    \end{bracketenumerate}
+    \begin{enumerate}
+        \item $\tau$ fixes every $x \in X$;
+        \item $\tau(z)$ is unrelated to all $y \in Y$ and to $z$;
+        \item $\tau(z) > z$.
+    \end{enumerate}
 \end{lemma}
 \begin{proof}
     Form the free amalgam of structures in ${\Cclass}_0$:
-% https://q.uiver.app/#q=WzAsNCxbMCwxLCJYIl0sWzEsMiwiWCBcXGN1cCBcXHt6XFx9Il0sWzEsMCwiWCBcXGN1cCBZIFxcY3VwIFxce3pcXH0iXSxbMiwxLCJYIFxcY3VwIFkgXFxjdXAgXFx7eiwgeidcXH0iXSxbMCwxLCJcXHN1YnNldGVxIiwxXSxbMCwyLCJcXHN1YnNldGVxIiwxXSxbMSwzLCJ4IFxcaW4gWCBcXG1hcHN0byB4LFxcIHogXFxtYXBzdG8geiciLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMiwzLCJcXHN1YnNldGVxIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV1d
+% https://q.uiver.app/#q=WzAsNCxbMCwxLCJYIl0sWzEsMiwiWCBcXGN1cCBcXHt6XFx9Il0sWzEsMCwiWCBcXGN1cCBZIFxcY3VwIFxce3pcXH0iXSxbMiwxLCJYIFxcY3VwIFkgXFxjdXAgXFx7eiwgeidcXH0iXSxbMCwxXSxbMCwyXSxbMSwzLCJ4IFxcaW4gWCBcXG1hcHN0byB4LFxcIHogXFxtYXBzdG8geiciLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMiwzLCJcXHN1YnNldGVxIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV1d
 \[\begin{tikzcd}
-	& {X \cup Y \cup \{z\}} & \\
+	& {X \cup Y \cup \{z\}} \\
 	X && {X \cup Y \cup \{z, z'\}} \\
 	& {X \cup \{z\}}
 	\arrow["\subseteq"{description}, dotted, from=1-2, to=2-3]
-	\arrow["\subseteq"{description}, from=2-1, to=1-2]
-	\arrow["\subseteq"{description}, from=2-1, to=3-2]
+	\arrow[from=2-1, to=1-2]
+	\arrow[from=2-1, to=3-2]
 	\arrow["{x \in X \mapsto x,\ z \mapsto z'}"{description}, dotted, from=3-2, to=2-3]
 \end{tikzcd}\]
     so that no element of $Y \cup \{z\}$ is related to $z'$.
     To make $X \cup Y \cup \{z, z'\}$ an $\sigma$-structure, 
     inherit the order on $X \cup Y \cup \{z\}$ from $\A$,
-    and declare that $z < z'$, as well as $z' < a$ whenever $z<a$ for $a\in X \cup Y$. (This makes the above a diagram of embeddings in the presence of the order; we only use the bottom right embedding.)
+    and declare that $z < z'$, as well as $z' < a$ whenever $z<a$ for $a\in X \cup Y$. This makes the above a diagram of embeddings in the presence of the order.
     By homogeneity, $X \cup Y \cup \{z, z'\}$ embeds into $\A$ via some $f$ which is the identity on $X \cup Y \cup \{z\}$;
     again by homogeneity, we may extend the embedding \[ 
         x \in X \mapsto x, \quad z \mapsto f(z')
-    \] to some automorphism $\tau$ that satisfies (\ref{item:tau-fixes-X}), (\ref{item:tau-frees-from-Yz}), and (\ref{item:tau-adds-epsilon}).
+    \] to some automorphism $\tau$ that satisfies (1), (2), and (3).
 \end{proof}
 
 \begin{lemma}\label{lem:cog-fresh-single}
@@ -431,14 +361,14 @@ Before we show a proof of this (stated as Theorem~\ref{thm:cog-span-generally}),
 Let $\A_0$ be the universal triangle-free (undirected) graph, and $\A$ its totally ordered version. Consider nine atoms $\{a,\ldots,i\}$, ordered by~$<$ alphabetically, with the edge relation as shown here:
 \[
 \scalebox{0.8}{
-\rotatebox{7}{
+\rotatebox{2}{
 \xymatrix@R=6pt@C=15pt{
-\rotatebox{-7}{$h$} & & & & & & \rotatebox{-7}{$i$} \\
+\rotatebox{-2}{$h$} & & & & & & \rotatebox{-2}{$i$} \\
 \\
-& & & \rotatebox{-7}{$g$}\ar@{-}[uulll]\ar@{-}[uurrr] \\
-& \rotatebox{-7}{$e$} & & & & \rotatebox{-7}{$f$} \\
-& & \rotatebox{-7}{$c$}\ar@{-}[ul]\ar@{-}[uur] & & \rotatebox{-7}{$d$}\ar@{-}[uul]\ar@{-}[ur] \\
-\rotatebox{-7}{$a$}\ar@{-}[rrrrrr]\ar@{-}[uuuuu]\ar@{-}[uur] & & & & & & \rotatebox{-7}{$b$}\ar@{-}[uul]\ar@{-}[uuuuu]
+& & & \rotatebox{-2}{$g$}\ar@{-}[uulll]\ar@{-}[uurrr] \\
+& \rotatebox{-2}{$e$} & & & & \rotatebox{-2}{$f$} \\
+& & \rotatebox{-2}{$c$}\ar@{-}[ul]\ar@{-}[uur] & & \rotatebox{-2}{$d$}\ar@{-}[uul]\ar@{-}[ur] \\
+\rotatebox{-2}{$a$}\ar@{-}[rrrrrr]\ar@{-}[uuuuu]\ar@{-}[uur] & & & & & & \rotatebox{-2}{$b$}\ar@{-}[uul]\ar@{-}[uuuuu]
 }}}\]
 This graph is drawn so that the total order of the atoms corresponds to the vertical order.
 
@@ -448,14 +378,14 @@ v = ah - ae + ce - cg + dg - df + bf - bi + gi - gh \in \Lin_\FF{\cal O}.
 \]
 This can be graphically presented as the following graph:
 \[
-\scalebox{0.8}{\rotatebox{7}{
+\scalebox{0.8}{\rotatebox{2}{
 \xymatrix@R=6pt@C=15pt{
-\rotatebox{-7}{$h$} & & & & & & \rotatebox{-7}{$i$} \\
+\rotatebox{-2}{$h$} & & & & & & \rotatebox{-2}{$i$} \\
 \\
-& & & \rotatebox{-7}{$g$}\ar@[blue][uulll]\ar@[red][uurrr] \\
-& \rotatebox{-7}{$e$} & & & & \rotatebox{-7}{$f$} \\
-& & \rotatebox{-7}{$c$}\ar@[red][ul]\ar@[blue][uur] & & \rotatebox{-7}{$d$}\ar@[red][uul]\ar@[blue][ur] \\
-\rotatebox{-7}{$a$}\ar@{-}[rrrrrr]\ar@[red][uuuuu]\ar@[blue][uur] & & & & & & \rotatebox{-7}{$b$}\ar@[red][uul]\ar@[blue][uuuuu]
+& & & \rotatebox{-2}{$g$}\ar@[blue][uulll]\ar@[red][uurrr] \\
+& \rotatebox{-2}{$e$} & & & & \rotatebox{-2}{$f$} \\
+& & \rotatebox{-2}{$c$}\ar@[red][ul]\ar@[blue][uur] & & \rotatebox{-2}{$d$}\ar@[red][uul]\ar@[blue][ur] \\
+\rotatebox{-2}{$a$}\ar@{-}[rrrrrr]\ar@[red][uuuuu]\ar@[blue][uur] & & & & & & \rotatebox{-2}{$b$}\ar@[red][uul]\ar@[blue][uuuuu]
 }}}
 \]
 where edges with coefficient $+1$ are marked as red, and with $-1$ as blue. The arrows on the chosen edges remind us that the pairs in $\cal O$ are ordered, but this is mere decoration: the definition of $\cal O$ means that all arrows must point upwards.
@@ -473,8 +403,8 @@ It is easy to draw $\cal O$-cogs in this way. Assuming some additional atom $z>h
 \]
 
 We would like to present $v$ as a sum of such ${\cal O}$-cogs. Some additional atoms must be used for that, as no four atoms among the original nine form an $\cal O$-duo.
+(This is not the case if $\A$ is the ordered atoms: see the proof of \cite[Cl.~4.7]{BFKM24}.)
 It would be very convenient to introduce a single new atom $z$ to form all the $\cal O$-duos that we will use. 
-(Such a new atom is not necessary if $\A$ is the ordered atoms, as we can simply take $z$ to be the largest atom present in the vector: cf.~the proof of~\cite[\text{Cl.~4.7}]{BFKM24}.)
 We can naïvely require $z$ to be:
 \begin{itemize}
     \item larger than every atom in $v$,
@@ -493,28 +423,28 @@ v' = v + (gh \between g'i) - (bf \between b'i)
 which can be drawn as:
 \[
 \scalebox{0.8}{
-    \rotatebox{7}{
+    \rotatebox{2}{
 \xymatrix@R=6pt@C=15pt{
-\rotatebox{-7}{$h$} & & & & & & \rotatebox{-7}{$i$} \\
+\rotatebox{-2}{$h$} & & & & & & \rotatebox{-2}{$i$} \\
 \\
-& & & \rotatebox{-7}{$g$}\ar@{-}[uulll]\ar@{-}[uurrr] & \rotatebox{-7}{$g'$}\ar@[blue]@/_2ex/[uullll]\ar@[red]@/_1ex/[uurr] \\
-& \rotatebox{-7}{$e$} & & & & \rotatebox{-7}{$f$} \\
-& & \rotatebox{-7}{$c$}\ar@[red][ul]\ar@[blue][uur] & & \rotatebox{-7}{$d$}\ar@[red][uul]\ar@[blue][ur] \\
-\rotatebox{-7}{$a$}\ar@{-}[rrrrrr]\ar@[red][uuuuu]\ar@[blue][uur] & & & & & & \rotatebox{-7}{$b$}\ar@{-}[uul]\ar@{-}[uuuuu] & \rotatebox{-7}{$b'$}\ar@[red]@/_1ex/[uull]\ar@[blue]@/_1ex/[uuuuul]
+& & & \rotatebox{-2}{$g$}\ar@{-}[uulll]\ar@{-}[uurrr] & \rotatebox{-2}{$g'$}\ar@[blue]@/_2ex/[uullll]\ar@[red]@/_1ex/[uurr] \\
+& \rotatebox{-2}{$e$} & & & & \rotatebox{-2}{$f$} \\
+& & \rotatebox{-2}{$c$}\ar@[red][ul]\ar@[blue][uur] & & \rotatebox{-2}{$d$}\ar@[red][uul]\ar@[blue][ur] \\
+\rotatebox{-2}{$a$}\ar@{-}[rrrrrr]\ar@[red][uuuuu]\ar@[blue][uur] & & & & & & \rotatebox{-2}{$b$}\ar@{-}[uul]\ar@{-}[uuuuu] & \rotatebox{-2}{$b'$}\ar@[red]@/_1ex/[uull]\ar@[blue]@/_1ex/[uuuuul]
 }}}
 \]
 Now an atom $z$ as postulated above does not create any triangles:
 \[
 \scalebox{0.8}{
-\rotatebox{7}{
+\rotatebox{2}{
 \xymatrix@R=6pt@C=15pt{
-& & & \rotatebox{-7}{$z$}\ar@{-}@/_4ex/[llldddddd]\ar@{-}[lddddd]\ar@{-}[rddddd]\ar@{-}@/_-0.5ex/[rddd]\ar@{-}@/_-3ex/[rrrrdddddd] \\
-\rotatebox{-7}{$h$} & & & & & & \rotatebox{-7}{$i$} \\
+& & & \rotatebox{-2}{$z$}\ar@{-}@/_4ex/[llldddddd]\ar@{-}[lddddd]\ar@{-}[rddddd]\ar@{-}@/_-0.5ex/[rddd]\ar@{-}@/_-3ex/[rrrrdddddd] \\
+\rotatebox{-2}{$h$} & & & & & & \rotatebox{-2}{$i$} \\
 \\
-& & & \rotatebox{-7}{$g$}\ar@{-}[uulll]\ar@{-}[uurrr] & \rotatebox{-7}{$g'$}\ar@[blue]@/_2ex/[uullll]\ar@[red]@/_1ex/[uurr] \\
-& \rotatebox{-7}{$e$} & & & & \rotatebox{-7}{$f$} \\
-& & \rotatebox{-7}{$c$}\ar@[red][ul]\ar@[blue][uur] & & \rotatebox{-7}{$d$}\ar@[red][uul]\ar@[blue][ur] \\
-\rotatebox{-7}{$a$}\ar@{-}[rrrrrr]\ar@[red][uuuuu]\ar@[blue][uur] & & & & & & \rotatebox{-7}{$b$}\ar@{-}[uul]\ar@{-}[uuuuu] & \rotatebox{-7}{$b'$}\ar@[red]@/_1ex/[uull]\ar@[blue]@/_1ex/[uuuuul]
+& & & \rotatebox{-2}{$g$}\ar@{-}[uulll]\ar@{-}[uurrr] & \rotatebox{-2}{$g'$}\ar@[blue]@/_2ex/[uullll]\ar@[red]@/_1ex/[uurr] \\
+& \rotatebox{-2}{$e$} & & & & \rotatebox{-2}{$f$} \\
+& & \rotatebox{-2}{$c$}\ar@[red][ul]\ar@[blue][uur] & & \rotatebox{-2}{$d$}\ar@[red][uul]\ar@[blue][ur] \\
+\rotatebox{-2}{$a$}\ar@{-}[rrrrrr]\ar@[red][uuuuu]\ar@[blue][uur] & & & & & & \rotatebox{-2}{$b$}\ar@{-}[uul]\ar@{-}[uuuuu] & \rotatebox{-2}{$b'$}\ar@[red]@/_1ex/[uull]\ar@[blue]@/_1ex/[uuuuul]
 }}}
 \]
 and it is easy to calculate:
@@ -548,15 +478,12 @@ Given $\lambda \in \EE$ and $a \in \cal O$, we need to understand
 \]
 as a formal expression for an element of $\Lin_\EE \cal O$, instead of the result of a scalar multiplication.
 Accordingly, we need to redefine $\Cog_\EE\cal O$ to be spanned by formal expressions $\lambda\cdot(a \between b)$ for $\lambda\in\EE$. 
-We still have $\Lin_{\FF^n} \cal O \supseteq \Lin_\EE \cal O \supseteq \Ker_\EE \cal O \supseteq \Cog_\EE \cal O$ as equivariant spaces over $\FF$.
+We still have $\Lin_{\FF^n} \cal O \supseteq \Lin_\EE \cal O \supseteq \Ker_\EE \cal O = \Cog_\EE \cal O$ as equivariant spaces over $\FF$.
 \end{remark}
 
 Leaving the proof to Appendix~\ref{sec:appendix-cogs}, 
 we have --- as discussed at the end of Section~\ref{subsec:finding-cogs} --- established Theorem~\ref{thm:ordered-free-amalg-has-finite-length}, by taking $\EE = \FF$.
-But by allowing $\EE$ to be finite-dimensional vector spaces, we can now describe all equivariant subspaces: 
-we need only look at local sums of coefficients.
-(Stated in a another way, there are no interesting subspaces here --- 
-unlike the infinite chain exhibited in~\cite[Thm.~4.14]{BFKM24} for the bit-vector atoms from Example~\ref{ex:vector-space-atoms}.) 
+But by allowing $\EE$ to be finite-dimensional vector spaces, we can now describe all equivariant subspaces. 
 
 \begin{theorem}\label{thm:coeff-approximation}
     Fix $d \in \{1, 2, \dots\}$. 
@@ -564,7 +491,7 @@ unlike the infinite chain exhibited in~\cite[Thm.~4.14]{BFKM24} for the bit-vect
     \[
         \restriction_i : \Lin_\FF \A^d \to \Lin_{\FF^{n_i}} \cal O_i,
     \]
-    where $\cal O_i$ is an equivariant ordered orbit of $\A^{d_i}$ with $d \geq d_i$, 
+    where $\cal O_i$ is an ordered orbit of $\A^{d_i}$ with $d > d_i$, 
     such that every equivariant subspace $W \subseteq \Lin_\FF \A^d$ is equal to
     \begin{equation}\label{eq:equiv-subsp}
         \{v \in \Lin_\FF \A^d \mid \forall i, \forall a \in \cal{O}_i : v{\restriction_i}(a) \in \EE_i \}
@@ -574,9 +501,8 @@ unlike the infinite chain exhibited in~\cite[Thm.~4.14]{BFKM24} for the bit-vect
         \EE_i = \{w {\restriction_i}(b) \mid w \in W, b \in \cal O_i \}.
     \]
 \end{theorem}
-We do not know how to test for equality.
 
-\begin{example}
+\begin{myexample}
     Let $\A$ be the ordered atoms. 
     For $d = 1$ there are two maps, $\restriction_{1} : \Lin_\FF \A \to \Lin_\FF \A$ and $\restriction_{2} : \Lin_\FF \A \to \FF$, given by  
     \[
@@ -594,23 +520,20 @@ We do not know how to test for equality.
     \end{itemize}
     So $\Lin \A$ has the same structure as the space over the equality atoms in Example~\ref{ex:length-one-dim-one}.
 
-    For $d = 2$, there are three maps, one of which is the form $\restriction_2 : \Lin_\FF \A^2 \to \Lin_{\FF^5} \A$. 
+    For $d = 2$, there will be a map $\restriction_1 : \Lin_\FF \A^2 \to \Lin_{\FF^5} \A$. 
     By considering subspaces of $\FF^5$, when the field is infinite we can exhibit infinitely many equivariant subspaces of $\Lin_\FF \A^2$.
-    Note that $\Lin_\FF \A^2$ has finite length nonetheless (equal to $2^1 + 2^2 + 2^2$, by below).
-\lipicsEnd\end{example}
-
-\textcolor{magenta}{there are redundancies, so the thm only gives an upper bound. Luckily we find a chain of matching length.}
+    Note that $\Lin_\FF \A^2$ has finite length (equal to $2^1 + 2^2 + 2^2$, by below) nonetheless.
+\end{myexample}
 
 \begin{corollary}\label{cor:2d-length}
     The length of $Lin_\FF \cal O$, where $\cal O \subseteq \A^d$ is an ordered orbit, is precisely $2^d$.
 \end{corollary}
 
 Variants of Theorem~\ref{thm:coeff-approximation} have been shown over the equality and the ordered atoms: 
-see~\cite[Cor.~3.17]{Gray97},~\cite[Thm.~15]{HofmanLerouxTotzke_17},~\cite[Thm.~3.4]{HofmanRozycki_2022},~\cite[Sec.~6]{GhoshHofmanLasota_22}, and~\cite[Thm.~19]{Arka_notes}.
-As described in~\cite[Sec.~9]{GhoshLasota_24}, such results allow us to decide the solvability of orbit-finite systems of linear equations. 
-We briefly repeat the explanation.
-Checking whether the system $\mathbf{A} \mathbf{x} = \mathbf{b}$ admits a solution amounts to checking whether $\mathbf{b}$ is spanned by the columns of $\mathbf{A}$.
-\color{magenta}In the orbit-finite setting, we assume that the rows and columns are indexed by $\A^d$, that every column has finitely many non-zero entries, and that $j \mapsto \mathbf{A}_{-, j}$ is equivariant.
+see in \cite[Cor.~3.17]{Gray97}, \cite[Thm.~15]{HofmanLerouxTotzke_17}, \cite[Thm.~3.4]{HofmanRozycki_2022}, and \cite[Thm.~19]{Arka_notes}, \cite[Sec.~6]{GhoshHofmanLasota_22}.
+As described in \cite[Sec.~9]{GhoshLasota_24}, such results allow us to decide the solvability of orbit-finite systems of linear equations. 
+Checking whether the system $\mathbf{A} \mathbf{x} = \mathbf{b}$ admits a solution amounts to checking whether $\mathbf{b}$ is spanned by the columns of $\mathbf{A}$,
+which we briefly repeat.
+In the orbit-finite setting, we assume that the rows and columns are indexed by $\A^n$, that every column has finitely many non-zero entries, and that $j \mapsto \mathbf{A}_{-, j}$ is equivariant.
 That is, we ask whether $\mathbf{b} \in \Lin_\FF \A^d$ is in the span of $\mathbf{A}_{-, j}$. 
-By Theorem~\ref{thm:coeff-approximation}, it suffices to check whether $\mathbf{b} {\restriction_i} (\cal O_i) \subseteq \mathbf{A}_{-, j_1} {\restriction_i} (\cal O_i) + \cdots + \mathbf{A}_{-, j_r} {\restriction_i} (\cal O_i)$ for all $i$, in the finite-dimensional spaces $\FF^{n_i}$, having chosen orbit representatives $j_1, \dots, j_r \in \A^d$.
-\color{black}
+By Theorem~\ref{thm:coeff-approximation}, it suffices to check whether $\mathbf{b} {\restriction_i} (\cal O_i) \subseteq \mathbf{A}_{-, j_1} {\restriction_i} (\cal O_i) + \cdots + \mathbf{A}_{-, j_n} {\restriction_i} (\cal O_i)$, in the finite dimensional space $\FF^{n_i}$, having chosen orbit representatives $j_1, \dots, j_n \in \A^d$.

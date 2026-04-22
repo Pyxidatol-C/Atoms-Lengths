@@ -1,0 +1,184 @@
+\documentclass[a4paper,UKenglish,numberwithinsect]{lipics-v2021}
+\pdfoutput=1
+% \hideLIPIcs
+\bibliographystyle{plainurl}
+
+\title{The Finite Length Property of~the~Rado~Graph~and~Friends}
+% \titlerunning{Finite Length Property of the Rado Graph and ...}
+
+\author{Jingjie Yang}{University of Oxford, UK}
+{jingjieyang2001@gmail.com}
+{https://orcid.org/0009-0002-5393-6083}
+{partially funded by \textcolor{magenta}{an IDUB I.1.5 TPB grant} and\\ the NCN grant 2022/45/N/ST6/03242.}
+
+\author{Mikołaj Bojańczyk}{University of Warsaw, Poland}
+{bojan@mimuw.edu.pl}
+{}%ORCID
+{}%funding
+
+\author{Bartek Klin}{University of Oxford, UK}
+{bartek.klin@cs.ox.ac.uk}
+{https://orcid.org/0000-0001-5793-7425}
+{}%funding
+
+\authorrunning{J. Yang, M. Bojańczyk, and B. Klin} 
+
+\Copyright{Jingjie Yang, Mikołaj Bojańczyk, and Bartek Klin} 
+
+\begin{CCSXML}
+<ccs2012>
+<concept>
+<concept_id>10003752.10003790</concept_id>
+<concept_desc>Theory of computation~Logic</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+<concept>
+<concept_id>10002950.10003624.10003633.10003638</concept_id>
+<concept_desc>Mathematics of computing~Random graphs</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+<concept>
+<concept_id>10003752.10003766.10003770</concept_id>
+<concept_desc>Theory of computation~Automata over infinite objects</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Theory of computation~Logic}
+\ccsdesc[500]{Mathematics of computing~Random graphs}
+\ccsdesc[500]{Theory of computation~Automata over infinite objects}
+
+\keywords{Rado graph, orbit-finitely spanned vector spaces, finite length}
+
+\relatedversion{} %optional, e.g. full version hosted on arXiv, HAL, or other respository/website
+%\relatedversiondetails[linktext={opt. text shown instead of the URL}, cite=DBLP:books/mk/GrayR93]{Classification (e.g. Full Version, Extended Version, Previous Version}{URL to related version} %linktext and cite are optional
+
+%\supplement{}%optional, e.g. related research data, source code, ... hosted on a repository like zenodo, figshare, GitHub, ...
+%\supplementdetails[linktext={opt. text shown instead of the URL}, cite=DBLP:books/mk/GrayR93, subcategory={Description, Subcategory}, swhid={Software Heritage Identifier}]{General Classification (e.g. Software, Dataset, Model, ...)}{URL to related version} %linktext, cite, and subcategory are optional
+
+%\funding{(Optional) general funding statement \dots}%optional, to capture a funding statement, which applies to all authors. Please enter author specific funding statements as fifth argument of the \author macro.
+
+\acknowledgements{We thank Ehud Hrushovski, Arka Ghosh, and David Evans for helpful discussions. 
+We are also grateful to the anonymous reviewers for their insightful comments.}
+
+\nolinenumbers
+
+
+
+%Editor-only macros:: begin (do not touch as author)%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\EventEditors{Claudia Faggian and Joost-Pieter Katoen}
+\EventNoEds{2}
+\EventLongTitle{41st Annual Symposium on Logic in Computer Science (LICS 2026)}
+\EventShortTitle{LICS 2026}
+\EventAcronym{LICS}
+\EventYear{2026}
+\EventDate{July 20--23, 2026}
+\EventLocation{Lisbon, Portugal}
+\EventLogo{}
+\SeriesVolume{380}
+\ArticleNo{6}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage{mathtools}
+
+\usepackage{cancel}
+
+\let\Bbbk\relax
+\usepackage{quiver}
+\usepackage{tikz}
+\usetikzlibrary{automata,calc,backgrounds,arrows.meta,decorations.pathmorphing,positioning,automata}
+\usepackage[all]{xy}
+
+\usepackage{booktabs}
+
+\newtheorem{fact}[theorem]{Fact}
+
+\theoremstyle{definition}
+\newtheorem{non-example}[theorem]{Non-example}
+
+
+\newcommand{\Bclass}{\mathscr{B}}
+\newcommand{\Cclass}{\mathscr{C}}
+\newcommand{\Fclass}{\mathscr{F}}
+\newcommand{\Jclass}{\mathscr{J}}
+
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\N}{\mathbb{N}} % naturals / names / equality atoms
+\newcommand{\Q}{\mathbb{Q}} % rationals / ordered atoms
+\newcommand{\G}{\mathbb{G}} % Rado graph 
+\newcommand{\W}{\mathbb{W}} % symplectic --- w for omega, or « double v » for the vector pair e, f
+
+\newcommand{\FF}{\mathsf{F}} % field
+\newcommand{\ff}{\innerfield} % finite field
+\newcommand{\EE}{\mathsf{E}} % finite-dimensional vector space
+
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Lin}{\operatorname{Lin}}
+\newcommand{\len}{\textit{length}}
+\newcommand{\Ker}{\operatorname{BLin}}
+\newcommand{\Cog}{\operatorname{Cog}}
+\newcommand{\Forb}{\operatorname{Forb}}
+
+\newcommand{\vsup}[1]{[#1]}
+
+% a field
+\newcommand{\field}{\FF}
+\newcommand{\innerfield}{\mathsf{k}}
+
+% a set 
+\newcommand{\set}[1]{\{#1\}}
+
+% set builder expression, which can be multiline
+\newcommand{\setbuild}[2]{\set{#1 \mid \text{#2}}}
+
+
+\newcommand{\myunderbrace}[2]{\underbrace{#1}_{\mathclap{\text{\footnotesize 
+\begin{tabular}{c}
+	#2
+\end{tabular} }}}}
+
+% various kinds of function spaces
+\newcommand{\lineqfun}[2]{(#1 \underset{\textup{lineq}}{\longrightarrow} #2)}
+\newcommand{\linfsfun}[2]{(#1 \underset{\textup{linfs}}{\longrightarrow} #2)}
+\newcommand{\eqfun}[2]{(#1 \underset{\textup{eq}}{\longrightarrow} #2)}
+\newcommand{\fsfun}[2]{(#1 \underset{\textup{fs}}{\longrightarrow} #2)}
+
+
+\begin{document}
+
+%%
+%% This command processes the author and affiliation and title
+%% information and builds the first part of the formatted document.
+\maketitle
+
+\begin{abstract}
+  An infinite structure has the finite length property (over a given field) if, for each of its finite powers, strict chains of equivariant subspaces in the corresponding free vector space are bounded in length. Prior work showed that the countable pure set and the dense linear order without endpoints have this property.We generalise these results to (a) structures approximated by finite substructures with few orbits, provided the field is of characteristic zero, and (b) generically ordered expansions of Fraïssé limits with free amalgamation, in vocabularies consisting of unary and binary relations. As a special case, we deduce the finite length property of the Rado graph using both methods. We also describe some connections with function spaces, weighted register automata, and solving orbit-finite systems of linear equations.
+\end{abstract}
+
+\input{src-submitted/Intro}
+\input{src-submitted/Structures}
+\input{src-submitted/Sets}
+\input{src-submitted/Spaces}
+\input{src-submitted/Rado-cogless}
+\input{src-submitted/Duals}
+\input{src-submitted/Rado-cogs}
+\input{src-submitted/Conclusion}
+
+
+\emergencystretch=1em
+\bibliography{atoms.bib}
+
+\newpage
+\appendix
+\input{src-submitted/appendix-acp}
+\input{src-submitted/appendix-symplectic}
+\input{src-submitted/appendix-function-spaces}
+\input{src-submitted/appendix-woodrow-lachlan}
+\input{src-submitted/appendix-cogs.tex}
+\input{src-submitted/appendix-coefficients.tex}
+
+
+\end{document}

@@ -17,3 +17,4 @@
 .DS_Store
 *.synctex(busy)
 aux/*
+main-LICS-diff.tex
