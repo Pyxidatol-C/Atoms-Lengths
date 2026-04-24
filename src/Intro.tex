@@ -51,7 +51,7 @@ an equivariant subspace of an orbit-finitely spanned vector space should itself 
 We do not know if this closure property holds in general, and we think that it is an important open problem. 
 This problem can be equivalently phrased in terms of ascending chains: 
 is it true that every orbit-finitely spanned vector space is \emph{Noetherian}, meaning that one cannot find an infinite ascending chain of its equivariant subspaces? 
-To the best of our knowledge, this question was first recognised by Camina and Evans~\cite[Q.~2]{CaminaEvans_91} who identified a sufficient condition for this, namely the existence of an Ahlbrandt--Ziegler enumeration. 
+To the best of our knowledge, this question was first recognised by Camina and Evans~\cite[Q.~2]{CaminaEvans_91} who identified a sufficient condition for this, namely the existence of a ``nice ordering''. 
 Using this condition they showed certain vector spaces are Noetherian: notably, $\Lin \A$ over the ordered atoms (row~2 of Figure~\ref{fig:fraisse-limits}), $\Lin {\binom \A d}$ over the equality atoms (row~1 of Figure~\ref{fig:fraisse-limits}), and a similar family of spaces over the bit-vector atoms (row~4 of Figure~\ref{fig:fraisse-limits}). 
 
 The above question is independently considered in~\cite[p.~21]{BFKM24} where it is conjectured that every oligomorphic structure has the \emph{ascending chain property}, meaning that all orbit-finitely spanned vector spaces over the structure are Noetherian.
@@ -60,20 +60,19 @@ In that case, we say the structure has the \emph{finite length property}.
 This stronger property has been confirmed for:
 \begin{itemize}
     \item \emph{The equality atoms.} 
-    There are three independent proofs, in three different contexts: model theory~\cite[Thm.~3.9]{EvansRashwan_02}, representation theory~\cite[Prop.~6.1.6]{SamSnowden_15}, and orbit-finite set theory~\cite[Cor.~4.9]{BFKM24}. 
+    There are three independent proofs of finite length, in three different contexts: model theory~\cite[Thm.~3.9]{EvansRashwan_02}, representation theory~\cite[Prop.~6.1.6]{SamSnowden_15}, and orbit-finite set theory~\cite[Cor.~4.9]{BFKM24}. 
     The result from~\cite{SamSnowden_15} assumes that the underlying field is the complex numbers, while the other two do not restrict the choice of a field. 
     \item \emph{The ordered atoms.} 
     Here, the finite length property was proved in~\cite[Thm.~4.8]{BFKM24}. 
-    The weaker ascending chain property of this structure was proved in~\cite[Thm.~27]{GhoshLasota_24} using an alternative method based on Hilbert's Basis Theorem, 
-    which is independently established in~\cite[Ex.~3.2(c)]{LaudoneSnowden_23}. 
-    That method can also be extended to the Fraïssé limit of trees.
-    (We do not know if the limit of trees, as defined in~\cite[Fact~2.16]{KaplanRzepeckiSiniora_21}, has the finite length property.)
+    There exist alternative methods to show the weaker ascending chain property of this structure.
+    One is to exhibit an Ahlbrandt--Ziegler enumeration \cite[Thm.~2.1]{RationalsHaveAZ} and derive the ``nice orderings''~\cite[p.~7]{Evans_pm2}.
+    Another is based on Hilbert's Basis Theorem~\cite[Thm.~27]{GhoshLasota_24}, which is independently established in~\cite[Ex.~3.2(c)]{LaudoneSnowden_23}, with well-quasi-orders at the heart.
 \end{itemize}
 
-We know equally few structures that lack the finite length property. 
-The prime example is the bit-vector atoms: 
-already the space $\Lin \A$ over the two-element field does not have finite length, as found independently in~\cite[Thm.~2.7]{EvansGray_98} and~\cite[Thm.~4.16]{BFKM24} --- but it is still Noetherian.
-In fact, as observed by Evans~\cite[Rem.~1.3]{Evans_pm1}, any structure that:
+The finite length property is strictly stronger than the ascending chain property.
+A prime example is the bit-vector atoms (which admit an Ahlbrandt--Ziegler enumeration \cite[Lem.~2.5]{Hrushovski}):
+already $\Lin \A$ does not have finite length over the the two-element field, as found independently in~\cite[Thm.~2.7]{EvansGray_98} and~\cite[Thm.~4.16]{BFKM24}.
+In fact, Evans~\cite[Rem.~1.3]{Evans_pm1} observed that any structure which:
 \begin{bracketenumerate}
     \item is a Fraïssé limit over a finite relational vocabulary; and
     \item fails to have the finite length property over some finite field
@@ -82,7 +81,7 @@ would yield a counterexample to the Thomas Conjecture~\cite[p.~177]{thomas1991re
 The known examples of failure of the finite length property are not good enough, since they use an infinite vocabulary (or functions).
 
 \paragraph*{Our contributions.} 
-Until now, the finite length property has been a theory of two examples: the equality atoms and the ordered atoms. 
+Until now, the finite length property has been a theory of two examples: the equality and the ordered atoms. 
 We substantially improve this state of affairs, using two different techniques:
 \begin{itemize}
     \item 
