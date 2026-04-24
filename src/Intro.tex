@@ -2,7 +2,7 @@
 This paper is part of a research programme focused on orbit-finite sets and structures. 
 In this programme, one starts with an infinite relational structure $\A$ whose elements are called \emph{atoms}. 
 Based on these, one constructs sets that are called \emph{orbit-finite}. 
-Precise definitions will follow, but the understanding is that elements of an orbit-finite set are constructed using atoms, and there are only finitely many of them up to automorphisms of $\A$. 
+Precise definitions will follow, but the understanding is that elements of an orbit-finite set are constructed using atoms, and there are only finitely elements up to automorphisms of $\A$. 
 For the theory to make sense, we must assume that $\A$ is \emph{oligomorphic}, which means that $\A^d$ has finitely many orbits for every $d$. 
 The simplest example of an oligomorphic atom structure is what we refer to as the \emph{equality atoms}; 
 this is the structure with a countably infinite underlying set and no relations except for equality. 
@@ -10,7 +10,7 @@ This structure, like all oligomorphic structures over suitable vocabularies of r
 Figure~\ref{fig:fraisse-limits} shows other examples of such structures. 
 \begin{figure}
     \begin{tabular}{lll}
-   &  class of finite structures & its Fraïssé limit\\
+   &  Class of finite structures & Fraïssé limit\\
     \toprule
     1.& finite sets with equality only & $(\N, =)$ \\
     2.& finite orders & $(\Q, \leq)$ \\
@@ -36,7 +36,7 @@ e.g.~Fraenkel and Mostowski showed that the axiom of choice can fail, working ov
 The dependency on the underlying atom structure will play a prominent role in this paper. 
 
 
-\paragraph*{Vector spaces.}
+\paragraph*{Vector spaces}
 One direction of the orbit-finite programme, motivated by the study of orbit-finite weighted automata, is focused on vector spaces~\cite{BFKM24}. 
 In these spaces (taken over some fixed field), one can take linear combinations and apply automorphisms of the atom structure. 
 We are interested in spaces that have an orbit-finite spanning set, which means that the entire space can be obtained from some finite subset by using atom automorphisms and linear combinations.
@@ -52,7 +52,7 @@ We do not know if this closure property holds in general, and we think that it i
 This problem can be equivalently phrased in terms of ascending chains: 
 is it true that every orbit-finitely spanned vector space is \emph{Noetherian}, meaning that one cannot find an infinite ascending chain of its equivariant subspaces? 
 To the best of our knowledge, this question was first recognised by Camina and Evans~\cite[Q.~2]{CaminaEvans_91} who identified a sufficient condition for this, namely the existence of a ``nice ordering''. 
-Using this condition they showed certain vector spaces are Noetherian: notably, $\Lin \A$ over the ordered atoms (row~2 of Figure~\ref{fig:fraisse-limits}), $\Lin {\binom \A d}$ over the equality atoms (row~1 of Figure~\ref{fig:fraisse-limits}), and a similar family of spaces over the bit-vector atoms (row~4 of Figure~\ref{fig:fraisse-limits}). 
+Using this condition they showed that certain vector spaces are Noetherian: notably, $\Lin \A$ over the ordered atoms (row~2 of Figure~\ref{fig:fraisse-limits}), $\Lin {\binom \A d}$ over the equality atoms (row~1 of Figure~\ref{fig:fraisse-limits}), and a similar family of spaces over the bit-vector atoms (row~4 of Figure~\ref{fig:fraisse-limits}). 
 
 The above question is independently considered in~\cite[p.~21]{BFKM24} where it is conjectured that every oligomorphic structure has the \emph{ascending chain property}, meaning that all orbit-finitely spanned vector spaces over the structure are Noetherian.
 In such a vector space, if descending chains as well as ascending chains of equivariant subspaces are all finite, by the Jordan--Hölder Theorem, there is some finite upper bound on the length of chains of its equivariant subspaces.
@@ -70,7 +70,7 @@ This stronger property has been confirmed for:
 \end{itemize}
 
 The finite length property is strictly stronger than the ascending chain property.
-A prime example is the bit-vector atoms (which admit an Ahlbrandt--Ziegler enumeration \cite[Lem.~2.5]{Hrushovski}):
+A prime example is the bit-vector atoms (which admit an Ahlbrandt--Ziegler enumeration \cite[p.~143]{Hrushovski}):
 already $\Lin \A$ does not have finite length over the the two-element field, as found independently in~\cite[Thm.~2.7]{EvansGray_98} and~\cite[Thm.~4.16]{BFKM24}.
 In fact, Evans~\cite[Rem.~1.3]{Evans_pm1} observed that any structure which:
 \begin{bracketenumerate}
@@ -80,7 +80,7 @@ In fact, Evans~\cite[Rem.~1.3]{Evans_pm1} observed that any structure which:
 would yield a counterexample to the Thomas Conjecture~\cite[p.~177]{thomas1991reducts} in model theory.
 The known examples of failure of the finite length property are not good enough, since they use an infinite vocabulary (or functions).
 
-\paragraph*{Our contributions.} 
+\paragraph*{Our contributions} 
 Until now, the finite length property has been a theory of two examples: the equality and the ordered atoms. 
 We substantially improve this state of affairs, using two different techniques:
 \begin{itemize}
@@ -99,4 +99,4 @@ We substantially improve this state of affairs, using two different techniques:
 In particular, we may use either of these techniques to deduce the finite length property of the Rado atoms (row~3 in Figure~\ref{fig:fraisse-limits}), where even the weaker ascending chain property was not known before.
 
 Most of the paper is devoted to introducing the background necessary to understand these results (Sections~\ref{sec:structures}--\ref{sec:spaces}) and to proving them (Sections~\ref{sec:characteristic-zero},~\ref{sec:free-amalg}--\ref{sec:cogs-turn} and the technical Appendix). 
-In Section~\ref{sec:duals} we discuss some connections with function spaces and weighted automata, and in Section~\ref{sec:equivariant-subspaces} we  briefly discuss  applications to solving orbit-finite system of equations.
+In Section~\ref{sec:duals} we discuss some connections with function spaces and weighted automata, and in Section~\ref{sec:equivariant-subspaces} we  briefly discuss  applications to solving orbit-finite systems of equations.
