@@ -4,12 +4,11 @@ We begin with the special case of spaces that have an orbit-finite basis;
 this special case has an elementary definition, and yet it will be the relevant case for almost all results of this paper. 
 
 \begin{definition}[Orbit-finite-dimensional vector space]\label{def:orbit-finite-basis}
-    $\Lin_\field X$ is --- given an orbit-finite set $X$ and a field $\field$ --- the vector space of finite formal linear combinations of elements in $X$ over $\field$.
+    $\Lin_\field X$ is~---~given an orbit-finite set $X$ and a field $\field$~---~the vector space of finite formal linear combinations of elements in $X$ over $\field$.
 \end{definition}
 
 This definition has two important parameters: the field $\field$ and the oligomorphic structure $\A$ over which $X$ is an orbit-finite set.
-The spaces defined here have two kinds of structure: that of a vector space, and the action of the automorphism group of $\A$
---- via $\pi(\sum_i \lambda_i x_i) = \sum_i \lambda_i \pi(x_i)$. 
+The spaces defined here have two kinds of structure: that of a vector space, and the action of the automorphism group of $\A$~---~via $\pi(\sum_i \lambda_i x_i) = \sum_i \lambda_i \pi(x_i)$. 
 We will be interested in subsets that preserve both kinds of structure, 
 i.e.~those that are closed under taking linear combinations as well as applying automorphisms of $\A$. 
 Such subsets are called \emph{equivariant subspaces}. 
@@ -24,7 +23,7 @@ Such subsets are called \emph{equivariant subspaces}.
 
  Unfortunately, there is a price to pay for the elementary character of Definition~\ref{def:orbit-finite-basis}, 
  and that is the failure of certain closure properties. 
- In particular, these spaces are not closed --- even up to equivariant linear bijections --- under taking equivariant subspaces, or quotients under such spaces. 
+ In particular, these spaces are not closed~---~even up to equivariant linear bijections~---~under taking equivariant subspaces, or quotients under such spaces. 
  The problem with subspaces is apparent already in Example~\ref{ex:length-one-dim-one}, since the unique nontrivial subspace of $\Lin_\field \A$ does not have any equivariant basis, regardless of the underlying field~\cite[Ex.~6.1]{BFKM24}; 
  this subspace with no orbit-finite basis can also be realised as a quotient of $\Lin_\field \A^2$.
  % (Also an orbit-finite-dimensional vector space can have two orbit-finite bases without an equivariant bijection between them~\cite[Sec.~3.4]{Ghosh25}.)
@@ -68,7 +67,7 @@ This closure property turns out to be intimately related to the ascending chain 
         \item\label{item:ofs-implies-Noetherian}
         for every orbit-finitely spanned vector space $V$, there are no infinite ascending chains of equivariant subspaces in $V$.
     \end{alphaenumerate}
-    Furthermore, if these conditions hold, then the orbit-finitely spanned vector spaces are --- up to equivariant linear bijections --- precisely the vector spaces of the form $U/W$, 
+    Furthermore, if these conditions hold, then the orbit-finitely spanned vector spaces are~---~up to equivariant linear bijections~---~precisely the vector spaces of the form $U/W$, 
     where $W \subseteq U$ are equivariant subspaces of $\Lin_\field \A^d$ and $d \in \set{1,2,\dots}$.
 \end{theorem}
 
@@ -76,7 +75,7 @@ This closure property turns out to be intimately related to the ascending chain 
 We say that an atom structure $\A$ has the \emph{ascending chain property} over a field $\field$ if any of the equivalent conditions in Theorem~\ref{thm:ACP} is satisfied. 
 One interpretation of the theorem is that the ascending chain property is necessary for the theory of vector spaces to be well-behaved. 
 In particular, thanks to the ``furthermore'' part, we get a similar result to the equivalence of Definitions~\ref{def:orbit-finite-set} and~\ref{def:orbit-finite-set-alternative} in the previous section, 
-i.e.~a concrete characterisation of the orbit-finitely spanned vector spaces that can be used in algorithms (provided we know how to represent equivariant subspaces --- see Section~\ref{sec:equivariant-subspaces}). 
+i.e.~a concrete characterisation of the orbit-finitely spanned vector spaces that can be used in algorithms (provided we know how to represent equivariant subspaces~---~see Section~\ref{sec:equivariant-subspaces}). 
 
 
 We are therefore interested in atom structures that have the ascending chain property. 

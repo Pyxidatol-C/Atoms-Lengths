@@ -52,8 +52,7 @@ Such bases behave very much like the usual bases.
     \]
     so that $\omega(e_i, e_{n+1}) = 0 = \omega(f_i, e_{n+1})$.
     This cannot be the zero vector lest we contradict the choice of $v$.
-    By the non-degeneracy of $\omega$, there is --- rescaling if necessary 
-    --- some $w$ such that $\omega(e_{n+1}, w) = 1$. 
+    By the non-degeneracy of $\omega$, there is~---~rescaling if necessary~---~some $w$ such that $\omega(e_{n+1}, w) = 1$. 
     Now define
     \[
         f_{n+1} = w - \sum_{i=1}^n \omega(e_i, w) f_i + \sum_{i=1}^n \omega(f_i, w) e_i
@@ -164,7 +163,7 @@ we will opt for another approach that establishes smooth approximation and gives
     \end{align*}
     form a basis for $\alpha(\langle X \rangle)$ and also satisfy \eqref{eq:symplectic-basis}.
     Therefore apply Proposition~\ref{prop:symplectic-basis-and-a-half} twice to find the missing 
-    $y_1, \ldots, y_k$ and $y'_1, \ldots, y'_k$ and form two symplectic subbases --- call them $\mathcal{B}$ and $\mathcal{B}'$.
+    $y_1, \ldots, y_k$ and $y'_1, \ldots, y'_k$ and form two symplectic subbases~---~call them $\mathcal{B}$ and $\mathcal{B}'$.
     They are of the same size.
 
     Now, by using Proposition~\ref{prop:symplectic-basis}, extend $\mathcal{B}$ and $\mathcal{B}'$ to symplectic subbases $\mathcal{C}$ and $\mathcal{C}'$ that span $\W_n$.
@@ -206,8 +205,7 @@ we will opt for another approach that establishes smooth approximation and gives
     \begin{enumerate}
         \item 
         pivot indices $I \subseteq \{1, \ldots, k\}$ containing every $i$ 
-        such that $v_i$ is not spanned by $v_1, \ldots, v_{i-1}$
-        --- so we inductively ensure that $$\{v_{i'} \mid i' \in I, i' \leq i\}$$ is a basis for $\langle v_1, \ldots, v_i \rangle$;
+        such that $v_i$ is not spanned by $v_1, \ldots, v_{i-1}$~---~so we inductively ensure that $$\{v_{i'} \mid i' \in I, i' \leq i\}$$ is a basis for $\langle v_1, \ldots, v_i \rangle$;
 
         \item 
         for each $j \not\in I$, an assignment $\Lambda_j : \{i \in I \mid i < j\} \to \ff$
@@ -246,7 +244,7 @@ we will opt for another approach that establishes smooth approximation and gives
         \sum_{d=0}^k q^{\binom{d}{2}} \cdot \#_{k, d} 
     \]
     types for vectors in $\W_\infty^d$.
-    So focus on $\#_{k, d}$, the number of \emph{linear types} --- i.e.~$(I, \{\Lambda_j\}_j)$, ignoring $\Omega$ --- in $\W_\infty^k$.
+    So focus on $\#_{k, d}$, the number of \emph{linear types}~---~i.e.~$(I, \{\Lambda_j\}_j)$, ignoring $\Omega$~---~in $\W_\infty^k$.
     (Incidentally $\sum_{d=0}^k \#_{k, d}$ is the number of orbits in $\W_\infty^k$ or, more generally, any countable-dimensional $\ff$-vector space under linear automorphisms.)
     On the small values we easily check that \begin{align*}
         &\#_{0, 0} = 1 = \begin{bsmallmatrix}0 \\ 0\end{bsmallmatrix}_q, \\
@@ -312,8 +310,7 @@ Here, let $\ff$ be the two-element field.
     we conclude that $f(\sum_i \lambda_i v_i) = \sum_i \lambda_i f(v_i)$.
 \end{proof}
 
-So the number of orbits in $\widetilde \W_n^k$ is precisely equal to the number of orbits in $\W_n^k$
---- in particular, it is bounded above by $\sum_{d=0}^k \begin{bsmallmatrix}k \\ d\end{bsmallmatrix}_2 \cdot 2^{\binom{d}{2}}$ independently of $n$ by Proposition~\ref{prop:symplectic-oligomorphic}.%
+So the number of orbits in $\widetilde \W_n^k$ is precisely equal to the number of orbits in $\W_n^k$~---~in particular, it is bounded above by $\sum_{d=0}^k \begin{bsmallmatrix}k \\ d\end{bsmallmatrix}_2 \cdot 2^{\binom{d}{2}}$ independently of $n$ by Proposition~\ref{prop:symplectic-oligomorphic}.%
 \footnote{This is the $k$th term in the \href{https://oeis.org/A028361}{OEIS sequence A028361}.}
 It remains to show $\widetilde \W_0 \subseteq \widetilde \W_1 \subseteq \widetilde \W_2 \subseteq \cdots$ embeds all finite graphs:
 

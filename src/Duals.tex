@@ -40,13 +40,12 @@ As it turns out, the only structure known to have this property is the equality 
 If we only require function spaces of the form \[
     \linfsfun{V}{\field}
 \] to be orbit-finitely spanned, we accordingly speak of the \emph{dual space property}. 
-This weaker property is satisfied also by the ordered atoms~\cite[Cor.~6.8]{BFKM24} and, following \cite[Thm~3.7]{Przybylek_2024}, by all $\omega$-stable oligomorphic structures 
---- a strict subclass \cite[p.~440]{KLM89} of the smoothly approximated structures mentioned after Definition~\ref{def:oligomorphic-approximation}.
+This weaker property is satisfied also by the ordered atoms~\cite[Cor.~6.8]{BFKM24} and, following \cite[Thm~3.7]{Przybylek_2024}, by all $\omega$-stable oligomorphic structures~---~a strict subclass \cite[p.~440]{KLM89} of the smoothly approximated structures mentioned after Definition~\ref{def:oligomorphic-approximation}.
 In contrast, the Rado atoms (not smoothly approximated but having the finite length property) fail even the dual space property, as we explain below.
 
 
 \begin{example}\label{ex:no-function-spaces}
-    Assume that $\A$ is the Rado atoms and the field $\FF$ is arbitrary --- in particular, a field of characteristic zero as treated in the previous section.
+    Assume that $\A$ is the Rado atoms and the field $\FF$ is arbitrary~---~in particular, a field of characteristic zero as treated in the previous section.
     (A variant of this example for the two-element field was shown in~\cite[Ex.~6.9]{BFKM24}, when the finite length property had not been established yet.)
     We will show that
     \[
@@ -57,7 +56,7 @@ In contrast, the Rado atoms (not smoothly approximated but having the finite len
     \begin{align}\label{eq:dual-space}
         \fsfun{\A}{\field}
     \end{align}
-    consisting of functions (not linear maps --- there is no linear structure on $\A$) from atoms to the field that are finitely supported in the sense of Definition~\ref{def:function-space}.
+    consisting of functions (not linear maps~---~there is no linear structure on $\A$) from atoms to the field that are finitely supported in the sense of Definition~\ref{def:function-space}.
     So we will show that \eqref{eq:dual-space} is not orbit-finitely spanned instead.
     
     For a finite set $S \subseteq \A$ of atoms, define a function $f_S : \A \to \field$ by
@@ -85,11 +84,11 @@ we choose one viewing them as deterministic automata, in which the states are en
 \begin{definition}\label{def:orbit-finite-weighted}
     An \emph{orbit-finite weighted automaton} is given by: 
     \begin{itemize}
-        \item $\Sigma$ --- an orbit-finite set;
-        \item $Q$ --- an orbit-finitely spanned vector space;
-        \item $q_0$ --- an equivariant element of $Q$;
-        \item $\delta$ --- an equivariant function of type $Q \times \Sigma \to Q$ that becomes a linear map from $Q$ to itself after fixing any input letter;
-        \item $F$ --- an equivariant linear map of type $Q \to \field$.
+        \item $\Sigma$~---~an orbit-finite set;
+        \item $Q$~---~an orbit-finitely spanned vector space;
+        \item $q_0$~---~an equivariant element of $Q$;
+        \item $\delta$~---~an equivariant function of type $Q \times \Sigma \to Q$ that becomes a linear map from $Q$ to itself after fixing any input letter;
+        \item $F$~---~an equivariant linear map of type $Q \to \field$.
     \end{itemize}
     Such an automaton computes a function of type $\Sigma^* \to \field$, defined in the same way as for deterministic automata. 
 \end{definition}
@@ -98,8 +97,7 @@ we choose one viewing them as deterministic automata, in which the states are en
 From the finite length property of the underlying atoms structure, we can deduce decidability results about orbit-finite weighted automata. 
 (Though, to be able to effectively represent the maps $\delta$ and $F$, we should assume that $Q$ has an orbit-finite basis.)
 For example, a nondeterministic algorithm for non-equivalence is derived in~\cite[Sec.~5]{BFKM24}. 
-In light of the results from this paper, such an algorithm exists if we use the Rado graph as the atoms 
---- or any other structure for which we have established the finite length property. 
+In light of the results from this paper, such an algorithm exists if we use the Rado graph as the atoms~---~or any other structure for which we have established the finite length property. 
 Also, weighted automata can be minimized~\cite[Sec.~7]{BFKM24}; 
 the bound for chains allows us to decide whether two input words are syntactically congruent.
 

@@ -86,8 +86,8 @@ The following sister lemmas, relying on free amalgamation as distilled in Lemma~
     
     Let $(i, a)$ and $(j, b)$ be in a relational conflict; without loss of generality $(i, a)$ is a location in $K$ and $(j, b)$ in $V$. This is not an equational conflict, so $a\neq b$ (but possibly $i=j$). 
     
-    Since there are no conflicts in $V_0\cup K$ or in $V$, we see that $(i, a)$ is not a location in $V$ and $(j, b)$ is not a location in $V_0 \cup K$
-    --- i.e.~since there are no equational conflicts, that $a\not\in \sqrt{V}$ and $b\not\in\sqrt{V_0\cup K}$.
+    Since there are no conflicts in $V_0\cup K$ or in $V$, we see that $(i, a)$ is not a location in $V$ and $(j, b)$ is not a location in $V_0 \cup K$~---~i.e.~since there are no equational conflicts, 
+    that $a\not\in \sqrt{V}$ and $b\not\in\sqrt{V_0\cup K}$.
     Also, $a,b\not\in S$.
     Let $Y$ consist of all the atoms $b$ that are in a relational conflict with $(i,a)$ in $V\cup K$; we have just shown that $Y$ does not contain $a$ and is disjoint with $S\cup\sqrt{V_0\cup K}$. Put:
     \[
@@ -121,7 +121,7 @@ By the outer inductive hypothesis, we get \[
     v^{j:a} = (v^{j:a}|^{-j}) a = \sum_{a^\pm\in A^\pm} (\lambda_{a^\pm} \cdot a^+ \between a^-)a
 \]
 where $[v^{j:a}|^{-j}]\cup A^\pm$ is free from conflicts, which immediately implies that $[v^{j:a}]\cup A^\pm a$ is free from conflicts as well. 
-Note that if a $\pi \in \Aut(\A/S)$ fixes every atom in $v^{j:a}$ --- in particular, $a$ ---  then
+Note that if a $\pi \in \Aut(\A/S)$ fixes every atom in $v^{j:a}$~---~in particular, $a$~---~then
 \[
     v^{j:a} = \pi(v^{j:a}) = \sum_{a^\pm \in A^\pm} \lambda_{a^\pm} \cdot \pi a^+ \between \pi a^-,
 \]
@@ -221,9 +221,7 @@ is a decomposition of $v$ into a sum of $\cal O$-cogs as required.
 \end{claim}
 \begin{claimproof}
 We proceed again by induction, first on $|I|$ then on the number of relational conflicts in $v$.
-The outer base case $I = \emptyset$ is trivial 
---- we have $v = \lambda \cdot ( \between )$, and no conflicts arise
---- and the inner base case is just Claim~\ref{claim:!-free-decomposition}.
+The outer base case $I = \emptyset$ is trivial~---~we have $v = \lambda \cdot ( \between )$, and no conflicts arise~---~and the inner base case is just Claim~\ref{claim:!-free-decomposition}.
 
 Suppose that a location $(i, a)$ is part of a relational conflict in $v$.
 Since every location in $v^{i:a}|^{-i}$ is also a location in $v$, we know that $v^{i:a}|^{-i}$ has no equational conflicts, and by Lemma~\ref{lem:balanced-projected-subvector} it is balanced.

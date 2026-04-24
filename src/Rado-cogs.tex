@@ -17,7 +17,7 @@ Consider a finite relational vocabulary $\sigma_0$ consisting of unary and binar
 
 \paragraph*{Free amalgamation class}
 Let $\Cclass_0$ be a \emph{free} amalgamation class of finite $\sigma_0$-structures. 
-This is a standard notion in model theory --- see~\cite[Sec.~2.1]{Macpherson11}.
+This is a standard notion in model theory~---~see~\cite[Sec.~2.1]{Macpherson11}.
 Informally, it means that when we perform amalgamation, we do not need to glue together any new elements, or introduce new relations.
 
 There is a useful characterisation~\cite[Lem.~4.5]{SS20} of the amalgamation class $\Cclass_0$ being free.
@@ -28,8 +28,7 @@ we write \[
     \Cclass_0 = \Forb(\Fclass).
 \]
 That $\Cclass_0$ is a free amalgamation class means that in each $F \in \Fclass$, 
-any two elements $x, y$ are either equal or satisfy at least one of $R(x, y)$ and $R(y, x)$ for some binary relation $R \in \sigma_0$
---- from here on, we will just say $x, y$ are \emph{related}.
+any two elements $x, y$ are either equal or satisfy at least one of $R(x, y)$ and $R(y, x)$ for some binary relation $R \in \sigma_0$~---~from here on, we will just say $x, y$ are \emph{related}.
 Conversely, given a family $\Fclass$ of finite $\sigma_0$-structures where every two elements are related,
 the class $\Forb(\Fclass)$ of finite $\sigma_0$-structures form a free amalgamation class.
 
@@ -54,7 +53,7 @@ the class $\Forb(\Fclass)$ of finite $\sigma_0$-structures form a free amalgamat
         \subseteq \cdots 
         \subseteq \Forb(\{{\circlearrowright}, {\rightarrow}\})
     \end{align*}    
-    are all free amalgamation classes --- notice that in each forbidden structure, any two elements are related. 
+    are all free amalgamation classes~---~notice that in each forbidden structure, any two elements are related. 
 \lipicsEnd\end{example}
 
 \paragraph*{Irreflexivity} 
@@ -88,7 +87,7 @@ For clarity, we begin with a terse restatement of the setting.
         \item $\sigma_0$\quad a finite, at-most-binary relational vocabulary;
         \item $\Cclass_0$\quad a free amalgamation class of finite, irreflexive $\sigma_0$-structures;
         \item $\Cclass$\quad all total orderings of all structures in $\Cclass_0$, over the vocabulary $\sigma_0 \uplus \{<\}$;
-        \item $\A$\quad the Fraïssé limit of $\Cclass$ --- a homogeneous and oligomorphic $(\sigma_0 \uplus \{<\})$-structure.
+        \item $\A$\quad the Fraïssé limit of $\Cclass$~---~a homogeneous and oligomorphic $(\sigma_0 \uplus \{<\})$-structure.
     \end{itemize}
     Then the totally ordered structure $\A$, even with finitely many constants fixed, has the finite length property over any field.
 \end{theorem}
@@ -102,7 +101,7 @@ We do not know how to combine these results.
 
 Before we prove this theorem in Section~\ref{sec:cogs-turn}, let us state an easy consequence of it and give some examples.
 The Fraïssé limit $\A_0$ of $\Cclass_0$ is a reduct of $\A$.
-To see this, notice that $\A$, when viewed as an $\sigma_0$-structure, embeds the same finite $\sigma_0$-structures as $\A_0$ --- namely, $\Cclass_0$.
+To see this, notice that $\A$, when viewed as an $\sigma_0$-structure, embeds the same finite $\sigma_0$-structures as $\A_0$~---~namely, $\Cclass_0$.
 Moreover, it follows from a back-and-forth argument~\cite[Lem.~7.1.4]{hodges1993model} that the $\sigma_0$-structure $\A$ is also homogeneous and, therefore, that it is isomorphic to $\A_0$.
 So we may assume that $\A$ and $\A_0$ have the same underlying set; we then have $\Aut(\A) \subseteq \Aut(\A_0)$, where $\Aut(X)$ denotes the group of automorphisms of $X$.
 
@@ -205,7 +204,7 @@ The function $(-)|^J$ lifts to a linear $\Aut(\A/S)$-equivariant map
     (-)|^J : \Lin_\FF \cal O &\to \Lin_\FF \cal O|^J.
 \end{align*}
 Many cancellations can occur under $(-)|^J$; 
-\textcolor{magenta}{the \emph{projection kernel} --- only call it balanced?} is the $\Aut(\A/S)$-equivariant subspace of $\Lin_\FF \cal O$ below:
+\textcolor{magenta}{the \emph{projection kernel}~---~only call it balanced?} is the $\Aut(\A/S)$-equivariant subspace of $\Lin_\FF \cal O$ below:
 \[
     \Ker_\FF \cal O = \bigcap_{i \in I} \ker{ (-)|^{-i} }.
 \]
@@ -352,7 +351,7 @@ We begin with a technical lemma, which combines the free amalgamation in $\Cclas
     Given $z \in S$, 
     \begin{itemize}
         \item write $S' = S \setminus \{z\}$;
-        \item let $j \not\in I$ be such that $a z \in \A^{I \cup \{j\}}$ --- thus ${\cal O'}=\Aut(\A)_{(S')} \cdot az \subseteq \A^{I \cup \{j\}}$ --- is $S'$-ordered;
+        \item let $j \not\in I$ be such that $a z \in \A^{I \cup \{j\}}$~---~thus ${\cal O'}=\Aut(\A)_{(S')} \cdot az \subseteq \A^{I \cup \{j\}}$~---~is $S'$-ordered;
         \item let $X \subseteq \A$ be any finite set containing $\{a_i, b_i \mid i \in I\} \cup S'$ but not $z$.
  %       \item let $Y \subseteq \A$ be any finite set disjoint from $X \cup \{z\}$;
     \end{itemize}
@@ -379,8 +378,7 @@ Starting from an empty duo, we may apply Lemma~\ref{lem:cog-fresh-single} induct
 %     \[
 %         a|^{\{i_1, \dots, i_k\}} \parallel (i_1 \mapsto b_{i_1}, \dots, i_k \mapsto b_{i_k})
 %     \] 
-%     is a duo for $\cal O_k = \Aut(\A)_{(S \cup \{a_{i_{k+1}}, \dots, a_{i_d}\})} \cdot a|^{\{i_1, \dots, i_k\}}$ 
-%     --- note that $() \parallel ()$ is certainly a duo for $\cal O_0$ at the start.
+%     is a duo for $\cal O_k = \Aut(\A)_{(S \cup \{a_{i_{k+1}}, \dots, a_{i_d}\})} \cdot a|^{\{i_1, \dots, i_k\}}$~---~note that $() \parallel ()$ is certainly a duo for $\cal O_0$ at the start.
 %     If $k < d$, putting $z = a_{i_{k+1}}$, $X = \{a_{i_1}, b_{i_1}, \dots, a_{i_k}, b_{i_k}\} \cup S \cup \{a_{i_{k+2}}, \dots, a_{i_d}\}$, and $Y = \emptyset$, 
 %     Lemma~\ref{lem:cog-fresh-single} yields an atom $b_{i_{k+1}}$ that makes
 %     \[
@@ -390,7 +388,7 @@ Starting from an empty duo, we may apply Lemma~\ref{lem:cog-fresh-single} induct
 % \end{proof}
 
 As some $a \in \cal O$ always exists, it follows that Claim~\ref{claim:cogs-are-balanced} was not vacuous:
-we now know $\Cog_\FF{\cal O}$, and hence $\Ker_\FF{\cal O}$, is nontrivial --- but barely so.
+we now know $\Cog_\FF{\cal O}$, and hence $\Ker_\FF{\cal O}$, is nontrivial~---~but barely so.
 Indeed, as the result below shows, $\Cog_\FF{\cal O}$ admits no nontrivial $\Aut(\A/S)$-equivariant subspaces.
 \begin{theorem} \label{thm:cogs-arise-everywhere}
     Any nontrivial $\Aut(\A/S)$-equivariant subspace $V\subseteq \Lin_\FF \cal O$ contains $\Cog_\FF \cal O$.
@@ -402,7 +400,7 @@ Indeed, as the result below shows, $\Cog_\FF{\cal O}$ admits no nontrivial $\Aut
     \[
         S' = S \cup \{c_i \mid v(c) \neq 0, i \in I\} \setminus \{a_i \mid i \in I\} \supseteq S
     \]
-    and put $\cal O' = \Aut(\A)_{(S')} \cdot a \subseteq \cal O$ --- then $\cal O'$ is $S'$-ordered.
+    and put $\cal O' = \Aut(\A)_{(S')} \cdot a \subseteq \cal O$~---~then $\cal O'$ is $S'$-ordered.
     By Lemma~\ref{lem:cog-fresh-full}, we can find $b \in \cal O'$ such that $a \parallel b$ is an $\cal O'$-duo and \emph{a fortiori} an $\cal O$-duo.
     Take the automorphisms $\pi_{i_1}, \dots, \pi_{i_d}$ from Remark~\ref{rem:duo}, where $i_1, \dots, i_d$ enumerate $I$.
     Now define $v^{(0)} = v$ and \[
@@ -552,10 +550,10 @@ We still have $\Lin_{\FF^n} \cal O \supseteq \Lin_\EE \cal O \supseteq \Ker_\EE 
 \end{remark}
 
 Leaving the proof to Appendix~\ref{sec:appendix-cogs}, 
-we have --- as discussed at the end of Section~\ref{subsec:finding-cogs} --- established Theorem~\ref{thm:ordered-free-amalg-has-finite-length}, by taking $\EE = \FF$.
+we have~---~as discussed at the end of Section~\ref{subsec:finding-cogs}~---~established Theorem~\ref{thm:ordered-free-amalg-has-finite-length}, by taking $\EE = \FF$.
 But by allowing $\EE$ to be finite-dimensional vector spaces, we can now describe all equivariant subspaces: 
 we need only look at local sums of coefficients.
-(Stated in a another way, there are no interesting subspaces here --- 
+(Stated in a another way, there are no interesting subspaces here~---~
 unlike the infinite chain exhibited in~\cite[Thm.~4.14]{BFKM24} for the bit-vector atoms from Example~\ref{ex:vector-space-atoms}.) 
 
 \begin{theorem}\label{thm:coeff-approximation}
