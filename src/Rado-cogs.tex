@@ -109,7 +109,7 @@ So we may assume that $\A$ and $\A_0$ have the same underlying set; we then have
     The reduct $\A_0$ of $\A$, even with finitely many constants fixed, has the finite length property over any field.
 \end{corollary}
 \begin{proof}
-    A chain of subspaces in $\Lin_\FF \A_0^d = \Lin_\FF \A^d$ each supported by $S \subseteq \A_0$ is also a chain of subspaces supported by $S \subseteq \A$; 
+    A chain of subspaces in $\Lin_\FF \A_0^d = \Lin_\FF \A^d$ each supported by $S \subset \A_0$ is also a chain of subspaces supported by $S \subset \A$; 
     the latter has a bounded length by the theorem above.
 \end{proof}
 
@@ -166,7 +166,7 @@ Throughout we fix $\A$ from the statement of Theorem~\ref{thm:ordered-free-amalg
 
 \subsection{Orbits and projections}
 To start with, let us view $\A^d$ as $\A^{\{1, \dots, d\}}$. More generally, it will be convenient to consider $\A^I$ for a finite totally ordered indexing set $I$ (say contained in $\Q$, so that we may take unions later).
-Fix a finite support $S \subseteq \A$.
+Fix a finite support $S \subset \A$.
 We shall say that a tuple(!) $a\in\A^I$ is {\em ($S$-)ordered} if $a_i \not\in S$ for all $i$, and $a_i < a_j$ whenever $i < j$. Then the orbit
 $\cal O = \Aut(\A/S) \cdot a$ only contains $S$-ordered tuples, and we shall call the orbit $S$-ordered as well.%
 \footnote{Here and in the following, $\Aut(\A/S)$ is the group of those automorphisms of $\A$ that fix every element of $S$. So ``$\Aut(\A/S)$-equivariant'' is synonymous with ``$S$-supported''.}
@@ -175,7 +175,7 @@ If $a$ is not $S$-ordered, by removing the entries that repeat or come from $S$ 
 To study the lengths of orbit-finitely spanned spaces, we may focus on a single ordered orbit at a time:
 \begin{claim}\label{claim:reduction-to-one-orbit}
     \color{magenta}
-    The following are equivalent for every finite $S \subseteq \A$ (where $\A$ is oligomorphic):
+    The following are equivalent for every finite $S \subset \A$ (where $\A$ is oligomorphic):
     \begin{alphaenumerate}
         \item For each $d \in \{1, 2, \dots\}$, there is some finite bound $l_d$ such that chains of $\Aut(\A/S)$-equivariant subspaces in $\Lin_\FF \A^d$ have length at most $l_d$;
         \item $\Lin_\FF \cal O$ has finite length with respect to $\Aut(\A/S)$ for every $S$-ordered orbit $\cal O$ (of every $\A^{d'}$).
@@ -210,7 +210,7 @@ Many cancellations can occur under $(-)|^J$;
 \]
 
 \begin{claim}\label{claim:reduction-to-kernel}
-    The following are equivalent for every finite $S \subseteq \A$:
+    The following are equivalent for every finite $S \subset \A$:
     \begin{alphaenumerate}
         \item\label{item:LinO-finite-length}
         $\Lin_\FF \cal O$ has finite length with respect to $\Aut(\A/S)$ for every $S$-ordered orbit $\cal O$;
@@ -311,7 +311,7 @@ Let us rectify this by showing that they can be found in all but one $\Aut(\A/S)
 \subsection{Finding cogs}\label{subsec:finding-cogs}
 We begin with a technical lemma, which combines the free amalgamation in $\Cclass_0$ and the generic order of $\A$.
 \begin{lemma}\label{lem:free-fresh}
-    Let $X, Y, \{z\} \subseteq \A$ be disjoint and finite.
+    Let $X, Y, \{z\} \subset \A$ be disjoint and finite.
     Then there is an automorphism $\tau \in \Aut(\A)$ such that
     \begin{bracketenumerate}
         \item\label{item:tau-fixes-X} 
@@ -352,8 +352,8 @@ We begin with a technical lemma, which combines the free amalgamation in $\Cclas
     \begin{itemize}
         \item write $S' = S \setminus \{z\}$;
         \item let $j \not\in I$ be such that $a z \in \A^{I \cup \{j\}}$~---~thus ${\cal O'}=\Aut(\A)_{(S')} \cdot az \subseteq \A^{I \cup \{j\}}$~---~is $S'$-ordered;
-        \item let $X \subseteq \A$ be any finite set containing $\{a_i, b_i \mid i \in I\} \cup S'$ but not $z$.
- %       \item let $Y \subseteq \A$ be any finite set disjoint from $X \cup \{z\}$;
+        \item let $X \subset \A$ be any finite set containing $\{a_i, b_i \mid i \in I\} \cup S'$ but not $z$.
+ %       \item let $Y \subset \A$ be any finite set disjoint from $X \cup \{z\}$;
     \end{itemize}
     Denote $z'=\tau(z)$, where $\tau \in \Aut(\A/X)$ is afforded by Lemma~\ref{lem:free-fresh} (with an arbitrary $Y$). Then $az \parallel bz'$ is an $\cal O'$-duo.
 \end{lemma}

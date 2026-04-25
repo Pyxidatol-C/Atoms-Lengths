@@ -16,7 +16,7 @@ As it turns out, the most relevant function space lies between them.
      \linfsfun{V}{W},
     \end{align*}
     to be the vector space of linear maps $f$ that satisfy the following {finite support condition}: 
-    there is some finite set of atoms $S \subseteq \A$ such that
+    there is some finite set of atoms $S \subset \A$ such that
     \begin{align*}
         \forall a \in S : \pi(a)=a
         \quad \implies \quad 
@@ -59,7 +59,7 @@ In contrast, the Rado atoms (not smoothly approximated but having the finite len
     consisting of functions (not linear maps~---~there is no linear structure on $\A$) from atoms to the field that are finitely supported in the sense of Definition~\ref{def:function-space}.
     So we will show that \eqref{eq:dual-space} is not orbit-finitely spanned instead.
     
-    For a finite set $S \subseteq \A$ of atoms, define a function $f_S : \A \to \field$ by
+    For a finite set $S \subset \A$ of atoms, define a function $f_S : \A \to \field$ by
     \begin{align*}
         a \mapsto
         \begin{cases}
@@ -128,7 +128,7 @@ However, as we show in the following example, this equivalence can fail without 
     \begin{align*}
         \myunderbrace{u \mapsto f(wu)}{left derivative}
         \quad \text{and} \quad 
-        \myunderbrace{u \mapsto f(uw)}{right derivative}.
+        \myunderbrace{u \mapsto f(uw).}{right derivative}
     \end{align*}
     Using the usual Myhill--Nerode construction, 
     one can show that a function is computed by a left-to-right orbit-finite weighted automaton 
