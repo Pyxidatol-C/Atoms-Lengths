@@ -47,45 +47,52 @@ For the Fraïssé limit to be not only homogeneous, but also oligomorphic, we ne
 This assumption is automatically satisfied if the vocabulary contains only finitely many relations of each fixed arity,
 for example if the vocabulary is finite.
 
-Here are some of the important examples that we will consider in this paper.
-They are all, as we will explain, homogeneous and, thanks to the restriction on the vocabulary, oligomorphic.
-
+Here are some of the important structures that we will consider in this paper.
+They are, as we will demonstrate, all homogeneous and~---~thanks to the arity-wise finiteness of the vocabularies~---~oligomorphic.
 \begin{example}[Equality atoms] \label{ex:equality-atoms} 
     In this structure, the underlying set is the natural numbers and there are no relations other than equality. 
     Automorphisms are arbitrary permutations. 
-    Two tuples are in the same orbit if and only if they have the same equality pattern. 
-    Since there are finitely many equality patterns for tuples of fixed length, this structure is oligomorphic. 
-    For example, in dimension $d=2$ there are two orbits: $x_1=x_2$ and $x_1 \neq x_2$.
+    Two tuples are in the same orbit necessarily have the same equality pattern,
+    and conversely this condition is sufficient~---~that is, we have homogeneity.
+    For instance, given two tuples $(a_1, a_2)$ and $(b_1, b_2)$ that both have non-repeating entries, we can extend the bijection $a_1 \mapsto b_1, a_2 \mapsto b_2$ first to a permutation of $\{a_1, a_2, b_1, b_2\}$, and then to a permutation of the whole structure by mapping other elements identically.
+    There is another orbit in dimension $d = 2$, defined by $x_1 = x_2$.
 \lipicsEnd\end{example}
 
 \begin{example}[Ordered atoms] \label{ex:order-atoms} 
     In this structure, the underlying set is the rational numbers, 
     equipped with the usual order~---~the vocabulary consists of this binary relation only.
     Automorphisms are order-preserving permutations. 
-    and two tuples are in the same orbit if and only if they have the same order pattern. 
-    Since there are finitely many order patterns for tuples of fixed length, this structure is oligomorphic. 
-\textcolor{magenta}{Homogeneity follows because we can define a piecewise linear map, but that can be misleading; consider Cantor's back-and-forth instead.}
-In dimension $d = 2$ there are three orbits: 
-$x_1 < x_2$, $x_1 = x_2$, and $x_1 > x_2$.
+    Two tuples are in the same orbit if and only if they have the same order pattern. 
+    Indeed, given two tuples $(a_1, a_2)$ and $(b_1, b_2)$ both with strictly increasing entries, we can extend $a_1 \mapsto b_1, a_2 \mapsto b_2$ to an automorphism by using Cantor's back-and-forth method, or by explicitly defining a monotone piecewise linear bijection.
+    There are two other orbits in dimension $d = 2$, defined by $x_1 = x_2$ and $x_1 > x_2$.
 \lipicsEnd\end{example}
 
 \begin{example}[Vector atoms] \label{ex:vector-space-atoms} 
     Fix some finite field $\innerfield$, and let $\A$ be the vector space of countable dimension over $\innerfield$. 
-    This vector space is seen as a structure over an infinite vocabulary, which contains a relation 
+    This vector space is seen as a structure over an infinite vocabulary containing, for every $d \in \set{1,2,\dots}$ and all coefficients $\lambda_1, \dots, \lambda_d$ in $\innerfield$, the relation 
     \begin{align*}
-    \setbuild{(a_1,\dots,a_d) \in \A^d}{ $\lambda_1 a_1 + \cdots + \lambda_d a_d = 0$ }
+        \setbuild{(a_1,\dots,a_d) \in \A^d}{ $\lambda_1 a_1 + \cdots + \lambda_d a_d = 0$ }.
     \end{align*}
-    for every $d \in \set{1,2,\dots}$ and all coefficients $\lambda_1, \dots, \lambda_d$ in $\innerfield$. The vocabulary is defined so that automorphisms are the same thing as permutations that are linear maps. Two tuples are in the same orbit if and only if they have the same linear dependencies. Over a finite field there are finitely many linear dependency patterns for tuples of fixed length, so this structure is oligomorphic.
-    In particular, in dimension $d = 2$, there are three more orbits than there are elements in the field: 
+    The vocabulary is defined so that automorphisms are the same thing as permutations that are linear maps. 
+    Two tuples of the same length are in the same orbit if and only if they have the same linear dependencies. 
+    By way of illustration, consider two tuples $(a_1, a_2)$ and $(b_1, b_2)$ each consisting of linearly independent entries.
+    Extend $a_1, a_2$ to a basis for the subspace $V$ of $\A$ spanned by $a_1, a_2, b_1, b_2$; 
+    do the same for $b_1, b_2$.
+    This gives us an automorphism of $V$ with $a_1 \mapsto b_1, a_2 \mapsto b_2$, which can be then extended to an automorphism of $\A$ by mapping other vectors identically.
+    In $\A^2$ there are $2 + |k|$ more orbits:
     $x_1 = 0 = x_2$;
     $x_1 = 0 \neq x_2$;
-    $0 \neq x_1 = \lambda x_2$, where $\lambda$ ranges over the field $\innerfield$;
-    and $x_1, x_2$ being linearly independent. 
+    and $0 \neq x_1 = \lambda x_2$, where $\lambda$ ranges over the field $\innerfield$.
 \lipicsEnd\end{example}
 
-\begin{example}[Rado atoms]\label{ex:rado-graph} The Rado graph is the Fraïssé limit of the class of finite undirected graphs. Here, an undirected graph is viewed as a structure that has one binary relation that is symmetric and irreflexive. 
-%An explicit description of the Rado graph is as follows: its vertices are natural numbers, and there is an edge between numbers $n < m$ if the binary representation of $m$ has bit $1$ on the $n$-th digit.    
-A famous characterisation of the Rado graph is that if one randomly selects a graph with a countable set of vertices by independently including each possible edge with probability $1/2$, then with probability $1$ the resulting graph is isomorphic to the Rado graph. By homogeneity, two tuples in the Rado graph  are in the same orbit if and only if they have the same equality and adjacency patterns, hence there are finitely many orbits in every dimension.
-For instance, in $d = 2$ there are three orbits:
-the two coordinates can be equal, adjacent hence distinct, or distinct but non-adjacent.
+\begin{example}[Rado atoms]\label{ex:rado-graph} 
+    The Rado graph is the Fraïssé limit of the class of finite undirected graphs. 
+    Here, an undirected graph is viewed as a structure with one binary relation that is symmetric and irreflexive. 
+    An explicit description of the Rado graph is as follows: its vertices are the natural numbers, and there is an edge between $n < m$ if the $n$-th least significant bit in the binary representation of $m$ is $1$.
+    But a famous characterisation of the Rado graph is that if one randomly selects a graph with a countable set of vertices by independently including each possible edge with probability $1/2$, then with probability $1$ the resulting graph is isomorphic to the Rado graph. 
+    
+    As a Fraïssé limit, the Rado graph is already homogeneous.
+    So two tuples are in the same orbit if and only if they have the same equality and adjacency patterns.
+    In dimension $d = 2$ there are three orbits:
+    the two coordinates can be equal, adjacent hence distinct, or distinct but non-adjacent.
 \lipicsEnd\end{example}

@@ -2,13 +2,13 @@
 \label{sec:orbit-finite-sets}
 We shall now briefly explain the concept of orbit-finiteness.
 We start with a countable (i.e.~ countably infinite) oligomorphic structure $\A$, as described in Section~\ref{sec:structures}, whose elements we call \emph{atoms}. 
-These can be used to construct sets that are finite up to the symmetries of $\A$, such as
+These can be used to construct sets that are finite up to the automorphisms of $\A$, such as
 \begin{align*}
    \myunderbrace{\A^2}{pairs}
-   \qquad 
+   \qquad
    \myunderbrace{\setbuild{ (a,b) \in \A^2}{ $a \neq b$ }}{non-repeating pairs}
-   \qquad 
-   \myunderbrace{\binom \A 2}{unordered pairs}.
+   \qquad
+   \myunderbrace{\binom{\A}{2}.}{unordered pairs}
 \end{align*}
 
 There are several equivalent definitions of orbit-finiteness. 
@@ -38,11 +38,11 @@ There are other equivalent definitions of orbit-finite sets.
 One, given in Definition~\ref{def:orbit-finite-set-alternative} below, emphasises the role of the group action. 
 In this definition, we use the following notion of support: 
 if $X$ is a set equipped with an action of the automorphism group of $\A$, 
-then a \emph{support} for an element $x \in X$ is any set $S \subseteq \A$ such that every automorphism $\pi$ of $\A$ satisfies
+then a \emph{support} for an element $x \in X$ is any set $S \subset \A$ such that every automorphism $\pi$ of $\A$ satisfies
 \begin{align*}
    \myunderbrace{\forall a \in S : \pi(a)=a}{action of $\pi$ on $\A$}
-   \quad \implies \quad 
-   \myunderbrace{\pi(x)=x}{action of $\pi$ on $X$}.
+   \quad \implies \quad
+   \myunderbrace{\pi(x)=x.}{action of $\pi$ on $X$}
 \end{align*}
 \begin{definition}
    [Orbit-finite set, abstractly] \label{def:orbit-finite-set-alternative} An \emph{orbit-finite set} over an oligomorphic structure $\A$ is a set $X$ equipped with an action of the automorphism group of $\A$ such that: 
