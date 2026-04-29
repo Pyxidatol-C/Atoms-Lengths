@@ -16,7 +16,8 @@ As it turns out, the most relevant function space lies between them.
      \linfsfun{V}{W},
     \end{align*}
     to be the vector space of linear maps $f$ that satisfy the following {finite support condition}: 
-    there is some finite set of atoms $S \subset \A$ such that
+    there is some finite set of atoms $S \subset \A$ such that,
+    for every automorphism $\pi$ of $\A$,
     \begin{align*}
         \forall a \in S : \pi(a)=a
         \quad \implies \quad 
@@ -56,7 +57,7 @@ In contrast, the Rado atoms (not smoothly approximated but having the finite len
     \begin{align}\label{eq:dual-space}
         \fsfun{\A}{\field}
     \end{align}
-    consisting of functions (not linear maps~---~there is no linear structure on $\A$) from atoms to the field that are finitely supported in the sense of Definition~\ref{def:function-space}.
+    consisting of functions (not linear maps) from atoms to the field that are finitely supported in the sense of Definition~\ref{def:function-space}.
     So we will show that \eqref{eq:dual-space} is not orbit-finitely spanned instead.
     
     For a finite set $S \subset \A$ of atoms, define a function $f_S : \A \to \field$ by
@@ -139,7 +140,7 @@ However, as we show in the following example, this equivalence can fail without 
     The set of left derivatives is already orbit-finite: 
     there is one left derivative for each $a \in \A$, plus one extra derivative for the always-zero function. 
     Hence the span of left derivatives is certainly orbit-finitely spanned.
-    On the other hand, the set of right derviatives is precisely the spanning set of the vector space $V$ from Example~\ref{ex:no-function-spaces}, 
-    which is not orbit-finitely spanned.
+    On the other hand, the set of right derviatives is precisely the spanning set of the vector space $V$ from Example~\ref{ex:no-function-spaces}; 
+    recall that $V$ is not orbit-finitely spanned.
 \lipicsEnd\end{example}
 
