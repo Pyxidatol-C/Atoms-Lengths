@@ -69,7 +69,7 @@ They are, as we will demonstrate, all homogeneous and~---~thanks to the arity-wi
 
 \begin{example}[Vector atoms] \label{ex:vector-space-atoms} 
     Fix some finite field $\innerfield$, and let $\A$ be the vector space of countable dimension over $\innerfield$. 
-    This vector space is seen as a structure over an infinite vocabulary containing, for every $d \in \set{1,2,\dots}$ and all coefficients $\lambda_1, \dots, \lambda_d$ in $\innerfield$, the relation 
+    This vector space is seen as a structure over an infinite vocabulary containing, for every $d \in \set{1,2,\dots}$ and coefficients $\lambda_1, \dots, \lambda_d$ in $\innerfield$, the relation 
     \begin{align*}
         \setbuild{(a_1,\dots,a_d) \in \A^d}{ $\lambda_1 a_1 + \cdots + \lambda_d a_d = 0$ }.
     \end{align*}
@@ -79,7 +79,7 @@ They are, as we will demonstrate, all homogeneous and~---~thanks to the arity-wi
     Extend $a_1, a_2$ to a basis for the subspace $V$ of $\A$ spanned by $a_1, a_2, b_1, b_2$; 
     do the same for $b_1, b_2$.
     This gives us an automorphism of $V$ with $a_1 \mapsto b_1, a_2 \mapsto b_2$, which can be then extended to an automorphism of $\A$ by mapping other vectors identically.
-    In $\A^2$ there are $2 + |k|$ more orbits:
+    In $\A^2$ there are $2 + |\innerfield|$ more orbits:
     $x_1 = 0 = x_2$;
     $x_1 = 0 \neq x_2$;
     and $0 \neq x_1 = \lambda x_2$, where $\lambda$ ranges over the field $\innerfield$.
@@ -91,7 +91,7 @@ They are, as we will demonstrate, all homogeneous and~---~thanks to the arity-wi
     An explicit description of the Rado graph is as follows: its vertices are the natural numbers, and there is an edge between $n < m$ if the $n$-th least significant bit in the binary representation of $m$ is $1$.
     But a famous characterisation of the Rado graph is that if one randomly selects a graph with a countable set of vertices by independently including each possible edge with probability $1/2$, then with probability $1$ the resulting graph is isomorphic to the Rado graph. 
     
-    As a Fraïssé limit, the Rado graph is already homogeneous.
+    As a Fraïssé limit, the Rado graph is homogeneous by construction.
     So two tuples are in the same orbit if and only if they have the same equality and adjacency patterns.
     In dimension $d = 2$ there are three orbits:
     the two coordinates can be equal, adjacent hence distinct, or distinct but non-adjacent.

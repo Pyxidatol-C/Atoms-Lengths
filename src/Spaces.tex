@@ -4,7 +4,7 @@ We begin with the special case of spaces that have an orbit-finite basis;
 this special case has an elementary definition, and yet it will be the relevant case for almost all results of this paper. 
 
 \begin{definition}[Orbit-finite-dimensional vector space]\label{def:orbit-finite-basis}
-    $\Lin_\field X$ is~---~given an orbit-finite set $X$ and a field $\field$~---~the vector space of finite formal linear combinations of elements in $X$ over $\field$.
+    $\Lin_\field X$ is, given an orbit-finite set $X$ and a field $\field$,Žthe vector space of finite formal linear combinations of elements in $X$ over $\field$.
 \end{definition}
 
 This definition has two important parameters: the field $\field$ and the oligomorphic structure $\A$ over which $X$ is an orbit-finite set.
@@ -23,9 +23,9 @@ Such subsets are called \emph{equivariant subspaces}.
 
  Unfortunately, there is a price to pay for the elementary character of Definition~\ref{def:orbit-finite-basis}, 
  and that is the failure of certain closure properties. 
- In particular, these spaces are not closed~---~even up to equivariant linear bijections~---~under taking equivariant subspaces, or quotients under such spaces. 
+ In particular, these spaces are not closed~---~even up to equivariant linear bijections~---~under taking equivariant subspaces, or quotients by such spaces. 
  The problem with subspaces is apparent already in Example~\ref{ex:length-one-dim-one}, since the unique nontrivial subspace of $\Lin_\field \A$ does not have any equivariant basis, regardless of the underlying field~\cite[Ex.~6.1]{BFKM24}; 
- this subspace with no orbit-finite basis can also be realised as a quotient of $\Lin_\field \A^2$.
+ this subspace can also be realised as a quotient of $\Lin_\field \A^2$.
  % (Also an orbit-finite-dimensional vector space can have two orbit-finite bases without an equivariant bijection between them~\cite[Sec.~3.4]{Ghosh25}.)
  For this reason, below we present a more general notion of a vector space, in a style that emphasises the group action as was done in Definition~\ref{def:orbit-finite-set-alternative}.
 
@@ -42,12 +42,13 @@ Such subsets are called \emph{equivariant subspaces}.
         See~\cite[Lemma~4.1.5]{hodges1993model}.}
 
         \item \label{item:orbit-finite-spanning-subset} 
-        the space is spanned by some subset that is orbit-finite.%
+        the space is spanned by some equivariant subset that is orbit-finite.%
         \footnote{Equivalently, the vector space is finitely generated as a module over the group ring of automorphisms.}
     \end{bracketenumerate}
 \end{definition}
 
-The spaces defined above are easily seen to be closed under taking quotients by equivariant subspaces. 
+The spaces defined above certainly include those of the form $\Lin_\field \A^d$, as $\A^d$ is orbit-finite. 
+They are easily seen to be closed under taking quotients by equivariant subspaces. 
 Closure under taking equivariant subspaces is less obvious: 
 one could imagine that condition~\eqref{item:orbit-finite-spanning-subset} above is violated by moving to an equivariant subspace. 
 This closure property turns out to be intimately related to the ascending chain property discussed in the introduction:
@@ -58,24 +59,24 @@ This closure property turns out to be intimately related to the ascending chain 
         \item\label{item:sub-ofs-is-ofs}
         orbit-finitely spanned vector spaces are closed under taking equivariant subspaces; 
         
+        \item\label{item:ofs-implies-Noetherian}
+        for every orbit-finitely spanned vector space $V$, there are no infinite ascending chains of equivariant subspaces in $V$;
+
         \item\label{item:LinAd-is-Noetherian}
         for every $d \in \set{1,2,\dots}$, the vector space 
         $
             \Lin_\field \A^d
-        $ does not have any infinite ascending chain of equivariant subspaces;
-        
-        \item\label{item:ofs-implies-Noetherian}
-        for every orbit-finitely spanned vector space $V$, there are no infinite ascending chains of equivariant subspaces in $V$.
+        $ does not have any infinite ascending chain of equivariant subspaces.
     \end{alphaenumerate}
     Furthermore, if these conditions hold, then the orbit-finitely spanned vector spaces are~---~up to equivariant linear bijections~---~precisely the vector spaces of the form $U/W$, 
     where $W \subseteq U$ are equivariant subspaces of $\Lin_\field \A^d$ and $d \in \set{1,2,\dots}$.
 \end{theorem}
 
 
-We say that an atom structure $\A$ has the \emph{ascending chain property} over a field $\field$ if any of the equivalent conditions in Theorem~\ref{thm:ACP} is satisfied. 
+We say that an atom structure $\A$ has the \emph{ascending chain property over a field $\field$} if any of the equivalent conditions in Theorem~\ref{thm:ACP} is satisfied. 
 One interpretation of the theorem is that the ascending chain property is necessary for the theory of vector spaces to be well-behaved. 
 In particular, thanks to the ``furthermore'' part, we get a similar result to the equivalence of Definitions~\ref{def:orbit-finite-set} and~\ref{def:orbit-finite-set-alternative} in the previous section, 
-i.e.~a concrete characterisation of the orbit-finitely spanned vector spaces that can be used in algorithms (provided we know how to represent equivariant subspaces~---~see Section~\ref{sec:equivariant-subspaces}). 
+i.e.~a concrete representation of the orbit-finitely spanned vector spaces that can be used in algorithms (provided we know how to represent equivariant subspaces~---~see Section~\ref{sec:equivariant-subspaces}). 
 
 
 We are therefore interested in atom structures that have the ascending chain property. 
@@ -93,10 +94,10 @@ As it turns out, the techniques used in this paper will yield a stronger propert
 \end{definition}
 
 In light of Theorem~\ref{thm:ACP} and the proof of (\ref{item:LinAd-is-Noetherian}) $\Rightarrow$ (\ref{item:ofs-implies-Noetherian}) in Appendix~\ref{sec:appendix-modules}, we could have used $\A^d$ instead of $X$ in the above definition.
-Like mentioned in the introduction, the finite length property can be \textcolor{magenta}{strictly stronger} than the ascending chain property, as witnessed by the vector atoms from Example~\ref{ex:vector-space-atoms}. 
-(Note that when we talk about the vector atoms, there are two fields involved, namely the finite field used to define $\A$ and the field $\field$ used to define $\Lin_\field \A$. 
+Like mentioned in the introduction, the finite length property can be strictly stronger than the ascending chain property, as witnessed by $\Lin_\field \A$ over the vector atoms from Example~\ref{ex:vector-space-atoms}. 
+(Note that there are two fields involved, namely the finite field used to define the vector atoms $\A$ and the field $\field$ used to define $\Lin_\field \A$. 
 In the counterexample, both fields are the two-element field.)
-The finite length property was studied in~\cite{BFKM24}, where it was shown that the equality atoms (Example~\ref{ex:equality-atoms}) and the ordered atoms (Example~\ref{ex:order-atoms}) have this property over any field. 
+The finite length property was recently studied in~\cite{BFKM24}, where it was shown that the equality atoms (Example~\ref{ex:equality-atoms}) and the ordered atoms (Example~\ref{ex:order-atoms}) have this property over any field. 
 
 The main contribution of this paper is to establish the finite length property of more structures. 
 We will use two different techniques for this purpose.

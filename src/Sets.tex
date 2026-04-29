@@ -13,10 +13,12 @@ These can be used to construct sets that are finite up to the automorphisms of $
 
 There are several equivalent definitions of orbit-finiteness. 
 Of these, we use one that is based on first-order interpretations~\cite[Sec.~4.3]{hodges1993model}. 
-To construct an orbit-finite set, we proceed in three steps: 
-take a finite power of the atoms (as in the first example above); 
-restrict this power to an equivariant subset (as in the second example above); 
-and then take a quotient under an equivariant equivalence relation (as in the third example above, where the equivalence relation identifies two pairs if they differ only in the order of their elements). 
+To construct an orbit-finite set, we proceed in three steps. 
+In the examples above, this process is as follows :
+start with all pairs of atoms, as in the first example; 
+restrict to the equivariant subset of non-repeating pairs, as in the second example; 
+and then take the quotient, as in the third example, by the equivariant equivalence relation that identifies two pairs if they differ only in the order of their elements.
+(We can stop early if we restrict to the whole set and/or quotient by equality.)
 The formal definition is given below.
 
  \begin{definition}[Orbit-finite set]\label{def:orbit-finite-set}
@@ -34,11 +36,11 @@ Under this action, the set has finitely many orbits:
 $\A^d$ has finitely many orbits by the assumption on oligomorphism, 
 and the number of orbits can only go down when restricting to an equivariant subset and quotienting under an equivariant equivalence relation. 
   
-There are other equivalent definitions of orbit-finite sets. 
-One, given in Definition~\ref{def:orbit-finite-set-alternative} below, emphasises the role of the group action. 
+There is another equivalent definition of orbit-finite sets, 
+given in Definition~\ref{def:orbit-finite-set-alternative} below, that emphasises the role of the group action. 
 In this definition, we use the following notion of support: 
 if $X$ is a set equipped with an action of the automorphism group of $\A$, 
-then a \emph{support} for an element $x \in X$ is any set $S \subset \A$ such that every automorphism $\pi$ of $\A$ satisfies
+then a \emph{support} for an element $x \in X$ is any set $S \subseteq \A$ such that every automorphism $\pi$ of $\A$ satisfies
 \begin{align*}
    \myunderbrace{\forall a \in S : \pi(a)=a}{action of $\pi$ on $\A$}
    \qquad \implies \quad
@@ -52,8 +54,8 @@ then a \emph{support} for an element $x \in X$ is any set $S \subset \A$ such th
    \end{bracketenumerate}
 \end{definition}
 
-Thanks to oligomorphism of the underlying atom structure, the two definitions above are equivalent 
-in the sense that they describe the same sets, up to equivariant bijections~---~see~\cite[Thm.~5.12]{bojanczyk_slightly} bearing in mind~\cite[Prop.~2.19]{BodirskyBodorMarimon_25}. 
+Thanks to the underlying atom structure being oligomorphic and infinite, the two definitions above are equivalent 
+in the sense that they describe the same sets, up to equivariant bijections: see~\cite[Thm.~5.12]{bojanczyk_slightly}, bearing~\cite[Prop.~2.19]{BodirskyBodorMarimon_25} in mind. 
 Both definitions have their uses. 
 Definition~\ref{def:orbit-finite-set} is more concrete, and it comes with a finite representation, which can be used for algorithms that process orbit-finite sets. 
-On the other hand, some constructions (e.g.~disjoint unions, Cartesian products) will result in sets that are more naturally consistent with the second, more relaxed, definition. 
+On the other hand, some constructions (e.g.~disjoint unions, Cartesian products) will result in sets that are more naturally consistent with the second, more relaxed definition. 
