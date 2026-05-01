@@ -533,9 +533,10 @@ Inspired by the example, we shall now assert:
 
 \begin{remark}\label{rem:FF-EE}
 We must tread carefully here, as $\EE$ is not a field.
-(E.g.~$\EE$ is $\{ (\kappa, -\kappa) \mid \kappa \in \FF \}$ in $\FF^2$. 
+For example $\EE$ can be $\{ (\kappa, -\kappa) \mid \kappa \in \FF \}$ in $\FF^2$. 
 Then $\Lin_\EE \cal O$ is an equivariant subspace of $\Lin_{\FF^2} \cal O$; 
-the latter is more traditionally viewed as $\Lin_\FF \cal O \oplus \Lin_\FF \cal O$.)
+the latter is more traditionally viewed as $\Lin_\FF \cal O \oplus \Lin_\FF \cal O$.
+
 Given $\lambda \in \EE$ and $a \in \cal O$, we need to understand
 \(
     \lambda \cdot a
@@ -549,10 +550,10 @@ Leaving the proof to Appendix~\ref{sec:appendix-cogs},
 we have~---~as discussed at the end of Section~\ref{subsec:finding-cogs}~---~established Theorem~\ref{thm:ordered-free-amalg-has-finite-length}, by taking $\EE = \FF$.
 But by allowing $\EE$ to be finite-dimensional vector spaces, we can now describe all equivariant subspaces: 
 we need only look at local sums of coefficients.
-(Stated in a another way, there are no interesting subspaces here~---~
+(Stated in a another way, there are no interesting subspaces here ---
 unlike the infinite chain exhibited in~\cite[Thm.~4.14]{BFKM24} for the bit-vector atoms from Example~\ref{ex:vector-space-atoms}.) 
 
-\begin{theorem}[Compare with~{\cite[Cor.~3.17]{Gray97},~\cite[Thm.~15]{HofmanLerouxTotzke_17},~\cite[Thm.~3.4]{HofmanRozycki_2022},~\cite[Sec.~6]{GhoshHofmanLasota_22}}]\label{thm:coeff-approximation}
+\begin{theorem}[Compare with~{\cite[Cor.~3.17]{Gray97},~\cite[Thm.~15]{HofmanLerouxTotzke_17}, \cite[Thm.~3.4]{HofmanRozycki_2022}, \cite[Sec.~6]{GhoshHofmanLasota_22}, \cite[Thm.~1.4]{Evans_pm1}}]\label{thm:coeff-approximation}
     Let $\A$ be as in Theorem~\ref{thm:ordered-free-amalg-has-finite-length} and fix $d \in \{1, 2, \dots\}$. 
     Then there exists a finite family of equivariant linear maps of the form
     \[
@@ -560,22 +561,21 @@ unlike the infinite chain exhibited in~\cite[Thm.~4.14]{BFKM24} for the bit-vect
     \]
     where $\cal O_i$ is an equivariant ordered orbit of $\A^{d_i}$ with $d_i \leq d$, 
     such that every equivariant subspace $W \subseteq \Lin_\FF \A^d$ is equal to
-    \begin{equation}\label{eq:equiv-subsp}
+    \[
         \{v \in \Lin_\FF \A^d \mid \forall i, \forall a \in \cal O_i : v{\restriction_i}(a) \in \EE_i \}
-    \end{equation}
+    \]
     with the finite-dimensional subspaces $\EE_i \subseteq \FF^{n_i}$ given by
     \[
         \EE_i = \{w {\restriction_i}(b) \mid w \in W, b \in \cal O_i \}.
     \]
 \end{theorem}
-\textcolor{magenta}{We do not know how to test for equality.}
 
 \begin{example}
     Let $\A$ be the ordered atoms. 
     For $d = 1$ there are two maps, $\restriction_{1} : \Lin_\FF \A \to \Lin_\FF \A$ and $\restriction_{2} : \Lin_\FF \A \to \FF$, given by  
     \[
         v {\restriction_1} (a) = v(a), \qquad
-        v {\restriction_2} () = \sum_{-} v(-).
+        v {\restriction_2} () = \sum_{x} v(x).
     \]
     For an equivariant vector space $V \subseteq \Lin_\FF \A$, the subspace $V {\restriction_1}(\A) \subseteq \FF$ is either $\{0\}$ or the entire $\FF$.
     \begin{itemize}
@@ -590,20 +590,19 @@ unlike the infinite chain exhibited in~\cite[Thm.~4.14]{BFKM24} for the bit-vect
 
     For $d = 2$, there are three maps, one of which is the form $\restriction_2 : \Lin_\FF \A^2 \to \Lin_{\FF^5} \A$. 
     By considering subspaces of $\FF^5$, when the field is infinite we can exhibit infinitely many equivariant subspaces of $\Lin_\FF \A^2$.
-    Note that $\Lin_\FF \A^2$ has finite length nonetheless (equal to $2^1 + 2^2 + 2^2$, by below).
+    Note that the length of $\Lin_\FF \A^2$ is still finite (and equal to $2^1 + 2^2 + 2^2$, by below).
 \lipicsEnd\end{example}
 
-\textcolor{magenta}{there are redundancies, so the thm only gives an upper bound. Luckily we find a chain of matching length.}
-
+Going through the finite-dimensional subspaces of the $\FF^{n_i}$'s gives a complete list of the equivariant subspaces of $\Lin_\FF \A^d$, by Theorem~\ref{thm:coeff-approximation}, but notice that it is far from being irredundant.
+In particular, to bound the length of $\Lin_\FF \A^d$ by below, we still need to exhibit a long chain of equivariant subspaces.
+It is fortunately straightforward to adapt \cite[Cor.~4.12]{BFKM24} and establish an exact length:
 \begin{corollary}\label{cor:2d-length}
     The length of $Lin_\FF \cal O$, where $\cal O \subseteq \A^d$ is an ordered orbit, is precisely $2^d$.
 \end{corollary}
 
-Variants of Theorem~\ref{thm:coeff-approximation} have been shown over the equality and the ordered atoms.
-As described in~\cite[Sec.~9]{GhoshLasota_24}, such results allow us to decide the solvability of orbit-finite systems of linear equations. 
+As described in~\cite[Sec.~9]{GhoshLasota_24}, results like Theorem~\ref{thm:coeff-approximation} allow us to decide the solvability of orbit-finite systems of linear equations. 
 We briefly repeat the explanation.
 Checking whether the system $\mathbf{A} \mathbf{x} = \mathbf{b}$ admits a solution amounts to checking whether $\mathbf{b}$ is spanned by the columns of $\mathbf{A}$.
-\color{magenta}In the orbit-finite setting, we assume that the rows and columns are indexed by $\A^d$, that every column has finitely many non-zero entries, and that $j \mapsto \mathbf{A}_{-, j}$ is equivariant.
-That is, we ask whether $\mathbf{b} \in \Lin_\FF \A^d$ is in the span of $\mathbf{A}_{-, j}$. 
+In the orbit-finite setting, we assume that the rows and columns are indexed by $\A^d$, that each column has finitely many non-zero entries, and that the definition $j \mapsto \mathbf{A}_{-, j}$ of columns is equivariant.
+That is, we ask whether $\mathbf{b} \in \Lin_\FF \A^d$ lies in the span of the $\mathbf{A}_{-, j}$'s. 
 By Theorem~\ref{thm:coeff-approximation}, it suffices to check whether $\mathbf{b} {\restriction_i} (\cal O_i) \subseteq \mathbf{A}_{-, j_1} {\restriction_i} (\cal O_i) + \cdots + \mathbf{A}_{-, j_r} {\restriction_i} (\cal O_i)$ for all $i$, in the finite-dimensional spaces $\FF^{n_i}$, having chosen orbit representatives $j_1, \dots, j_r \in \A^d$.
-\color{black}
