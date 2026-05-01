@@ -8,6 +8,7 @@ The simplest example of an oligomorphic atom structure is what we refer to as th
 this is the structure with a countably infinite underlying set and no relations except for equality. 
 This structure, like all oligomorphic structures over suitable vocabularies of relations, arises by applying a model-theoretic construction (the Fraïssé limit) to a well-behaved class of finite structures. 
 Figure~\ref{fig:fraisse-limits} shows other examples of such structures. 
+
 \begin{figure}
     \begin{tabular}{lll}
    &  Class of finite structures & Fraïssé limit\\
@@ -29,7 +30,7 @@ For a survey of the orbit-finite programme, we refer to the lecture notes~\cite{
 
 Some results do not depend on the choice of the atom structure, while others do. 
 Here is an example of the latter case that arises for orbit-finite Turing machines~\cite{bojanczykTuringMachinesAtoms2013}. 
-If we choose the atoms to be the Fraïssé limit of total orders, as in row~2 of Figure~\ref{fig:fraisse-limits}, then the orbit-finite version of \textsc{p}$\neq$\textsc{np} has the same answer as the classical version without atoms. 
+If we choose the atoms to be the Fraïssé limit of total orders, as in row~2 of Figure~\ref{fig:fraisse-limits}, then the orbit-finite version of \textsc{p}$=$\textsc{np} has the same answer as the classical version without atoms. 
 On the other hand, if we choose any of the other three rows of the table, then one can~---~by leveraging problems with choice~---~prove unconditionally that \textsc{p}$\neq$\textsc{np} holds in the orbit-finite setting. 
 (This is a vastly different setting: 
 e.g.~Fraenkel and Mostowski showed that the axiom of choice can fail, working over the atoms from the first two rows, in the 20th century some twenty years before Cohen's independence proof in the setting without atoms \cite[Ch.~4]{Jech}.)
@@ -65,18 +66,14 @@ This stronger property has been confirmed for:
     \item \emph{The ordered atoms.} 
     Here, the finite length property was proved in~\cite[Thm.~4.8]{BFKM24}. 
     There exist alternative methods to show the weaker ascending chain property of this structure.
-    One is to exhibit an Ahlbrandt--Ziegler enumeration \cite[Thm.~2.1]{RationalsHaveAZ} and derive the ``nice orderings''~\cite[p.~7]{Evans_pm2}.
+    One is to exhibit an AZ enumeration \cite[Thm.~2.1]{RationalsHaveAZ} and derive the ``nice orderings''~\cite[p.~7]{Evans_pm2}.
     Another is based on Hilbert's Basis Theorem~\cite[Thm.~27]{GhoshLasota_24}, which is independently established in~\cite[Ex.~3.2(c)]{LaudoneSnowden_23}, with well-quasi-orders at the heart.
 \end{itemize}
 
 The finite length property is strictly stronger than the ascending chain property.
-A prime example is the bit-vector atoms (which admit an Ahlbrandt--Ziegler enumeration \cite[p.~143]{Hrushovski}):
-already $\Lin \A$ does not have finite length over the the two-element field, as found independently in~\cite[Thm.~2.7]{EvansGray_98} and~\cite[Thm.~4.16]{BFKM24}.
-In fact, Evans~\cite[Rem.~1.3]{Evans_pm1} observed that any structure which:
-\begin{bracketenumerate}
-    \item is a Fraïssé limit over a finite relational vocabulary; and
-    \item fails to have the finite length property over some finite field
-\end{bracketenumerate}
+A prime example is the bit-vector atoms (which admit an AZ enumeration \cite[p.~143]{Hrushovski}):
+even $\Lin \A$ does not have finite length over the the two-element field, as found independently in~\cite[Thm.~2.7]{EvansGray_98} and~\cite[Thm.~4.16]{BFKM24}.
+In fact, Evans~\cite[Rem.~1.3]{Evans_pm1} observed that for any Fraïssé limit over a finite relational vocabulary, failing to have the finite length property over some finite field
 would yield a counterexample to the conjecture of Thomas~\cite[p.~177]{thomas1991reducts} in model theory.
 The known examples of failure of the finite length property are not good enough, since they use an infinite vocabulary (or functions).
 

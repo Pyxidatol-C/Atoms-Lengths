@@ -94,7 +94,7 @@ So no family $\Bclass$ satisfies both conditions (\ref{item:oligomorphic-approxi
             \setbuild{ i \in \set{1,\ldots,n}}{ $f_i \in v$ and $e_i \in w$ }
         \end{align*}
         have different sizes modulo two. 
-        These graphs satisfy condition~\eqref{item:oligomorphic-approximation-embedding} from Definition~\ref{def:oligomorphic-approximation}, i.e.~every finite graph embeds in some symplectic graph~\cite[Thm.~8.11.2]{GR01}. 
+        These graphs (embedded in all possible ways in the Rado graph) satisfy condition~\eqref{item:oligomorphic-approximation-embedding} from Definition~\ref{def:oligomorphic-approximation}, i.e.~every finite graph embeds in some symplectic graph~\cite[Thm.~8.11.2]{GR01}. 
         In Appendix~\ref{sec:appendix-symplectic}, we prove condition~\eqref{item:oligomorphic-approximation-orbits}, i.e.~that the number of orbits of $d$-tuples in symplectic graphs is uniformly bounded by a function of $d$ only. \qedhere
     \end{romanenumerate}
 \end{proof}
@@ -190,7 +190,7 @@ For convenience, we summarise these steps in Figure~\ref{fig:proof-summary-cogle
     What we have gained by moving from $\A$ to $\B \in \Bclass$ is that our vector spaces now have finite (albeit unbounded) linear dimension, 
     and are acted upon by finite (albeit unbounded) groups. 
     This will let us leverage a basic decomposition result from representation theory called Maschke's Theorem (see e.g.~\cite[Thm.~6.3]{RepTheoryTextbook}).
-    In order to be more precise, recall that $\oplus$ stands for the direct sum of vector spaces, i.e.~$V \oplus W$ is the set of pairs $(v,w)$ with $v \in V$ and $w \in W$, where the operations are defined coordinate-wise.
+    In order to be more precise, recall that we write $V = V_1 \oplus V_2$ if each $v \in V$ is equal to $v_1 + v_2$ for some unique $(v_1, v_2) \in V_1 \times V_2$.
 
     \begin{fact}[Maschke's Theorem]
         Let $V$ be a finite-dimensional vector space over a field of characteristic zero, equipped with a linear action of a finite group $G$. 
@@ -211,14 +211,11 @@ For convenience, we summarise these steps in Figure~\ref{fig:proof-summary-cogle
         \left\{
             \psi : V \to W
             \ \middle\vert\
-            \text{$\psi$ is linear and for all $g \in G$, }
-            \begin{aligned}
-                &\{\;(v, \psi(v)) \mid v \in V\} = \\
-                &\{\;(g\cdot v, g\cdot \psi(v)) \mid v \in V\}
-            \end{aligned}
+            \text{$\psi$ is linear and }
+            \forall g \in G, \forall v \in V : g(\psi(v)) = \psi(g(v))
         \right\}
     \]
-    for the set of all those linear maps from $V$ to $W$ that are equivariant with respect to the action of $G$. 
+    for the set of all those linear maps from $V$ to $W$ that are equivariant (i.e.~whose graph is equivariant) with respect to the action of $G$. 
     Elements of this set are closed under taking linear combinations, and therefore the set can be seen as a vector space. 
     In particular, it is meaningful to talk about the dimension of this vector space. 
     \begin{lemma}\label{lem:dim-bounds-length}
@@ -293,6 +290,6 @@ In the case of the vector atoms from Example~\ref{ex:vector-space-atoms}, the bo
 Such a pattern is described by: 
 (a)~indicating a subset of the coordinates which is a basis for the tuple; 
 and (b)~indicating the basis decompositions for the remaining coordinates. 
-This can be done in at most $2^{d^2}$ ways.
+This can be done in at most $2^{(2d)^2}$ ways.
 In Appendix~\ref{sec:appendix-symplectic} we give a similar upper bound in the case of the Rado atoms, 
 also super-exponential in $d$.
