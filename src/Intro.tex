@@ -24,16 +24,15 @@ Figure~\ref{fig:fraisse-limits} shows other examples of such structures.
 \end{figure}
 
 When the underlying atom structure is oligomorphic, the orbit-finite sets have a robust theory, which resembles in some ways the theory of finite sets. 
-This theory was originally developed to describe regular languages over infinite alphabets, by considering orbit-finite versions of various automata models~\cite{bojanczykNominalMonoids2013,bojanczykAutomataTheoryNominal2014}, but it has since expanded to cover other models from orbit-finite Turing machines~\cite{bojanczykTuringMachinesAtoms2013} to orbit-finite constraint satisfaction problems~\cite{klin2015locally}.
-Also, there are programming languages with data structures that can store orbit-finite sets~\cite{bojanczyk2012towards,bojanczyk2012imperative} with working implementations~\cite{kopczynski2016lois, szynwelski-phd}. 
+This theory was originally developed to describe regular languages over infinite alphabets, by considering orbit-finite versions of various automata models~\cite{bojanczykNominalMonoids2013,bojanczykAutomataTheoryNominal2014}, but it has since expanded to cover other models, such as orbit-finite Turing machines~\cite{bojanczykTuringMachinesAtoms2013} or orbit-finite constraint satisfaction problems~\cite{klin2015locally}.
+There are also programming languages with data structures that can store orbit-finite sets~\cite{bojanczyk2012towards,bojanczyk2012imperative}, with working implementations~\cite{kopczynski2016lois, szynwelski-phd}. 
 For a survey of the orbit-finite programme, we refer to the lecture notes~\cite{bojanczyk_slightly}. 
 
-Some results do not depend on the choice of the atom structure, while others do. 
-Here is an example of the latter case that arises for orbit-finite Turing machines~\cite{bojanczykTuringMachinesAtoms2013}. 
-If we choose the atoms to be the Fraïssé limit of total orders, as in row~2 of Figure~\ref{fig:fraisse-limits}, then the orbit-finite version of \textsc{p}$=$\textsc{np} has the same answer as the classical version without atoms. 
-On the other hand, if we choose any of the other three rows of the table, then one can~---~by leveraging problems with choice~---~prove unconditionally that \textsc{p}$\neq$\textsc{np} holds in the orbit-finite setting. 
-(This is a vastly different setting: 
-e.g.~Fraenkel and Mostowski showed that the axiom of choice can fail, working over the atoms from the first two rows, in the 20th century some twenty years before Cohen's independence proof in the setting without atoms \cite[Ch.~4]{Jech}.)
+Some results about orbit-finite models do not depend on the choice of the atom structure, while others do. 
+An example of the latter case arises for orbit-finite Turing machines~\cite{bojanczykTuringMachinesAtoms2013}. 
+If the atoms are the Fraïssé limit of total orders, as in row~2 of Figure~\ref{fig:fraisse-limits}, then the orbit-finite version of the \textsc{p}$\stackrel{?}{=}$\textsc{np} question has the same answer as the classical version without atoms. 
+On the other hand, for any of the other three rows of the table \textsc{p}$\neq$\textsc{np} holds unconditionally in the orbit-finite setting, due to problems with choice. 
+(Failure of the axiom of choice in set theory with atoms was the original motivation of Fraenkel and Mostowski in the 1930s to study the first two rows of Figure 1, see e.g.~\cite[Ch.~4]{Jech}.)
 The dependency on the underlying atom structure will play a prominent role in this paper. 
 
 
@@ -46,18 +45,18 @@ The original application of these spaces was in automata theory, but they have a
 
 To be useful, the theory of orbit-finitely spanned vector spaces should have certain properties. 
 For example, one would like to be able to represent these spaces in a finite way, or tackle algorithmic problems such as solving systems of linear equations. 
-One rather modest requirement is that the spaces be closed under taking \emph{equivariant} subspaces 
-(that is, the subspace must be closed under atom automorphisms in addition to linear combinations): 
+One rather modest requirement is that such spaces be closed under taking \emph{equivariant} subspaces 
+(i.e.~subspaces closed under atom automorphisms as well as linear combinations): 
 an equivariant subspace of an orbit-finitely spanned vector space should itself be orbit-finitely spanned. 
-We do not know if this closure property holds in general, and we think that it is an important open problem. 
-This problem can be equivalently phrased in terms of ascending chains: 
+We do not know if this closure property holds in general, and we see it as an important open problem. 
+It can be equivalently phrased in terms of ascending chains: 
 is it true that every orbit-finitely spanned vector space is \emph{Noetherian}, meaning that one cannot find an infinite ascending chain of its equivariant subspaces? 
 To the best of our knowledge, this question was first recognised by Camina and Evans~\cite[Q.~2]{CaminaEvans_91} who identified a sufficient condition for this, namely the existence of a ``nice ordering''. 
-Using this condition they showed that certain vector spaces are Noetherian: notably, $\Lin \A$ over the ordered atoms (row~2 of Figure~\ref{fig:fraisse-limits}), $\Lin {\binom \A d}$ over the equality atoms (row~1 of Figure~\ref{fig:fraisse-limits}), and a similar family of spaces over the bit-vector atoms (row~4 of Figure~\ref{fig:fraisse-limits}). 
+Using this condition they showed that certain vector spaces are Noetherian: notably, $\Lin \A$ over the ordered atoms (row~2 of Figure~\ref{fig:fraisse-limits}), $\Lin {\binom \A d}$ over the equality atoms (row~1), and a similar family of spaces over the bit-vector atoms (row~4). 
 
-The above question is independently considered in~\cite[p.~21]{BFKM24} where it is conjectured that every oligomorphic structure has the \emph{ascending chain property}, meaning that all orbit-finitely spanned vector spaces over the structure are Noetherian.
+The above question was independently considered in~\cite[p.~21]{BFKM24} where it was conjectured that every oligomorphic structure has the \emph{ascending chain property}, meaning that all orbit-finitely spanned vector spaces over the structure are Noetherian.
 In such a vector space, if descending chains as well as ascending chains of equivariant subspaces are all finite, by the Jordan--Hölder Theorem, there is some finite upper bound on the length of chains of its equivariant subspaces.
-In that case, we say the structure has the \emph{finite length property}.
+In that case, we say that the structure has the \emph{finite length property}.
 This stronger property has been confirmed for:
 \begin{itemize}
     \item \emph{The equality atoms.} 
@@ -66,16 +65,16 @@ This stronger property has been confirmed for:
     \item \emph{The ordered atoms.} 
     Here, the finite length property was proved in~\cite[Thm.~4.8]{BFKM24}. 
     There exist alternative methods to show the weaker ascending chain property of this structure.
-    One is to exhibit an AZ enumeration \cite[Thm.~2.1]{RationalsHaveAZ} and derive the ``nice orderings''~\cite[p.~7]{Evans_pm2}.
-    Another is based on Hilbert's Basis Theorem~\cite[Thm.~27]{GhoshLasota_24}, which is independently established in~\cite[Ex.~3.2(c)]{LaudoneSnowden_23}, with well-quasi-orders at the heart.
+    One is to exhibit an AZ enumeration \cite[Thm.~2.1]{RationalsHaveAZ} and derive the ``nice orderings'' from that~\cite{Evans_pm2}.
+    Another is based on Hilbert's Basis Theorem~\cite[Thm.~27]{GhoshLasota_24}, which is independently established in~\cite[Ex.~3.2(c)]{LaudoneSnowden_23}, with well-quasi-orders as a key ingredient.
 \end{itemize}
 
 The finite length property is strictly stronger than the ascending chain property.
 A prime example is the bit-vector atoms (which admit an AZ enumeration \cite[p.~143]{Hrushovski}):
 even $\Lin \A$ does not have finite length over the the two-element field, as found independently in~\cite[Thm.~2.7]{EvansGray_98} and~\cite[Thm.~4.16]{BFKM24}.
-In fact, Evans~\cite[Rem.~1.3]{Evans_pm1} observed that for any Fraïssé limit over a finite relational vocabulary, failing to have the finite length property over some finite field
+On the other hand, Evans~\cite[Rem.~1.3]{Evans_pm1} observed that for any Fraïssé limit over a finite relational vocabulary, failure of the finite length property over some finite field
 would yield a counterexample to the conjecture of Thomas~\cite[p.~177]{thomas1991reducts} in model theory.
-The known examples of failure of the finite length property are not good enough, since they use an infinite vocabulary (or functions).
+The known examples of failure of the finite length property are not good enough for this, since they use an infinite vocabulary (or functions).
 
 \paragraph*{Our contributions} 
 Until now, the finite length property has been a theory of two examples: the equality and the ordered atoms. 
@@ -91,5 +90,5 @@ We substantially improve this state of affairs, using two different techniques:
 \end{itemize}
 In particular, we may use either of these techniques to deduce the finite length property of the Rado atoms (row~3 in Figure~\ref{fig:fraisse-limits}), where even the weaker ascending chain property was not known before.
 
-Most of the paper is devoted to introducing the background necessary to understand these results (Sections~\ref{sec:structures}--\ref{sec:spaces}) and to proving them (Sections~\ref{sec:characteristic-zero},~\ref{sec:free-amalg}--\ref{sec:cogs-turn} and the technical Appendix). 
+Most of the paper is devoted to introducing the background necessary to understand these results (Sections~\ref{sec:structures}--\ref{sec:spaces}) and to proving them (Sections~\ref{sec:characteristic-zero},~\ref{sec:free-amalg} and~\ref{sec:cogs-turn}). 
 In Section~\ref{sec:duals} we discuss some connections with function spaces and weighted automata, and in Section~\ref{sec:equivariant-subspaces} we  briefly discuss  applications to solving orbit-finite systems of equations.
