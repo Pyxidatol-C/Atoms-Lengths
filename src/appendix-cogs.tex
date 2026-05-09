@@ -5,9 +5,12 @@ remember that a cog is of the form $\lambda \cdot a \between b$ now.
 Finally, fix an $S$-ordered orbit $\cal O \subseteq \A^I$.
 
 \subsection{Subvectors, locations, conflicts}
-We begin by introducing some additional terminology and notation. First, let us make explicit a view we have tacitly taken:
+We begin by introducing some additional terminology and notation. 
+First, let us make explicit a view we have tacitly taken:
 with $\cal O$ as a standard basis, a vector $v \in \Lin_\EE \cal O$ is just a finite set of pairs in $\EE \times \cal O$.
-A \emph{subvector} of $v$ is a subset of these pairs. We write $\vsup{v}\subseteq {\cal O}$ for the set of tuples which are present in $v$. For a finite subset $T\subseteq\cal O$, we write $\sqrt T\subseteq\A$ for the set of atoms present anywhere in $T$.
+A \emph{subvector} of $v$ is a subset of these pairs. 
+We write $\vsup{v}\subseteq {\cal O}$ for the set of tuples that are present in $v$. 
+For a finite subset $T\subseteq\cal O$, we write $\sqrt T\subseteq\A$ for the set of atoms present anywhere in $T$.
 
 For any $i \in I$ and $a \in \A$ (which is equal to $b_i$ for some $b \in \cal O$), we write 
 \[
@@ -31,7 +34,7 @@ we mean the subvector of $v$ consisting of all pairs in $\EE \times \cal O^{i:a}
     \]
     This sum is finite: it runs over those atoms $a$ that occur as the $i$-th entries in $\vsup{v}$.
     By looking at $i$-th entries, we see that each $v^{i:a}|^{-j}$ must be the zero vector.
-    Hence so is $v^{i:a}|^{-j}|^{-i} = v^{i:a}|^{-i}|^{-j}$,
+    Hence $0 = v^{i:a}|^{-j}|^{-i} = v^{i:a}|^{-i}|^{-j}$,
     which shows that $v^{i:a}|^{-i}$ is balanced.
 \end{proof}
 
@@ -42,59 +45,106 @@ Note that for any fixed $i,j\in I$, for all $c\in\cal O$ the atoms $c_i$ and $c_
 \item a {\em relational conflict}, if $a$ and $b$ are related in $\A_0$ but not in the same way as $c_i$ and $c_j$ for $c\in\cal O$.
 \end{itemize}
 (A situation where $a \neq b$ are not related by any relation in $\sigma_0$ at all does not constitute a conflict, even if $c_i$ and $c_j$ are related.) 
-Recalling that $a$ and $b$ are related if they are equal, we note an equational conflict is a special case of a relational one.
-A location in a vector $v$ means a location in the set $[v]$.
+As $a$ and $b$ are related if they are equal, we note an equational conflict is a special case of a relational one.
 
-The prototypical examples of vectors which are free from any conflicts are cogs (or any subvectors of cogs). Note that the locations in a cog $a^+ \between a^-$ are exactly those in $\{a^+ ,a^-\}$, and these have no conflicts if $a^+ \parallel a^-$ is a duo.
+By a location in a vector $v$ we mean a location in the set $\vsup{v}$.
+The prototypical examples of vectors which are free from any conflicts are cogs (or any subvectors of cogs): 
+note that the locations in a cog $a^+ \between a^-$ are exactly those in $\{a^+ ,a^-\}$, and these have no conflicts if $a^+ \parallel a^-$ is a duo.
 
-In the following proof we will often manipulate many duos and cogs at once, so we will benefit from a concise notation for them. 
-An $\cal O$-duo will be denoted by a single letter as $a^\pm$; its constituent parts will then be denoted by $a^+$ and $a^-$, so that $a^\pm=a^+\parallel a^-$. Sets of duos will be denoted with capital letters such as $A^\pm$, and sometimes we will slightly abuse this notation and write $A^\pm$ to mean $\bigcup_{a^\pm\in A^\pm}\{a^+,a^-\}$,
+In the following proof we will often manipulate many duos and cogs at once, 
+so we will benefit from a concise notation for them. 
+An $\cal O$-duo will be denoted by a single letter as $a^\pm$; 
+its constituent parts will then be denoted by $a^+$ and $a^-$, 
+so that $a^\pm=a^+\parallel a^-$. 
+Sets of duos will be denoted with capital letters such as $A^\pm$, 
+and sometimes we will slightly abuse this notation and write 
+$A^\pm$ to mean $\bigcup_{a^\pm\in A^\pm}\{a^+,a^-\}$,
 $A^+$ to mean $\bigcup_{a^\pm\in A^\pm}\{a^+\}$, 
 and $A^+ a$ to mean $\bigcup_{a^\pm\in A^\pm}\{a^+ a\}$.
 
 \subsection{Conflict resolution lemmas}
-The following sister lemmas, relying on free amalgamation as distilled in Lemma~\ref{lem:free-fresh}, show how to merge conflict-free subsets of $\cal O$ in a way that avoids introducing new conflicts. This will be useful in Sections~\ref{subsec:unobstructed} and~\ref{subsec:unambiguous}.
+The following sister lemmas, relying on free amalgamation as distilled in Lemma~\ref{lem:free-fresh} (and proved below), show how to merge conflict-free subsets of $\cal O$ in a way that avoids introducing new conflicts. 
+This will be useful in Sections~\ref{subsec:unobstructed} and~\ref{subsec:unambiguous}.
+
+\begin{proof}[Proof of Lemma~\ref{lem:free-fresh}]
+    Form the free amalgam of structures in ${\Cclass}_0$:
+% https://q.uiver.app/#q=WzAsNCxbMCwxLCJYIl0sWzEsMiwiWCBcXGN1cCBcXHt6XFx9Il0sWzEsMCwiWCBcXGN1cCBZIFxcY3VwIFxce3pcXH0iXSxbMiwxLCJYIFxcY3VwIFkgXFxjdXAgXFx7eiwgeidcXH0iXSxbMCwxLCJcXHN1YnNldGVxIiwxXSxbMCwyLCJcXHN1YnNldGVxIiwxXSxbMSwzLCJ4IFxcaW4gWCBcXG1hcHN0byB4LFxcIHogXFxtYXBzdG8geiciLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMiwzLCJcXHN1YnNldGVxIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV1d
+\[\begin{tikzcd}
+	& {X \cup Y \cup \{z\}} & \\
+	X && {X \cup Y \cup \{z, z'\}} \\
+	& {X \cup \{z\}}
+	\arrow["\subseteq"{description}, dotted, from=1-2, to=2-3]
+	\arrow["\subseteq"{description}, from=2-1, to=1-2]
+	\arrow["\subseteq"{description}, from=2-1, to=3-2]
+	\arrow["{x \in X \mapsto x,\ z \mapsto z'}"{description}, dotted, from=3-2, to=2-3]
+\end{tikzcd}\]
+    so that no element of $Y \cup \{z\}$ is related to $z'$.
+    To make $X \cup Y \cup \{z, z'\}$ an $\sigma$-structure, 
+    inherit the order on $X \cup Y \cup \{z\}$ from $\A$,
+    and declare that $z < z'$, as well as $z' < a$ whenever $z<a$ for $a\in X \cup Y$. (This makes the above a diagram of embeddings in the presence of the order; we only use the bottom right embedding.)
+    By homogeneity, $X \cup Y \cup \{z, z'\}$ embeds into $\A$ via some $f$ which is the identity on $X \cup Y \cup \{z\}$;
+    again by homogeneity, we may extend the embedding \[ 
+        x \in X \mapsto x, \quad z \mapsto f(z')
+    \] to some automorphism $\tau$ that satisfies (\ref{item:tau-fixes-X}), (\ref{item:tau-frees-from-Yz}), and (\ref{item:tau-adds-epsilon}).
+\end{proof}
 
 \begin{lemma}\label{lem:?}
-    Let $K, V_0 \subseteq V$ be finite subsets of $\cal O$ such that both $V_0\cup K$ and $V$ are free from equational conflicts. Then there exists a $\pi\in\Aut(\A)$ that, while fixing all atoms in $S$ and in $\sqrt{V_0}$, makes $V \cup \pi(K)$ free from equational conflicts.
+    Let $K$ and $V_0 \subseteq V$ be finite subsets of $\cal O$ such that 
+    both $V_0\cup K$ and $V$ are free from equational conflicts.
+    Then there exists some $\pi\in\Aut(\A)$ that, while fixing all atoms in $S$ and in $\sqrt{V_0}$, makes $V \cup \pi(K)$ free from equational conflicts.
 \end{lemma}
 \begin{proof}
     Fix $V_0, V$ and induct on the number of equationally conflicting locations in $V \cup K$. 
-    Take any such locations $(i,a)$ and $(j,a)$, where $i \neq j$; without loss of generality $(i,a)$ is a location in $K$ and $(j,a)$ a location in $V$. 
+    Take any such locations $(i,a)$ and $(j,a)$, where $i \neq j$; 
+    without loss of generality $(i,a)$ is a location in $K$ and $(j,a)$ a location in $V$. 
 
     Suppose that $(i', a)$ were a location in $V_0$.
-    Since there are no equational conflicts in $V_0\cup K$ or in $V$, we see that $i = i'$ and $i' = j$, which is impossible.
+    Since there are no equational conflicts in $V_0\cup K$ or in $V$, 
+    we see that $i = i'$ and $i' = j$, which contradicts our assumption.
     So $a \not\in \sqrt{V_0}$.
     Also $a\not\in S$, as $\cal O$ is $S$-ordered.
     Put: 
     \[
-        X = S \cup \sqrt{K \cup V} \setminus \{a\},
+        X = S \cup \sqrt{V \cup K} \setminus \{a\},
     \]
     and note that $X$ contains $S \cup \sqrt{V_0}$.
-    Use Lemma~\ref{lem:free-fresh} (putting $z=a$ and $Y=\emptyset$) to obtain an automorphism $\pi \in \Aut(\A/X)$ such that $\pi(a) \not\in X \cup \{a\}$. 
+    Use Lemma~\ref{lem:free-fresh} (putting $z=a$ and $Y=\emptyset$) to obtain an automorphism $\tau \in \Aut(\A/X)$ such that $\tau(a) \not\in X \cup \{a\}$. 
     
-    In the set $V\cup\pi(K)$, the conflicting location $(i,a)$ disappears and no new equational conflicts are created, so the number of equationally conflicting locations drops compared to $V\cup K$.
-    Because $V_0 \cup \pi(K)$ is still conflict-free,
-    the inductive hypothesis gives us some $\pi' \in \Aut(\A / S \cup \sqrt{V_0})$ such that $V \cup \pi' \pi(K)$ is free from equational conflicts.
+    In the set $V\cup\tau(K)$, the conflicting location $(i,a)$ disappears and no new equational conflicts are created, 
+    so the number of equationally conflicting locations drops compared to $V\cup K$.
+    Because $V_0 \cup \tau(K)$ is still equationally conflict-free,
+    the inductive hypothesis gives us some $\pi \in \Aut(\A / S \cup \sqrt{V_0})$ such that $V \cup \pi \tau(K)$ is free from equational conflicts.
 \end{proof}
 
 \begin{lemma}\label{lem:!}
-    Let $K, V_0 \subseteq V$ be finite subsets of $\cal O$ such that both $V_0\cup K$ and $V$ are free from relational conflicts. Then there exists a $\pi\in\Aut(\A)$ that, while fixing all atoms in $S$ and in $\sqrt{V_0}$, makes $V \cup \pi(K)$ free from relational conflicts.
+    Let $K$ and $V_0 \subseteq V$ be finite subsets of $\cal O$ such that both $V_0\cup K$ and $V$ are free from relational conflicts.%
+    \footnote{Here and in Lemma~\ref{lem:!}, we may weaken the assumption that $V_0 \subseteq V$ and only require every location in $V_0$ to be a location in $V$.} 
+    Then there exists some $\pi\in\Aut(\A)$ that, while fixing all atoms in $S$ and in $\sqrt{V_0}$, makes $V \cup \pi(K)$ free from relational conflicts.
 \end{lemma}
 \begin{proof}
-    By \autoref{lem:?} we may assume that $V \cup K$ is free from {\em equational} conflicts.  As before, fix $V_0, V$ and proceed by induction on the number of relationally conflicting locations in $V \cup K$.
+    By \autoref{lem:?} we may assume that $V \cup K$ is free from {\em equational} conflicts. 
+    As before, fix $V_0, V$ and proceed by induction on the number of relationally conflicting locations in $V \cup K$.
     
-    Let $(i, a)$ and $(j, b)$ be in a relational conflict; without loss of generality $(i, a)$ is a location in $K$ and $(j, b)$ in $V$. This is not an equational conflict, so $a\neq b$ (but possibly $i=j$). 
-    
-    Since there are no conflicts in $V_0\cup K$ or in $V$, we see that $(i, a)$ is not a location in $V$ and $(j, b)$ is not a location in $V_0 \cup K$~---~i.e.~since there are no equational conflicts, 
-    that $a\not\in \sqrt{V}$ and $b\not\in\sqrt{V_0\cup K}$.
+    Let $(i, a)$ and $(j, b)$ be in a relational conflict; 
+    without loss of generality $(i, a)$ is a location in $K$ and $(j, b)$ in $V$. 
+    This is not an equational conflict, so $a\neq b$ (but possibly $i=j$). 
+    Since there are no conflicts in $V_0\cup K$ or in $V$, 
+    we see that $(i, a)$ is not a location in $V$ and $(j, b)$ is not a location in $V_0 \cup K$~---~i.e.~that, 
+    since there are no equational conflicts in $V \cup K$, we have $a\not\in \sqrt{V}$ and $b\not\in\sqrt{V_0\cup K}$.
     Also, $a,b\not\in S$.
-    Let $Y$ consist of all the atoms $b$ that are in a relational conflict with $(i,a)$ in $V\cup K$; we have just shown that $Y$ does not contain $a$ and is disjoint with $S\cup\sqrt{V_0\cup K}$. Put:
+    
+    Let $Y$ consist of all the atoms $b'$ that are in a relational conflict with $(i,a)$ in $V\cup K$; 
+    we have just shown that $Y$ does not contain $a$ and is disjoint with $S\cup\sqrt{V_0\cup K}$. 
+    Put:
     \[
-        X = S \cup \sqrt{K \cup V} \setminus (Y \cup \{a\}).
+        X = S \cup \sqrt{V \cup K} \setminus (Y \cup \{a\}).
     \]
-    Then $X, Y, \{a\}$ are pairwise disjoint, and $X$ contains $S \cup \sqrt{V_0}$. It also contains all atoms in $\sqrt{K}$ except $a$.
-   Using Lemma~\ref{lem:free-fresh}, find some $\pi\in \Aut(\A/X)$ such that $\pi(a) \not\in X \cup Y \cup \{a\}$ and $\pi(a)$ is not related to any atom in $Y$. In $V\cup\pi(K)$ the conflicting location $(i,a)$ disappears and no new conflicts are created, so the conclusion follows from the inductive hypothesis.
+    Then $X, Y, \{a\}$ are pairwise disjoint, and $X$ contains $S \cup \sqrt{V_0}$. 
+    It also contains all atoms in $\sqrt{K}$ except $a$.
+    Using Lemma~\ref{lem:free-fresh}, find some $\tau\in \Aut(\A/X)$ such that $\tau(a) \not\in X \cup Y \cup \{a\}$ 
+    and $\tau(a)$ is not related to any atom in $Y$. 
+    In $V\cup\tau(K)$ the conflicting location $(i,a)$ disappears and no new conflicts are created, 
+    so the conclusion follows from the inductive hypothesis.
 \end{proof}
 
 \subsection{Conflict-free vectors}\label{subsec:unobstructed}
@@ -107,7 +157,7 @@ The following sister lemmas, relying on free amalgamation as distilled in Lemma~
 \end{claim}
 \begin{claimproof}
 We proceed by induction on the dimension $|I|$, 
-noting that when $I = \emptyset$ we just have $v = \lambda \cdot () = \lambda \cdot ( \between )$.
+noting that when $I = \emptyset$ we just have $v = v() \cdot () = v() \cdot ( \between )$.
 
 So suppose $I$ is non-empty; let $j \in I$ be the greatest element. 
 Group the terms in $v$ by their greatest atom so that $v = v^1 + v^2 + \cdots + v^k$.
@@ -120,18 +170,18 @@ for some $a\neq b\in \A$. By Lemma~\ref{lem:balanced-projected-subvector}, $v^{j
 By the outer inductive hypothesis, we get \[
     v^{j:a} = (v^{j:a}|^{-j}) a = \sum_{a^\pm\in A^\pm} (\lambda_{a^\pm} \cdot a^+ \between a^-)a
 \]
-where $[v^{j:a}|^{-j}]\cup A^\pm$ is free from conflicts, which immediately implies that $[v^{j:a}]\cup A^\pm a$ is free from conflicts as well. 
-Note that if a $\pi \in \Aut(\A/S)$ fixes every atom in $v^{j:a}$~---~in particular, $a$~---~then
+where $\vsup{v^{j:a}|^{-j}}\cup A^\pm$ is free from conflicts, which immediately implies that $\vsup{v^{j:a}}\cup A^\pm a$ is free from conflicts as well. 
+Note that if $\pi \in \Aut(\A/S)$ fixes every atom in $\sqrt{\vsup{v^{j:a}}}$ (which includes $a$), then
 \[
     v^{j:a} = \pi(v^{j:a}) = \sum_{a^\pm \in A^\pm} \lambda_{a^\pm} \cdot \pi a^+ \between \pi a^-,
 \]
-so by Lemma~\ref{lem:!} (putting $K=A^\pm a$, $V_0=[v^{j:a}]$, and $V=[v]$) we may assume without loss of generality that
-$[v]\cup A^\pm a$ is free from conflicts.
+so by Lemma~\ref{lem:!} (putting $K=A^\pm a$, $V_0=\vsup{v^{j:a}}$, and $V=\vsup{v}$) we may assume without loss of generality that
+$\vsup{v}\cup A^\pm a$ is free from conflicts.
 
 Similarly, we can write \[
     v^{j:b} = \sum_{b^\pm\in B^\pm} (\mu_{b^\pm} \cdot b^+ \between b^-)b
 \]
-and apply Lemma~\ref{lem:!} again (putting $K=B^\pm b$, $V_0=[v^{j:b}]$, and $V=[v]\cup A^\pm a$) to conclude that
+and apply Lemma~\ref{lem:!} again (putting $K=B^\pm b$, $V_0=\vsup{v^{j:b}}$, and $V=\vsup{v}\cup A^\pm a$) to assume that
 \[
     \vsup{v} \cup A^\pm a \cup B^\pm b
 \]
@@ -139,13 +189,13 @@ is free from conflicts.
 
 We now invent a new element $z$, on which we impose the following relations with $S \cup \sqrt{A^\pm a \cup B^\pm b} \subseteq \A$: 
 \begin{enumerate}
-    \item $a, b < z$, and $z < s$ iff $a, b < s$ for any $s \in S$;
+    \item $a, b < z$ (noting that $\sqrt{A^\pm} < a, \sqrt{B^\pm} < b$) and, for each $s \in S$, $z < s \;:\Longleftrightarrow\; a, b < s$;
     
-    \item for any unary relation $P \in \sigma_0$:
+    \item for each unary relation $P \in \sigma_0$:
     \[
         P(z) \;:\Longleftrightarrow\; P(a) \iff P(b);
     \]
-    \item for any binary relation $R \in \sigma_0$ and $s \in S$, $a^\pm \in A^\pm$, $b^\pm \in B^\pm$, $i \in I \setminus \{d\}$:
+    \item for each binary relation $R \in \sigma_0$ and $s \in S$, $a^\pm \in A^\pm$, $b^\pm \in B^\pm$, $i \in I \setminus \{d\}$:
     \begin{itemize}
         \item $R(z, s) \;:\Longleftrightarrow\; R(a, s) \iff R(b, s)$,
         \item $R(z, a^+_i) \;:\Longleftrightarrow\; R(a, a^+_i)$,
@@ -161,8 +211,8 @@ We now invent a new element $z$, on which we impose the following relations with
 To see that the $\sigma$-structure $S \cup \sqrt{A^\pm a \cup B^\pm b} \cup \{z\}$ still embeds into $\A$, 
 suppose towards a contradiction that it contains a forbidden $\sigma_0$-substructure $F$.
 Then $F$ must contain $z$.
-Since any two elements in $F$ are necessarily related, we must have $a, b \not\in F$.
-Similarly, whenever $F$ contains an atom $x_i$ for any $x\in A^\pm\cup B^\pm$, it does not contain $y_i$ for any other $y\in A^\pm\cup B^\pm$.
+Since any two elements in $F$ are necessarily related, we must have $a \not\in F$ and $b \not\in F$.
+Similarly, whenever $F$ contains an atom $x_i$ for any $x\in A^\pm\cup B^\pm$, it does not contain a distinct atom $y_i$ for any $y\in A^\pm\cup B^\pm$.
 It follows that, fixing any $a^\pm\in A^\pm$,
 \[
     s \mapsto s,\quad x_i \mapsto a^+_i,\quad z \mapsto a
@@ -174,10 +224,10 @@ This is a contradiction. We may therefore assume that $z \in \A$.
 It is now routine to check that $a^+ a \parallel a^- z$ and $b^+ b \parallel b^- z$ are $\cal O$-duos for all $a^\pm \in A^\pm, b^\pm \in B^\pm$,
 and that 
 \[
-A^+ a \cup A^- z \cup B^+ b \cup B^- z
+    A^+ a \cup A^- z \cup B^+ b \cup B^- z
 \]
 is free from conflicts.
-From Lemma~\ref{lem:!} we may assume that 
+From Lemma~\ref{lem:!} (putting $K = A^- a \cup B^- z$, $V_0 = A^\pm a \cup B^\pm b$, $V = \vsup{v} \cup A^\pm a \cup B^\pm b$) we may assume that 
 \[
 \vsup{v} \cup A^+ a \cup A^- z \cup B^+ b \cup B^- z
 \] 
@@ -196,7 +246,7 @@ By the inner inductive hypothesis, we may write
     v'' = \sum_{c^\pm\in C^\pm} \kappa_{c^\pm} \cdot c^+ \between c^-
 \]
 with $\vsup{v''} \cup C^\pm$ conflict-free, and one
-last application of Lemma~\ref{lem:!} allows us to conclude that
+last application of Lemma~\ref{lem:!} (putting $K = C^\pm$, $V_0 = \vsup{v''}$, and $V = \vsup{v} \cup A^+ a \cup A^- z \cup B^+ b \cup B^- z$) allows us to conclude that
 \[
     \vsup{v} \cup A^+ a \cup A^- z \cup B^+ b \cup B^- z \cup C^\pm
 \]
@@ -205,7 +255,7 @@ We conclude that
 \begin{align*}
     v = 
       \sum_{a^\pm\in A^\pm} \lambda_{a^\pm} \cdot a^+ a \between a^- z 
-    + \sum_{b^\pm\in B^\pm} \mu_{b^\pm} \cdot b^+ b \between b^- z \\
+    + \sum_{b^\pm\in B^\pm} \mu_{b^\pm} \cdot b^+ b \between b^- z 
     + \sum_{c^\pm\in C^\pm} \kappa_{c^\pm} \cdot c^+ \between c^-
 \end{align*}
 is a decomposition of $v$ into a sum of $\cal O$-cogs as required.
@@ -221,7 +271,7 @@ is a decomposition of $v$ into a sum of $\cal O$-cogs as required.
 \end{claim}
 \begin{claimproof}
 We proceed again by induction, first on $|I|$ then on the number of relational conflicts in $v$.
-The outer base case $I = \emptyset$ is trivial~---~we have $v = \lambda \cdot ( \between )$, and no conflicts arise~---~and the inner base case is just Claim~\ref{claim:!-free-decomposition}.
+The outer base case $I = \emptyset$ is trivial~---~we have $v = v() \cdot ( \between )$, and no conflicts arise~---~and the inner base case is just Claim~\ref{claim:!-free-decomposition}.
 
 Suppose that a location $(i, a)$ is part of a relational conflict in $v$.
 Since every location in $v^{i:a}|^{-i}$ is also a location in $v$, we know that $v^{i:a}|^{-i}$ has no equational conflicts, and by Lemma~\ref{lem:balanced-projected-subvector} it is balanced.
@@ -229,37 +279,40 @@ By the outer inductive hypothesis, we get:
 \[
     v^{i:a} = (v^{i:a}|^{-i}) a = \sum_{a^\pm\in A^\pm} (\lambda_{a^\pm} \cdot a^+ \between a^-) a
 \]
-where $[v^{i:a}|^{-i}]\cup A^\pm$ has no equational conflicts, which immediately implies that $[v^{i:a}]\cup A^\pm a$ is free from equational conflicts as well. 
-By Lemma~\ref{lem:?} (putting $K=A^\pm a$, $V_0=[v^{i:a}]$, and $V=[v]$) we may assume that
-$[v]\cup A^\pm a$ has no equational conflicts.
+where $\vsup{v^{i:a}|^{-i}}\cup A^\pm$ has no equational conflicts, 
+which immediately implies that $\vsup{v^{i:a}}\cup A^\pm a$ is free from equational conflicts as well. 
+By Lemma~\ref{lem:?} (putting $K=A^\pm a$, $V_0=\vsup{v^{i:a}}$, and $V=\vsup{v}$) 
+we may assume that $\vsup{v}\cup A^\pm a$ has no equational conflicts.
 
-Take any location $(j,b)$ which is a in a relational conflict with $(i,a)$ in $v$. Then $b\not\in\sqrt{A^\pm a}$. To see this, note that $b=a$ would imply $j=i$ (since $v$ has no equational conflicts), but that would mean no conflict. On the other hand, if $b = a^+_k$ for some $a^+ \in A^\pm$ and $k \in I \setminus \{i\}$ (the case of $a^-$ is identical) then $j=k$, but this is not a conflict either, since $a^+a\in\cal O$ and $a=(a^+a)_i$.
+Take any location $(j,b)$ that is in a relational conflict with $(i,a)$ in $v$. 
+Then $b\not\in\sqrt{A^\pm a}$. 
+To see this, note that $b=a$ would imply $j=i$ (since $v$ has no equational conflicts), which is not a conflict. 
+On the other hand, if $b = a^+_k$ for some $a^+ \in A^\pm$ and $k \in I \setminus \{i\}$ (the case of $a^-$ is identical) 
+then $j=k$, but this is not a conflict either, since $a^+a\in\cal O$ and $a=(a^+a)_i$.
 Also, $b \not\in S$.
 
-   Let $Y$ consist of all the atoms $b$ that are in a relational conflict with $(i,a)$ in $V$. 
-   As $a \not\in S$ and $a \not\in \sqrt{A^\pm}$, we have shown that
-   \[
-X = S \cup \sqrt{\vsup{v} \cup A^\pm} \setminus (Y \cup \{a\})   
+Let $Y$ consist of all the atoms $b$ that are in a relational conflict with $(i,a)$ in $V$. 
+As $a \not\in S$ and $a \not\in \sqrt{A^\pm}$, we have shown that
+\[
+    X = S \cup \sqrt{\vsup{v} \cup A^\pm} \setminus (Y \cup \{a\})   
 \]
 contains $S \cup \sqrt{A^\pm}$ and that $X, Y, \{a\}$ are pairwise disjoint.
-Use Lemma~\ref{lem:free-fresh} (putting $z=a$) to find $\tau \in \Aut(\A/X)$ such that $\tau(a) \not\in X \cup Y \cup \{a\}$, is greater than $a$, and is not related to any of $Y \cup \{a\}$. Denote $a'=\tau(a)$.
-Then, for any $a^\pm \in A^\pm$, it follows by Lemma~\ref{lem:cog-fresh-single} that $a^+ a \parallel a^- a'$ is an $\cal O$-duo. Moreover, 
-$\vsup{v} \cup A^+ a \cup A^- a'$
-has no equational conflicts, and the vector
+Use Lemma~\ref{lem:free-fresh} (putting $z=a$) to find $\tau \in \Aut(\A/X)$ such that $\tau(a) \not\in X \cup Y \cup \{a\}$, is greater than $a$, and is not related to any of $Y \cup \{a\}$. 
+Write $a'=\tau(a)$.
+Then, for any $a^\pm \in A^\pm$, it follows by Lemma~\ref{lem:cog-fresh-single} that $a^+ a \parallel a^- a'$ is an $\cal O$-duo. 
+Moreover, $\vsup{v} \cup A^+ a \cup A^- a'$ has no equational conflicts, and the vector
 \begin{align*}
     v' = v - \sum_{a^\pm\in A^\pm} \lambda_{a^\pm} \cdot a^+ a \between a^- a'
-    &= v -  v^{i:a} + v^{i:a'}%\\
-  %  &= v^{i : a_i \mapsto \tau(a_i)}    
+    &= v - v^{i:a} + (v^{i:a}|^{-i}) a' 
 \end{align*}
 has strictly fewer relationally conflicting locations than $v$, as the location $(i,a)$ disappears from it.
-The inner inductive hypothesis tells us 
-that we may write
+The inner inductive hypothesis tells us that we may write
 \[
-v' = \sum_{b^\pm\in B^\pm} \mu_{B^\pm} \cdot b^+ \between b^-
+    v' = \sum_{b^\pm\in B^\pm} \mu_{B^\pm} \cdot b^+ \between b^-
 \]
 with $\vsup{v'} \cup B^\pm$ free from equational conflicts.
 
-Since $\vsup{v'} \subseteq \vsup{v} \cup A^+ a \cup A^- a'$, Lemma~\ref{lem:?} allows us to assume that 
+Since any location in $\vsup{v'}$ is a location in $\vsup{v} \cup A^+ a \cup A^- a'$, Lemma~\ref{lem:?} (putting $K = B^\pm$, $V_0 = \vsup{v'}$, and $V = \vsup{v} \cup A^+a \cup A^- a'$) allows us to assume that 
 \[
     \vsup{v} \cup A^+ a \cup A^-a' \cup B^\pm
 \]
@@ -271,7 +324,7 @@ as required.
 \end{claimproof}
 
 \subsection{Arbitrary vectors}
-We restate and prove Theorem~\ref{thm:cog-span-generally}:
+We are in a position to restate and prove Theorem~\ref{thm:cog-span-generally}:
 \begin{theorem}
     Any $v \in \Ker_\EE \cal O$ can be written as
     \[
@@ -282,10 +335,11 @@ We restate and prove Theorem~\ref{thm:cog-span-generally}:
 \begin{proof}
 This is similar to the proof of Claim~\ref{claim:?-free-decomposition}, but simpler.
 We proceed again by induction, first on $|I|$ then on the number of equational conflicts in $v$.
-The outer base case $I = \emptyset$ is trivial as before, and 
+The outer base case $I = \emptyset$ is trivial as before,  
 and the inner base case is Claim~\ref{claim:?-free-decomposition}.
 
-Suppose that a location $(i, a)$ is part of an equational conflict in $v$. By the outer inductive hypothesis, we get:
+Suppose that a location $(i, a)$ is part of an equational conflict in $v$. 
+By the outer inductive hypothesis, we get:
 \[
     v^{i:a}
     = (v^{i:a}|^{-i}) a 
@@ -294,20 +348,22 @@ Suppose that a location $(i, a)$ is part of an equational conflict in $v$. By th
 Then neither $S$ nor $\sqrt{A^\pm}$ contains $a$,
 so 
 \[
-X = S \cup \sqrt{\vsup{v} \cup A^\pm} \setminus \{a\}
+    X = S \cup \sqrt{\vsup{v} \cup A^\pm} \setminus \{a\}
 \]
 contains $S \cup \sqrt{A^\pm}$.
-Using Lemma~\ref{lem:free-fresh} (putting $z=a$ and $Y=\emptyset$), find $\pi \in \Aut(\A/X)$ such that $\pi(a)$ is not in $X$, is greater than $a$, and is otherwise unrelated to $a$. Denote $a'=\tau(a)$. 
-Then, for any $a^\pm \in A^\pm$, it follows by Lemma~\ref{lem:cog-fresh-single} that $a^+ a \parallel a^- a'$ is an $\cal O$-duo. Moreover, 
-the vector
+Using Lemma~\ref{lem:free-fresh} (putting $z=a$ and $Y=\emptyset$), 
+find $\pi \in \Aut(\A/X)$ such that $\pi(a)$ is not in $X$, is greater than $a$, and is otherwise unrelated to $a$. 
+Write $a'=\pi(a)$. 
+Then, for any $a^\pm \in A^\pm$, it follows by Lemma~\ref{lem:cog-fresh-single} that $a^+ a \parallel a^- a'$ is an $\cal O$-duo. 
+Moreover, the vector
 \begin{align*}
     v' = v - \sum_{a^\pm\in A^\pm} \lambda_{a^\pm} \cdot a^+ a \between a^- a'
-    &= v -  v^{i:a} + v^{i:a'} 
+    &= v -  v^{i:a} + (v^{i:a}|^{-i}) a' 
 \end{align*}
 has strictly fewer equationally conflicting locations than $v$, as the location $(i,a)$ disappears from it.
 It follows from the inner inductive hypothesis that we can write
 \[
     v' = \sum_{b^\pm \in B^\pm} \mu_{b^\pm} \cdot b^+ \between b^-,
 \]
-which gives a decomposition of $v = \sum_{a^\pm \in A^\pm} \lambda_{a^\pm} \cdot a^+ a \between a^- a'$ as required.
+which gives a decomposition $v = v' + \sum_{a^\pm \in A^\pm} \lambda_{a^\pm} \cdot a^+ a \between a^- a'$ as required.
 \end{proof}
