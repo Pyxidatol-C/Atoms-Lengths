@@ -1,10 +1,10 @@
 
 \section{Proof of Theorem~\ref{thm:have-oligomorphic-approximation}(\ref{item:rado-has-oligomorphic-approximation})}\label{sec:appendix-symplectic}
+To show that the Rado graph is oligomorphically approximated, we introduce a family of graphs defined from symplectic vector spaces over the two-element field.
 
-The symplectic vector spaces are used as a basic building block in~\cite{KLM89}.
-Described as a classical geometry, they can indeed be found in classical textbooks such as~\cite[pp.~114--121]{Artin_symplectic} and~\cite[pp.~75--83]{Aschbacher_symplectic},
-though it is often not clear whether we assume finite dimension or characteristic zero for the results we require. 
-As symplectic vector spaces are an important and interesting structure to understand, we provide a self-contained exposition here, taking a straight-line path to the oligomorphic approximation of the Rado graph in Theorem~\ref{thm:appendix-rado-oligo-approx}.
+These spaces, described as a classical geometry, are treated in classical textbooks such as \cite[pp.~114--121]{Artin_symplectic} and \cite[pp.~75--83]{Aschbacher_symplectic}.
+In particular the countable-dimensional symplectic vector space is smoothly approximated, and indeed it is used as a basic building block in~\cite{KLM89}.
+
 
 \subsection{Symplectic vector spaces}
 Let $\ff$ denote a finite field.
@@ -15,9 +15,11 @@ Let $\ff$ denote a finite field.
         \item alternating: $\omega(v, v) = 0$ for all $v$; and
         \item non-degenerate: if $\omega(v, w) = 0$ for all $w$ then $v = 0$.
     \end{bracketenumerate}    
+    Model-theoretically, we start with the vocabulary of the vector atoms from Example~\ref{ex:vector-space-atoms} 
+    and, to speak about $\omega$, add a binary predicate for every element of $\ff$.
 \end{definition}
 
-Model-theoretically, we start with the same vocabulary as for the vector atoms (Example~\ref{ex:vector-space-atoms}) and add a binary predicate for every element of $\ff$.
+
 
 \begin{example}
     Let $\W_n$ be the $\ff$-vector space with basis \[e_1  , \ldots, e_n, f_1, \ldots, f_n.\]
