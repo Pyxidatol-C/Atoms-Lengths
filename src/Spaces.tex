@@ -23,17 +23,17 @@ Such subsets are called \emph{equivariant subspaces}.
 
  Unfortunately, there is a price to pay for the elementary character of Definition~\ref{def:orbit-finite-basis}, 
  and that is the failure of certain closure properties. 
- In particular, these spaces are not closed~---~even up to equivariant linear bijections~---~under taking equivariant subspaces, or quotients by such spaces. 
+ In particular, these spaces are not closed (even up to equivariant linear bijections) under taking equivariant subspaces, or quotients by such spaces. 
  The problem with subspaces is apparent already in Example~\ref{ex:length-one-dim-one}, since the unique nontrivial subspace of $\Lin_\field \A$ does not have any equivariant basis, regardless of the underlying field~\cite[Ex.~6.1]{BFKM24}; 
  this subspace can also be realised as a quotient of $\Lin_\field \A^2$.
  % (Also an orbit-finite-dimensional vector space can have two orbit-finite bases without an equivariant bijection between them~\cite[Sec.~3.4]{Ghosh25}.)
- For this reason, we need a more general notion of a vector space, in a style that emphasises the group action as in Definition~\ref{def:orbit-finite-set-alternative}.
+We therefore need a more general notion of a vector space, in the style of Definition~\ref{def:orbit-finite-set-alternative}.
 
 \begin{definition}[Orbit-finitely spanned vector space, abstractly]\label{def:orbit-finitely-spanned-abstract}
     An \emph{orbit-finitely spanned vector space} over an oligomorphic structure $\A$ is a vector space equipped with an action of automorphisms of $\A$ such that: 
     \begin{bracketenumerate}
         \item
-        vector addition and scalar multiplication are equivariant, with the action on the field being trivial;%
+        vector addition and scalar multiplication are equivariant,%with the action on the field being trivial;%
         \footnote{Equivalently, the group action $v \mapsto \pi(v)$ of each automorphism $\pi$ is linear.}
 
         \item 
@@ -71,6 +71,23 @@ This closure property turns out to be closely related to the ascending chain pro
     Furthermore, if these conditions hold, then the orbit-finitely spanned vector spaces are~---~up to equivariant linear bijections~---~precisely the vector spaces of the form $U/W$, 
     where $W \subseteq U$ are equivariant subspaces of $\Lin_\field \A^d$ and $d \in \set{1,2,\dots}$.
 \end{theorem}
+\begin{proof}[Proof sketch.]
+    The equivalence of (\ref{item:ofs-implies-Noetherian}) and (\ref{item:sub-ofs-is-ofs}) is a classical result in module theory, and the implication (\ref{item:ofs-implies-Noetherian}) $\Rightarrow$ (\ref{item:LinAd-is-Noetherian}) is immediate.
+%    Let us recall the proof. 
+%    For (\ref{item:ofs-implies-Noetherian}) $\Rightarrow$ (\ref{item:sub-ofs-is-ofs}), we build an orbit-finite spanning set for the subspace greedily, by adding orbit after orbit of vectors. 
+%    Thanks to (\ref{item:ofs-implies-Noetherian}), this must stabilise. 
+%    For (\ref{item:sub-ofs-is-ofs}) $\Rightarrow$ (\ref{item:ofs-implies-Noetherian}), we use (\ref{item:sub-ofs-is-ofs}) to get an orbit-finite spanning set for the union of the chain from (3), 
+%    and then we observe that orbits from this set can only be added finitely often in the chain. 
+%
+   For the ``furthermore'' part,
+       take some orbit-finitely spanned vector space $V$. 
+        By Definition~\ref{def:orbit-finite-set}, the spanning set can be obtained from some equivariant subset of $\A^d$ by quotienting under an equivariant equivalence relation. 
+        This gives us a surjective equivariant linear map to $V$ from an equivariant subspace $U$ of $\Lin_\field \A^d$; 
+        call its kernel $W$, so that we have a bijective equivariant linear map $V \leftarrow U/W$. 
+
+    Finally, the implication (\ref{item:LinAd-is-Noetherian}) $\Rightarrow$  (\ref{item:ofs-implies-Noetherian})  follows from the ``furthermore'' part: 
+    the lack of infinite chains is preserved by taking equivariant subspaces and images under equivariant linear maps. 
+\end{proof}
 
 
 We say that an atom structure $\A$ has the \emph{ascending chain property over a field $\field$} if any of the equivalent conditions in Theorem~\ref{thm:ACP} is satisfied. 

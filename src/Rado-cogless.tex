@@ -139,14 +139,14 @@ For convenience, we summarise these steps in Figure~\ref{fig:proof-summary-cogle
 \begin{figure}
 % https://q.uiver.app/#q=WzAsOSxbMCwwLCJcXHRleHR7bGVuZ3RoIG9mICRcXExpbiBcXEFeZCR9ICJdLFswLDIsIlxcZGlzcGxheXN0eWxlXFxzdXBfe1xcQiBcXGluIFxcQmNsYXNzfSBcXHRleHR7bGVuZ3RoIG9mICRcXExpbiBcXEJeZCR9Il0sWzAsNiwiXFxkaXNwbGF5c3R5bGVcXHN1cF97XFxCIFxcaW4gXFxCY2xhc3N9IFxcdGV4dHtudW1iZXIgb2Ygb3JiaXRzIGluICRcXEJeezJkfSR9Il0sWzEsMSwiXFx0ZXh0eyhMZW1tYX5cXHJlZntsZW06cmVkdWNlLXRvLWZpbml0ZS1zdWJzdHJ1Y3R1cmVzfSl9Il0sWzEsMywiXFx0ZXh0eyhMZW1tYX5cXHJlZntsZW06ZGltLWJvdW5kcy1sZW5ndGh9KX0iXSxbMCw0LCJcXGRpc3BsYXlzdHlsZVxcc3VwX3tcXEIgXFxpbiBcXEJjbGFzc30gXFx0ZXh0e2RpbWVuc2lvbiBvZiB9IFxcbGluZXFmdW57XFxMaW4gXFxCXmR9e1xcTGluIFxcQl5kfSJdLFsxLDUsIlxcdGV4dHsoTGVtbWF+XFxyZWZ7bGVtOmJvdW5kLW9uLWRpbS1mb3ItZmluaXRlLXNldH0pfSJdLFsxLDcsIlxcdGV4dHsoRGVmaW5pdGlvbn5cXHJlZntkZWY6b2xpZ29tb3JwaGljLWFwcHJveGltYXRpb259KX0iXSxbMCw4LCJcXGluZnR5Il0sWzEsMCwiXFxnZXEiLDMseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJub25lIn0sImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbNSwxLCJcXGdlcSIsMyx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6Im5vbmUifSwiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFsyLDUsIj0iLDMseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJub25lIn0sImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbOCwyLCI+IiwzLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoibm9uZSJ9LCJoZWFkIjp7Im5hbWUiOiJub25lIn19fV1d
 \begin{tikzcd}[row sep=tiny]
-	{\text{length of $\Lin \A^d$} } & \\
-	& {\text{(Lemma~\ref{lem:reduce-to-finite-substructures})}} \\
-	{\displaystyle\sup_{\B \in \Bclass} \text{length of $\Lin \B^d$}} \\
-	& {\text{(Lemma~\ref{lem:dim-bounds-length})}} \\
-	{\displaystyle\sup_{\B \in \Bclass} \text{dimension of } \lineqfun{\Lin \B^d}{\Lin \B^d}} \\
-	& {\text{(Lemma~\ref{lem:bound-on-dim-for-finite-set})}} \\
-	{\displaystyle\sup_{\B \in \Bclass} \text{number of orbits in $\B^{2d}$}} \\
-	& {\text{(Definition~\ref{def:oligomorphic-approximation})}} \\
+	{\text{length of $\Lin \A^d$} } & \\[-1ex]
+	& {\text{(Lemma~\ref{lem:reduce-to-finite-substructures})}} \\[-2ex]
+	{\displaystyle\sup_{\B \in \Bclass} \text{length of $\Lin \B^d$}} \\[-2ex]
+	& {\text{(Lemma~\ref{lem:dim-bounds-length})}} \\[-1ex]
+	{\displaystyle\sup_{\B \in \Bclass} \text{dimension of } \lineqfun{\Lin \B^d}{\Lin \B^d}} \\[-2ex]
+	& {\text{(Lemma~\ref{lem:bound-on-dim-for-finite-set})}} \\[-2ex]
+	{\displaystyle\sup_{\B \in \Bclass} \text{number of orbits in $\B^{2d}$}} \\[-2ex]
+	& {\text{(Definition~\ref{def:oligomorphic-approximation})}} \\[-2ex]
 	\infty
 	\arrow["\geq"{marking, allow upside down}, draw=none, from=3-1, to=1-1]
 	\arrow["\geq"{marking, allow upside down}, draw=none, from=5-1, to=3-1]
