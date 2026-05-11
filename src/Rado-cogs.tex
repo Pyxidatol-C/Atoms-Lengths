@@ -19,15 +19,15 @@ We shall now state our assumptions and results, with proofs in Section~\ref{sec:
     The precise definition may be found in~\cite[Sec.~2.1]{Macpherson11}, 
     but informally it means that when we perform amalgamation, we do not need to glue together any new elements or introduce new relations.
     Here is a useful characterisation~\cite[Lem.~4.5]{SS20} of when an amalgamation class $\Cclass_0$ is free.
-    Assuming that $\Cclass_0$ is closed under substructures and isomorphisms, 
-    we know that it consists of all the finite $\sigma_0$-structures which do not embed any structure from $\Fclass$, 
+    Knowing that $\Cclass_0$ is closed under substructures and isomorphisms, 
+    we see that it consists of all the finite $\sigma_0$-structures which do not embed any structure from $\Fclass$, 
     where $\Fclass$ consists of all the minimal (with respect to substructures) finite $\sigma_0$-structures that do not belong to $\Cclass_0$;
     we write \[
         \Cclass_0 = \Forb(\Fclass).
     \]
     That $\Cclass_0$ is a free amalgamation class means that in each $F \in \Fclass$, 
     every two elements $x, y$ are either equal or satisfy at least one of $R(x, y)$ and $R(y, x)$ for some binary relation $R \in \sigma_0$; in that case we will say that $x$ and $y$ are \emph{related}.
-    Conversely, given a family $\Fclass$ of finite $\sigma_0$-structures where every two elements are related,
+    Conversely, and conveniently, given a family $\Fclass$ of finite $\sigma_0$-structures where every two elements are related,
     the class $\Forb(\Fclass)$ of finite $\sigma_0$-structures is a free amalgamation class.    
 
 \end{description}
@@ -40,7 +40,7 @@ We shall now state our assumptions and results, with proofs in Section~\ref{sec:
 
 \begin{example}\label{ex:free-amalg-graphs}
     Let $\sigma_0$ consist of a single binary relation $E$. 
-    A (i)~\emph{graph}, (ii)~\emph{digraph}, (iii)~\emph{tournament}, is a $\sigma_0$-structure where $E$ is irreflexive and (i)~symmetric, (ii)~antisymmetric, (iii)~antisymmetric and total.
+    A (i)~\emph{graph}, (ii)~\emph{digraph}, (iii)~\emph{tournament} is a $\sigma_0$-structure where $E$ is irreflexive and (i)~symmetric, (ii)~antisymmetric, (iii)~antisymmetric and total.
     For instance, the ordered atoms can be viewed as a tournament once we interpret $E$ as the order relation.
 
     For more examples, consider $\sigma_0$-structures:
@@ -48,14 +48,14 @@ We shall now state our assumptions and results, with proofs in Section~\ref{sec:
     \begin{array}{ccccc}
     	\xymatrix@C=15pt{\bigdot\ar@(d,r)[]}
 	&
-	\qquad\xymatrix@C=15pt{\bigdot&\bigdot}
+	\quad\xymatrix@C=15pt{\bigdot&\bigdot}
 	&
 	\xymatrix@C=15pt{\bigdot\ar[r]&\bigdot}
 	&
 	\xymatrix@C=15pt{\bigdot\ar@<.5ex>[r]&\bigdot\ar@<.5ex>[l]}
 	&
 	\vcenter{\xymatrix@C=15pt@R=6pt{\bigdot\ar@<.5ex>[dd]\ar@<.5ex>[rd] \\ &\bigdot\ar@<.5ex>[lu]\ar@<.5ex>[ld] \\ \bigdot\ar@<.5ex>[uu]\ar@<.5ex>[ru]}} \\
-	\quad\sf A & \quad~ \sf B & \sf C & \sf D & \sf E
+	\quad A & \quad B & C & K_2 & K_3
 	\end{array}
     \]
     %
@@ -70,21 +70,22 @@ We shall now state our assumptions and results, with proofs in Section~\ref{sec:
     Then:
     \begin{itemize}
         \item 
-        $\Forb({\sf A}, {\sf C}\})$ is a free amalgamation class and consists of all finite graphs;
+        $\Forb(\{A, C\})$ is a free amalgamation class and consists of all finite graphs;
         
         \item
-        $\Forb(\{{\sf A}, {\sf C},{\sf E}\})$ is a free amalgamation class and consists of all finite triangle-free graphs;
+        $\Forb(\{A, C, K_3\})$ is a free amalgamation class and consists of all finite triangle-free graphs;
         
         \item 
-        $\Forb(\{{\sf A}, {\sf D}\})$ is a free amalgamation class and consists of all finite digraphs;
+        $\Forb(\{A, K_2\})$ is a free amalgamation class and consists of all finite digraphs;
 
         \item 
-        $\Forb(\{{\sf A}, {\sf B},{\sf D}\}\})$ consists of all finite tournaments. 
+        $\Forb(\{A, B, K_2\})$ consists of all finite tournaments. 
         It is an amalgamation class,
         but not a free one: 
-        in the minimal forbidden structure $\sf B$, the two elements are not related.
+        in the minimal forbidden structure $B$, the two elements are not related.
+        \lipicsEnd
     \end{itemize}
-\lipicsEnd\end{example}
+\end{example}
 
 \begin{description}
     \item[Irreflexivity] 
@@ -133,7 +134,7 @@ For clarity, we summarise our assumptions:
     We do not know how to combine these results.
 
     We also do not know whether the finite length property of a general structure $\A$ implies the finite length property of the same structure with finitely many constants fixed.
-    A positive answer is known for the equality and the ordered atoms~\cite[Thm.~4.10]{BFKM24},
+    There is a quick, positive answer for the equality and the ordered atoms~\cite[Thm.~4.10]{BFKM24},
     but that argument relies on a property that these atoms have~\cite[Lem~2.21]{BodirskyBodorMarimon_25} and the Rado atoms lack~\cite{no-constant-interpreted-in-Rado}.
 \lipicsEnd\end{remark}
 
@@ -161,8 +162,8 @@ We thus call $\A$ the \emph{generically ordered expansion} of $\A_0$, or simply 
 \lipicsEnd\end{example}
 
 \begin{example}\label{ex:generically-ordered-graphs}
-    Continuing from Example~\ref{ex:free-amalg-graphs}, we obtain generically ordered expansions of the Rado graph and of the \emph{triangle-free Henson graph}.
-    The ordered Rado graph was studied in~\cite{BPP15} along with its first-order reducts (e.g.~the Fraïssé limit of all finite tournaments). The ordered triangle-free  Henson graph will be studied in an extended example in Section~\ref{ex:extended-example}.
+    Continuing from the first two items of Example~\ref{ex:free-amalg-graphs}, we obtain generically ordered expansions of the Rado graph and of \emph{Henson's triangle-free graph}.
+    The ordered Rado graph was studied in~\cite{BPP15} along with its first-order reducts (e.g.~the Fraïssé limit of all finite tournaments). The ordered triangle-free graph will be studied in an extended example in Section~\ref{ex:extended-example}.
 \lipicsEnd\end{example}
 
 %So we arrive at the general result below:
@@ -171,7 +172,7 @@ We thus call $\A$ the \emph{generically ordered expansion} of $\A_0$, or simply 
     \begin{romanenumerate}
         \item the ordered atoms and the equality atoms;
         \item all three \cite{Lachlan1984} countable homogeneous tournaments;
-        \item all of the countably many \cite{LachlanWoodrow_80} countable homogeneous graphs, including the Rado graph and the triangle-free Henson graph;
+        \item all of the countably many \cite{LachlanWoodrow_80} countable homogeneous graphs, including the Rado graph and Henson's triangle-free graph;
         \item uncountably many \cite[Thm.~2.4]{Henson1972} countable homogeneous digraphs obtained by forbidding tournaments.
     \end{romanenumerate}
 \end{corollary}
@@ -231,7 +232,7 @@ The function $(-)|^J$ lifts to a linear $\Aut(\A/S)$-equivariant map
 \end{align*}
 Many cancellations can occur under $(-)|^J$. 
 Following the terminology used in~\cite[Eq.~(4)]{BFKM24}, 
-by the \emph{balanced vectors } of $\Lin_\field \cal O$ we mean the $\Aut(\A/S)$-equivariant subspace below:
+by the \emph{balanced vectors} of $\Lin_\field \cal O$ we mean the $\Aut(\A/S)$-equivariant subspace below:
 \[
     \Ker_\FF \cal O = \bigcap_{i \in I} \ker{ (-)|^{-i} }.
 \]
@@ -456,11 +457,11 @@ Indeed, as the result below shows, $\Cog_\FF{\cal O}$ admits no nontrivial $\Aut
 In light of Claims~\ref{claim:reduction-to-one-orbit},~\ref{claim:reduction-to-kernel} and~\ref{claim:cogs-are-balanced}, 
 for the finite length property it is enough to prove that $\Ker_\FF \cal O \subseteq \Cog_\FF \cal O$. 
 In words, we need to show that every balanced vector in $\Lin_\FF{\cal O}$ is a linear combination of $\cal O$-cogs.
-Before state this (as Theorem~\ref{thm:cog-span-generally}), let us illustrate the key ideas of a proof on an example.
+Before stating this (as Theorem~\ref{thm:cog-span-generally}), let us illustrate the key ideas of a proof on an example.
 
 \subsection{Spanning by cogs: an extended example}
 \label{ex:extended-example}
-Let $\A_0$ be the universal triangle-free (undirected) graph and $\A$ its generically totally ordered version. 
+Let $\A_0$ be the universal triangle-free (undirected) graph, introduced by Henson~\cite{Henson1971}, and let $\A$ be its generically totally ordered version. 
 Consider nine atoms $\{a,\ldots,i\}$, ordered by~$<$ alphabetically, with the edge relation as shown here:
 \[\scalebox{0.8}{
 \rotatebox{7}{
