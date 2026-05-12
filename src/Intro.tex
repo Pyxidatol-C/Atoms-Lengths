@@ -2,7 +2,7 @@
 This paper is part of a research programme focused on orbit-finite sets and structures. 
 In this programme, one starts with an infinite relational structure $\A$ whose elements are called \emph{atoms}. 
 Based on these, one constructs sets that are called \emph{orbit-finite}. 
-Precise definitions will follow, but the understanding is that elements of an orbit-finite set are constructed using atoms, and there are only finitely elements up to automorphisms of $\A$. 
+Precise definitions will follow, but the understanding is that elements of an orbit-finite set are constructed using atoms, and there are only finitely many elements up to automorphisms of $\A$. 
 For the theory to make sense, we must assume that $\A$ is \emph{oligomorphic}, which means that $\A^d$ has finitely many orbits for every $d$. 
 The simplest example of an oligomorphic atom structure is what we refer to as the \emph{equality atoms}; 
 this is the structure with a countably infinite underlying set and no relations except for equality. 
@@ -14,7 +14,7 @@ Figure~\ref{fig:fraisse-limits} shows other examples of such structures.
    &  Class of finite structures & Fraïssé limit\\
     \toprule
     1.& finite sets with equality only & $(\N, =)$ \\
-    2.& finite orders & $(\Q, \leq)$ \\
+    2.& finite orders & $(\Q, <)$ \\
     3.& finite graphs & $(\text{Rado graph}, E)$ \\ 
     4.& (subsets of) finite $\FF_2$-vector spaces & $\FF_2 \oplus \FF_2 \oplus \FF_2 \oplus \cdots$ 
     \\
@@ -33,7 +33,7 @@ An example of the latter case arises for orbit-finite Turing machines~\cite{boja
 If the atoms are the Fraïssé limit of total orders, as in row~2 of Figure~\ref{fig:fraisse-limits}, then the orbit-finite version of the \textsc{p}$\stackrel{?}{=}$\textsc{np} question has the same answer as the classical version without atoms. 
 On the other hand, for any of the other three rows of the table \textsc{p}$\neq$\textsc{np} holds unconditionally in the orbit-finite setting, due to problems with choice. 
 (Failure of the axiom of choice in set theory with atoms was the original motivation of Fraenkel and Mostowski in the 1930s to study the first two rows of Figure 1, see e.g.~\cite[Ch.~4]{Jech}.)
-The dependency on the underlying atom structure will play a prominent role in this paper. 
+The dependence on the underlying atom structure will play a prominent role in this paper. 
 
 \paragraph*{Vector spaces}
 One direction of the orbit-finite programme, motivated by the study of orbit-finite weighted automata, is focused on vector spaces~\cite{BFKM24}. 
@@ -70,7 +70,7 @@ This stronger property has been confirmed for:
 
 The finite length property is strictly stronger than the ascending chain property.
 A prime example is the bit-vector atoms (which admit an AZ enumeration \cite[p.~143]{Hrushovski}):
-even $\Lin \A$ does not have finite length over the the two-element field, as found independently in~\cite[Thm.~2.7]{EvansGray_98} and~\cite[Thm.~4.16]{BFKM24}.
+even $\Lin \A$ does not have finite length over the two-element field, as found independently in~\cite[Thm.~2.7]{EvansGray_98} and~\cite[Thm.~4.16]{BFKM24}.
 On the other hand, Evans~\cite[Rem.~1.3]{Evans_pm1} observed that for any Fraïssé limit over a finite relational vocabulary, failure of the finite length property over some finite field
 would yield a counterexample to the conjecture of Thomas~\cite[p.~177]{thomas1991reducts} in model theory.
 The known examples of failure of the finite length property are not good enough for this, since they use an infinite vocabulary (or functions).

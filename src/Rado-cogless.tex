@@ -3,7 +3,7 @@
 
 In this section, we present the first of our two main results, 
 which is a method for proving the finite length property assuming that the underlying field has characteristic zero. 
-Under this assumption, we will establish the finite length property of the Rado atoms (Example~\ref{ex:rado-graph}) and for the vector atoms (Example~\ref{ex:vector-space-atoms}). 
+Under this assumption, we will establish the finite length property of the Rado atoms (Example~\ref{ex:rado-graph}) and of the vector atoms (Example~\ref{ex:vector-space-atoms}). 
 These are new results. 
 We also think that the proof itself, even when applied to get already known results for the equality atoms (Example~\ref{ex:equality-atoms}), is of independent interest and arguably simpler than previously known proofs.
 The method that we use will work for all structures satisfying the following condition. 
@@ -80,7 +80,7 @@ So no family $\Bclass$ satisfies both conditions (\ref{item:oligomorphic-approxi
         This argument applies to any finite field $\innerfield$.
 
         \item 
-        The most interesting case is the Rado atoms, which is not smoothly approximated~\cite[Rem.~2.1.2]{CherlinHrushovski_03} (essentially because the finite homogeneous graphs~\cite[p.~100]{Gardiner1976} are not diverse enough). 
+        The most interesting case is the Rado atoms, which are not smoothly approximated~\cite[Rem.~2.1.2]{CherlinHrushovski_03} (essentially because the finite homogeneous graphs~\cite[p.~100]{Gardiner1976} are not diverse enough). 
         The witness for oligomorphic approximation is a family of \emph{symplectic graphs}: see~\cite[Sec.~8.11]{GR01}.%
         \footnote{We are grateful to Ehud Hrushovski for drawing our attention to this construction.} 
         For every $n \in \set{1,2,\ldots}$ define a finite graph as follows. 
@@ -214,7 +214,7 @@ For convenience, we summarise these steps in Figure~\ref{fig:proof-summary-cogle
             \psi : V \to W
             \ \middle\vert\
             \text{ $\psi$ is linear and }
-            \forall g \in G, \forall v \in V : g(\psi(v)) = \psi(g(v))\
+            \forall g \in G, \forall v \in V : g(\psi(g^{-1}(v))) = \psi(v)\
         \right\}
     \]
     for the set of all those linear maps from $V$ to $W$ that are equivariant with respect to the action of $G$. 
@@ -279,7 +279,7 @@ For convenience, we summarise these steps in Figure~\ref{fig:proof-summary-cogle
         \end{align*}
         This function must be equivariant with respect to automorphisms of $\B$, 
         i.e.~for any automorphism $g$ and $x, y \in \B^d$ we must have $\lambda_{g(x),g(y)} = \lambda_{x, y}$.
-        So to define such a function, we need to choose one element of $\field$ for each orbit of the $\B^d \times \B^d$. 
+        So to define such a function, we need to choose one element of $\field$ for each orbit of $\B^d \times \B^d$. 
         The dimension of the space in~\eqref{eq:endo-maps-b-d} is therefore equal to the number of orbits of $\B^{2d}$.
     \end{proof}
 This number of orbits has a finite upper bound that depends only on $d$, by condition~(\ref{item:oligomorphic-approximation-orbits}) of Definition~\ref{def:oligomorphic-approximation}. 

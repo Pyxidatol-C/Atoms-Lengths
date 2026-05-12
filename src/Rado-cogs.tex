@@ -89,13 +89,13 @@ We shall now state our assumptions and results, with proofs in Section~\ref{sec:
 
 \begin{description}
     \item[Irreflexivity] 
-    For technical reasons, we restrict attention to classes $\Cclass_0$ where all structures are {\em irreflexive}, i.e. such that if $R(x,y)$ then $x\neq y$ for each relation $R$.
-    % This does not lose generality: for any free amalgamation class $\Cclass_0$, we may replace every binary relation $R$ in the vocabulary with a new unary predicate $R_=$, 
+    For technical reasons, we restrict attention to classes $\Cclass_0$ where all structures are {\em irreflexive}, i.e. such that if $R(x,y)$ then $x\neq y$ for each binary relation $R$.
+    % This does not lose generality: for any free amalgamation class $\Cclass_0$, we may replace every binary relation $R$ in the vocabulary with a new unary relation $R_=$, 
     % interpreted in every structure so that $R_=(x)$ if and only if $R(x,x)$, and a binary relation interpreted as the irreflexive part of $R$. 
     % Then $\Cclass_0$ interpreted over this modified vocabulary is still a free amalgamation class, 
     % and all our results transport back to the original $\Cclass_0$. 
     % This way of encoding arbitrary structures as irreflexive ones is standard: see e.g.~\cite[Sec.~2.4]{Herwig1998} and~\cite[p.~121]{SS20}. } 
-    This does not lose generality, since we can replace every binary relation $R$ in the vocabulary with its irreflexive fragment $R_{\neq}(x,y)$ and a unary predicate $R_=(x)$; see~\cite[Sec.~2.4]{Herwig1998} or~\cite[p.~121]{SS20}.
+    This does not lose generality, since we can replace every binary relation $R$ in the vocabulary with its irreflexive fragment $R_{\neq}(x,y)$ and a unary relation $R_=(x)$; see~\cite[Sec.~2.4]{Herwig1998} or~\cite[p.~121]{SS20}.
     All examples considered here are already irreflexive.
     
     \item[Generically ordered expansion] 
@@ -124,7 +124,7 @@ For clarity, we summarise our assumptions:
         \item $\Cclass$\quad all total orderings of all structures in $\Cclass_0$, over the vocabulary $\sigma_0 \uplus \{<\}$;
         \item $\A$\quad the Fraïssé limit of $\Cclass$~---~a homogeneous and oligomorphic $(\sigma_0 \uplus \{<\})$-structure.
     \end{itemize}
-    Then the totally ordered structure $\A$, even with finitely many constants fixed (i.e.~added as unary predicates to the vocabulary), has the finite length property over any field.
+    Then the totally ordered structure $\A$, even with finitely many constants named (i.e.~added as unary relations to the vocabulary), has the finite length property over any field.
 \end{theorem}
 
 \begin{remark}
@@ -135,7 +135,7 @@ For clarity, we summarise our assumptions:
 
     We also do not know whether the finite length property of a general structure $\A$ implies the finite length property of the same structure with finitely many constants fixed.
     There is a quick, positive answer for the equality and the ordered atoms~\cite[Thm.~4.10]{BFKM24},
-    but that argument relies on a property that these atoms have~\cite[Lem~2.21]{BodirskyBodorMarimon_25} and the Rado atoms lack~\cite{no-constant-interpreted-in-Rado}.
+    but that argument relies on a property that these atoms have~\cite[Lem.~2.21]{BodirskyBodorMarimon_25} and the Rado atoms lack~\cite{no-constant-interpreted-in-Rado}.
 \lipicsEnd\end{remark}
 
 
@@ -144,7 +144,7 @@ For clarity, we summarise our assumptions:
 
 Before we prove Theorem~\ref{thm:ordered-free-amalg-has-finite-length} in Section~\ref{sec:cogs-turn}, let us state an easy consequence of it and give some examples.
 Note that the Fraïssé limit $\A_0$ of $\Cclass_0$ is a first-order reduct of $\A$.
-To see this, notice that $\A$, when viewed as an $\sigma_0$-structure, embeds the same finite $\sigma_0$-structures as $\A_0$~---~namely, $\Cclass_0$.
+To see this, notice that $\A$, when viewed as a $\sigma_0$-structure, embeds the same finite $\sigma_0$-structures as $\A_0$~---~namely, $\Cclass_0$.
 Moreover, it follows from a back-and-forth argument~\cite[Lem.~7.1.4]{hodges1993model} that the $\sigma_0$-structure $\A$ is also homogeneous and therefore isomorphic to $\A_0$.
 So we may assume that $\A$ and $\A_0$ have the same underlying set; we then have $\Aut(\A) \subseteq \Aut(\A_0)$, where $\Aut(X)$ denotes the group of automorphisms of $X$.
 We thus call $\A$ the \emph{generically ordered expansion} of $\A_0$, or simply the \emph{ordered $\A_0$}.
@@ -158,7 +158,7 @@ We thus call $\A$ the \emph{generically ordered expansion} of $\A_0$, or simply 
 
 \begin{example}\label{ex:generically-ordered-equality}
     Continuing from Example~\ref{ex:free-amalg-equality},
-    the ordered atoms (Example~\ref{ex:order-atoms}) is the generically ordered expansion of the equality atoms (Example~\ref{ex:equality-atoms}).
+    the ordered atoms (Example~\ref{ex:order-atoms}) are the generically ordered expansion of the equality atoms (Example~\ref{ex:equality-atoms}).
 \lipicsEnd\end{example}
 
 \begin{example}\label{ex:generically-ordered-graphs}
@@ -182,7 +182,7 @@ We thus call $\A$ the \emph{generically ordered expansion} of $\A_0$, or simply 
 \section{How the cogs turn: proof of Theorem~\ref{thm:ordered-free-amalg-has-finite-length}}\label{sec:cogs-turn}
 To prove Theorem~\ref{thm:ordered-free-amalg-has-finite-length} we will proceed in several steps, 
 with the general idea similar to~\cite[Sec.~4.1]{BFKM24}, 
-but with significant new complications arising from the presence of nontrivial relations in $\A_0$.
+but with significant new complications arising from the presence of non-trivial relations in $\A_0$.
 Throughout we fix $\A$ from the statement of Theorem~\ref{thm:ordered-free-amalg-has-finite-length}.
 
 \subsection{Orbits and projections}
@@ -253,10 +253,10 @@ by the \emph{balanced vectors} of $\Lin_\field \cal O$ we mean the $\Aut(\A/S)$-
     To prove the other implication, assume (\ref{item:balancedLinO-finite-length}) and let $\cal O \subseteq \A^I$.
     We proceed by induction on $|I|$.
     If $I = \emptyset$, then $\cal O$ must be the entire singleton $\A^\emptyset = \{ () \}$; 
-    as $\Lin_\FF \cal O$ has no nontrivial subspaces (let alone finitely supported ones), it has length $1$.
+    as $\Lin_\FF \cal O$ has no non-trivial subspaces (let alone finitely supported ones), it has length $1$.
     Now if $|I| \geq 1$, assemble all $|I|$ projection maps into a single map
     \begin{align*}
-        \Lin_\FF \cal O \to \bigoplus_{i \in I} \cal O|^{-i},
+        \Lin_\FF \cal O \to \bigoplus_{i \in I} \Lin_\FF \cal O|^{-i},
         \quad \text{defined by} \quad
         v \mapsto ( v|^{-i} )_{i \in I},
     \end{align*}
@@ -307,7 +307,7 @@ In particular, taking $J=\{i\}$, there is an automorphism $\pi_i$ that sends $a_
 For the special case of the ordered atoms (Examples~\ref{ex:order-atoms} and~\ref{ex:generically-ordered-equality}) the following construction was studied in~\cite[p.~11]{BFKM24}, and it already appeared as early as in~\cite[p.~125]{Gray97} under the name of ``polytabloids''.
 
 \begin{definition}
-    Given a $\cal O$-duo $a \parallel b$, the corresponding \emph{$\cal O$-cog} is the vector
+    Given an $\cal O$-duo $a \parallel b$, the corresponding \emph{$\cal O$-cog} is the vector
     \[
         a \between b =
         \sum_{J \subseteq I} (-1)^{|J|}
@@ -330,8 +330,8 @@ As a result, $\Cog_\FF \cal O$ is an $\Aut(\A/S)$-equivariant subspace of $\Lin_
     Therefore they cancel out under $(-)|^{-i}$; hence $(a \between b )|^{-i} = 0$.
 \end{claimproof}
 
-It would be remiss to not address the fact that so far, we have not shown that $\cal O$-duos and $\cal O$-cogs even exist in general.
-Let us rectify this by showing that they can be found in all but one $\Aut(\A/S)$-equivariant subspaces of $\Lin_\FF{\cal O}$.
+It would be remiss not to address the fact that so far, we have not shown that $\cal O$-duos and $\cal O$-cogs even exist in general.
+Let us rectify this by showing that they can be found in every non-zero $\Aut(\A/S)$-equivariant subspace of $\Lin_\FF{\cal O}$.
 
 
 \subsection{Finding cogs}\label{subsec:finding-cogs}
@@ -369,7 +369,7 @@ to some automorphism $\tau$ that satisfies (\ref{item:tau-fixes-X}), (\ref{item:
 % 	\arrow["{x \in X \mapsto x,\ z \mapsto z'}"{description}, dotted, from=3-2, to=2-3]
 % \end{tikzcd}\]
 %     so that no element of $Y \cup \{z\}$ is related to $z'$.
-%     To make $X \cup Y \cup \{z, z'\}$ an $\sigma$-structure, 
+%     To make $X \cup Y \cup \{z, z'\}$ a $\sigma$-structure, 
 %     inherit the order on $X \cup Y \cup \{z\}$ from $\A$,
 %     and declare that $z < z'$, as well as $z' < a$ whenever $z<a$ for $a\in X \cup Y$. (This makes the above a diagram of embeddings in the presence of the order; we only use the bottom right embedding.)
 %     By homogeneity, $X \cup Y \cup \{z, z'\}$ embeds into $\A$ via some $f$ which is the identity on $X \cup Y \cup \{z\}$;
@@ -422,7 +422,7 @@ Starting from an empty duo, we may apply Lemma~\ref{lem:cog-fresh-single} induct
 
 As some $a \in \cal O$ always exists, it follows that Claim~\ref{claim:cogs-are-balanced} was not vacuous:
 we now know $\Cog_\FF{\cal O}$, and hence $\Ker_\FF{\cal O}$, is non-zero~---~but barely so.
-Indeed, as the result below shows, $\Cog_\FF{\cal O}$ admits no nontrivial $\Aut(\A/S)$-equivariant subspaces.
+Indeed, as the result below shows, $\Cog_\FF{\cal O}$ admits no non-trivial $\Aut(\A/S)$-equivariant subspaces.
 \begin{theorem} \label{thm:cogs-arise-everywhere}
     Any non-zero $\Aut(\A/S)$-equivariant subspace $V\subseteq \Lin_\FF \cal O$ contains $\Cog_\FF \cal O$.
 \end{theorem}
@@ -652,13 +652,13 @@ we need only look at local sums of coefficients.
     \end{itemize}
     So $\Lin_\FF \A$ has the same structure as the space over the equality atoms in Example~\ref{ex:length-one-dim-one}.
 
-    For $d = 2$, there are three maps, one of which is the form $\restriction_2 : \Lin_\FF \A^2 \to \Lin_{\FF^5} \A$. 
+    For $d = 2$, there are three maps, one of which is of the form $\restriction_2 : \Lin_\FF \A^2 \to \Lin_{\FF^5} \A$. 
     By considering subspaces of $\FF^5$, when the field is infinite we can find infinitely many equivariant subspaces in $\Lin_\FF \A^2$.
-    Note that the length of $\Lin_\FF \A^2$ is still finite (and equal to $2^1 + 2^2 + 2^2$, by below).
+    Note that the length of $\Lin_\FF \A^2$ is still finite (and equal to $2^1 + 2^2 + 2^2$, as we will see below).
 \lipicsEnd\end{example}
 
 Going through the finite-dimensional subspaces of the $\FF^{n_i}$'s gives a complete list of the equivariant subspaces of $\Lin_\FF \A^d$, by Theorem~\ref{thm:coeff-approximation}, but note that it is far from being irredundant.
-In particular, to bound the length of $\Lin_\FF \A^d$ by below, we still need to exhibit a long chain of equivariant subspaces.
+In particular, to bound the length of $\Lin_\FF \A^d$ from below, we still need to exhibit a long chain of equivariant subspaces.
 It is fortunately straightforward to adapt \cite[Cor.~4.12]{BFKM24} and establish an exact length:
 \begin{corollary}\label{cor:2d-length}
     The length of $\Lin_\FF \cal O$, where $\cal O \subseteq \A^d$ is an ordered orbit, is precisely $2^d$.

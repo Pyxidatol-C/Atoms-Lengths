@@ -41,7 +41,7 @@ The only structure known to have this property is the equality atoms~\cite[Thm.~
 If we only require function spaces of the form \[
     \linfsfun{V}{\field}
 \] to be orbit-finitely spanned, we accordingly speak of the \emph{dual space property}. 
-This weaker property is satisfied also by the ordered atoms~\cite[Cor.~6.8]{BFKM24} and, following \cite[Thm~3.7]{Przybylek_2024}, by all $\omega$-stable oligomorphic structures~---~a strict subclass \cite[p.~440]{KLM89} of the smoothly approximated structures mentioned after Definition~\ref{def:oligomorphic-approximation}.
+This weaker property is also satisfied by the ordered atoms~\cite[Cor.~6.8]{BFKM24} and, following \cite[Thm.~3.7]{Przybylek_2024}, by all $\omega$-stable oligomorphic structures~---~a strict subclass \cite[p.~440]{KLM89} of the smoothly approximated structures mentioned after Definition~\ref{def:oligomorphic-approximation}.
 In contrast, the Rado atoms (which are not smoothly approximated but have the finite length property) fail to have even the dual space property, as we explain below.
 
 
@@ -50,7 +50,7 @@ In contrast, the Rado atoms (which are not smoothly approximated but have the fi
     (A variant of this example for the two-element field was shown in~\cite[Ex.~6.9]{BFKM24}, when the finite length property had not been established yet.)
     We will show that
     \[
-        \linfsfun{\Lin_\field \A}{\field}.
+        \linfsfun{\Lin_\field \A}{\field}
     \]
     is not orbit-finitely spanned.
     This function space is easily seen to be in a linear equivariant bijection with the vector space
@@ -96,7 +96,7 @@ we choose one viewing them as deterministic automata, in which the states are en
 \end{definition}
 
 
-From the finite length property of the underlying atoms structure, we can deduce decidability results about orbit-finite weighted automata. 
+From the finite length property of the underlying atom structure, we can deduce decidability results about orbit-finite weighted automata. 
 (Though, to be able to effectively represent the maps $\delta$ and $F$, we should assume that $Q$ has an orbit-finite basis.)
 For example, a nondeterministic algorithm for non-equivalence is derived in~\cite[Sec.~5]{BFKM24}. 
 In light of our present results, such an algorithm exists if we use the Rado graph as the atoms~---~or any other structure with the finite length property. 
@@ -139,9 +139,9 @@ However, as we show in the following example, this equivalence can fail without 
    % To finish the counterexample, we will now examine these spans.
 
     The set of left derivatives is already orbit-finite: 
-    there is one left derivative for each $a \in \A$, plus one extra derivative for the always-zero function. 
+    there is one left derivative for each $a \in \A$, plus $f$ itself and one extra derivative for the always-zero function. 
     Hence the set of left derivatives is certainly orbit-finitely spanned.
-    On the other hand, the set of right derivatives is precisely the spanning set of the vector space $V$ from Example~\ref{ex:no-function-spaces}; 
+    On the other hand, the set of right derivatives restricted to $\A$ is precisely the spanning set of the vector space $V$ from Example~\ref{ex:no-function-spaces}; 
     that space is not orbit-finitely spanned.
 \lipicsEnd\end{example}
 
